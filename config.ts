@@ -1,13 +1,13 @@
 import { generateDeploymentConfig } from "scripts";
-const config = generateDeploymentConfig("CEF-M");
+const config = generateDeploymentConfig("cef_m");
 
 config.google_drive.sheets_folders = [
-  { id: "1hAotIKkBpCXSw8wN8FA9SO49AJ5CVSEQ", name: "CEF-M sheets" }
+  { id: "1hAotIKkBpCXSw8wN8FA9SO49AJ5CVSEQ", name: "cef_m sheets" }
 
 ];
 
 config.google_drive.assets_folders = [
-  {id: "1CgsUj01BgDQrgVyocU2D-cQsOBmMvhrf", name: "CEF-M assets"}
+  {id: "1CgsUj01BgDQrgVyocU2D-cQsOBmMvhrf", name: "cef_m assets"}
 ];
 
 
