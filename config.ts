@@ -2,12 +2,12 @@ import { generateDeploymentConfig } from "scripts";
 const config = generateDeploymentConfig("ae_app");
 
 config.google_drive.sheets_folders = [
-  { id: "1hkzAKBQoQIx0c5qD_JnlTFdRdGCEIeRb", name: "ae sheets" }
+  { id: "1hAotIKkBpCXSw8wN8FA9SO49AJ5CVSEQ", name: "CEF-M sheets" }
 
 ];
 
 config.google_drive.assets_folders = [
-  {id: "1dF5ltWsy4yiFPBc9FVaSLF7y_5GXWJKr", name: "ae assets"}
+  {id: "1CgsUj01BgDQrgVyocU2D-cQsOBmMvhrf", name: "CEF-M assets"}
 ];
 
 
