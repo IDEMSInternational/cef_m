@@ -1,7 +1,12 @@
-name: Android - Release to Google Play
+##################################################################################
+#         Calls workflow from code repo
+##################################################################################
+name: Deploy - Firebase
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - "main"
 
 jobs:
   call_get_vars:
@@ -9,10 +14,12 @@ jobs:
 
   call_reusable_workflow:
     needs: call_get_vars
-    uses: IDEMSInternational/open-app-builder-actions/.github/workflows/android-release.yml@main
+    uses: IDEMSInternational/open-app-builder-actions/.github/workflows/deploy-web-preview.yml@main
     with:
       APP_CODE_BRANCH: ${{ vars.APP_CODE_BRANCH }}
-      APP_ID: ${{ needs.call_get_vars.outputs.APP_ID }}
+      FIREBASE_HOSTING_TARGET: ${{ needs.call_get_vars.outputs.FIREBASE_HOSTING_TARGET }}
+      FIREBASE_PROJECT_ID: ${{ needs.call_get_vars.outputs.FIREBASE_PROJECT_ID }}
+      FIREBASE_HOSTING_CHANNEL: ${{ needs.call_get_vars.outputs.FIREBASE_HOSTING_CHANNEL }}
       LFS_USED: ${{ needs.call_get_vars.outputs.LFS_USED == 'true' }}
       DEPLOYMENT_NAME: ${{ needs.call_get_vars.outputs.DEPLOYMENT_NAME }}
       PARENT_DEPLOYMENT_NAME: ${{ needs.call_get_vars.outputs.PARENT_DEPLOYMENT_NAME }}
@@ -21,9 +28,4 @@ jobs:
       ENCRYPTED: ${{ needs.call_get_vars.outputs.ENCRYPTED == 'true' }} 
     secrets:
       DEPLOYMENT_PRIVATE_KEY: ${{ secrets.DEPLOYMENT_PRIVATE_KEY }}  
-      GOOGLE_SERVICES_JSON: ${{ secrets.GOOGLE_SERVICES_JSON }}  
-      SIGNING_KEY: ${{ secrets.SIGNING_KEY }}  
-      ALIAS: ${{ secrets.ALIAS }}  
-      KEY_STORE_PASSWORD: ${{ secrets.KEY_STORE_PASSWORD }}  
-      KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}  
-      GOOGLE_PLAY_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_PLAY_SERVICE_ACCOUNT_JSON }}  
+      FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}  
