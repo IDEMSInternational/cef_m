@@ -60,7 +60,7 @@
     },
     {
       "type": "combo_box",
-      "name": "combo_box_key_value2",
+      "name": "combo_box_key_value2_1",
       "parameter_list": "placeholder: Select one name;\nanswer_list: @data.comp_combo_box_items;"
     },
     {
@@ -112,17 +112,16 @@
     },
     {
       "type": "begin_data_items",
-      "value": "comp_combo_box_items"
+      "value": "comp_combo_box_items",
+      "parameter_list": "filter: @item.name == @local.combo_box_key_value2"
     },
     {
       "type": "text",
-      "value": "@item.text_new",
-      "condition": "@item.name == @local.combo_box_key_value2"
+      "value": "@item.text_new"
     },
     {
       "type": "image",
-      "value": "@item.image",
-      "condition": "@item.name == @local.combo_box_key_value2"
+      "value": "@item.image"
     },
     {
       "type": "end_data_items"

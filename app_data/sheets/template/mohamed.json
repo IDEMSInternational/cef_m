@@ -270,6 +270,43 @@
       "_nested_name": "homework_2"
     },
     {
+      "type": "text",
+      "name": "text_2_1",
+      "value": "Add an image to each item, and when an item is selected, the image should appear below.",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "text_2_1"
+    },
+    {
+      "type": "text",
+      "name": "text_2_2",
+      "value": "Hint: Use @items.column_name to get values, and @item.name == \"name_3\" to show a line only if the condition is true (quotes are required).",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "font-size:10px",
+        "color:#F54927"
+      ],
+      "_nested_name": "text_2_2",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "Hint: Use @items.column_name to get values, and @item.name == \"name_3\" to show a line only if the condition is true (quotes are required).",
+            "matchedExpression": "@item.name",
+            "type": "item",
+            "fieldName": "name"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@item.name": [
+          "value"
+        ]
+      }
+    },
+    {
       "type": "data_items",
       "value": "comp_combo_box_items",
       "rows": [
@@ -281,7 +318,7 @@
           },
           "condition": "@item.name==@local.combo_box_2",
           "name": "image_1_@item.id",
-          "_nested_name": "data_items_19.image_1_@item.id",
+          "_nested_name": "data_items_21.image_1_@item.id",
           "_dynamicFields": {
             "value": [
               {
@@ -315,7 +352,7 @@
             ],
             "_nested_name": [
               {
-                "fullExpression": "data_items_19.image_1_@item.id",
+                "fullExpression": "data_items_21.image_1_@item.id",
                 "matchedExpression": "@item.id",
                 "type": "item",
                 "fieldName": "id"
@@ -339,8 +376,8 @@
           }
         }
       ],
-      "name": "data_items_19",
-      "_nested_name": "data_items_19"
+      "name": "data_items_21",
+      "_nested_name": "data_items_21"
     }
   ],
   "_source": {

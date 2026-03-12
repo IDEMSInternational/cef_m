@@ -9,7 +9,7 @@
 | image | 4 |
 | set_variable | 5 |
 | subtitle | 1 |
-| text | 21 |
+| text | 23 |
 | text_box | 4 |
 | title | 13 |
 | toggle_bar | 1 |

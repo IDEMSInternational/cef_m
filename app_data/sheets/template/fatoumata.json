@@ -168,12 +168,12 @@
     },
     {
       "type": "combo_box",
-      "name": "combo_box_key_value2",
+      "name": "combo_box_key_value2_1",
       "parameter_list": {
         "placeholder": "Select one name",
         "answer_list": "@data.comp_combo_box_items"
       },
-      "_nested_name": "combo_box_key_value2",
+      "_nested_name": "combo_box_key_value2_1",
       "_dynamicFields": {
         "parameter_list": {
           "answer_list": [
@@ -345,6 +345,9 @@
     {
       "type": "data_items",
       "value": "comp_combo_box_items",
+      "parameter_list": {
+        "filter": "@item.name == @local.combo_box_key_value2"
+      },
       "rows": [
         {
           "type": "text",
@@ -352,7 +355,6 @@
           "_translations": {
             "value": {}
           },
-          "condition": "@item.name == @local.combo_box_key_value2",
           "name": "text_1_@item.id",
           "_nested_name": "data_items_22.text_1_@item.id",
           "_dynamicFields": {
@@ -362,20 +364,6 @@
                 "matchedExpression": "@item.text_new",
                 "type": "item",
                 "fieldName": "text_new"
-              }
-            ],
-            "condition": [
-              {
-                "fullExpression": "@item.name == @local.combo_box_key_value2",
-                "matchedExpression": "@item.name",
-                "type": "item",
-                "fieldName": "name"
-              },
-              {
-                "fullExpression": "@item.name == @local.combo_box_key_value2",
-                "matchedExpression": "@local.combo_box_key_value2",
-                "type": "local",
-                "fieldName": "combo_box_key_value2"
               }
             ],
             "name": [
@@ -399,12 +387,6 @@
             "@item.text_new": [
               "value"
             ],
-            "@item.name": [
-              "condition"
-            ],
-            "@local.combo_box_key_value2": [
-              "condition"
-            ],
             "@item.id": [
               "name",
               "_nested_name"
@@ -417,7 +399,6 @@
           "_translations": {
             "value": {}
           },
-          "condition": "@item.name == @local.combo_box_key_value2",
           "name": "image_2_@item.id",
           "_nested_name": "data_items_22.image_2_@item.id",
           "_dynamicFields": {
@@ -427,20 +408,6 @@
                 "matchedExpression": "@item.image",
                 "type": "item",
                 "fieldName": "image"
-              }
-            ],
-            "condition": [
-              {
-                "fullExpression": "@item.name == @local.combo_box_key_value2",
-                "matchedExpression": "@item.name",
-                "type": "item",
-                "fieldName": "name"
-              },
-              {
-                "fullExpression": "@item.name == @local.combo_box_key_value2",
-                "matchedExpression": "@local.combo_box_key_value2",
-                "type": "local",
-                "fieldName": "combo_box_key_value2"
               }
             ],
             "name": [
@@ -464,12 +431,6 @@
             "@item.image": [
               "value"
             ],
-            "@item.name": [
-              "condition"
-            ],
-            "@local.combo_box_key_value2": [
-              "condition"
-            ],
             "@item.id": [
               "name",
               "_nested_name"
@@ -478,7 +439,33 @@
         }
       ],
       "name": "data_items_22",
-      "_nested_name": "data_items_22"
+      "_nested_name": "data_items_22",
+      "_dynamicFields": {
+        "parameter_list": {
+          "filter": [
+            {
+              "fullExpression": "@item.name == @local.combo_box_key_value2",
+              "matchedExpression": "@item.name",
+              "type": "item",
+              "fieldName": "name"
+            },
+            {
+              "fullExpression": "@item.name == @local.combo_box_key_value2",
+              "matchedExpression": "@local.combo_box_key_value2",
+              "type": "local",
+              "fieldName": "combo_box_key_value2"
+            }
+          ]
+        }
+      },
+      "_dynamicDependencies": {
+        "@item.name": [
+          "parameter_list.filter"
+        ],
+        "@local.combo_box_key_value2": [
+          "parameter_list.filter"
+        ]
+      }
     }
   ],
   "_source": {
