@@ -3,6 +3,4 @@
 
 
 ## App Preview
-[Testing](https://ae-hub-app-uat.web.app/)
-
-[Release](https://ae-hub-app.web.app/)
+[Testing web preview](https://cef-m-app-uat.web.app/template/home_screen)
