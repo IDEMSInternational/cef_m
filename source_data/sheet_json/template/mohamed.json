@@ -1,0 +1,131 @@
+{
+  "flow_type": "template",
+  "flow_name": "mohamed",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "name": "page_title",
+      "value": "Learning components"
+    },
+    {
+      "type": "text",
+      "name": "page_desc",
+      "value": "In this page we are going to discover some components "
+    },
+    {
+      "type": "text",
+      "name": "text_1_1",
+      "value": "Create a text box in the page"
+    },
+    {
+      "type": "text_box",
+      "name": "text_box_1",
+      "parameter_list": "placeholder: Please enter a name"
+    },
+    {
+      "type": "text",
+      "name": "text_1_2",
+      "value": "Below the text box, put another component: a combo box where the user can choose one of three names."
+    },
+    {
+      "name": "answer_list_1",
+      "value": "name: name_1 | text: Fatoumata Haïdara;  \nname: name_2 | text: Assitan N'Diaye;  \nname: name_3 | text: Mohamed DIALLO;"
+    },
+    {
+      "type": "combo_box",
+      "name": "combo_box_1",
+      "action_list": "changed | set_local: var_1: this.value;",
+      "parameter_list": "answer_list: @local.answer_list_1;\n"
+    },
+    {
+      "type": "text",
+      "name": "homework_1",
+      "value": "Homework :",
+      "style_list": "font-weight:bold;"
+    },
+    {
+      "type": "text",
+      "name": "text_1_3",
+      "value": "Make the combo box more interactive. The text entered in the input (text box) should also appear as an option in the combo box. Currently, the combo box contains only our names."
+    },
+    {
+      "type": "text",
+      "name": "text_1_4",
+      "value": "Hint: See line 63 of the component_combo_box spreadsheet.",
+      "style_list": "font-size:10px; color:#F54927"
+    },
+    {
+      "type": "button",
+      "name": "button_add",
+      "value": "Add new name",
+      "action_list": "click | add_data | \n\n_list_id: comp_combo_box_items,\nname: added_data_name,\ntext: @local.text_box_1",
+      "style_list": "text-align:center;"
+    },
+    {
+      "type": "text",
+      "name": "text_1_5",
+      "value": "Anorther varaint of combo box",
+      "style_list": "font-size:11px; color:gray"
+    },
+    {
+      "type": "begin_combo_box",
+      "name": "combo_box_default_1",
+      "parameter_list": "placeholder: Interns names;\n"
+    },
+    {
+      "type": "begin_data_items",
+      "value": "comp_combo_box_items"
+    },
+    {
+      "type": "end_data_items"
+    },
+    {
+      "type": "end_combo_box"
+    },
+    {
+      "type": "begin_combo_box",
+      "name": "combo_box_2",
+      "parameter_list": "placeholder: Select one; variant:dropdown; answer_list: @data.comp_combo_box_items;"
+    },
+    {
+      "type": "begin_data_items",
+      "value": "comp_combo_box_items"
+    },
+    {
+      "type": "end_data_items"
+    },
+    {
+      "type": "end_combo_box"
+    },
+    {
+      "type": "text",
+      "name": "homework_2",
+      "value": "Homework :",
+      "style_list": "font-weight:bold;"
+    },
+    {
+      "type": "text",
+      "name": "text_2_1",
+      "value": "Add an image to each item, and when an item is selected, the image should appear below."
+    },
+    {
+      "type": "text",
+      "name": "text_2_2",
+      "value": "Hint: Use @items.column_name to get values, and @item.name == \"name_3\" to show a line only if the condition is true (quotes are required).",
+      "style_list": "font-size:10px; color:#F54927"
+    },
+    {
+      "type": "begin_data_items",
+      "value": "comp_combo_box_items"
+    },
+    {
+      "type": "image",
+      "value": "@item.image",
+      "condition": "@item.name==@local.combo_box_2"
+    },
+    {
+      "type": "end_data_items"
+    }
+  ]
+}

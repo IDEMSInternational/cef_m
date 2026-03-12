@@ -1,0 +1,85 @@
+{
+  "flow_type": "template",
+  "flow_name": "assitan",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title ",
+      "value": "This is Assitan's page"
+    },
+    {
+      "type": "title",
+      "value": "My combo_box"
+    },
+    {
+      "name": "answer_list_1",
+      "value": "name: name_1 | text: Dog ;  \nname: name_2 | text: Cat;  \nname: name_3 | text: Bird;"
+    },
+    {
+      "type": "combo_box",
+      "name": "combo_box_default_1",
+      "action_list": "changed | set_local: var_1: this.value;",
+      "parameter_list": "answer_list: @local.answer_list_1;\n"
+    },
+    {
+      "type": "title",
+      "value": "My Home Work"
+    },
+    {
+      "type": "text_box",
+      "name": "input_fruit"
+    },
+    {
+      "type": "begin_combo_box",
+      "name": "combo_box_default_1",
+      "parameter_list": "placeholder: Select a fruit; variant: dropdown"
+    },
+    {
+      "type": "begin_data_items",
+      "value": "fruits_list"
+    },
+    {
+      "type": "end_data_items"
+    },
+    {
+      "type": "end_combo_box"
+    },
+    {
+      "type": "button",
+      "name": "button_add",
+      "value": "Add a fruit",
+      "action_list": "click | add_data | \n\n_list_id: fruits_list,\nname: name_{{length(fruits_list)+1}},\ntext: @local.input_fruit"
+    },
+    {
+      "type": "title ",
+      "value": "Home work 4"
+    },
+    {
+      "name": "var_1"
+    },
+    {
+      "type": "combo_box",
+      "name": "combo_box_par_7_1",
+      "action_list": "changed | set_local : var_1: @local.combo_box_par_7_1",
+      "parameter_list": "answer_list:@data.comp_combo_box_items ;\nplaceholder: Select a name; variant: dropdown\n"
+    },
+    {
+      "type": "text",
+      "name": "text_1",
+      "value": "Value of var_1: @local.var_1"
+    },
+    {
+      "type": "begin_data_items",
+      "value": "comp_combo_box_items"
+    },
+    {
+      "type": "image",
+      "name": "image_1",
+      "value": "@item.image",
+      "condition": "@item.name == @local.var_1"
+    },
+    {
+      "type": "end_data_items"
+    }
+  ]
+}

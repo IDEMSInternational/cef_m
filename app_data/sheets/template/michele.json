@@ -1,0 +1,118 @@
+{
+  "flow_type": "template",
+  "flow_name": "michele",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "name": "my_title",
+      "value": "This is My page",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "my_title"
+    },
+    {
+      "type": "data_items",
+      "value": "comp_combo_box_items",
+      "rows": [
+        {
+          "type": "text",
+          "value": "@item.text",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "@item.name == \"name_3\"",
+          "name": "text_1_@item.id",
+          "_nested_name": "data_items_3.text_1_@item.id",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@item.text",
+                "matchedExpression": "@item.text",
+                "type": "item",
+                "fieldName": "text"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "@item.name == \"name_3\"",
+                "matchedExpression": "@item.name",
+                "type": "item",
+                "fieldName": "name"
+              }
+            ],
+            "name": [
+              {
+                "fullExpression": "text_1_@item.id",
+                "matchedExpression": "@item.id",
+                "type": "item",
+                "fieldName": "id"
+              }
+            ],
+            "_nested_name": [
+              {
+                "fullExpression": "data_items_3.text_1_@item.id",
+                "matchedExpression": "@item.id",
+                "type": "item",
+                "fieldName": "id"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@item.text": [
+              "value"
+            ],
+            "@item.name": [
+              "condition"
+            ],
+            "@item.id": [
+              "name",
+              "_nested_name"
+            ]
+          }
+        },
+        {
+          "type": "image",
+          "value": "images/first_asset.png",
+          "_translations": {
+            "value": {}
+          },
+          "name": "image_2_@item.id",
+          "_nested_name": "data_items_3.image_2_@item.id",
+          "_dynamicFields": {
+            "name": [
+              {
+                "fullExpression": "image_2_@item.id",
+                "matchedExpression": "@item.id",
+                "type": "item",
+                "fieldName": "id"
+              }
+            ],
+            "_nested_name": [
+              {
+                "fullExpression": "data_items_3.image_2_@item.id",
+                "matchedExpression": "@item.id",
+                "type": "item",
+                "fieldName": "id"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@item.id": [
+              "name",
+              "_nested_name"
+            ]
+          }
+        }
+      ],
+      "name": "data_items_3",
+      "_nested_name": "data_items_3"
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/training_sheets.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/1ZkkT4Kqe6qzxeo0ifM-K44M3xoDjImUATbYHmwAdvrs"
+  }
+}

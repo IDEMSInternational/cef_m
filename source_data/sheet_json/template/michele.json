@@ -1,0 +1,28 @@
+{
+  "flow_type": "template",
+  "flow_name": "michele",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "name": "my_title",
+      "value": "This is My page"
+    },
+    {
+      "type": "begin_data_items",
+      "value": "comp_combo_box_items"
+    },
+    {
+      "type": "text",
+      "value": "@item.text",
+      "condition": "@item.name == \"name_3\""
+    },
+    {
+      "type": "image",
+      "value": "images/first_asset.png"
+    },
+    {
+      "type": "end_data_items"
+    }
+  ]
+}

@@ -1,0 +1,388 @@
+{
+  "flow_type": "template",
+  "flow_name": "mohamed",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "name": "page_title",
+      "value": "Learning components",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "page_title"
+    },
+    {
+      "type": "text",
+      "name": "page_desc",
+      "value": "In this page we are going to discover some components",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "page_desc"
+    },
+    {
+      "type": "text",
+      "name": "text_1_1",
+      "value": "Create a text box in the page",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "text_1_1"
+    },
+    {
+      "type": "text_box",
+      "name": "text_box_1",
+      "parameter_list": {
+        "placeholder": "Please enter a name"
+      },
+      "_nested_name": "text_box_1"
+    },
+    {
+      "type": "text",
+      "name": "text_1_2",
+      "value": "Below the text box, put another component: a combo box where the user can choose one of three names.",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "text_1_2"
+    },
+    {
+      "name": "answer_list_1",
+      "value": [
+        {
+          "name": "name_1",
+          "text": "Fatoumata Haïdara"
+        },
+        {
+          "name": "name_2",
+          "text": "Assitan N'Diaye"
+        },
+        {
+          "name": "name_3",
+          "text": "Mohamed DIALLO"
+        }
+      ],
+      "type": "set_variable",
+      "_nested_name": "answer_list_1"
+    },
+    {
+      "type": "combo_box",
+      "name": "combo_box_1",
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_local",
+          "args": [
+            "var_1",
+            "this.value"
+          ],
+          "_raw": "changed | set_local: var_1: this.value"
+        }
+      ],
+      "parameter_list": {
+        "answer_list": "@local.answer_list_1"
+      },
+      "_nested_name": "combo_box_1",
+      "_dynamicFields": {
+        "parameter_list": {
+          "answer_list": [
+            {
+              "fullExpression": "@local.answer_list_1",
+              "matchedExpression": "@local.answer_list_1",
+              "type": "local",
+              "fieldName": "answer_list_1"
+            }
+          ]
+        }
+      },
+      "_dynamicDependencies": {
+        "@local.answer_list_1": [
+          "parameter_list.answer_list"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "name": "homework_1",
+      "value": "Homework :",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "font-weight:bold"
+      ],
+      "_nested_name": "homework_1"
+    },
+    {
+      "type": "text",
+      "name": "text_1_3",
+      "value": "Make the combo box more interactive. The text entered in the input (text box) should also appear as an option in the combo box. Currently, the combo box contains only our names.",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "text_1_3"
+    },
+    {
+      "type": "text",
+      "name": "text_1_4",
+      "value": "Hint: See line 63 of the component_combo_box spreadsheet.",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "font-size:10px",
+        "color:#F54927"
+      ],
+      "_nested_name": "text_1_4"
+    },
+    {
+      "type": "button",
+      "name": "button_add",
+      "value": "Add new name",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "click",
+          "action_id": "add_data",
+          "args": [],
+          "_raw": "click | add_data | \n\n_list_id: comp_combo_box_items,\nname: added_data_name,\ntext: @local.text_box_1",
+          "params": {
+            "_list_id": "comp_combo_box_items",
+            "name": "added_data_name",
+            "text": "@local.text_box_1"
+          }
+        }
+      ],
+      "style_list": [
+        "text-align:center"
+      ],
+      "_nested_name": "button_add",
+      "_dynamicFields": {
+        "action_list": {
+          "0": {
+            "_raw": [
+              {
+                "fullExpression": "click | add_data | \n\n_list_id: comp_combo_box_items,\nname: added_data_name,\ntext: @local.text_box_1",
+                "matchedExpression": "@local.text_box_1",
+                "type": "local",
+                "fieldName": "text_box_1"
+              }
+            ],
+            "params": {
+              "text": [
+                {
+                  "fullExpression": "@local.text_box_1",
+                  "matchedExpression": "@local.text_box_1",
+                  "type": "local",
+                  "fieldName": "text_box_1"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "_dynamicDependencies": {
+        "@local.text_box_1": [
+          "action_list.0._raw",
+          "action_list.0.params.text"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "name": "text_1_5",
+      "value": "Anorther varaint of combo box",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "font-size:11px",
+        "color:gray"
+      ],
+      "_nested_name": "text_1_5"
+    },
+    {
+      "type": "combo_box",
+      "name": "combo_box_default_1",
+      "parameter_list": {
+        "placeholder": "Interns names"
+      },
+      "rows": [
+        {
+          "type": "data_items",
+          "value": "comp_combo_box_items",
+          "rows": [],
+          "name": "data_items_1",
+          "_nested_name": "combo_box_default_1.data_items_1"
+        }
+      ],
+      "_nested_name": "combo_box_default_1"
+    },
+    {
+      "type": "combo_box",
+      "name": "combo_box_2",
+      "parameter_list": {
+        "placeholder": "Select one",
+        "variant": "dropdown",
+        "answer_list": "@data.comp_combo_box_items"
+      },
+      "rows": [
+        {
+          "type": "data_items",
+          "value": "comp_combo_box_items",
+          "rows": [],
+          "name": "data_items_1",
+          "_nested_name": "combo_box_2.data_items_1"
+        }
+      ],
+      "_nested_name": "combo_box_2",
+      "_dynamicFields": {
+        "parameter_list": {
+          "answer_list": [
+            {
+              "fullExpression": "@data.comp_combo_box_items",
+              "matchedExpression": "@data.comp_combo_box_items",
+              "type": "data",
+              "fieldName": "comp_combo_box_items"
+            }
+          ]
+        }
+      },
+      "_dynamicDependencies": {
+        "@data.comp_combo_box_items": [
+          "parameter_list.answer_list"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "name": "homework_2",
+      "value": "Homework :",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "font-weight:bold"
+      ],
+      "_nested_name": "homework_2"
+    },
+    {
+      "type": "text",
+      "name": "text_2_1",
+      "value": "Add an image to each item, and when an item is selected, the image should appear below.",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "text_2_1"
+    },
+    {
+      "type": "text",
+      "name": "text_2_2",
+      "value": "Hint: Use @items.column_name to get values, and @item.name == \"name_3\" to show a line only if the condition is true (quotes are required).",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "font-size:10px",
+        "color:#F54927"
+      ],
+      "_nested_name": "text_2_2",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "Hint: Use @items.column_name to get values, and @item.name == \"name_3\" to show a line only if the condition is true (quotes are required).",
+            "matchedExpression": "@item.name",
+            "type": "item",
+            "fieldName": "name"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@item.name": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "data_items",
+      "value": "comp_combo_box_items",
+      "rows": [
+        {
+          "type": "image",
+          "value": "@item.image",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "@item.name==@local.combo_box_2",
+          "name": "image_1_@item.id",
+          "_nested_name": "data_items_21.image_1_@item.id",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@item.image",
+                "matchedExpression": "@item.image",
+                "type": "item",
+                "fieldName": "image"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "@item.name==@local.combo_box_2",
+                "matchedExpression": "@item.name",
+                "type": "item",
+                "fieldName": "name"
+              },
+              {
+                "fullExpression": "@item.name==@local.combo_box_2",
+                "matchedExpression": "@local.combo_box_2",
+                "type": "local",
+                "fieldName": "combo_box_2"
+              }
+            ],
+            "name": [
+              {
+                "fullExpression": "image_1_@item.id",
+                "matchedExpression": "@item.id",
+                "type": "item",
+                "fieldName": "id"
+              }
+            ],
+            "_nested_name": [
+              {
+                "fullExpression": "data_items_21.image_1_@item.id",
+                "matchedExpression": "@item.id",
+                "type": "item",
+                "fieldName": "id"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@item.image": [
+              "value"
+            ],
+            "@item.name": [
+              "condition"
+            ],
+            "@local.combo_box_2": [
+              "condition"
+            ],
+            "@item.id": [
+              "name",
+              "_nested_name"
+            ]
+          }
+        }
+      ],
+      "name": "data_items_21",
+      "_nested_name": "data_items_21"
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/training_sheets.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/1ZkkT4Kqe6qzxeo0ifM-K44M3xoDjImUATbYHmwAdvrs"
+  }
+}

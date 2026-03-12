@@ -1,0 +1,313 @@
+{
+  "flow_type": "template",
+  "flow_name": "assitan",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "value": "This is Assitan's page",
+      "_translations": {
+        "value": {}
+      },
+      "name": "title_2",
+      "_nested_name": "title_2"
+    },
+    {
+      "type": "title",
+      "value": "My combo_box",
+      "_translations": {
+        "value": {}
+      },
+      "name": "title_3",
+      "_nested_name": "title_3"
+    },
+    {
+      "name": "answer_list_1",
+      "value": [
+        {
+          "name": "name_1",
+          "text": "Dog"
+        },
+        {
+          "name": "name_2",
+          "text": "Cat"
+        },
+        {
+          "name": "name_3",
+          "text": "Bird"
+        }
+      ],
+      "type": "set_variable",
+      "_nested_name": "answer_list_1"
+    },
+    {
+      "type": "combo_box",
+      "name": "combo_box_default_1",
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_local",
+          "args": [
+            "var_1",
+            "this.value"
+          ],
+          "_raw": "changed | set_local: var_1: this.value"
+        }
+      ],
+      "parameter_list": {
+        "answer_list": "@local.answer_list_1"
+      },
+      "_nested_name": "combo_box_default_1",
+      "_dynamicFields": {
+        "parameter_list": {
+          "answer_list": [
+            {
+              "fullExpression": "@local.answer_list_1",
+              "matchedExpression": "@local.answer_list_1",
+              "type": "local",
+              "fieldName": "answer_list_1"
+            }
+          ]
+        }
+      },
+      "_dynamicDependencies": {
+        "@local.answer_list_1": [
+          "parameter_list.answer_list"
+        ]
+      }
+    },
+    {
+      "type": "title",
+      "value": "My Home Work",
+      "_translations": {
+        "value": {}
+      },
+      "name": "title_6",
+      "_nested_name": "title_6"
+    },
+    {
+      "type": "text_box",
+      "name": "input_fruit",
+      "_nested_name": "input_fruit"
+    },
+    {
+      "type": "combo_box",
+      "name": "combo_box_default_1",
+      "parameter_list": {
+        "placeholder": "Select a fruit",
+        "variant": "dropdown"
+      },
+      "rows": [
+        {
+          "type": "data_items",
+          "value": "fruits_list",
+          "rows": [],
+          "name": "data_items_1",
+          "_nested_name": "combo_box_default_1.data_items_1"
+        }
+      ],
+      "_nested_name": "combo_box_default_1"
+    },
+    {
+      "type": "button",
+      "name": "button_add",
+      "value": "Add a fruit",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "click",
+          "action_id": "add_data",
+          "args": [],
+          "_raw": "click | add_data | \n\n_list_id: fruits_list,\nname: name_{{length(fruits_list)+1}},\ntext: @local.input_fruit",
+          "params": {
+            "_list_id": "fruits_list",
+            "name": "name_{{length(fruits_list)+1}}",
+            "text": "@local.input_fruit"
+          }
+        }
+      ],
+      "_nested_name": "button_add",
+      "_dynamicFields": {
+        "action_list": {
+          "0": {
+            "_raw": [
+              {
+                "fullExpression": "click | add_data | \n\n_list_id: fruits_list,\nname: name_{{length(fruits_list)+1}},\ntext: @local.input_fruit",
+                "matchedExpression": "@local.input_fruit",
+                "type": "local",
+                "fieldName": "input_fruit"
+              }
+            ],
+            "params": {
+              "text": [
+                {
+                  "fullExpression": "@local.input_fruit",
+                  "matchedExpression": "@local.input_fruit",
+                  "type": "local",
+                  "fieldName": "input_fruit"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "_dynamicDependencies": {
+        "@local.input_fruit": [
+          "action_list.0._raw",
+          "action_list.0.params.text"
+        ]
+      }
+    },
+    {
+      "type": "title",
+      "value": "Home work 4",
+      "_translations": {
+        "value": {}
+      },
+      "name": "title_11",
+      "_nested_name": "title_11"
+    },
+    {
+      "name": "var_1",
+      "type": "set_variable",
+      "_nested_name": "var_1"
+    },
+    {
+      "type": "combo_box",
+      "name": "combo_box_par_7_1",
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_local",
+          "args": [
+            "var_1",
+            "this.value"
+          ],
+          "_raw": "changed | set_local : var_1: @local.combo_box_par_7_1"
+        }
+      ],
+      "parameter_list": {
+        "answer_list": "@data.comp_combo_box_items",
+        "placeholder": "Select a name",
+        "variant": "dropdown"
+      },
+      "_nested_name": "combo_box_par_7_1",
+      "_dynamicFields": {
+        "action_list": {
+          "0": {
+            "_raw": [
+              {
+                "fullExpression": "changed | set_local : var_1: @local.combo_box_par_7_1",
+                "matchedExpression": "@local.combo_box_par_7_1",
+                "type": "local",
+                "fieldName": "combo_box_par_7_1"
+              }
+            ]
+          }
+        },
+        "parameter_list": {
+          "answer_list": [
+            {
+              "fullExpression": "@data.comp_combo_box_items",
+              "matchedExpression": "@data.comp_combo_box_items",
+              "type": "data",
+              "fieldName": "comp_combo_box_items"
+            }
+          ]
+        }
+      },
+      "_dynamicDependencies": {
+        "@local.combo_box_par_7_1": [
+          "action_list.0._raw"
+        ],
+        "@data.comp_combo_box_items": [
+          "parameter_list.answer_list"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "name": "text_1",
+      "value": "Value of var_1: @local.var_1",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "text_1",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "Value of var_1: @local.var_1",
+            "matchedExpression": "@local.var_1",
+            "type": "local",
+            "fieldName": "var_1"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.var_1": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "data_items",
+      "value": "comp_combo_box_items",
+      "rows": [
+        {
+          "type": "image",
+          "name": "image_1",
+          "value": "@item.image",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "@item.name == @local.var_1",
+          "_nested_name": "data_items_15.image_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@item.image",
+                "matchedExpression": "@item.image",
+                "type": "item",
+                "fieldName": "image"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "@item.name == @local.var_1",
+                "matchedExpression": "@item.name",
+                "type": "item",
+                "fieldName": "name"
+              },
+              {
+                "fullExpression": "@item.name == @local.var_1",
+                "matchedExpression": "@local.var_1",
+                "type": "local",
+                "fieldName": "var_1"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@item.image": [
+              "value"
+            ],
+            "@item.name": [
+              "condition"
+            ],
+            "@local.var_1": [
+              "condition"
+            ]
+          }
+        }
+      ],
+      "name": "data_items_15",
+      "_nested_name": "data_items_15"
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/training_sheets.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/1ZkkT4Kqe6qzxeo0ifM-K44M3xoDjImUATbYHmwAdvrs"
+  }
+}

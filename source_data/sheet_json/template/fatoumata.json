@@ -1,0 +1,130 @@
+{
+  "flow_type": "template",
+  "flow_name": "fatoumata",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "name": "fatoumata's page",
+      "value": "This is fatoumata's page"
+    },
+    {
+      "type": "text",
+      "name": "fatim",
+      "value": "test",
+      "style_list": "font-size:28px;color:#ff0000;font-weight:bold;font-style:italic;text-align:center;text-decoration:underline"
+    },
+    {
+      "type": "title",
+      "name": "titile1",
+      "value": "Text box example"
+    },
+    {
+      "type": "text_box",
+      "name": "text_box_1",
+      "parameter_list": "max_length: 30"
+    },
+    {
+      "type": "title",
+      "name": "title2",
+      "value": "Combo box example1 "
+    },
+    {
+      "name": "answer_list_1",
+      "value": "name: name_1 | text: Fatoumata;  \nname: name_2 | text: Assitan;  \nname: name_3 | text: Mohamed;"
+    },
+    {
+      "name": "answer_list_2",
+      "value": "name: name_1 | text: Fatima; "
+    },
+    {
+      "type": "combo_box",
+      "name": "combo_box_1",
+      "action_list": "changed | set_local: var_1: this.value;",
+      "parameter_list": "answer_list: @local.answer_list_1;\nvariant: dropdown;\n"
+    },
+    {
+      "type": "title",
+      "name": "title3",
+      "value": "Combo box example2"
+    },
+    {
+      "type": "combo_box",
+      "name": "combo_box_key_value1",
+      "parameter_list": "placeholder: Select one Intern's name;\nanswer_list: @data.comp_combo_box_items;"
+    },
+    {
+      "type": "title",
+      "name": "title4",
+      "value": "Combo box example3"
+    },
+    {
+      "type": "combo_box",
+      "name": "combo_box_key_value2_1",
+      "parameter_list": "placeholder: Select one name;\nanswer_list: @data.comp_combo_box_items;"
+    },
+    {
+      "type": "subtitle",
+      "name": "subtitle1",
+      "value": "Enable and Enter Name if other "
+    },
+    {
+      "type": "toggle_bar",
+      "name": "toggle_enabled_1",
+      "value": false,
+      "parameter_list": "false_text: Text box is disabled;\ntrue_text: Text box is enabled;"
+    },
+    {
+      "type": "text_box",
+      "name": "text_box_2",
+      "parameter_list": "max_length: 30; disabled: !@local.toggle_enabled_1;                                                                                                                                                                        "
+    },
+    {
+      "type": "button",
+      "name": "button_add",
+      "value": "Add Name",
+      "action_list": "click | add_data | \n\n_list_id: comp_combo_box_items,\nname: added_data_name,\ntext: @local.text_box_2;"
+    },
+    {
+      "type": "begin_combo_box",
+      "parameter_list": "placeholder: Select from data_list"
+    },
+    {
+      "type": "begin_data_items",
+      "value": "comp_combo_box_items",
+      "condition": "Data list should include columns for name and text"
+    },
+    {
+      "type": "end_data_items"
+    },
+    {
+      "type": "end_combo_box"
+    },
+    {
+      "type": "title",
+      "name": "title3",
+      "value": "Combo box with images"
+    },
+    {
+      "type": "combo_box",
+      "name": "combo_box_key_value2",
+      "parameter_list": "placeholder: Select one Intern's name;\nanswer_list: @data.comp_combo_box_items;"
+    },
+    {
+      "type": "begin_data_items",
+      "value": "comp_combo_box_items",
+      "parameter_list": "filter: @item.name == @local.combo_box_key_value2"
+    },
+    {
+      "type": "text",
+      "value": "@item.text_new"
+    },
+    {
+      "type": "image",
+      "value": "@item.image"
+    },
+    {
+      "type": "end_data_items"
+    }
+  ]
+}
