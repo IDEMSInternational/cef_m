@@ -1,0 +1,57 @@
+{
+  "flow_type": "template",
+  "flow_name": "fatoumata_page_2",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "name": "name_list",
+      "value": "list of all saved names"
+    },
+    {
+      "name": "id_items",
+      "value": "text"
+    },
+    {
+      "type": "begin_data_items",
+      "value": "@data.name_items",
+      "parameter_list": "filter: @local.id_items !== @item.id"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "@item.text"
+    },
+    {
+      "type": "button",
+      "value": "Edit",
+      "action_list": "click | set_field: user_id: @item.id;\nclick | set_field: user_text: @item.text;\nclick | set_field: user_country: @item.country;\nclick | set_field: user_date: @item.date;\nclick | go_to: fatoumata_page_1;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "end_data_items"
+    },
+    {
+      "type": "button",
+      "value": "Fill out a new form ",
+      "action_list": "click | set_field: user_id: ; \nclick | set_field: user_text: ; \nclick | set_field: user_country: ; \nclick | set_field: user_date: ; \nclick | go_to: fatoumata_page_1;",
+      "parameter_list": "button_align: right; style: flexible;"
+    },
+    {
+      "type": "declare_field_default",
+      "action_list": "data_changed | set_field : name_items_complete : @items.length === 0",
+      "condition": false
+    },
+    {
+      "type": "round_button",
+      "name": "audio_play ",
+      "action_list": "click | audio_play:audio/Enrolement/pompe_fr.mp3",
+      "parameter_list": "variant: compact; \nicon_src: images/icons/audio/Speaker_Icon.svg;",
+      "exclude_from_translation": true
+    }
+  ]
+}

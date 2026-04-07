@@ -1,0 +1,73 @@
+{
+  "flow_type": "template",
+  "flow_name": "assitan_questionnaire_page",
+  "status": "released",
+  "rows": [
+    {
+      "type": "text",
+      "name": "titre_page",
+      "value": "Welcome,Check out our questionnaire !",
+      "style_list": "text-align:center;"
+    },
+    {
+      "type": "text",
+      "name": "label_nom",
+      "value": "1. Your name"
+    },
+    {
+      "type": "text_box",
+      "name": "text_box_par_2_1",
+      "value": "@field.text",
+      "action_list": "changed | set_field : text : this.value;\n",
+      "parameter_list": "placeholder: Enter your name;\n"
+    },
+    {
+      "type": "text",
+      "name": "label_pays",
+      "value": "2. Country of origin"
+    },
+    {
+      "type": "radio_button_grid",
+      "name": "grid_1",
+      "value": "@field.country",
+      "action_list": "changed | set_field : country : this.value;\n",
+      "parameter_list": "answer_list: @data.countries_list;",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text",
+      "name": "output_text",
+      "value": "Your country of origin is : @field.country"
+    },
+    {
+      "type": "text",
+      "name": "label_date",
+      "value": "3. Date"
+    },
+    {
+      "type": "date_time_picker",
+      "name": "date_user",
+      "value": "@field.date",
+      "action_list": "changed | set_field : date : this.value;",
+      "parameter_list": "type: date; "
+    },
+    {
+      "type": "text",
+      "value": "The date you selected: @field.date"
+    },
+    {
+      "type": "button",
+      "name": "button_add",
+      "value": "Save",
+      "condition": "!@field.id",
+      "action_list": "click | add_data |\n\n_list_id: name_list, \ntext: @field.text, \ncountry: @field.country, \ndate: @field.date; \n\nclick | go_to: assitan_list_page;"
+    },
+    {
+      "type": "button",
+      "name": "button_edit",
+      "value": "Save changes",
+      "condition": "@field.id",
+      "action_list": "click | set_data |\n\n_list_id: name_list,\n_id: @field.id,\ntext: @field.text,\ncountry: @field.country,\ndate: @field.date;\n\nclick | go_to: assitan_list_page;"
+    }
+  ]
+}

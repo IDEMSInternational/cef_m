@@ -1,6 +1,26 @@
 {
   "asset_pack": {},
   "data_list": {
+    "activite": {
+      "flow_type": "data_list",
+      "flow_name": "activite",
+      "data_list_name": "activite",
+      "_source": {
+        "name": "cef_m sheets",
+        "path": "template/Enrolment_form_Data.xlsx",
+        "url": "https://docs.google.com/spreadsheets/d/1bsOPyv0Dfa9DAa3wAfsTvsv1qbTq_Fl8d0Wb9AO67xk"
+      }
+    },
+    "age_group": {
+      "flow_type": "data_list",
+      "flow_name": "age_group",
+      "data_list_name": "age_group",
+      "_source": {
+        "name": "cef_m sheets",
+        "path": "template/Enrolment_form_Data.xlsx",
+        "url": "https://docs.google.com/spreadsheets/d/1bsOPyv0Dfa9DAa3wAfsTvsv1qbTq_Fl8d0Wb9AO67xk"
+      }
+    },
     "comp_combo_box_items": {
       "flow_type": "data_list",
       "flow_name": "comp_combo_box_items",
@@ -8,6 +28,33 @@
         "name": "cef_m sheets",
         "path": "template/training_sheets.xlsx",
         "url": "https://docs.google.com/spreadsheets/d/1ZkkT4Kqe6qzxeo0ifM-K44M3xoDjImUATbYHmwAdvrs"
+      }
+    },
+    "countries_list": {
+      "flow_type": "data_list",
+      "flow_name": "countries_list",
+      "_source": {
+        "name": "cef_m sheets",
+        "path": "template/training_sheets.xlsx",
+        "url": "https://docs.google.com/spreadsheets/d/1ZkkT4Kqe6qzxeo0ifM-K44M3xoDjImUATbYHmwAdvrs"
+      }
+    },
+    "enrolment_settings_pages": {
+      "flow_type": "data_list",
+      "flow_name": "enrolment_settings_pages",
+      "data_list_name": "enrolment_settings_pages",
+      "_source": {
+        "name": "cef_m sheets",
+        "path": "template/Enrolment_form_sheets.xlsx",
+        "url": "https://docs.google.com/spreadsheets/d/1mR9iAG_wjGK0G39YVxIlwlGFILSbgZvCqESHTMNXNgA"
+      },
+      "_metadata": {
+        "completed": {
+          "type": "boolean"
+        },
+        "completed_count": {
+          "type": "number"
+        }
       }
     },
     "fruits_list": {
@@ -18,11 +65,77 @@
         "path": "template/training_sheets.xlsx",
         "url": "https://docs.google.com/spreadsheets/d/1ZkkT4Kqe6qzxeo0ifM-K44M3xoDjImUATbYHmwAdvrs"
       }
+    },
+    "gender": {
+      "flow_type": "data_list",
+      "flow_name": "gender",
+      "data_list_name": "gender",
+      "_source": {
+        "name": "cef_m sheets",
+        "path": "template/Enrolment_form_Data.xlsx",
+        "url": "https://docs.google.com/spreadsheets/d/1bsOPyv0Dfa9DAa3wAfsTvsv1qbTq_Fl8d0Wb9AO67xk"
+      }
+    },
+    "group_observation": {
+      "flow_type": "data_list",
+      "flow_name": "group_observation",
+      "data_list_name": "group_observation",
+      "_source": {
+        "name": "cef_m sheets",
+        "path": "template/Enrolment_form_Data.xlsx",
+        "url": "https://docs.google.com/spreadsheets/d/1bsOPyv0Dfa9DAa3wAfsTvsv1qbTq_Fl8d0Wb9AO67xk"
+      }
+    },
+    "mohamed_items": {
+      "flow_type": "data_list",
+      "flow_name": "mohamed_items",
+      "_source": {
+        "name": "cef_m sheets",
+        "path": "template/training_sheets.xlsx",
+        "url": "https://docs.google.com/spreadsheets/d/1ZkkT4Kqe6qzxeo0ifM-K44M3xoDjImUATbYHmwAdvrs"
+      }
+    },
+    "name_items": {
+      "flow_type": "data_list",
+      "flow_name": "name_items",
+      "_source": {
+        "name": "cef_m sheets",
+        "path": "template/training_sheets.xlsx",
+        "url": "https://docs.google.com/spreadsheets/d/1ZkkT4Kqe6qzxeo0ifM-K44M3xoDjImUATbYHmwAdvrs"
+      }
+    },
+    "name_list": {
+      "flow_type": "data_list",
+      "flow_name": "name_list",
+      "_source": {
+        "name": "cef_m sheets",
+        "path": "template/training_sheets.xlsx",
+        "url": "https://docs.google.com/spreadsheets/d/1ZkkT4Kqe6qzxeo0ifM-K44M3xoDjImUATbYHmwAdvrs"
+      }
     }
   },
   "data_pipe": {},
   "generator": {},
-  "global": {},
+  "global": {
+    "enrolment_page1_data": {
+      "flow_type": "global",
+      "flow_name": "enrolment_page1_data",
+      "_source": {
+        "name": "cef_m sheets",
+        "path": "template/Enrolment_form_Data.xlsx",
+        "url": "https://docs.google.com/spreadsheets/d/1bsOPyv0Dfa9DAa3wAfsTvsv1qbTq_Fl8d0Wb9AO67xk"
+      }
+    },
+    "gloabal_general": {
+      "flow_type": "global",
+      "flow_name": "gloabal_general",
+      "_source": {
+        "name": "cef_m sheets",
+        "path": "template/Enrolment_form_Data.xlsx",
+        "url": "https://docs.google.com/spreadsheets/d/1bsOPyv0Dfa9DAa3wAfsTvsv1qbTq_Fl8d0Wb9AO67xk"
+      }
+    }
+  },
   "template": {
     "assitan": {
       "flow_type": "template",
@@ -33,9 +146,216 @@
         "url": "https://docs.google.com/spreadsheets/d/1ZkkT4Kqe6qzxeo0ifM-K44M3xoDjImUATbYHmwAdvrs"
       }
     },
+    "assitan_list_page": {
+      "flow_type": "template",
+      "flow_name": "assitan_list_page",
+      "_source": {
+        "name": "cef_m sheets",
+        "path": "template/training_sheets.xlsx",
+        "url": "https://docs.google.com/spreadsheets/d/1ZkkT4Kqe6qzxeo0ifM-K44M3xoDjImUATbYHmwAdvrs"
+      }
+    },
+    "assitan_questionnaire_page": {
+      "flow_type": "template",
+      "flow_name": "assitan_questionnaire_page",
+      "_source": {
+        "name": "cef_m sheets",
+        "path": "template/training_sheets.xlsx",
+        "url": "https://docs.google.com/spreadsheets/d/1ZkkT4Kqe6qzxeo0ifM-K44M3xoDjImUATbYHmwAdvrs"
+      }
+    },
+    "enrolment": {
+      "flow_type": "template",
+      "flow_name": "enrolment",
+      "_source": {
+        "name": "cef_m sheets",
+        "path": "template/navigation_sheets.xlsx",
+        "url": "https://docs.google.com/spreadsheets/d/193leh8f_jRUGw3Muvg2-GR0tJ9P1zTMpYABWFLaK5SU"
+      }
+    },
+    "enrolment_page1": {
+      "flow_type": "template",
+      "flow_name": "enrolment_page1",
+      "_source": {
+        "name": "cef_m sheets",
+        "path": "template/Enrolment_form_sheets.xlsx",
+        "url": "https://docs.google.com/spreadsheets/d/1mR9iAG_wjGK0G39YVxIlwlGFILSbgZvCqESHTMNXNgA"
+      }
+    },
+    "enrolment_page10": {
+      "flow_type": "template",
+      "flow_name": "enrolment_page10",
+      "_source": {
+        "name": "cef_m sheets",
+        "path": "template/Enrolment_form_sheets.xlsx",
+        "url": "https://docs.google.com/spreadsheets/d/1mR9iAG_wjGK0G39YVxIlwlGFILSbgZvCqESHTMNXNgA"
+      }
+    },
+    "enrolment_page11": {
+      "flow_type": "template",
+      "flow_name": "enrolment_page11",
+      "_source": {
+        "name": "cef_m sheets",
+        "path": "template/Enrolment_form_sheets.xlsx",
+        "url": "https://docs.google.com/spreadsheets/d/1mR9iAG_wjGK0G39YVxIlwlGFILSbgZvCqESHTMNXNgA"
+      }
+    },
+    "enrolment_page12": {
+      "flow_type": "template",
+      "flow_name": "enrolment_page12",
+      "_source": {
+        "name": "cef_m sheets",
+        "path": "template/Enrolment_form_sheets.xlsx",
+        "url": "https://docs.google.com/spreadsheets/d/1mR9iAG_wjGK0G39YVxIlwlGFILSbgZvCqESHTMNXNgA"
+      }
+    },
+    "enrolment_page13": {
+      "flow_type": "template",
+      "flow_name": "enrolment_page13",
+      "_source": {
+        "name": "cef_m sheets",
+        "path": "template/Enrolment_form_sheets.xlsx",
+        "url": "https://docs.google.com/spreadsheets/d/1mR9iAG_wjGK0G39YVxIlwlGFILSbgZvCqESHTMNXNgA"
+      }
+    },
+    "enrolment_page14": {
+      "flow_type": "template",
+      "flow_name": "enrolment_page14",
+      "_source": {
+        "name": "cef_m sheets",
+        "path": "template/Enrolment_form_sheets.xlsx",
+        "url": "https://docs.google.com/spreadsheets/d/1mR9iAG_wjGK0G39YVxIlwlGFILSbgZvCqESHTMNXNgA"
+      }
+    },
+    "enrolment_page15": {
+      "flow_type": "template",
+      "flow_name": "enrolment_page15",
+      "_source": {
+        "name": "cef_m sheets",
+        "path": "template/Enrolment_form_sheets.xlsx",
+        "url": "https://docs.google.com/spreadsheets/d/1mR9iAG_wjGK0G39YVxIlwlGFILSbgZvCqESHTMNXNgA"
+      }
+    },
+    "enrolment_page16": {
+      "flow_type": "template",
+      "flow_name": "enrolment_page16",
+      "_source": {
+        "name": "cef_m sheets",
+        "path": "template/Enrolment_form_sheets.xlsx",
+        "url": "https://docs.google.com/spreadsheets/d/1mR9iAG_wjGK0G39YVxIlwlGFILSbgZvCqESHTMNXNgA"
+      }
+    },
+    "enrolment_page17": {
+      "flow_type": "template",
+      "flow_name": "enrolment_page17",
+      "_source": {
+        "name": "cef_m sheets",
+        "path": "template/Enrolment_form_sheets.xlsx",
+        "url": "https://docs.google.com/spreadsheets/d/1mR9iAG_wjGK0G39YVxIlwlGFILSbgZvCqESHTMNXNgA"
+      }
+    },
+    "enrolment_page18": {
+      "flow_type": "template",
+      "flow_name": "enrolment_page18",
+      "_source": {
+        "name": "cef_m sheets",
+        "path": "template/Enrolment_form_sheets.xlsx",
+        "url": "https://docs.google.com/spreadsheets/d/1mR9iAG_wjGK0G39YVxIlwlGFILSbgZvCqESHTMNXNgA"
+      }
+    },
+    "enrolment_page2": {
+      "flow_type": "template",
+      "flow_name": "enrolment_page2",
+      "_source": {
+        "name": "cef_m sheets",
+        "path": "template/Enrolment_form_sheets.xlsx",
+        "url": "https://docs.google.com/spreadsheets/d/1mR9iAG_wjGK0G39YVxIlwlGFILSbgZvCqESHTMNXNgA"
+      }
+    },
+    "enrolment_page3": {
+      "flow_type": "template",
+      "flow_name": "enrolment_page3",
+      "_source": {
+        "name": "cef_m sheets",
+        "path": "template/Enrolment_form_sheets.xlsx",
+        "url": "https://docs.google.com/spreadsheets/d/1mR9iAG_wjGK0G39YVxIlwlGFILSbgZvCqESHTMNXNgA"
+      }
+    },
+    "enrolment_page4": {
+      "flow_type": "template",
+      "flow_name": "enrolment_page4",
+      "_source": {
+        "name": "cef_m sheets",
+        "path": "template/Enrolment_form_sheets.xlsx",
+        "url": "https://docs.google.com/spreadsheets/d/1mR9iAG_wjGK0G39YVxIlwlGFILSbgZvCqESHTMNXNgA"
+      }
+    },
+    "enrolment_page5": {
+      "flow_type": "template",
+      "flow_name": "enrolment_page5",
+      "_source": {
+        "name": "cef_m sheets",
+        "path": "template/Enrolment_form_sheets.xlsx",
+        "url": "https://docs.google.com/spreadsheets/d/1mR9iAG_wjGK0G39YVxIlwlGFILSbgZvCqESHTMNXNgA"
+      }
+    },
+    "enrolment_page6": {
+      "flow_type": "template",
+      "flow_name": "enrolment_page6",
+      "_source": {
+        "name": "cef_m sheets",
+        "path": "template/Enrolment_form_sheets.xlsx",
+        "url": "https://docs.google.com/spreadsheets/d/1mR9iAG_wjGK0G39YVxIlwlGFILSbgZvCqESHTMNXNgA"
+      }
+    },
+    "enrolment_page7": {
+      "flow_type": "template",
+      "flow_name": "enrolment_page7",
+      "_source": {
+        "name": "cef_m sheets",
+        "path": "template/Enrolment_form_sheets.xlsx",
+        "url": "https://docs.google.com/spreadsheets/d/1mR9iAG_wjGK0G39YVxIlwlGFILSbgZvCqESHTMNXNgA"
+      }
+    },
+    "enrolment_page8": {
+      "flow_type": "template",
+      "flow_name": "enrolment_page8",
+      "_source": {
+        "name": "cef_m sheets",
+        "path": "template/Enrolment_form_sheets.xlsx",
+        "url": "https://docs.google.com/spreadsheets/d/1mR9iAG_wjGK0G39YVxIlwlGFILSbgZvCqESHTMNXNgA"
+      }
+    },
+    "enrolment_page9": {
+      "flow_type": "template",
+      "flow_name": "enrolment_page9",
+      "_source": {
+        "name": "cef_m sheets",
+        "path": "template/Enrolment_form_sheets.xlsx",
+        "url": "https://docs.google.com/spreadsheets/d/1mR9iAG_wjGK0G39YVxIlwlGFILSbgZvCqESHTMNXNgA"
+      }
+    },
     "fatoumata": {
       "flow_type": "template",
       "flow_name": "fatoumata",
+      "_source": {
+        "name": "cef_m sheets",
+        "path": "template/training_sheets.xlsx",
+        "url": "https://docs.google.com/spreadsheets/d/1ZkkT4Kqe6qzxeo0ifM-K44M3xoDjImUATbYHmwAdvrs"
+      }
+    },
+    "fatoumata_page_1": {
+      "flow_type": "template",
+      "flow_name": "fatoumata_page_1",
+      "_source": {
+        "name": "cef_m sheets",
+        "path": "template/training_sheets.xlsx",
+        "url": "https://docs.google.com/spreadsheets/d/1ZkkT4Kqe6qzxeo0ifM-K44M3xoDjImUATbYHmwAdvrs"
+      }
+    },
+    "fatoumata_page_2": {
+      "flow_type": "template",
+      "flow_name": "fatoumata_page_2",
       "_source": {
         "name": "cef_m sheets",
         "path": "template/training_sheets.xlsx",
@@ -63,6 +383,24 @@
     "mohamed": {
       "flow_type": "template",
       "flow_name": "mohamed",
+      "_source": {
+        "name": "cef_m sheets",
+        "path": "template/training_sheets.xlsx",
+        "url": "https://docs.google.com/spreadsheets/d/1ZkkT4Kqe6qzxeo0ifM-K44M3xoDjImUATbYHmwAdvrs"
+      }
+    },
+    "mohamed_form": {
+      "flow_type": "template",
+      "flow_name": "mohamed_form",
+      "_source": {
+        "name": "cef_m sheets",
+        "path": "template/training_sheets.xlsx",
+        "url": "https://docs.google.com/spreadsheets/d/1ZkkT4Kqe6qzxeo0ifM-K44M3xoDjImUATbYHmwAdvrs"
+      }
+    },
+    "mohamed_list": {
+      "flow_type": "template",
+      "flow_name": "mohamed_list",
       "_source": {
         "name": "cef_m sheets",
         "path": "template/training_sheets.xlsx",

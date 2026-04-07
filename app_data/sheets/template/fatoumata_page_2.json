@@ -1,0 +1,408 @@
+{
+  "flow_type": "template",
+  "flow_name": "fatoumata_page_2",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "name": "name_list",
+      "value": "list of all saved names",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "name_list"
+    },
+    {
+      "name": "id_items",
+      "value": "text",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "id_items"
+    },
+    {
+      "type": "data_items",
+      "value": "@data.name_items",
+      "parameter_list": {
+        "filter": "@local.id_items !== @item.id"
+      },
+      "rows": [
+        {
+          "type": "display_group",
+          "rows": [
+            {
+              "type": "text",
+              "value": "@item.text",
+              "_translations": {
+                "value": {}
+              },
+              "name": "text_1",
+              "_nested_name": "data_items_4.display_group_1_@item.id.text_1",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "@item.text",
+                    "matchedExpression": "@item.text",
+                    "type": "item",
+                    "fieldName": "text"
+                  }
+                ],
+                "_nested_name": [
+                  {
+                    "fullExpression": "data_items_4.display_group_1_@item.id.text_1",
+                    "matchedExpression": "@item.id.text_1",
+                    "type": "item",
+                    "fieldName": "id"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@item.text": [
+                  "value"
+                ],
+                "@item.id.text_1": [
+                  "_nested_name"
+                ]
+              }
+            },
+            {
+              "type": "button",
+              "value": "Edit",
+              "_translations": {
+                "value": {}
+              },
+              "action_list": [
+                {
+                  "trigger": "click",
+                  "action_id": "set_field",
+                  "args": [
+                    "user_id",
+                    "@item.id"
+                  ],
+                  "_raw": "click | set_field: user_id: @item.id"
+                },
+                {
+                  "trigger": "click",
+                  "action_id": "set_field",
+                  "args": [
+                    "user_text",
+                    "@item.text"
+                  ],
+                  "_raw": "click | set_field: user_text: @item.text"
+                },
+                {
+                  "trigger": "click",
+                  "action_id": "set_field",
+                  "args": [
+                    "user_country",
+                    "@item.country"
+                  ],
+                  "_raw": "click | set_field: user_country: @item.country"
+                },
+                {
+                  "trigger": "click",
+                  "action_id": "set_field",
+                  "args": [
+                    "user_date",
+                    "@item.date"
+                  ],
+                  "_raw": "click | set_field: user_date: @item.date"
+                },
+                {
+                  "trigger": "click",
+                  "action_id": "go_to",
+                  "args": [
+                    "fatoumata_page_1"
+                  ],
+                  "_raw": "click | go_to: fatoumata_page_1"
+                }
+              ],
+              "name": "button_2",
+              "_nested_name": "data_items_4.display_group_1_@item.id.button_2",
+              "_dynamicFields": {
+                "action_list": {
+                  "0": {
+                    "args": {
+                      "1": [
+                        {
+                          "fullExpression": "@item.id",
+                          "matchedExpression": "@item.id",
+                          "type": "item",
+                          "fieldName": "id"
+                        }
+                      ]
+                    },
+                    "_raw": [
+                      {
+                        "fullExpression": "click | set_field: user_id: @item.id",
+                        "matchedExpression": "@item.id",
+                        "type": "item",
+                        "fieldName": "id"
+                      }
+                    ]
+                  },
+                  "1": {
+                    "args": {
+                      "1": [
+                        {
+                          "fullExpression": "@item.text",
+                          "matchedExpression": "@item.text",
+                          "type": "item",
+                          "fieldName": "text"
+                        }
+                      ]
+                    },
+                    "_raw": [
+                      {
+                        "fullExpression": "click | set_field: user_text: @item.text",
+                        "matchedExpression": "@item.text",
+                        "type": "item",
+                        "fieldName": "text"
+                      }
+                    ]
+                  },
+                  "2": {
+                    "args": {
+                      "1": [
+                        {
+                          "fullExpression": "@item.country",
+                          "matchedExpression": "@item.country",
+                          "type": "item",
+                          "fieldName": "country"
+                        }
+                      ]
+                    },
+                    "_raw": [
+                      {
+                        "fullExpression": "click | set_field: user_country: @item.country",
+                        "matchedExpression": "@item.country",
+                        "type": "item",
+                        "fieldName": "country"
+                      }
+                    ]
+                  },
+                  "3": {
+                    "args": {
+                      "1": [
+                        {
+                          "fullExpression": "@item.date",
+                          "matchedExpression": "@item.date",
+                          "type": "item",
+                          "fieldName": "date"
+                        }
+                      ]
+                    },
+                    "_raw": [
+                      {
+                        "fullExpression": "click | set_field: user_date: @item.date",
+                        "matchedExpression": "@item.date",
+                        "type": "item",
+                        "fieldName": "date"
+                      }
+                    ]
+                  }
+                },
+                "_nested_name": [
+                  {
+                    "fullExpression": "data_items_4.display_group_1_@item.id.button_2",
+                    "matchedExpression": "@item.id.button_2",
+                    "type": "item",
+                    "fieldName": "id"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@item.id": [
+                  "action_list.0.args.1",
+                  "action_list.0._raw"
+                ],
+                "@item.text": [
+                  "action_list.1.args.1",
+                  "action_list.1._raw"
+                ],
+                "@item.country": [
+                  "action_list.2.args.1",
+                  "action_list.2._raw"
+                ],
+                "@item.date": [
+                  "action_list.3.args.1",
+                  "action_list.3._raw"
+                ],
+                "@item.id.button_2": [
+                  "_nested_name"
+                ]
+              }
+            }
+          ],
+          "name": "display_group_1_@item.id",
+          "_nested_name": "data_items_4.display_group_1_@item.id",
+          "_dynamicFields": {
+            "name": [
+              {
+                "fullExpression": "display_group_1_@item.id",
+                "matchedExpression": "@item.id",
+                "type": "item",
+                "fieldName": "id"
+              }
+            ],
+            "_nested_name": [
+              {
+                "fullExpression": "data_items_4.display_group_1_@item.id",
+                "matchedExpression": "@item.id",
+                "type": "item",
+                "fieldName": "id"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@item.id": [
+              "name",
+              "_nested_name"
+            ]
+          }
+        }
+      ],
+      "name": "data_items_4",
+      "_nested_name": "data_items_4",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@data.name_items",
+            "matchedExpression": "@data.name_items",
+            "type": "data",
+            "fieldName": "name_items"
+          }
+        ],
+        "parameter_list": {
+          "filter": [
+            {
+              "fullExpression": "@local.id_items !== @item.id",
+              "matchedExpression": "@local.id_items",
+              "type": "local",
+              "fieldName": "id_items"
+            },
+            {
+              "fullExpression": "@local.id_items !== @item.id",
+              "matchedExpression": "@item.id",
+              "type": "item",
+              "fieldName": "id"
+            }
+          ]
+        }
+      },
+      "_dynamicDependencies": {
+        "@data.name_items": [
+          "value"
+        ],
+        "@local.id_items": [
+          "parameter_list.filter"
+        ],
+        "@item.id": [
+          "parameter_list.filter"
+        ]
+      }
+    },
+    {
+      "type": "button",
+      "value": "Fill out a new form",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "click",
+          "action_id": "set_field",
+          "args": [
+            "user_id",
+            ""
+          ],
+          "_raw": "click | set_field: user_id:"
+        },
+        {
+          "trigger": "click",
+          "action_id": "set_field",
+          "args": [
+            "user_text",
+            ""
+          ],
+          "_raw": "click | set_field: user_text:"
+        },
+        {
+          "trigger": "click",
+          "action_id": "set_field",
+          "args": [
+            "user_country",
+            ""
+          ],
+          "_raw": "click | set_field: user_country:"
+        },
+        {
+          "trigger": "click",
+          "action_id": "set_field",
+          "args": [
+            "user_date",
+            ""
+          ],
+          "_raw": "click | set_field: user_date:"
+        },
+        {
+          "trigger": "click",
+          "action_id": "go_to",
+          "args": [
+            "fatoumata_page_1"
+          ],
+          "_raw": "click | go_to: fatoumata_page_1"
+        }
+      ],
+      "parameter_list": {
+        "button_align": "right",
+        "style": "flexible"
+      },
+      "name": "button_6",
+      "_nested_name": "button_6"
+    },
+    {
+      "type": "declare_field_default",
+      "action_list": [
+        {
+          "trigger": "data_changed",
+          "action_id": "set_field",
+          "args": [
+            "name_items_complete",
+            "@items.length === 0"
+          ],
+          "_raw": "data_changed | set_field : name_items_complete : @items.length === 0"
+        }
+      ],
+      "condition": false,
+      "name": "declare_field_default_7",
+      "_nested_name": "declare_field_default_7"
+    },
+    {
+      "type": "round_button",
+      "name": "audio_play",
+      "action_list": [
+        {
+          "trigger": "click",
+          "action_id": "audio_play",
+          "args": [
+            "audio/Enrolement/pompe_fr.mp3"
+          ],
+          "_raw": "click | audio_play:audio/Enrolement/pompe_fr.mp3"
+        }
+      ],
+      "parameter_list": {
+        "variant": "compact",
+        "icon_src": "images/icons/audio/Speaker_Icon.svg"
+      },
+      "exclude_from_translation": true,
+      "_nested_name": "audio_play"
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/training_sheets.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/1ZkkT4Kqe6qzxeo0ifM-K44M3xoDjImUATbYHmwAdvrs"
+  }
+}

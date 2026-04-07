@@ -1,0 +1,74 @@
+{
+  "flow_type": "template",
+  "flow_name": "enrolment_page1",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "name": "consentement",
+      "value": "**CONSENTEMENT**"
+    },
+    {
+      "type": "text",
+      "name": "note_consentement",
+      "value": "@global.note_consentement"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "Voudriez-vous participer ?"
+    },
+    {
+      "name": "answer_oui_non",
+      "value": "name: Oui | text: Oui;\nname: Non | text: Non;"
+    },
+    {
+      "type": "radio_list",
+      "name": "user_oui_non",
+      "action_list": "changed | set_field : user_oui_non: this.value;",
+      "parameter_list": "answer_list: @local.answer_oui_non;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "value": "Choisissez l'année de la campagne:"
+    },
+    {
+      "name": "year_min",
+      "value": "2023-01-01"
+    },
+    {
+      "name": "year_max",
+      "value": "@calc(now())"
+    },
+    {
+      "type": "date_time_picker",
+      "name": "year_campaign",
+      "parameter_list": "type: year;\nmin: @local.year_min;\nmax: @local.year_max;"
+    },
+    {
+      "type": "text"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "dg_footer",
+      "value": " ",
+      "parameter_list": "sticky: bottom;",
+      "style_list": "padding: 12px 24px;"
+    },
+    {
+      "type": "button",
+      "name": "button_continue_1",
+      "value": "Continuer",
+      "action_list": "click | set_field: consentement_response: @field.user_oui_non;\nclick | set_field: year_campaign: @field.year_campaign;\n\nclick | emit: completed;",
+      "parameter_list": "button_align: right;\ndisabled: @field.user_oui_non =='Non' || !@field.user_oui_non || !@local.year_campaign ;"
+    },
+    {
+      "type": "end_display_group"
+    }
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "flow_type": "template",
+  "flow_name": "enrolment_page17",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "name": "page_title",
+      "value": "APRECIATIONS ET OBSERVATIONS SUR LE FORMULAIRE",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "page_title"
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "image",
+          "value": "images/vocal.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "name": "image_1",
+          "_nested_name": "display_group_3.image_1"
+        },
+        {
+          "type": "text",
+          "name": "observation_appreciation_label",
+          "value": "Partagez vos appréciations, observations, ou suggestions d'amélioration sur le formulaire par audio",
+          "_translations": {
+            "value": {}
+          },
+          "_nested_name": "display_group_3.observation_appreciation_label"
+        },
+        {
+          "type": "audio",
+          "name": "audio_17_1",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Enrolement/appreciation_audio_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "display_group_3.audio_17_1"
+        }
+      ],
+      "name": "display_group_3",
+      "_nested_name": "display_group_3"
+    },
+    {
+      "type": "text",
+      "name": "observation_appreciation_hint",
+      "value": "*Il s'agit de partager à travers un enregistrement vocal toute appréciation (positive/négative) ou observation sur les éléments de ce formulaire, et aussi des suggestions d'amélioration.",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "font-size:14px"
+      ],
+      "_nested_name": "observation_appreciation_hint"
+    },
+    {
+      "type": "text",
+      "name": "observation_appreciation",
+      "value": "We would need a recorder here in order to transmit observations or feedback regarding the form.",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "observation_appreciation"
+    },
+    {
+      "type": "display_group",
+      "name": "dg_footer",
+      "value": "",
+      "parameter_list": {
+        "sticky": "bottom"
+      },
+      "style_list": [
+        "padding: 12px 24px"
+      ],
+      "rows": [
+        {
+          "type": "round_button",
+          "name": "page_17_button_back",
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "uncompleted"
+              ],
+              "_raw": "click | emit: uncompleted"
+            }
+          ],
+          "parameter_list": {
+            "icon_src": "arrow-back",
+            "variant": "no-background"
+          },
+          "_nested_name": "dg_footer.page_17_button_back"
+        },
+        {
+          "type": "button",
+          "name": "page_17_button_continue",
+          "value": "@global.btn_continue",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "completed"
+              ],
+              "_raw": "click | emit: completed"
+            }
+          ],
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "dg_footer.page_17_button_continue",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.btn_continue",
+                "matchedExpression": "@global.btn_continue",
+                "type": "global",
+                "fieldName": "btn_continue"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.btn_continue": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "dg_footer"
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/Enrolment_form_sheets.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/1mR9iAG_wjGK0G39YVxIlwlGFILSbgZvCqESHTMNXNgA"
+  }
+}

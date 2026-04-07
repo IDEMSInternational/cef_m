@@ -1,0 +1,324 @@
+{
+  "flow_type": "template",
+  "flow_name": "enrolment_page13",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "value": "AUTRE BETAIL DE L'UPA"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "Nombre d'ânes*",
+      "parameter_list": "style: contextual;",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "image",
+      "value": "images/ane.jpg",
+      "style_list": "width: 150px; height: 150px; object-fit: cover;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_anes",
+      "value": "@field.nombre_anes",
+      "parameter_list": "number_input: true;\nplaceholder: Entrez le nombre;",
+      "condition": "!!@field.nombre_anes",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_anes",
+      "parameter_list": "number_input: true;\nplaceholder: Entrez le nombre;",
+      "condition": "!@field.nombre_anes",
+      "exclude_from_translation": true
+    },
+    {
+      "name": "valid_nombre_anes",
+      "value": "@calc((/^\\d+$/.test(@local.nombre_anes) && @local.nombre_anes>= 0 ) || @local.nombre_anes == '' || !@local.nombre_anes)",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "audio",
+      "name": "ane",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/ane_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "align-self: flex-end;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "value": "S'il vous plaît, saisissez un nombre valide !",
+      "condition": "!@local.valid_nombre_anes",
+      "exclude_from_translation": true,
+      "style_list": "color: #FF0000;\nfont-size: 14px"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "Nombre de chevaux*",
+      "parameter_list": "style: contextual;",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "image",
+      "value": "images/cheval.jpg",
+      "style_list": "width: 150px; height: 150px; object-fit: cover;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_chevaux",
+      "value": "@field.nombre_chevaux",
+      "parameter_list": "number_input: true;\nplaceholder: Entrez le nombre;",
+      "condition": "!!@field.nombre_chevaux",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_chevaux",
+      "parameter_list": "number_input: true;\nplaceholder: Entrez le nombre;",
+      "condition": "!@field.nombre_chevaux",
+      "exclude_from_translation": true
+    },
+    {
+      "name": "valid_nombre_chevaux",
+      "value": "@calc((/^\\d+$/.test(@local.nombre_chevaux) && @local.nombre_chevaux>= 0 ) || @local.nombre_chevaux == '' || !@local.nombre_chevaux)",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "audio",
+      "name": "cheveau",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/chevo_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "align-self: flex-end;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "value": "S'il vous plaît, saisissez un nombre valide !",
+      "condition": "!@local.valid_nombre_chevaux",
+      "exclude_from_translation": true,
+      "style_list": "color: #FF0000;\nfont-size: 14px"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "Nombre de moutons*",
+      "parameter_list": "style: contextual;",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "image",
+      "value": "images/mouton.jpg",
+      "style_list": "width: 150px; height: 150px; object-fit: cover;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_moutons",
+      "value": "@field.nombre_moutons",
+      "parameter_list": "number_input: true;\nplaceholder: Entrez le nombre;",
+      "condition": "!!@field.nombre_moutons",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_moutons",
+      "parameter_list": "number_input: true;\nplaceholder: Entrez le nombre;",
+      "condition": "!@field.nombre_moutons",
+      "exclude_from_translation": true
+    },
+    {
+      "name": "valid_nombre_moutons",
+      "value": "@calc((/^\\d+$/.test(@local.nombre_moutons) && @local.nombre_moutons>= 0 ) || @local.nombre_moutons == '' || !@local.nombre_moutons)",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "audio",
+      "name": "mouton",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/mout_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "align-self: flex-end;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "value": "S'il vous plaît, saisissez un nombre valide !",
+      "condition": "!@local.valid_nombre_moutons",
+      "exclude_from_translation": true,
+      "style_list": "color: #FF0000;\nfont-size: 14px"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "Nombre de chèvres*",
+      "parameter_list": "style: contextual;",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "image",
+      "value": "images/chevre.jpg",
+      "style_list": "width: 150px; height: 150px; object-fit: cover;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_chevres",
+      "value": "@field.nombre_chevres",
+      "parameter_list": "number_input: true;\nplaceholder: Entrez le nombre;",
+      "condition": "!!@field.nombre_chevres",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_chevres",
+      "parameter_list": "number_input: true;\nplaceholder: Entrez le nombre;",
+      "condition": "!@field.nombre_chevres",
+      "exclude_from_translation": true
+    },
+    {
+      "name": "valid_nombre_chevres",
+      "value": "@calc((/^\\d+$/.test(@local.nombre_chevres) && @local.nombre_chevres>= 0 ) || @local.nombre_chevres == '' || !@local.nombre_chevres)",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "audio",
+      "name": "chevre",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/chevre_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "align-self: flex-end;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "value": "S'il vous plaît, saisissez un nombre valide !",
+      "condition": "!@local.valid_nombre_chevres",
+      "exclude_from_translation": true,
+      "style_list": "color: #FF0000;\nfont-size: 14px"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "Nombre de porcs*",
+      "parameter_list": "style: contextual;",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "image",
+      "value": "images/porc.jpg",
+      "style_list": "width: 150px; height: 150px; object-fit: cover;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_porcs",
+      "value": "@field.nombre_genisses",
+      "parameter_list": "number_input: true;\nplaceholder: Entrez le nombre;",
+      "condition": "!!@field.nombre_porcs",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_porcs",
+      "parameter_list": "number_input: true;\nplaceholder: Entrez le nombre;",
+      "condition": "!@field.nombre_porcs",
+      "exclude_from_translation": true
+    },
+    {
+      "name": "valid_nombre_porcs",
+      "value": "@calc((/^\\d+$/.test(@local.nombre_porcs) && @local.nombre_porcs>= 0) || @local.nombre_porcs == '' || !@local.nombre_porcs)",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "audio",
+      "name": "porc",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/porc_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "align-self: flex-end;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "value": "S'il vous plaît, saisissez un nombre valide !",
+      "condition": "!@local.valid_nombre_porcs",
+      "exclude_from_translation": true,
+      "style_list": "color: #FF0000;\nfont-size: 14px"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "dg_footer",
+      "parameter_list": "sticky: bottom;",
+      "style_list": "padding: 12px 24px;"
+    },
+    {
+      "type": "round_button",
+      "name": "button_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+    },
+    {
+      "name": "completed_enabled",
+      "value": "!!@local.nombre_anes && !!@local.nombre_chevaux && !!@local.nombre_moutons  && !!@local.nombre_chevres && !!@local.nombre_porcs",
+      "style_list": true
+    },
+    {
+      "type": "button",
+      "name": "button_continue_13",
+      "value": "Continuer",
+      "action_list": "click | set_field: nombre_anes: @local.nombre_anes;\nclick | set_field: nombre_chevaux: @local.nombre_chevaux;\nclick | set_field: nombre_moutons: @local.nombre_moutons;\nclick | set_field: nombre_chevres: @local.nombre_chevres;\nclick | set_field: nombre_porcs: @local.nombre_porcs;\n\nclick | emit: completed;",
+      "parameter_list": "disabled: !@local.completed_enabled;",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "end_display_group"
+    }
+  ]
+}

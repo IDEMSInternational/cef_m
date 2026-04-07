@@ -1,0 +1,1477 @@
+{
+  "flow_type": "template",
+  "flow_name": "enrolment_page10",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "value": "EQUIPEMENT DE L'UPA",
+      "_translations": {
+        "value": {}
+      },
+      "name": "title_2",
+      "_nested_name": "title_2"
+    },
+    {
+      "type": "text",
+      "value": "Saisissez le nombre pour chaque équipement",
+      "_translations": {
+        "value": {}
+      },
+      "name": "text_3",
+      "_nested_name": "text_3"
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "text",
+          "value": "1. Nombre de charrues de l'UPA",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_1",
+          "_nested_name": "display_group_4.text_1"
+        },
+        {
+          "type": "audio",
+          "name": "audio_10_1",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Enrolement/charrue_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "exclude_from_translation": true,
+          "style_list": [
+            "align-self: flex-end"
+          ],
+          "_nested_name": "display_group_4.audio_10_1"
+        },
+        {
+          "type": "image",
+          "value": "images/charrue.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "name": "image_3",
+          "_nested_name": "display_group_4.image_3"
+        }
+      ],
+      "name": "display_group_4",
+      "_nested_name": "display_group_4"
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_charrues",
+      "value": "@field.nombre_charrues",
+      "_translations": {
+        "value": {}
+      },
+      "parameter_list": {
+        "number_input": "true",
+        "placeholder": "Nombre de charrues"
+      },
+      "condition": "!!@field.nombre_charrues",
+      "exclude_from_translation": true,
+      "_nested_name": "nombre_charrues",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@field.nombre_charrues",
+            "matchedExpression": "@field.nombre_charrues",
+            "type": "field",
+            "fieldName": "nombre_charrues"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!!@field.nombre_charrues",
+            "matchedExpression": "!@field.nombre_charrues",
+            "type": "field",
+            "fieldName": "nombre_charrues"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.nombre_charrues": [
+          "value"
+        ],
+        "!@field.nombre_charrues": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_charrues",
+      "parameter_list": {
+        "number_input": "true",
+        "placeholder": "Nombre de charrues"
+      },
+      "condition": "!@field.nombre_charrues",
+      "exclude_from_translation": true,
+      "_nested_name": "nombre_charrues",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "!@field.nombre_charrues",
+            "matchedExpression": "!@field.nombre_charrues",
+            "type": "field",
+            "fieldName": "nombre_charrues"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@field.nombre_charrues": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "v_charrue",
+      "value": "@calc(/^\\d+$/.test(@local.nombre_charrues) && Number(@local.nombre_charrues) >= 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_charrue",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(/^\\d+$/.test(@local.nombre_charrues) && Number(@local.nombre_charrues) >= 0)",
+            "matchedExpression": "@local.nombre_charrues",
+            "type": "local",
+            "fieldName": "nombre_charrues"
+          },
+          {
+            "fullExpression": "@calc(/^\\d+$/.test(@local.nombre_charrues) && Number(@local.nombre_charrues) >= 0)",
+            "matchedExpression": "@local.nombre_charrues",
+            "type": "local",
+            "fieldName": "nombre_charrues"
+          },
+          {
+            "fullExpression": "@calc(/^\\d+$/.test(@local.nombre_charrues) && Number(@local.nombre_charrues) >= 0)",
+            "matchedExpression": "@calc(/^\\d+$/.test(@local.nombre_charrues) && Number(@local.nombre_charrues) >= 0)",
+            "type": "calc",
+            "fieldName": "/^\\d+$/.test(@local.nombre_charrues) && Number(@local.nombre_charrues) >= 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.nombre_charrues": [
+          "value",
+          "value"
+        ],
+        "@calc(/^\\d+$/.test(@local.nombre_charrues) && Number(@local.nombre_charrues) >= 0)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "Veuillez saisir un nombre valide (0 ou plus)",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@local.v_charrue",
+      "style_list": [
+        "color: red",
+        "font-size: 12px"
+      ],
+      "name": "text_9",
+      "_nested_name": "text_9",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "!@local.v_charrue",
+            "matchedExpression": "!@local.v_charrue",
+            "type": "local",
+            "fieldName": "v_charrue"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@local.v_charrue": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "text",
+          "value": "2. Nombre de multiculteurs de l'UPA*",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_1",
+          "_nested_name": "display_group_10.text_1"
+        },
+        {
+          "type": "audio",
+          "name": "audio_10_2",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Enrolement/multicul_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "exclude_from_translation": true,
+          "style_list": [
+            "align-self: flex-end"
+          ],
+          "_nested_name": "display_group_10.audio_10_2"
+        },
+        {
+          "type": "image",
+          "value": "images/multiculteur.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "name": "image_3",
+          "_nested_name": "display_group_10.image_3"
+        }
+      ],
+      "name": "display_group_10",
+      "_nested_name": "display_group_10"
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_multiculteurs",
+      "value": "@field.nombre_multiculteurs",
+      "_translations": {
+        "value": {}
+      },
+      "parameter_list": {
+        "number_input": "true",
+        "placeholder": "Nombre de multiculteurs"
+      },
+      "condition": "!!@field.nombre_multiculteurs",
+      "exclude_from_translation": true,
+      "_nested_name": "nombre_multiculteurs",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@field.nombre_multiculteurs",
+            "matchedExpression": "@field.nombre_multiculteurs",
+            "type": "field",
+            "fieldName": "nombre_multiculteurs"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!!@field.nombre_multiculteurs",
+            "matchedExpression": "!@field.nombre_multiculteurs",
+            "type": "field",
+            "fieldName": "nombre_multiculteurs"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.nombre_multiculteurs": [
+          "value"
+        ],
+        "!@field.nombre_multiculteurs": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_multiculteurs",
+      "parameter_list": {
+        "number_input": "true",
+        "placeholder": "Nombre de multiculteurs"
+      },
+      "condition": "!@field.nombre_multiculteurs",
+      "exclude_from_translation": true,
+      "_nested_name": "nombre_multiculteurs",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "!@field.nombre_multiculteurs",
+            "matchedExpression": "!@field.nombre_multiculteurs",
+            "type": "field",
+            "fieldName": "nombre_multiculteurs"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@field.nombre_multiculteurs": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "v_multi",
+      "value": "@calc(/^\\d+$/.test(@local.nombre_multiculteurs) && Number(@local.nombre_multiculteurs) >= 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_multi",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(/^\\d+$/.test(@local.nombre_multiculteurs) && Number(@local.nombre_multiculteurs) >= 0)",
+            "matchedExpression": "@local.nombre_multiculteurs",
+            "type": "local",
+            "fieldName": "nombre_multiculteurs"
+          },
+          {
+            "fullExpression": "@calc(/^\\d+$/.test(@local.nombre_multiculteurs) && Number(@local.nombre_multiculteurs) >= 0)",
+            "matchedExpression": "@local.nombre_multiculteurs",
+            "type": "local",
+            "fieldName": "nombre_multiculteurs"
+          },
+          {
+            "fullExpression": "@calc(/^\\d+$/.test(@local.nombre_multiculteurs) && Number(@local.nombre_multiculteurs) >= 0)",
+            "matchedExpression": "@calc(/^\\d+$/.test(@local.nombre_multiculteurs) && Number(@local.nombre_multiculteurs) >= 0)",
+            "type": "calc",
+            "fieldName": "/^\\d+$/.test(@local.nombre_multiculteurs) && Number(@local.nombre_multiculteurs) >= 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.nombre_multiculteurs": [
+          "value",
+          "value"
+        ],
+        "@calc(/^\\d+$/.test(@local.nombre_multiculteurs) && Number(@local.nombre_multiculteurs) >= 0)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "Veuillez saisir un nombre valide (0 ou plus)",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@local.v_multi",
+      "style_list": [
+        "color: red",
+        "font-size: 12px"
+      ],
+      "name": "text_15",
+      "_nested_name": "text_15",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "!@local.v_multi",
+            "matchedExpression": "!@local.v_multi",
+            "type": "local",
+            "fieldName": "v_multi"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@local.v_multi": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "text",
+          "value": "3. Nombre de charrettes de l'UPA*",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_1",
+          "_nested_name": "display_group_16.text_1"
+        },
+        {
+          "type": "audio",
+          "name": "audio_10_3",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Enrolement/charret_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "exclude_from_translation": true,
+          "style_list": [
+            "align-self: flex-end"
+          ],
+          "_nested_name": "display_group_16.audio_10_3"
+        },
+        {
+          "type": "image",
+          "value": "images/charrette.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "name": "image_3",
+          "_nested_name": "display_group_16.image_3"
+        }
+      ],
+      "name": "display_group_16",
+      "_nested_name": "display_group_16"
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_charrettes",
+      "value": "@field.nombre_charrettes",
+      "_translations": {
+        "value": {}
+      },
+      "parameter_list": {
+        "number_input": "true",
+        "placeholder": "Nombre de charrettes"
+      },
+      "condition": "!!@field.nombre_charrettes",
+      "exclude_from_translation": true,
+      "_nested_name": "nombre_charrettes",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@field.nombre_charrettes",
+            "matchedExpression": "@field.nombre_charrettes",
+            "type": "field",
+            "fieldName": "nombre_charrettes"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!!@field.nombre_charrettes",
+            "matchedExpression": "!@field.nombre_charrettes",
+            "type": "field",
+            "fieldName": "nombre_charrettes"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.nombre_charrettes": [
+          "value"
+        ],
+        "!@field.nombre_charrettes": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_charrettes",
+      "parameter_list": {
+        "number_input": "true",
+        "placeholder": "Nombre de charrettes"
+      },
+      "condition": "!@field.nombre_charrettes",
+      "exclude_from_translation": true,
+      "_nested_name": "nombre_charrettes",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "!@field.nombre_charrettes",
+            "matchedExpression": "!@field.nombre_charrettes",
+            "type": "field",
+            "fieldName": "nombre_charrettes"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@field.nombre_charrettes": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "v_charrette",
+      "value": "@calc(/^\\d+$/.test(@local.nombre_charrettes) && Number(@local.nombre_charrettes) >= 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_charrette",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(/^\\d+$/.test(@local.nombre_charrettes) && Number(@local.nombre_charrettes) >= 0)",
+            "matchedExpression": "@local.nombre_charrettes",
+            "type": "local",
+            "fieldName": "nombre_charrettes"
+          },
+          {
+            "fullExpression": "@calc(/^\\d+$/.test(@local.nombre_charrettes) && Number(@local.nombre_charrettes) >= 0)",
+            "matchedExpression": "@local.nombre_charrettes",
+            "type": "local",
+            "fieldName": "nombre_charrettes"
+          },
+          {
+            "fullExpression": "@calc(/^\\d+$/.test(@local.nombre_charrettes) && Number(@local.nombre_charrettes) >= 0)",
+            "matchedExpression": "@calc(/^\\d+$/.test(@local.nombre_charrettes) && Number(@local.nombre_charrettes) >= 0)",
+            "type": "calc",
+            "fieldName": "/^\\d+$/.test(@local.nombre_charrettes) && Number(@local.nombre_charrettes) >= 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.nombre_charrettes": [
+          "value",
+          "value"
+        ],
+        "@calc(/^\\d+$/.test(@local.nombre_charrettes) && Number(@local.nombre_charrettes) >= 0)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "Veuillez saisir un nombre valide (0 ou plus)",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@local.v_charrette",
+      "style_list": [
+        "color: red",
+        "font-size: 12px"
+      ],
+      "name": "text_21",
+      "_nested_name": "text_21",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "!@local.v_charrette",
+            "matchedExpression": "!@local.v_charrette",
+            "type": "local",
+            "fieldName": "v_charrette"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@local.v_charrette": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "text",
+          "value": "4. Nombre de tracteurs de l'UPA*",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_1",
+          "_nested_name": "display_group_22.text_1"
+        },
+        {
+          "type": "audio",
+          "name": "audio_10_4",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Enrolement/tracteur_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "exclude_from_translation": true,
+          "style_list": [
+            "align-self: flex-end"
+          ],
+          "_nested_name": "display_group_22.audio_10_4"
+        },
+        {
+          "type": "image",
+          "value": "images/tractor.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "name": "image_3",
+          "_nested_name": "display_group_22.image_3"
+        }
+      ],
+      "name": "display_group_22",
+      "_nested_name": "display_group_22"
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_tracteur",
+      "value": "@field.nombre_tracteur",
+      "_translations": {
+        "value": {}
+      },
+      "parameter_list": {
+        "number_input": "true",
+        "placeholder": "Nombre de tracteurs"
+      },
+      "condition": "!!@field.nombre_tracteur",
+      "exclude_from_translation": true,
+      "_nested_name": "nombre_tracteur",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@field.nombre_tracteur",
+            "matchedExpression": "@field.nombre_tracteur",
+            "type": "field",
+            "fieldName": "nombre_tracteur"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!!@field.nombre_tracteur",
+            "matchedExpression": "!@field.nombre_tracteur",
+            "type": "field",
+            "fieldName": "nombre_tracteur"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.nombre_tracteur": [
+          "value"
+        ],
+        "!@field.nombre_tracteur": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_tracteur",
+      "parameter_list": {
+        "number_input": "true",
+        "placeholder": "Nombre de tracteurs"
+      },
+      "condition": "!@field.nombre_tracteur",
+      "exclude_from_translation": true,
+      "_nested_name": "nombre_tracteur",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "!@field.nombre_tracteur",
+            "matchedExpression": "!@field.nombre_tracteur",
+            "type": "field",
+            "fieldName": "nombre_tracteur"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@field.nombre_tracteur": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "v_tract",
+      "value": "@calc(/^\\d+$/.test(@local.nombre_tracteur) && Number(@local.nombre_tracteur) >= 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_tract",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(/^\\d+$/.test(@local.nombre_tracteur) && Number(@local.nombre_tracteur) >= 0)",
+            "matchedExpression": "@local.nombre_tracteur",
+            "type": "local",
+            "fieldName": "nombre_tracteur"
+          },
+          {
+            "fullExpression": "@calc(/^\\d+$/.test(@local.nombre_tracteur) && Number(@local.nombre_tracteur) >= 0)",
+            "matchedExpression": "@local.nombre_tracteur",
+            "type": "local",
+            "fieldName": "nombre_tracteur"
+          },
+          {
+            "fullExpression": "@calc(/^\\d+$/.test(@local.nombre_tracteur) && Number(@local.nombre_tracteur) >= 0)",
+            "matchedExpression": "@calc(/^\\d+$/.test(@local.nombre_tracteur) && Number(@local.nombre_tracteur) >= 0)",
+            "type": "calc",
+            "fieldName": "/^\\d+$/.test(@local.nombre_tracteur) && Number(@local.nombre_tracteur) >= 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.nombre_tracteur": [
+          "value",
+          "value"
+        ],
+        "@calc(/^\\d+$/.test(@local.nombre_tracteur) && Number(@local.nombre_tracteur) >= 0)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "Veuillez saisir un nombre valide (0 ou plus)",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@local.v_tract",
+      "style_list": [
+        "color: red",
+        "font-size: 12px"
+      ],
+      "name": "text_27",
+      "_nested_name": "text_27",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "!@local.v_tract",
+            "matchedExpression": "!@local.v_tract",
+            "type": "local",
+            "fieldName": "v_tract"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@local.v_tract": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "text",
+          "value": "5. Nombre de semoirs de l'UPA*",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_1",
+          "_nested_name": "display_group_28.text_1"
+        },
+        {
+          "type": "audio",
+          "name": "audio_10_5",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Enrolement/semoir_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "exclude_from_translation": true,
+          "style_list": [
+            "align-self: flex-end"
+          ],
+          "_nested_name": "display_group_28.audio_10_5"
+        },
+        {
+          "type": "image",
+          "value": "images/semoir.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "name": "image_3",
+          "_nested_name": "display_group_28.image_3"
+        }
+      ],
+      "name": "display_group_28",
+      "_nested_name": "display_group_28"
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_semoir",
+      "value": "@field.nombre_semoir",
+      "_translations": {
+        "value": {}
+      },
+      "parameter_list": {
+        "number_input": "true",
+        "placeholder": "Nombre de semoirs"
+      },
+      "condition": "!!@field.nombre_semoir",
+      "exclude_from_translation": true,
+      "_nested_name": "nombre_semoir",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@field.nombre_semoir",
+            "matchedExpression": "@field.nombre_semoir",
+            "type": "field",
+            "fieldName": "nombre_semoir"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!!@field.nombre_semoir",
+            "matchedExpression": "!@field.nombre_semoir",
+            "type": "field",
+            "fieldName": "nombre_semoir"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.nombre_semoir": [
+          "value"
+        ],
+        "!@field.nombre_semoir": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_semoir",
+      "parameter_list": {
+        "number_input": "true",
+        "placeholder": "Nombre de semoirs"
+      },
+      "condition": "!@field.nombre_semoir",
+      "exclude_from_translation": true,
+      "_nested_name": "nombre_semoir",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "!@field.nombre_semoir",
+            "matchedExpression": "!@field.nombre_semoir",
+            "type": "field",
+            "fieldName": "nombre_semoir"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@field.nombre_semoir": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "v_semoir",
+      "value": "@calc(/^\\d+$/.test(@local.nombre_semoir) && Number(@local.nombre_semoir) >= 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_semoir",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(/^\\d+$/.test(@local.nombre_semoir) && Number(@local.nombre_semoir) >= 0)",
+            "matchedExpression": "@local.nombre_semoir",
+            "type": "local",
+            "fieldName": "nombre_semoir"
+          },
+          {
+            "fullExpression": "@calc(/^\\d+$/.test(@local.nombre_semoir) && Number(@local.nombre_semoir) >= 0)",
+            "matchedExpression": "@local.nombre_semoir",
+            "type": "local",
+            "fieldName": "nombre_semoir"
+          },
+          {
+            "fullExpression": "@calc(/^\\d+$/.test(@local.nombre_semoir) && Number(@local.nombre_semoir) >= 0)",
+            "matchedExpression": "@calc(/^\\d+$/.test(@local.nombre_semoir) && Number(@local.nombre_semoir) >= 0)",
+            "type": "calc",
+            "fieldName": "/^\\d+$/.test(@local.nombre_semoir) && Number(@local.nombre_semoir) >= 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.nombre_semoir": [
+          "value",
+          "value"
+        ],
+        "@calc(/^\\d+$/.test(@local.nombre_semoir) && Number(@local.nombre_semoir) >= 0)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "Veuillez saisir un nombre valide (0 ou plus)",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@local.v_semoir",
+      "style_list": [
+        "color: red",
+        "font-size: 12px"
+      ],
+      "name": "text_33",
+      "_nested_name": "text_33",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "!@local.v_semoir",
+            "matchedExpression": "!@local.v_semoir",
+            "type": "local",
+            "fieldName": "v_semoir"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@local.v_semoir": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "text",
+          "value": "6. Nombre de motoculteurs de l'UPA*",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_1",
+          "_nested_name": "display_group_34.text_1"
+        },
+        {
+          "type": "audio",
+          "name": "audio_10_6",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Enrolement/motocult_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "exclude_from_translation": true,
+          "style_list": [
+            "align-self: flex-end"
+          ],
+          "_nested_name": "display_group_34.audio_10_6"
+        },
+        {
+          "type": "image",
+          "value": "images/motoculture.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "name": "image_3",
+          "_nested_name": "display_group_34.image_3"
+        }
+      ],
+      "name": "display_group_34",
+      "_nested_name": "display_group_34"
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_motoculteurs",
+      "value": "@field.nombre_motoculteurs",
+      "_translations": {
+        "value": {}
+      },
+      "parameter_list": {
+        "number_input": "true",
+        "placeholder": "Nombre de motoculteurs"
+      },
+      "condition": "!!@field.nombre_motoculteurs",
+      "exclude_from_translation": true,
+      "_nested_name": "nombre_motoculteurs",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@field.nombre_motoculteurs",
+            "matchedExpression": "@field.nombre_motoculteurs",
+            "type": "field",
+            "fieldName": "nombre_motoculteurs"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!!@field.nombre_motoculteurs",
+            "matchedExpression": "!@field.nombre_motoculteurs",
+            "type": "field",
+            "fieldName": "nombre_motoculteurs"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.nombre_motoculteurs": [
+          "value"
+        ],
+        "!@field.nombre_motoculteurs": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_motoculteurs",
+      "parameter_list": {
+        "number_input": "true",
+        "placeholder": "Nombre de motoculteurs"
+      },
+      "condition": "!@field.nombre_motoculteurs",
+      "exclude_from_translation": true,
+      "_nested_name": "nombre_motoculteurs",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "!@field.nombre_motoculteurs",
+            "matchedExpression": "!@field.nombre_motoculteurs",
+            "type": "field",
+            "fieldName": "nombre_motoculteurs"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@field.nombre_motoculteurs": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "v_moto",
+      "value": "@calc(/^\\d+$/.test(@local.nombre_motoculteurs) && Number(@local.nombre_motoculteurs) >= 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_moto",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(/^\\d+$/.test(@local.nombre_motoculteurs) && Number(@local.nombre_motoculteurs) >= 0)",
+            "matchedExpression": "@local.nombre_motoculteurs",
+            "type": "local",
+            "fieldName": "nombre_motoculteurs"
+          },
+          {
+            "fullExpression": "@calc(/^\\d+$/.test(@local.nombre_motoculteurs) && Number(@local.nombre_motoculteurs) >= 0)",
+            "matchedExpression": "@local.nombre_motoculteurs",
+            "type": "local",
+            "fieldName": "nombre_motoculteurs"
+          },
+          {
+            "fullExpression": "@calc(/^\\d+$/.test(@local.nombre_motoculteurs) && Number(@local.nombre_motoculteurs) >= 0)",
+            "matchedExpression": "@calc(/^\\d+$/.test(@local.nombre_motoculteurs) && Number(@local.nombre_motoculteurs) >= 0)",
+            "type": "calc",
+            "fieldName": "/^\\d+$/.test(@local.nombre_motoculteurs) && Number(@local.nombre_motoculteurs) >= 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.nombre_motoculteurs": [
+          "value",
+          "value"
+        ],
+        "@calc(/^\\d+$/.test(@local.nombre_motoculteurs) && Number(@local.nombre_motoculteurs) >= 0)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "Veuillez saisir un nombre valide (0 ou plus)",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@local.v_moto",
+      "style_list": [
+        "color: red",
+        "font-size: 12px"
+      ],
+      "name": "text_39",
+      "_nested_name": "text_39",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "!@local.v_moto",
+            "matchedExpression": "!@local.v_moto",
+            "type": "local",
+            "fieldName": "v_moto"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@local.v_moto": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "v_valid_page",
+      "value": "@calc(@local.v_charrue && @local.v_multi && @local.v_charrette && @local.v_tract && @local.v_semoir && @local.v_moto)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_valid_page",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(@local.v_charrue && @local.v_multi && @local.v_charrette && @local.v_tract && @local.v_semoir && @local.v_moto)",
+            "matchedExpression": "@local.v_charrue",
+            "type": "local",
+            "fieldName": "v_charrue"
+          },
+          {
+            "fullExpression": "@calc(@local.v_charrue && @local.v_multi && @local.v_charrette && @local.v_tract && @local.v_semoir && @local.v_moto)",
+            "matchedExpression": "@local.v_multi",
+            "type": "local",
+            "fieldName": "v_multi"
+          },
+          {
+            "fullExpression": "@calc(@local.v_charrue && @local.v_multi && @local.v_charrette && @local.v_tract && @local.v_semoir && @local.v_moto)",
+            "matchedExpression": "@local.v_charrette",
+            "type": "local",
+            "fieldName": "v_charrette"
+          },
+          {
+            "fullExpression": "@calc(@local.v_charrue && @local.v_multi && @local.v_charrette && @local.v_tract && @local.v_semoir && @local.v_moto)",
+            "matchedExpression": "@local.v_tract",
+            "type": "local",
+            "fieldName": "v_tract"
+          },
+          {
+            "fullExpression": "@calc(@local.v_charrue && @local.v_multi && @local.v_charrette && @local.v_tract && @local.v_semoir && @local.v_moto)",
+            "matchedExpression": "@local.v_semoir",
+            "type": "local",
+            "fieldName": "v_semoir"
+          },
+          {
+            "fullExpression": "@calc(@local.v_charrue && @local.v_multi && @local.v_charrette && @local.v_tract && @local.v_semoir && @local.v_moto)",
+            "matchedExpression": "@local.v_moto",
+            "type": "local",
+            "fieldName": "v_moto"
+          },
+          {
+            "fullExpression": "@calc(@local.v_charrue && @local.v_multi && @local.v_charrette && @local.v_tract && @local.v_semoir && @local.v_moto)",
+            "matchedExpression": "@calc(@local.v_charrue && @local.v_multi && @local.v_charrette && @local.v_tract && @local.v_semoir && @local.v_moto)",
+            "type": "calc",
+            "fieldName": "@local.v_charrue && @local.v_multi && @local.v_charrette && @local.v_tract && @local.v_semoir && @local.v_moto"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.v_charrue": [
+          "value"
+        ],
+        "@local.v_multi": [
+          "value"
+        ],
+        "@local.v_charrette": [
+          "value"
+        ],
+        "@local.v_tract": [
+          "value"
+        ],
+        "@local.v_semoir": [
+          "value"
+        ],
+        "@local.v_moto": [
+          "value"
+        ],
+        "@calc(@local.v_charrue && @local.v_multi && @local.v_charrette && @local.v_tract && @local.v_semoir && @local.v_moto)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "completed_enabled",
+      "value": "@calc(!!@local.v_valid_page)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "completed_enabled",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(!!@local.v_valid_page)",
+            "matchedExpression": "!@local.v_valid_page",
+            "type": "local",
+            "fieldName": "v_valid_page"
+          },
+          {
+            "fullExpression": "@calc(!!@local.v_valid_page)",
+            "matchedExpression": "@calc(!!@local.v_valid_page)",
+            "type": "calc",
+            "fieldName": "!!@local.v_valid_page"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@local.v_valid_page": [
+          "value"
+        ],
+        "@calc(!!@local.v_valid_page)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "dg_footer",
+      "parameter_list": {
+        "sticky": "bottom"
+      },
+      "style_list": [
+        "padding: 12px 24px"
+      ],
+      "rows": [
+        {
+          "type": "round_button",
+          "name": "button_back",
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "uncompleted"
+              ],
+              "_raw": "click | emit: uncompleted"
+            }
+          ],
+          "parameter_list": {
+            "icon_src": "arrow-back",
+            "variant": "no-background"
+          },
+          "_nested_name": "dg_footer.button_back"
+        },
+        {
+          "type": "button",
+          "name": "button_completed",
+          "value": "@global.btn_continue",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "nombre_charrues",
+                "@local.nombre_charrues"
+              ],
+              "_raw": "click | set_field: nombre_charrues: @local.nombre_charrues"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "nombre_multiculteurs",
+                "@local.nombre_multiculteurs"
+              ],
+              "_raw": "click | set_field: nombre_multiculteurs: @local.nombre_multiculteurs"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "nombre_charrettes",
+                "@local.nombre_charrettes"
+              ],
+              "_raw": "click | set_field: nombre_charrettes: @local.nombre_charrettes"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "nombre_tracteur",
+                "@local.nombre_tracteur"
+              ],
+              "_raw": "click | set_field: nombre_tracteur: @local.nombre_tracteur"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "nombre_semoir",
+                "@local.nombre_semoir"
+              ],
+              "_raw": "click | set_field: nombre_semoir: @local.nombre_semoir"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "nombre_motoculteurs",
+                "@local.nombre_motoculteurs"
+              ],
+              "_raw": "click | set_field: nombre_motoculteurs: @local.nombre_motoculteurs"
+            },
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "completed"
+              ],
+              "_raw": "click | emit: completed"
+            }
+          ],
+          "parameter_list": {
+            "style": "navigation",
+            "disabled": "!@local.completed_enabled"
+          },
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "dg_footer.button_completed",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.btn_continue",
+                "matchedExpression": "@global.btn_continue",
+                "type": "global",
+                "fieldName": "btn_continue"
+              }
+            ],
+            "action_list": {
+              "0": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@local.nombre_charrues",
+                      "matchedExpression": "@local.nombre_charrues",
+                      "type": "local",
+                      "fieldName": "nombre_charrues"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: nombre_charrues: @local.nombre_charrues",
+                    "matchedExpression": "@local.nombre_charrues",
+                    "type": "local",
+                    "fieldName": "nombre_charrues"
+                  }
+                ]
+              },
+              "1": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@local.nombre_multiculteurs",
+                      "matchedExpression": "@local.nombre_multiculteurs",
+                      "type": "local",
+                      "fieldName": "nombre_multiculteurs"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: nombre_multiculteurs: @local.nombre_multiculteurs",
+                    "matchedExpression": "@local.nombre_multiculteurs",
+                    "type": "local",
+                    "fieldName": "nombre_multiculteurs"
+                  }
+                ]
+              },
+              "2": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@local.nombre_charrettes",
+                      "matchedExpression": "@local.nombre_charrettes",
+                      "type": "local",
+                      "fieldName": "nombre_charrettes"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: nombre_charrettes: @local.nombre_charrettes",
+                    "matchedExpression": "@local.nombre_charrettes",
+                    "type": "local",
+                    "fieldName": "nombre_charrettes"
+                  }
+                ]
+              },
+              "3": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@local.nombre_tracteur",
+                      "matchedExpression": "@local.nombre_tracteur",
+                      "type": "local",
+                      "fieldName": "nombre_tracteur"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: nombre_tracteur: @local.nombre_tracteur",
+                    "matchedExpression": "@local.nombre_tracteur",
+                    "type": "local",
+                    "fieldName": "nombre_tracteur"
+                  }
+                ]
+              },
+              "4": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@local.nombre_semoir",
+                      "matchedExpression": "@local.nombre_semoir",
+                      "type": "local",
+                      "fieldName": "nombre_semoir"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: nombre_semoir: @local.nombre_semoir",
+                    "matchedExpression": "@local.nombre_semoir",
+                    "type": "local",
+                    "fieldName": "nombre_semoir"
+                  }
+                ]
+              },
+              "5": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@local.nombre_motoculteurs",
+                      "matchedExpression": "@local.nombre_motoculteurs",
+                      "type": "local",
+                      "fieldName": "nombre_motoculteurs"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: nombre_motoculteurs: @local.nombre_motoculteurs",
+                    "matchedExpression": "@local.nombre_motoculteurs",
+                    "type": "local",
+                    "fieldName": "nombre_motoculteurs"
+                  }
+                ]
+              }
+            },
+            "parameter_list": {
+              "disabled": [
+                {
+                  "fullExpression": "!@local.completed_enabled",
+                  "matchedExpression": "!@local.completed_enabled",
+                  "type": "local",
+                  "fieldName": "completed_enabled"
+                }
+              ]
+            }
+          },
+          "_dynamicDependencies": {
+            "@global.btn_continue": [
+              "value"
+            ],
+            "@local.nombre_charrues": [
+              "action_list.0.args.1",
+              "action_list.0._raw"
+            ],
+            "@local.nombre_multiculteurs": [
+              "action_list.1.args.1",
+              "action_list.1._raw"
+            ],
+            "@local.nombre_charrettes": [
+              "action_list.2.args.1",
+              "action_list.2._raw"
+            ],
+            "@local.nombre_tracteur": [
+              "action_list.3.args.1",
+              "action_list.3._raw"
+            ],
+            "@local.nombre_semoir": [
+              "action_list.4.args.1",
+              "action_list.4._raw"
+            ],
+            "@local.nombre_motoculteurs": [
+              "action_list.5.args.1",
+              "action_list.5._raw"
+            ],
+            "!@local.completed_enabled": [
+              "parameter_list.disabled"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "dg_footer"
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/Enrolment_form_sheets.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/1mR9iAG_wjGK0G39YVxIlwlGFILSbgZvCqESHTMNXNgA"
+  }
+}

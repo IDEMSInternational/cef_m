@@ -41,7 +41,7 @@
     {
       "type": "text",
       "name": "homework_1",
-      "value": "Homework :",
+      "value": "Homework 1 :",
       "style_list": "font-weight:bold;"
     },
     {
@@ -59,7 +59,7 @@
       "type": "button",
       "name": "button_add",
       "value": "Add new name",
-      "action_list": "click | add_data | \n\n_list_id: comp_combo_box_items,\nname: added_data_name,\ntext: @local.text_box_1",
+      "action_list": "click | add_data | \n\n_list_id: name_items,\nname: added_data_name,\ntext: @local.text_box_1",
       "style_list": "text-align:center;"
     },
     {
@@ -101,17 +101,34 @@
     {
       "type": "text",
       "name": "homework_2",
-      "value": "Homework :",
+      "value": "Homework 2 :",
       "style_list": "font-weight:bold;"
     },
     {
       "type": "text",
       "name": "text_2_1",
-      "value": "Add an image to each item, and when an item is selected, the image should appear below."
+      "value": "Document your learning of the Open App Builder component: what you have learned, the exercises and the solutions completed."
     },
     {
       "type": "text",
       "name": "text_2_2",
+      "value": "Document : https://docs.google.com/document/d/1I9A_HT37WlDZ5NovVxR6m2_958ptUD8EOOeNf6usqDQ/edit?tab=t.0",
+      "style_list": "font-size:10px; color:#F54927"
+    },
+    {
+      "type": "text",
+      "name": "homework_3",
+      "value": "Homework 3 :",
+      "style_list": "font-weight:bold;"
+    },
+    {
+      "type": "text",
+      "name": "text_3_1",
+      "value": "Add an image to each item, and when an item is selected, the image should appear below."
+    },
+    {
+      "type": "text",
+      "name": "text_3_2",
       "value": "Hint: Use @items.column_name to get values, and @item.name == \"name_3\" to show a line only if the condition is true (quotes are required).",
       "style_list": "font-size:10px; color:#F54927"
     },
@@ -126,6 +143,39 @@
     },
     {
       "type": "end_data_items"
+    },
+    {
+      "type": "text",
+      "name": "homework_4",
+      "value": "Homework 4 :",
+      "style_list": "font-weight:bold;"
+    },
+    {
+      "type": "text",
+      "name": "text_4_1",
+      "value": "Create an application with a simple two-page workflow.\nThe first page contains a questionnaire with a text field for the name, radio buttons for the country (Mali, Italy, Other), and a date picker. The entered data must be saved using a “Save” button.\n\nAfter saving, the app redirects to a second page displaying a list of saved names. Each name has an “Edit” button that returns to the form with pre-filled data so the user can modify it."
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "button",
+      "name": "button_mohamed_form",
+      "value": "Go to mohamed's homework 4 (Form)",
+      "action_list": "click | go_to: mohamed_form;",
+      "parameter_list": "variant: compact;",
+      "style_list": "font-size:12px;"
+    },
+    {
+      "type": "button",
+      "name": "button_mohamed_list",
+      "value": "Go to mohamed's homework 4 (List)",
+      "action_list": "click | go_to: mohamed_list;",
+      "parameter_list": "variant: compact;",
+      "style_list": "font-size:12px;"
+    },
+    {
+      "type": "end_display_group"
     }
   ]
 }
