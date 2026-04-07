@@ -1,0 +1,213 @@
+{
+  "flow_type": "template",
+  "flow_name": "enrolment_page15",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "name": "page_title",
+      "value": "TYPOLOGIE DE L'UPA"
+    },
+    {
+      "name": "TLU",
+      "value": "@calc(Number(@field.nombre_boeuf_labour) + Number(@field.nombre_chevaux) + 0.8 * (Number(@field.nombre_taureaux) + Number(@field.nombre_vaches_taries) + Number(@field.nombre_vaches_laitieres) + Number(@field.nombre_genisses) + Number(@field.nombre_veaux)) + 0.6 * Number(@field.nombre_anes) + 0.2 * (Number(@field.nombre_moutons) + Number(@field.nombre_chevres) + Number(@field.nombre_porcs)))"
+    },
+    {
+      "name": "worker",
+      "value": "@calc((Number(@field.nombre_femmes) + Number(@field.nombre_hommes)) + 0.5 * (Number(@field.nombre_adolescents) + Number(@field.nombre_femmes_agees) + Number(@field.nombre_hommes_ages)))\n"
+    },
+    {
+      "name": "material",
+      "value": "@calc(Number(@field.nombre_charrues) + Number(@field.nombre_multiculteurs) + Number(@field.nombre_semoir) + Number(@field.nombre_tracteur) + Number(@field.nombre_motoculteurs) + Number(@field.nombre_charrettes))\n"
+    },
+    {
+      "name": "areaMRE",
+      "value": "@calc(@field.superficie_cultive_upa > 5.8 ? 1 : 0)"
+    },
+    {
+      "name": "TLUMRE",
+      "value": "@calc(Number(@local.TLU) > 2.2 ? 1 : 0)"
+    },
+    {
+      "name": "matMRE",
+      "value": "@calc(Number(@local.material) > 2 ? 1 : 0)"
+    },
+    {
+      "name": "cutoffMRE",
+      "value": "@calc(Number(@local.areaMRE) + Number(@local.TLUMRE) + Number(@local.matMRE))"
+    },
+    {
+      "name": "type",
+      "value": "@calc(Number(@local.TLU) > 21.4 ? 'HRE-LH' : Number(@local.worker) > 9.5 ? 'HRE' : Number(@local.cutoffMRE) >= 2 ? 'MRE' :'LRE')"
+    },
+    {
+      "name": "ratio_membre_terre",
+      "value": "@calc(Number(@field.superficie_cultive_upa) > 0 ? (Number(@field.nombre_enfants) + Number(@field.nombre_adolescents) + Number(@field.nombre_femmes) + Number(@field.nombre_hommes) + Number(@field.nombre_femmes_agees) + Number(@field.nombre_hommes_ages)) /  Number(@field.superficie_cultive_upa) : 0)"
+    },
+    {
+      "name": "ratio_actif_terre",
+      "value": "@calc(Number(@field.superficie_cultive_upa) > 0 ? Number(@local.worker) / Number(@field.superficie_cultive_upa) : 0)"
+    },
+    {
+      "name": "ratio_boeuflabour_terre",
+      "value": "@calc(Number(@field.superficie_cultive_upa) > 0 ? Number(@field.nombre_boeuf_labour) / Number(@field.superficie_cultive_upa) : 0)"
+    },
+    {
+      "type": "image",
+      "value": "images/groupe_a.jpg",
+      "condition": "@local.type == 'HRE-LH'"
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@local.type == 'HRE-LH'"
+    },
+    {
+      "type": "text",
+      "name": "type_ge_gtb",
+      "value": "L'UPA appartient au type A"
+    },
+    {
+      "type": "audio",
+      "name": "audio_15_1",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/type_ge_gtb_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "style_list": "float: right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "name": "type_ge_gtb_hint",
+      "value": "Grande Exploitation avec un Grand Troupeau Bovin",
+      "condition": "@local.type == \"HRE-LH\""
+    },
+    {
+      "type": "image",
+      "value": "images/groupe_b.jpg",
+      "condition": "@local.type == \"HRE\""
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@local.type == \"HRE\""
+    },
+    {
+      "type": "text",
+      "name": "type_ge",
+      "value": "L'UPA appartient au type B"
+    },
+    {
+      "type": "audio",
+      "name": "audio_15_2",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/type_ge_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "style_list": "float: right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "name": "type_ge_hint",
+      "value": "Grande Exploitation",
+      "condition": "@local.type == \"HRE\""
+    },
+    {
+      "type": "image",
+      "value": "images/groupe_c.jpg",
+      "condition": "@local.type == \"MRE\""
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@local.type == \"MRE\""
+    },
+    {
+      "type": "text",
+      "name": "type_me",
+      "value": "L'UPA appartient au type C"
+    },
+    {
+      "type": "audio",
+      "name": "audio_15_3",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/type_me_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "style_list": "float: right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "name": "type_me_hint",
+      "value": "Moyenne Exploitation",
+      "condition": "@local.type == \"MRE\""
+    },
+    {
+      "type": "image",
+      "value": "images/groupe_d.jpg",
+      "condition": "@local.type == \"LRE\""
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@local.type == \"LRE\""
+    },
+    {
+      "type": "text",
+      "name": "type_pe",
+      "value": "L'UPA appartient au type D"
+    },
+    {
+      "type": "audio",
+      "name": "audio_15_4",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/type_pe_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "style_list": "float: right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "name": "type_pe_hint",
+      "value": "Petite Exploitation",
+      "condition": "@local.type == \"LRE\""
+    },
+    {
+      "type": "text",
+      "name": "note_ratio_membre_terre",
+      "value": "Ratio membres-terre cultivée: @local.ratio_membre_terre",
+      "condition": "!!@local.ratio_membre_terre"
+    },
+    {
+      "type": "text",
+      "name": "note_ratio_actif_terre",
+      "value": "Ratio actifs-terre cultivée: @local.ratio_actif_terre",
+      "condition": "!!@local.ratio_actif_terre"
+    },
+    {
+      "type": "text",
+      "name": "note_ratio_boeuflabour_terre",
+      "value": "Ratio boeufs la labour-terre cultivée: @local.ratio_boeuflabour_terre",
+      "condition": "!!@local.ratio_boeuflabour_terre"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "dg_footer",
+      "value": " ",
+      "parameter_list": "sticky: bottom;",
+      "style_list": "padding: 12px 24px;"
+    },
+    {
+      "type": "round_button",
+      "name": "page_15_button_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+    },
+    {
+      "type": "button",
+      "name": "page_15_button_continue",
+      "value": "@global.btn_continue",
+      "action_list": "click | emit: completed",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "end_display_group"
+    }
+  ]
+}

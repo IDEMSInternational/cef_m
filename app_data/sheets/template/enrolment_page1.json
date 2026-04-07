@@ -1,0 +1,329 @@
+{
+  "flow_type": "template",
+  "flow_name": "enrolment_page1",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "name": "consentement",
+      "value": "**CONSENTEMENT**",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "consentement"
+    },
+    {
+      "type": "text",
+      "name": "note_consentement",
+      "value": "@global.note_consentement",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "note_consentement",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.note_consentement",
+            "matchedExpression": "@global.note_consentement",
+            "type": "global",
+            "fieldName": "note_consentement"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.note_consentement": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "answer_oui_non",
+      "value": "name: Oui | text: Oui;\nname: Non | text: Non;",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "answer_oui_non"
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "text",
+          "value": "Voudriez-vous participer ?",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_1",
+          "_nested_name": "display_group_4.text_1"
+        },
+        {
+          "type": "radio_list",
+          "name": "user_oui_non",
+          "action_list": [
+            {
+              "trigger": "changed",
+              "action_id": "set_field",
+              "args": [
+                "user_oui_non",
+                "this.value"
+              ],
+              "_raw": "changed | set_field : user_oui_non: this.value"
+            }
+          ],
+          "parameter_list": {
+            "answer_list": "@local.answer_oui_non"
+          },
+          "_nested_name": "display_group_4.user_oui_non",
+          "_dynamicFields": {
+            "parameter_list": {
+              "answer_list": [
+                {
+                  "fullExpression": "@local.answer_oui_non",
+                  "matchedExpression": "@local.answer_oui_non",
+                  "type": "local",
+                  "fieldName": "answer_oui_non"
+                }
+              ]
+            }
+          },
+          "_dynamicDependencies": {
+            "@local.answer_oui_non": [
+              "parameter_list.answer_list"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_4",
+      "_nested_name": "display_group_4"
+    },
+    {
+      "type": "text",
+      "value": "Choisissez l'année de la campagne:",
+      "_translations": {
+        "value": {}
+      },
+      "name": "text_6",
+      "_nested_name": "text_6"
+    },
+    {
+      "name": "year_min",
+      "value": "2023-01-01",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "year_min"
+    },
+    {
+      "name": "year_max",
+      "value": "@calc(now())",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "year_max",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(now())",
+            "matchedExpression": "@calc(now())",
+            "type": "calc",
+            "fieldName": "now()"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@calc(now())": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "date_time_picker",
+      "name": "year_campaign",
+      "parameter_list": {
+        "type": "year",
+        "min": "@local.year_min",
+        "max": "@local.year_max"
+      },
+      "_nested_name": "year_campaign",
+      "_dynamicFields": {
+        "parameter_list": {
+          "min": [
+            {
+              "fullExpression": "@local.year_min",
+              "matchedExpression": "@local.year_min",
+              "type": "local",
+              "fieldName": "year_min"
+            }
+          ],
+          "max": [
+            {
+              "fullExpression": "@local.year_max",
+              "matchedExpression": "@local.year_max",
+              "type": "local",
+              "fieldName": "year_max"
+            }
+          ]
+        }
+      },
+      "_dynamicDependencies": {
+        "@local.year_min": [
+          "parameter_list.min"
+        ],
+        "@local.year_max": [
+          "parameter_list.max"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "name": "text_10",
+      "_nested_name": "text_10"
+    },
+    {
+      "type": "display_group",
+      "name": "dg_footer",
+      "value": "",
+      "parameter_list": {
+        "sticky": "bottom"
+      },
+      "style_list": [
+        "padding: 12px 24px"
+      ],
+      "rows": [
+        {
+          "type": "button",
+          "name": "button_continue_1",
+          "value": "Continuer",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "consentement_response",
+                "@field.user_oui_non"
+              ],
+              "_raw": "click | set_field: consentement_response: @field.user_oui_non"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "year_campaign",
+                "@field.year_campaign"
+              ],
+              "_raw": "click | set_field: year_campaign: @field.year_campaign"
+            },
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "completed"
+              ],
+              "_raw": "click | emit: completed"
+            }
+          ],
+          "parameter_list": {
+            "button_align": "right",
+            "disabled": "@field.user_oui_non =='Non' || !@field.user_oui_non || !@local.year_campaign"
+          },
+          "_nested_name": "dg_footer.button_continue_1",
+          "_dynamicFields": {
+            "action_list": {
+              "0": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@field.user_oui_non",
+                      "matchedExpression": "@field.user_oui_non",
+                      "type": "field",
+                      "fieldName": "user_oui_non"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: consentement_response: @field.user_oui_non",
+                    "matchedExpression": "@field.user_oui_non",
+                    "type": "field",
+                    "fieldName": "user_oui_non"
+                  }
+                ]
+              },
+              "1": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@field.year_campaign",
+                      "matchedExpression": "@field.year_campaign",
+                      "type": "field",
+                      "fieldName": "year_campaign"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: year_campaign: @field.year_campaign",
+                    "matchedExpression": "@field.year_campaign",
+                    "type": "field",
+                    "fieldName": "year_campaign"
+                  }
+                ]
+              }
+            },
+            "parameter_list": {
+              "disabled": [
+                {
+                  "fullExpression": "@field.user_oui_non =='Non' || !@field.user_oui_non || !@local.year_campaign",
+                  "matchedExpression": "@field.user_oui_non",
+                  "type": "field",
+                  "fieldName": "user_oui_non"
+                },
+                {
+                  "fullExpression": "@field.user_oui_non =='Non' || !@field.user_oui_non || !@local.year_campaign",
+                  "matchedExpression": "!@field.user_oui_non",
+                  "type": "field",
+                  "fieldName": "user_oui_non"
+                },
+                {
+                  "fullExpression": "@field.user_oui_non =='Non' || !@field.user_oui_non || !@local.year_campaign",
+                  "matchedExpression": "!@local.year_campaign",
+                  "type": "local",
+                  "fieldName": "year_campaign"
+                }
+              ]
+            }
+          },
+          "_dynamicDependencies": {
+            "@field.user_oui_non": [
+              "action_list.0.args.1",
+              "action_list.0._raw",
+              "parameter_list.disabled"
+            ],
+            "@field.year_campaign": [
+              "action_list.1.args.1",
+              "action_list.1._raw"
+            ],
+            "!@field.user_oui_non": [
+              "parameter_list.disabled"
+            ],
+            "!@local.year_campaign": [
+              "parameter_list.disabled"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "dg_footer"
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/Enrolment_form_sheets.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/1mR9iAG_wjGK0G39YVxIlwlGFILSbgZvCqESHTMNXNgA"
+  }
+}

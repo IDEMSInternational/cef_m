@@ -1,0 +1,282 @@
+{
+  "flow_type": "template",
+  "flow_name": "enrolment_page2",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "name": "page_title",
+      "value": "IDENTIFICATION DE l'UPA"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/num_phone.jpg"
+    },
+    {
+      "type": "html",
+      "name": "num_phone_label",
+      "value": "Téléphone <span style=\"color: red;\">*</span>"
+    },
+    {
+      "type": "audio",
+      "name": "audio_2_1",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/phone_num_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "name": "num_phone_hint",
+      "value": "Il s'agit du numero de téléphone pour l'identification de l'UPA (+223) qui sera utilisé de manière permanente",
+      "style_list": "font-size:14px;"
+    },
+    {
+      "name": "valid_num_phone",
+      "value": "@calc(/^\\+?[1-9][0-9]{7,14}$/.test(@field.num_phone))"
+    },
+    {
+      "type": "text",
+      "name": "error_num_phone",
+      "value": "Veuillez saisir un numéro de téléphone correct !",
+      "condition": "!@local.valid_num_phone && !!@field.num_phone",
+      "style_list": "color: red; font-size: 12px;"
+    },
+    {
+      "type": "text_box",
+      "name": "num_phone",
+      "value": "@field.num_phone",
+      "action_list": "changed | set_field : num_phone: this.value;",
+      "parameter_list": "placeholder: Saisissez le numéro de téléphone utilisé comme identifiant;\nnumber_input: true"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "html",
+      "name": "chef_upa_label",
+      "value": "Nom complet <span style=\"color: red;\">*</span>"
+    },
+    {
+      "type": "audio",
+      "name": "audio_2_2",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/nom_chef_upa_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "name": "chef_upa_hint",
+      "value": "Ecrivez le nom et prénom de chef de votre UPA",
+      "style_list": "font-size:14px;"
+    },
+    {
+      "type": "text",
+      "name": "error_chef_upa",
+      "value": "@global.error_required_answer",
+      "condition": "!!@field.chef_upa",
+      "style_list": "color: red; font-size: 12px;"
+    },
+    {
+      "type": "text_box",
+      "name": "chef_upa",
+      "value": "@field.chef_upa",
+      "action_list": "changed | set_field : chef_upa: this.value;",
+      "parameter_list": "placeholder: Ecrivez le prénom et nom de chef de votre UPA"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "html",
+      "name": "gender_label",
+      "value": "Sexe du chef de l'UPA <span style=\"color: red;\">*</span>"
+    },
+    {
+      "type": "audio",
+      "name": "audio_2_3",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/sexe_chef_upa_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "name": "error_gender_chef",
+      "value": "@global.error_required_answer",
+      "condition": "!!@field.gender_chef",
+      "style_list": "color: red; font-size: 12px;"
+    },
+    {
+      "type": "radio_button_grid",
+      "name": "gender_chef",
+      "value": "@field.gender_chef",
+      "action_list": "changed | set_field : gender_chef: this.value;",
+      "parameter_list": "answer_list: @data.gender; \nvariant: circle-icon;\nstyle: secondary;\nitem_width: 60px;\ngrid_gap: 8px;"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "html",
+      "name": "age_chef_label",
+      "value": "Age du chef de l'UPA <span style=\"color: red;\">*</span>"
+    },
+    {
+      "type": "audio",
+      "name": "audio_2_4",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/age_chef_upa_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "name": "age_chef_hint",
+      "value": "Selectionnez la fourchette d'age",
+      "style_list": "font-size:14px;"
+    },
+    {
+      "type": "text",
+      "name": "error_age_chef",
+      "value": "@global.error_required_answer",
+      "condition": "!!@field.age_chef",
+      "style_list": "color: red; font-size: 12px;"
+    },
+    {
+      "type": "begin_combo_box",
+      "name": "age_chef",
+      "value": "@field.age_chef",
+      "action_list": "changed | set_field : age_chef: this.value;",
+      "parameter_list": "placeholder: Selectionnez la fourchette d'age;\nvariant:dropdown;\nanswer_list: @data.age_group;"
+    },
+    {
+      "type": "begin_data_items",
+      "value": "@data.age_group"
+    },
+    {
+      "type": "end_data_items"
+    },
+    {
+      "type": "end_combo_box"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/chef_travaux.jpg"
+    },
+    {
+      "type": "html",
+      "name": "chef_travaux_label",
+      "value": "Nom complet du superviseur <span style=\"color: red;\">*</span>"
+    },
+    {
+      "type": "audio",
+      "name": "audio_2_5",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/nom_chef_trvx_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "name": "chef_travaux_hint",
+      "value": "Il s'agit de la personne qui supervise les travaux champêtres",
+      "style_list": "font-size:14px;"
+    },
+    {
+      "type": "text",
+      "name": "error_chef_travaux",
+      "value": "@global.error_required_answer",
+      "condition": "!!@field.chef_travaux",
+      "style_list": "color: red; font-size: 12px;"
+    },
+    {
+      "type": "text_box",
+      "name": "chef_travaux",
+      "value": "@field.chef_travaux",
+      "action_list": "changed | set_field : chef_travaux: this.value;",
+      "parameter_list": "placeholder: Ecrivez le prénom et nom chef des travaux champêtres"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/neo_alpha.jpg"
+    },
+    {
+      "type": "html",
+      "name": "neo_alphabete_label",
+      "value": "Nom complet du néo alphabète <span style=\"color: red;\">*</span>"
+    },
+    {
+      "type": "audio",
+      "name": "audio_2_6",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/nom_neo_alpha_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "name": "neo_alphabete_hint",
+      "value": "La personne aidant l'utilisation de l'outil",
+      "style_list": "font-size:14px;"
+    },
+    {
+      "type": "text",
+      "name": "error_neo_alphabete",
+      "value": "@global.error_required_answer",
+      "condition": "!!@field.neo_alphabete",
+      "style_list": "color: red; font-size: 12px;"
+    },
+    {
+      "type": "text_box",
+      "name": "neo_alphabete",
+      "value": "@field.neo_alphabete",
+      "action_list": "changed | set_field : neo_alphabete: this.value;",
+      "parameter_list": "placeholder: Ecrivez le prénom et nom du néo- alphabète"
+    },
+    {
+      "name": "completed_enabled",
+      "value": "!!@local.num_phone && !!@local.chef_upa && !!@local.gender_chef && !!@local.age_chef && !!@local.chef_travaux && !!@local.neo_alphabete"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "dg_footer",
+      "value": " ",
+      "parameter_list": "sticky: bottom;",
+      "style_list": "padding: 12px 24px;"
+    },
+    {
+      "type": "round_button",
+      "name": "page_2_button_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+    },
+    {
+      "type": "button",
+      "name": "page_2_button_continue",
+      "value": "@global.btn_continue",
+      "action_list": "click | emit: completed",
+      "parameter_list": "disabled: !@local.completed_enabled",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "end_display_group"
+    }
+  ]
+}

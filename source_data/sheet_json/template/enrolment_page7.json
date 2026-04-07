@@ -1,0 +1,177 @@
+{
+  "flow_type": "template",
+  "flow_name": "enrolment_page7",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "value": "ASSOCIATIONS DES PRODUCTEURS\n"
+    },
+    {
+      "type": "text",
+      "value": "1. Nom de la coopérative cotonnière*"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "card_1",
+      "style_list": "background: #ffffff; border-radius: 15px; padding: 15px; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); display: flex; flex-direction: column;"
+    },
+    {
+      "type": "audio",
+      "name": "audio_1",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/coop_coton_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "exclude_from_translation": true,
+      "style_list": "align-self: flex-end;"
+    },
+    {
+      "type": "image",
+      "value": "images/op_coton.jpg",
+      "style_list": "width: 80px; height: 80px; align-self: center; margin: 10px 0;"
+    },
+    {
+      "type": "text_box",
+      "name": "nom_coop_coton_upa",
+      "value": "@field.nom_coop_coton_upa",
+      "parameter_list": "placeholder: Ecrivez \"aucun\" si l'UPA n'est membre d'aucune",
+      "condition": "!!@field.nom_coop_coton_upa\n",
+      "style_list": "margin-top: 10px; width: 100%;"
+    },
+    {
+      "type": "text_box",
+      "name": "nom_coop_coton_upa",
+      "parameter_list": "placeholder: Ecrivez \"aucun\" si l'UPA n'est membre d'aucune",
+      "condition": "!@field.nom_coop_coton_upa\n",
+      "style_list": "margin-top: 10px; width: 100%;"
+    },
+    {
+      "name": "v_coton",
+      "value": "@calc(!!@local.nom_coop_coton_upa)"
+    },
+    {
+      "type": "text",
+      "value": "Veuillez saisir le nom ou écrire \"aucun\".",
+      "condition": "!@local.v_coton",
+      "style_list": "color: red; font-size: 12px;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "value": "2. Nom de la coopérative céréalière*"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "card_2",
+      "style_list": "background: #ffffff; border-radius: 15px; padding: 15px; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); display: flex; flex-direction: column;"
+    },
+    {
+      "type": "audio",
+      "name": "audio_2",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/coop_cereales_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "exclude_from_translation": true,
+      "style_list": "align-self: flex-end;\n"
+    },
+    {
+      "type": "image",
+      "value": "images/op_cereales.jpg",
+      "style_list": "margin-top: 10px; width: 100%;\n"
+    },
+    {
+      "type": "text_box",
+      "name": "nom_coop_cereales_upa",
+      "value": "@field.nom_coop_cereales_upa",
+      "parameter_list": "placeholder: Ecrivez \"aucun\" si l'UPA n'est membre d'aucune",
+      "condition": "!!@field.nom_coop_cereales_upa\n"
+    },
+    {
+      "type": "text_box",
+      "name": "nom_coop_cereales_upa",
+      "parameter_list": "placeholder: Ecrivez \"aucun\" si l'UPA n'est membre d'aucune",
+      "condition": "!@field.nom_coop_cereales_upa\n"
+    },
+    {
+      "name": "v_cer",
+      "value": "@calc(!!@local.nom_coop_cereales_upa)"
+    },
+    {
+      "type": "text",
+      "value": "Veuillez saisir le nom ou écrire \"aucun\".",
+      "condition": "!@local.v_cer",
+      "style_list": "color: red; font-size: 12px;"
+    },
+    {
+      "type": "end_display_group\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t"
+    },
+    {
+      "type": "text",
+      "value": "3. Union de la coopérative @local.nom_coop_cereales_upa",
+      "condition": "@local.nom_coop_cereales_upa && @local.nom_coop_cereales_upa.toLowerCase() !== 'aucun'"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "card_3",
+      "condition": "@local.nom_coop_cereales_upa && @local.nom_coop_cereales_upa.toLowerCase() !== 'aucun'",
+      "style_list": "background: #ffffff; border-radius: 15px; padding: 15px; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); display: flex; flex-direction: column;"
+    },
+    {
+      "type": "audio",
+      "name": "audio_3",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/union_cereales_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "exclude_from_translation": true,
+      "style_list": "align-self: flex-end;\n"
+    },
+    {
+      "type": "image",
+      "value": "images/op_cereales.jpg",
+      "style_list": "margin-top: 10px; width: 100%;\n\n"
+    },
+    {
+      "type": "text_box",
+      "name": "nom_union_cereales_upa",
+      "value": "@field.nom_union_cereales_upa",
+      "parameter_list": "placeholder: Ecrivez \"aucun\" si l'UPA n'est membre d'aucune",
+      "condition": "!!@field.nom_union_cereales_upa\n"
+    },
+    {
+      "type": "text_box",
+      "name": "nom_union_cereales_upa",
+      "parameter_list": "placeholder: Ecrivez \"aucun\" si l'UPA n'est membre d'aucune;",
+      "condition": "!@field.nom_union_cereales_upa\n"
+    },
+    {
+      "name": "v_union",
+      "value": "@calc(!!@local.nom_union_cereales_upa)"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "name": "completed_enabled",
+      "value": "@calc(@local.v_coton && @local.v_cer && (@local.nom_coop_cereales_upa.toLowerCase() === 'aucun' || @local.v_union))"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "dg_footer",
+      "parameter_list": "sticky: bottom;",
+      "style_list": "padding: 12px 24px;"
+    },
+    {
+      "type": "round_button",
+      "name": "button_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+    },
+    {
+      "type": "button",
+      "name": "button_completed",
+      "value": "@global.btn_continue",
+      "action_list": "click | set_field: nom_coop_coton_upa: @local.nom_coop_coton_upa; \nclick | set_field: nom_coop_cereales_upa: @local.nom_coop_cereales_upa; \nclick | set_field: nom_union_cereales_upa: @local.nom_union_cereales_upa;  \nclick | emit: completed\n",
+      "parameter_list": "style: navigation;\ndisabled: !@local.completed_enabled",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "end_display_group"
+    }
+  ]
+}

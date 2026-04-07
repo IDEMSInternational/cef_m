@@ -1,0 +1,1368 @@
+{
+  "flow_type": "template",
+  "flow_name": "enrolment_page13",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "value": "AUTRE BETAIL DE L'UPA",
+      "_translations": {
+        "value": {}
+      },
+      "name": "title_2",
+      "_nested_name": "title_2"
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "text",
+          "value": "Nombre d'ânes*",
+          "_translations": {
+            "value": {}
+          },
+          "parameter_list": {
+            "style": "contextual"
+          },
+          "exclude_from_translation": true,
+          "name": "text_1",
+          "_nested_name": "display_group_3.text_1"
+        },
+        {
+          "type": "image",
+          "value": "images/ane.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width: 150px",
+            "height: 150px",
+            "object-fit: cover"
+          ],
+          "name": "image_2",
+          "_nested_name": "display_group_3.image_2"
+        }
+      ],
+      "name": "display_group_3",
+      "_nested_name": "display_group_3"
+    },
+    {
+      "name": "valid_nombre_anes",
+      "value": "@calc((/^\\d+$/.test(@local.nombre_anes) && @local.nombre_anes>= 0 ) || @local.nombre_anes == '' || !@local.nombre_anes)",
+      "_translations": {
+        "value": {}
+      },
+      "exclude_from_translation": true,
+      "type": "set_variable",
+      "_nested_name": "valid_nombre_anes",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_anes) && @local.nombre_anes>= 0 ) || @local.nombre_anes == '' || !@local.nombre_anes)",
+            "matchedExpression": "@local.nombre_anes",
+            "type": "local",
+            "fieldName": "nombre_anes"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_anes) && @local.nombre_anes>= 0 ) || @local.nombre_anes == '' || !@local.nombre_anes)",
+            "matchedExpression": "@local.nombre_anes",
+            "type": "local",
+            "fieldName": "nombre_anes"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_anes) && @local.nombre_anes>= 0 ) || @local.nombre_anes == '' || !@local.nombre_anes)",
+            "matchedExpression": "@local.nombre_anes",
+            "type": "local",
+            "fieldName": "nombre_anes"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_anes) && @local.nombre_anes>= 0 ) || @local.nombre_anes == '' || !@local.nombre_anes)",
+            "matchedExpression": "!@local.nombre_anes",
+            "type": "local",
+            "fieldName": "nombre_anes"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_anes) && @local.nombre_anes>= 0 ) || @local.nombre_anes == '' || !@local.nombre_anes)",
+            "matchedExpression": "@calc((/^\\d+$/.test(@local.nombre_anes) && @local.nombre_anes>= 0 ) || @local.nombre_anes == '' || !@local.nombre_anes)",
+            "type": "calc",
+            "fieldName": "(/^\\d+$/.test(@local.nombre_anes) && @local.nombre_anes>= 0 ) || @local.nombre_anes == '' || !@local.nombre_anes"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.nombre_anes": [
+          "value",
+          "value",
+          "value"
+        ],
+        "!@local.nombre_anes": [
+          "value"
+        ],
+        "@calc((/^\\d+$/.test(@local.nombre_anes) && @local.nombre_anes>= 0 ) || @local.nombre_anes == '' || !@local.nombre_anes)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "text_box",
+          "name": "nombre_anes",
+          "value": "@field.nombre_anes",
+          "_translations": {
+            "value": {}
+          },
+          "parameter_list": {
+            "number_input": "true",
+            "placeholder": "Entrez le nombre"
+          },
+          "condition": "!!@field.nombre_anes",
+          "exclude_from_translation": true,
+          "_nested_name": "display_group_5.nombre_anes",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@field.nombre_anes",
+                "matchedExpression": "@field.nombre_anes",
+                "type": "field",
+                "fieldName": "nombre_anes"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "!!@field.nombre_anes",
+                "matchedExpression": "!@field.nombre_anes",
+                "type": "field",
+                "fieldName": "nombre_anes"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@field.nombre_anes": [
+              "value"
+            ],
+            "!@field.nombre_anes": [
+              "condition"
+            ]
+          }
+        },
+        {
+          "type": "text_box",
+          "name": "nombre_anes",
+          "parameter_list": {
+            "number_input": "true",
+            "placeholder": "Entrez le nombre"
+          },
+          "condition": "!@field.nombre_anes",
+          "exclude_from_translation": true,
+          "_nested_name": "display_group_5.nombre_anes",
+          "_dynamicFields": {
+            "condition": [
+              {
+                "fullExpression": "!@field.nombre_anes",
+                "matchedExpression": "!@field.nombre_anes",
+                "type": "field",
+                "fieldName": "nombre_anes"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "!@field.nombre_anes": [
+              "condition"
+            ]
+          }
+        },
+        {
+          "type": "audio",
+          "name": "ane",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Enrolement/ane_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "exclude_from_translation": true,
+          "style_list": [
+            "align-self: flex-end"
+          ],
+          "_nested_name": "display_group_5.ane"
+        }
+      ],
+      "name": "display_group_5",
+      "_nested_name": "display_group_5"
+    },
+    {
+      "type": "text",
+      "value": "S'il vous plaît, saisissez un nombre valide !",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@local.valid_nombre_anes",
+      "exclude_from_translation": true,
+      "style_list": [
+        "color: #FF0000",
+        "font-size: 14px"
+      ],
+      "name": "text_7",
+      "_nested_name": "text_7",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "!@local.valid_nombre_anes",
+            "matchedExpression": "!@local.valid_nombre_anes",
+            "type": "local",
+            "fieldName": "valid_nombre_anes"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@local.valid_nombre_anes": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "text",
+          "value": "Nombre de chevaux*",
+          "_translations": {
+            "value": {}
+          },
+          "parameter_list": {
+            "style": "contextual"
+          },
+          "exclude_from_translation": true,
+          "name": "text_1",
+          "_nested_name": "display_group_8.text_1"
+        },
+        {
+          "type": "image",
+          "value": "images/cheval.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width: 150px",
+            "height: 150px",
+            "object-fit: cover"
+          ],
+          "name": "image_2",
+          "_nested_name": "display_group_8.image_2"
+        }
+      ],
+      "name": "display_group_8",
+      "_nested_name": "display_group_8"
+    },
+    {
+      "name": "valid_nombre_chevaux",
+      "value": "@calc((/^\\d+$/.test(@local.nombre_chevaux) && @local.nombre_chevaux>= 0 ) || @local.nombre_chevaux == '' || !@local.nombre_chevaux)",
+      "_translations": {
+        "value": {}
+      },
+      "exclude_from_translation": true,
+      "type": "set_variable",
+      "_nested_name": "valid_nombre_chevaux",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_chevaux) && @local.nombre_chevaux>= 0 ) || @local.nombre_chevaux == '' || !@local.nombre_chevaux)",
+            "matchedExpression": "@local.nombre_chevaux",
+            "type": "local",
+            "fieldName": "nombre_chevaux"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_chevaux) && @local.nombre_chevaux>= 0 ) || @local.nombre_chevaux == '' || !@local.nombre_chevaux)",
+            "matchedExpression": "@local.nombre_chevaux",
+            "type": "local",
+            "fieldName": "nombre_chevaux"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_chevaux) && @local.nombre_chevaux>= 0 ) || @local.nombre_chevaux == '' || !@local.nombre_chevaux)",
+            "matchedExpression": "@local.nombre_chevaux",
+            "type": "local",
+            "fieldName": "nombre_chevaux"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_chevaux) && @local.nombre_chevaux>= 0 ) || @local.nombre_chevaux == '' || !@local.nombre_chevaux)",
+            "matchedExpression": "!@local.nombre_chevaux",
+            "type": "local",
+            "fieldName": "nombre_chevaux"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_chevaux) && @local.nombre_chevaux>= 0 ) || @local.nombre_chevaux == '' || !@local.nombre_chevaux)",
+            "matchedExpression": "@calc((/^\\d+$/.test(@local.nombre_chevaux) && @local.nombre_chevaux>= 0 ) || @local.nombre_chevaux == '' || !@local.nombre_chevaux)",
+            "type": "calc",
+            "fieldName": "(/^\\d+$/.test(@local.nombre_chevaux) && @local.nombre_chevaux>= 0 ) || @local.nombre_chevaux == '' || !@local.nombre_chevaux"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.nombre_chevaux": [
+          "value",
+          "value",
+          "value"
+        ],
+        "!@local.nombre_chevaux": [
+          "value"
+        ],
+        "@calc((/^\\d+$/.test(@local.nombre_chevaux) && @local.nombre_chevaux>= 0 ) || @local.nombre_chevaux == '' || !@local.nombre_chevaux)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "text_box",
+          "name": "nombre_chevaux",
+          "value": "@field.nombre_chevaux",
+          "_translations": {
+            "value": {}
+          },
+          "parameter_list": {
+            "number_input": "true",
+            "placeholder": "Entrez le nombre"
+          },
+          "condition": "!!@field.nombre_chevaux",
+          "exclude_from_translation": true,
+          "_nested_name": "display_group_10.nombre_chevaux",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@field.nombre_chevaux",
+                "matchedExpression": "@field.nombre_chevaux",
+                "type": "field",
+                "fieldName": "nombre_chevaux"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "!!@field.nombre_chevaux",
+                "matchedExpression": "!@field.nombre_chevaux",
+                "type": "field",
+                "fieldName": "nombre_chevaux"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@field.nombre_chevaux": [
+              "value"
+            ],
+            "!@field.nombre_chevaux": [
+              "condition"
+            ]
+          }
+        },
+        {
+          "type": "text_box",
+          "name": "nombre_chevaux",
+          "parameter_list": {
+            "number_input": "true",
+            "placeholder": "Entrez le nombre"
+          },
+          "condition": "!@field.nombre_chevaux",
+          "exclude_from_translation": true,
+          "_nested_name": "display_group_10.nombre_chevaux",
+          "_dynamicFields": {
+            "condition": [
+              {
+                "fullExpression": "!@field.nombre_chevaux",
+                "matchedExpression": "!@field.nombre_chevaux",
+                "type": "field",
+                "fieldName": "nombre_chevaux"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "!@field.nombre_chevaux": [
+              "condition"
+            ]
+          }
+        },
+        {
+          "type": "audio",
+          "name": "cheveau",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Enrolement/chevo_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "exclude_from_translation": true,
+          "style_list": [
+            "align-self: flex-end"
+          ],
+          "_nested_name": "display_group_10.cheveau"
+        }
+      ],
+      "name": "display_group_10",
+      "_nested_name": "display_group_10"
+    },
+    {
+      "type": "text",
+      "value": "S'il vous plaît, saisissez un nombre valide !",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@local.valid_nombre_chevaux",
+      "exclude_from_translation": true,
+      "style_list": [
+        "color: #FF0000",
+        "font-size: 14px"
+      ],
+      "name": "text_12",
+      "_nested_name": "text_12",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "!@local.valid_nombre_chevaux",
+            "matchedExpression": "!@local.valid_nombre_chevaux",
+            "type": "local",
+            "fieldName": "valid_nombre_chevaux"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@local.valid_nombre_chevaux": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "text",
+          "value": "Nombre de moutons*",
+          "_translations": {
+            "value": {}
+          },
+          "parameter_list": {
+            "style": "contextual"
+          },
+          "exclude_from_translation": true,
+          "name": "text_1",
+          "_nested_name": "display_group_13.text_1"
+        },
+        {
+          "type": "image",
+          "value": "images/mouton.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width: 150px",
+            "height: 150px",
+            "object-fit: cover"
+          ],
+          "name": "image_2",
+          "_nested_name": "display_group_13.image_2"
+        }
+      ],
+      "name": "display_group_13",
+      "_nested_name": "display_group_13"
+    },
+    {
+      "name": "valid_nombre_moutons",
+      "value": "@calc((/^\\d+$/.test(@local.nombre_moutons) && @local.nombre_moutons>= 0 ) || @local.nombre_moutons == '' || !@local.nombre_moutons)",
+      "_translations": {
+        "value": {}
+      },
+      "exclude_from_translation": true,
+      "type": "set_variable",
+      "_nested_name": "valid_nombre_moutons",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_moutons) && @local.nombre_moutons>= 0 ) || @local.nombre_moutons == '' || !@local.nombre_moutons)",
+            "matchedExpression": "@local.nombre_moutons",
+            "type": "local",
+            "fieldName": "nombre_moutons"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_moutons) && @local.nombre_moutons>= 0 ) || @local.nombre_moutons == '' || !@local.nombre_moutons)",
+            "matchedExpression": "@local.nombre_moutons",
+            "type": "local",
+            "fieldName": "nombre_moutons"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_moutons) && @local.nombre_moutons>= 0 ) || @local.nombre_moutons == '' || !@local.nombre_moutons)",
+            "matchedExpression": "@local.nombre_moutons",
+            "type": "local",
+            "fieldName": "nombre_moutons"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_moutons) && @local.nombre_moutons>= 0 ) || @local.nombre_moutons == '' || !@local.nombre_moutons)",
+            "matchedExpression": "!@local.nombre_moutons",
+            "type": "local",
+            "fieldName": "nombre_moutons"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_moutons) && @local.nombre_moutons>= 0 ) || @local.nombre_moutons == '' || !@local.nombre_moutons)",
+            "matchedExpression": "@calc((/^\\d+$/.test(@local.nombre_moutons) && @local.nombre_moutons>= 0 ) || @local.nombre_moutons == '' || !@local.nombre_moutons)",
+            "type": "calc",
+            "fieldName": "(/^\\d+$/.test(@local.nombre_moutons) && @local.nombre_moutons>= 0 ) || @local.nombre_moutons == '' || !@local.nombre_moutons"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.nombre_moutons": [
+          "value",
+          "value",
+          "value"
+        ],
+        "!@local.nombre_moutons": [
+          "value"
+        ],
+        "@calc((/^\\d+$/.test(@local.nombre_moutons) && @local.nombre_moutons>= 0 ) || @local.nombre_moutons == '' || !@local.nombre_moutons)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "text_box",
+          "name": "nombre_moutons",
+          "value": "@field.nombre_moutons",
+          "_translations": {
+            "value": {}
+          },
+          "parameter_list": {
+            "number_input": "true",
+            "placeholder": "Entrez le nombre"
+          },
+          "condition": "!!@field.nombre_moutons",
+          "exclude_from_translation": true,
+          "_nested_name": "display_group_15.nombre_moutons",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@field.nombre_moutons",
+                "matchedExpression": "@field.nombre_moutons",
+                "type": "field",
+                "fieldName": "nombre_moutons"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "!!@field.nombre_moutons",
+                "matchedExpression": "!@field.nombre_moutons",
+                "type": "field",
+                "fieldName": "nombre_moutons"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@field.nombre_moutons": [
+              "value"
+            ],
+            "!@field.nombre_moutons": [
+              "condition"
+            ]
+          }
+        },
+        {
+          "type": "text_box",
+          "name": "nombre_moutons",
+          "parameter_list": {
+            "number_input": "true",
+            "placeholder": "Entrez le nombre"
+          },
+          "condition": "!@field.nombre_moutons",
+          "exclude_from_translation": true,
+          "_nested_name": "display_group_15.nombre_moutons",
+          "_dynamicFields": {
+            "condition": [
+              {
+                "fullExpression": "!@field.nombre_moutons",
+                "matchedExpression": "!@field.nombre_moutons",
+                "type": "field",
+                "fieldName": "nombre_moutons"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "!@field.nombre_moutons": [
+              "condition"
+            ]
+          }
+        },
+        {
+          "type": "audio",
+          "name": "mouton",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Enrolement/mout_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "exclude_from_translation": true,
+          "style_list": [
+            "align-self: flex-end"
+          ],
+          "_nested_name": "display_group_15.mouton"
+        }
+      ],
+      "name": "display_group_15",
+      "_nested_name": "display_group_15"
+    },
+    {
+      "type": "text",
+      "value": "S'il vous plaît, saisissez un nombre valide !",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@local.valid_nombre_moutons",
+      "exclude_from_translation": true,
+      "style_list": [
+        "color: #FF0000",
+        "font-size: 14px"
+      ],
+      "name": "text_17",
+      "_nested_name": "text_17",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "!@local.valid_nombre_moutons",
+            "matchedExpression": "!@local.valid_nombre_moutons",
+            "type": "local",
+            "fieldName": "valid_nombre_moutons"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@local.valid_nombre_moutons": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "text",
+          "value": "Nombre de chèvres*",
+          "_translations": {
+            "value": {}
+          },
+          "parameter_list": {
+            "style": "contextual"
+          },
+          "exclude_from_translation": true,
+          "name": "text_1",
+          "_nested_name": "display_group_18.text_1"
+        },
+        {
+          "type": "image",
+          "value": "images/chevre.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width: 150px",
+            "height: 150px",
+            "object-fit: cover"
+          ],
+          "name": "image_2",
+          "_nested_name": "display_group_18.image_2"
+        }
+      ],
+      "name": "display_group_18",
+      "_nested_name": "display_group_18"
+    },
+    {
+      "name": "valid_nombre_chevres",
+      "value": "@calc((/^\\d+$/.test(@local.nombre_chevres) && @local.nombre_chevres>= 0 ) || @local.nombre_chevres == '' || !@local.nombre_chevres)",
+      "_translations": {
+        "value": {}
+      },
+      "exclude_from_translation": true,
+      "type": "set_variable",
+      "_nested_name": "valid_nombre_chevres",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_chevres) && @local.nombre_chevres>= 0 ) || @local.nombre_chevres == '' || !@local.nombre_chevres)",
+            "matchedExpression": "@local.nombre_chevres",
+            "type": "local",
+            "fieldName": "nombre_chevres"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_chevres) && @local.nombre_chevres>= 0 ) || @local.nombre_chevres == '' || !@local.nombre_chevres)",
+            "matchedExpression": "@local.nombre_chevres",
+            "type": "local",
+            "fieldName": "nombre_chevres"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_chevres) && @local.nombre_chevres>= 0 ) || @local.nombre_chevres == '' || !@local.nombre_chevres)",
+            "matchedExpression": "@local.nombre_chevres",
+            "type": "local",
+            "fieldName": "nombre_chevres"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_chevres) && @local.nombre_chevres>= 0 ) || @local.nombre_chevres == '' || !@local.nombre_chevres)",
+            "matchedExpression": "!@local.nombre_chevres",
+            "type": "local",
+            "fieldName": "nombre_chevres"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_chevres) && @local.nombre_chevres>= 0 ) || @local.nombre_chevres == '' || !@local.nombre_chevres)",
+            "matchedExpression": "@calc((/^\\d+$/.test(@local.nombre_chevres) && @local.nombre_chevres>= 0 ) || @local.nombre_chevres == '' || !@local.nombre_chevres)",
+            "type": "calc",
+            "fieldName": "(/^\\d+$/.test(@local.nombre_chevres) && @local.nombre_chevres>= 0 ) || @local.nombre_chevres == '' || !@local.nombre_chevres"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.nombre_chevres": [
+          "value",
+          "value",
+          "value"
+        ],
+        "!@local.nombre_chevres": [
+          "value"
+        ],
+        "@calc((/^\\d+$/.test(@local.nombre_chevres) && @local.nombre_chevres>= 0 ) || @local.nombre_chevres == '' || !@local.nombre_chevres)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "text_box",
+          "name": "nombre_chevres",
+          "value": "@field.nombre_chevres",
+          "_translations": {
+            "value": {}
+          },
+          "parameter_list": {
+            "number_input": "true",
+            "placeholder": "Entrez le nombre"
+          },
+          "condition": "!!@field.nombre_chevres",
+          "exclude_from_translation": true,
+          "_nested_name": "display_group_20.nombre_chevres",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@field.nombre_chevres",
+                "matchedExpression": "@field.nombre_chevres",
+                "type": "field",
+                "fieldName": "nombre_chevres"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "!!@field.nombre_chevres",
+                "matchedExpression": "!@field.nombre_chevres",
+                "type": "field",
+                "fieldName": "nombre_chevres"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@field.nombre_chevres": [
+              "value"
+            ],
+            "!@field.nombre_chevres": [
+              "condition"
+            ]
+          }
+        },
+        {
+          "type": "text_box",
+          "name": "nombre_chevres",
+          "parameter_list": {
+            "number_input": "true",
+            "placeholder": "Entrez le nombre"
+          },
+          "condition": "!@field.nombre_chevres",
+          "exclude_from_translation": true,
+          "_nested_name": "display_group_20.nombre_chevres",
+          "_dynamicFields": {
+            "condition": [
+              {
+                "fullExpression": "!@field.nombre_chevres",
+                "matchedExpression": "!@field.nombre_chevres",
+                "type": "field",
+                "fieldName": "nombre_chevres"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "!@field.nombre_chevres": [
+              "condition"
+            ]
+          }
+        },
+        {
+          "type": "audio",
+          "name": "chevre",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Enrolement/chevre_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "exclude_from_translation": true,
+          "style_list": [
+            "align-self: flex-end"
+          ],
+          "_nested_name": "display_group_20.chevre"
+        }
+      ],
+      "name": "display_group_20",
+      "_nested_name": "display_group_20"
+    },
+    {
+      "type": "text",
+      "value": "S'il vous plaît, saisissez un nombre valide !",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@local.valid_nombre_chevres",
+      "exclude_from_translation": true,
+      "style_list": [
+        "color: #FF0000",
+        "font-size: 14px"
+      ],
+      "name": "text_22",
+      "_nested_name": "text_22",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "!@local.valid_nombre_chevres",
+            "matchedExpression": "!@local.valid_nombre_chevres",
+            "type": "local",
+            "fieldName": "valid_nombre_chevres"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@local.valid_nombre_chevres": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "text",
+          "value": "Nombre de porcs*",
+          "_translations": {
+            "value": {}
+          },
+          "parameter_list": {
+            "style": "contextual"
+          },
+          "exclude_from_translation": true,
+          "name": "text_1",
+          "_nested_name": "display_group_23.text_1"
+        },
+        {
+          "type": "image",
+          "value": "images/porc.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width: 150px",
+            "height: 150px",
+            "object-fit: cover"
+          ],
+          "name": "image_2",
+          "_nested_name": "display_group_23.image_2"
+        }
+      ],
+      "name": "display_group_23",
+      "_nested_name": "display_group_23"
+    },
+    {
+      "name": "valid_nombre_porcs",
+      "value": "@calc((/^\\d+$/.test(@local.nombre_porcs) && @local.nombre_porcs>= 0) || @local.nombre_porcs == '' || !@local.nombre_porcs)",
+      "_translations": {
+        "value": {}
+      },
+      "exclude_from_translation": true,
+      "type": "set_variable",
+      "_nested_name": "valid_nombre_porcs",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_porcs) && @local.nombre_porcs>= 0) || @local.nombre_porcs == '' || !@local.nombre_porcs)",
+            "matchedExpression": "@local.nombre_porcs",
+            "type": "local",
+            "fieldName": "nombre_porcs"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_porcs) && @local.nombre_porcs>= 0) || @local.nombre_porcs == '' || !@local.nombre_porcs)",
+            "matchedExpression": "@local.nombre_porcs",
+            "type": "local",
+            "fieldName": "nombre_porcs"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_porcs) && @local.nombre_porcs>= 0) || @local.nombre_porcs == '' || !@local.nombre_porcs)",
+            "matchedExpression": "@local.nombre_porcs",
+            "type": "local",
+            "fieldName": "nombre_porcs"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_porcs) && @local.nombre_porcs>= 0) || @local.nombre_porcs == '' || !@local.nombre_porcs)",
+            "matchedExpression": "!@local.nombre_porcs",
+            "type": "local",
+            "fieldName": "nombre_porcs"
+          },
+          {
+            "fullExpression": "@calc((/^\\d+$/.test(@local.nombre_porcs) && @local.nombre_porcs>= 0) || @local.nombre_porcs == '' || !@local.nombre_porcs)",
+            "matchedExpression": "@calc((/^\\d+$/.test(@local.nombre_porcs) && @local.nombre_porcs>= 0) || @local.nombre_porcs == '' || !@local.nombre_porcs)",
+            "type": "calc",
+            "fieldName": "(/^\\d+$/.test(@local.nombre_porcs) && @local.nombre_porcs>= 0) || @local.nombre_porcs == '' || !@local.nombre_porcs"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.nombre_porcs": [
+          "value",
+          "value",
+          "value"
+        ],
+        "!@local.nombre_porcs": [
+          "value"
+        ],
+        "@calc((/^\\d+$/.test(@local.nombre_porcs) && @local.nombre_porcs>= 0) || @local.nombre_porcs == '' || !@local.nombre_porcs)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "text_box",
+          "name": "nombre_porcs",
+          "value": "@field.nombre_genisses",
+          "_translations": {
+            "value": {}
+          },
+          "parameter_list": {
+            "number_input": "true",
+            "placeholder": "Entrez le nombre"
+          },
+          "condition": "!!@field.nombre_porcs",
+          "exclude_from_translation": true,
+          "_nested_name": "display_group_25.nombre_porcs",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@field.nombre_genisses",
+                "matchedExpression": "@field.nombre_genisses",
+                "type": "field",
+                "fieldName": "nombre_genisses"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "!!@field.nombre_porcs",
+                "matchedExpression": "!@field.nombre_porcs",
+                "type": "field",
+                "fieldName": "nombre_porcs"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@field.nombre_genisses": [
+              "value"
+            ],
+            "!@field.nombre_porcs": [
+              "condition"
+            ]
+          }
+        },
+        {
+          "type": "text_box",
+          "name": "nombre_porcs",
+          "parameter_list": {
+            "number_input": "true",
+            "placeholder": "Entrez le nombre"
+          },
+          "condition": "!@field.nombre_porcs",
+          "exclude_from_translation": true,
+          "_nested_name": "display_group_25.nombre_porcs",
+          "_dynamicFields": {
+            "condition": [
+              {
+                "fullExpression": "!@field.nombre_porcs",
+                "matchedExpression": "!@field.nombre_porcs",
+                "type": "field",
+                "fieldName": "nombre_porcs"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "!@field.nombre_porcs": [
+              "condition"
+            ]
+          }
+        },
+        {
+          "type": "audio",
+          "name": "porc",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Enrolement/porc_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "exclude_from_translation": true,
+          "style_list": [
+            "align-self: flex-end"
+          ],
+          "_nested_name": "display_group_25.porc"
+        }
+      ],
+      "name": "display_group_25",
+      "_nested_name": "display_group_25"
+    },
+    {
+      "type": "text",
+      "value": "S'il vous plaît, saisissez un nombre valide !",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@local.valid_nombre_porcs",
+      "exclude_from_translation": true,
+      "style_list": [
+        "color: #FF0000",
+        "font-size: 14px"
+      ],
+      "name": "text_27",
+      "_nested_name": "text_27",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "!@local.valid_nombre_porcs",
+            "matchedExpression": "!@local.valid_nombre_porcs",
+            "type": "local",
+            "fieldName": "valid_nombre_porcs"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@local.valid_nombre_porcs": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "completed_enabled",
+      "value": "!!@local.nombre_anes && !!@local.nombre_chevaux && !!@local.nombre_moutons  && !!@local.nombre_chevres && !!@local.nombre_porcs",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": true,
+      "type": "set_variable",
+      "_nested_name": "completed_enabled",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "!!@local.nombre_anes && !!@local.nombre_chevaux && !!@local.nombre_moutons  && !!@local.nombre_chevres && !!@local.nombre_porcs",
+            "matchedExpression": "!@local.nombre_anes",
+            "type": "local",
+            "fieldName": "nombre_anes"
+          },
+          {
+            "fullExpression": "!!@local.nombre_anes && !!@local.nombre_chevaux && !!@local.nombre_moutons  && !!@local.nombre_chevres && !!@local.nombre_porcs",
+            "matchedExpression": "!@local.nombre_chevaux",
+            "type": "local",
+            "fieldName": "nombre_chevaux"
+          },
+          {
+            "fullExpression": "!!@local.nombre_anes && !!@local.nombre_chevaux && !!@local.nombre_moutons  && !!@local.nombre_chevres && !!@local.nombre_porcs",
+            "matchedExpression": "!@local.nombre_moutons",
+            "type": "local",
+            "fieldName": "nombre_moutons"
+          },
+          {
+            "fullExpression": "!!@local.nombre_anes && !!@local.nombre_chevaux && !!@local.nombre_moutons  && !!@local.nombre_chevres && !!@local.nombre_porcs",
+            "matchedExpression": "!@local.nombre_chevres",
+            "type": "local",
+            "fieldName": "nombre_chevres"
+          },
+          {
+            "fullExpression": "!!@local.nombre_anes && !!@local.nombre_chevaux && !!@local.nombre_moutons  && !!@local.nombre_chevres && !!@local.nombre_porcs",
+            "matchedExpression": "!@local.nombre_porcs",
+            "type": "local",
+            "fieldName": "nombre_porcs"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@local.nombre_anes": [
+          "value"
+        ],
+        "!@local.nombre_chevaux": [
+          "value"
+        ],
+        "!@local.nombre_moutons": [
+          "value"
+        ],
+        "!@local.nombre_chevres": [
+          "value"
+        ],
+        "!@local.nombre_porcs": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "dg_footer",
+      "parameter_list": {
+        "sticky": "bottom"
+      },
+      "style_list": [
+        "padding: 12px 24px"
+      ],
+      "rows": [
+        {
+          "type": "round_button",
+          "name": "button_back",
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "uncompleted"
+              ],
+              "_raw": "click | emit: uncompleted"
+            }
+          ],
+          "parameter_list": {
+            "icon_src": "arrow-back",
+            "variant": "no-background"
+          },
+          "_nested_name": "dg_footer.button_back"
+        },
+        {
+          "type": "button",
+          "name": "button_continue_13",
+          "value": "Continuer",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "nombre_anes",
+                "@local.nombre_anes"
+              ],
+              "_raw": "click | set_field: nombre_anes: @local.nombre_anes"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "nombre_chevaux",
+                "@local.nombre_chevaux"
+              ],
+              "_raw": "click | set_field: nombre_chevaux: @local.nombre_chevaux"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "nombre_moutons",
+                "@local.nombre_moutons"
+              ],
+              "_raw": "click | set_field: nombre_moutons: @local.nombre_moutons"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "nombre_chevres",
+                "@local.nombre_chevres"
+              ],
+              "_raw": "click | set_field: nombre_chevres: @local.nombre_chevres"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "nombre_porcs",
+                "@local.nombre_porcs"
+              ],
+              "_raw": "click | set_field: nombre_porcs: @local.nombre_porcs"
+            },
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "completed"
+              ],
+              "_raw": "click | emit: completed"
+            }
+          ],
+          "parameter_list": {
+            "disabled": "!@local.completed_enabled"
+          },
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "dg_footer.button_continue_13",
+          "_dynamicFields": {
+            "action_list": {
+              "0": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@local.nombre_anes",
+                      "matchedExpression": "@local.nombre_anes",
+                      "type": "local",
+                      "fieldName": "nombre_anes"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: nombre_anes: @local.nombre_anes",
+                    "matchedExpression": "@local.nombre_anes",
+                    "type": "local",
+                    "fieldName": "nombre_anes"
+                  }
+                ]
+              },
+              "1": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@local.nombre_chevaux",
+                      "matchedExpression": "@local.nombre_chevaux",
+                      "type": "local",
+                      "fieldName": "nombre_chevaux"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: nombre_chevaux: @local.nombre_chevaux",
+                    "matchedExpression": "@local.nombre_chevaux",
+                    "type": "local",
+                    "fieldName": "nombre_chevaux"
+                  }
+                ]
+              },
+              "2": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@local.nombre_moutons",
+                      "matchedExpression": "@local.nombre_moutons",
+                      "type": "local",
+                      "fieldName": "nombre_moutons"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: nombre_moutons: @local.nombre_moutons",
+                    "matchedExpression": "@local.nombre_moutons",
+                    "type": "local",
+                    "fieldName": "nombre_moutons"
+                  }
+                ]
+              },
+              "3": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@local.nombre_chevres",
+                      "matchedExpression": "@local.nombre_chevres",
+                      "type": "local",
+                      "fieldName": "nombre_chevres"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: nombre_chevres: @local.nombre_chevres",
+                    "matchedExpression": "@local.nombre_chevres",
+                    "type": "local",
+                    "fieldName": "nombre_chevres"
+                  }
+                ]
+              },
+              "4": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@local.nombre_porcs",
+                      "matchedExpression": "@local.nombre_porcs",
+                      "type": "local",
+                      "fieldName": "nombre_porcs"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: nombre_porcs: @local.nombre_porcs",
+                    "matchedExpression": "@local.nombre_porcs",
+                    "type": "local",
+                    "fieldName": "nombre_porcs"
+                  }
+                ]
+              }
+            },
+            "parameter_list": {
+              "disabled": [
+                {
+                  "fullExpression": "!@local.completed_enabled",
+                  "matchedExpression": "!@local.completed_enabled",
+                  "type": "local",
+                  "fieldName": "completed_enabled"
+                }
+              ]
+            }
+          },
+          "_dynamicDependencies": {
+            "@local.nombre_anes": [
+              "action_list.0.args.1",
+              "action_list.0._raw"
+            ],
+            "@local.nombre_chevaux": [
+              "action_list.1.args.1",
+              "action_list.1._raw"
+            ],
+            "@local.nombre_moutons": [
+              "action_list.2.args.1",
+              "action_list.2._raw"
+            ],
+            "@local.nombre_chevres": [
+              "action_list.3.args.1",
+              "action_list.3._raw"
+            ],
+            "@local.nombre_porcs": [
+              "action_list.4.args.1",
+              "action_list.4._raw"
+            ],
+            "!@local.completed_enabled": [
+              "parameter_list.disabled"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "dg_footer"
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/Enrolment_form_sheets.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/1mR9iAG_wjGK0G39YVxIlwlGFILSbgZvCqESHTMNXNgA"
+  }
+}

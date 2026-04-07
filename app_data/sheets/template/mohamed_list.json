@@ -1,0 +1,450 @@
+{
+  "flow_type": "template",
+  "flow_name": "mohamed_list",
+  "status": "released",
+  "rows": [
+    {
+      "type": "button",
+      "name": "button_2_mohamed_form",
+      "value": "Add new",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "click",
+          "action_id": "set_field",
+          "args": [
+            "id",
+            ""
+          ],
+          "_raw": "click | set_field : id :"
+        },
+        {
+          "trigger": "click",
+          "action_id": "set_field",
+          "args": [
+            "fullname",
+            ""
+          ],
+          "_raw": "click | set_field: fullname :"
+        },
+        {
+          "trigger": "click",
+          "action_id": "set_field",
+          "args": [
+            "country",
+            ""
+          ],
+          "_raw": "click | set_field : country :"
+        },
+        {
+          "trigger": "click",
+          "action_id": "set_field",
+          "args": [
+            "date",
+            ""
+          ],
+          "_raw": "click | set_field: date :"
+        },
+        {
+          "trigger": "click",
+          "action_id": "emit",
+          "args": [
+            "completed"
+          ],
+          "_raw": "click | emit: completed"
+        }
+      ],
+      "style_list": [
+        "font-size:12px"
+      ],
+      "_nested_name": "button_2_mohamed_form"
+    },
+    {
+      "type": "data_items",
+      "value": "@data.mohamed_items",
+      "rows": [
+        {
+          "type": "display_group",
+          "rows": [
+            {
+              "type": "text",
+              "value": "@item.fullname",
+              "_translations": {
+                "value": {}
+              },
+              "condition": "@item.fullname !== \"name_1\"",
+              "name": "text_1",
+              "_nested_name": "data_items_3.display_group_1_@item.id.text_1",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "@item.fullname",
+                    "matchedExpression": "@item.fullname",
+                    "type": "item",
+                    "fieldName": "fullname"
+                  }
+                ],
+                "condition": [
+                  {
+                    "fullExpression": "@item.fullname !== \"name_1\"",
+                    "matchedExpression": "@item.fullname",
+                    "type": "item",
+                    "fieldName": "fullname"
+                  }
+                ],
+                "_nested_name": [
+                  {
+                    "fullExpression": "data_items_3.display_group_1_@item.id.text_1",
+                    "matchedExpression": "@item.id.text_1",
+                    "type": "item",
+                    "fieldName": "id"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@item.fullname": [
+                  "value",
+                  "condition"
+                ],
+                "@item.id.text_1": [
+                  "_nested_name"
+                ]
+              }
+            },
+            {
+              "type": "text",
+              "value": "@item.country",
+              "_translations": {
+                "value": {}
+              },
+              "condition": "@item.fullname !== \"name_1\"",
+              "name": "text_2",
+              "_nested_name": "data_items_3.display_group_1_@item.id.text_2",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "@item.country",
+                    "matchedExpression": "@item.country",
+                    "type": "item",
+                    "fieldName": "country"
+                  }
+                ],
+                "condition": [
+                  {
+                    "fullExpression": "@item.fullname !== \"name_1\"",
+                    "matchedExpression": "@item.fullname",
+                    "type": "item",
+                    "fieldName": "fullname"
+                  }
+                ],
+                "_nested_name": [
+                  {
+                    "fullExpression": "data_items_3.display_group_1_@item.id.text_2",
+                    "matchedExpression": "@item.id.text_2",
+                    "type": "item",
+                    "fieldName": "id"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@item.country": [
+                  "value"
+                ],
+                "@item.fullname": [
+                  "condition"
+                ],
+                "@item.id.text_2": [
+                  "_nested_name"
+                ]
+              }
+            },
+            {
+              "type": "text",
+              "value": "@item.date",
+              "_translations": {
+                "value": {}
+              },
+              "condition": "@item.fullname !== \"name_1\"",
+              "name": "text_3",
+              "_nested_name": "data_items_3.display_group_1_@item.id.text_3",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "@item.date",
+                    "matchedExpression": "@item.date",
+                    "type": "item",
+                    "fieldName": "date"
+                  }
+                ],
+                "condition": [
+                  {
+                    "fullExpression": "@item.fullname !== \"name_1\"",
+                    "matchedExpression": "@item.fullname",
+                    "type": "item",
+                    "fieldName": "fullname"
+                  }
+                ],
+                "_nested_name": [
+                  {
+                    "fullExpression": "data_items_3.display_group_1_@item.id.text_3",
+                    "matchedExpression": "@item.id.text_3",
+                    "type": "item",
+                    "fieldName": "id"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@item.date": [
+                  "value"
+                ],
+                "@item.fullname": [
+                  "condition"
+                ],
+                "@item.id.text_3": [
+                  "_nested_name"
+                ]
+              }
+            },
+            {
+              "type": "button",
+              "value": "Edit",
+              "_translations": {
+                "value": {}
+              },
+              "action_list": [
+                {
+                  "trigger": "click",
+                  "action_id": "set_field",
+                  "args": [
+                    "id",
+                    "@item.id"
+                  ],
+                  "_raw": "click | set_field : id : @item.id"
+                },
+                {
+                  "trigger": "click",
+                  "action_id": "set_field",
+                  "args": [
+                    "fullname",
+                    "@item.fullname"
+                  ],
+                  "_raw": "click | set_field: fullname : @item.fullname"
+                },
+                {
+                  "trigger": "click",
+                  "action_id": "set_field",
+                  "args": [
+                    "country",
+                    "@item.country"
+                  ],
+                  "_raw": "click | set_field : country : @item.country"
+                },
+                {
+                  "trigger": "click",
+                  "action_id": "set_field",
+                  "args": [
+                    "date",
+                    "@item.date"
+                  ],
+                  "_raw": "click | set_field: date : @item.date"
+                },
+                {
+                  "trigger": "click",
+                  "action_id": "go_to",
+                  "args": [
+                    "mohamed_form"
+                  ],
+                  "_raw": "click | go_to: mohamed_form"
+                }
+              ],
+              "condition": "@item.fullname !== \"name_1\"",
+              "name": "button_4",
+              "_nested_name": "data_items_3.display_group_1_@item.id.button_4",
+              "_dynamicFields": {
+                "action_list": {
+                  "0": {
+                    "args": {
+                      "1": [
+                        {
+                          "fullExpression": "@item.id",
+                          "matchedExpression": "@item.id",
+                          "type": "item",
+                          "fieldName": "id"
+                        }
+                      ]
+                    },
+                    "_raw": [
+                      {
+                        "fullExpression": "click | set_field : id : @item.id",
+                        "matchedExpression": "@item.id",
+                        "type": "item",
+                        "fieldName": "id"
+                      }
+                    ]
+                  },
+                  "1": {
+                    "args": {
+                      "1": [
+                        {
+                          "fullExpression": "@item.fullname",
+                          "matchedExpression": "@item.fullname",
+                          "type": "item",
+                          "fieldName": "fullname"
+                        }
+                      ]
+                    },
+                    "_raw": [
+                      {
+                        "fullExpression": "click | set_field: fullname : @item.fullname",
+                        "matchedExpression": "@item.fullname",
+                        "type": "item",
+                        "fieldName": "fullname"
+                      }
+                    ]
+                  },
+                  "2": {
+                    "args": {
+                      "1": [
+                        {
+                          "fullExpression": "@item.country",
+                          "matchedExpression": "@item.country",
+                          "type": "item",
+                          "fieldName": "country"
+                        }
+                      ]
+                    },
+                    "_raw": [
+                      {
+                        "fullExpression": "click | set_field : country : @item.country",
+                        "matchedExpression": "@item.country",
+                        "type": "item",
+                        "fieldName": "country"
+                      }
+                    ]
+                  },
+                  "3": {
+                    "args": {
+                      "1": [
+                        {
+                          "fullExpression": "@item.date",
+                          "matchedExpression": "@item.date",
+                          "type": "item",
+                          "fieldName": "date"
+                        }
+                      ]
+                    },
+                    "_raw": [
+                      {
+                        "fullExpression": "click | set_field: date : @item.date",
+                        "matchedExpression": "@item.date",
+                        "type": "item",
+                        "fieldName": "date"
+                      }
+                    ]
+                  }
+                },
+                "condition": [
+                  {
+                    "fullExpression": "@item.fullname !== \"name_1\"",
+                    "matchedExpression": "@item.fullname",
+                    "type": "item",
+                    "fieldName": "fullname"
+                  }
+                ],
+                "_nested_name": [
+                  {
+                    "fullExpression": "data_items_3.display_group_1_@item.id.button_4",
+                    "matchedExpression": "@item.id.button_4",
+                    "type": "item",
+                    "fieldName": "id"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@item.id": [
+                  "action_list.0.args.1",
+                  "action_list.0._raw"
+                ],
+                "@item.fullname": [
+                  "action_list.1.args.1",
+                  "action_list.1._raw",
+                  "condition"
+                ],
+                "@item.country": [
+                  "action_list.2.args.1",
+                  "action_list.2._raw"
+                ],
+                "@item.date": [
+                  "action_list.3.args.1",
+                  "action_list.3._raw"
+                ],
+                "@item.id.button_4": [
+                  "_nested_name"
+                ]
+              }
+            }
+          ],
+          "name": "display_group_1_@item.id",
+          "_nested_name": "data_items_3.display_group_1_@item.id",
+          "_dynamicFields": {
+            "name": [
+              {
+                "fullExpression": "display_group_1_@item.id",
+                "matchedExpression": "@item.id",
+                "type": "item",
+                "fieldName": "id"
+              }
+            ],
+            "_nested_name": [
+              {
+                "fullExpression": "data_items_3.display_group_1_@item.id",
+                "matchedExpression": "@item.id",
+                "type": "item",
+                "fieldName": "id"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@item.id": [
+              "name",
+              "_nested_name"
+            ]
+          }
+        }
+      ],
+      "name": "data_items_3",
+      "_nested_name": "data_items_3",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@data.mohamed_items",
+            "matchedExpression": "@data.mohamed_items",
+            "type": "data",
+            "fieldName": "mohamed_items"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@data.mohamed_items": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "name": "data_items",
+      "value": "Debug Sheet https://docs.google.com/spreadsheets/d/1khGTrDekzqDQyW1r2x0ADqknanrlkmhOz1RRzhP6-7c",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "data_items"
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/training_sheets.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/1ZkkT4Kqe6qzxeo0ifM-K44M3xoDjImUATbYHmwAdvrs"
+  }
+}
