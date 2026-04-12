@@ -1,0 +1,199 @@
+{
+  "flow_type": "template",
+  "flow_name": "enrolment_page6",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "value": "ACTIVITE SECONDAIRE DE L'UPA"
+    },
+    {
+      "type": "begin_display_group",
+      "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "audio",
+      "name": "audio_6_1",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/act_secon_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "exclude_from_translation": true,
+      "style_list": "float: right;"
+    },
+    {
+      "type": "html",
+      "value": "Selectionnez les activité(s) secondaire(s) de l’UPA<span style=\"color: red;\">*</span>"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_data_items",
+      "value": "@data.activite",
+      "parameter_list": "filter: @item.name != @field.activite || @item.name == 'autre1';",
+      "style_list": "display: flex; flex-wrap: wrap; justify-content: space-between; width: 100%; gap: 10px;"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "pricipale",
+      "style_list": "width: 100%; display: flex; flex-direction: column; align-items: center; border: 1px solid #FFCC80; border-radius: 12px; background: white; margin-bottom: 10px; overflow: hidden;"
+    },
+    {
+      "type": "image",
+      "value": "@item.image",
+      "style_list": "width: 70%; object-fit: contain; "
+    },
+    {
+      "name": "v_key",
+      "value": "@calc('sec_ids_' + @item.name)"
+    },
+    {
+      "type": "simple_checkbox",
+      "name": "checkbox",
+      "value": "@field.@local.v_key",
+      "action_list": "changed | set_field:@local.v_key : @local.checkbox;\n",
+      "parameter_list": "label_text: @item.text; reverse: true; ",
+      "exclude_from_translation": true,
+      "style_list": "margin-bottom: 10px;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "end_data_items"
+    },
+    {
+      "name": "v_sec",
+      "value": "@calc(!!@field.sec_ids_agriculture || !!@field.sec_ids_elevage || !!@field.sec_ids_commerce || !!@field.sec_ids_maraichage || !!@field.sec_ids_autre1)"
+    },
+    {
+      "name": "v_is_autre",
+      "value": "@calc(!!@field.sec_ids_autre1)"
+    },
+    {
+      "type": "text",
+      "value": "Veuillez sélectionner au moins une activité secondaire.",
+      "condition": "@calc(!@local.v_sec)",
+      "style_list": "color: orange; font-size: 12px;"
+    },
+    {
+      "name": "v_doublon_principal",
+      "value": "@calc(!!@field.autre_nom && @field.autre_nom_2 == @field.autre_nom)"
+    },
+    {
+      "name": "v_doublon_3_principal",
+      "value": "@calc(!!@field.autre_nom && @field.autre_nom_3 == @field.autre_nom)"
+    },
+    {
+      "name": "v_doublon_2_3",
+      "value": "@calc(!!@field.autre_nom_2 && @field.autre_nom_3 == @field.autre_nom_2)"
+    },
+    {
+      "name": "v_autre_ok",
+      "value": "@calc(!@local.v_is_autre || (!!@field.autre_nom_2 && !@local.v_doublon_principal && (!@field.show_box3 || (!!@field.autre_nom_3 && !@local.v_doublon_2_3 && !@local.v_doublon_3_principal))))"
+    },
+    {
+      "type": "begin_display_group\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t",
+      "name": "deuxieme",
+      "condition": "@local.v_is_autre == true",
+      "style_list": "display: block; width: 100%\n"
+    },
+    {
+      "type": "audio",
+      "name": "audio_6_2",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/autre_act_secon_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "exclude_from_translation": true,
+      "style_list": "float:right;"
+    },
+    {
+      "type": "html",
+      "value": "Précisez le nom de l'autre activité secondaire<span style=\"color: red;\">*</span>"
+    },
+    {
+      "type": "end_display_group\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t"
+    },
+    {
+      "type": "begin_display_group\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t",
+      "condition": "@local.v_is_autre == true",
+      "style_list": "display: block; background: white; margin-bottom: 10px; overflow: hidden; width: 100%; padding: 15px;"
+    },
+    {
+      "type": "text_box",
+      "name": "box_autre_2",
+      "value": "@field.autre_nom_2",
+      "action_list": "changed | set_field: autre_nom_2: this.value;",
+      "parameter_list": "placeholder: Précisez l'activité...",
+      "exclude_from_translation": true,
+      "style_list": "border: none; background: transparent;margin-top: 10px;"
+    },
+    {
+      "type": "text",
+      "value": "Cette activité est déjà votre activité principale.",
+      "condition": "@local.v_doublon_principal",
+      "style_list": "color: red; font-size: 12px;"
+    },
+    {
+      "type": "text",
+      "value": "La précision est obligatoire.",
+      "condition": "!@field.autre_nom_2 && !@local.v_doublon_principal",
+      "style_list": "color: red; font-size: 12px;"
+    },
+    {
+      "type": "round_button",
+      "name": "btn_add",
+      "action_list": "click | set_field: show_box3: true;",
+      "parameter_list": "icon_src: add-circle-outline;variant: no-background;",
+      "condition": "!@field.show_box3 && !!@field.autre_nom_2 && !@local.v_doublon_principal",
+      "style_list": "align-self: flex-end;display: flex; margin-bottom: 12px;"
+    },
+    {
+      "type": "text_box",
+      "name": "box_autre_3",
+      "value": "@field.autre_nom_3",
+      "action_list": "changed | set_field: autre_nom_3: this.value;",
+      "parameter_list": "placeholder: Deuxième précision...",
+      "condition": "@field.show_box3 == true",
+      "style_list": "border: none; background: transparent;margin-top: 10px;"
+    },
+    {
+      "type": "text",
+      "value": "Cette activité est déjà votre activité principale.",
+      "condition": "@local.v_doublon_3_principal",
+      "style_list": "color: red; font-size: 12px;"
+    },
+    {
+      "type": "text",
+      "value": "Les deux activités secondaires doivent être différentes.",
+      "condition": "@local.v_doublon_2_3",
+      "style_list": "color: orange; font-size: 12px;"
+    },
+    {
+      "type": "end_display_group\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t"
+    },
+    {
+      "name": "completed_enabled\n",
+      "value": "@calc(@local.v_sec && @local.v_autre_ok)"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "dg_footer",
+      "parameter_list": "sticky: bottom;",
+      "style_list": "padding: 12px 24px;"
+    },
+    {
+      "type": "round_button",
+      "name": "button_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+    },
+    {
+      "type": "button",
+      "name": "button_completed",
+      "value": "@global.btn_continue",
+      "action_list": "click | emit: completed",
+      "parameter_list": "style: navigation;\ndisabled: !@local.completed_enabled",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "end_display_group"
+    }
+  ]
+}

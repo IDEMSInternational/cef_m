@@ -1,0 +1,285 @@
+{
+  "flow_type": "template",
+  "flow_name": "enrolment_page11",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "value": " EQUIPEMENT DE L'UPA"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "Nombre d'appareils de traitement herbicide ou insecticide",
+      "parameter_list": "style: contextual;",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "image",
+      "value": "images/traitement.jpg",
+      "style_list": "width: 150px; height: 150px; object-fit: cover;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_pompe_traitement",
+      "value": "@field.nombre_pompe_traitement",
+      "parameter_list": "number_input: true;\nplaceholder: Entrez le nombre;",
+      "condition": "!!@field.nombre_pompe_traitement",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_pompe_traitement",
+      "parameter_list": "number_input: true;\nplaceholder: Entrez le nombre;",
+      "condition": "!@field.nombre_pompe_traitement",
+      "exclude_from_translation": true
+    },
+    {
+      "name": "valid_nombre_pompe_traitement",
+      "value": "@calc((/^\\d+$/.test(@local.nombre_pompe_traitement) && @local.nombre_pompe_traitement>= 0) || @local.nombre_pompe_traitement == '' || !@local.nombre_pompe_traitement)",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "audio",
+      "name": "pompe",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/pompe_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "align-self: flex-end;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "value": "S'il vous plaît, saisissez un nombre valide !",
+      "condition": "!@local.valid_nombre_pompe_traitement",
+      "exclude_from_translation": true,
+      "style_list": "color: #FF0000;\nfont-size: 14px"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "Nombre de pulvérisateurs ou herses",
+      "parameter_list": "style: contextual;",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "image",
+      "value": "images/herse.jpg",
+      "style_list": "width: 150px; height: 150px; object-fit: cover;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_pulverisateurs",
+      "value": "@field.nombre_pulverisateurs",
+      "parameter_list": "number_input: true;\nplaceholder: Entrez le nombre;",
+      "condition": "!!@field.nombre_pulverisateurs",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_pulverisateurs",
+      "parameter_list": "number_input: true;\nplaceholder: Entrez le nombre;",
+      "condition": "!@field.nombre_pulverisateurs",
+      "exclude_from_translation": true
+    },
+    {
+      "name": "valid_nombre_pulverisateurs",
+      "value": "@calc((/^\\d+$/.test(@local.nombre_pulverisateurs) && @local.nombre_pulverisateurs>= 0 ) || @local.nombre_pulverisateurs == '' || !@local.nombre_pulverisateurs)",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "audio",
+      "name": "herse",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/herse_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "align-self: flex-end;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "value": "S'il vous plaît, saisissez un nombre valide !",
+      "condition": "!@local.valid_nombre_pulverisateurs",
+      "exclude_from_translation": true,
+      "style_list": "color: #FF0000;\nfont-size: 14px"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "Nombre de corps butteurs",
+      "parameter_list": "style: contextual;",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "image",
+      "value": "images/butter.jpg",
+      "style_list": "width: 150px; height: 150px; object-fit: cover;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_corps_buteur",
+      "value": "@field.nombre_corps_buteur",
+      "parameter_list": "number_input: true;\nplaceholder: Entrez le nombre;",
+      "condition": "!!@field.nombre_corps_buteur",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_corps_buteur",
+      "parameter_list": "number_input: true;\nplaceholder: Entrez le nombre;",
+      "condition": "!@field.nombre_corps_buteur",
+      "exclude_from_translation": true
+    },
+    {
+      "name": "valid_nombre_corps_buteur",
+      "value": "@calc((/^\\d+$/.test(@local.nombre_corps_buteur) && @local.nombre_corps_buteur>= 0 ) || @local.nombre_corps_buteur == '' || !@local.nombre_corps_buteur)",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "audio",
+      "name": "corp_but",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/corp_but_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "align-self: flex-end;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "value": "S'il vous plaît, saisissez un nombre valide !",
+      "condition": "!@local.valid_nombre_corps_buteur",
+      "exclude_from_translation": true,
+      "style_list": "color: #FF0000;\nfont-size: 14px"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "Autre(s) Matériel(s)",
+      "parameter_list": "style: contextual;",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "image",
+      "value": "images/autre_mat.jpg",
+      "style_list": "width: 150px; height: 150px; object-fit: cover;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "value": "Veuillez entrez le nom du matériel ou ecrire Aucun ",
+      "style_list": "font-size:14px;"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text_box",
+      "name": "autre_materiel",
+      "action_list": "changed | set_field : autre_materiel: this.value;",
+      "parameter_list": "placeholder: Entrez le nom du matériel",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "audio",
+      "name": "autre_mat",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/autre_mat_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "align-self: flex-end;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "value": "Nombre autre materiel (@field.autre_materiel)",
+      "parameter_list": "style: contextual;",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_autre_materiel",
+      "value": "@field.nombre_autre_materiel",
+      "parameter_list": "number_input: true\nplaceholder: Entrez le nombre;",
+      "condition": "!!@field.nombre_autre_materiel",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_autre_materiel",
+      "parameter_list": "number_input: true;\nplaceholder: Entrez le nombre;",
+      "condition": "!@field.nombre_autre_materiel",
+      "exclude_from_translation": true
+    },
+    {
+      "name": "valid_nombre_autre_materiel",
+      "value": "@calc((/^\\d+$/.test(@local.nombre_autre_materiel) && @local.nombre_autre_materiel>= 0 ) || @local.nombre_corps_buteur == '' || !@local.nombre_corps_buteur || @local.nombre_corps_buteur != 'null')",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text",
+      "value": "S'il vous plaît, saisissez un nombre valide !",
+      "condition": "!@local.valid_nombre_autre_materiel",
+      "exclude_from_translation": true,
+      "style_list": "color: #FF0000;\nfont-size: 14px"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "dg_footer",
+      "parameter_list": "sticky: bottom;",
+      "style_list": "padding: 12px 24px;"
+    },
+    {
+      "type": "round_button",
+      "name": "button_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+    },
+    {
+      "name": "completed_enabled",
+      "value": "!!@local.nombre_pompe_traitement  && @local.valid_nombre_pompe_traitement && !!@local.nombre_pulverisateurs && !!@local.nombre_corps_buteur",
+      "style_list": true
+    },
+    {
+      "type": "button",
+      "name": "button_continue_11",
+      "value": "Continuer",
+      "action_list": "click | set_field: nombre_pompe_traitement: @local.nombre_pompe_traitement;\nclick | set_field: nombre_pulverisateurs: @local.nombre_pulverisateurs;\nclick | set_field: nombre_corps_buteur: @local.nombre_corps_buteur;\nclick | set_field: nombre_autre_materiel: @local.nombre_autre_materiel;\n\nclick | emit: completed;",
+      "parameter_list": "button_align: right;\ndisabled: !@local.completed_enabled;",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "end_display_group"
+    }
+  ]
+}

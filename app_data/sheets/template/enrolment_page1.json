@@ -1,0 +1,294 @@
+{
+  "flow_type": "template",
+  "flow_name": "enrolment_page1",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "name": "consentement",
+      "value": "**CONSENTEMENT**",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "consentement"
+    },
+    {
+      "type": "text",
+      "name": "note_consentement",
+      "value": "@global.note_consentement",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "note_consentement",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.note_consentement",
+            "matchedExpression": "@global.note_consentement",
+            "type": "global",
+            "fieldName": "note_consentement"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.note_consentement": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "user_oui_non",
+      "type": "set_variable",
+      "_nested_name": "user_oui_non"
+    },
+    {
+      "name": "answer_oui_non",
+      "value": "name: Oui | text: Oui;\nname: Non | text: Non;",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "answer_oui_non"
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "text",
+          "value": "Voudriez-vous participer ?",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_2",
+          "_nested_name": "display_group_4.text_2"
+        },
+        {
+          "type": "radio_list",
+          "name": "user_respone",
+          "value": "@fields.user_oui_non",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "changed",
+              "action_id": "set_local",
+              "args": [
+                "user_oui_non",
+                "this.value"
+              ],
+              "_raw": "changed | set_local : user_oui_non: this.value"
+            }
+          ],
+          "parameter_list": {
+            "answer_list": "@local.answer_oui_non"
+          },
+          "_nested_name": "display_group_4.user_respone",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@fields.user_oui_non",
+                "matchedExpression": "@fields.user_oui_non",
+                "type": "fields",
+                "fieldName": "user_oui_non"
+              }
+            ],
+            "parameter_list": {
+              "answer_list": [
+                {
+                  "fullExpression": "@local.answer_oui_non",
+                  "matchedExpression": "@local.answer_oui_non",
+                  "type": "local",
+                  "fieldName": "answer_oui_non"
+                }
+              ]
+            }
+          },
+          "_dynamicDependencies": {
+            "@fields.user_oui_non": [
+              "value"
+            ],
+            "@local.answer_oui_non": [
+              "parameter_list.answer_list"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_4",
+      "_nested_name": "display_group_4"
+    },
+    {
+      "type": "display_group",
+      "name": "dg_footer",
+      "value": "",
+      "parameter_list": {
+        "sticky": "bottom"
+      },
+      "style_list": [
+        "padding: 12px 24px"
+      ],
+      "rows": [
+        {
+          "type": "button",
+          "name": "button_continue_no",
+          "value": "Continuer",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "user_oui_non",
+                "@field.user_oui_non"
+              ],
+              "_raw": "click | set_field: user_oui_non: @field.user_oui_non"
+            },
+            {
+              "trigger": "click",
+              "action_id": "go_to",
+              "args": [
+                "enrolment_page18"
+              ],
+              "_raw": "click | go_to: enrolment_page18"
+            }
+          ],
+          "parameter_list": {
+            "disabled": "!@local.user_oui_non"
+          },
+          "condition": "@local.user_oui_non =='Non'",
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "dg_footer.button_continue_no",
+          "_dynamicFields": {
+            "action_list": {
+              "0": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@field.user_oui_non",
+                      "matchedExpression": "@field.user_oui_non",
+                      "type": "field",
+                      "fieldName": "user_oui_non"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: user_oui_non: @field.user_oui_non",
+                    "matchedExpression": "@field.user_oui_non",
+                    "type": "field",
+                    "fieldName": "user_oui_non"
+                  }
+                ]
+              }
+            },
+            "parameter_list": {
+              "disabled": [
+                {
+                  "fullExpression": "!@local.user_oui_non",
+                  "matchedExpression": "!@local.user_oui_non",
+                  "type": "local",
+                  "fieldName": "user_oui_non"
+                }
+              ]
+            },
+            "condition": [
+              {
+                "fullExpression": "@local.user_oui_non =='Non'",
+                "matchedExpression": "@local.user_oui_non",
+                "type": "local",
+                "fieldName": "user_oui_non"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@field.user_oui_non": [
+              "action_list.0.args.1",
+              "action_list.0._raw"
+            ],
+            "!@local.user_oui_non": [
+              "parameter_list.disabled"
+            ],
+            "@local.user_oui_non": [
+              "condition"
+            ]
+          }
+        },
+        {
+          "type": "button",
+          "name": "button_continue_1",
+          "value": "@global.btn_continue",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "completed"
+              ],
+              "_raw": "click | emit: completed"
+            }
+          ],
+          "parameter_list": {
+            "disabled": "!@local.user_oui_non"
+          },
+          "condition": "@local.user_oui_non =='Oui'",
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "dg_footer.button_continue_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.btn_continue",
+                "matchedExpression": "@global.btn_continue",
+                "type": "global",
+                "fieldName": "btn_continue"
+              }
+            ],
+            "parameter_list": {
+              "disabled": [
+                {
+                  "fullExpression": "!@local.user_oui_non",
+                  "matchedExpression": "!@local.user_oui_non",
+                  "type": "local",
+                  "fieldName": "user_oui_non"
+                }
+              ]
+            },
+            "condition": [
+              {
+                "fullExpression": "@local.user_oui_non =='Oui'",
+                "matchedExpression": "@local.user_oui_non",
+                "type": "local",
+                "fieldName": "user_oui_non"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.btn_continue": [
+              "value"
+            ],
+            "!@local.user_oui_non": [
+              "parameter_list.disabled"
+            ],
+            "@local.user_oui_non": [
+              "condition"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "dg_footer"
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/Enrolment_form_sheets.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/1mR9iAG_wjGK0G39YVxIlwlGFILSbgZvCqESHTMNXNgA"
+  }
+}

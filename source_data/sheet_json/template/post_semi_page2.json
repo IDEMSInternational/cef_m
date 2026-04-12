@@ -1,0 +1,52 @@
+{
+  "flow_type": "template",
+  "flow_name": "post_semi_page2",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "value": "IMPORTANT : Gestion des coûts de Post-Semis"
+    },
+    {
+      "type": "begin_display_group",
+      "style_list": "display: block;"
+    },
+    {
+      "type": "audio",
+      "name": "audio_note_fr",
+      "parameter_list": "variant: compact;\nsrc: audio/postSemi/note_form_postsemis_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "float: right;"
+    },
+    {
+      "type": "text",
+      "name": "note_formulaire_info_postsems",
+      "value": "@global.note_formulaire_info_postsems"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "dg_footer",
+      "parameter_list": "sticky: bottom;",
+      "style_list": "padding: 12px 24px;"
+    },
+    {
+      "type": "round_button",
+      "name": "button_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+    },
+    {
+      "type": "button",
+      "name": "button_completed",
+      "value": "@global.btn_continue",
+      "action_list": " click | emit: completed;",
+      "parameter_list": "style: navigation;\n",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "end_display_group"
+    }
+  ]
+}

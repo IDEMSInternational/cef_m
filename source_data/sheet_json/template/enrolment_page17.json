@@ -1,0 +1,67 @@
+{
+  "flow_type": "template",
+  "flow_name": "enrolment_page17",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "name": "page_title",
+      "value": "APRECIATIONS ET OBSERVATIONS SUR LE FORMULAIRE"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/vocal.jpg"
+    },
+    {
+      "type": "text",
+      "name": "observation_appreciation_label",
+      "value": "Partagez vos appréciations, observations, ou suggestions d'amélioration sur le formulaire par audio"
+    },
+    {
+      "type": "audio",
+      "name": "audio_17_1",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/appreciation_audio_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "style_list": "float: right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "name": "observation_appreciation_hint",
+      "value": "*Il s'agit de partager à travers un enregistrement vocal toute appréciation (positive/négative) ou observation sur les éléments de ce formulaire, et aussi des suggestions d'amélioration. \n",
+      "style_list": "font-size:14px;"
+    },
+    {
+      "type": "text",
+      "name": "observation_appreciation",
+      "value": "We would need a recorder here in order to transmit observations or feedback regarding the form."
+    },
+    {
+      "type": "begin_display_group",
+      "name": "dg_footer",
+      "value": " ",
+      "parameter_list": "sticky: bottom;",
+      "style_list": "padding: 12px 24px;"
+    },
+    {
+      "type": "round_button",
+      "name": "page_17_button_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+    },
+    {
+      "type": "button",
+      "name": "page_17_button_continue",
+      "value": "@global.btn_continue",
+      "action_list": "click | emit: completed",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "end_display_group"
+    }
+  ]
+}

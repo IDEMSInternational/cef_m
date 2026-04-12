@@ -1,0 +1,69 @@
+{
+  "flow_type": "template",
+  "flow_name": "enrolment_page1",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "name": "consentement",
+      "value": "**CONSENTEMENT**"
+    },
+    {
+      "type": "text",
+      "name": "note_consentement",
+      "value": "@global.note_consentement"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "name": "user_oui_non"
+    },
+    {
+      "type": "text",
+      "value": "Voudriez-vous participer ?"
+    },
+    {
+      "name": "answer_oui_non",
+      "value": "name: Oui | text: Oui;\nname: Non | text: Non;"
+    },
+    {
+      "type": "radio_list",
+      "name": "user_respone",
+      "value": "@fields.user_oui_non",
+      "action_list": "changed | set_local : user_oui_non: this.value;",
+      "parameter_list": "answer_list: @local.answer_oui_non;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "dg_footer",
+      "value": " ",
+      "parameter_list": "sticky: bottom;",
+      "style_list": "padding: 12px 24px;"
+    },
+    {
+      "type": "button",
+      "name": "button_continue_no",
+      "value": "Continuer",
+      "action_list": "click | set_field: user_oui_non: @field.user_oui_non;\n\nclick | go_to: enrolment_page18;",
+      "parameter_list": "disabled: !@local.user_oui_non;",
+      "condition": "@local.user_oui_non =='Non' ",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "button",
+      "name": "button_continue_1",
+      "value": "@global.btn_continue",
+      "action_list": "click | emit: completed",
+      "parameter_list": "disabled: !@local.user_oui_non;",
+      "condition": "@local.user_oui_non =='Oui' ",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "end_display_group"
+    }
+  ]
+}

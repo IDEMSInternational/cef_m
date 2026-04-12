@@ -1,0 +1,462 @@
+{
+  "flow_type": "template",
+  "flow_name": "enrolment_page5",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "value": "ACTIVITE PRIMAIRE DE L'UPA",
+      "_translations": {
+        "value": {}
+      },
+      "name": "title_2",
+      "_nested_name": "title_2"
+    },
+    {
+      "type": "display_group",
+      "style_list": [
+        "display: block",
+        "width: 100%"
+      ],
+      "rows": [
+        {
+          "type": "audio",
+          "name": "audio/Enrolement_5_1",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Enrolement/act_prim_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "exclude_from_translation": true,
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "display_group_3.audio/Enrolement_5_1"
+        },
+        {
+          "type": "html",
+          "value": "Selectionnez l'activité primaire de l’UPA<span style=\"color: red;\">*</span>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_2",
+          "_nested_name": "display_group_3.html_2"
+        }
+      ],
+      "name": "display_group_3",
+      "_nested_name": "display_group_3"
+    },
+    {
+      "type": "radio_button_grid",
+      "name": "grid_1",
+      "value": "@field.activite",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "activite",
+            "this.value"
+          ],
+          "_raw": "changed |set_field: activite: this.value"
+        }
+      ],
+      "parameter_list": {
+        "answer_list": "@data.activite"
+      },
+      "_nested_name": "grid_1",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@field.activite",
+            "matchedExpression": "@field.activite",
+            "type": "field",
+            "fieldName": "activite"
+          }
+        ],
+        "parameter_list": {
+          "answer_list": [
+            {
+              "fullExpression": "@data.activite",
+              "matchedExpression": "@data.activite",
+              "type": "data",
+              "fieldName": "activite"
+            }
+          ]
+        }
+      },
+      "_dynamicDependencies": {
+        "@field.activite": [
+          "value"
+        ],
+        "@data.activite": [
+          "parameter_list.answer_list"
+        ]
+      }
+    },
+    {
+      "name": "v_pri",
+      "value": "@calc(!!@field.activite)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_pri",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(!!@field.activite)",
+            "matchedExpression": "!@field.activite",
+            "type": "field",
+            "fieldName": "activite"
+          },
+          {
+            "fullExpression": "@calc(!!@field.activite)",
+            "matchedExpression": "@calc(!!@field.activite)",
+            "type": "calc",
+            "fieldName": "!!@field.activite"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@field.activite": [
+          "value"
+        ],
+        "@calc(!!@field.activite)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "v_autre_pri",
+      "value": "@calc(!!@field.autre_nom)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_autre_pri",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(!!@field.autre_nom)",
+            "matchedExpression": "!@field.autre_nom",
+            "type": "field",
+            "fieldName": "autre_nom"
+          },
+          {
+            "fullExpression": "@calc(!!@field.autre_nom)",
+            "matchedExpression": "@calc(!!@field.autre_nom)",
+            "type": "calc",
+            "fieldName": "!!@field.autre_nom"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@field.autre_nom": [
+          "value"
+        ],
+        "@calc(!!@field.autre_nom)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "card_pri",
+      "condition": "@field.activite == 'autre1'",
+      "style_list": [
+        "display: block",
+        "width: 100%"
+      ],
+      "rows": [
+        {
+          "type": "audio",
+          "name": "audio/Enrolement_5_2",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Enrolement/autre_act_prim_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "exclude_from_translation": true,
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "card_pri.audio/Enrolement_5_2"
+        },
+        {
+          "type": "html",
+          "value": "Précisez le nom de l'autre activité primaire<span style=\"color: red;\">*</span>",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "clear: none"
+          ],
+          "name": "html_2",
+          "_nested_name": "card_pri.html_2"
+        },
+        {
+          "type": "text_box",
+          "name": "box_autre",
+          "value": "@field.autre_nom",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "changed",
+              "action_id": "set_field",
+              "args": [
+                "autre_nom",
+                "this.value"
+              ],
+              "_raw": "changed | set_field: autre_nom: this.value"
+            }
+          ],
+          "parameter_list": {
+            "placeholder": "Précisez le nom de l'autre..."
+          },
+          "style_list": [
+            "width: 100%",
+            "margin-top: 10px"
+          ],
+          "_nested_name": "card_pri.box_autre",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@field.autre_nom",
+                "matchedExpression": "@field.autre_nom",
+                "type": "field",
+                "fieldName": "autre_nom"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@field.autre_nom": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "card_pri",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@field.activite == 'autre1'",
+            "matchedExpression": "@field.activite",
+            "type": "field",
+            "fieldName": "activite"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.activite": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "completed_enabled",
+      "value": "@local.v_pri && (@field.activite != 'autre1' || @local.v_autre_pri)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "completed_enabled",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@local.v_pri && (@field.activite != 'autre1' || @local.v_autre_pri)",
+            "matchedExpression": "@local.v_pri",
+            "type": "local",
+            "fieldName": "v_pri"
+          },
+          {
+            "fullExpression": "@local.v_pri && (@field.activite != 'autre1' || @local.v_autre_pri)",
+            "matchedExpression": "@field.activite",
+            "type": "field",
+            "fieldName": "activite"
+          },
+          {
+            "fullExpression": "@local.v_pri && (@field.activite != 'autre1' || @local.v_autre_pri)",
+            "matchedExpression": "@local.v_autre_pri",
+            "type": "local",
+            "fieldName": "v_autre_pri"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.v_pri": [
+          "value"
+        ],
+        "@field.activite": [
+          "value"
+        ],
+        "@local.v_autre_pri": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "dg_footer",
+      "parameter_list": {
+        "sticky": "bottom"
+      },
+      "style_list": [
+        "padding: 12px 24px"
+      ],
+      "rows": [
+        {
+          "type": "round_button",
+          "name": "button_back",
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "uncompleted"
+              ],
+              "_raw": "click | emit: uncompleted"
+            }
+          ],
+          "parameter_list": {
+            "icon_src": "arrow-back",
+            "variant": "no-background"
+          },
+          "_nested_name": "dg_footer.button_back"
+        },
+        {
+          "type": "button",
+          "name": "button_completed",
+          "value": "@global.btn_continue",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "activite_finale",
+                "@calc(@field.autre_nom ?? @field.activite)"
+              ],
+              "_raw": "click | set_field: activite_finale: @calc(@field.autre_nom ?? @field.activite)"
+            },
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "completed"
+              ],
+              "_raw": "click | emit: completed"
+            }
+          ],
+          "parameter_list": {
+            "style": "navigation",
+            "disabled": "!@local.completed_enabled"
+          },
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "dg_footer.button_completed",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.btn_continue",
+                "matchedExpression": "@global.btn_continue",
+                "type": "global",
+                "fieldName": "btn_continue"
+              }
+            ],
+            "action_list": {
+              "0": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@calc(@field.autre_nom ?? @field.activite)",
+                      "matchedExpression": "@field.autre_nom",
+                      "type": "field",
+                      "fieldName": "autre_nom"
+                    },
+                    {
+                      "fullExpression": "@calc(@field.autre_nom ?? @field.activite)",
+                      "matchedExpression": "@field.activite",
+                      "type": "field",
+                      "fieldName": "activite"
+                    },
+                    {
+                      "fullExpression": "@calc(@field.autre_nom ?? @field.activite)",
+                      "matchedExpression": "@calc(@field.autre_nom ?? @field.activite)",
+                      "type": "calc",
+                      "fieldName": "@field.autre_nom ?? @field.activite"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: activite_finale: @calc(@field.autre_nom ?? @field.activite)",
+                    "matchedExpression": "@field.autre_nom",
+                    "type": "field",
+                    "fieldName": "autre_nom"
+                  },
+                  {
+                    "fullExpression": "click | set_field: activite_finale: @calc(@field.autre_nom ?? @field.activite)",
+                    "matchedExpression": "@field.activite",
+                    "type": "field",
+                    "fieldName": "activite"
+                  },
+                  {
+                    "fullExpression": "click | set_field: activite_finale: @calc(@field.autre_nom ?? @field.activite)",
+                    "matchedExpression": "@calc(@field.autre_nom ?? @field.activite)",
+                    "type": "calc",
+                    "fieldName": "@field.autre_nom ?? @field.activite"
+                  }
+                ]
+              }
+            },
+            "parameter_list": {
+              "disabled": [
+                {
+                  "fullExpression": "!@local.completed_enabled",
+                  "matchedExpression": "!@local.completed_enabled",
+                  "type": "local",
+                  "fieldName": "completed_enabled"
+                }
+              ]
+            }
+          },
+          "_dynamicDependencies": {
+            "@global.btn_continue": [
+              "value"
+            ],
+            "@field.autre_nom": [
+              "action_list.0.args.1",
+              "action_list.0._raw"
+            ],
+            "@field.activite": [
+              "action_list.0.args.1",
+              "action_list.0._raw"
+            ],
+            "@calc(@field.autre_nom ?? @field.activite)": [
+              "action_list.0.args.1",
+              "action_list.0._raw"
+            ],
+            "!@local.completed_enabled": [
+              "parameter_list.disabled"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "dg_footer"
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/Enrolment_form_sheets.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/1mR9iAG_wjGK0G39YVxIlwlGFILSbgZvCqESHTMNXNgA"
+  }
+}

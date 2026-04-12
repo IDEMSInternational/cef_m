@@ -1,0 +1,53 @@
+{
+  "flow_type": "template",
+  "flow_name": "mohamed_list",
+  "status": "released",
+  "rows": [
+    {
+      "type": "button",
+      "name": "button_2_mohamed_form",
+      "value": "Add new",
+      "action_list": "click | set_field : id : ;\nclick | set_field: fullname : ;\nclick | set_field : country : ;\nclick | set_field: date : ; \nclick | emit: completed;",
+      "style_list": "font-size:12px;"
+    },
+    {
+      "type": "begin_data_items",
+      "value": "@data.mohamed_items"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "@item.fullname",
+      "condition": "@item.fullname !== \"name_1\""
+    },
+    {
+      "type": "text",
+      "value": "@item.country",
+      "condition": "@item.fullname !== \"name_1\""
+    },
+    {
+      "type": "text",
+      "value": "@item.date",
+      "condition": "@item.fullname !== \"name_1\""
+    },
+    {
+      "type": "button",
+      "value": "Edit",
+      "action_list": "click | set_field : id : @item.id;\nclick | set_field: fullname : @item.fullname;\nclick | set_field : country : @item.country;\nclick | set_field: date : @item.date; \nclick | go_to: mohamed_form;",
+      "condition": "@item.fullname !== \"name_1\""
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "end_data_items"
+    },
+    {
+      "type": "text",
+      "name": "data_items",
+      "value": "Debug Sheet https://docs.google.com/spreadsheets/d/1khGTrDekzqDQyW1r2x0ADqknanrlkmhOz1RRzhP6-7c"
+    }
+  ]
+}

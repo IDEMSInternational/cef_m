@@ -1,0 +1,109 @@
+{
+  "flow_type": "template",
+  "flow_name": "post_semi_page3",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "value": "SÉLECTION DES CULTURES"
+    },
+    {
+      "type": "begin_display_group",
+      "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "audio",
+      "name": "audio_select_cul",
+      "parameter_list": "variant: compact;\nsrc: audio/postSemi/select_culture_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "float: right;"
+    },
+    {
+      "type": "text",
+      "value": "Sélectionnez vos culture(s) principales*",
+      "style_list": "font-weight: bold;"
+    },
+    {
+      "type": "text",
+      "value": "*Les cultures principales sont des cultures dominantes cultivées annuellement par la majorité écrasante des UPA sur des grandes superficies*",
+      "style_list": "font-style: italic; color: #666;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_data_items",
+      "value": "@data.cultures",
+      "style_list": "display: flex; flex-wrap: wrap; justify-content: space-between; width: 100%; gap: 10px;"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "card_culture",
+      "style_list": "width: 100%; display: flex; flex-direction: column; align-items: center; border: 1px solid #ddd; border-radius: 12px; background: white; margin-bottom: 10px; overflow: hidden;\n"
+    },
+    {
+      "type": "image",
+      "value": "@item.image",
+      "style_list": "width: 70%; object-fit: contain;"
+    },
+    {
+      "name": "v_key",
+      "value": "@calc('cul_' + @item.name)"
+    },
+    {
+      "type": "simple_checkbox ",
+      "name": "checkbox",
+      "value": "@field.@local.v_key",
+      "action_list": "changed | set_field: @local.v_key: @local.checkbox;",
+      "parameter_list": "label_text: @item.text; reverse: true;",
+      "style_list": "margin-bottom: 10px;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "end_data_items"
+    },
+    {
+      "name": "v_has_selection",
+      "value": "@calc(!!@field.cul_mais || !!@field.cul_mil || !!@field.cul_sorgho || !!@field.cul_coton || !!@field.cul_arachide || !!@field.cul_fourrage)"
+    },
+    {
+      "type": "text",
+      "value": "Veuillez sélectionner au moins une culture!",
+      "condition": "!@local.v_has_selection",
+      "style_list": "color: red; font-size: 12px; background: #fff5f5; padding: 5px;"
+    },
+    {
+      "name": "v_total_calc",
+      "value": "@calc([(@field.cul_mais?1:0), (@field.cul_mil?1:0), (@field.cul_sorgho?1:0), (@field.cul_coton?1:0), (@field.cul_arachide?1:0), (@field.cul_fourrage?1:0)].reduce((a, b) => a + b, 0))"
+    },
+    {
+      "name": "completed_enabled",
+      "value": "@calc(!!@local.v_has_selection)"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "dg_footer",
+      "parameter_list": "sticky: bottom;",
+      "style_list": "padding: 12px 24px;"
+    },
+    {
+      "type": "round_button",
+      "name": "button_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+    },
+    {
+      "type": "button",
+      "name": "button_completed",
+      "value": "@global.btn_continue",
+      "action_list": "click | set_field: total_cultures_selected: @local.v_total_calc; \nclick | set_field: current_culture_index: 0; \nclick | emit: completed;",
+      "parameter_list": "style: navigation;\ndisabled: !@local.completed_enabled",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "end_display_group"
+    }
+  ]
+}

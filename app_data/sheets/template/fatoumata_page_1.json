@@ -1,0 +1,466 @@
+{
+  "flow_type": "template",
+  "flow_name": "fatoumata_page_1",
+  "status": "released",
+  "rows": [
+    {
+      "type": "text",
+      "name": "welcome message",
+      "value": "Welcome!",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "welcome message"
+    },
+    {
+      "type": "declare_field_default",
+      "name": "field",
+      "condition": true,
+      "_nested_name": "field"
+    },
+    {
+      "type": "text_box",
+      "name": "user_text",
+      "value": "@field.user_text",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "user_text",
+            "this.value"
+          ],
+          "_raw": "changed | set_field : user_text: this.value"
+        }
+      ],
+      "parameter_list": {
+        "max_length": "30",
+        "placeholder": "Enter your name"
+      },
+      "_nested_name": "user_text",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@field.user_text",
+            "matchedExpression": "@field.user_text",
+            "type": "field",
+            "fieldName": "user_text"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.user_text": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "subtitle",
+      "name": "country",
+      "value": "Select your country of origin",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "country"
+    },
+    {
+      "name": "answer_radio_list",
+      "value": [
+        {
+          "name": "Mali",
+          "text": "Mali"
+        },
+        {
+          "name": "Italy",
+          "text": "Italy"
+        },
+        {
+          "name": "Other",
+          "text": "Other"
+        }
+      ],
+      "type": "set_variable",
+      "_nested_name": "answer_radio_list"
+    },
+    {
+      "type": "radio_list",
+      "name": "user_country",
+      "value": "@field.user_country",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "user_country",
+            "this.value"
+          ],
+          "_raw": "changed | set_field : user_country: this.value"
+        }
+      ],
+      "parameter_list": {
+        "answer_list": "@local.answer_radio_list"
+      },
+      "_nested_name": "user_country",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@field.user_country",
+            "matchedExpression": "@field.user_country",
+            "type": "field",
+            "fieldName": "user_country"
+          }
+        ],
+        "parameter_list": {
+          "answer_list": [
+            {
+              "fullExpression": "@local.answer_radio_list",
+              "matchedExpression": "@local.answer_radio_list",
+              "type": "local",
+              "fieldName": "answer_radio_list"
+            }
+          ]
+        }
+      },
+      "_dynamicDependencies": {
+        "@field.user_country": [
+          "value"
+        ],
+        "@local.answer_radio_list": [
+          "parameter_list.answer_list"
+        ]
+      }
+    },
+    {
+      "type": "subtitle",
+      "name": "date",
+      "value": "Select the date",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "date"
+    },
+    {
+      "name": "user_date",
+      "type": "set_variable",
+      "_nested_name": "user_date"
+    },
+    {
+      "type": "date_time_picker",
+      "name": "user_date",
+      "value": "@field.user_date",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "user_date",
+            "this.value"
+          ],
+          "_raw": "changed | set_field: user_date: this.value"
+        }
+      ],
+      "parameter_list": {
+        "type": "date"
+      },
+      "_nested_name": "user_date",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@field.user_date",
+            "matchedExpression": "@field.user_date",
+            "type": "field",
+            "fieldName": "user_date"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.user_date": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "button",
+      "name": "save_button",
+      "value": "Save",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "click",
+          "action_id": "add_data",
+          "args": [],
+          "_raw": "click | add_data | \n_list_id: name_items, \nname: added_name,\ntext: @field.user_text, \ncountry: @field.user_country, \ndate: @field.user_date",
+          "params": {
+            "_list_id": "name_items",
+            "name": "added_name",
+            "text": "@field.user_text",
+            "country": "@field.user_country",
+            "date": "@field.user_date"
+          }
+        },
+        {
+          "trigger": "click",
+          "action_id": "emit",
+          "args": [
+            "completed"
+          ],
+          "_raw": "click | emit: completed"
+        }
+      ],
+      "parameter_list": {
+        "button_align": "right",
+        "style": "flexible"
+      },
+      "condition": "@field.user_id.length == 0",
+      "_nested_name": "save_button",
+      "_dynamicFields": {
+        "action_list": {
+          "0": {
+            "_raw": [
+              {
+                "fullExpression": "click | add_data | \n_list_id: name_items, \nname: added_name,\ntext: @field.user_text, \ncountry: @field.user_country, \ndate: @field.user_date",
+                "matchedExpression": "@field.user_text",
+                "type": "field",
+                "fieldName": "user_text"
+              },
+              {
+                "fullExpression": "click | add_data | \n_list_id: name_items, \nname: added_name,\ntext: @field.user_text, \ncountry: @field.user_country, \ndate: @field.user_date",
+                "matchedExpression": "@field.user_country",
+                "type": "field",
+                "fieldName": "user_country"
+              },
+              {
+                "fullExpression": "click | add_data | \n_list_id: name_items, \nname: added_name,\ntext: @field.user_text, \ncountry: @field.user_country, \ndate: @field.user_date",
+                "matchedExpression": "@field.user_date",
+                "type": "field",
+                "fieldName": "user_date"
+              }
+            ],
+            "params": {
+              "text": [
+                {
+                  "fullExpression": "@field.user_text",
+                  "matchedExpression": "@field.user_text",
+                  "type": "field",
+                  "fieldName": "user_text"
+                }
+              ],
+              "country": [
+                {
+                  "fullExpression": "@field.user_country",
+                  "matchedExpression": "@field.user_country",
+                  "type": "field",
+                  "fieldName": "user_country"
+                }
+              ],
+              "date": [
+                {
+                  "fullExpression": "@field.user_date",
+                  "matchedExpression": "@field.user_date",
+                  "type": "field",
+                  "fieldName": "user_date"
+                }
+              ]
+            }
+          }
+        },
+        "condition": [
+          {
+            "fullExpression": "@field.user_id.length == 0",
+            "matchedExpression": "@field.user_id.length",
+            "type": "field",
+            "fieldName": "user_id"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.user_text": [
+          "action_list.0._raw",
+          "action_list.0.params.text"
+        ],
+        "@field.user_country": [
+          "action_list.0._raw",
+          "action_list.0.params.country"
+        ],
+        "@field.user_date": [
+          "action_list.0._raw",
+          "action_list.0.params.date"
+        ],
+        "@field.user_id.length": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "button",
+      "name": "update_button",
+      "value": "Update",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "click",
+          "action_id": "set_data",
+          "args": [],
+          "_raw": "click | set_data | \n_list_id: name_items, \n_id: @field.user_id,\nname: added_name,\ntext: @field.user_text, \ncountry: @field.user_country, \ndate: @field.user_date",
+          "params": {
+            "_list_id": "name_items",
+            "_id": "@field.user_id",
+            "name": "added_name",
+            "text": "@field.user_text",
+            "country": "@field.user_country",
+            "date": "@field.user_date"
+          }
+        },
+        {
+          "trigger": "click",
+          "action_id": "emit",
+          "args": [
+            "completed"
+          ],
+          "_raw": "click | emit: completed"
+        }
+      ],
+      "parameter_list": {
+        "button_align": "right",
+        "style": "flexible"
+      },
+      "condition": "@field.user_id",
+      "_nested_name": "update_button",
+      "_dynamicFields": {
+        "action_list": {
+          "0": {
+            "_raw": [
+              {
+                "fullExpression": "click | set_data | \n_list_id: name_items, \n_id: @field.user_id,\nname: added_name,\ntext: @field.user_text, \ncountry: @field.user_country, \ndate: @field.user_date",
+                "matchedExpression": "@field.user_id",
+                "type": "field",
+                "fieldName": "user_id"
+              },
+              {
+                "fullExpression": "click | set_data | \n_list_id: name_items, \n_id: @field.user_id,\nname: added_name,\ntext: @field.user_text, \ncountry: @field.user_country, \ndate: @field.user_date",
+                "matchedExpression": "@field.user_text",
+                "type": "field",
+                "fieldName": "user_text"
+              },
+              {
+                "fullExpression": "click | set_data | \n_list_id: name_items, \n_id: @field.user_id,\nname: added_name,\ntext: @field.user_text, \ncountry: @field.user_country, \ndate: @field.user_date",
+                "matchedExpression": "@field.user_country",
+                "type": "field",
+                "fieldName": "user_country"
+              },
+              {
+                "fullExpression": "click | set_data | \n_list_id: name_items, \n_id: @field.user_id,\nname: added_name,\ntext: @field.user_text, \ncountry: @field.user_country, \ndate: @field.user_date",
+                "matchedExpression": "@field.user_date",
+                "type": "field",
+                "fieldName": "user_date"
+              }
+            ],
+            "params": {
+              "_id": [
+                {
+                  "fullExpression": "@field.user_id",
+                  "matchedExpression": "@field.user_id",
+                  "type": "field",
+                  "fieldName": "user_id"
+                }
+              ],
+              "text": [
+                {
+                  "fullExpression": "@field.user_text",
+                  "matchedExpression": "@field.user_text",
+                  "type": "field",
+                  "fieldName": "user_text"
+                }
+              ],
+              "country": [
+                {
+                  "fullExpression": "@field.user_country",
+                  "matchedExpression": "@field.user_country",
+                  "type": "field",
+                  "fieldName": "user_country"
+                }
+              ],
+              "date": [
+                {
+                  "fullExpression": "@field.user_date",
+                  "matchedExpression": "@field.user_date",
+                  "type": "field",
+                  "fieldName": "user_date"
+                }
+              ]
+            }
+          }
+        },
+        "condition": [
+          {
+            "fullExpression": "@field.user_id",
+            "matchedExpression": "@field.user_id",
+            "type": "field",
+            "fieldName": "user_id"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.user_id": [
+          "action_list.0._raw",
+          "action_list.0.params._id",
+          "condition"
+        ],
+        "@field.user_text": [
+          "action_list.0._raw",
+          "action_list.0.params.text"
+        ],
+        "@field.user_country": [
+          "action_list.0._raw",
+          "action_list.0.params.country"
+        ],
+        "@field.user_date": [
+          "action_list.0._raw",
+          "action_list.0.params.date"
+        ]
+      }
+    },
+    {
+      "type": "text_box",
+      "value": "@field.user_text",
+      "_translations": {
+        "value": {}
+      },
+      "name": "text_box_13",
+      "_nested_name": "text_box_13",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@field.user_text",
+            "matchedExpression": "@field.user_text",
+            "type": "field",
+            "fieldName": "user_text"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.user_text": [
+          "value"
+        ]
+      }
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/training/training_sheets.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/1ZkkT4Kqe6qzxeo0ifM-K44M3xoDjImUATbYHmwAdvrs"
+  }
+}

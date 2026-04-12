@@ -1,0 +1,520 @@
+{
+  "flow_type": "template",
+  "flow_name": "mohamed_form",
+  "status": "released",
+  "rows": [
+    {
+      "type": "text",
+      "name": "label_name",
+      "value": "Name :",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "label_name"
+    },
+    {
+      "type": "text_box",
+      "name": "fullname",
+      "value": "@field.fullname",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "fullname",
+            "this.value"
+          ],
+          "_raw": "changed | set_field: fullname : this.value"
+        }
+      ],
+      "parameter_list": {
+        "placeholder": "Add your name"
+      },
+      "_nested_name": "fullname",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@field.fullname",
+            "matchedExpression": "@field.fullname",
+            "type": "field",
+            "fieldName": "fullname"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.fullname": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "name": "label_country",
+      "value": "Country :",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "label_country"
+    },
+    {
+      "name": "options_radio",
+      "value": "id:1 | name: Mali | text: Mali;\nid:2 | name: Italy | text: Italy;\nid:3 | name: Other | text: Other;",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "options_radio"
+    },
+    {
+      "type": "radio_list",
+      "name": "country",
+      "value": "@field.country",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "country",
+            "this.value"
+          ],
+          "_raw": "changed | set_field : country: this.value"
+        }
+      ],
+      "parameter_list": {
+        "answer_list": "@local.options_radio"
+      },
+      "_nested_name": "country",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@field.country",
+            "matchedExpression": "@field.country",
+            "type": "field",
+            "fieldName": "country"
+          }
+        ],
+        "parameter_list": {
+          "answer_list": [
+            {
+              "fullExpression": "@local.options_radio",
+              "matchedExpression": "@local.options_radio",
+              "type": "local",
+              "fieldName": "options_radio"
+            }
+          ]
+        }
+      },
+      "_dynamicDependencies": {
+        "@field.country": [
+          "value"
+        ],
+        "@local.options_radio": [
+          "parameter_list.answer_list"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "name": "label_date",
+      "value": "Date :",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "label_date"
+    },
+    {
+      "type": "date_time_picker",
+      "name": "date",
+      "value": "@calc(now())",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "date",
+            "this.value"
+          ],
+          "_raw": "changed | set_field: date: this.value"
+        }
+      ],
+      "parameter_list": {
+        "type": "date"
+      },
+      "_nested_name": "date",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(now())",
+            "matchedExpression": "@calc(now())",
+            "type": "calc",
+            "fieldName": "now()"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@calc(now())": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "form_valid",
+      "value": "!!@local.fullname && !!@local.country && !!@local.date",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "form_valid",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "!!@local.fullname && !!@local.country && !!@local.date",
+            "matchedExpression": "!@local.fullname",
+            "type": "local",
+            "fieldName": "fullname"
+          },
+          {
+            "fullExpression": "!!@local.fullname && !!@local.country && !!@local.date",
+            "matchedExpression": "!@local.country",
+            "type": "local",
+            "fieldName": "country"
+          },
+          {
+            "fullExpression": "!!@local.fullname && !!@local.country && !!@local.date",
+            "matchedExpression": "!@local.date",
+            "type": "local",
+            "fieldName": "date"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@local.fullname": [
+          "value"
+        ],
+        "!@local.country": [
+          "value"
+        ],
+        "!@local.date": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "button",
+      "name": "button_add",
+      "value": "Save",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "click",
+          "action_id": "add_data",
+          "args": [],
+          "_raw": "click | add_data | \n_list_id: mohamed_items,\nfullname: @field.fullname, \ncountry: @field.country, \ndate: @field.date",
+          "params": {
+            "_list_id": "mohamed_items",
+            "fullname": "@field.fullname",
+            "country": "@field.country",
+            "date": "@field.date"
+          }
+        },
+        {
+          "trigger": "click",
+          "action_id": "emit",
+          "args": [
+            "completed"
+          ],
+          "_raw": "click | emit: completed"
+        }
+      ],
+      "parameter_list": {
+        "disabled": "!@local.form_valid"
+      },
+      "condition": "!@field.id",
+      "_nested_name": "button_add",
+      "_dynamicFields": {
+        "action_list": {
+          "0": {
+            "_raw": [
+              {
+                "fullExpression": "click | add_data | \n_list_id: mohamed_items,\nfullname: @field.fullname, \ncountry: @field.country, \ndate: @field.date",
+                "matchedExpression": "@field.fullname",
+                "type": "field",
+                "fieldName": "fullname"
+              },
+              {
+                "fullExpression": "click | add_data | \n_list_id: mohamed_items,\nfullname: @field.fullname, \ncountry: @field.country, \ndate: @field.date",
+                "matchedExpression": "@field.country",
+                "type": "field",
+                "fieldName": "country"
+              },
+              {
+                "fullExpression": "click | add_data | \n_list_id: mohamed_items,\nfullname: @field.fullname, \ncountry: @field.country, \ndate: @field.date",
+                "matchedExpression": "@field.date",
+                "type": "field",
+                "fieldName": "date"
+              }
+            ],
+            "params": {
+              "fullname": [
+                {
+                  "fullExpression": "@field.fullname",
+                  "matchedExpression": "@field.fullname",
+                  "type": "field",
+                  "fieldName": "fullname"
+                }
+              ],
+              "country": [
+                {
+                  "fullExpression": "@field.country",
+                  "matchedExpression": "@field.country",
+                  "type": "field",
+                  "fieldName": "country"
+                }
+              ],
+              "date": [
+                {
+                  "fullExpression": "@field.date",
+                  "matchedExpression": "@field.date",
+                  "type": "field",
+                  "fieldName": "date"
+                }
+              ]
+            }
+          }
+        },
+        "parameter_list": {
+          "disabled": [
+            {
+              "fullExpression": "!@local.form_valid",
+              "matchedExpression": "!@local.form_valid",
+              "type": "local",
+              "fieldName": "form_valid"
+            }
+          ]
+        },
+        "condition": [
+          {
+            "fullExpression": "!@field.id",
+            "matchedExpression": "!@field.id",
+            "type": "field",
+            "fieldName": "id"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.fullname": [
+          "action_list.0._raw",
+          "action_list.0.params.fullname"
+        ],
+        "@field.country": [
+          "action_list.0._raw",
+          "action_list.0.params.country"
+        ],
+        "@field.date": [
+          "action_list.0._raw",
+          "action_list.0.params.date"
+        ],
+        "!@local.form_valid": [
+          "parameter_list.disabled"
+        ],
+        "!@field.id": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "button",
+      "name": "button_edit",
+      "value": "Save changes",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "click",
+          "action_id": "set_data",
+          "args": [],
+          "_raw": "click | set_data | \n_list_id: mohamed_items,\n_id: @field.id, \nfullname: @field.fullname, \ncountry: @field.country, \ndate: @field.date",
+          "params": {
+            "_list_id": "mohamed_items",
+            "_id": "@field.id",
+            "fullname": "@field.fullname",
+            "country": "@field.country",
+            "date": "@field.date"
+          }
+        },
+        {
+          "trigger": "click",
+          "action_id": "emit",
+          "args": [
+            "completed"
+          ],
+          "_raw": "click | emit: completed"
+        }
+      ],
+      "parameter_list": {
+        "disabled": "!@local.form_valid"
+      },
+      "condition": "@field.id",
+      "_nested_name": "button_edit",
+      "_dynamicFields": {
+        "action_list": {
+          "0": {
+            "_raw": [
+              {
+                "fullExpression": "click | set_data | \n_list_id: mohamed_items,\n_id: @field.id, \nfullname: @field.fullname, \ncountry: @field.country, \ndate: @field.date",
+                "matchedExpression": "@field.id",
+                "type": "field",
+                "fieldName": "id"
+              },
+              {
+                "fullExpression": "click | set_data | \n_list_id: mohamed_items,\n_id: @field.id, \nfullname: @field.fullname, \ncountry: @field.country, \ndate: @field.date",
+                "matchedExpression": "@field.fullname",
+                "type": "field",
+                "fieldName": "fullname"
+              },
+              {
+                "fullExpression": "click | set_data | \n_list_id: mohamed_items,\n_id: @field.id, \nfullname: @field.fullname, \ncountry: @field.country, \ndate: @field.date",
+                "matchedExpression": "@field.country",
+                "type": "field",
+                "fieldName": "country"
+              },
+              {
+                "fullExpression": "click | set_data | \n_list_id: mohamed_items,\n_id: @field.id, \nfullname: @field.fullname, \ncountry: @field.country, \ndate: @field.date",
+                "matchedExpression": "@field.date",
+                "type": "field",
+                "fieldName": "date"
+              }
+            ],
+            "params": {
+              "_id": [
+                {
+                  "fullExpression": "@field.id",
+                  "matchedExpression": "@field.id",
+                  "type": "field",
+                  "fieldName": "id"
+                }
+              ],
+              "fullname": [
+                {
+                  "fullExpression": "@field.fullname",
+                  "matchedExpression": "@field.fullname",
+                  "type": "field",
+                  "fieldName": "fullname"
+                }
+              ],
+              "country": [
+                {
+                  "fullExpression": "@field.country",
+                  "matchedExpression": "@field.country",
+                  "type": "field",
+                  "fieldName": "country"
+                }
+              ],
+              "date": [
+                {
+                  "fullExpression": "@field.date",
+                  "matchedExpression": "@field.date",
+                  "type": "field",
+                  "fieldName": "date"
+                }
+              ]
+            }
+          }
+        },
+        "parameter_list": {
+          "disabled": [
+            {
+              "fullExpression": "!@local.form_valid",
+              "matchedExpression": "!@local.form_valid",
+              "type": "local",
+              "fieldName": "form_valid"
+            }
+          ]
+        },
+        "condition": [
+          {
+            "fullExpression": "@field.id",
+            "matchedExpression": "@field.id",
+            "type": "field",
+            "fieldName": "id"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.id": [
+          "action_list.0._raw",
+          "action_list.0.params._id",
+          "condition"
+        ],
+        "@field.fullname": [
+          "action_list.0._raw",
+          "action_list.0.params.fullname"
+        ],
+        "@field.country": [
+          "action_list.0._raw",
+          "action_list.0.params.country"
+        ],
+        "@field.date": [
+          "action_list.0._raw",
+          "action_list.0.params.date"
+        ],
+        "!@local.form_valid": [
+          "parameter_list.disabled"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "name": "radio_btn_link",
+      "value": "- Radio button :  https://docs.google.com/spreadsheets/d/1ykG_OU7bZJhNyoVKzOGjjGJ2F0OHbdJC0sh_7d67fTY",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "font-size:12px"
+      ],
+      "_nested_name": "radio_btn_link"
+    },
+    {
+      "type": "text",
+      "name": "date_picker_link",
+      "value": "- Date picker :  https://docs.google.com/spreadsheets/d/1Ff1QbrAKWpENp6QNeHVAw6_7KtkXz6zngRTSKqHMssw",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "font-size:12px"
+      ],
+      "_nested_name": "date_picker_link"
+    },
+    {
+      "type": "text",
+      "name": "set_data_link",
+      "value": "- Set data : https://docs.google.com/spreadsheets/d/1nREviZhw2HG1YQy6KA1S9PU4Q36RRVHdwSYf3TMbduk/edit?gid=1992624740#gid=1992624740",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "font-size:12px"
+      ],
+      "_nested_name": "set_data_link"
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/training/training_sheets.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/1ZkkT4Kqe6qzxeo0ifM-K44M3xoDjImUATbYHmwAdvrs"
+  }
+}

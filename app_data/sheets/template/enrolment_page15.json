@@ -1,0 +1,1242 @@
+{
+  "flow_type": "template",
+  "flow_name": "enrolment_page15",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "name": "page_title",
+      "value": "TYPOLOGIE DE L'UPA",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "page_title"
+    },
+    {
+      "name": "TLU",
+      "value": "@calc(Number(@field.nombre_boeuf_labour) + Number(@field.nombre_chevaux) + 0.8 * (Number(@field.nombre_taureaux) + Number(@field.nombre_vaches_taries) + Number(@field.nombre_vaches_laitieres) + Number(@field.nombre_genisses) + Number(@field.nombre_veaux)) + 0.6 * Number(@field.nombre_anes) + 0.2 * (Number(@field.nombre_moutons) + Number(@field.nombre_chevres) + Number(@field.nombre_porcs)))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "TLU",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Number(@field.nombre_boeuf_labour) + Number(@field.nombre_chevaux) + 0.8 * (Number(@field.nombre_taureaux) + Number(@field.nombre_vaches_taries) + Number(@field.nombre_vaches_laitieres) + Number(@field.nombre_genisses) + Number(@field.nombre_veaux)) + 0.6 * Number(@field.nombre_anes) + 0.2 * (Number(@field.nombre_moutons) + Number(@field.nombre_chevres) + Number(@field.nombre_porcs)))",
+            "matchedExpression": "@field.nombre_boeuf_labour",
+            "type": "field",
+            "fieldName": "nombre_boeuf_labour"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.nombre_boeuf_labour) + Number(@field.nombre_chevaux) + 0.8 * (Number(@field.nombre_taureaux) + Number(@field.nombre_vaches_taries) + Number(@field.nombre_vaches_laitieres) + Number(@field.nombre_genisses) + Number(@field.nombre_veaux)) + 0.6 * Number(@field.nombre_anes) + 0.2 * (Number(@field.nombre_moutons) + Number(@field.nombre_chevres) + Number(@field.nombre_porcs)))",
+            "matchedExpression": "@field.nombre_chevaux",
+            "type": "field",
+            "fieldName": "nombre_chevaux"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.nombre_boeuf_labour) + Number(@field.nombre_chevaux) + 0.8 * (Number(@field.nombre_taureaux) + Number(@field.nombre_vaches_taries) + Number(@field.nombre_vaches_laitieres) + Number(@field.nombre_genisses) + Number(@field.nombre_veaux)) + 0.6 * Number(@field.nombre_anes) + 0.2 * (Number(@field.nombre_moutons) + Number(@field.nombre_chevres) + Number(@field.nombre_porcs)))",
+            "matchedExpression": "@field.nombre_taureaux",
+            "type": "field",
+            "fieldName": "nombre_taureaux"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.nombre_boeuf_labour) + Number(@field.nombre_chevaux) + 0.8 * (Number(@field.nombre_taureaux) + Number(@field.nombre_vaches_taries) + Number(@field.nombre_vaches_laitieres) + Number(@field.nombre_genisses) + Number(@field.nombre_veaux)) + 0.6 * Number(@field.nombre_anes) + 0.2 * (Number(@field.nombre_moutons) + Number(@field.nombre_chevres) + Number(@field.nombre_porcs)))",
+            "matchedExpression": "@field.nombre_vaches_taries",
+            "type": "field",
+            "fieldName": "nombre_vaches_taries"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.nombre_boeuf_labour) + Number(@field.nombre_chevaux) + 0.8 * (Number(@field.nombre_taureaux) + Number(@field.nombre_vaches_taries) + Number(@field.nombre_vaches_laitieres) + Number(@field.nombre_genisses) + Number(@field.nombre_veaux)) + 0.6 * Number(@field.nombre_anes) + 0.2 * (Number(@field.nombre_moutons) + Number(@field.nombre_chevres) + Number(@field.nombre_porcs)))",
+            "matchedExpression": "@field.nombre_vaches_laitieres",
+            "type": "field",
+            "fieldName": "nombre_vaches_laitieres"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.nombre_boeuf_labour) + Number(@field.nombre_chevaux) + 0.8 * (Number(@field.nombre_taureaux) + Number(@field.nombre_vaches_taries) + Number(@field.nombre_vaches_laitieres) + Number(@field.nombre_genisses) + Number(@field.nombre_veaux)) + 0.6 * Number(@field.nombre_anes) + 0.2 * (Number(@field.nombre_moutons) + Number(@field.nombre_chevres) + Number(@field.nombre_porcs)))",
+            "matchedExpression": "@field.nombre_genisses",
+            "type": "field",
+            "fieldName": "nombre_genisses"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.nombre_boeuf_labour) + Number(@field.nombre_chevaux) + 0.8 * (Number(@field.nombre_taureaux) + Number(@field.nombre_vaches_taries) + Number(@field.nombre_vaches_laitieres) + Number(@field.nombre_genisses) + Number(@field.nombre_veaux)) + 0.6 * Number(@field.nombre_anes) + 0.2 * (Number(@field.nombre_moutons) + Number(@field.nombre_chevres) + Number(@field.nombre_porcs)))",
+            "matchedExpression": "@field.nombre_veaux",
+            "type": "field",
+            "fieldName": "nombre_veaux"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.nombre_boeuf_labour) + Number(@field.nombre_chevaux) + 0.8 * (Number(@field.nombre_taureaux) + Number(@field.nombre_vaches_taries) + Number(@field.nombre_vaches_laitieres) + Number(@field.nombre_genisses) + Number(@field.nombre_veaux)) + 0.6 * Number(@field.nombre_anes) + 0.2 * (Number(@field.nombre_moutons) + Number(@field.nombre_chevres) + Number(@field.nombre_porcs)))",
+            "matchedExpression": "@field.nombre_anes",
+            "type": "field",
+            "fieldName": "nombre_anes"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.nombre_boeuf_labour) + Number(@field.nombre_chevaux) + 0.8 * (Number(@field.nombre_taureaux) + Number(@field.nombre_vaches_taries) + Number(@field.nombre_vaches_laitieres) + Number(@field.nombre_genisses) + Number(@field.nombre_veaux)) + 0.6 * Number(@field.nombre_anes) + 0.2 * (Number(@field.nombre_moutons) + Number(@field.nombre_chevres) + Number(@field.nombre_porcs)))",
+            "matchedExpression": "@field.nombre_moutons",
+            "type": "field",
+            "fieldName": "nombre_moutons"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.nombre_boeuf_labour) + Number(@field.nombre_chevaux) + 0.8 * (Number(@field.nombre_taureaux) + Number(@field.nombre_vaches_taries) + Number(@field.nombre_vaches_laitieres) + Number(@field.nombre_genisses) + Number(@field.nombre_veaux)) + 0.6 * Number(@field.nombre_anes) + 0.2 * (Number(@field.nombre_moutons) + Number(@field.nombre_chevres) + Number(@field.nombre_porcs)))",
+            "matchedExpression": "@field.nombre_chevres",
+            "type": "field",
+            "fieldName": "nombre_chevres"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.nombre_boeuf_labour) + Number(@field.nombre_chevaux) + 0.8 * (Number(@field.nombre_taureaux) + Number(@field.nombre_vaches_taries) + Number(@field.nombre_vaches_laitieres) + Number(@field.nombre_genisses) + Number(@field.nombre_veaux)) + 0.6 * Number(@field.nombre_anes) + 0.2 * (Number(@field.nombre_moutons) + Number(@field.nombre_chevres) + Number(@field.nombre_porcs)))",
+            "matchedExpression": "@field.nombre_porcs",
+            "type": "field",
+            "fieldName": "nombre_porcs"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.nombre_boeuf_labour) + Number(@field.nombre_chevaux) + 0.8 * (Number(@field.nombre_taureaux) + Number(@field.nombre_vaches_taries) + Number(@field.nombre_vaches_laitieres) + Number(@field.nombre_genisses) + Number(@field.nombre_veaux)) + 0.6 * Number(@field.nombre_anes) + 0.2 * (Number(@field.nombre_moutons) + Number(@field.nombre_chevres) + Number(@field.nombre_porcs)))",
+            "matchedExpression": "@calc(Number(@field.nombre_boeuf_labour) + Number(@field.nombre_chevaux) + 0.8 * (Number(@field.nombre_taureaux) + Number(@field.nombre_vaches_taries) + Number(@field.nombre_vaches_laitieres) + Number(@field.nombre_genisses) + Number(@field.nombre_veaux)) + 0.6 * Number(@field.nombre_anes) + 0.2 * (Number(@field.nombre_moutons) + Number(@field.nombre_chevres) + Number(@field.nombre_porcs)))",
+            "type": "calc",
+            "fieldName": "Number(@field.nombre_boeuf_labour) + Number(@field.nombre_chevaux) + 0.8 * (Number(@field.nombre_taureaux) + Number(@field.nombre_vaches_taries) + Number(@field.nombre_vaches_laitieres) + Number(@field.nombre_genisses) + Number(@field.nombre_veaux)) + 0.6 * Number(@field.nombre_anes) + 0.2 * (Number(@field.nombre_moutons) + Number(@field.nombre_chevres) + Number(@field.nombre_porcs))"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.nombre_boeuf_labour": [
+          "value"
+        ],
+        "@field.nombre_chevaux": [
+          "value"
+        ],
+        "@field.nombre_taureaux": [
+          "value"
+        ],
+        "@field.nombre_vaches_taries": [
+          "value"
+        ],
+        "@field.nombre_vaches_laitieres": [
+          "value"
+        ],
+        "@field.nombre_genisses": [
+          "value"
+        ],
+        "@field.nombre_veaux": [
+          "value"
+        ],
+        "@field.nombre_anes": [
+          "value"
+        ],
+        "@field.nombre_moutons": [
+          "value"
+        ],
+        "@field.nombre_chevres": [
+          "value"
+        ],
+        "@field.nombre_porcs": [
+          "value"
+        ],
+        "@calc(Number(@field.nombre_boeuf_labour) + Number(@field.nombre_chevaux) + 0.8 * (Number(@field.nombre_taureaux) + Number(@field.nombre_vaches_taries) + Number(@field.nombre_vaches_laitieres) + Number(@field.nombre_genisses) + Number(@field.nombre_veaux)) + 0.6 * Number(@field.nombre_anes) + 0.2 * (Number(@field.nombre_moutons) + Number(@field.nombre_chevres) + Number(@field.nombre_porcs)))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "worker",
+      "value": "@calc((Number(@field.nombre_femmes) + Number(@field.nombre_hommes)) + 0.5 * (Number(@field.nombre_adolescents) + Number(@field.nombre_femmes_agees) + Number(@field.nombre_hommes_ages)))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "worker",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc((Number(@field.nombre_femmes) + Number(@field.nombre_hommes)) + 0.5 * (Number(@field.nombre_adolescents) + Number(@field.nombre_femmes_agees) + Number(@field.nombre_hommes_ages)))",
+            "matchedExpression": "@field.nombre_femmes",
+            "type": "field",
+            "fieldName": "nombre_femmes"
+          },
+          {
+            "fullExpression": "@calc((Number(@field.nombre_femmes) + Number(@field.nombre_hommes)) + 0.5 * (Number(@field.nombre_adolescents) + Number(@field.nombre_femmes_agees) + Number(@field.nombre_hommes_ages)))",
+            "matchedExpression": "@field.nombre_hommes",
+            "type": "field",
+            "fieldName": "nombre_hommes"
+          },
+          {
+            "fullExpression": "@calc((Number(@field.nombre_femmes) + Number(@field.nombre_hommes)) + 0.5 * (Number(@field.nombre_adolescents) + Number(@field.nombre_femmes_agees) + Number(@field.nombre_hommes_ages)))",
+            "matchedExpression": "@field.nombre_adolescents",
+            "type": "field",
+            "fieldName": "nombre_adolescents"
+          },
+          {
+            "fullExpression": "@calc((Number(@field.nombre_femmes) + Number(@field.nombre_hommes)) + 0.5 * (Number(@field.nombre_adolescents) + Number(@field.nombre_femmes_agees) + Number(@field.nombre_hommes_ages)))",
+            "matchedExpression": "@field.nombre_femmes_agees",
+            "type": "field",
+            "fieldName": "nombre_femmes_agees"
+          },
+          {
+            "fullExpression": "@calc((Number(@field.nombre_femmes) + Number(@field.nombre_hommes)) + 0.5 * (Number(@field.nombre_adolescents) + Number(@field.nombre_femmes_agees) + Number(@field.nombre_hommes_ages)))",
+            "matchedExpression": "@field.nombre_hommes_ages",
+            "type": "field",
+            "fieldName": "nombre_hommes_ages"
+          },
+          {
+            "fullExpression": "@calc((Number(@field.nombre_femmes) + Number(@field.nombre_hommes)) + 0.5 * (Number(@field.nombre_adolescents) + Number(@field.nombre_femmes_agees) + Number(@field.nombre_hommes_ages)))",
+            "matchedExpression": "@calc((Number(@field.nombre_femmes) + Number(@field.nombre_hommes)) + 0.5 * (Number(@field.nombre_adolescents) + Number(@field.nombre_femmes_agees) + Number(@field.nombre_hommes_ages)))",
+            "type": "calc",
+            "fieldName": "(Number(@field.nombre_femmes) + Number(@field.nombre_hommes)) + 0.5 * (Number(@field.nombre_adolescents) + Number(@field.nombre_femmes_agees) + Number(@field.nombre_hommes_ages))"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.nombre_femmes": [
+          "value"
+        ],
+        "@field.nombre_hommes": [
+          "value"
+        ],
+        "@field.nombre_adolescents": [
+          "value"
+        ],
+        "@field.nombre_femmes_agees": [
+          "value"
+        ],
+        "@field.nombre_hommes_ages": [
+          "value"
+        ],
+        "@calc((Number(@field.nombre_femmes) + Number(@field.nombre_hommes)) + 0.5 * (Number(@field.nombre_adolescents) + Number(@field.nombre_femmes_agees) + Number(@field.nombre_hommes_ages)))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "material",
+      "value": "@calc(Number(@field.nombre_charrues) + Number(@field.nombre_multiculteurs) + Number(@field.nombre_semoir) + Number(@field.nombre_tracteur) + Number(@field.nombre_motoculteurs) + Number(@field.nombre_charrettes))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "material",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Number(@field.nombre_charrues) + Number(@field.nombre_multiculteurs) + Number(@field.nombre_semoir) + Number(@field.nombre_tracteur) + Number(@field.nombre_motoculteurs) + Number(@field.nombre_charrettes))",
+            "matchedExpression": "@field.nombre_charrues",
+            "type": "field",
+            "fieldName": "nombre_charrues"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.nombre_charrues) + Number(@field.nombre_multiculteurs) + Number(@field.nombre_semoir) + Number(@field.nombre_tracteur) + Number(@field.nombre_motoculteurs) + Number(@field.nombre_charrettes))",
+            "matchedExpression": "@field.nombre_multiculteurs",
+            "type": "field",
+            "fieldName": "nombre_multiculteurs"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.nombre_charrues) + Number(@field.nombre_multiculteurs) + Number(@field.nombre_semoir) + Number(@field.nombre_tracteur) + Number(@field.nombre_motoculteurs) + Number(@field.nombre_charrettes))",
+            "matchedExpression": "@field.nombre_semoir",
+            "type": "field",
+            "fieldName": "nombre_semoir"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.nombre_charrues) + Number(@field.nombre_multiculteurs) + Number(@field.nombre_semoir) + Number(@field.nombre_tracteur) + Number(@field.nombre_motoculteurs) + Number(@field.nombre_charrettes))",
+            "matchedExpression": "@field.nombre_tracteur",
+            "type": "field",
+            "fieldName": "nombre_tracteur"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.nombre_charrues) + Number(@field.nombre_multiculteurs) + Number(@field.nombre_semoir) + Number(@field.nombre_tracteur) + Number(@field.nombre_motoculteurs) + Number(@field.nombre_charrettes))",
+            "matchedExpression": "@field.nombre_motoculteurs",
+            "type": "field",
+            "fieldName": "nombre_motoculteurs"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.nombre_charrues) + Number(@field.nombre_multiculteurs) + Number(@field.nombre_semoir) + Number(@field.nombre_tracteur) + Number(@field.nombre_motoculteurs) + Number(@field.nombre_charrettes))",
+            "matchedExpression": "@field.nombre_charrettes",
+            "type": "field",
+            "fieldName": "nombre_charrettes"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.nombre_charrues) + Number(@field.nombre_multiculteurs) + Number(@field.nombre_semoir) + Number(@field.nombre_tracteur) + Number(@field.nombre_motoculteurs) + Number(@field.nombre_charrettes))",
+            "matchedExpression": "@calc(Number(@field.nombre_charrues) + Number(@field.nombre_multiculteurs) + Number(@field.nombre_semoir) + Number(@field.nombre_tracteur) + Number(@field.nombre_motoculteurs) + Number(@field.nombre_charrettes))",
+            "type": "calc",
+            "fieldName": "Number(@field.nombre_charrues) + Number(@field.nombre_multiculteurs) + Number(@field.nombre_semoir) + Number(@field.nombre_tracteur) + Number(@field.nombre_motoculteurs) + Number(@field.nombre_charrettes)"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.nombre_charrues": [
+          "value"
+        ],
+        "@field.nombre_multiculteurs": [
+          "value"
+        ],
+        "@field.nombre_semoir": [
+          "value"
+        ],
+        "@field.nombre_tracteur": [
+          "value"
+        ],
+        "@field.nombre_motoculteurs": [
+          "value"
+        ],
+        "@field.nombre_charrettes": [
+          "value"
+        ],
+        "@calc(Number(@field.nombre_charrues) + Number(@field.nombre_multiculteurs) + Number(@field.nombre_semoir) + Number(@field.nombre_tracteur) + Number(@field.nombre_motoculteurs) + Number(@field.nombre_charrettes))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "areaMRE",
+      "value": "@calc(@field.superficie_cultive_upa > 5.8 ? 1 : 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "areaMRE",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(@field.superficie_cultive_upa > 5.8 ? 1 : 0)",
+            "matchedExpression": "@field.superficie_cultive_upa",
+            "type": "field",
+            "fieldName": "superficie_cultive_upa"
+          },
+          {
+            "fullExpression": "@calc(@field.superficie_cultive_upa > 5.8 ? 1 : 0)",
+            "matchedExpression": "@calc(@field.superficie_cultive_upa > 5.8 ? 1 : 0)",
+            "type": "calc",
+            "fieldName": "@field.superficie_cultive_upa > 5.8 ? 1 : 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.superficie_cultive_upa": [
+          "value"
+        ],
+        "@calc(@field.superficie_cultive_upa > 5.8 ? 1 : 0)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "TLUMRE",
+      "value": "@calc(Number(@local.TLU) > 2.2 ? 1 : 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "TLUMRE",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Number(@local.TLU) > 2.2 ? 1 : 0)",
+            "matchedExpression": "@local.TLU",
+            "type": "local",
+            "fieldName": "TLU"
+          },
+          {
+            "fullExpression": "@calc(Number(@local.TLU) > 2.2 ? 1 : 0)",
+            "matchedExpression": "@calc(Number(@local.TLU) > 2.2 ? 1 : 0)",
+            "type": "calc",
+            "fieldName": "Number(@local.TLU) > 2.2 ? 1 : 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.TLU": [
+          "value"
+        ],
+        "@calc(Number(@local.TLU) > 2.2 ? 1 : 0)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "matMRE",
+      "value": "@calc(Number(@local.material) > 2 ? 1 : 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "matMRE",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Number(@local.material) > 2 ? 1 : 0)",
+            "matchedExpression": "@local.material",
+            "type": "local",
+            "fieldName": "material"
+          },
+          {
+            "fullExpression": "@calc(Number(@local.material) > 2 ? 1 : 0)",
+            "matchedExpression": "@calc(Number(@local.material) > 2 ? 1 : 0)",
+            "type": "calc",
+            "fieldName": "Number(@local.material) > 2 ? 1 : 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.material": [
+          "value"
+        ],
+        "@calc(Number(@local.material) > 2 ? 1 : 0)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "cutoffMRE",
+      "value": "@calc(Number(@local.areaMRE) + Number(@local.TLUMRE) + Number(@local.matMRE))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "cutoffMRE",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Number(@local.areaMRE) + Number(@local.TLUMRE) + Number(@local.matMRE))",
+            "matchedExpression": "@local.areaMRE",
+            "type": "local",
+            "fieldName": "areaMRE"
+          },
+          {
+            "fullExpression": "@calc(Number(@local.areaMRE) + Number(@local.TLUMRE) + Number(@local.matMRE))",
+            "matchedExpression": "@local.TLUMRE",
+            "type": "local",
+            "fieldName": "TLUMRE"
+          },
+          {
+            "fullExpression": "@calc(Number(@local.areaMRE) + Number(@local.TLUMRE) + Number(@local.matMRE))",
+            "matchedExpression": "@local.matMRE",
+            "type": "local",
+            "fieldName": "matMRE"
+          },
+          {
+            "fullExpression": "@calc(Number(@local.areaMRE) + Number(@local.TLUMRE) + Number(@local.matMRE))",
+            "matchedExpression": "@calc(Number(@local.areaMRE) + Number(@local.TLUMRE) + Number(@local.matMRE))",
+            "type": "calc",
+            "fieldName": "Number(@local.areaMRE) + Number(@local.TLUMRE) + Number(@local.matMRE)"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.areaMRE": [
+          "value"
+        ],
+        "@local.TLUMRE": [
+          "value"
+        ],
+        "@local.matMRE": [
+          "value"
+        ],
+        "@calc(Number(@local.areaMRE) + Number(@local.TLUMRE) + Number(@local.matMRE))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "type",
+      "value": "@calc(Number(@local.TLU) > 21.4 ? 'HRE-LH' : Number(@local.worker) > 9.5 ? 'HRE' : Number(@local.cutoffMRE) >= 2 ? 'MRE' :'LRE')",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "type",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Number(@local.TLU) > 21.4 ? 'HRE-LH' : Number(@local.worker) > 9.5 ? 'HRE' : Number(@local.cutoffMRE) >= 2 ? 'MRE' :'LRE')",
+            "matchedExpression": "@local.TLU",
+            "type": "local",
+            "fieldName": "TLU"
+          },
+          {
+            "fullExpression": "@calc(Number(@local.TLU) > 21.4 ? 'HRE-LH' : Number(@local.worker) > 9.5 ? 'HRE' : Number(@local.cutoffMRE) >= 2 ? 'MRE' :'LRE')",
+            "matchedExpression": "@local.worker",
+            "type": "local",
+            "fieldName": "worker"
+          },
+          {
+            "fullExpression": "@calc(Number(@local.TLU) > 21.4 ? 'HRE-LH' : Number(@local.worker) > 9.5 ? 'HRE' : Number(@local.cutoffMRE) >= 2 ? 'MRE' :'LRE')",
+            "matchedExpression": "@local.cutoffMRE",
+            "type": "local",
+            "fieldName": "cutoffMRE"
+          },
+          {
+            "fullExpression": "@calc(Number(@local.TLU) > 21.4 ? 'HRE-LH' : Number(@local.worker) > 9.5 ? 'HRE' : Number(@local.cutoffMRE) >= 2 ? 'MRE' :'LRE')",
+            "matchedExpression": "@calc(Number(@local.TLU) > 21.4 ? 'HRE-LH' : Number(@local.worker) > 9.5 ? 'HRE' : Number(@local.cutoffMRE) >= 2 ? 'MRE' :'LRE')",
+            "type": "calc",
+            "fieldName": "Number(@local.TLU) > 21.4 ? 'HRE-LH' : Number(@local.worker) > 9.5 ? 'HRE' : Number(@local.cutoffMRE) >= 2 ? 'MRE' :'LRE'"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.TLU": [
+          "value"
+        ],
+        "@local.worker": [
+          "value"
+        ],
+        "@local.cutoffMRE": [
+          "value"
+        ],
+        "@calc(Number(@local.TLU) > 21.4 ? 'HRE-LH' : Number(@local.worker) > 9.5 ? 'HRE' : Number(@local.cutoffMRE) >= 2 ? 'MRE' :'LRE')": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "ratio_membre_terre",
+      "value": "@calc(Number(@field.superficie_cultive_upa) > 0 ? (Number(@field.nombre_enfants) + Number(@field.nombre_adolescents) + Number(@field.nombre_femmes) + Number(@field.nombre_hommes) + Number(@field.nombre_femmes_agees) + Number(@field.nombre_hommes_ages)) /  Number(@field.superficie_cultive_upa) : 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "ratio_membre_terre",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Number(@field.superficie_cultive_upa) > 0 ? (Number(@field.nombre_enfants) + Number(@field.nombre_adolescents) + Number(@field.nombre_femmes) + Number(@field.nombre_hommes) + Number(@field.nombre_femmes_agees) + Number(@field.nombre_hommes_ages)) /  Number(@field.superficie_cultive_upa) : 0)",
+            "matchedExpression": "@field.superficie_cultive_upa",
+            "type": "field",
+            "fieldName": "superficie_cultive_upa"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.superficie_cultive_upa) > 0 ? (Number(@field.nombre_enfants) + Number(@field.nombre_adolescents) + Number(@field.nombre_femmes) + Number(@field.nombre_hommes) + Number(@field.nombre_femmes_agees) + Number(@field.nombre_hommes_ages)) /  Number(@field.superficie_cultive_upa) : 0)",
+            "matchedExpression": "@field.nombre_enfants",
+            "type": "field",
+            "fieldName": "nombre_enfants"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.superficie_cultive_upa) > 0 ? (Number(@field.nombre_enfants) + Number(@field.nombre_adolescents) + Number(@field.nombre_femmes) + Number(@field.nombre_hommes) + Number(@field.nombre_femmes_agees) + Number(@field.nombre_hommes_ages)) /  Number(@field.superficie_cultive_upa) : 0)",
+            "matchedExpression": "@field.nombre_adolescents",
+            "type": "field",
+            "fieldName": "nombre_adolescents"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.superficie_cultive_upa) > 0 ? (Number(@field.nombre_enfants) + Number(@field.nombre_adolescents) + Number(@field.nombre_femmes) + Number(@field.nombre_hommes) + Number(@field.nombre_femmes_agees) + Number(@field.nombre_hommes_ages)) /  Number(@field.superficie_cultive_upa) : 0)",
+            "matchedExpression": "@field.nombre_femmes",
+            "type": "field",
+            "fieldName": "nombre_femmes"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.superficie_cultive_upa) > 0 ? (Number(@field.nombre_enfants) + Number(@field.nombre_adolescents) + Number(@field.nombre_femmes) + Number(@field.nombre_hommes) + Number(@field.nombre_femmes_agees) + Number(@field.nombre_hommes_ages)) /  Number(@field.superficie_cultive_upa) : 0)",
+            "matchedExpression": "@field.nombre_hommes",
+            "type": "field",
+            "fieldName": "nombre_hommes"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.superficie_cultive_upa) > 0 ? (Number(@field.nombre_enfants) + Number(@field.nombre_adolescents) + Number(@field.nombre_femmes) + Number(@field.nombre_hommes) + Number(@field.nombre_femmes_agees) + Number(@field.nombre_hommes_ages)) /  Number(@field.superficie_cultive_upa) : 0)",
+            "matchedExpression": "@field.nombre_femmes_agees",
+            "type": "field",
+            "fieldName": "nombre_femmes_agees"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.superficie_cultive_upa) > 0 ? (Number(@field.nombre_enfants) + Number(@field.nombre_adolescents) + Number(@field.nombre_femmes) + Number(@field.nombre_hommes) + Number(@field.nombre_femmes_agees) + Number(@field.nombre_hommes_ages)) /  Number(@field.superficie_cultive_upa) : 0)",
+            "matchedExpression": "@field.nombre_hommes_ages",
+            "type": "field",
+            "fieldName": "nombre_hommes_ages"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.superficie_cultive_upa) > 0 ? (Number(@field.nombre_enfants) + Number(@field.nombre_adolescents) + Number(@field.nombre_femmes) + Number(@field.nombre_hommes) + Number(@field.nombre_femmes_agees) + Number(@field.nombre_hommes_ages)) /  Number(@field.superficie_cultive_upa) : 0)",
+            "matchedExpression": "@field.superficie_cultive_upa",
+            "type": "field",
+            "fieldName": "superficie_cultive_upa"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.superficie_cultive_upa) > 0 ? (Number(@field.nombre_enfants) + Number(@field.nombre_adolescents) + Number(@field.nombre_femmes) + Number(@field.nombre_hommes) + Number(@field.nombre_femmes_agees) + Number(@field.nombre_hommes_ages)) /  Number(@field.superficie_cultive_upa) : 0)",
+            "matchedExpression": "@calc(Number(@field.superficie_cultive_upa) > 0 ? (Number(@field.nombre_enfants) + Number(@field.nombre_adolescents) + Number(@field.nombre_femmes) + Number(@field.nombre_hommes) + Number(@field.nombre_femmes_agees) + Number(@field.nombre_hommes_ages)) /  Number(@field.superficie_cultive_upa) : 0)",
+            "type": "calc",
+            "fieldName": "Number(@field.superficie_cultive_upa) > 0 ? (Number(@field.nombre_enfants) + Number(@field.nombre_adolescents) + Number(@field.nombre_femmes) + Number(@field.nombre_hommes) + Number(@field.nombre_femmes_agees) + Number(@field.nombre_hommes_ages)) /  Number(@field.superficie_cultive_upa) : 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.superficie_cultive_upa": [
+          "value",
+          "value"
+        ],
+        "@field.nombre_enfants": [
+          "value"
+        ],
+        "@field.nombre_adolescents": [
+          "value"
+        ],
+        "@field.nombre_femmes": [
+          "value"
+        ],
+        "@field.nombre_hommes": [
+          "value"
+        ],
+        "@field.nombre_femmes_agees": [
+          "value"
+        ],
+        "@field.nombre_hommes_ages": [
+          "value"
+        ],
+        "@calc(Number(@field.superficie_cultive_upa) > 0 ? (Number(@field.nombre_enfants) + Number(@field.nombre_adolescents) + Number(@field.nombre_femmes) + Number(@field.nombre_hommes) + Number(@field.nombre_femmes_agees) + Number(@field.nombre_hommes_ages)) /  Number(@field.superficie_cultive_upa) : 0)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "ratio_actif_terre",
+      "value": "@calc(Number(@field.superficie_cultive_upa) > 0 ? Number(@local.worker) / Number(@field.superficie_cultive_upa) : 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "ratio_actif_terre",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Number(@field.superficie_cultive_upa) > 0 ? Number(@local.worker) / Number(@field.superficie_cultive_upa) : 0)",
+            "matchedExpression": "@field.superficie_cultive_upa",
+            "type": "field",
+            "fieldName": "superficie_cultive_upa"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.superficie_cultive_upa) > 0 ? Number(@local.worker) / Number(@field.superficie_cultive_upa) : 0)",
+            "matchedExpression": "@local.worker",
+            "type": "local",
+            "fieldName": "worker"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.superficie_cultive_upa) > 0 ? Number(@local.worker) / Number(@field.superficie_cultive_upa) : 0)",
+            "matchedExpression": "@field.superficie_cultive_upa",
+            "type": "field",
+            "fieldName": "superficie_cultive_upa"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.superficie_cultive_upa) > 0 ? Number(@local.worker) / Number(@field.superficie_cultive_upa) : 0)",
+            "matchedExpression": "@calc(Number(@field.superficie_cultive_upa) > 0 ? Number(@local.worker) / Number(@field.superficie_cultive_upa) : 0)",
+            "type": "calc",
+            "fieldName": "Number(@field.superficie_cultive_upa) > 0 ? Number(@local.worker) / Number(@field.superficie_cultive_upa) : 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.superficie_cultive_upa": [
+          "value",
+          "value"
+        ],
+        "@local.worker": [
+          "value"
+        ],
+        "@calc(Number(@field.superficie_cultive_upa) > 0 ? Number(@local.worker) / Number(@field.superficie_cultive_upa) : 0)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "ratio_boeuflabour_terre",
+      "value": "@calc(Number(@field.superficie_cultive_upa) > 0 ? Number(@field.nombre_boeuf_labour) / Number(@field.superficie_cultive_upa) : 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "ratio_boeuflabour_terre",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Number(@field.superficie_cultive_upa) > 0 ? Number(@field.nombre_boeuf_labour) / Number(@field.superficie_cultive_upa) : 0)",
+            "matchedExpression": "@field.superficie_cultive_upa",
+            "type": "field",
+            "fieldName": "superficie_cultive_upa"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.superficie_cultive_upa) > 0 ? Number(@field.nombre_boeuf_labour) / Number(@field.superficie_cultive_upa) : 0)",
+            "matchedExpression": "@field.nombre_boeuf_labour",
+            "type": "field",
+            "fieldName": "nombre_boeuf_labour"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.superficie_cultive_upa) > 0 ? Number(@field.nombre_boeuf_labour) / Number(@field.superficie_cultive_upa) : 0)",
+            "matchedExpression": "@field.superficie_cultive_upa",
+            "type": "field",
+            "fieldName": "superficie_cultive_upa"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.superficie_cultive_upa) > 0 ? Number(@field.nombre_boeuf_labour) / Number(@field.superficie_cultive_upa) : 0)",
+            "matchedExpression": "@calc(Number(@field.superficie_cultive_upa) > 0 ? Number(@field.nombre_boeuf_labour) / Number(@field.superficie_cultive_upa) : 0)",
+            "type": "calc",
+            "fieldName": "Number(@field.superficie_cultive_upa) > 0 ? Number(@field.nombre_boeuf_labour) / Number(@field.superficie_cultive_upa) : 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.superficie_cultive_upa": [
+          "value",
+          "value"
+        ],
+        "@field.nombre_boeuf_labour": [
+          "value"
+        ],
+        "@calc(Number(@field.superficie_cultive_upa) > 0 ? Number(@field.nombre_boeuf_labour) / Number(@field.superficie_cultive_upa) : 0)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "value": "images/groupe_a.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@local.type == 'HRE-LH'",
+      "name": "image_14",
+      "_nested_name": "image_14",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@local.type == 'HRE-LH'",
+            "matchedExpression": "@local.type",
+            "type": "local",
+            "fieldName": "type"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.type": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "condition": "@local.type == 'HRE-LH'",
+      "rows": [
+        {
+          "type": "text",
+          "name": "type_ge_gtb",
+          "value": "L'UPA appartient au type A",
+          "_translations": {
+            "value": {}
+          },
+          "_nested_name": "display_group_15.type_ge_gtb"
+        },
+        {
+          "type": "audio",
+          "name": "audio_15_1",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Enrolement/type_ge_gtb_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "display_group_15.audio_15_1"
+        }
+      ],
+      "name": "display_group_15",
+      "_nested_name": "display_group_15",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@local.type == 'HRE-LH'",
+            "matchedExpression": "@local.type",
+            "type": "local",
+            "fieldName": "type"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.type": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "name": "type_ge_gtb_hint",
+      "value": "Grande Exploitation avec un Grand Troupeau Bovin",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@local.type == \"HRE-LH\"",
+      "_nested_name": "type_ge_gtb_hint",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@local.type == \"HRE-LH\"",
+            "matchedExpression": "@local.type",
+            "type": "local",
+            "fieldName": "type"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.type": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "value": "images/groupe_b.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@local.type == \"HRE\"",
+      "name": "image_18",
+      "_nested_name": "image_18",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@local.type == \"HRE\"",
+            "matchedExpression": "@local.type",
+            "type": "local",
+            "fieldName": "type"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.type": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "condition": "@local.type == \"HRE\"",
+      "rows": [
+        {
+          "type": "text",
+          "name": "type_ge",
+          "value": "L'UPA appartient au type B",
+          "_translations": {
+            "value": {}
+          },
+          "_nested_name": "display_group_19.type_ge"
+        },
+        {
+          "type": "audio",
+          "name": "audio_15_2",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Enrolement/type_ge_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "display_group_19.audio_15_2"
+        }
+      ],
+      "name": "display_group_19",
+      "_nested_name": "display_group_19",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@local.type == \"HRE\"",
+            "matchedExpression": "@local.type",
+            "type": "local",
+            "fieldName": "type"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.type": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "name": "type_ge_hint",
+      "value": "Grande Exploitation",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@local.type == \"HRE\"",
+      "_nested_name": "type_ge_hint",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@local.type == \"HRE\"",
+            "matchedExpression": "@local.type",
+            "type": "local",
+            "fieldName": "type"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.type": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "value": "images/groupe_c.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@local.type == \"MRE\"",
+      "name": "image_22",
+      "_nested_name": "image_22",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@local.type == \"MRE\"",
+            "matchedExpression": "@local.type",
+            "type": "local",
+            "fieldName": "type"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.type": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "condition": "@local.type == \"MRE\"",
+      "rows": [
+        {
+          "type": "text",
+          "name": "type_me",
+          "value": "L'UPA appartient au type C",
+          "_translations": {
+            "value": {}
+          },
+          "_nested_name": "display_group_23.type_me"
+        },
+        {
+          "type": "audio",
+          "name": "audio_15_3",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Enrolement/type_me_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "display_group_23.audio_15_3"
+        }
+      ],
+      "name": "display_group_23",
+      "_nested_name": "display_group_23",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@local.type == \"MRE\"",
+            "matchedExpression": "@local.type",
+            "type": "local",
+            "fieldName": "type"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.type": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "name": "type_me_hint",
+      "value": "Moyenne Exploitation",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@local.type == \"MRE\"",
+      "_nested_name": "type_me_hint",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@local.type == \"MRE\"",
+            "matchedExpression": "@local.type",
+            "type": "local",
+            "fieldName": "type"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.type": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "value": "images/groupe_d.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@local.type == \"LRE\"",
+      "name": "image_26",
+      "_nested_name": "image_26",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@local.type == \"LRE\"",
+            "matchedExpression": "@local.type",
+            "type": "local",
+            "fieldName": "type"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.type": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "condition": "@local.type == \"LRE\"",
+      "rows": [
+        {
+          "type": "text",
+          "name": "type_pe",
+          "value": "L'UPA appartient au type D",
+          "_translations": {
+            "value": {}
+          },
+          "_nested_name": "display_group_27.type_pe"
+        },
+        {
+          "type": "audio",
+          "name": "audio_15_4",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Enrolement/type_pe_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "display_group_27.audio_15_4"
+        }
+      ],
+      "name": "display_group_27",
+      "_nested_name": "display_group_27",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@local.type == \"LRE\"",
+            "matchedExpression": "@local.type",
+            "type": "local",
+            "fieldName": "type"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.type": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "name": "type_pe_hint",
+      "value": "Petite Exploitation",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@local.type == \"LRE\"",
+      "_nested_name": "type_pe_hint",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@local.type == \"LRE\"",
+            "matchedExpression": "@local.type",
+            "type": "local",
+            "fieldName": "type"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.type": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "name": "note_ratio_membre_terre",
+      "value": "Ratio membres-terre cultivée: @local.ratio_membre_terre",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!!@local.ratio_membre_terre",
+      "_nested_name": "note_ratio_membre_terre",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "Ratio membres-terre cultivée: @local.ratio_membre_terre",
+            "matchedExpression": "@local.ratio_membre_terre",
+            "type": "local",
+            "fieldName": "ratio_membre_terre"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!!@local.ratio_membre_terre",
+            "matchedExpression": "!@local.ratio_membre_terre",
+            "type": "local",
+            "fieldName": "ratio_membre_terre"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.ratio_membre_terre": [
+          "value"
+        ],
+        "!@local.ratio_membre_terre": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "name": "note_ratio_actif_terre",
+      "value": "Ratio actifs-terre cultivée: @local.ratio_actif_terre",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!!@local.ratio_actif_terre",
+      "_nested_name": "note_ratio_actif_terre",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "Ratio actifs-terre cultivée: @local.ratio_actif_terre",
+            "matchedExpression": "@local.ratio_actif_terre",
+            "type": "local",
+            "fieldName": "ratio_actif_terre"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!!@local.ratio_actif_terre",
+            "matchedExpression": "!@local.ratio_actif_terre",
+            "type": "local",
+            "fieldName": "ratio_actif_terre"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.ratio_actif_terre": [
+          "value"
+        ],
+        "!@local.ratio_actif_terre": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "name": "note_ratio_boeuflabour_terre",
+      "value": "Ratio boeufs la labour-terre cultivée: @local.ratio_boeuflabour_terre",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!!@local.ratio_boeuflabour_terre",
+      "_nested_name": "note_ratio_boeuflabour_terre",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "Ratio boeufs la labour-terre cultivée: @local.ratio_boeuflabour_terre",
+            "matchedExpression": "@local.ratio_boeuflabour_terre",
+            "type": "local",
+            "fieldName": "ratio_boeuflabour_terre"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!!@local.ratio_boeuflabour_terre",
+            "matchedExpression": "!@local.ratio_boeuflabour_terre",
+            "type": "local",
+            "fieldName": "ratio_boeuflabour_terre"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.ratio_boeuflabour_terre": [
+          "value"
+        ],
+        "!@local.ratio_boeuflabour_terre": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "dg_footer",
+      "value": "",
+      "parameter_list": {
+        "sticky": "bottom"
+      },
+      "style_list": [
+        "padding: 12px 24px"
+      ],
+      "rows": [
+        {
+          "type": "round_button",
+          "name": "page_15_button_back",
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "uncompleted"
+              ],
+              "_raw": "click | emit: uncompleted"
+            }
+          ],
+          "parameter_list": {
+            "icon_src": "arrow-back",
+            "variant": "no-background"
+          },
+          "_nested_name": "dg_footer.page_15_button_back"
+        },
+        {
+          "type": "button",
+          "name": "page_15_button_continue",
+          "value": "@global.btn_continue",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "completed"
+              ],
+              "_raw": "click | emit: completed"
+            }
+          ],
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "dg_footer.page_15_button_continue",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.btn_continue",
+                "matchedExpression": "@global.btn_continue",
+                "type": "global",
+                "fieldName": "btn_continue"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.btn_continue": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "dg_footer"
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/Enrolment_form_sheets.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/1mR9iAG_wjGK0G39YVxIlwlGFILSbgZvCqESHTMNXNgA"
+  }
+}

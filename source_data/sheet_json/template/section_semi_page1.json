@@ -1,0 +1,71 @@
+{
+  "flow_type": "template",
+  "flow_name": "section_semi_page1",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "name": "page_title",
+      "value": "Identification de l'Unité de Production Agricole (UPA) par QR code"
+    },
+    {
+      "type": "image",
+      "value": "images/icons/scan.svg"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "Utilisez la camera pour scanner votre code"
+    },
+    {
+      "type": "audio",
+      "name": "audio_1_1",
+      "parameter_list": "variant: compact;\nsrc: audio/semis/qr_code_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "exclude_from_translation": true,
+      "style_list": "float: right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "value": "Choisissez l'année de la campagne:"
+    },
+    {
+      "type": "date_time_picker",
+      "name": "year_campaign",
+      "action_list": "changed | set_field: campagne: this.value;",
+      "parameter_list": "type: year;\nmin: 2023; \nmax: @calc(now());"
+    },
+    {
+      "name": "completed_enabled",
+      "value": "!!@local.year_campaign"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "dg_footer",
+      "value": " ",
+      "parameter_list": "sticky: bottom;",
+      "style_list": "padding: 12px 24px;"
+    },
+    {
+      "type": "round_button",
+      "name": "page_1_button_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+    },
+    {
+      "type": "button",
+      "name": "page_1_button_continue",
+      "value": "@global.btn_continue",
+      "action_list": "click | emit: completed",
+      "parameter_list": "disabled: !@local.completed_enabled",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "end_display_group"
+    }
+  ]
+}

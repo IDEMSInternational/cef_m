@@ -105,7 +105,7 @@
     {
       "type": "text",
       "name": "homework_1",
-      "value": "Homework :",
+      "value": "Homework 1 :",
       "_translations": {
         "value": {}
       },
@@ -148,9 +148,9 @@
           "trigger": "click",
           "action_id": "add_data",
           "args": [],
-          "_raw": "click | add_data | \n\n_list_id: comp_combo_box_items,\nname: added_data_name,\ntext: @local.text_box_1",
+          "_raw": "click | add_data | \n\n_list_id: name_items,\nname: added_data_name,\ntext: @local.text_box_1",
           "params": {
-            "_list_id": "comp_combo_box_items",
+            "_list_id": "name_items",
             "name": "added_data_name",
             "text": "@local.text_box_1"
           }
@@ -165,7 +165,7 @@
           "0": {
             "_raw": [
               {
-                "fullExpression": "click | add_data | \n\n_list_id: comp_combo_box_items,\nname: added_data_name,\ntext: @local.text_box_1",
+                "fullExpression": "click | add_data | \n\n_list_id: name_items,\nname: added_data_name,\ntext: @local.text_box_1",
                 "matchedExpression": "@local.text_box_1",
                 "type": "local",
                 "fieldName": "text_box_1"
@@ -260,7 +260,7 @@
     {
       "type": "text",
       "name": "homework_2",
-      "value": "Homework :",
+      "value": "Homework 2 :",
       "_translations": {
         "value": {}
       },
@@ -272,7 +272,7 @@
     {
       "type": "text",
       "name": "text_2_1",
-      "value": "Add an image to each item, and when an item is selected, the image should appear below.",
+      "value": "Document your learning of the Open App Builder component: what you have learned, the exercises and the solutions completed.",
       "_translations": {
         "value": {}
       },
@@ -281,6 +281,40 @@
     {
       "type": "text",
       "name": "text_2_2",
+      "value": "Document : https://docs.google.com/document/d/1I9A_HT37WlDZ5NovVxR6m2_958ptUD8EOOeNf6usqDQ/edit?tab=t.0",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "font-size:10px",
+        "color:#F54927"
+      ],
+      "_nested_name": "text_2_2"
+    },
+    {
+      "type": "text",
+      "name": "homework_3",
+      "value": "Homework 3 :",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "font-weight:bold"
+      ],
+      "_nested_name": "homework_3"
+    },
+    {
+      "type": "text",
+      "name": "text_3_1",
+      "value": "Add an image to each item, and when an item is selected, the image should appear below.",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "text_3_1"
+    },
+    {
+      "type": "text",
+      "name": "text_3_2",
       "value": "Hint: Use @items.column_name to get values, and @item.name == \"name_3\" to show a line only if the condition is true (quotes are required).",
       "_translations": {
         "value": {}
@@ -289,7 +323,7 @@
         "font-size:10px",
         "color:#F54927"
       ],
-      "_nested_name": "text_2_2",
+      "_nested_name": "text_3_2",
       "_dynamicFields": {
         "value": [
           {
@@ -318,7 +352,7 @@
           },
           "condition": "@item.name==@local.combo_box_2",
           "name": "image_1_@item.id",
-          "_nested_name": "data_items_21.image_1_@item.id",
+          "_nested_name": "data_items_24.image_1_@item.id",
           "_dynamicFields": {
             "value": [
               {
@@ -352,7 +386,7 @@
             ],
             "_nested_name": [
               {
-                "fullExpression": "data_items_21.image_1_@item.id",
+                "fullExpression": "data_items_24.image_1_@item.id",
                 "matchedExpression": "@item.id",
                 "type": "item",
                 "fieldName": "id"
@@ -376,13 +410,91 @@
           }
         }
       ],
-      "name": "data_items_21",
-      "_nested_name": "data_items_21"
+      "name": "data_items_24",
+      "_nested_name": "data_items_24"
+    },
+    {
+      "type": "text",
+      "name": "homework_4",
+      "value": "Homework 4 :",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "font-weight:bold"
+      ],
+      "_nested_name": "homework_4"
+    },
+    {
+      "type": "text",
+      "name": "text_4_1",
+      "value": "Create an application with a simple two-page workflow.\nThe first page contains a questionnaire with a text field for the name, radio buttons for the country (Mali, Italy, Other), and a date picker. The entered data must be saved using a “Save” button.\n\nAfter saving, the app redirects to a second page displaying a list of saved names. Each name has an “Edit” button that returns to the form with pre-filled data so the user can modify it.",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "text_4_1"
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "button",
+          "name": "button_mohamed_form",
+          "value": "Go to mohamed's homework 4 (Form)",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "go_to",
+              "args": [
+                "mohamed_form"
+              ],
+              "_raw": "click | go_to: mohamed_form"
+            }
+          ],
+          "parameter_list": {
+            "variant": "compact"
+          },
+          "style_list": [
+            "font-size:12px"
+          ],
+          "_nested_name": "display_group_28.button_mohamed_form"
+        },
+        {
+          "type": "button",
+          "name": "button_mohamed_list",
+          "value": "Go to mohamed's homework 4 (List)",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "go_to",
+              "args": [
+                "mohamed_list"
+              ],
+              "_raw": "click | go_to: mohamed_list"
+            }
+          ],
+          "parameter_list": {
+            "variant": "compact"
+          },
+          "style_list": [
+            "font-size:12px"
+          ],
+          "_nested_name": "display_group_28.button_mohamed_list"
+        }
+      ],
+      "name": "display_group_28",
+      "_nested_name": "display_group_28"
     }
   ],
   "_source": {
     "name": "cef_m sheets",
-    "path": "template/training_sheets.xlsx",
+    "path": "template/training/training_sheets.xlsx",
     "url": "https://docs.google.com/spreadsheets/d/1ZkkT4Kqe6qzxeo0ifM-K44M3xoDjImUATbYHmwAdvrs"
   }
 }

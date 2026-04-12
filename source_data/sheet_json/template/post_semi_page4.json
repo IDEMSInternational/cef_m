@@ -1,0 +1,137 @@
+{
+  "flow_type": "template",
+  "flow_name": "post_semi_page4",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "value": "DÉTAILS DE LA CULTURE"
+    },
+    {
+      "name": "v_list",
+      "value": "@calc([(@field.cul_mais?'mais':null), (@field.cul_mil?'mil':null), (@field.cul_sorgho?'sorgho':null), (@field.cul_coton?'coton':null), (@field.cul_arachide?'arachide':null), (@field.cul_fourrage?'fourrage':null)].filter(Boolean))"
+    },
+    {
+      "name": "v_idx",
+      "value": "Number(@field.current_culture_index || 0)"
+    },
+    {
+      "name": "v_target_id",
+      "value": "@local.v_list[@local.v_idx]"
+    },
+    {
+      "name": "v_label",
+      "value": "chargement..."
+    },
+    {
+      "name": "v_img",
+      "value": "images/mais.jpg"
+    },
+    {
+      "name": "found_culture",
+      "value": false
+    },
+    {
+      "type": "begin_data_items",
+      "name": "find_culture_info",
+      "value": "@data.cultures"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "search_logic",
+      "condition": "!!!@local.found_culture"
+    },
+    {
+      "name": "v_is_match",
+      "value": "@calc(@item.name === @local.v_target_id)"
+    },
+    {
+      "condition": "@local.v_is_match"
+    },
+    {
+      "name": "v_label",
+      "value": "@item.text"
+    },
+    {
+      "name": "v_img",
+      "value": "@item.image"
+    },
+    {
+      "name": "found_culture",
+      "value": true
+    },
+    {
+      "type": "stop_loop",
+      "name": "stop",
+      "value": true
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "end_data_items"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "image",
+      "value": "@local.v_img"
+    },
+    {
+      "type": "text",
+      "value": "Culture : **@local.v_label**"
+    },
+    {
+      "type": "text",
+      "value": "Étape Number(@field.current_culture_index) + 1 / @field.total_cultures_selected"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "value": "Quelle est la superficie (Ha) pour le **@local.v_label**?"
+    },
+    {
+      "type": "text_box",
+      "name": "superficie",
+      "value": "@field.@calc('sup_' + @local.v_target_id)",
+      "parameter_list": "number_input: true; placeholder: 0.0;"
+    },
+    {
+      "name": "v_sup_ok",
+      "value": "@calc(Number(@local.superficie) > 0)"
+    },
+    {
+      "name": "completed_enabled",
+      "value": "@calc(!!@local.v_sup_ok)"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "dg_footer",
+      "parameter_list": "sticky: bottom;",
+      "style_list": "padding: 12px 24px;"
+    },
+    {
+      "type": "round_button",
+      "name": "button_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+    },
+    {
+      "type": "button",
+      "name": "button_completed",
+      "value": "@calc(Number(@field.current_culture_index || 0) + 1 < @field.total_cultures_selected ? 'SUIVANTE' : 'TERMINER')",
+      "action_list": "click | set_field: current_culture_index : @calc(Number(@field.current_culture_index || 0) + 1); click | emit: @calc(Number(@field.current_culture_index || 0) + 1 < @field.total_cultures_selected ? 'repeat_page' : 'completed')",
+      "parameter_list": "style: navigation;\ndisabled: !@local.completed_enabled",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "end_display_group"
+    }
+  ]
+}

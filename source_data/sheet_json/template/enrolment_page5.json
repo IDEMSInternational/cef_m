@@ -1,0 +1,100 @@
+{
+  "flow_type": "template",
+  "flow_name": "enrolment_page5",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "value": " ACTIVITE PRIMAIRE DE L'UPA"
+    },
+    {
+      "type": "begin_display_group",
+      "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "audio",
+      "name": "audio/Enrolement_5_1",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/act_prim_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "float: right;"
+    },
+    {
+      "type": "html",
+      "value": "Selectionnez l'activité primaire de l’UPA<span style=\"color: red;\">*</span>"
+    },
+    {
+      "type": "end_display_group\n"
+    },
+    {
+      "type": "radio_button_grid",
+      "name": "grid_1",
+      "value": "@field.activite",
+      "action_list": "changed |set_field: activite: this.value; ",
+      "parameter_list": "answer_list: @data.activite"
+    },
+    {
+      "name": "v_pri",
+      "value": "@calc(!!@field.activite)"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "card_pri",
+      "condition": "@field.activite == 'autre1'",
+      "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "audio",
+      "name": "audio/Enrolement_5_2",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/autre_act_prim_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "exclude_from_translation": true,
+      "style_list": "float: right;"
+    },
+    {
+      "type": "html",
+      "value": "Précisez le nom de l'autre activité primaire<span style=\"color: red;\">*</span>",
+      "style_list": "clear: none;"
+    },
+    {
+      "type": "text_box",
+      "name": "box_autre",
+      "value": "@field.autre_nom",
+      "action_list": "changed | set_field: autre_nom: this.value;",
+      "parameter_list": "placeholder: Précisez le nom de l'autre...;",
+      "style_list": "width: 100%; margin-top: 10px;"
+    },
+    {
+      "name": "v_autre_pri",
+      "value": "@calc(!!@field.autre_nom)"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "name": "completed_enabled",
+      "value": "@local.v_pri && (@field.activite != 'autre1' || @local.v_autre_pri)"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "dg_footer",
+      "parameter_list": "sticky: bottom;",
+      "style_list": "padding: 12px 24px;"
+    },
+    {
+      "type": "round_button",
+      "name": "button_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+    },
+    {
+      "type": "button",
+      "name": "button_completed",
+      "value": "@global.btn_continue",
+      "action_list": "click | set_field: activite_finale: @calc(@field.autre_nom ?? @field.activite); \nclick | emit: completed;",
+      "parameter_list": "style: navigation;\ndisabled: !@local.completed_enabled",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "end_display_group"
+    }
+  ]
+}

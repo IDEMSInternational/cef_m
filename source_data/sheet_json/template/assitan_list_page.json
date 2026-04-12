@@ -1,0 +1,101 @@
+{
+  "flow_type": "template",
+  "flow_name": "assitan_list_page",
+  "status": "released",
+  "rows": [
+    {
+      "type": "text",
+      "value": "The list of names",
+      "style_list": "text-align:center;"
+    },
+    {
+      "type": "square_button",
+      "value": "New",
+      "action_list": "click | set_field: id: ; \nclick | set_field: text: ; \nclick | set_field: country: ; \nclick | set_field: date:@calc(now()) ; \nclick | go_to: assitan_questionnaire_page;",
+      "parameter_list": "icon_src: add-circle-outline",
+      "style_list": "display: flex; justify-content: flex-end; margin-bottom: 20px;"
+    },
+    {
+      "type": "begin_display_group",
+      "style_list": "display: flex; flex-direction: row;"
+    },
+    {
+      "type": "text",
+      "name": "header_id",
+      "value": "ID",
+      "style_list": "display:inline-block;width:80px;font-weight:bold;"
+    },
+    {
+      "type": "text",
+      "name": "header_nom",
+      "value": "Nom",
+      "style_list": "display:inline-block;width:150px;font-weight:bold;"
+    },
+    {
+      "type": "text",
+      "name": "header_pays",
+      "value": "Pays",
+      "style_list": "display:inline-block;width:100px;font-weight:bold;"
+    },
+    {
+      "type": "text",
+      "name": "header_date",
+      "value": "Date",
+      "style_list": "display:inline-block;width:120px;font-weight:bold;"
+    },
+    {
+      "type": "text",
+      "name": "header_act",
+      "value": "Action",
+      "style_list": "display:inline-block;width:80px;text-align:center;font-weight:bold;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_data_items",
+      "value": "@data.name_list"
+    },
+    {
+      "type": "begin_display_group",
+      "style_list": "display: flex; flex-direction: row; align-items: center; padding: 10px 0; border-bottom: 3px solid #eee;"
+    },
+    {
+      "type": "text",
+      "name": "col_id",
+      "value": "@item.id",
+      "style_list": "display:inline-block; width:80px;"
+    },
+    {
+      "type": "text",
+      "name": "col_text",
+      "value": "@item.text",
+      "style_list": "display:inline-block;width:150px;"
+    },
+    {
+      "type": "text",
+      "name": "col_country",
+      "value": "@item.country",
+      "style_list": "display:inline-block;width:100px;"
+    },
+    {
+      "type": "text",
+      "name": "col_date",
+      "value": "@item.date",
+      "parameter_list": "type: date",
+      "style_list": "display:inline-block;width:120px;"
+    },
+    {
+      "type": "square_button",
+      "action_list": "click | set_field : id : @item.id;\nclick | set_field : text : @item.text;\nclick | set_field : country : @item.country;\nclick | set_field : date : @item.date;\nclick | go_to: assitan_questionnaire_page;",
+      "parameter_list": "icon_src: create-outline",
+      "style_list": "white-space: nowrap; text-align:center;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "end_data_items"
+    }
+  ]
+}

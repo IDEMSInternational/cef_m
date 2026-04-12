@@ -1,0 +1,255 @@
+{
+  "flow_type": "template",
+  "flow_name": "enrolment_page2",
+  "status": "released",
+  "rows": [
+    {
+      "type": "text",
+      "name": "note_infos",
+      "value": "@global.note_infos",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "note_infos",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.note_infos",
+            "matchedExpression": "@global.note_infos",
+            "type": "global",
+            "fieldName": "note_infos"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.note_infos": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "Choisissez l'année de la campagne:",
+      "_translations": {
+        "value": {}
+      },
+      "name": "text_3",
+      "_nested_name": "text_3"
+    },
+    {
+      "name": "year_min",
+      "value": "2023-01-01T01:00:005Z",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "year_min"
+    },
+    {
+      "name": "year_max",
+      "value": "@calc(now())",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "year_max",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(now())",
+            "matchedExpression": "@calc(now())",
+            "type": "calc",
+            "fieldName": "now()"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@calc(now())": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: red;\"> @global.note_campagne </p>",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "html_text",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "<p style=\"color: red;\"> @global.note_campagne </p>",
+            "matchedExpression": "@global.note_campagne",
+            "type": "global",
+            "fieldName": "note_campagne"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.note_campagne": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "year_campaign",
+      "type": "set_variable",
+      "_nested_name": "year_campaign"
+    },
+    {
+      "type": "date_time_picker",
+      "name": "campain_year",
+      "value": "@fields.year_campaign",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_local",
+          "args": [
+            "year_campaign",
+            "this.value"
+          ],
+          "_raw": "changed | set_local: year_campaign: this.value"
+        }
+      ],
+      "parameter_list": {
+        "type": "year"
+      },
+      "_nested_name": "campain_year",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.year_campaign",
+            "matchedExpression": "@fields.year_campaign",
+            "type": "fields",
+            "fieldName": "year_campaign"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.year_campaign": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "value": "",
+      "parameter_list": {
+        "sticky": "bottom"
+      },
+      "style_list": [
+        "padding: 12px 24px"
+      ],
+      "rows": [
+        {
+          "type": "round_button",
+          "name": "button_back",
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "uncompleted"
+              ],
+              "_raw": "click | emit: uncompleted"
+            }
+          ],
+          "parameter_list": {
+            "icon_src": "arrow-back",
+            "variant": "no-background"
+          },
+          "_nested_name": "display_group_9.button_back"
+        },
+        {
+          "type": "button",
+          "name": "button_continue_1",
+          "value": "Continuer",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "year_campaign",
+                "@local.year_campaign"
+              ],
+              "_raw": "click | set_field: year_campaign: @local.year_campaign"
+            },
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "completed"
+              ],
+              "_raw": "click | emit: completed"
+            }
+          ],
+          "parameter_list": {
+            "disabled": "!@local.year_campaign"
+          },
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "display_group_9.button_continue_1",
+          "_dynamicFields": {
+            "action_list": {
+              "0": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@local.year_campaign",
+                      "matchedExpression": "@local.year_campaign",
+                      "type": "local",
+                      "fieldName": "year_campaign"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: year_campaign: @local.year_campaign",
+                    "matchedExpression": "@local.year_campaign",
+                    "type": "local",
+                    "fieldName": "year_campaign"
+                  }
+                ]
+              }
+            },
+            "parameter_list": {
+              "disabled": [
+                {
+                  "fullExpression": "!@local.year_campaign",
+                  "matchedExpression": "!@local.year_campaign",
+                  "type": "local",
+                  "fieldName": "year_campaign"
+                }
+              ]
+            }
+          },
+          "_dynamicDependencies": {
+            "@local.year_campaign": [
+              "action_list.0.args.1",
+              "action_list.0._raw"
+            ],
+            "!@local.year_campaign": [
+              "parameter_list.disabled"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_9",
+      "_nested_name": "display_group_9"
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/Enrolment_form_sheets.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/1mR9iAG_wjGK0G39YVxIlwlGFILSbgZvCqESHTMNXNgA"
+  }
+}

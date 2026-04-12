@@ -1,0 +1,217 @@
+{
+  "flow_type": "template",
+  "flow_name": "section_semi_page1",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "name": "page_title",
+      "value": "Identification de l'Unité de Production Agricole (UPA) par QR code",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "page_title"
+    },
+    {
+      "type": "image",
+      "value": "images/icons/scan.svg",
+      "_translations": {
+        "value": {}
+      },
+      "name": "image_3",
+      "_nested_name": "image_3"
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "text",
+          "value": "Utilisez la camera pour scanner votre code",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_1",
+          "_nested_name": "display_group_4.text_1"
+        },
+        {
+          "type": "audio",
+          "name": "audio_1_1",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/semis/qr_code_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "exclude_from_translation": true,
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "display_group_4.audio_1_1"
+        }
+      ],
+      "name": "display_group_4",
+      "_nested_name": "display_group_4"
+    },
+    {
+      "type": "text",
+      "value": "Choisissez l'année de la campagne:",
+      "_translations": {
+        "value": {}
+      },
+      "name": "text_6",
+      "_nested_name": "text_6"
+    },
+    {
+      "type": "date_time_picker",
+      "name": "year_campaign",
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "campagne",
+            "this.value"
+          ],
+          "_raw": "changed | set_field: campagne: this.value"
+        }
+      ],
+      "parameter_list": {
+        "type": "year",
+        "min": "2023",
+        "max": "@calc(now())"
+      },
+      "_nested_name": "year_campaign",
+      "_dynamicFields": {
+        "parameter_list": {
+          "max": [
+            {
+              "fullExpression": "@calc(now())",
+              "matchedExpression": "@calc(now())",
+              "type": "calc",
+              "fieldName": "now()"
+            }
+          ]
+        }
+      },
+      "_dynamicDependencies": {
+        "@calc(now())": [
+          "parameter_list.max"
+        ]
+      }
+    },
+    {
+      "name": "completed_enabled",
+      "value": "!!@local.year_campaign",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "completed_enabled",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "!!@local.year_campaign",
+            "matchedExpression": "!@local.year_campaign",
+            "type": "local",
+            "fieldName": "year_campaign"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@local.year_campaign": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "dg_footer",
+      "value": "",
+      "parameter_list": {
+        "sticky": "bottom"
+      },
+      "style_list": [
+        "padding: 12px 24px"
+      ],
+      "rows": [
+        {
+          "type": "round_button",
+          "name": "page_1_button_back",
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "uncompleted"
+              ],
+              "_raw": "click | emit: uncompleted"
+            }
+          ],
+          "parameter_list": {
+            "icon_src": "arrow-back",
+            "variant": "no-background"
+          },
+          "_nested_name": "dg_footer.page_1_button_back"
+        },
+        {
+          "type": "button",
+          "name": "page_1_button_continue",
+          "value": "@global.btn_continue",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "completed"
+              ],
+              "_raw": "click | emit: completed"
+            }
+          ],
+          "parameter_list": {
+            "disabled": "!@local.completed_enabled"
+          },
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "dg_footer.page_1_button_continue",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.btn_continue",
+                "matchedExpression": "@global.btn_continue",
+                "type": "global",
+                "fieldName": "btn_continue"
+              }
+            ],
+            "parameter_list": {
+              "disabled": [
+                {
+                  "fullExpression": "!@local.completed_enabled",
+                  "matchedExpression": "!@local.completed_enabled",
+                  "type": "local",
+                  "fieldName": "completed_enabled"
+                }
+              ]
+            }
+          },
+          "_dynamicDependencies": {
+            "@global.btn_continue": [
+              "value"
+            ],
+            "!@local.completed_enabled": [
+              "parameter_list.disabled"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "dg_footer"
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/section_semis_sheets.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/1kj3U-JlzVhdPzr3JYksRfo6BjJglZF-FS_dO-yGxY1w"
+  }
+}

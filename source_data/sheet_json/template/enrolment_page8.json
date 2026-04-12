@@ -1,0 +1,138 @@
+{
+  "flow_type": "template",
+  "flow_name": "enrolment_page8",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "value": " FONCIER AGRICOLE"
+    },
+    {
+      "type": "begin_display_group",
+      "style_list": "display: block; width: 100%\n"
+    },
+    {
+      "type": "audio",
+      "name": "audio_2",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/sup_poss_upa_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "exclude_from_translation": true,
+      "style_list": "float:right;"
+    },
+    {
+      "type": "html",
+      "value": "1. Saisissez la superficie totale possédée par l’UPA (ha)<span style=\"color: red;\">*</span>"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/sup_tot.jpg",
+      "style_list": "width: 80%; object-fit: contain;\n"
+    },
+    {
+      "type": "text_box",
+      "name": "superficie_possede_upa",
+      "value": "@field.superficie_possede_upa",
+      "parameter_list": "number_input: true; placeholder: Nombre hectares possédés;",
+      "condition": "!!@field.superficie_possede_upa"
+    },
+    {
+      "type": "text_box",
+      "name": "superficie_possede_upa",
+      "value": "@field.superficie_possede_upa",
+      "parameter_list": "number_input: true; placeholder: Nombre hectares possédés;",
+      "condition": "!@field.superficie_possede_upa"
+    },
+    {
+      "name": "v_poss",
+      "value": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.superficie_possede_upa) && Number(@local.superficie_possede_upa) > 0) || !@local.superficie_possede_upa)"
+    },
+    {
+      "type": "text",
+      "value": "Veuillez saisir une valeur positive.",
+      "condition": "@local.superficie_possede_upa && !@local.v_poss",
+      "style_list": "color: red; font-size: 12px;"
+    },
+    {
+      "type": "begin_display_group",
+      "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "audio",
+      "name": "audio_2",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/sup_cult_upa_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "exclude_from_translation": true,
+      "style_list": "float:right;"
+    },
+    {
+      "type": "html",
+      "value": "2. Saisissez la superficie totale cultivée par l’UPA (ha)<span style=\"color: red;\">*</span>"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/sup_cult.jpg\n",
+      "style_list": "width: 80%; object-fit: contain;"
+    },
+    {
+      "type": "text_box",
+      "name": "superficie_cultive_upa",
+      "value": "@field.superficie_cultive_upa",
+      "parameter_list": "number_input: true; placeholder: Nombre hectares cultivés;",
+      "condition": "!!@field.superficie_cultive_upa"
+    },
+    {
+      "type": "text_box",
+      "name": "superficie_cultive_upa",
+      "value": "@field.superficie_cultive_upa",
+      "parameter_list": "number_input: true; placeholder: Nombre hectares cultivés;",
+      "condition": "!@field.superficie_cultive_upa"
+    },
+    {
+      "name": "v_cult",
+      "value": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.superficie_cultive_upa) && Number(@local.superficie_cultive_upa) > 0) || !@local.superficie_cultive_upa)"
+    },
+    {
+      "type": "text",
+      "value": "Veuillez saisir une valeur positive.",
+      "condition": "@local.superficie_cultive_upa && !@local.v_cult",
+      "style_list": "color: red; font-size: 12px;"
+    },
+    {
+      "type": "text",
+      "value": "Erreur : la surface cultivée dépasse la surface possédée!",
+      "condition": "@local.v_poss && @local.v_cult && Number(@local.superficie_cultive_upa) > Number(@local.superficie_possede_upa)",
+      "style_list": "color: red; font-weight: bold;"
+    },
+    {
+      "name": "completed_enabled",
+      "value": "@calc(@local.v_poss && @local.v_cult && Number(@local.superficie_possede_upa) > 0 && Number(@local.superficie_cultive_upa) <= Number(@local.superficie_possede_upa))"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "dg_footer",
+      "parameter_list": "sticky: bottom;",
+      "style_list": "padding: 12px 24px;"
+    },
+    {
+      "type": "round_button",
+      "name": "button_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;variant: no-background;"
+    },
+    {
+      "type": "button",
+      "name": "button_completed",
+      "value": "@global.btn_continue",
+      "action_list": "click | set_field: superficie_possede_upa: @local.superficie_possede_upa;\nclick | set_field: superficie_cultive_upa: @local.superficie_cultive_upa;\nclick | emit: completed\n",
+      "parameter_list": "style: navigation;disabled: !@local.completed_enabled",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "end_display_group"
+    }
+  ]
+}

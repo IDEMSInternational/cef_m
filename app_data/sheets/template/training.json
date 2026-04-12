@@ -125,6 +125,25 @@
       "_nested_name": "mohamed_button"
     },
     {
+      "type": "button",
+      "name": "assitan",
+      "value": "Go to the questionnaires",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "click",
+          "action_id": "go_to",
+          "args": [
+            "assitan_questionnaire_page"
+          ],
+          "_raw": "click | go_to: assitan_questionnaire_page"
+        }
+      ],
+      "_nested_name": "assitan"
+    },
+    {
       "type": "text",
       "name": "homework_1",
       "value": "Homework 1: change color, and size of the text with your name",
@@ -172,7 +191,7 @@
   ],
   "_source": {
     "name": "cef_m sheets",
-    "path": "template/training_sheets.xlsx",
+    "path": "template/training/training_sheets.xlsx",
     "url": "https://docs.google.com/spreadsheets/d/1ZkkT4Kqe6qzxeo0ifM-K44M3xoDjImUATbYHmwAdvrs"
   }
 }

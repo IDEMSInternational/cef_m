@@ -1,0 +1,440 @@
+{
+  "flow_type": "template",
+  "flow_name": "enrolment_page9",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "value": " MEMBRES DE L'UPA"
+    },
+    {
+      "type": "begin_display_group",
+      "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "audio",
+      "name": "audio_2",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/membre_upa_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "float:right;"
+    },
+    {
+      "type": "html",
+      "value": "1. Personnes vivant dans l'UPA de maniere permanente dans les six derniers mois<span style=\"color: red;\">*</span>"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/membres.jpg",
+      "style_list": "width: 80%; object-fit: contain;"
+    },
+    {
+      "type": "text_box",
+      "name": "upa_membres",
+      "value": "@field.upa_membres",
+      "parameter_list": "number_input: true; placeholder: Entrez le nombre total de membres;",
+      "condition": "!!@field.upa_membres",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text_box",
+      "name": "upa_membres",
+      "parameter_list": "number_input: true; placeholder: Entrez le nombre total de membres;",
+      "condition": "!@field.upa_membres",
+      "exclude_from_translation": true
+    },
+    {
+      "name": "v_upa",
+      "value": "@calc(/^\\d+$/.test(@local.upa_membres) && @local.upa_membres > 0)",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text",
+      "value": "Veuillez saisir un nombre valide.",
+      "condition": "!@local.v_upa",
+      "exclude_from_translation": true,
+      "style_list": "color: red; font-size: 12px;"
+    },
+    {
+      "type": "begin_display_group",
+      "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "audio",
+      "name": "audio_2",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/actifs_upa_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "float:right;"
+    },
+    {
+      "type": "html",
+      "value": "2. Personnes qui participent aux travaux champêtres<span style=\"color: red;\">*</span>"
+    },
+    {
+      "type": "end_display_group\n"
+    },
+    {
+      "type": "image",
+      "value": "images/travailleurs.jpg",
+      "style_list": "width: 80%; object-fit: contain;"
+    },
+    {
+      "type": "text_box",
+      "name": "upa_actifs",
+      "value": "@field.upa_actifs",
+      "parameter_list": "number_input: true;\nplaceholder: Entrez le nombre de travailleurs;\n",
+      "condition": "!!@field.upa_actifs",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text_box",
+      "name": "upa_actifs",
+      "parameter_list": "number_input: true;\nplaceholder: Entrez le nombre de travailleurs;\n",
+      "condition": "!@field.upa_actifs",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text",
+      "value": "Trop d'actifs ! (Max: @local.upa_membres)",
+      "condition": "@calc(Number(@local.upa_actifs) > Number(@local.upa_membres))",
+      "exclude_from_translation": true,
+      "style_list": "color: red; font-size: 12px;"
+    },
+    {
+      "type": "begin_display_group",
+      "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "audio",
+      "name": "audio_2",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/enfants_upa_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "float:right;"
+    },
+    {
+      "type": "html",
+      "value": "3. Nombre d'enfants dans l'UPA (0-7 ans)  dans l'UPA<span style=\"color: red;\">*</span>"
+    },
+    {
+      "type": "end_display_group\n"
+    },
+    {
+      "type": "image",
+      "value": "images/enfants.jpg",
+      "style_list": "width: 80%; object-fit: contain;"
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_enfants",
+      "value": "@field.nombre_enfants",
+      "parameter_list": "number_input: true ; placeholder: Nombre enfants moins de 8 ans;",
+      "condition": "!!@field.nombre_enfants",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_enfants",
+      "parameter_list": "number_input: true;placeholder: Nombre enfants moins de 8 ans;",
+      "condition": "!@field.nombre_enfants",
+      "exclude_from_translation": true
+    },
+    {
+      "name": "v_enf",
+      "value": "@calc((/^\\d+$/.test(@local.nombre_enfants) && Number(@local.nombre_enfants) >= 0) || !@local.nombre_enfants)",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text",
+      "value": "Veuillez saisir le nombre d'enfants (0 ou plus).",
+      "condition": "!@local.v_enf",
+      "exclude_from_translation": true,
+      "style_list": "color: #555; font-size: 10px; font-style: italic;"
+    },
+    {
+      "type": "begin_display_group",
+      "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "audio",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/adolescents_upa_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "float:right;"
+    },
+    {
+      "type": "text",
+      "value": "4.Nombre d'adolescents dans l'UPA (8-15 ans)<span style=\"color: red;\">*</span>"
+    },
+    {
+      "type": "end_display_group\n"
+    },
+    {
+      "type": "image",
+      "value": "images/adolescent.jpg\n",
+      "style_list": "width: 80%; object-fit: contain;"
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_adolescents",
+      "value": "@field.nombre_adolescents",
+      "parameter_list": "number_input: true; placeholder: Nombre ados entre 8 et 15 ans;",
+      "condition": "!!@field.nombre_adolescents",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_adolescents",
+      "parameter_list": "number_input: true; placeholder: Nombre ados entre 8 et 15 ans;",
+      "condition": "!@field.nombre_adolescents",
+      "exclude_from_translation": true
+    },
+    {
+      "name": "v_ado",
+      "value": "@calc((/^\\d+$/.test(@local.nombre_adolescents) && Number(@local.nombre_adolescents) >= 0) || !@local.nombre_adolescents)",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text",
+      "value": "Veuillez saisir le nombre d'adolescents (0 ou plus).",
+      "condition": "!@local.v_ado",
+      "exclude_from_translation": true,
+      "style_list": "color: #555; font-size: 10px; font-style: italic;"
+    },
+    {
+      "type": "begin_display_group",
+      "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "audio",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/femmes_upa_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "float:right;"
+    },
+    {
+      "type": "text",
+      "value": "5.Nombre de femmes adultes dans l'UPA (16-60 ans)<span style=\"color: red;\">*</span>"
+    },
+    {
+      "type": "end_display_group\n"
+    },
+    {
+      "type": "image",
+      "value": "images/femme_adult.jpg\n",
+      "style_list": "width: 80%; object-fit: contain;"
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_femmes",
+      "value": "@field.nombre_femmes",
+      "parameter_list": "number_input: true;  placeholder: Nombre femmes entre 16 et 60 ans;",
+      "condition": "!!@field.nombre_femmes",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_femmes",
+      "parameter_list": "number_input: true; placeholder: Nombre femmes entre 16 et 60 ans;",
+      "condition": "!@field.nombre_femmes",
+      "exclude_from_translation": true
+    },
+    {
+      "name": "v_fem",
+      "value": "@calc((/^\\d+$/.test(@local.nombre_femmes) && Number(@local.nombre_femmes) >= 0 && Number(@local.nombre_femmes) <= 25) || !@local.nombre_femmes)",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text",
+      "value": "Veuillez saisir le nombre de femmes adultes (0 ou plus).",
+      "condition": "!@local.v_fem",
+      "style_list": "color: #555; font-size: 10px; font-style: italic;"
+    },
+    {
+      "type": "begin_display_group",
+      "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "audio",
+      "name": "audio_2",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/hommes_upa_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "float:right;"
+    },
+    {
+      "type": "html",
+      "value": "6. Nombre d'hommes adultes dans l'UPA (16-60 ans)<span style=\"color: red;\">*</span>"
+    },
+    {
+      "type": "end_display_group\n"
+    },
+    {
+      "type": "image",
+      "value": "images/homme_adult.jpg\n\n",
+      "style_list": "width: 80%; object-fit: contain;"
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_hommes",
+      "value": "@field.nombre_hommes",
+      "parameter_list": "number_input: true; placeholder: Nombre hommes entre 16 et 60 ans;",
+      "condition": "!!@field.nombre_hommes",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_hommes",
+      "parameter_list": "number_input: true; placeholder: Nombre hommes entre 16 et 60 ans;",
+      "condition": "!@field.nombre_hommes",
+      "exclude_from_translation": true
+    },
+    {
+      "name": "v_hom",
+      "value": "@calc((/^\\d+$/.test(@local.nombre_hommes) && Number(@local.nombre_hommes) >= 0 && Number(@local.nombre_hommes) <= 25) || !@local.nombre_hommes)",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text",
+      "value": "Veuillez saisir le nombre d'hommes adultes (0 ou plus).",
+      "condition": "!@local.v_hom",
+      "style_list": "color: #555; font-size: 10px; font-style: italic;"
+    },
+    {
+      "type": "begin_display_group",
+      "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "audio",
+      "name": "audio_2",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/vieille_upa_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "float:right;"
+    },
+    {
+      "type": "html",
+      "value": "7. Nombre de femmes agées (>60) dans l'UPA<span style=\"color: red;\">*</span>"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/vieille.jpg",
+      "style_list": "width: 80%; object-fit: contain;"
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_femmes_agees",
+      "value": "@field.nombre_femmes_agees",
+      "parameter_list": "number_input: true; placeholder: Nombre femmes âgées plus de 60 ans;",
+      "condition": "!!@field.nombre_femmes_agees",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_femmes_agees",
+      "parameter_list": "number_input: true; placeholder: Nombre femmes âgées plus de 60 ans;",
+      "condition": "!@field.nombre_femmes_agees",
+      "exclude_from_translation": true
+    },
+    {
+      "name": "v_f_age",
+      "value": "@calc((/^\\d+$/.test(@local.nombre_femmes_agees) && Number(@local.nombre_femmes_agees) >= 0 && Number(@local.nombre_femmes_agees) <= 20) || !@local.nombre_femmes_agees)",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text",
+      "value": "Veuillez saisir le nombre de femmes de plus de 60 ans.",
+      "condition": "!@local.v_f_age",
+      "style_list": "color: #555; font-size: 10px; font-style: italic;"
+    },
+    {
+      "type": "begin_display_group",
+      "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "audio",
+      "name": "audio_2",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/vieux_upa_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "float:right;"
+    },
+    {
+      "type": "html",
+      "value": "8. Nombre d'hommes agés (>60) dans l'UPA<span style=\"color: red;\">*</span>"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/vieux.jpg",
+      "style_list": "width: 80%; object-fit: contain;"
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_hommes_ages",
+      "value": "@field.nombre_hommes_ages\n",
+      "parameter_list": "number_input: true; placeholder: Nombre hommes âgés plus de 60 ans;",
+      "condition": "!!@field.nombre_hommes_ages",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_hommes_ages",
+      "parameter_list": "number_input: true; placeholder: Nombre hommes âgés plus de 60 ans;",
+      "condition": "!@field.nombre_hommes_ages",
+      "exclude_from_translation": true
+    },
+    {
+      "name": "v_h_age",
+      "value": "@calc((/^\\d+$/.test(@local.nombre_hommes_ages) && Number(@local.nombre_hommes_ages) >= 0 && Number(@local.nombre_hommes_ages) <= 25)  || !@local.nombre_hommes_ages)",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text",
+      "value": "Veuillez saisir le nombre d'hommes de plus de 60 ans.",
+      "condition": "!@local.v_h_age",
+      "style_list": "color: #555; font-size: 10px; font-style: italic;"
+    },
+    {
+      "name": "check_total",
+      "value": "@calc(Number(@local.nombre_enfants || 0) + Number(@local.nombre_adolescents || 0) + Number(@local.nombre_femmes || 0) + Number(@local.nombre_hommes || 0) + Number(@local.nombre_femmes_agees || 0) + Number(@local.nombre_hommes_ages || 0))",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text",
+      "value": "Attention : La somme (@local.check_total) est différente du total déclaré (@local.upa_membres).",
+      "condition": "@calc(@local.check_total > 0 && @local.check_total != @local.upa_membres)",
+      "exclude_from_translation": true,
+      "style_list": "color: red; background: #ffebee;"
+    },
+    {
+      "name": "completed_enabled\n",
+      "value": "@calc(!!@local.upa_membres && Number(@local.check_total) == Number(@local.upa_membres) && Number(@local.upa_actifs) <= Number(@local.upa_membres))",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "begin_display_group",
+      "name": "dg_footer",
+      "parameter_list": "sticky: bottom;",
+      "style_list": "padding: 12px 24px;"
+    },
+    {
+      "type": "round_button",
+      "name": "button_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;variant: no-background;"
+    },
+    {
+      "type": "button",
+      "name": "button_completed",
+      "value": "@global.btn_continue",
+      "action_list": "click | set_field: upa_membres: @local.upa_membres;\nclick | set_field: upa_actifs: @local.upa_actifs;\nclick | set_field: nombre_enfants: @local.nombre_enfants;\nclick | set_field: nombre_adolescents: @local.nombre_adolescents;\nclick | set_field: nombre_femmes: @local.nombre_femmes;\nclick | set_field: nombre_hommes: @local.nombre_hommes;\nclick | set_field: nombre_femmes_agees: @local.nombre_femmes_agees;\nclick | set_field: nombre_hommes_ages: @local.nombre_hommes_ages;\nclick | emit: completed\n",
+      "parameter_list": "style: navigation;disabled: !@local.completed_enabled",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "end_display_group"
+    }
+  ]
+}

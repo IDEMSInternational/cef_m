@@ -1,0 +1,85 @@
+{
+  "flow_type": "template",
+  "flow_name": "mohamed_form",
+  "status": "released",
+  "rows": [
+    {
+      "type": "text",
+      "name": "label_name",
+      "value": "Name : "
+    },
+    {
+      "type": "text_box",
+      "name": "fullname",
+      "value": "@field.fullname",
+      "action_list": "changed | set_field: fullname : this.value;",
+      "parameter_list": "placeholder: Add your name;"
+    },
+    {
+      "type": "text",
+      "name": "label_country",
+      "value": "Country : "
+    },
+    {
+      "name": "options_radio",
+      "value": "id:1 | name: Mali | text: Mali;\nid:2 | name: Italy | text: Italy;\nid:3 | name: Other | text: Other; "
+    },
+    {
+      "type": "radio_list",
+      "name": "country",
+      "value": "@field.country",
+      "action_list": "changed | set_field : country: this.value;",
+      "parameter_list": "answer_list: @local.options_radio;"
+    },
+    {
+      "type": "text",
+      "name": "label_date",
+      "value": "Date : "
+    },
+    {
+      "type": "date_time_picker",
+      "name": "date",
+      "value": "@calc(now())",
+      "action_list": "changed | set_field: date: this.value;",
+      "parameter_list": "type: date"
+    },
+    {
+      "name": "form_valid",
+      "value": "!!@local.fullname && !!@local.country && !!@local.date"
+    },
+    {
+      "type": "button",
+      "name": "button_add",
+      "value": "Save",
+      "action_list": "click | add_data | \n_list_id: mohamed_items,\nfullname: @field.fullname, \ncountry: @field.country, \ndate: @field.date;\nclick | emit: completed;",
+      "parameter_list": "disabled: !@local.form_valid",
+      "condition": "!@field.id\n"
+    },
+    {
+      "type": "button",
+      "name": "button_edit",
+      "value": "Save changes",
+      "action_list": "click | set_data | \n_list_id: mohamed_items,\n_id: @field.id, \nfullname: @field.fullname, \ncountry: @field.country, \ndate: @field.date;\nclick | emit: completed;",
+      "parameter_list": "disabled: !@local.form_valid",
+      "condition": "@field.id\n"
+    },
+    {
+      "type": "text",
+      "name": "radio_btn_link",
+      "value": "- Radio button :  https://docs.google.com/spreadsheets/d/1ykG_OU7bZJhNyoVKzOGjjGJ2F0OHbdJC0sh_7d67fTY",
+      "style_list": "font-size:12px;"
+    },
+    {
+      "type": "text",
+      "name": "date_picker_link",
+      "value": "- Date picker :  https://docs.google.com/spreadsheets/d/1Ff1QbrAKWpENp6QNeHVAw6_7KtkXz6zngRTSKqHMssw",
+      "style_list": "font-size:12px;"
+    },
+    {
+      "type": "text",
+      "name": "set_data_link",
+      "value": "- Set data : https://docs.google.com/spreadsheets/d/1nREviZhw2HG1YQy6KA1S9PU4Q36RRVHdwSYf3TMbduk/edit?gid=1992624740#gid=1992624740",
+      "style_list": "font-size:12px;"
+    }
+  ]
+}

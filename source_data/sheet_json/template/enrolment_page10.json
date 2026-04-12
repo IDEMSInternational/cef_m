@@ -1,0 +1,334 @@
+{
+  "flow_type": "template",
+  "flow_name": "enrolment_page10",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "value": "EQUIPEMENT DE L'UPA"
+    },
+    {
+      "type": "text",
+      "value": "Saisissez le nombre pour chaque équipement"
+    },
+    {
+      "type": "begin_display_group",
+      "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "audio",
+      "name": "audio_10_1",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/charrue_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "float:right;"
+    },
+    {
+      "type": "html",
+      "value": "1. Nombre de charrues de l'UPA<span style=\"color: red;\">*</span>"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/charrue.jpg\n",
+      "style_list": "width: 80%; object-fit: contain;"
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_charrues",
+      "value": "@field.nombre_charrues",
+      "parameter_list": "number_input: true; placeholder:Nombre de charrues;",
+      "condition": "!!@field.nombre_charrues",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_charrues",
+      "parameter_list": "number_input: true; placeholder:Nombre de charrues;",
+      "condition": "!@field.nombre_charrues",
+      "exclude_from_translation": true
+    },
+    {
+      "name": "v_charrue",
+      "value": "@calc(/^\\d+$/.test(@local.nombre_charrues) && Number(@local.nombre_charrues) >= 0)"
+    },
+    {
+      "type": "text",
+      "value": "Veuillez saisir un nombre valide (0 ou plus)",
+      "condition": "!@local.v_charrue\n",
+      "style_list": "color: red; font-size: 12px;\n"
+    },
+    {
+      "type": "begin_display_group",
+      "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "audio",
+      "name": "audio_10_2",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/multicul_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "float:right;"
+    },
+    {
+      "type": "html",
+      "value": "2. Nombre de multiculteurs de l'UPA<span style=\"color: red;\">*</span>"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/multiculteur.jpg\n",
+      "style_list": "width: 80%; object-fit: contain;"
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_multiculteurs",
+      "value": "@field.nombre_multiculteurs",
+      "parameter_list": "number_input: true; placeholder:Nombre de multiculteurs;",
+      "condition": "!!@field.nombre_multiculteurs\n",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_multiculteurs",
+      "parameter_list": "number_input: true; placeholder:Nombre de multiculteurs;",
+      "condition": "!@field.nombre_multiculteurs\n",
+      "exclude_from_translation": true
+    },
+    {
+      "name": "v_multi",
+      "value": "@calc(/^\\d+$/.test(@local.nombre_multiculteurs) && Number(@local.nombre_multiculteurs) >= 0)"
+    },
+    {
+      "type": "text",
+      "value": "Veuillez saisir un nombre valide (0 ou plus)",
+      "condition": "!@local.v_multi",
+      "style_list": "color: red; font-size: 12px;\n"
+    },
+    {
+      "type": "begin_display_group",
+      "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "audio",
+      "name": "audio_10_3",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/charret_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "float:right;"
+    },
+    {
+      "type": "html",
+      "value": "3. Nombre de charrettes de l'UPA<span style=\"color: red;\">*</span>"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/charrette.jpg\n",
+      "style_list": "width: 80%; object-fit: contain;"
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_charrettes",
+      "value": "@field.nombre_charrettes\n",
+      "parameter_list": "number_input: true; placeholder:Nombre de charrettes;\n",
+      "condition": "!!@field.nombre_charrettes\n\n",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_charrettes",
+      "parameter_list": "number_input: true; placeholder:Nombre de charrettes;\n",
+      "condition": "!@field.nombre_charrettes\n\n",
+      "exclude_from_translation": true
+    },
+    {
+      "name": "v_charrette",
+      "value": "@calc(/^\\d+$/.test(@local.nombre_charrettes) && Number(@local.nombre_charrettes) >= 0)"
+    },
+    {
+      "type": "text",
+      "value": "Veuillez saisir un nombre valide (0 ou plus)",
+      "condition": "!@local.v_charrette",
+      "style_list": "color: red; font-size: 12px;\n"
+    },
+    {
+      "type": "begin_display_group",
+      "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "audio",
+      "name": "audio_10_4",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/tracteur_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "float:right;"
+    },
+    {
+      "type": "html",
+      "value": "4. Nombre de tracteurs de l'UPA<span style=\"color: red;\">*</span>"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/tractor.jpg\n",
+      "style_list": "width: 80%; object-fit: contain;"
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_tracteur",
+      "value": "@field.nombre_tracteur\n",
+      "parameter_list": "number_input: true; placeholder:Nombre de tracteurs;",
+      "condition": "!!@field.nombre_tracteur\n\n\n",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_tracteur",
+      "parameter_list": "number_input: true; placeholder:Nombre de tracteurs;",
+      "condition": "!@field.nombre_tracteur\n\n",
+      "exclude_from_translation": true
+    },
+    {
+      "name": "v_tract",
+      "value": "@calc(/^\\d+$/.test(@local.nombre_tracteur) && Number(@local.nombre_tracteur) >= 0)"
+    },
+    {
+      "type": "text",
+      "value": "Veuillez saisir un nombre valide (0 ou plus)",
+      "condition": "!@local.v_tract",
+      "style_list": "color: red; font-size: 12px;\n"
+    },
+    {
+      "type": "begin_display_group",
+      "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "audio",
+      "name": "audio_10_5",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/semoir_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "float:right;"
+    },
+    {
+      "type": "html",
+      "value": "5. Nombre de semoirs de l'UPA<span style=\"color: red;\">*</span>"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/semoir.jpg\n",
+      "style_list": "width: 80%; object-fit: contain;"
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_semoir",
+      "value": "@field.nombre_semoir\n",
+      "parameter_list": "number_input: true; placeholder:Nombre de semoirs;",
+      "condition": "!!@field.nombre_semoir\n\n\n",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_semoir",
+      "parameter_list": "number_input: true; placeholder:Nombre de semoirs;",
+      "condition": "!@field.nombre_semoir\n\n",
+      "exclude_from_translation": true
+    },
+    {
+      "name": "v_semoir",
+      "value": "@calc(/^\\d+$/.test(@local.nombre_semoir) && Number(@local.nombre_semoir) >= 0)"
+    },
+    {
+      "type": "text",
+      "value": "Veuillez saisir un nombre valide (0 ou plus)",
+      "condition": "!@local.v_semoir",
+      "style_list": "color: red; font-size: 12px;\n"
+    },
+    {
+      "type": "begin_display_group",
+      "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "audio",
+      "name": "audio_10_6",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/motocult_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "float:right;"
+    },
+    {
+      "type": "html",
+      "value": "6. Nombre de motoculteurs de l'UPA<span style=\"color: red;\">*</span>"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/motoculture.jpg\n",
+      "style_list": "width: 80%; object-fit: contain;"
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_motoculteurs",
+      "value": "@field.nombre_motoculteurs\n",
+      "parameter_list": "number_input: true; placeholder:Nombre de motoculteurs;",
+      "condition": "!!@field.nombre_motoculteurs\n",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_motoculteurs",
+      "parameter_list": "number_input: true; placeholder:Nombre de motoculteurs;",
+      "condition": "!@field.nombre_motoculteurs\n\n\n",
+      "exclude_from_translation": true
+    },
+    {
+      "name": "v_moto",
+      "value": "@calc(/^\\d+$/.test(@local.nombre_motoculteurs) && Number(@local.nombre_motoculteurs) >= 0)"
+    },
+    {
+      "type": "text",
+      "value": "Veuillez saisir un nombre valide (0 ou plus)",
+      "condition": "!@local.v_moto",
+      "style_list": "color: red; font-size: 12px;\n"
+    },
+    {
+      "name": "v_valid_page",
+      "value": "@calc(@local.v_charrue && @local.v_multi && @local.v_charrette && @local.v_tract && @local.v_semoir && @local.v_moto)"
+    },
+    {
+      "name": "completed_enabled",
+      "value": "@calc(!!@local.v_valid_page)"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "dg_footer",
+      "parameter_list": "sticky: bottom;",
+      "style_list": "padding: 12px 24px;"
+    },
+    {
+      "type": "round_button",
+      "name": "button_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;variant: no-background;"
+    },
+    {
+      "type": "button",
+      "name": "button_completed",
+      "value": "@global.btn_continue",
+      "action_list": "click | set_field: nombre_charrues: @local.nombre_charrues; \nclick | set_field: nombre_multiculteurs: @local.nombre_multiculteurs; \nclick | set_field: nombre_charrettes: @local.nombre_charrettes; \nclick | set_field: nombre_tracteur: @local.nombre_tracteur; \nclick | set_field: nombre_semoir: @local.nombre_semoir; \nclick | set_field: nombre_motoculteurs: @local.nombre_motoculteurs; \nclick | emit: completed",
+      "parameter_list": "style: navigation;disabled: !@local.completed_enabled",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "end_display_group"
+    }
+  ]
+}
