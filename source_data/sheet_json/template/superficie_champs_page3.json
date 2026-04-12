@@ -1,0 +1,98 @@
+{
+  "flow_type": "template",
+  "flow_name": "superficie_champs_page3",
+  "status": "released",
+  "rows": [
+    {
+      "type": "declare_field_default",
+      "name": "num_parcelle",
+      "value": "1"
+    },
+    {
+      "type": "subtitle",
+      "value": "**Niveau de fertilité de la parcelle N⁰@fields.num_parcelle de @fields.nom_champ** *"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "Indiquez le niveau de fertilité de la parcelle N⁰ @fields.num_parcelle"
+    },
+    {
+      "type": "image",
+      "value": "images/fertilite.jpg"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "audio",
+      "name": "audio_1",
+      "parameter_list": "variant: compact;\nsrc: audio/Superficie/fertilite_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "radio_button_grid",
+      "name": "fertilite_sol",
+      "value": "@fields.fertilite_sol",
+      "action_list": "changed | set_local : fertilite_sol: this.value;",
+      "parameter_list": "answer_list: @data.fertilite_sol; \nstyle: secondary;\nitem_width: 60px;\ngrid_gap: 8px;"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "subtitle",
+      "value": "**Culture principale dans la parcelle N⁰@fields.num_parcelle de @fields.nom_champ** *"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "Sélectionnez la culture principale dans la parcelle N⁰ @fields.num_parcelle "
+    },
+    {
+      "type": "audio",
+      "name": "audio_2",
+      "parameter_list": "variant: compact;\nsrc: audio/Superficie/cult_prin_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "combo_box",
+      "name": "cult_princip",
+      "parameter_list": "placeholder: Selectionner une culture;\nanswer_list: @data.cult_princip;"
+    },
+    {
+      "type": "begin_display_group",
+      "value": " ",
+      "parameter_list": "sticky: bottom;",
+      "style_list": "padding: 12px 24px;"
+    },
+    {
+      "name": "completed_enabled",
+      "value": "!!@local.nom_champ  && @local.valid_nb_parcelles && !!@local.type_sol && !!@local.pente_sol && !!@local.nb_parcelles",
+      "style_list": true
+    },
+    {
+      "type": "round_button",
+      "name": "page1_button_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+    },
+    {
+      "type": "button",
+      "name": "button_continue_1",
+      "value": "Continuer",
+      "action_list": "click | set_field: nom_champ: @local.nom_champ;\nclick | set_field: type_sol: @local.type_sol;\nclick | set_field: pente_sol: @local.pente_sol;\nclick | set_field: nb_parcelles: @local.nb_parcelles;\n\nclick | emit: completed;",
+      "parameter_list": "disabled: !@local.completed_enabled"
+    },
+    {
+      "type": "end_display_group"
+    }
+  ]
+}

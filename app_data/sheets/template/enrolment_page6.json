@@ -34,13 +34,13 @@
           "_nested_name": "display_group_3.audio_6_1"
         },
         {
-          "type": "text",
-          "value": "Selectionnez les activité(s) secondaire(s) de l’UPA*",
+          "type": "html",
+          "value": "Selectionnez les activité(s) secondaire(s) de l’UPA<span style=\"color: red;\">*</span>",
           "_translations": {
             "value": {}
           },
-          "name": "text_2",
-          "_nested_name": "display_group_3.text_2"
+          "name": "html_2",
+          "_nested_name": "display_group_3.html_2"
         }
       ],
       "name": "display_group_3",
@@ -50,7 +50,7 @@
       "type": "data_items",
       "value": "@data.activite",
       "parameter_list": {
-        "filter": "@item.name != 'autre1' && @item.name != @field.activite"
+        "filter": "@item.name != @field.activite || @item.name == 'autre1'"
       },
       "style_list": [
         "display: flex",
@@ -68,7 +68,7 @@
             "display: flex",
             "flex-direction: column",
             "align-items: center",
-            "border: 1px solid #ddd",
+            "border: 1px solid #FFCC80",
             "border-radius: 12px",
             "background: white",
             "margin-bottom: 10px",
@@ -243,22 +243,22 @@
         "parameter_list": {
           "filter": [
             {
-              "fullExpression": "@item.name != 'autre1' && @item.name != @field.activite",
+              "fullExpression": "@item.name != @field.activite || @item.name == 'autre1'",
               "matchedExpression": "@item.name",
               "type": "item",
               "fieldName": "name"
             },
             {
-              "fullExpression": "@item.name != 'autre1' && @item.name != @field.activite",
-              "matchedExpression": "@item.name",
-              "type": "item",
-              "fieldName": "name"
-            },
-            {
-              "fullExpression": "@item.name != 'autre1' && @item.name != @field.activite",
+              "fullExpression": "@item.name != @field.activite || @item.name == 'autre1'",
               "matchedExpression": "@field.activite",
               "type": "field",
               "fieldName": "activite"
+            },
+            {
+              "fullExpression": "@item.name != @field.activite || @item.name == 'autre1'",
+              "matchedExpression": "@item.name",
+              "type": "item",
+              "fieldName": "name"
             }
           ]
         }
@@ -278,7 +278,7 @@
     },
     {
       "name": "v_sec",
-      "value": "@calc(!!@field.sec_ids_agriculture || !!@field.sec_ids_elevage || !!@field.sec_ids_commerce || !!@field.sec_ids_maraichage || !!@field.sec_ids_autre2)",
+      "value": "@calc(!!@field.sec_ids_agriculture || !!@field.sec_ids_elevage || !!@field.sec_ids_commerce || !!@field.sec_ids_maraichage || !!@field.sec_ids_autre1)",
       "_translations": {
         "value": {}
       },
@@ -287,40 +287,40 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc(!!@field.sec_ids_agriculture || !!@field.sec_ids_elevage || !!@field.sec_ids_commerce || !!@field.sec_ids_maraichage || !!@field.sec_ids_autre2)",
+            "fullExpression": "@calc(!!@field.sec_ids_agriculture || !!@field.sec_ids_elevage || !!@field.sec_ids_commerce || !!@field.sec_ids_maraichage || !!@field.sec_ids_autre1)",
             "matchedExpression": "!@field.sec_ids_agriculture",
             "type": "field",
             "fieldName": "sec_ids_agriculture"
           },
           {
-            "fullExpression": "@calc(!!@field.sec_ids_agriculture || !!@field.sec_ids_elevage || !!@field.sec_ids_commerce || !!@field.sec_ids_maraichage || !!@field.sec_ids_autre2)",
+            "fullExpression": "@calc(!!@field.sec_ids_agriculture || !!@field.sec_ids_elevage || !!@field.sec_ids_commerce || !!@field.sec_ids_maraichage || !!@field.sec_ids_autre1)",
             "matchedExpression": "!@field.sec_ids_elevage",
             "type": "field",
             "fieldName": "sec_ids_elevage"
           },
           {
-            "fullExpression": "@calc(!!@field.sec_ids_agriculture || !!@field.sec_ids_elevage || !!@field.sec_ids_commerce || !!@field.sec_ids_maraichage || !!@field.sec_ids_autre2)",
+            "fullExpression": "@calc(!!@field.sec_ids_agriculture || !!@field.sec_ids_elevage || !!@field.sec_ids_commerce || !!@field.sec_ids_maraichage || !!@field.sec_ids_autre1)",
             "matchedExpression": "!@field.sec_ids_commerce",
             "type": "field",
             "fieldName": "sec_ids_commerce"
           },
           {
-            "fullExpression": "@calc(!!@field.sec_ids_agriculture || !!@field.sec_ids_elevage || !!@field.sec_ids_commerce || !!@field.sec_ids_maraichage || !!@field.sec_ids_autre2)",
+            "fullExpression": "@calc(!!@field.sec_ids_agriculture || !!@field.sec_ids_elevage || !!@field.sec_ids_commerce || !!@field.sec_ids_maraichage || !!@field.sec_ids_autre1)",
             "matchedExpression": "!@field.sec_ids_maraichage",
             "type": "field",
             "fieldName": "sec_ids_maraichage"
           },
           {
-            "fullExpression": "@calc(!!@field.sec_ids_agriculture || !!@field.sec_ids_elevage || !!@field.sec_ids_commerce || !!@field.sec_ids_maraichage || !!@field.sec_ids_autre2)",
-            "matchedExpression": "!@field.sec_ids_autre2",
+            "fullExpression": "@calc(!!@field.sec_ids_agriculture || !!@field.sec_ids_elevage || !!@field.sec_ids_commerce || !!@field.sec_ids_maraichage || !!@field.sec_ids_autre1)",
+            "matchedExpression": "!@field.sec_ids_autre1",
             "type": "field",
-            "fieldName": "sec_ids_autre2"
+            "fieldName": "sec_ids_autre1"
           },
           {
-            "fullExpression": "@calc(!!@field.sec_ids_agriculture || !!@field.sec_ids_elevage || !!@field.sec_ids_commerce || !!@field.sec_ids_maraichage || !!@field.sec_ids_autre2)",
-            "matchedExpression": "@calc(!!@field.sec_ids_agriculture || !!@field.sec_ids_elevage || !!@field.sec_ids_commerce || !!@field.sec_ids_maraichage || !!@field.sec_ids_autre2)",
+            "fullExpression": "@calc(!!@field.sec_ids_agriculture || !!@field.sec_ids_elevage || !!@field.sec_ids_commerce || !!@field.sec_ids_maraichage || !!@field.sec_ids_autre1)",
+            "matchedExpression": "@calc(!!@field.sec_ids_agriculture || !!@field.sec_ids_elevage || !!@field.sec_ids_commerce || !!@field.sec_ids_maraichage || !!@field.sec_ids_autre1)",
             "type": "calc",
-            "fieldName": "!!@field.sec_ids_agriculture || !!@field.sec_ids_elevage || !!@field.sec_ids_commerce || !!@field.sec_ids_maraichage || !!@field.sec_ids_autre2"
+            "fieldName": "!!@field.sec_ids_agriculture || !!@field.sec_ids_elevage || !!@field.sec_ids_commerce || !!@field.sec_ids_maraichage || !!@field.sec_ids_autre1"
           }
         ]
       },
@@ -337,10 +337,43 @@
         "!@field.sec_ids_maraichage": [
           "value"
         ],
-        "!@field.sec_ids_autre2": [
+        "!@field.sec_ids_autre1": [
           "value"
         ],
-        "@calc(!!@field.sec_ids_agriculture || !!@field.sec_ids_elevage || !!@field.sec_ids_commerce || !!@field.sec_ids_maraichage || !!@field.sec_ids_autre2)": [
+        "@calc(!!@field.sec_ids_agriculture || !!@field.sec_ids_elevage || !!@field.sec_ids_commerce || !!@field.sec_ids_maraichage || !!@field.sec_ids_autre1)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "v_is_autre",
+      "value": "@calc(!!@field.sec_ids_autre1)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_is_autre",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(!!@field.sec_ids_autre1)",
+            "matchedExpression": "!@field.sec_ids_autre1",
+            "type": "field",
+            "fieldName": "sec_ids_autre1"
+          },
+          {
+            "fullExpression": "@calc(!!@field.sec_ids_autre1)",
+            "matchedExpression": "@calc(!!@field.sec_ids_autre1)",
+            "type": "calc",
+            "fieldName": "!!@field.sec_ids_autre1"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@field.sec_ids_autre1": [
+          "value"
+        ],
+        "@calc(!!@field.sec_ids_autre1)": [
           "value"
         ]
       }
@@ -356,8 +389,8 @@
         "color: orange",
         "font-size: 12px"
       ],
-      "name": "text_8",
-      "_nested_name": "text_8",
+      "name": "text_9",
+      "_nested_name": "text_9",
       "_dynamicFields": {
         "condition": [
           {
@@ -384,38 +417,140 @@
       }
     },
     {
-      "name": "v_doublon",
-      "value": "@calc(!!@field.autre_nom_2 && @field.autre_nom_2 == @field.autre_nom_3)",
+      "name": "v_doublon_principal",
+      "value": "@calc(!!@field.autre_nom && @field.autre_nom_2 == @field.autre_nom)",
       "_translations": {
         "value": {}
       },
       "type": "set_variable",
-      "_nested_name": "v_doublon",
+      "_nested_name": "v_doublon_principal",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc(!!@field.autre_nom_2 && @field.autre_nom_2 == @field.autre_nom_3)",
-            "matchedExpression": "!@field.autre_nom_2",
+            "fullExpression": "@calc(!!@field.autre_nom && @field.autre_nom_2 == @field.autre_nom)",
+            "matchedExpression": "!@field.autre_nom",
             "type": "field",
-            "fieldName": "autre_nom_2"
+            "fieldName": "autre_nom"
           },
           {
-            "fullExpression": "@calc(!!@field.autre_nom_2 && @field.autre_nom_2 == @field.autre_nom_3)",
+            "fullExpression": "@calc(!!@field.autre_nom && @field.autre_nom_2 == @field.autre_nom)",
             "matchedExpression": "@field.autre_nom_2",
             "type": "field",
             "fieldName": "autre_nom_2"
           },
           {
-            "fullExpression": "@calc(!!@field.autre_nom_2 && @field.autre_nom_2 == @field.autre_nom_3)",
+            "fullExpression": "@calc(!!@field.autre_nom && @field.autre_nom_2 == @field.autre_nom)",
+            "matchedExpression": "@field.autre_nom",
+            "type": "field",
+            "fieldName": "autre_nom"
+          },
+          {
+            "fullExpression": "@calc(!!@field.autre_nom && @field.autre_nom_2 == @field.autre_nom)",
+            "matchedExpression": "@calc(!!@field.autre_nom && @field.autre_nom_2 == @field.autre_nom)",
+            "type": "calc",
+            "fieldName": "!!@field.autre_nom && @field.autre_nom_2 == @field.autre_nom"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@field.autre_nom": [
+          "value"
+        ],
+        "@field.autre_nom_2": [
+          "value"
+        ],
+        "@field.autre_nom": [
+          "value"
+        ],
+        "@calc(!!@field.autre_nom && @field.autre_nom_2 == @field.autre_nom)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "v_doublon_3_principal",
+      "value": "@calc(!!@field.autre_nom && @field.autre_nom_3 == @field.autre_nom)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_doublon_3_principal",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(!!@field.autre_nom && @field.autre_nom_3 == @field.autre_nom)",
+            "matchedExpression": "!@field.autre_nom",
+            "type": "field",
+            "fieldName": "autre_nom"
+          },
+          {
+            "fullExpression": "@calc(!!@field.autre_nom && @field.autre_nom_3 == @field.autre_nom)",
             "matchedExpression": "@field.autre_nom_3",
             "type": "field",
             "fieldName": "autre_nom_3"
           },
           {
-            "fullExpression": "@calc(!!@field.autre_nom_2 && @field.autre_nom_2 == @field.autre_nom_3)",
-            "matchedExpression": "@calc(!!@field.autre_nom_2 && @field.autre_nom_2 == @field.autre_nom_3)",
+            "fullExpression": "@calc(!!@field.autre_nom && @field.autre_nom_3 == @field.autre_nom)",
+            "matchedExpression": "@field.autre_nom",
+            "type": "field",
+            "fieldName": "autre_nom"
+          },
+          {
+            "fullExpression": "@calc(!!@field.autre_nom && @field.autre_nom_3 == @field.autre_nom)",
+            "matchedExpression": "@calc(!!@field.autre_nom && @field.autre_nom_3 == @field.autre_nom)",
             "type": "calc",
-            "fieldName": "!!@field.autre_nom_2 && @field.autre_nom_2 == @field.autre_nom_3"
+            "fieldName": "!!@field.autre_nom && @field.autre_nom_3 == @field.autre_nom"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@field.autre_nom": [
+          "value"
+        ],
+        "@field.autre_nom_3": [
+          "value"
+        ],
+        "@field.autre_nom": [
+          "value"
+        ],
+        "@calc(!!@field.autre_nom && @field.autre_nom_3 == @field.autre_nom)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "v_doublon_2_3",
+      "value": "@calc(!!@field.autre_nom_2 && @field.autre_nom_3 == @field.autre_nom_2)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_doublon_2_3",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(!!@field.autre_nom_2 && @field.autre_nom_3 == @field.autre_nom_2)",
+            "matchedExpression": "!@field.autre_nom_2",
+            "type": "field",
+            "fieldName": "autre_nom_2"
+          },
+          {
+            "fullExpression": "@calc(!!@field.autre_nom_2 && @field.autre_nom_3 == @field.autre_nom_2)",
+            "matchedExpression": "@field.autre_nom_3",
+            "type": "field",
+            "fieldName": "autre_nom_3"
+          },
+          {
+            "fullExpression": "@calc(!!@field.autre_nom_2 && @field.autre_nom_3 == @field.autre_nom_2)",
+            "matchedExpression": "@field.autre_nom_2",
+            "type": "field",
+            "fieldName": "autre_nom_2"
+          },
+          {
+            "fullExpression": "@calc(!!@field.autre_nom_2 && @field.autre_nom_3 == @field.autre_nom_2)",
+            "matchedExpression": "@calc(!!@field.autre_nom_2 && @field.autre_nom_3 == @field.autre_nom_2)",
+            "type": "calc",
+            "fieldName": "!!@field.autre_nom_2 && @field.autre_nom_3 == @field.autre_nom_2"
           }
         ]
       },
@@ -423,53 +558,20 @@
         "!@field.autre_nom_2": [
           "value"
         ],
-        "@field.autre_nom_2": [
-          "value"
-        ],
         "@field.autre_nom_3": [
           "value"
         ],
-        "@calc(!!@field.autre_nom_2 && @field.autre_nom_2 == @field.autre_nom_3)": [
-          "value"
-        ]
-      }
-    },
-    {
-      "name": "v_is_autre",
-      "value": "@calc(!!@field.sec_ids_autre2)",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "v_is_autre",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc(!!@field.sec_ids_autre2)",
-            "matchedExpression": "!@field.sec_ids_autre2",
-            "type": "field",
-            "fieldName": "sec_ids_autre2"
-          },
-          {
-            "fullExpression": "@calc(!!@field.sec_ids_autre2)",
-            "matchedExpression": "@calc(!!@field.sec_ids_autre2)",
-            "type": "calc",
-            "fieldName": "!!@field.sec_ids_autre2"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "!@field.sec_ids_autre2": [
+        "@field.autre_nom_2": [
           "value"
         ],
-        "@calc(!!@field.sec_ids_autre2)": [
+        "@calc(!!@field.autre_nom_2 && @field.autre_nom_3 == @field.autre_nom_2)": [
           "value"
         ]
       }
     },
     {
       "name": "v_autre_ok",
-      "value": "@calc(!@local.v_is_autre || (!!@field.autre_nom_2 && !@local.v_doublon))",
+      "value": "@calc(!@local.v_is_autre || (!!@field.autre_nom_2 && !@local.v_doublon_principal && (!@field.show_box3 || (!!@field.autre_nom_3 && !@local.v_doublon_2_3 && !@local.v_doublon_3_principal))))",
       "_translations": {
         "value": {}
       },
@@ -478,28 +580,52 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc(!@local.v_is_autre || (!!@field.autre_nom_2 && !@local.v_doublon))",
+            "fullExpression": "@calc(!@local.v_is_autre || (!!@field.autre_nom_2 && !@local.v_doublon_principal && (!@field.show_box3 || (!!@field.autre_nom_3 && !@local.v_doublon_2_3 && !@local.v_doublon_3_principal))))",
             "matchedExpression": "!@local.v_is_autre",
             "type": "local",
             "fieldName": "v_is_autre"
           },
           {
-            "fullExpression": "@calc(!@local.v_is_autre || (!!@field.autre_nom_2 && !@local.v_doublon))",
+            "fullExpression": "@calc(!@local.v_is_autre || (!!@field.autre_nom_2 && !@local.v_doublon_principal && (!@field.show_box3 || (!!@field.autre_nom_3 && !@local.v_doublon_2_3 && !@local.v_doublon_3_principal))))",
             "matchedExpression": "!@field.autre_nom_2",
             "type": "field",
             "fieldName": "autre_nom_2"
           },
           {
-            "fullExpression": "@calc(!@local.v_is_autre || (!!@field.autre_nom_2 && !@local.v_doublon))",
-            "matchedExpression": "!@local.v_doublon",
+            "fullExpression": "@calc(!@local.v_is_autre || (!!@field.autre_nom_2 && !@local.v_doublon_principal && (!@field.show_box3 || (!!@field.autre_nom_3 && !@local.v_doublon_2_3 && !@local.v_doublon_3_principal))))",
+            "matchedExpression": "!@local.v_doublon_principal",
             "type": "local",
-            "fieldName": "v_doublon"
+            "fieldName": "v_doublon_principal"
           },
           {
-            "fullExpression": "@calc(!@local.v_is_autre || (!!@field.autre_nom_2 && !@local.v_doublon))",
-            "matchedExpression": "@calc(!@local.v_is_autre || (!!@field.autre_nom_2 && !@local.v_doublon))",
+            "fullExpression": "@calc(!@local.v_is_autre || (!!@field.autre_nom_2 && !@local.v_doublon_principal && (!@field.show_box3 || (!!@field.autre_nom_3 && !@local.v_doublon_2_3 && !@local.v_doublon_3_principal))))",
+            "matchedExpression": "!@field.show_box3",
+            "type": "field",
+            "fieldName": "show_box3"
+          },
+          {
+            "fullExpression": "@calc(!@local.v_is_autre || (!!@field.autre_nom_2 && !@local.v_doublon_principal && (!@field.show_box3 || (!!@field.autre_nom_3 && !@local.v_doublon_2_3 && !@local.v_doublon_3_principal))))",
+            "matchedExpression": "!@field.autre_nom_3",
+            "type": "field",
+            "fieldName": "autre_nom_3"
+          },
+          {
+            "fullExpression": "@calc(!@local.v_is_autre || (!!@field.autre_nom_2 && !@local.v_doublon_principal && (!@field.show_box3 || (!!@field.autre_nom_3 && !@local.v_doublon_2_3 && !@local.v_doublon_3_principal))))",
+            "matchedExpression": "!@local.v_doublon_2_3",
+            "type": "local",
+            "fieldName": "v_doublon_2_3"
+          },
+          {
+            "fullExpression": "@calc(!@local.v_is_autre || (!!@field.autre_nom_2 && !@local.v_doublon_principal && (!@field.show_box3 || (!!@field.autre_nom_3 && !@local.v_doublon_2_3 && !@local.v_doublon_3_principal))))",
+            "matchedExpression": "!@local.v_doublon_3_principal",
+            "type": "local",
+            "fieldName": "v_doublon_3_principal"
+          },
+          {
+            "fullExpression": "@calc(!@local.v_is_autre || (!!@field.autre_nom_2 && !@local.v_doublon_principal && (!@field.show_box3 || (!!@field.autre_nom_3 && !@local.v_doublon_2_3 && !@local.v_doublon_3_principal))))",
+            "matchedExpression": "@calc(!@local.v_is_autre || (!!@field.autre_nom_2 && !@local.v_doublon_principal && (!@field.show_box3 || (!!@field.autre_nom_3 && !@local.v_doublon_2_3 && !@local.v_doublon_3_principal))))",
             "type": "calc",
-            "fieldName": "!@local.v_is_autre || (!!@field.autre_nom_2 && !@local.v_doublon)"
+            "fieldName": "!@local.v_is_autre || (!!@field.autre_nom_2 && !@local.v_doublon_principal && (!@field.show_box3 || (!!@field.autre_nom_3 && !@local.v_doublon_2_3 && !@local.v_doublon_3_principal)))"
           }
         ]
       },
@@ -510,10 +636,22 @@
         "!@field.autre_nom_2": [
           "value"
         ],
-        "!@local.v_doublon": [
+        "!@local.v_doublon_principal": [
           "value"
         ],
-        "@calc(!@local.v_is_autre || (!!@field.autre_nom_2 && !@local.v_doublon))": [
+        "!@field.show_box3": [
+          "value"
+        ],
+        "!@field.autre_nom_3": [
+          "value"
+        ],
+        "!@local.v_doublon_2_3": [
+          "value"
+        ],
+        "!@local.v_doublon_3_principal": [
+          "value"
+        ],
+        "@calc(!@local.v_is_autre || (!!@field.autre_nom_2 && !@local.v_doublon_principal && (!@field.show_box3 || (!!@field.autre_nom_3 && !@local.v_doublon_2_3 && !@local.v_doublon_3_principal))))": [
           "value"
         ]
       }
@@ -523,14 +661,8 @@
       "name": "deuxieme",
       "condition": "@local.v_is_autre == true",
       "style_list": [
-        "display: flex",
-        "flex-direction: column",
-        "background: #ffffff",
-        "border: 1px solid #ddd",
-        "border-radius: 15px",
-        "padding: 20px",
-        "margin: 15px 0",
-        "shadow: 0 2px 5px rgba(0,0,0,0.1)"
+        "display: block",
+        "width: 100%"
       ],
       "rows": [
         {
@@ -543,11 +675,49 @@
           },
           "exclude_from_translation": true,
           "style_list": [
-            "align-self: flex-end",
-            "margin-bottom: 10px"
+            "float:right"
           ],
           "_nested_name": "deuxieme.audio_6_2"
         },
+        {
+          "type": "html",
+          "value": "Précisez le nom de l'autre activité secondaire<span style=\"color: red;\">*</span>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_2",
+          "_nested_name": "deuxieme.html_2"
+        }
+      ],
+      "_nested_name": "deuxieme",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@local.v_is_autre == true",
+            "matchedExpression": "@local.v_is_autre",
+            "type": "local",
+            "fieldName": "v_is_autre"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.v_is_autre": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "condition": "@local.v_is_autre == true",
+      "style_list": [
+        "display: block",
+        "background: white",
+        "margin-bottom: 10px",
+        "overflow: hidden",
+        "width: 100%",
+        "padding: 15px"
+      ],
+      "rows": [
         {
           "type": "text_box",
           "name": "box_autre_2",
@@ -570,7 +740,12 @@
             "placeholder": "Précisez l'activité..."
           },
           "exclude_from_translation": true,
-          "_nested_name": "deuxieme.box_autre_2",
+          "style_list": [
+            "border: none",
+            "background: transparent",
+            "margin-top: 10px"
+          ],
+          "_nested_name": "display_group_16.box_autre_2",
           "_dynamicFields": {
             "value": [
               {
@@ -589,29 +764,67 @@
         },
         {
           "type": "text",
+          "value": "Cette activité est déjà votre activité principale.",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "@local.v_doublon_principal",
+          "style_list": [
+            "color: red",
+            "font-size: 12px"
+          ],
+          "name": "text_2",
+          "_nested_name": "display_group_16.text_2",
+          "_dynamicFields": {
+            "condition": [
+              {
+                "fullExpression": "@local.v_doublon_principal",
+                "matchedExpression": "@local.v_doublon_principal",
+                "type": "local",
+                "fieldName": "v_doublon_principal"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.v_doublon_principal": [
+              "condition"
+            ]
+          }
+        },
+        {
+          "type": "text",
           "value": "La précision est obligatoire.",
           "_translations": {
             "value": {}
           },
-          "condition": "!@field.autre_nom_2",
+          "condition": "!@field.autre_nom_2 && !@local.v_doublon_principal",
           "style_list": [
             "color: red",
             "font-size: 12px"
           ],
           "name": "text_3",
-          "_nested_name": "deuxieme.text_3",
+          "_nested_name": "display_group_16.text_3",
           "_dynamicFields": {
             "condition": [
               {
-                "fullExpression": "!@field.autre_nom_2",
+                "fullExpression": "!@field.autre_nom_2 && !@local.v_doublon_principal",
                 "matchedExpression": "!@field.autre_nom_2",
                 "type": "field",
                 "fieldName": "autre_nom_2"
+              },
+              {
+                "fullExpression": "!@field.autre_nom_2 && !@local.v_doublon_principal",
+                "matchedExpression": "!@local.v_doublon_principal",
+                "type": "local",
+                "fieldName": "v_doublon_principal"
               }
             ]
           },
           "_dynamicDependencies": {
             "!@field.autre_nom_2": [
+              "condition"
+            ],
+            "!@local.v_doublon_principal": [
               "condition"
             ]
           }
@@ -634,26 +847,32 @@
             "icon_src": "add-circle-outline",
             "variant": "no-background"
           },
-          "condition": "!@field.show_box3 && !!@field.autre_nom_2",
+          "condition": "!@field.show_box3 && !!@field.autre_nom_2 && !@local.v_doublon_principal",
           "style_list": [
             "align-self: flex-end",
             "display: flex",
-            "margin-bottom: 10px"
+            "margin-bottom: 12px"
           ],
-          "_nested_name": "deuxieme.btn_add",
+          "_nested_name": "display_group_16.btn_add",
           "_dynamicFields": {
             "condition": [
               {
-                "fullExpression": "!@field.show_box3 && !!@field.autre_nom_2",
+                "fullExpression": "!@field.show_box3 && !!@field.autre_nom_2 && !@local.v_doublon_principal",
                 "matchedExpression": "!@field.show_box3",
                 "type": "field",
                 "fieldName": "show_box3"
               },
               {
-                "fullExpression": "!@field.show_box3 && !!@field.autre_nom_2",
+                "fullExpression": "!@field.show_box3 && !!@field.autre_nom_2 && !@local.v_doublon_principal",
                 "matchedExpression": "!@field.autre_nom_2",
                 "type": "field",
                 "fieldName": "autre_nom_2"
+              },
+              {
+                "fullExpression": "!@field.show_box3 && !!@field.autre_nom_2 && !@local.v_doublon_principal",
+                "matchedExpression": "!@local.v_doublon_principal",
+                "type": "local",
+                "fieldName": "v_doublon_principal"
               }
             ]
           },
@@ -662,6 +881,9 @@
               "condition"
             ],
             "!@field.autre_nom_2": [
+              "condition"
+            ],
+            "!@local.v_doublon_principal": [
               "condition"
             ]
           }
@@ -689,13 +911,11 @@
           },
           "condition": "@field.show_box3 == true",
           "style_list": [
-            "width: 100%",
-            "border: 1.5px",
-            "border-radius: 8px",
-            "padding: 12px",
+            "border: none",
+            "background: transparent",
             "margin-top: 10px"
           ],
-          "_nested_name": "deuxieme.box_autre_3",
+          "_nested_name": "display_group_16.box_autre_3",
           "_dynamicFields": {
             "value": [
               {
@@ -725,35 +945,65 @@
         },
         {
           "type": "text",
-          "value": "Les deux activités doivent être différentes.",
+          "value": "Cette activité est déjà votre activité principale.",
           "_translations": {
             "value": {}
           },
-          "condition": "@local.v_doublon",
+          "condition": "@local.v_doublon_3_principal",
           "style_list": [
-            "color: orange",
+            "color: red",
             "font-size: 12px"
           ],
           "name": "text_6",
-          "_nested_name": "deuxieme.text_6",
+          "_nested_name": "display_group_16.text_6",
           "_dynamicFields": {
             "condition": [
               {
-                "fullExpression": "@local.v_doublon",
-                "matchedExpression": "@local.v_doublon",
+                "fullExpression": "@local.v_doublon_3_principal",
+                "matchedExpression": "@local.v_doublon_3_principal",
                 "type": "local",
-                "fieldName": "v_doublon"
+                "fieldName": "v_doublon_3_principal"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@local.v_doublon": [
+            "@local.v_doublon_3_principal": [
+              "condition"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "value": "Les deux activités secondaires doivent être différentes.",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "@local.v_doublon_2_3",
+          "style_list": [
+            "color: orange",
+            "font-size: 12px"
+          ],
+          "name": "text_7",
+          "_nested_name": "display_group_16.text_7",
+          "_dynamicFields": {
+            "condition": [
+              {
+                "fullExpression": "@local.v_doublon_2_3",
+                "matchedExpression": "@local.v_doublon_2_3",
+                "type": "local",
+                "fieldName": "v_doublon_2_3"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.v_doublon_2_3": [
               "condition"
             ]
           }
         }
       ],
-      "_nested_name": "deuxieme",
+      "name": "display_group_16",
+      "_nested_name": "display_group_16",
       "_dynamicFields": {
         "condition": [
           {
@@ -859,7 +1109,6 @@
             }
           ],
           "parameter_list": {
-            "style": "navigation",
             "disabled": "!@local.completed_enabled"
           },
           "style_list": [

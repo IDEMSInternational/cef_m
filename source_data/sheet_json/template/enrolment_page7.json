@@ -8,25 +8,35 @@
       "value": "ASSOCIATIONS DES PRODUCTEURS\n"
     },
     {
-      "type": "text",
-      "value": "1. Nom de la coopérative cotonnière*"
-    },
-    {
       "type": "begin_display_group",
-      "name": "card_1",
-      "style_list": "background: #ffffff; border-radius: 15px; padding: 15px; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); display: flex; flex-direction: column;"
+      "style_list": "display: block; width: 100%"
     },
     {
       "type": "audio",
       "name": "audio_1",
       "parameter_list": "variant: compact;\nsrc: audio/Enrolement/coop_coton_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
       "exclude_from_translation": true,
-      "style_list": "align-self: flex-end;"
+      "style_list": "float:right;\n"
+    },
+    {
+      "type": "html",
+      "value": "1. Nom de la coopérative cotonnière<span style=\"color: red;\">*</span>"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "card_1",
+      "style_list": "width: 100%; display: flex; flex-direction: column; align-items: center; background: white; margin-bottom: 10px; overflow: hidden;\n"
     },
     {
       "type": "image",
       "value": "images/op_coton.jpg",
-      "style_list": "width: 80px; height: 80px; align-self: center; margin: 10px 0;"
+      "style_list": "width: 80%; object-fit: contain;"
+    },
+    {
+      "type": "end_display_group"
     },
     {
       "type": "text_box",
@@ -54,28 +64,35 @@
       "style_list": "color: red; font-size: 12px;"
     },
     {
-      "type": "end_display_group"
-    },
-    {
-      "type": "text",
-      "value": "2. Nom de la coopérative céréalière*"
-    },
-    {
       "type": "begin_display_group",
-      "name": "card_2",
-      "style_list": "background: #ffffff; border-radius: 15px; padding: 15px; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); display: flex; flex-direction: column;"
+      "style_list": "display: block; width: 100%"
     },
     {
       "type": "audio",
       "name": "audio_2",
       "parameter_list": "variant: compact;\nsrc: audio/Enrolement/coop_cereales_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
       "exclude_from_translation": true,
-      "style_list": "align-self: flex-end;\n"
+      "style_list": "float:right;"
+    },
+    {
+      "type": "html",
+      "value": "2. Nom de la coopérative céréalière<span style=\"color: red;\">*</span>"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "card_2",
+      "style_list": "width: 100%; display: flex; flex-direction: column; align-items: center; background: white; margin-bottom: 10px; overflow: hidden;"
     },
     {
       "type": "image",
       "value": "images/op_cereales.jpg",
-      "style_list": "margin-top: 10px; width: 100%;\n"
+      "style_list": "width: 80%; object-fit: contain;\n"
+    },
+    {
+      "type": "end_display_group\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t"
     },
     {
       "type": "text_box",
@@ -101,30 +118,41 @@
       "style_list": "color: red; font-size: 12px;"
     },
     {
-      "type": "end_display_group\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t"
-    },
-    {
-      "type": "text",
-      "value": "3. Union de la coopérative @local.nom_coop_cereales_upa",
-      "condition": "@local.nom_coop_cereales_upa && @local.nom_coop_cereales_upa.toLowerCase() !== 'aucun'"
-    },
-    {
       "type": "begin_display_group",
-      "name": "card_3",
       "condition": "@local.nom_coop_cereales_upa && @local.nom_coop_cereales_upa.toLowerCase() !== 'aucun'",
-      "style_list": "background: #ffffff; border-radius: 15px; padding: 15px; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); display: flex; flex-direction: column;"
+      "style_list": "display: block; width: 100%"
     },
     {
       "type": "audio",
       "name": "audio_3",
       "parameter_list": "variant: compact;\nsrc: audio/Enrolement/union_cereales_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
       "exclude_from_translation": true,
-      "style_list": "align-self: flex-end;\n"
+      "style_list": "float:right;"
+    },
+    {
+      "type": "html",
+      "value": "3. Union de la coopérative @local.nom_coop_cereales_upa<span style=\"color: red;\">*</span>"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "card_3",
+      "condition": "@local.nom_coop_cereales_upa && @local.nom_coop_cereales_upa.toLowerCase() !== 'aucun'",
+      "style_list": "width: 100%; display: flex; flex-direction: column; align-items: center; background: white; margin-bottom: 10px; overflow: hidden;"
     },
     {
       "type": "image",
       "value": "images/op_cereales.jpg",
-      "style_list": "margin-top: 10px; width: 100%;\n\n"
+      "style_list": "width: 80%; object-fit: contain;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@local.nom_coop_cereales_upa && @local.nom_coop_cereales_upa.toLowerCase() !== 'aucun'"
     },
     {
       "type": "text_box",
@@ -140,11 +168,11 @@
       "condition": "!@field.nom_union_cereales_upa\n"
     },
     {
-      "name": "v_union",
-      "value": "@calc(!!@local.nom_union_cereales_upa)"
+      "type": "end_display_group"
     },
     {
-      "type": "end_display_group"
+      "name": "v_union",
+      "value": "@calc(!!@local.nom_union_cereales_upa)"
     },
     {
       "name": "completed_enabled",
@@ -167,7 +195,7 @@
       "name": "button_completed",
       "value": "@global.btn_continue",
       "action_list": "click | set_field: nom_coop_coton_upa: @local.nom_coop_coton_upa; \nclick | set_field: nom_coop_cereales_upa: @local.nom_coop_cereales_upa; \nclick | set_field: nom_union_cereales_upa: @local.nom_union_cereales_upa;  \nclick | emit: completed\n",
-      "parameter_list": "style: navigation;\ndisabled: !@local.completed_enabled",
+      "parameter_list": "disabled: !@local.completed_enabled",
       "style_list": "flex: 1"
     },
     {

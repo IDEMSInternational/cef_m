@@ -4,13 +4,1179 @@
   "status": "released",
   "rows": [
     {
-      "type": "text",
-      "value": "GPS",
+      "type": "title",
+      "name": "page_title",
+      "value": "IDENTIFICATION DE l'UPA",
       "_translations": {
         "value": {}
       },
-      "name": "text_2",
-      "_nested_name": "text_2"
+      "_nested_name": "page_title"
+    },
+    {
+      "name": "attempt_submit",
+      "value": "@fields.attempt_submit",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "attempt_submit",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.attempt_submit",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.attempt_submit": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "html",
+          "name": "num_phone_label",
+          "value": "<span style=\"color: red;\">*</span> Saisissez le numéro de téléphone utilisé comme identifiant",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-size:20px"
+          ],
+          "_nested_name": "display_group_4.num_phone_label"
+        },
+        {
+          "type": "audio",
+          "name": "audio_2_1",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Enrolement/phone_num_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float : right"
+          ],
+          "_nested_name": "display_group_4.audio_2_1"
+        }
+      ],
+      "name": "display_group_4",
+      "_nested_name": "display_group_4"
+    },
+    {
+      "type": "image",
+      "value": "images/num_phone.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width:120px",
+        "height:120px",
+        "object-fit:contain",
+        "flex-shrink:0"
+      ],
+      "name": "image_6",
+      "_nested_name": "image_6"
+    },
+    {
+      "type": "text",
+      "name": "num_phone_hint",
+      "value": "Il s'agit du numero de téléphone pour l'identification de l'UPA (+223) qui sera utilisé de manière permanente",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "color: gray",
+        "font-size: 16px"
+      ],
+      "_nested_name": "num_phone_hint"
+    },
+    {
+      "name": "valid_num_phone",
+      "value": "@calc(/^[1-9][0-9]{7}$/.test(@fields.num_phone))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "valid_num_phone",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(/^[1-9][0-9]{7}$/.test(@fields.num_phone))",
+            "matchedExpression": "@fields.num_phone",
+            "type": "fields",
+            "fieldName": "num_phone"
+          },
+          {
+            "fullExpression": "@calc(/^[1-9][0-9]{7}$/.test(@fields.num_phone))",
+            "matchedExpression": "@calc(/^[1-9][0-9]{7}$/.test(@fields.num_phone))",
+            "type": "calc",
+            "fieldName": "/^[1-9][0-9]{7}$/.test(@fields.num_phone)"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.num_phone": [
+          "value"
+        ],
+        "@calc(/^[1-9][0-9]{7}$/.test(@fields.num_phone))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text_box",
+      "name": "num_phone",
+      "value": "@fields.num_phone",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "num_phone",
+            "this.value"
+          ],
+          "_raw": "changed | set_field: num_phone: this.value"
+        }
+      ],
+      "parameter_list": {
+        "number_input": "true"
+      },
+      "_nested_name": "num_phone",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.num_phone",
+            "matchedExpression": "@fields.num_phone",
+            "type": "fields",
+            "fieldName": "num_phone"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.num_phone": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "name": "error_num_phone",
+      "value": "Veuillez saisir un numéro de téléphone correct (8 chiffres, sans 0 au début)",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@fields.attempt_submit && !@local.valid_num_phone",
+      "style_list": [
+        "color: red",
+        "font-size: 16px"
+      ],
+      "_nested_name": "error_num_phone",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.attempt_submit && !@local.valid_num_phone",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
+          },
+          {
+            "fullExpression": "@fields.attempt_submit && !@local.valid_num_phone",
+            "matchedExpression": "!@local.valid_num_phone",
+            "type": "local",
+            "fieldName": "valid_num_phone"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.attempt_submit": [
+          "condition"
+        ],
+        "!@local.valid_num_phone": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "html",
+          "name": "chef_upa_label",
+          "value": "<span style=\"color: red;\">*</span> Ecrivez le nom et prénom de chef de votre UPA",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-size:20px"
+          ],
+          "_nested_name": "display_group_11.chef_upa_label"
+        },
+        {
+          "type": "audio",
+          "name": "audio_2_2",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Enrolement/nom_chef_upa_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float : right"
+          ],
+          "_nested_name": "display_group_11.audio_2_2"
+        }
+      ],
+      "name": "display_group_11",
+      "_nested_name": "display_group_11"
+    },
+    {
+      "name": "valid_chef_upa",
+      "value": "@fields.chef_upa != null && @fields.chef_upa != undefined && @fields.chef_upa != \"\"",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "valid_chef_upa",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.chef_upa != null && @fields.chef_upa != undefined && @fields.chef_upa != \"\"",
+            "matchedExpression": "@fields.chef_upa",
+            "type": "fields",
+            "fieldName": "chef_upa"
+          },
+          {
+            "fullExpression": "@fields.chef_upa != null && @fields.chef_upa != undefined && @fields.chef_upa != \"\"",
+            "matchedExpression": "@fields.chef_upa",
+            "type": "fields",
+            "fieldName": "chef_upa"
+          },
+          {
+            "fullExpression": "@fields.chef_upa != null && @fields.chef_upa != undefined && @fields.chef_upa != \"\"",
+            "matchedExpression": "@fields.chef_upa",
+            "type": "fields",
+            "fieldName": "chef_upa"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.chef_upa": [
+          "value",
+          "value",
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text_box",
+      "name": "chef_upa",
+      "value": "@fields.chef_upa",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "chef_upa",
+            "this.value"
+          ],
+          "_raw": "changed | set_field : chef_upa: this.value"
+        }
+      ],
+      "_nested_name": "chef_upa",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.chef_upa",
+            "matchedExpression": "@fields.chef_upa",
+            "type": "fields",
+            "fieldName": "chef_upa"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.chef_upa": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "name": "error_chef_upa",
+      "value": "@global.error_required_answer",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@fields.attempt_submit && !@local.valid_chef_upa",
+      "style_list": [
+        "color: red",
+        "font-size: 16px"
+      ],
+      "_nested_name": "error_chef_upa",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.error_required_answer",
+            "matchedExpression": "@global.error_required_answer",
+            "type": "global",
+            "fieldName": "error_required_answer"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "@fields.attempt_submit && !@local.valid_chef_upa",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
+          },
+          {
+            "fullExpression": "@fields.attempt_submit && !@local.valid_chef_upa",
+            "matchedExpression": "!@local.valid_chef_upa",
+            "type": "local",
+            "fieldName": "valid_chef_upa"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.error_required_answer": [
+          "value"
+        ],
+        "@fields.attempt_submit": [
+          "condition"
+        ],
+        "!@local.valid_chef_upa": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "html",
+          "name": "gender_label",
+          "value": "<span style=\"color: red;\">*</span> Sexe du chef de l'UPA",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-size:20px"
+          ],
+          "_nested_name": "display_group_16.gender_label"
+        },
+        {
+          "type": "audio",
+          "name": "audio_2_3",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Enrolement/sexe_chef_upa_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float : right"
+          ],
+          "_nested_name": "display_group_16.audio_2_3"
+        }
+      ],
+      "name": "display_group_16",
+      "_nested_name": "display_group_16"
+    },
+    {
+      "type": "text",
+      "name": "gender_chef_hint",
+      "value": "Selectionnez le sexe",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "color: gray",
+        "font-size: 16px"
+      ],
+      "_nested_name": "gender_chef_hint"
+    },
+    {
+      "name": "valid_gender_chef",
+      "value": "@fields.gender_chef != null && @fields.gender_chef != undefined && @fields.gender_chef != \"\"",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "valid_gender_chef",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.gender_chef != null && @fields.gender_chef != undefined && @fields.gender_chef != \"\"",
+            "matchedExpression": "@fields.gender_chef",
+            "type": "fields",
+            "fieldName": "gender_chef"
+          },
+          {
+            "fullExpression": "@fields.gender_chef != null && @fields.gender_chef != undefined && @fields.gender_chef != \"\"",
+            "matchedExpression": "@fields.gender_chef",
+            "type": "fields",
+            "fieldName": "gender_chef"
+          },
+          {
+            "fullExpression": "@fields.gender_chef != null && @fields.gender_chef != undefined && @fields.gender_chef != \"\"",
+            "matchedExpression": "@fields.gender_chef",
+            "type": "fields",
+            "fieldName": "gender_chef"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.gender_chef": [
+          "value",
+          "value",
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "radio_button_grid",
+      "name": "gender_chef",
+      "value": "@fields.gender_chef",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "gender_chef",
+            "this.value"
+          ],
+          "_raw": "changed | set_field : gender_chef: this.value"
+        }
+      ],
+      "parameter_list": {
+        "answer_list": "@data.gender",
+        "style": "secondary",
+        "item_width": "60px",
+        "grid_gap": "10px"
+      },
+      "_nested_name": "gender_chef",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.gender_chef",
+            "matchedExpression": "@fields.gender_chef",
+            "type": "fields",
+            "fieldName": "gender_chef"
+          }
+        ],
+        "parameter_list": {
+          "answer_list": [
+            {
+              "fullExpression": "@data.gender",
+              "matchedExpression": "@data.gender",
+              "type": "data",
+              "fieldName": "gender"
+            }
+          ]
+        }
+      },
+      "_dynamicDependencies": {
+        "@fields.gender_chef": [
+          "value"
+        ],
+        "@data.gender": [
+          "parameter_list.answer_list"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "name": "error_gender_chef",
+      "value": "@global.error_required_answer",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@fields.attempt_submit && !@local.valid_gender_chef",
+      "style_list": [
+        "color: red",
+        "font-size: 16px"
+      ],
+      "_nested_name": "error_gender_chef",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.error_required_answer",
+            "matchedExpression": "@global.error_required_answer",
+            "type": "global",
+            "fieldName": "error_required_answer"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "@fields.attempt_submit && !@local.valid_gender_chef",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
+          },
+          {
+            "fullExpression": "@fields.attempt_submit && !@local.valid_gender_chef",
+            "matchedExpression": "!@local.valid_gender_chef",
+            "type": "local",
+            "fieldName": "valid_gender_chef"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.error_required_answer": [
+          "value"
+        ],
+        "@fields.attempt_submit": [
+          "condition"
+        ],
+        "!@local.valid_gender_chef": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "html",
+          "name": "age_chef_label",
+          "value": "<span style=\"color: red;\">*</span> Age du chef de l'UPA",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-size:20px"
+          ],
+          "_nested_name": "display_group_22.age_chef_label"
+        },
+        {
+          "type": "audio",
+          "name": "audio_2_4",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Enrolement/age_chef_upa_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float : right"
+          ],
+          "_nested_name": "display_group_22.audio_2_4"
+        }
+      ],
+      "name": "display_group_22",
+      "_nested_name": "display_group_22"
+    },
+    {
+      "type": "text",
+      "name": "age_chef_hint",
+      "value": "Selectionnez la fourchette d'age",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "color: gray",
+        "font-size: 16px"
+      ],
+      "_nested_name": "age_chef_hint"
+    },
+    {
+      "name": "valid_age_chef",
+      "value": "@fields.age_chef != null && @fields.age_chef != undefined && @fields.age_chef != \"\"",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "valid_age_chef",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.age_chef != null && @fields.age_chef != undefined && @fields.age_chef != \"\"",
+            "matchedExpression": "@fields.age_chef",
+            "type": "fields",
+            "fieldName": "age_chef"
+          },
+          {
+            "fullExpression": "@fields.age_chef != null && @fields.age_chef != undefined && @fields.age_chef != \"\"",
+            "matchedExpression": "@fields.age_chef",
+            "type": "fields",
+            "fieldName": "age_chef"
+          },
+          {
+            "fullExpression": "@fields.age_chef != null && @fields.age_chef != undefined && @fields.age_chef != \"\"",
+            "matchedExpression": "@fields.age_chef",
+            "type": "fields",
+            "fieldName": "age_chef"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.age_chef": [
+          "value",
+          "value",
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "radio_list",
+      "name": "age_chef",
+      "value": "@fields.age_chef",
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "age_chef",
+            "this.value"
+          ],
+          "_raw": "changed | set_field : age_chef: this.value"
+        }
+      ],
+      "rows": [
+        {
+          "type": "data_items",
+          "value": "@data.age_group",
+          "rows": [],
+          "name": "data_items_1",
+          "_nested_name": "age_chef.data_items_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@data.age_group",
+                "matchedExpression": "@data.age_group",
+                "type": "data",
+                "fieldName": "age_group"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@data.age_group": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "age_chef",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.age_chef",
+            "matchedExpression": "@fields.age_chef",
+            "type": "fields",
+            "fieldName": "age_chef"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.age_chef": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "name": "error_age_chef",
+      "value": "@global.error_required_answer",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@fields.attempt_submit && !@local.valid_age_chef",
+      "style_list": [
+        "color: red",
+        "font-size: 16px"
+      ],
+      "_nested_name": "error_age_chef",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.error_required_answer",
+            "matchedExpression": "@global.error_required_answer",
+            "type": "global",
+            "fieldName": "error_required_answer"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "@fields.attempt_submit && !@local.valid_age_chef",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
+          },
+          {
+            "fullExpression": "@fields.attempt_submit && !@local.valid_age_chef",
+            "matchedExpression": "!@local.valid_age_chef",
+            "type": "local",
+            "fieldName": "valid_age_chef"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.error_required_answer": [
+          "value"
+        ],
+        "@fields.attempt_submit": [
+          "condition"
+        ],
+        "!@local.valid_age_chef": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "html",
+          "name": "chef_travaux_label",
+          "value": "<span style=\"color: red;\">*</span> Ecrivez le nom et prénom du chef des travaux champêtres",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-size:20px"
+          ],
+          "_nested_name": "display_group_29.chef_travaux_label"
+        },
+        {
+          "type": "audio",
+          "name": "audio_2_5",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Enrolement/nom_chef_trvx_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float : right"
+          ],
+          "_nested_name": "display_group_29.audio_2_5"
+        }
+      ],
+      "name": "display_group_29",
+      "_nested_name": "display_group_29"
+    },
+    {
+      "type": "image",
+      "value": "images/chef_travaux.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width:120px",
+        "height:120px",
+        "object-fit:contain",
+        "flex-shrink:0"
+      ],
+      "name": "image_31",
+      "_nested_name": "image_31"
+    },
+    {
+      "type": "text",
+      "name": "chef_travaux_hint",
+      "value": "Il s'agit de la personne qui supervise les travaux champêtres",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "color: gray",
+        "font-size: 16px"
+      ],
+      "_nested_name": "chef_travaux_hint"
+    },
+    {
+      "name": "valid_chef_travaux",
+      "value": "@fields.chef_travaux != null && @fields.chef_travaux != undefined && @fields.chef_travaux != \"\"",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "valid_chef_travaux",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.chef_travaux != null && @fields.chef_travaux != undefined && @fields.chef_travaux != \"\"",
+            "matchedExpression": "@fields.chef_travaux",
+            "type": "fields",
+            "fieldName": "chef_travaux"
+          },
+          {
+            "fullExpression": "@fields.chef_travaux != null && @fields.chef_travaux != undefined && @fields.chef_travaux != \"\"",
+            "matchedExpression": "@fields.chef_travaux",
+            "type": "fields",
+            "fieldName": "chef_travaux"
+          },
+          {
+            "fullExpression": "@fields.chef_travaux != null && @fields.chef_travaux != undefined && @fields.chef_travaux != \"\"",
+            "matchedExpression": "@fields.chef_travaux",
+            "type": "fields",
+            "fieldName": "chef_travaux"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.chef_travaux": [
+          "value",
+          "value",
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text_box",
+      "name": "chef_travaux",
+      "value": "@fields.chef_travaux",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "chef_travaux",
+            "this.value"
+          ],
+          "_raw": "changed | set_field : chef_travaux: this.value"
+        }
+      ],
+      "_nested_name": "chef_travaux",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.chef_travaux",
+            "matchedExpression": "@fields.chef_travaux",
+            "type": "fields",
+            "fieldName": "chef_travaux"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.chef_travaux": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "name": "error_chef_travaux",
+      "value": "@global.error_required_answer",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@fields.attempt_submit && !@local.valid_chef_travaux",
+      "style_list": [
+        "color: red",
+        "font-size: 16px"
+      ],
+      "_nested_name": "error_chef_travaux",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.error_required_answer",
+            "matchedExpression": "@global.error_required_answer",
+            "type": "global",
+            "fieldName": "error_required_answer"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "@fields.attempt_submit && !@local.valid_chef_travaux",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
+          },
+          {
+            "fullExpression": "@fields.attempt_submit && !@local.valid_chef_travaux",
+            "matchedExpression": "!@local.valid_chef_travaux",
+            "type": "local",
+            "fieldName": "valid_chef_travaux"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.error_required_answer": [
+          "value"
+        ],
+        "@fields.attempt_submit": [
+          "condition"
+        ],
+        "!@local.valid_chef_travaux": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "html",
+          "name": "neo_alphabete_label",
+          "value": "<span style=\"color: red;\">*</span> Ecrivez le nom et prénom du néo-alphabète",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-size:20px"
+          ],
+          "_nested_name": "display_group_36.neo_alphabete_label"
+        },
+        {
+          "type": "audio",
+          "name": "audio_2_6",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Enrolement/nom_neo_alpha_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float : right"
+          ],
+          "_nested_name": "display_group_36.audio_2_6"
+        }
+      ],
+      "name": "display_group_36",
+      "_nested_name": "display_group_36"
+    },
+    {
+      "type": "image",
+      "value": "images/neo_alpha.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width:120px",
+        "height:120px",
+        "object-fit:contain",
+        "flex-shrink:0"
+      ],
+      "name": "image_38",
+      "_nested_name": "image_38"
+    },
+    {
+      "type": "text",
+      "name": "neo_alphabete_hint",
+      "value": "La personne aidant l'utilisation de l'outil",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "color: gray",
+        "font-size: 16px"
+      ],
+      "_nested_name": "neo_alphabete_hint"
+    },
+    {
+      "name": "valid_neo_alphabete",
+      "value": "@fields.neo_alphabete != null && @fields.neo_alphabete != undefined && @fields.neo_alphabete != \"\"",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "valid_neo_alphabete",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.neo_alphabete != null && @fields.neo_alphabete != undefined && @fields.neo_alphabete != \"\"",
+            "matchedExpression": "@fields.neo_alphabete",
+            "type": "fields",
+            "fieldName": "neo_alphabete"
+          },
+          {
+            "fullExpression": "@fields.neo_alphabete != null && @fields.neo_alphabete != undefined && @fields.neo_alphabete != \"\"",
+            "matchedExpression": "@fields.neo_alphabete",
+            "type": "fields",
+            "fieldName": "neo_alphabete"
+          },
+          {
+            "fullExpression": "@fields.neo_alphabete != null && @fields.neo_alphabete != undefined && @fields.neo_alphabete != \"\"",
+            "matchedExpression": "@fields.neo_alphabete",
+            "type": "fields",
+            "fieldName": "neo_alphabete"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.neo_alphabete": [
+          "value",
+          "value",
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text_box",
+      "name": "neo_alphabete",
+      "value": "@fields.neo_alphabete",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "neo_alphabete",
+            "this.value"
+          ],
+          "_raw": "changed | set_field : neo_alphabete: this.value"
+        }
+      ],
+      "_nested_name": "neo_alphabete",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.neo_alphabete",
+            "matchedExpression": "@fields.neo_alphabete",
+            "type": "fields",
+            "fieldName": "neo_alphabete"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.neo_alphabete": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "name": "error_neo_alphabete",
+      "value": "@global.error_required_answer",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@fields.attempt_submit && !@local.valid_neo_alphabete",
+      "style_list": [
+        "color: red",
+        "font-size: 16px"
+      ],
+      "_nested_name": "error_neo_alphabete",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.error_required_answer",
+            "matchedExpression": "@global.error_required_answer",
+            "type": "global",
+            "fieldName": "error_required_answer"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "@fields.attempt_submit && !@local.valid_neo_alphabete",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
+          },
+          {
+            "fullExpression": "@fields.attempt_submit && !@local.valid_neo_alphabete",
+            "matchedExpression": "!@local.valid_neo_alphabete",
+            "type": "local",
+            "fieldName": "valid_neo_alphabete"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.error_required_answer": [
+          "value"
+        ],
+        "@fields.attempt_submit": [
+          "condition"
+        ],
+        "!@local.valid_neo_alphabete": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "html",
+      "name": "space_bottom",
+      "value": "<span style=\"color: red;\"></span>",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "margin-bottom:7rem"
+      ],
+      "_nested_name": "space_bottom"
+    },
+    {
+      "name": "completed_enabled",
+      "value": "@local.valid_num_phone && @local.valid_chef_upa && @local.valid_gender_chef && @local.valid_age_chef && @local.valid_chef_travaux && @local.valid_neo_alphabete",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "completed_enabled",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@local.valid_num_phone && @local.valid_chef_upa && @local.valid_gender_chef && @local.valid_age_chef && @local.valid_chef_travaux && @local.valid_neo_alphabete",
+            "matchedExpression": "@local.valid_num_phone",
+            "type": "local",
+            "fieldName": "valid_num_phone"
+          },
+          {
+            "fullExpression": "@local.valid_num_phone && @local.valid_chef_upa && @local.valid_gender_chef && @local.valid_age_chef && @local.valid_chef_travaux && @local.valid_neo_alphabete",
+            "matchedExpression": "@local.valid_chef_upa",
+            "type": "local",
+            "fieldName": "valid_chef_upa"
+          },
+          {
+            "fullExpression": "@local.valid_num_phone && @local.valid_chef_upa && @local.valid_gender_chef && @local.valid_age_chef && @local.valid_chef_travaux && @local.valid_neo_alphabete",
+            "matchedExpression": "@local.valid_gender_chef",
+            "type": "local",
+            "fieldName": "valid_gender_chef"
+          },
+          {
+            "fullExpression": "@local.valid_num_phone && @local.valid_chef_upa && @local.valid_gender_chef && @local.valid_age_chef && @local.valid_chef_travaux && @local.valid_neo_alphabete",
+            "matchedExpression": "@local.valid_age_chef",
+            "type": "local",
+            "fieldName": "valid_age_chef"
+          },
+          {
+            "fullExpression": "@local.valid_num_phone && @local.valid_chef_upa && @local.valid_gender_chef && @local.valid_age_chef && @local.valid_chef_travaux && @local.valid_neo_alphabete",
+            "matchedExpression": "@local.valid_chef_travaux",
+            "type": "local",
+            "fieldName": "valid_chef_travaux"
+          },
+          {
+            "fullExpression": "@local.valid_num_phone && @local.valid_chef_upa && @local.valid_gender_chef && @local.valid_age_chef && @local.valid_chef_travaux && @local.valid_neo_alphabete",
+            "matchedExpression": "@local.valid_neo_alphabete",
+            "type": "local",
+            "fieldName": "valid_neo_alphabete"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.valid_num_phone": [
+          "value"
+        ],
+        "@local.valid_chef_upa": [
+          "value"
+        ],
+        "@local.valid_gender_chef": [
+          "value"
+        ],
+        "@local.valid_age_chef": [
+          "value"
+        ],
+        "@local.valid_chef_travaux": [
+          "value"
+        ],
+        "@local.valid_neo_alphabete": [
+          "value"
+        ]
+      }
     },
     {
       "type": "display_group",
@@ -25,7 +1191,7 @@
       "rows": [
         {
           "type": "round_button",
-          "name": "page_3_button_back",
+          "name": "page_2_button_back",
           "action_list": [
             {
               "trigger": "click",
@@ -40,11 +1206,61 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "dg_footer.page_3_button_back"
+          "_nested_name": "dg_footer.page_2_button_back"
         },
         {
           "type": "button",
-          "name": "page_3_button_continue",
+          "name": "btn_attempt_submit",
+          "value": "@global.btn_continue",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "attempt_submit",
+                true
+              ],
+              "_raw": "click | set_field: attempt_submit: true"
+            }
+          ],
+          "condition": "!@local.completed_enabled",
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "dg_footer.btn_attempt_submit",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.btn_continue",
+                "matchedExpression": "@global.btn_continue",
+                "type": "global",
+                "fieldName": "btn_continue"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "!@local.completed_enabled",
+                "matchedExpression": "!@local.completed_enabled",
+                "type": "local",
+                "fieldName": "completed_enabled"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.btn_continue": [
+              "value"
+            ],
+            "!@local.completed_enabled": [
+              "condition"
+            ]
+          }
+        },
+        {
+          "type": "button",
+          "name": "page_2_button_continue",
           "value": "@global.btn_continue",
           "_translations": {
             "value": {}
@@ -59,10 +1275,14 @@
               "_raw": "click | emit: completed"
             }
           ],
+          "parameter_list": {
+            "disabled": "!@local.completed_enabled"
+          },
+          "condition": "@local.completed_enabled",
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "dg_footer.page_3_button_continue",
+          "_nested_name": "dg_footer.page_2_button_continue",
           "_dynamicFields": {
             "value": [
               {
@@ -71,11 +1291,35 @@
                 "type": "global",
                 "fieldName": "btn_continue"
               }
+            ],
+            "parameter_list": {
+              "disabled": [
+                {
+                  "fullExpression": "!@local.completed_enabled",
+                  "matchedExpression": "!@local.completed_enabled",
+                  "type": "local",
+                  "fieldName": "completed_enabled"
+                }
+              ]
+            },
+            "condition": [
+              {
+                "fullExpression": "@local.completed_enabled",
+                "matchedExpression": "@local.completed_enabled",
+                "type": "local",
+                "fieldName": "completed_enabled"
+              }
             ]
           },
           "_dynamicDependencies": {
             "@global.btn_continue": [
               "value"
+            ],
+            "!@local.completed_enabled": [
+              "parameter_list.disabled"
+            ],
+            "@local.completed_enabled": [
+              "condition"
             ]
           }
         }

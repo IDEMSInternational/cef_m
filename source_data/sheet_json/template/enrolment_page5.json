@@ -19,29 +19,18 @@
       "style_list": "float: right;"
     },
     {
-      "type": "text",
-      "value": "Selectionnez l'activité primaire de l’UPA*"
+      "type": "html",
+      "value": "Selectionnez l'activité primaire de l’UPA<span style=\"color: red;\">*</span>"
     },
     {
       "type": "end_display_group\n"
     },
     {
-      "type": "begin_radio_button_grid",
+      "type": "radio_button_grid",
       "name": "grid_1",
       "value": "@field.activite",
       "action_list": "changed |set_field: activite: this.value; ",
-      "exclude_from_translation": true
-    },
-    {
-      "type": "begin_data_items",
-      "value": "activite",
-      "parameter_list": "filter: !(@item.name == autre2)"
-    },
-    {
-      "type": "end_data_items"
-    },
-    {
-      "type": "end_radio_button_grid"
+      "parameter_list": "answer_list: @data.activite"
     },
     {
       "name": "v_pri",
@@ -61,8 +50,8 @@
       "style_list": "float: right;"
     },
     {
-      "type": "text",
-      "value": "Précisez le nom de l'autre activité primaire*",
+      "type": "html",
+      "value": "Précisez le nom de l'autre activité primaire<span style=\"color: red;\">*</span>",
       "style_list": "clear: none;"
     },
     {
@@ -101,7 +90,7 @@
       "name": "button_completed",
       "value": "@global.btn_continue",
       "action_list": "click | set_field: activite_finale: @calc(@field.autre_nom ?? @field.activite); \nclick | emit: completed;",
-      "parameter_list": "style: navigation;\ndisabled: !@local.completed_enabled",
+      "parameter_list": "disabled: !@local.completed_enabled",
       "style_list": "flex: 1"
     },
     {

@@ -10,19 +10,19 @@
     },
     {
       "name": "TLU",
-      "value": "@calc(Number(@field.nombre_boeuf_labour) + Number(@field.nombre_chevaux) + 0.8 * (Number(@field.nombre_taureaux) + Number(@field.nombre_vaches_taries) + Number(@field.nombre_vaches_laitieres) + Number(@field.nombre_genisses) + Number(@field.nombre_veaux)) + 0.6 * Number(@field.nombre_anes) + 0.2 * (Number(@field.nombre_moutons) + Number(@field.nombre_chevres) + Number(@field.nombre_porcs)))"
+      "value": "@calc(Number(@fields.nombre_boeuf_labour) + Number(@fields.nombre_chevaux) + 0.8 * (Number(@fields.nombre_taureaux) + Number(@fields.nombre_vaches_taries) + Number(@fields.nombre_vaches_laitieres) + Number(@fields.nombre_genisses) + Number(@fields.nombre_veaux)) + 0.6 * Number(@fields.nombre_anes) + 0.2 * (Number(@fields.nombre_moutons) + Number(@fields.nombre_chevres) + Number(@fields.nombre_porcs)))"
     },
     {
       "name": "worker",
-      "value": "@calc((Number(@field.nombre_femmes) + Number(@field.nombre_hommes)) + 0.5 * (Number(@field.nombre_adolescents) + Number(@field.nombre_femmes_agees) + Number(@field.nombre_hommes_ages)))\n"
+      "value": "@calc((Number(@fields.nombre_femmes) + Number(@fields.nombre_hommes)) + 0.5 * (Number(@fields.nombre_adolescents) + Number(@fields.nombre_femmes_agees) + Number(@fields.nombre_hommes_ages)))\n"
     },
     {
       "name": "material",
-      "value": "@calc(Number(@field.nombre_charrues) + Number(@field.nombre_multiculteurs) + Number(@field.nombre_semoir) + Number(@field.nombre_tracteur) + Number(@field.nombre_motoculteurs) + Number(@field.nombre_charrettes))\n"
+      "value": "@calc(Number(@fields.nombre_charrues) + Number(@fields.nombre_multiculteurs) + Number(@fields.nombre_semoir) + Number(@fields.nombre_tracteur) + Number(@fields.nombre_motoculteurs) + Number(@fields.nombre_charrettes))\n"
     },
     {
       "name": "areaMRE",
-      "value": "@calc(@field.superficie_cultive_upa > 5.8 ? 1 : 0)"
+      "value": "@calc(@fields.superficie_cultive_upa > 5.8 ? 1 : 0)"
     },
     {
       "name": "TLUMRE",
@@ -42,15 +42,15 @@
     },
     {
       "name": "ratio_membre_terre",
-      "value": "@calc(Number(@field.superficie_cultive_upa) > 0 ? (Number(@field.nombre_enfants) + Number(@field.nombre_adolescents) + Number(@field.nombre_femmes) + Number(@field.nombre_hommes) + Number(@field.nombre_femmes_agees) + Number(@field.nombre_hommes_ages)) /  Number(@field.superficie_cultive_upa) : 0)"
+      "value": "@calc(Number(@fields.superficie_cultive_upa) > 0 ? (Number(@fields.nombre_enfants) + Number(@fields.nombre_adolescents) + Number(@fields.nombre_femmes) + Number(@fields.nombre_hommes) + Number(@fields.nombre_femmes_agees) + Number(@fields.nombre_hommes_ages)) /  Number(@fields.superficie_cultive_upa) : 0)"
     },
     {
       "name": "ratio_actif_terre",
-      "value": "@calc(Number(@field.superficie_cultive_upa) > 0 ? Number(@local.worker) / Number(@field.superficie_cultive_upa) : 0)"
+      "value": "@calc(Number(@fields.superficie_cultive_upa) > 0 ? Number(@local.worker) / Number(@fields.superficie_cultive_upa) : 0)"
     },
     {
       "name": "ratio_boeuflabour_terre",
-      "value": "@calc(Number(@field.superficie_cultive_upa) > 0 ? Number(@field.nombre_boeuf_labour) / Number(@field.superficie_cultive_upa) : 0)"
+      "value": "@calc(Number(@fields.superficie_cultive_upa) > 0 ? Number(@fields.nombre_boeuf_labour) / Number(@fields.superficie_cultive_upa) : 0)"
     },
     {
       "type": "image",
@@ -79,7 +79,8 @@
       "type": "text",
       "name": "type_ge_gtb_hint",
       "value": "Grande Exploitation avec un Grand Troupeau Bovin",
-      "condition": "@local.type == \"HRE-LH\""
+      "condition": "@local.type == \"HRE-LH\"",
+      "style_list": "color: gray; font-size: 16px;"
     },
     {
       "type": "image",
@@ -108,7 +109,8 @@
       "type": "text",
       "name": "type_ge_hint",
       "value": "Grande Exploitation",
-      "condition": "@local.type == \"HRE\""
+      "condition": "@local.type == \"HRE\"",
+      "style_list": "color: gray; font-size: 16px;"
     },
     {
       "type": "image",
@@ -137,7 +139,8 @@
       "type": "text",
       "name": "type_me_hint",
       "value": "Moyenne Exploitation",
-      "condition": "@local.type == \"MRE\""
+      "condition": "@local.type == \"MRE\"",
+      "style_list": "color: gray; font-size: 16px;"
     },
     {
       "type": "image",
@@ -166,7 +169,17 @@
       "type": "text",
       "name": "type_pe_hint",
       "value": "Petite Exploitation",
-      "condition": "@local.type == \"LRE\""
+      "condition": "@local.type == \"LRE\"",
+      "style_list": "color: gray; font-size: 16px;"
+    },
+    {
+      "type": "image",
+      "value": "images/ratio_membre_terre.jpg",
+      "condition": "!!@local.ratio_membre_terre"
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "!!@local.ratio_membre_terre"
     },
     {
       "type": "text",
@@ -175,16 +188,61 @@
       "condition": "!!@local.ratio_membre_terre"
     },
     {
+      "type": "audio",
+      "name": "audio_15_4",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/ratio_mbre_ter_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "style_list": "float: right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/ratio_travailleur_terre.jpg",
+      "condition": "!!@local.ratio_actif_terre"
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "!!@local.ratio_actif_terre"
+    },
+    {
       "type": "text",
       "name": "note_ratio_actif_terre",
       "value": "Ratio actifs-terre cultivée: @local.ratio_actif_terre",
       "condition": "!!@local.ratio_actif_terre"
     },
     {
+      "type": "audio",
+      "name": "audio_15_4",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/ratio_actif_ter_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "style_list": "float: right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/ratio_boeuf_terre.jpg",
+      "condition": "!!@local.ratio_boeuflabour_terre"
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "!!@local.ratio_boeuflabour_terre"
+    },
+    {
       "type": "text",
       "name": "note_ratio_boeuflabour_terre",
       "value": "Ratio boeufs la labour-terre cultivée: @local.ratio_boeuflabour_terre",
       "condition": "!!@local.ratio_boeuflabour_terre"
+    },
+    {
+      "type": "audio",
+      "name": "audio_15_4",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/ratio_bl_ter_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "style_list": "float: right;"
+    },
+    {
+      "type": "end_display_group"
     },
     {
       "type": "begin_display_group",

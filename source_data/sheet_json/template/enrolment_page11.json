@@ -275,7 +275,7 @@
       "name": "button_continue_11",
       "value": "Continuer",
       "action_list": "click | set_field: nombre_pompe_traitement: @local.nombre_pompe_traitement;\nclick | set_field: nombre_pulverisateurs: @local.nombre_pulverisateurs;\nclick | set_field: nombre_corps_buteur: @local.nombre_corps_buteur;\nclick | set_field: nombre_autre_materiel: @local.nombre_autre_materiel;\n\nclick | emit: completed;",
-      "parameter_list": "button_align: right;\ndisabled: !@local.completed_enabled;",
+      "parameter_list": "disabled: !@local.completed_enabled;",
       "style_list": "flex: 1"
     },
     {
