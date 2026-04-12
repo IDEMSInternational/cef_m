@@ -16,15 +16,6 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "image",
-          "value": "images/vocal.jpg",
-          "_translations": {
-            "value": {}
-          },
-          "name": "image_1",
-          "_nested_name": "display_group_3.image_1"
-        },
-        {
           "type": "text",
           "name": "observation_appreciation_label",
           "value": "Partagez vos appréciations, observations, ou suggestions d'amélioration sur le formulaire par audio",
@@ -51,6 +42,21 @@
       "_nested_name": "display_group_3"
     },
     {
+      "type": "image",
+      "value": "images/vocal.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width:110px",
+        "height:110px",
+        "object-fit:contain",
+        "flex-shrink:0"
+      ],
+      "name": "image_5",
+      "_nested_name": "image_5"
+    },
+    {
       "type": "text",
       "name": "observation_appreciation_hint",
       "value": "*Il s'agit de partager à travers un enregistrement vocal toute appréciation (positive/négative) ou observation sur les éléments de ce formulaire, et aussi des suggestions d'amélioration.",
@@ -58,7 +64,8 @@
         "value": {}
       },
       "style_list": [
-        "font-size:14px"
+        "color: gray",
+        "font-size: 16px"
       ],
       "_nested_name": "observation_appreciation_hint"
     },
@@ -69,6 +76,10 @@
       "_translations": {
         "value": {}
       },
+      "style_list": [
+        "color: gray",
+        "font-size: 14px"
+      ],
       "_nested_name": "observation_appreciation"
     },
     {

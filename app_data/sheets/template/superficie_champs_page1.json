@@ -1,0 +1,485 @@
+{
+  "flow_type": "template",
+  "flow_name": "superficie_champs_page1",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "value": "@global.title_page1",
+      "_translations": {
+        "value": {}
+      },
+      "name": "title_2",
+      "_nested_name": "title_2",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.title_page1",
+            "matchedExpression": "@global.title_page1",
+            "type": "global",
+            "fieldName": "title_page1"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.title_page1": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "@global.name_type_upa",
+      "_translations": {
+        "value": {}
+      },
+      "name": "text_3",
+      "_nested_name": "text_3",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.name_type_upa",
+            "matchedExpression": "@global.name_type_upa",
+            "type": "global",
+            "fieldName": "name_type_upa"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.name_type_upa": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text_box",
+      "name": "chef_UPA",
+      "value": "@fields.chef_UPA",
+      "_translations": {
+        "value": {}
+      },
+      "parameter_list": {
+        "max_length": "30",
+        "placeholder": "Nom et prénom du chef UPA"
+      },
+      "condition": "!!@fields.chef_UPA",
+      "exclude_from_translation": true,
+      "_nested_name": "chef_UPA",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.chef_UPA",
+            "matchedExpression": "@fields.chef_UPA",
+            "type": "fields",
+            "fieldName": "chef_UPA"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!!@fields.chef_UPA",
+            "matchedExpression": "!@fields.chef_UPA",
+            "type": "fields",
+            "fieldName": "chef_UPA"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.chef_UPA": [
+          "value"
+        ],
+        "!@fields.chef_UPA": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "text_box",
+      "name": "chef_UPA",
+      "parameter_list": {
+        "max_length": "30",
+        "placeholder": "Nom et prénom du chef UPA"
+      },
+      "condition": "!@fields.chef_UPA",
+      "exclude_from_translation": true,
+      "_nested_name": "chef_UPA",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "!@fields.chef_UPA",
+            "matchedExpression": "!@fields.chef_UPA",
+            "type": "fields",
+            "fieldName": "chef_UPA"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@fields.chef_UPA": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "text_box",
+      "name": "type_upa",
+      "value": "@fields.type_upa",
+      "_translations": {
+        "value": {}
+      },
+      "parameter_list": {
+        "max_length": "30",
+        "placeholder": "Entrez le nom du type d'exploitation"
+      },
+      "condition": "!!@fields.type_upa",
+      "_nested_name": "type_upa",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.type_upa",
+            "matchedExpression": "@fields.type_upa",
+            "type": "fields",
+            "fieldName": "type_upa"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!!@fields.type_upa",
+            "matchedExpression": "!@fields.type_upa",
+            "type": "fields",
+            "fieldName": "type_upa"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.type_upa": [
+          "value"
+        ],
+        "!@fields.type_upa": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "text_box",
+      "name": "type_upa",
+      "parameter_list": {
+        "max_length": "30",
+        "placeholder": "Entrez le nom du type d'exploitation"
+      },
+      "condition": "!@fields.type_upa",
+      "_nested_name": "type_upa",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "!@fields.type_upa",
+            "matchedExpression": "!@fields.type_upa",
+            "type": "fields",
+            "fieldName": "type_upa"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@fields.type_upa": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "name": "note_superficie",
+      "value": "@global.note_superficie",
+      "_translations": {
+        "value": {}
+      },
+      "parameter_list": {
+        "style": "contextual"
+      },
+      "_nested_name": "note_superficie",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.note_superficie",
+            "matchedExpression": "@global.note_superficie",
+            "type": "global",
+            "fieldName": "note_superficie"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.note_superficie": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "@global.title_campagne",
+      "_translations": {
+        "value": {}
+      },
+      "name": "text_9",
+      "_nested_name": "text_9",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.title_campagne",
+            "matchedExpression": "@global.title_campagne",
+            "type": "global",
+            "fieldName": "title_campagne"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.title_campagne": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "date_time_picker",
+      "name": "year_campaign",
+      "parameter_list": {
+        "type": "year"
+      },
+      "_nested_name": "year_campaign"
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: red;\"> @global.note_campagne </p>",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "html_text",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "<p style=\"color: red;\"> @global.note_campagne </p>",
+            "matchedExpression": "@global.note_campagne",
+            "type": "global",
+            "fieldName": "note_campagne"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.note_campagne": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "completed_enabled",
+      "value": "!!@local.chef_UPA && !!@local.year_campaign && !!@local.type_upa",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "completed_enabled",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "!!@local.chef_UPA && !!@local.year_campaign && !!@local.type_upa",
+            "matchedExpression": "!@local.chef_UPA",
+            "type": "local",
+            "fieldName": "chef_UPA"
+          },
+          {
+            "fullExpression": "!!@local.chef_UPA && !!@local.year_campaign && !!@local.type_upa",
+            "matchedExpression": "!@local.year_campaign",
+            "type": "local",
+            "fieldName": "year_campaign"
+          },
+          {
+            "fullExpression": "!!@local.chef_UPA && !!@local.year_campaign && !!@local.type_upa",
+            "matchedExpression": "!@local.type_upa",
+            "type": "local",
+            "fieldName": "type_upa"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@local.chef_UPA": [
+          "value"
+        ],
+        "!@local.year_campaign": [
+          "value"
+        ],
+        "!@local.type_upa": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "value": "",
+      "parameter_list": {
+        "sticky": "bottom"
+      },
+      "style_list": [
+        "padding: 12px 24px"
+      ],
+      "rows": [
+        {
+          "type": "round_button",
+          "name": "page1_button_back",
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "uncompleted"
+              ],
+              "_raw": "click | emit: uncompleted"
+            }
+          ],
+          "parameter_list": {
+            "icon_src": "arrow-back",
+            "variant": "no-background"
+          },
+          "_nested_name": "display_group_13.page1_button_back"
+        },
+        {
+          "type": "button",
+          "name": "button_continue_1",
+          "value": "Continuer",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "chef_UPA",
+                "@local.chef_UPA"
+              ],
+              "_raw": "click | set_field: chef_UPA: @local.chef_UPA"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "type_upa",
+                "@local.type_upa"
+              ],
+              "_raw": "click | set_field: type_upa: @local.type_upa"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "year_campaign",
+                "@local.year_campaign\n\nclick"
+              ],
+              "_raw": "click | set_field: year_campaign: @local.year_campaign\n\nclick | emit: completed",
+              "params": {
+                "emit": "completed"
+              }
+            }
+          ],
+          "parameter_list": {
+            "disabled": "!@local.completed_enabled"
+          },
+          "_nested_name": "display_group_13.button_continue_1",
+          "_dynamicFields": {
+            "action_list": {
+              "0": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@local.chef_UPA",
+                      "matchedExpression": "@local.chef_UPA",
+                      "type": "local",
+                      "fieldName": "chef_UPA"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: chef_UPA: @local.chef_UPA",
+                    "matchedExpression": "@local.chef_UPA",
+                    "type": "local",
+                    "fieldName": "chef_UPA"
+                  }
+                ]
+              },
+              "1": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@local.type_upa",
+                      "matchedExpression": "@local.type_upa",
+                      "type": "local",
+                      "fieldName": "type_upa"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: type_upa: @local.type_upa",
+                    "matchedExpression": "@local.type_upa",
+                    "type": "local",
+                    "fieldName": "type_upa"
+                  }
+                ]
+              },
+              "2": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@local.year_campaign\n\nclick",
+                      "matchedExpression": "@local.year_campaign",
+                      "type": "local",
+                      "fieldName": "year_campaign"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: year_campaign: @local.year_campaign\n\nclick | emit: completed",
+                    "matchedExpression": "@local.year_campaign",
+                    "type": "local",
+                    "fieldName": "year_campaign"
+                  }
+                ]
+              }
+            },
+            "parameter_list": {
+              "disabled": [
+                {
+                  "fullExpression": "!@local.completed_enabled",
+                  "matchedExpression": "!@local.completed_enabled",
+                  "type": "local",
+                  "fieldName": "completed_enabled"
+                }
+              ]
+            }
+          },
+          "_dynamicDependencies": {
+            "@local.chef_UPA": [
+              "action_list.0.args.1",
+              "action_list.0._raw"
+            ],
+            "@local.type_upa": [
+              "action_list.1.args.1",
+              "action_list.1._raw"
+            ],
+            "@local.year_campaign": [
+              "action_list.2.args.1",
+              "action_list.2._raw"
+            ],
+            "!@local.completed_enabled": [
+              "parameter_list.disabled"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_13",
+      "_nested_name": "display_group_13"
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/Superficie_champs_form_sheets.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/1Za6KnU73iDgbTARvf6JCQo0vJb_EkTgiHEyZUJdNgXs"
+  }
+}

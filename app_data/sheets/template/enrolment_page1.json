@@ -37,6 +37,11 @@
       }
     },
     {
+      "name": "user_oui_non",
+      "type": "set_variable",
+      "_nested_name": "user_oui_non"
+    },
+    {
       "name": "answer_oui_non",
       "value": "name: Oui | text: Oui;\nname: Non | text: Non;",
       "_translations": {
@@ -54,28 +59,40 @@
           "_translations": {
             "value": {}
           },
-          "name": "text_1",
-          "_nested_name": "display_group_4.text_1"
+          "name": "text_2",
+          "_nested_name": "display_group_4.text_2"
         },
         {
           "type": "radio_list",
-          "name": "user_oui_non",
+          "name": "user_respone",
+          "value": "@fields.user_oui_non",
+          "_translations": {
+            "value": {}
+          },
           "action_list": [
             {
               "trigger": "changed",
-              "action_id": "set_field",
+              "action_id": "set_local",
               "args": [
                 "user_oui_non",
                 "this.value"
               ],
-              "_raw": "changed | set_field : user_oui_non: this.value"
+              "_raw": "changed | set_local : user_oui_non: this.value"
             }
           ],
           "parameter_list": {
             "answer_list": "@local.answer_oui_non"
           },
-          "_nested_name": "display_group_4.user_oui_non",
+          "_nested_name": "display_group_4.user_respone",
           "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@fields.user_oui_non",
+                "matchedExpression": "@fields.user_oui_non",
+                "type": "fields",
+                "fieldName": "user_oui_non"
+              }
+            ],
             "parameter_list": {
               "answer_list": [
                 {
@@ -88,6 +105,9 @@
             }
           },
           "_dynamicDependencies": {
+            "@fields.user_oui_non": [
+              "value"
+            ],
             "@local.answer_oui_non": [
               "parameter_list.answer_list"
             ]
@@ -96,91 +116,6 @@
       ],
       "name": "display_group_4",
       "_nested_name": "display_group_4"
-    },
-    {
-      "type": "text",
-      "value": "Choisissez l'année de la campagne:",
-      "_translations": {
-        "value": {}
-      },
-      "name": "text_6",
-      "_nested_name": "text_6"
-    },
-    {
-      "name": "year_min",
-      "value": "2023-01-01",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "year_min"
-    },
-    {
-      "name": "year_max",
-      "value": "@calc(now())",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "year_max",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc(now())",
-            "matchedExpression": "@calc(now())",
-            "type": "calc",
-            "fieldName": "now()"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@calc(now())": [
-          "value"
-        ]
-      }
-    },
-    {
-      "type": "date_time_picker",
-      "name": "year_campaign",
-      "parameter_list": {
-        "type": "year",
-        "min": "@local.year_min",
-        "max": "@local.year_max"
-      },
-      "_nested_name": "year_campaign",
-      "_dynamicFields": {
-        "parameter_list": {
-          "min": [
-            {
-              "fullExpression": "@local.year_min",
-              "matchedExpression": "@local.year_min",
-              "type": "local",
-              "fieldName": "year_min"
-            }
-          ],
-          "max": [
-            {
-              "fullExpression": "@local.year_max",
-              "matchedExpression": "@local.year_max",
-              "type": "local",
-              "fieldName": "year_max"
-            }
-          ]
-        }
-      },
-      "_dynamicDependencies": {
-        "@local.year_min": [
-          "parameter_list.min"
-        ],
-        "@local.year_max": [
-          "parameter_list.max"
-        ]
-      }
-    },
-    {
-      "type": "text",
-      "name": "text_10",
-      "_nested_name": "text_10"
     },
     {
       "type": "display_group",
@@ -195,7 +130,7 @@
       "rows": [
         {
           "type": "button",
-          "name": "button_continue_1",
+          "name": "button_continue_no",
           "value": "Continuer",
           "_translations": {
             "value": {}
@@ -205,34 +140,28 @@
               "trigger": "click",
               "action_id": "set_field",
               "args": [
-                "consentement_response",
+                "user_oui_non",
                 "@field.user_oui_non"
               ],
-              "_raw": "click | set_field: consentement_response: @field.user_oui_non"
+              "_raw": "click | set_field: user_oui_non: @field.user_oui_non"
             },
             {
               "trigger": "click",
-              "action_id": "set_field",
+              "action_id": "go_to",
               "args": [
-                "year_campaign",
-                "@field.year_campaign"
+                "enrolment_page18"
               ],
-              "_raw": "click | set_field: year_campaign: @field.year_campaign"
-            },
-            {
-              "trigger": "click",
-              "action_id": "emit",
-              "args": [
-                "completed"
-              ],
-              "_raw": "click | emit: completed"
+              "_raw": "click | go_to: enrolment_page18"
             }
           ],
           "parameter_list": {
-            "button_align": "right",
-            "disabled": "@field.user_oui_non =='Non' || !@field.user_oui_non || !@local.year_campaign"
+            "disabled": "!@local.user_oui_non"
           },
-          "_nested_name": "dg_footer.button_continue_1",
+          "condition": "@local.user_oui_non =='Non'",
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "dg_footer.button_continue_no",
           "_dynamicFields": {
             "action_list": {
               "0": {
@@ -248,30 +177,10 @@
                 },
                 "_raw": [
                   {
-                    "fullExpression": "click | set_field: consentement_response: @field.user_oui_non",
+                    "fullExpression": "click | set_field: user_oui_non: @field.user_oui_non",
                     "matchedExpression": "@field.user_oui_non",
                     "type": "field",
                     "fieldName": "user_oui_non"
-                  }
-                ]
-              },
-              "1": {
-                "args": {
-                  "1": [
-                    {
-                      "fullExpression": "@field.year_campaign",
-                      "matchedExpression": "@field.year_campaign",
-                      "type": "field",
-                      "fieldName": "year_campaign"
-                    }
-                  ]
-                },
-                "_raw": [
-                  {
-                    "fullExpression": "click | set_field: year_campaign: @field.year_campaign",
-                    "matchedExpression": "@field.year_campaign",
-                    "type": "field",
-                    "fieldName": "year_campaign"
                   }
                 ]
               }
@@ -279,41 +188,97 @@
             "parameter_list": {
               "disabled": [
                 {
-                  "fullExpression": "@field.user_oui_non =='Non' || !@field.user_oui_non || !@local.year_campaign",
-                  "matchedExpression": "@field.user_oui_non",
-                  "type": "field",
-                  "fieldName": "user_oui_non"
-                },
-                {
-                  "fullExpression": "@field.user_oui_non =='Non' || !@field.user_oui_non || !@local.year_campaign",
-                  "matchedExpression": "!@field.user_oui_non",
-                  "type": "field",
-                  "fieldName": "user_oui_non"
-                },
-                {
-                  "fullExpression": "@field.user_oui_non =='Non' || !@field.user_oui_non || !@local.year_campaign",
-                  "matchedExpression": "!@local.year_campaign",
+                  "fullExpression": "!@local.user_oui_non",
+                  "matchedExpression": "!@local.user_oui_non",
                   "type": "local",
-                  "fieldName": "year_campaign"
+                  "fieldName": "user_oui_non"
                 }
               ]
-            }
+            },
+            "condition": [
+              {
+                "fullExpression": "@local.user_oui_non =='Non'",
+                "matchedExpression": "@local.user_oui_non",
+                "type": "local",
+                "fieldName": "user_oui_non"
+              }
+            ]
           },
           "_dynamicDependencies": {
             "@field.user_oui_non": [
               "action_list.0.args.1",
-              "action_list.0._raw",
+              "action_list.0._raw"
+            ],
+            "!@local.user_oui_non": [
               "parameter_list.disabled"
             ],
-            "@field.year_campaign": [
-              "action_list.1.args.1",
-              "action_list.1._raw"
+            "@local.user_oui_non": [
+              "condition"
+            ]
+          }
+        },
+        {
+          "type": "button",
+          "name": "button_continue_1",
+          "value": "@global.btn_continue",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "completed"
+              ],
+              "_raw": "click | emit: completed"
+            }
+          ],
+          "parameter_list": {
+            "disabled": "!@local.user_oui_non"
+          },
+          "condition": "@local.user_oui_non =='Oui'",
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "dg_footer.button_continue_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.btn_continue",
+                "matchedExpression": "@global.btn_continue",
+                "type": "global",
+                "fieldName": "btn_continue"
+              }
             ],
-            "!@field.user_oui_non": [
+            "parameter_list": {
+              "disabled": [
+                {
+                  "fullExpression": "!@local.user_oui_non",
+                  "matchedExpression": "!@local.user_oui_non",
+                  "type": "local",
+                  "fieldName": "user_oui_non"
+                }
+              ]
+            },
+            "condition": [
+              {
+                "fullExpression": "@local.user_oui_non =='Oui'",
+                "matchedExpression": "@local.user_oui_non",
+                "type": "local",
+                "fieldName": "user_oui_non"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.btn_continue": [
+              "value"
+            ],
+            "!@local.user_oui_non": [
               "parameter_list.disabled"
             ],
-            "!@local.year_campaign": [
-              "parameter_list.disabled"
+            "@local.user_oui_non": [
+              "condition"
             ]
           }
         }

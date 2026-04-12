@@ -9,16 +9,17 @@
       "value": "VOLAILLES DE L'UPA"
     },
     {
+      "name": "attempt_submit",
+      "value": "@fields.attempt_submit"
+    },
+    {
       "type": "begin_display_group"
     },
     {
-      "type": "image",
-      "value": "images/poule.jpg"
-    },
-    {
-      "type": "text",
+      "type": "html",
       "name": "nombre_poules_label",
-      "value": "Nombre  de poulets"
+      "value": "<span style=\"color: red;\">*</span> Nombre  de poulets",
+      "style_list": "font-size:20px;"
     },
     {
       "type": "audio",
@@ -30,34 +31,36 @@
       "type": "end_display_group"
     },
     {
+      "type": "image",
+      "value": "images/poule.jpg",
+      "style_list": "width:120px; height:120px; object-fit:contain; flex-shrink:0;"
+    },
+    {
       "name": "valid_nombre_poules",
-      "value": "@calc(@field.nombre_poules >= 0)"
+      "value": "@calc(@fields.nombre_poules >= 0)"
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_poules",
+      "value": "@fields.nombre_poules",
+      "action_list": "changed | set_field : nombre_poules: this.value;",
+      "parameter_list": "number_input: true"
     },
     {
       "type": "text",
       "name": "error_nombre_poules",
       "value": "@global.error_number_min_0",
-      "condition": "!@local.valid_nombre_poules && !!@field.nombre_poules",
-      "style_list": "color: red; font-size: 12px;"
-    },
-    {
-      "type": "text_box",
-      "name": "nombre_poules",
-      "value": "@field.nombre_poules",
-      "action_list": "changed | set_field : nombre_poules: this.value;",
-      "parameter_list": "placeholder: Nombre  de poulets;\nnumber_input: true"
+      "condition": "@fields.attempt_submit && !@local.valid_nombre_poules",
+      "style_list": "color: red; font-size: 16px;\n"
     },
     {
       "type": "begin_display_group"
     },
     {
-      "type": "image",
-      "value": "images/pintade.jpg"
-    },
-    {
-      "type": "text",
+      "type": "html",
       "name": "nombre_pintades_label",
-      "value": "Nombre de pintades"
+      "value": "<span style=\"color: red;\">*</span> Nombre de pintades",
+      "style_list": "font-size:20px;"
     },
     {
       "type": "audio",
@@ -69,34 +72,36 @@
       "type": "end_display_group"
     },
     {
+      "type": "image",
+      "value": "images/pintade.jpg",
+      "style_list": "width:120px; height:120px; object-fit:contain; flex-shrink:0;"
+    },
+    {
       "name": "valid_nombre_pintades",
-      "value": "@calc(@field.nombre_pintades >= 0)"
+      "value": "@calc(@fields.nombre_pintades >= 0)"
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_pintades",
+      "value": "@fields.nombre_pintades",
+      "action_list": "changed | set_field : nombre_pintades: this.value;",
+      "parameter_list": "number_input: true"
     },
     {
       "type": "text",
       "name": "error_nombre_pintades",
       "value": "@global.error_number_min_0",
-      "condition": "!@local.valid_nombre_pintades && !!@field.nombre_pintades",
-      "style_list": "color: red; font-size: 12px;"
-    },
-    {
-      "type": "text_box",
-      "name": "nombre_pintades",
-      "value": "@field.nombre_pintades",
-      "action_list": "changed | set_field : nombre_pintades: this.value;",
-      "parameter_list": "placeholder: Nombre de pintades;\nnumber_input: true"
+      "condition": "@fields.attempt_submit && !@local.valid_nombre_pintades",
+      "style_list": "color: red; font-size: 16px;"
     },
     {
       "type": "begin_display_group"
     },
     {
-      "type": "image",
-      "value": "images/lapin.jpg"
-    },
-    {
-      "type": "text",
+      "type": "html",
       "name": "nombre_lapins_label",
-      "value": "Nombre de lapins"
+      "value": "<span style=\"color: red;\">*</span> Nombre de lapins",
+      "style_list": "font-size:20px;"
     },
     {
       "type": "audio",
@@ -108,34 +113,36 @@
       "type": "end_display_group"
     },
     {
+      "type": "image",
+      "value": "images/lapin.jpg",
+      "style_list": "width:120px; height:120px; object-fit:contain; flex-shrink:0;"
+    },
+    {
       "name": "valid_nombre_lapins",
-      "value": "@calc(@field.nombre_lapins >= 0)"
+      "value": "@calc(@fields.nombre_lapins >= 0)"
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_lapins",
+      "value": "@fields.nombre_lapins",
+      "action_list": "changed | set_field : nombre_lapins: this.value;",
+      "parameter_list": "number_input: true"
     },
     {
       "type": "text",
       "name": "error_nombre_lapins",
       "value": "@global.error_number_min_0",
-      "condition": "!@local.valid_nombre_lapins && !!@field.nombre_lapins",
-      "style_list": "color: red; font-size: 12px;"
-    },
-    {
-      "type": "text_box",
-      "name": "nombre_lapins",
-      "value": "@field.nombre_lapins",
-      "action_list": "changed | set_field : nombre_lapins: this.value;",
-      "parameter_list": "placeholder: Nombre de lapins;\nnumber_input: true"
+      "condition": "@fields.attempt_submit && !@local.valid_nombre_lapins",
+      "style_list": "color: red; font-size: 16px;"
     },
     {
       "type": "begin_display_group"
     },
     {
-      "type": "image",
-      "value": "images/canard.jpg"
-    },
-    {
-      "type": "text",
+      "type": "html",
       "name": "nombre_canards_label",
-      "value": "Nombre de canards"
+      "value": "<span style=\"color: red;\">*</span> Nombre de canards",
+      "style_list": "font-size:20px;"
     },
     {
       "type": "audio",
@@ -147,34 +154,36 @@
       "type": "end_display_group"
     },
     {
+      "type": "image",
+      "value": "images/canard.jpg",
+      "style_list": "width:120px; height:120px; object-fit:contain; flex-shrink:0;"
+    },
+    {
       "name": "valid_nombre_canards",
-      "value": "@calc(@field.nombre_canards >= 0)"
+      "value": "@calc(@fields.nombre_canards >= 0)"
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_canards",
+      "value": "@fields.nombre_canards",
+      "action_list": "changed | set_field : nombre_canards: this.value;",
+      "parameter_list": "number_input: true"
     },
     {
       "type": "text",
       "name": "error_nombre_canards",
       "value": "@global.error_number_min_0",
-      "condition": "!@local.valid_nombre_canards && !!@field.nombre_canards",
-      "style_list": "color: red; font-size: 12px;"
-    },
-    {
-      "type": "text_box",
-      "name": "nombre_canards",
-      "value": "@field.nombre_canards",
-      "action_list": "changed | set_field : nombre_canards: this.value;",
-      "parameter_list": "placeholder: Nombre de canards;\nnumber_input: true"
+      "condition": "@fields.attempt_submit && !@local.valid_nombre_canards",
+      "style_list": "color: red; font-size: 16px;"
     },
     {
       "type": "begin_display_group"
     },
     {
-      "type": "image",
-      "value": "images/pigeon.jpg"
-    },
-    {
-      "type": "text",
+      "type": "html",
       "name": "nombre_pigeons_label",
-      "value": "Nombre de pigeons"
+      "value": "<span style=\"color: red;\">*</span> Nombre de pigeons",
+      "style_list": "font-size:20px;"
     },
     {
       "type": "audio",
@@ -186,22 +195,27 @@
       "type": "end_display_group"
     },
     {
+      "type": "image",
+      "value": "images/pigeon.jpg",
+      "style_list": "width:120px; height:120px; object-fit:contain; flex-shrink:0;\n"
+    },
+    {
       "name": "valid_nombre_pigeons",
-      "value": "@calc(@field.nombre_pigeons >= 0)"
+      "value": "@calc(@fields.nombre_pigeons >= 0)"
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_pigeons",
+      "value": "@fields.nombre_pigeons",
+      "action_list": "changed | set_field : nombre_pigeons: this.value;",
+      "parameter_list": "number_input: true"
     },
     {
       "type": "text",
       "name": "error_nombre_pigeons",
       "value": "@global.error_number_min_0",
-      "condition": "!@local.nombre_pigeons && !!@field.nombre_pigeons",
-      "style_list": "color: red; font-size: 12px;"
-    },
-    {
-      "type": "text_box",
-      "name": "nombre_pigeons",
-      "value": "@field.nombre_pigeons",
-      "action_list": "changed | set_field : nombre_pigeons: this.value;",
-      "parameter_list": "placeholder: Nombre de pigeons;\nnumber_input: true"
+      "condition": "@fields.attempt_submit && !@local.valid_nombre_pigeons",
+      "style_list": "color: red; font-size: 16px;"
     },
     {
       "type": "begin_display_group"
@@ -209,7 +223,8 @@
     {
       "type": "text",
       "name": "autre_animal_label",
-      "value": "Autre volaille (ecrivez son nom):"
+      "value": "Autre volaille (ecrivez son nom):",
+      "style_list": "font-size:20px;"
     },
     {
       "type": "audio",
@@ -223,7 +238,7 @@
     {
       "type": "text_box",
       "name": "autre_animal",
-      "value": "@field.autre_animal",
+      "value": "@fields.autre_animal",
       "action_list": "changed | set_field : autre_animal: this.value;"
     },
     {
@@ -233,7 +248,8 @@
     {
       "type": "text",
       "name": "nombre_autre_animal_label",
-      "value": "Nombre de @local.autre_animal"
+      "value": "Nombre de @local.autre_animal",
+      "style_list": "font-size:20px;"
     },
     {
       "type": "audio",
@@ -246,26 +262,26 @@
     },
     {
       "name": "valid_nombre_autre_animal",
-      "value": "@calc(@field.nombre_autre_animal >= 0)"
-    },
-    {
-      "type": "text",
-      "name": "error_nombre_autre_animal",
-      "value": "@global.error_number_min_0",
-      "condition": "!@local.nombre_autre_animal && !!@field.nombre_autre_animal",
-      "style_list": "color: red; font-size: 12px;"
+      "value": "@calc(@fields.nombre_autre_animal >= 0)"
     },
     {
       "type": "text_box",
       "name": "nombre_autre_animal",
-      "value": "@field.nombre_autre_animal",
+      "value": "@fields.nombre_autre_animal",
       "action_list": "changed | set_field : nombre_autre_animal: this.value;",
       "parameter_list": "number_input: true",
       "condition": "!!@local.autre_animal"
     },
     {
+      "type": "text",
+      "name": "error_nombre_autre_animal",
+      "value": "@global.error_number_min_0",
+      "condition": "!!@local.autre_animal && @fields.attempt_submit && !@local.valid_nombre_autre_animal\n",
+      "style_list": "color: red; font-size: 16px;"
+    },
+    {
       "name": "completed_enabled",
-      "value": "!!@local.nombre_poules && !!@local.nombre_pintades && !!@local.nombre_lapins && !!@local.nombre_canards && !!@local.nombre_pigeons && !!@local.nombre_autre_animal"
+      "value": "@local.valid_nombre_poules && @local.valid_nombre_pintades && @local.valid_nombre_lapins && @local.valid_nombre_canards && @local.valid_nombre_pigeons"
     },
     {
       "type": "begin_display_group",
@@ -282,10 +298,19 @@
     },
     {
       "type": "button",
+      "name": "btn_attempt_submit",
+      "value": "@global.btn_continue",
+      "action_list": "click | set_field: attempt_submit: true;",
+      "condition": "!@local.completed_enabled",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "button",
       "name": "page_14_button_continue",
       "value": "@global.btn_continue",
       "action_list": "click | emit: completed",
       "parameter_list": "disabled: !@local.completed_enabled",
+      "condition": "@local.completed_enabled",
       "style_list": "flex: 1"
     },
     {

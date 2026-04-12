@@ -34,13 +34,13 @@
           "_nested_name": "display_group_3.audio/Enrolement_5_1"
         },
         {
-          "type": "text",
-          "value": "Selectionnez l'activité primaire de l’UPA*",
+          "type": "html",
+          "value": "Selectionnez l'activité primaire de l’UPA<span style=\"color: red;\">*</span>",
           "_translations": {
             "value": {}
           },
-          "name": "text_2",
-          "_nested_name": "display_group_3.text_2"
+          "name": "html_2",
+          "_nested_name": "display_group_3.html_2"
         }
       ],
       "name": "display_group_3",
@@ -50,6 +50,9 @@
       "type": "radio_button_grid",
       "name": "grid_1",
       "value": "@field.activite",
+      "_translations": {
+        "value": {}
+      },
       "action_list": [
         {
           "trigger": "changed",
@@ -61,36 +64,9 @@
           "_raw": "changed |set_field: activite: this.value"
         }
       ],
-      "exclude_from_translation": true,
-      "rows": [
-        {
-          "type": "data_items",
-          "value": "activite",
-          "parameter_list": {
-            "filter": "!(@item.name == autre2)"
-          },
-          "rows": [],
-          "name": "data_items_1",
-          "_nested_name": "grid_1.data_items_1",
-          "_dynamicFields": {
-            "parameter_list": {
-              "filter": [
-                {
-                  "fullExpression": "!(@item.name == autre2)",
-                  "matchedExpression": "@item.name",
-                  "type": "item",
-                  "fieldName": "name"
-                }
-              ]
-            }
-          },
-          "_dynamicDependencies": {
-            "@item.name": [
-              "parameter_list.filter"
-            ]
-          }
-        }
-      ],
+      "parameter_list": {
+        "answer_list": "@data.activite"
+      },
       "_nested_name": "grid_1",
       "_dynamicFields": {
         "value": [
@@ -100,11 +76,24 @@
             "type": "field",
             "fieldName": "activite"
           }
-        ]
+        ],
+        "parameter_list": {
+          "answer_list": [
+            {
+              "fullExpression": "@data.activite",
+              "matchedExpression": "@data.activite",
+              "type": "data",
+              "fieldName": "activite"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@field.activite": [
           "value"
+        ],
+        "@data.activite": [
+          "parameter_list.answer_list"
         ]
       }
     },
@@ -198,16 +187,16 @@
           "_nested_name": "card_pri.audio/Enrolement_5_2"
         },
         {
-          "type": "text",
-          "value": "Précisez le nom de l'autre activité primaire*",
+          "type": "html",
+          "value": "Précisez le nom de l'autre activité primaire<span style=\"color: red;\">*</span>",
           "_translations": {
             "value": {}
           },
           "style_list": [
             "clear: none"
           ],
-          "name": "text_2",
-          "_nested_name": "card_pri.text_2"
+          "name": "html_2",
+          "_nested_name": "card_pri.html_2"
         },
         {
           "type": "text_box",
@@ -367,7 +356,6 @@
             }
           ],
           "parameter_list": {
-            "style": "navigation",
             "disabled": "!@local.completed_enabled"
           },
           "style_list": [

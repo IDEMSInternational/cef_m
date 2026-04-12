@@ -1,0 +1,140 @@
+{
+  "flow_type": "template",
+  "flow_name": "post_semi_page2",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "value": "IMPORTANT : Gestion des coûts de Post-Semis",
+      "_translations": {
+        "value": {}
+      },
+      "name": "title_2",
+      "_nested_name": "title_2"
+    },
+    {
+      "type": "display_group",
+      "style_list": [
+        "display: block"
+      ],
+      "rows": [
+        {
+          "type": "audio",
+          "name": "audio_note_fr",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/postSemi/note_form_postsemis_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "display_group_3.audio_note_fr"
+        },
+        {
+          "type": "text",
+          "name": "note_formulaire_info_postsems",
+          "value": "@global.note_formulaire_info_postsems",
+          "_translations": {
+            "value": {}
+          },
+          "_nested_name": "display_group_3.note_formulaire_info_postsems",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.note_formulaire_info_postsems",
+                "matchedExpression": "@global.note_formulaire_info_postsems",
+                "type": "global",
+                "fieldName": "note_formulaire_info_postsems"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.note_formulaire_info_postsems": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_3",
+      "_nested_name": "display_group_3"
+    },
+    {
+      "type": "display_group",
+      "name": "dg_footer",
+      "parameter_list": {
+        "sticky": "bottom"
+      },
+      "style_list": [
+        "padding: 12px 24px"
+      ],
+      "rows": [
+        {
+          "type": "round_button",
+          "name": "button_back",
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "uncompleted"
+              ],
+              "_raw": "click | emit: uncompleted"
+            }
+          ],
+          "parameter_list": {
+            "icon_src": "arrow-back",
+            "variant": "no-background"
+          },
+          "_nested_name": "dg_footer.button_back"
+        },
+        {
+          "type": "button",
+          "name": "button_completed",
+          "value": "@global.btn_continue",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "completed"
+              ],
+              "_raw": "click | emit: completed"
+            }
+          ],
+          "parameter_list": {
+            "style": "navigation"
+          },
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "dg_footer.button_completed",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.btn_continue",
+                "matchedExpression": "@global.btn_continue",
+                "type": "global",
+                "fieldName": "btn_continue"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.btn_continue": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "dg_footer"
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/Post-semis_form_sheets.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/12PZPM4h6d74rSqBrmHZOvENYeVPTI8AAYZmt-zTmsJs"
+  }
+}

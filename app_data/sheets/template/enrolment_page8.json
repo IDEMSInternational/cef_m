@@ -14,16 +14,11 @@
     },
     {
       "type": "display_group",
+      "style_list": [
+        "display: block",
+        "width: 100%"
+      ],
       "rows": [
-        {
-          "type": "text",
-          "value": "1. Saisissez la superficie totale possédée par l’UPA (ha)",
-          "_translations": {
-            "value": {}
-          },
-          "name": "text_1",
-          "_nested_name": "display_group_3.text_1"
-        },
         {
           "type": "audio",
           "name": "audio_2",
@@ -34,28 +29,35 @@
           },
           "exclude_from_translation": true,
           "style_list": [
-            "align-self: flex-end"
+            "float:right"
           ],
           "_nested_name": "display_group_3.audio_2"
         },
         {
-          "type": "image",
-          "value": "images/sup_tot.jpg",
+          "type": "html",
+          "value": "1. Saisissez la superficie totale possédée par l’UPA (ha)<span style=\"color: red;\">*</span>",
           "_translations": {
             "value": {}
           },
-          "style_list": [
-            "width: 80px",
-            "height: 80px",
-            "align-self: center",
-            "margin: 10px 0"
-          ],
-          "name": "image_3",
-          "_nested_name": "display_group_3.image_3"
+          "name": "html_2",
+          "_nested_name": "display_group_3.html_2"
         }
       ],
       "name": "display_group_3",
       "_nested_name": "display_group_3"
+    },
+    {
+      "type": "image",
+      "value": "images/sup_tot.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width: 80%",
+        "object-fit: contain"
+      ],
+      "name": "image_5",
+      "_nested_name": "image_5"
     },
     {
       "type": "text_box",
@@ -197,8 +199,8 @@
         "color: red",
         "font-size: 12px"
       ],
-      "name": "text_8",
-      "_nested_name": "text_8",
+      "name": "text_9",
+      "_nested_name": "text_9",
       "_dynamicFields": {
         "condition": [
           {
@@ -226,16 +228,11 @@
     },
     {
       "type": "display_group",
+      "style_list": [
+        "display: block",
+        "width: 100%"
+      ],
       "rows": [
-        {
-          "type": "text",
-          "value": "2. Saisissez la superficie totale cultivée par l’UPA (ha)",
-          "_translations": {
-            "value": {}
-          },
-          "name": "text_1",
-          "_nested_name": "display_group_9.text_1"
-        },
         {
           "type": "audio",
           "name": "audio_2",
@@ -246,28 +243,35 @@
           },
           "exclude_from_translation": true,
           "style_list": [
-            "align-self: flex-end"
+            "float:right"
           ],
-          "_nested_name": "display_group_9.audio_2"
+          "_nested_name": "display_group_10.audio_2"
         },
         {
-          "type": "image",
-          "value": "images/sup_cult.jpg",
+          "type": "html",
+          "value": "2. Saisissez la superficie totale cultivée par l’UPA (ha)<span style=\"color: red;\">*</span>",
           "_translations": {
             "value": {}
           },
-          "style_list": [
-            "width: 80px",
-            "height: 80px",
-            "align-self: center",
-            "margin: 10px 0"
-          ],
-          "name": "image_3",
-          "_nested_name": "display_group_9.image_3"
+          "name": "html_2",
+          "_nested_name": "display_group_10.html_2"
         }
       ],
-      "name": "display_group_9",
-      "_nested_name": "display_group_9"
+      "name": "display_group_10",
+      "_nested_name": "display_group_10"
+    },
+    {
+      "type": "image",
+      "value": "images/sup_cult.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width: 80%",
+        "object-fit: contain"
+      ],
+      "name": "image_12",
+      "_nested_name": "image_12"
     },
     {
       "type": "text_box",
@@ -409,8 +413,8 @@
         "color: red",
         "font-size: 12px"
       ],
-      "name": "text_14",
-      "_nested_name": "text_14",
+      "name": "text_16",
+      "_nested_name": "text_16",
       "_dynamicFields": {
         "condition": [
           {
@@ -447,8 +451,8 @@
         "color: red",
         "font-weight: bold"
       ],
-      "name": "text_15",
-      "_nested_name": "text_15",
+      "name": "text_17",
+      "_nested_name": "text_17",
       "_dynamicFields": {
         "condition": [
           {
@@ -624,7 +628,6 @@
             }
           ],
           "parameter_list": {
-            "style": "navigation",
             "disabled": "!@local.completed_enabled"
           },
           "style_list": [
