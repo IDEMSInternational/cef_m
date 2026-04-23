@@ -1,0 +1,617 @@
+{
+  "flow_type": "template",
+  "flow_name": "section_semi_page14",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "name": "page_title",
+      "value": "coûts des intrants & services SEMIS (drm)",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "page_title"
+    },
+    {
+      "name": "key_fum",
+      "value": "cout_transport_fumure_organique_@fields.current_primary_crop",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "key_fum",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "cout_transport_fumure_organique_@fields.current_primary_crop",
+            "matchedExpression": "@fields.current_primary_crop",
+            "type": "fields",
+            "fieldName": "current_primary_crop"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.current_primary_crop": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "key_chaux",
+      "value": "cout_transport_chaux_agricole_@fields.current_primary_crop",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "key_chaux",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "cout_transport_chaux_agricole_@fields.current_primary_crop",
+            "matchedExpression": "@fields.current_primary_crop",
+            "type": "fields",
+            "fieldName": "current_primary_crop"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.current_primary_crop": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "key_pnt",
+      "value": "cout_pnt_png_@fields.current_primary_crop",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "key_pnt",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "cout_pnt_png_@fields.current_primary_crop",
+            "matchedExpression": "@fields.current_primary_crop",
+            "type": "fields",
+            "fieldName": "current_primary_crop"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.current_primary_crop": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "key_sup",
+      "value": "cout_superficie_labouree_@fields.current_primary_crop",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "key_sup",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "cout_superficie_labouree_@fields.current_primary_crop",
+            "matchedExpression": "@fields.current_primary_crop",
+            "type": "fields",
+            "fieldName": "current_primary_crop"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.current_primary_crop": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "key_sem",
+      "value": "cout_semence_achetee_@fields.current_primary_crop",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "key_sem",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "cout_semence_achetee_@fields.current_primary_crop",
+            "matchedExpression": "@fields.current_primary_crop",
+            "type": "fields",
+            "fieldName": "current_primary_crop"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.current_primary_crop": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "key_herb",
+      "value": "cout_herbicide_prelevee_@fields.current_primary_crop",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "key_herb",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "cout_herbicide_prelevee_@fields.current_primary_crop",
+            "matchedExpression": "@fields.current_primary_crop",
+            "type": "fields",
+            "fieldName": "current_primary_crop"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.current_primary_crop": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "c_fum",
+      "value": "@fields.@local.key_fum",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "c_fum",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.@local.key_fum",
+            "matchedExpression": "@local.key_fum",
+            "type": "local",
+            "fieldName": "key_fum"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.key_fum": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "c_chaux",
+      "value": "@fields.@local.key_chaux",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "c_chaux",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.@local.key_chaux",
+            "matchedExpression": "@local.key_chaux",
+            "type": "local",
+            "fieldName": "key_chaux"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.key_chaux": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "c_pnt",
+      "value": "@fields.@local.key_pnt",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "c_pnt",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.@local.key_pnt",
+            "matchedExpression": "@local.key_pnt",
+            "type": "local",
+            "fieldName": "key_pnt"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.key_pnt": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "c_sup",
+      "value": "@fields.@local.key_sup",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "c_sup",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.@local.key_sup",
+            "matchedExpression": "@local.key_sup",
+            "type": "local",
+            "fieldName": "key_sup"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.key_sup": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "c_sem",
+      "value": "@fields.@local.key_sem",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "c_sem",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.@local.key_sem",
+            "matchedExpression": "@local.key_sem",
+            "type": "local",
+            "fieldName": "key_sem"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.key_sem": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "c_herb",
+      "value": "@fields.@local.key_herb",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "c_herb",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.@local.key_herb",
+            "matchedExpression": "@local.key_herb",
+            "type": "local",
+            "fieldName": "key_herb"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.key_herb": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "data_items",
+      "value": "@data.primary_crops",
+      "parameter_list": {
+        "filter": "@item.name == @fields.current_primary_crop"
+      },
+      "style_list": [
+        "display: flex",
+        "flex-wrap: wrap",
+        "justify-content: space-between",
+        "width: 100%",
+        "gap: 10px"
+      ],
+      "rows": [
+        {
+          "type": "display_group",
+          "rows": [
+            {
+              "type": "image",
+              "value": "@item.image",
+              "_translations": {
+                "value": {}
+              },
+              "name": "image_1",
+              "_nested_name": "data_items_15.display_group_1_@item.id.image_1",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "@item.image",
+                    "matchedExpression": "@item.image",
+                    "type": "item",
+                    "fieldName": "image"
+                  }
+                ],
+                "_nested_name": [
+                  {
+                    "fullExpression": "data_items_15.display_group_1_@item.id.image_1",
+                    "matchedExpression": "@item.id.image_1",
+                    "type": "item",
+                    "fieldName": "id"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@item.image": [
+                  "value"
+                ],
+                "@item.id.image_1": [
+                  "_nested_name"
+                ]
+              }
+            },
+            {
+              "type": "text",
+              "value": "**@item.text**",
+              "_translations": {
+                "value": {}
+              },
+              "style_list": [
+                "font-weight: bold",
+                "font-size: 18px"
+              ],
+              "name": "text_2",
+              "_nested_name": "data_items_15.display_group_1_@item.id.text_2",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "**@item.text**",
+                    "matchedExpression": "@item.text",
+                    "type": "item",
+                    "fieldName": "text"
+                  }
+                ],
+                "_nested_name": [
+                  {
+                    "fullExpression": "data_items_15.display_group_1_@item.id.text_2",
+                    "matchedExpression": "@item.id.text_2",
+                    "type": "item",
+                    "fieldName": "id"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@item.text": [
+                  "value"
+                ],
+                "@item.id.text_2": [
+                  "_nested_name"
+                ]
+              }
+            }
+          ],
+          "name": "display_group_1_@item.id",
+          "_nested_name": "data_items_15.display_group_1_@item.id",
+          "_dynamicFields": {
+            "name": [
+              {
+                "fullExpression": "display_group_1_@item.id",
+                "matchedExpression": "@item.id",
+                "type": "item",
+                "fieldName": "id"
+              }
+            ],
+            "_nested_name": [
+              {
+                "fullExpression": "data_items_15.display_group_1_@item.id",
+                "matchedExpression": "@item.id",
+                "type": "item",
+                "fieldName": "id"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@item.id": [
+              "name",
+              "_nested_name"
+            ]
+          }
+        }
+      ],
+      "name": "data_items_15",
+      "_nested_name": "data_items_15",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@data.primary_crops",
+            "matchedExpression": "@data.primary_crops",
+            "type": "data",
+            "fieldName": "primary_crops"
+          }
+        ],
+        "parameter_list": {
+          "filter": [
+            {
+              "fullExpression": "@item.name == @fields.current_primary_crop",
+              "matchedExpression": "@item.name",
+              "type": "item",
+              "fieldName": "name"
+            },
+            {
+              "fullExpression": "@item.name == @fields.current_primary_crop",
+              "matchedExpression": "@fields.current_primary_crop",
+              "type": "fields",
+              "fieldName": "current_primary_crop"
+            }
+          ]
+        }
+      },
+      "_dynamicDependencies": {
+        "@data.primary_crops": [
+          "value"
+        ],
+        "@item.name": [
+          "parameter_list.filter"
+        ],
+        "@fields.current_primary_crop": [
+          "parameter_list.filter"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "name": "current_primary_crop_total_cost",
+      "value": "@calc(Number(@local.c_fum) + Number(@local.c_chaux) + Number(@local.c_pnt) + Number(@local.c_sup) + Number(@local.c_sem) + Number(@local.c_herb))",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "current_primary_crop_total_cost",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Number(@local.c_fum) + Number(@local.c_chaux) + Number(@local.c_pnt) + Number(@local.c_sup) + Number(@local.c_sem) + Number(@local.c_herb))",
+            "matchedExpression": "@local.c_fum",
+            "type": "local",
+            "fieldName": "c_fum"
+          },
+          {
+            "fullExpression": "@calc(Number(@local.c_fum) + Number(@local.c_chaux) + Number(@local.c_pnt) + Number(@local.c_sup) + Number(@local.c_sem) + Number(@local.c_herb))",
+            "matchedExpression": "@local.c_chaux",
+            "type": "local",
+            "fieldName": "c_chaux"
+          },
+          {
+            "fullExpression": "@calc(Number(@local.c_fum) + Number(@local.c_chaux) + Number(@local.c_pnt) + Number(@local.c_sup) + Number(@local.c_sem) + Number(@local.c_herb))",
+            "matchedExpression": "@local.c_pnt",
+            "type": "local",
+            "fieldName": "c_pnt"
+          },
+          {
+            "fullExpression": "@calc(Number(@local.c_fum) + Number(@local.c_chaux) + Number(@local.c_pnt) + Number(@local.c_sup) + Number(@local.c_sem) + Number(@local.c_herb))",
+            "matchedExpression": "@local.c_sup",
+            "type": "local",
+            "fieldName": "c_sup"
+          },
+          {
+            "fullExpression": "@calc(Number(@local.c_fum) + Number(@local.c_chaux) + Number(@local.c_pnt) + Number(@local.c_sup) + Number(@local.c_sem) + Number(@local.c_herb))",
+            "matchedExpression": "@local.c_sem",
+            "type": "local",
+            "fieldName": "c_sem"
+          },
+          {
+            "fullExpression": "@calc(Number(@local.c_fum) + Number(@local.c_chaux) + Number(@local.c_pnt) + Number(@local.c_sup) + Number(@local.c_sem) + Number(@local.c_herb))",
+            "matchedExpression": "@local.c_herb",
+            "type": "local",
+            "fieldName": "c_herb"
+          },
+          {
+            "fullExpression": "@calc(Number(@local.c_fum) + Number(@local.c_chaux) + Number(@local.c_pnt) + Number(@local.c_sup) + Number(@local.c_sem) + Number(@local.c_herb))",
+            "matchedExpression": "@calc(Number(@local.c_fum) + Number(@local.c_chaux) + Number(@local.c_pnt) + Number(@local.c_sup) + Number(@local.c_sem) + Number(@local.c_herb))",
+            "type": "calc",
+            "fieldName": "Number(@local.c_fum) + Number(@local.c_chaux) + Number(@local.c_pnt) + Number(@local.c_sup) + Number(@local.c_sem) + Number(@local.c_herb)"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.c_fum": [
+          "value"
+        ],
+        "@local.c_chaux": [
+          "value"
+        ],
+        "@local.c_pnt": [
+          "value"
+        ],
+        "@local.c_sup": [
+          "value"
+        ],
+        "@local.c_sem": [
+          "value"
+        ],
+        "@local.c_herb": [
+          "value"
+        ],
+        "@calc(Number(@local.c_fum) + Number(@local.c_chaux) + Number(@local.c_pnt) + Number(@local.c_sup) + Number(@local.c_sem) + Number(@local.c_herb))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "dg_footer",
+      "value": "",
+      "parameter_list": {
+        "sticky": "bottom"
+      },
+      "style_list": [
+        "padding: 12px 24px"
+      ],
+      "rows": [
+        {
+          "type": "round_button",
+          "name": "page_14_button_back",
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "uncompleted"
+              ],
+              "_raw": "click | emit: uncompleted"
+            }
+          ],
+          "parameter_list": {
+            "icon_src": "arrow-back",
+            "variant": "no-background"
+          },
+          "_nested_name": "dg_footer.page_14_button_back"
+        },
+        {
+          "type": "button",
+          "name": "page_14_button_continue",
+          "value": "@global.btn_continue",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "completed"
+              ],
+              "_raw": "click | emit: completed"
+            }
+          ],
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "dg_footer.page_14_button_continue",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.btn_continue",
+                "matchedExpression": "@global.btn_continue",
+                "type": "global",
+                "fieldName": "btn_continue"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.btn_continue": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "dg_footer"
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/section_semis_sheets.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/1kj3U-JlzVhdPzr3JYksRfo6BjJglZF-FS_dO-yGxY1w"
+  }
+}

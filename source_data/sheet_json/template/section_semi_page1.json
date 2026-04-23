@@ -5,43 +5,42 @@
   "rows": [
     {
       "type": "title",
-      "name": "page_title",
-      "value": "Identification de l'Unité de Production Agricole (UPA) par QR code"
-    },
-    {
-      "type": "image",
-      "value": "images/icons/scan.svg"
+      "name": "page_title"
     },
     {
       "type": "begin_display_group"
     },
     {
-      "type": "text",
-      "value": "Utilisez la camera pour scanner votre code"
+      "type": "html",
+      "name": "camera_scane_label",
+      "value": "@global.camera_scane_label",
+      "style_list": "@global.label_style"
     },
     {
       "type": "audio",
       "name": "audio_1_1",
       "parameter_list": "variant: compact;\nsrc: audio/semis/qr_code_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
-      "exclude_from_translation": true,
-      "style_list": "float: right;"
+      "style_list": "@global.audio_style"
     },
     {
       "type": "end_display_group"
     },
     {
+      "type": "image",
+      "value": "images/icons/scan.svg",
+      "style_list": "width:120px; height:120px; object-fit:contain; flex-shrink:0;"
+    },
+    {
       "type": "text",
-      "value": "Choisissez l'année de la campagne:"
+      "name": "camera_scane_hint",
+      "value": "@global.camera_scane_hint",
+      "style_list": "@global.hint_style"
     },
     {
-      "type": "date_time_picker",
-      "name": "year_campaign",
-      "action_list": "changed | set_field: campagne: this.value;",
-      "parameter_list": "type: year;\nmin: 2023; \nmax: @calc(now());"
-    },
-    {
-      "name": "completed_enabled",
-      "value": "!!@local.year_campaign"
+      "type": "button",
+      "name": "button_camera_scane",
+      "value": "@global.camera_scane_btn",
+      "parameter_list": "button_align: centre; style: flexible"
     },
     {
       "type": "begin_display_group",
@@ -52,16 +51,15 @@
     },
     {
       "type": "round_button",
-      "name": "page_1_button_back",
+      "name": "page_1_btn_back",
       "action_list": "click | emit: uncompleted",
       "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
     },
     {
       "type": "button",
-      "name": "page_1_button_continue",
+      "name": "page_1_btn_continue",
       "value": "@global.btn_continue",
       "action_list": "click | emit: completed",
-      "parameter_list": "disabled: !@local.completed_enabled",
       "style_list": "flex: 1"
     },
     {

@@ -6,54 +6,550 @@
     {
       "type": "title",
       "name": "page_title",
-      "value": "OBSERVATIONS PERIODE DE SEMIS",
+      "value": "APPORT PNT/PNG",
       "_translations": {
         "value": {}
       },
       "_nested_name": "page_title"
     },
     {
+      "name": "attempt_submit",
+      "value": "@fields.attempt_submit",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "attempt_submit",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.attempt_submit",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.attempt_submit": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "data_items",
+      "value": "@data.primary_crops",
+      "parameter_list": {
+        "filter": "@item.name == @fields.current_primary_crop"
+      },
+      "style_list": [
+        "display: flex",
+        "flex-wrap: wrap",
+        "justify-content: space-between",
+        "width: 100%",
+        "gap: 10px"
+      ],
+      "rows": [
+        {
+          "type": "display_group",
+          "rows": [
+            {
+              "type": "image",
+              "value": "@item.image",
+              "_translations": {
+                "value": {}
+              },
+              "name": "image_1",
+              "_nested_name": "data_items_4.display_group_1_@item.id.image_1",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "@item.image",
+                    "matchedExpression": "@item.image",
+                    "type": "item",
+                    "fieldName": "image"
+                  }
+                ],
+                "_nested_name": [
+                  {
+                    "fullExpression": "data_items_4.display_group_1_@item.id.image_1",
+                    "matchedExpression": "@item.id.image_1",
+                    "type": "item",
+                    "fieldName": "id"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@item.image": [
+                  "value"
+                ],
+                "@item.id.image_1": [
+                  "_nested_name"
+                ]
+              }
+            },
+            {
+              "type": "text",
+              "value": "**@item.text**",
+              "_translations": {
+                "value": {}
+              },
+              "style_list": [
+                "font-weight: bold",
+                "font-size: 18px"
+              ],
+              "name": "text_2",
+              "_nested_name": "data_items_4.display_group_1_@item.id.text_2",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "**@item.text**",
+                    "matchedExpression": "@item.text",
+                    "type": "item",
+                    "fieldName": "text"
+                  }
+                ],
+                "_nested_name": [
+                  {
+                    "fullExpression": "data_items_4.display_group_1_@item.id.text_2",
+                    "matchedExpression": "@item.id.text_2",
+                    "type": "item",
+                    "fieldName": "id"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@item.text": [
+                  "value"
+                ],
+                "@item.id.text_2": [
+                  "_nested_name"
+                ]
+              }
+            }
+          ],
+          "name": "display_group_1_@item.id",
+          "_nested_name": "data_items_4.display_group_1_@item.id",
+          "_dynamicFields": {
+            "name": [
+              {
+                "fullExpression": "display_group_1_@item.id",
+                "matchedExpression": "@item.id",
+                "type": "item",
+                "fieldName": "id"
+              }
+            ],
+            "_nested_name": [
+              {
+                "fullExpression": "data_items_4.display_group_1_@item.id",
+                "matchedExpression": "@item.id",
+                "type": "item",
+                "fieldName": "id"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@item.id": [
+              "name",
+              "_nested_name"
+            ]
+          }
+        }
+      ],
+      "name": "data_items_4",
+      "_nested_name": "data_items_4",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@data.primary_crops",
+            "matchedExpression": "@data.primary_crops",
+            "type": "data",
+            "fieldName": "primary_crops"
+          }
+        ],
+        "parameter_list": {
+          "filter": [
+            {
+              "fullExpression": "@item.name == @fields.current_primary_crop",
+              "matchedExpression": "@item.name",
+              "type": "item",
+              "fieldName": "name"
+            },
+            {
+              "fullExpression": "@item.name == @fields.current_primary_crop",
+              "matchedExpression": "@fields.current_primary_crop",
+              "type": "fields",
+              "fieldName": "current_primary_crop"
+            }
+          ]
+        }
+      },
+      "_dynamicDependencies": {
+        "@data.primary_crops": [
+          "value"
+        ],
+        "@item.name": [
+          "parameter_list.filter"
+        ],
+        "@fields.current_primary_crop": [
+          "parameter_list.filter"
+        ]
+      }
+    },
+    {
       "type": "display_group",
       "rows": [
         {
-          "type": "text",
-          "name": "type_canal_info_label",
-          "value": "Séléctionnez le canal à utiliser pour faire votre observation sur:",
+          "type": "html",
+          "name": "quantite_pnt_png_label",
+          "value": "<span style=\"color: red;\">*</span> Quantité PNT/PNG (sac) @fields.current_primary_crop",
           "_translations": {
             "value": {}
           },
-          "_nested_name": "display_group_3.type_canal_info_label"
+          "style_list": [
+            "font-size:20px"
+          ],
+          "_nested_name": "display_group_6.quantite_pnt_png_label",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<span style=\"color: red;\">*</span> Quantité PNT/PNG (sac) @fields.current_primary_crop",
+                "matchedExpression": "@fields.current_primary_crop",
+                "type": "fields",
+                "fieldName": "current_primary_crop"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@fields.current_primary_crop": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",
           "name": "audio_10_1",
           "parameter_list": {
             "variant": "compact",
-            "src": "audio/semis/canal_obser_fr.mp3",
+            "src": "audio/semis/q_pnt_fr.mp3",
             "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
           "style_list": [
             "float: right"
           ],
-          "_nested_name": "display_group_3.audio_10_1"
+          "_nested_name": "display_group_6.audio_10_1"
         }
       ],
-      "name": "display_group_3",
-      "_nested_name": "display_group_3"
+      "name": "display_group_6",
+      "_nested_name": "display_group_6"
+    },
+    {
+      "type": "image",
+      "value": "images/sac.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width:120px",
+        "height:120px",
+        "object-fit:contain",
+        "flex-shrink:0"
+      ],
+      "name": "image_8",
+      "_nested_name": "image_8"
     },
     {
       "type": "text",
-      "name": "error_type_canal_info",
+      "name": "quantite_pnt_png_hint",
+      "value": "Mettez 0 si aucun PNT",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "color: gray",
+        "font-size: 16px"
+      ],
+      "_nested_name": "quantite_pnt_png_hint"
+    },
+    {
+      "type": "text_box",
+      "name": "quantite_pnt_png",
+      "value": "@fields.quantite_pnt_png",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "quantite_pnt_png",
+            "this.value"
+          ],
+          "_raw": "changed | set_field : quantite_pnt_png: this.value"
+        }
+      ],
+      "parameter_list": {
+        "number_input": "true"
+      },
+      "_nested_name": "quantite_pnt_png",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.quantite_pnt_png",
+            "matchedExpression": "@fields.quantite_pnt_png",
+            "type": "fields",
+            "fieldName": "quantite_pnt_png"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.quantite_pnt_png": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "valid_quantite_pnt_png",
+      "value": "@calc(@fields.quantite_pnt_png >= 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "valid_quantite_pnt_png",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(@fields.quantite_pnt_png >= 0)",
+            "matchedExpression": "@fields.quantite_pnt_png",
+            "type": "fields",
+            "fieldName": "quantite_pnt_png"
+          },
+          {
+            "fullExpression": "@calc(@fields.quantite_pnt_png >= 0)",
+            "matchedExpression": "@calc(@fields.quantite_pnt_png >= 0)",
+            "type": "calc",
+            "fieldName": "@fields.quantite_pnt_png >= 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.quantite_pnt_png": [
+          "value"
+        ],
+        "@calc(@fields.quantite_pnt_png >= 0)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "name": "error_quantite_pnt_png",
+      "value": "@global.error_positive_value",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@fields.attempt_submit && !@local.valid_quantite_pnt_png",
+      "style_list": [
+        "color: red",
+        "font-size: 16px"
+      ],
+      "_nested_name": "error_quantite_pnt_png",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.error_positive_value",
+            "matchedExpression": "@global.error_positive_value",
+            "type": "global",
+            "fieldName": "error_positive_value"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "@fields.attempt_submit && !@local.valid_quantite_pnt_png",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
+          },
+          {
+            "fullExpression": "@fields.attempt_submit && !@local.valid_quantite_pnt_png",
+            "matchedExpression": "!@local.valid_quantite_pnt_png",
+            "type": "local",
+            "fieldName": "valid_quantite_pnt_png"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.error_positive_value": [
+          "value"
+        ],
+        "@fields.attempt_submit": [
+          "condition"
+        ],
+        "!@local.valid_quantite_pnt_png": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "html",
+          "name": "cout_pnt_png_label",
+          "value": "<span style=\"color: red;\">*</span> Coût PNT/PNG (drm)",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-size:20px"
+          ],
+          "_nested_name": "display_group_13.cout_pnt_png_label"
+        },
+        {
+          "type": "audio",
+          "name": "audio_10_2",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/semis/cout_pnt_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "display_group_13.audio_10_2"
+        }
+      ],
+      "name": "display_group_13",
+      "_nested_name": "display_group_13"
+    },
+    {
+      "type": "image",
+      "value": "images/cfa.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width:120px",
+        "height:120px",
+        "object-fit:contain",
+        "flex-shrink:0"
+      ],
+      "name": "image_15",
+      "_nested_name": "image_15"
+    },
+    {
+      "type": "text",
+      "name": "cout_pnt_png_hint",
+      "value": "@global.hint_price",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "color: gray",
+        "font-size: 16px"
+      ],
+      "_nested_name": "cout_pnt_png_hint",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.hint_price",
+            "matchedExpression": "@global.hint_price",
+            "type": "global",
+            "fieldName": "hint_price"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.hint_price": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text_box",
+      "name": "cout_pnt_png",
+      "value": "@fields.cout_pnt_png",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "cout_pnt_png",
+            "this.value"
+          ],
+          "_raw": "changed | set_field : cout_pnt_png: this.value"
+        }
+      ],
+      "parameter_list": {
+        "number_input": "true"
+      },
+      "_nested_name": "cout_pnt_png",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.cout_pnt_png",
+            "matchedExpression": "@fields.cout_pnt_png",
+            "type": "fields",
+            "fieldName": "cout_pnt_png"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.cout_pnt_png": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "valid_cout_pnt_png",
+      "value": "@calc(@fields.cout_pnt_png >= 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "valid_cout_pnt_png",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(@fields.cout_pnt_png >= 0)",
+            "matchedExpression": "@fields.cout_pnt_png",
+            "type": "fields",
+            "fieldName": "cout_pnt_png"
+          },
+          {
+            "fullExpression": "@calc(@fields.cout_pnt_png >= 0)",
+            "matchedExpression": "@calc(@fields.cout_pnt_png >= 0)",
+            "type": "calc",
+            "fieldName": "@fields.cout_pnt_png >= 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.cout_pnt_png": [
+          "value"
+        ],
+        "@calc(@fields.cout_pnt_png >= 0)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "name": "error_cout_pnt_png",
       "value": "@global.error_required_answer",
       "_translations": {
         "value": {}
       },
-      "condition": "!!@field.type_canal_info",
+      "condition": "@fields.attempt_submit && !@local.valid_cout_pnt_png",
       "style_list": [
         "color: red",
-        "font-size: 12px"
+        "font-size: 16px"
       ],
-      "_nested_name": "error_type_canal_info",
+      "_nested_name": "error_cout_pnt_png",
       "_dynamicFields": {
         "value": [
           {
@@ -65,10 +561,16 @@
         ],
         "condition": [
           {
-            "fullExpression": "!!@field.type_canal_info",
-            "matchedExpression": "!@field.type_canal_info",
-            "type": "field",
-            "fieldName": "type_canal_info"
+            "fullExpression": "@fields.attempt_submit && !@local.valid_cout_pnt_png",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
+          },
+          {
+            "fullExpression": "@fields.attempt_submit && !@local.valid_cout_pnt_png",
+            "matchedExpression": "!@local.valid_cout_pnt_png",
+            "type": "local",
+            "fieldName": "valid_cout_pnt_png"
           }
         ]
       },
@@ -76,373 +578,17 @@
         "@global.error_required_answer": [
           "value"
         ],
-        "!@field.type_canal_info": [
+        "@fields.attempt_submit": [
           "condition"
-        ]
-      }
-    },
-    {
-      "type": "radio_button_grid",
-      "name": "type_canal_info",
-      "value": "@field.type_canal_info",
-      "_translations": {
-        "value": {}
-      },
-      "action_list": [
-        {
-          "trigger": "changed",
-          "action_id": "set_field",
-          "args": [
-            "type_canal_info",
-            "this.value"
-          ],
-          "_raw": "changed | set_field : type_canal_info: this.value"
-        }
-      ],
-      "parameter_list": {
-        "answer_list": "@data.group_observation",
-        "variant": "flex",
-        "item_width": "60px",
-        "grid_gap": "8px"
-      },
-      "_nested_name": "type_canal_info",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@field.type_canal_info",
-            "matchedExpression": "@field.type_canal_info",
-            "type": "field",
-            "fieldName": "type_canal_info"
-          }
         ],
-        "parameter_list": {
-          "answer_list": [
-            {
-              "fullExpression": "@data.group_observation",
-              "matchedExpression": "@data.group_observation",
-              "type": "data",
-              "fieldName": "group_observation"
-            }
-          ]
-        }
-      },
-      "_dynamicDependencies": {
-        "@field.type_canal_info": [
-          "value"
-        ],
-        "@data.group_observation": [
-          "parameter_list.answer_list"
-        ]
-      }
-    },
-    {
-      "type": "display_group",
-      "condition": "@field.type_canal_info == \"par_text\"",
-      "rows": [
-        {
-          "type": "text",
-          "name": "info_text_label",
-          "value": "Entrez par écrit l'observation faite.",
-          "_translations": {
-            "value": {}
-          },
-          "_nested_name": "display_group_7.info_text_label"
-        },
-        {
-          "type": "audio",
-          "name": "audio_10_2",
-          "parameter_list": {
-            "variant": "compact",
-            "src": "audio/semis/oberv_ecrit_fr.mp3",
-            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
-          },
-          "style_list": [
-            "float: right"
-          ],
-          "_nested_name": "display_group_7.audio_10_2"
-        }
-      ],
-      "name": "display_group_7",
-      "_nested_name": "display_group_7",
-      "_dynamicFields": {
-        "condition": [
-          {
-            "fullExpression": "@field.type_canal_info == \"par_text\"",
-            "matchedExpression": "@field.type_canal_info",
-            "type": "field",
-            "fieldName": "type_canal_info"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@field.type_canal_info": [
-          "condition"
-        ]
-      }
-    },
-    {
-      "type": "text_area",
-      "name": "info_text",
-      "value": "@field.info_text",
-      "_translations": {
-        "value": {}
-      },
-      "action_list": [
-        {
-          "trigger": "changed",
-          "action_id": "set_field",
-          "args": [
-            "info_text",
-            "this.value"
-          ],
-          "_raw": "changed | set_field : info_text: this.value"
-        }
-      ],
-      "parameter_list": {
-        "placeholder": "Info par écrit"
-      },
-      "condition": "@field.type_canal_info == \"par_text\"",
-      "_nested_name": "info_text",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@field.info_text",
-            "matchedExpression": "@field.info_text",
-            "type": "field",
-            "fieldName": "info_text"
-          }
-        ],
-        "condition": [
-          {
-            "fullExpression": "@field.type_canal_info == \"par_text\"",
-            "matchedExpression": "@field.type_canal_info",
-            "type": "field",
-            "fieldName": "type_canal_info"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@field.info_text": [
-          "value"
-        ],
-        "@field.type_canal_info": [
-          "condition"
-        ]
-      }
-    },
-    {
-      "type": "display_group",
-      "condition": "@field.type_canal_info == \"par_video\"",
-      "rows": [
-        {
-          "type": "text",
-          "name": "info_video_label",
-          "value": "Enregistrez par vidéo l'observation faite",
-          "_translations": {
-            "value": {}
-          },
-          "_nested_name": "display_group_10.info_video_label"
-        },
-        {
-          "type": "audio",
-          "name": "audio_10_3",
-          "parameter_list": {
-            "variant": "compact",
-            "src": "audio/semis/oberv_vid_fr.mp3",
-            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
-          },
-          "style_list": [
-            "float: right"
-          ],
-          "_nested_name": "display_group_10.audio_10_3"
-        }
-      ],
-      "name": "display_group_10",
-      "_nested_name": "display_group_10",
-      "_dynamicFields": {
-        "condition": [
-          {
-            "fullExpression": "@field.type_canal_info == \"par_video\"",
-            "matchedExpression": "@field.type_canal_info",
-            "type": "field",
-            "fieldName": "type_canal_info"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@field.type_canal_info": [
-          "condition"
-        ]
-      }
-    },
-    {
-      "type": "text",
-      "name": "info_video",
-      "value": "We would need a video recorder here",
-      "_translations": {
-        "value": {}
-      },
-      "condition": "@field.type_canal_info == \"par_video\"",
-      "_nested_name": "info_video",
-      "_dynamicFields": {
-        "condition": [
-          {
-            "fullExpression": "@field.type_canal_info == \"par_video\"",
-            "matchedExpression": "@field.type_canal_info",
-            "type": "field",
-            "fieldName": "type_canal_info"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@field.type_canal_info": [
-          "condition"
-        ]
-      }
-    },
-    {
-      "type": "display_group",
-      "condition": "@field.type_canal_info == \"par_vocal\"",
-      "rows": [
-        {
-          "type": "text",
-          "name": "info_audio_label",
-          "value": "Enregistrez par vocal l'observation faite.",
-          "_translations": {
-            "value": {}
-          },
-          "_nested_name": "display_group_13.info_audio_label"
-        },
-        {
-          "type": "audio",
-          "name": "audio_10_4",
-          "parameter_list": {
-            "variant": "compact",
-            "src": "audio/semis/oberv_audio_fr.mp3",
-            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
-          },
-          "style_list": [
-            "float: right"
-          ],
-          "_nested_name": "display_group_13.audio_10_4"
-        }
-      ],
-      "name": "display_group_13",
-      "_nested_name": "display_group_13",
-      "_dynamicFields": {
-        "condition": [
-          {
-            "fullExpression": "@field.type_canal_info == \"par_vocal\"",
-            "matchedExpression": "@field.type_canal_info",
-            "type": "field",
-            "fieldName": "type_canal_info"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@field.type_canal_info": [
-          "condition"
-        ]
-      }
-    },
-    {
-      "type": "text",
-      "name": "info_audio",
-      "value": "We would need a audio recorder here",
-      "_translations": {
-        "value": {}
-      },
-      "condition": "@field.type_canal_info == \"par_vocal\"",
-      "_nested_name": "info_audio",
-      "_dynamicFields": {
-        "condition": [
-          {
-            "fullExpression": "@field.type_canal_info == \"par_vocal\"",
-            "matchedExpression": "@field.type_canal_info",
-            "type": "field",
-            "fieldName": "type_canal_info"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@field.type_canal_info": [
-          "condition"
-        ]
-      }
-    },
-    {
-      "type": "display_group",
-      "condition": "@field.type_canal_info == \"par_photo\"",
-      "rows": [
-        {
-          "type": "text",
-          "name": "info_image_label",
-          "value": "Enregistrez par image l'observation faite.",
-          "_translations": {
-            "value": {}
-          },
-          "_nested_name": "display_group_16.info_image_label"
-        },
-        {
-          "type": "audio",
-          "name": "audio_10_5",
-          "parameter_list": {
-            "variant": "compact",
-            "src": "audio/semis/oberv_phot_fr.mp3",
-            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
-          },
-          "style_list": [
-            "float: right"
-          ],
-          "_nested_name": "display_group_16.audio_10_5"
-        }
-      ],
-      "name": "display_group_16",
-      "_nested_name": "display_group_16",
-      "_dynamicFields": {
-        "condition": [
-          {
-            "fullExpression": "@field.type_canal_info == \"par_photo\"",
-            "matchedExpression": "@field.type_canal_info",
-            "type": "field",
-            "fieldName": "type_canal_info"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@field.type_canal_info": [
-          "condition"
-        ]
-      }
-    },
-    {
-      "type": "text",
-      "name": "info_image",
-      "value": "We would need a camera here",
-      "_translations": {
-        "value": {}
-      },
-      "condition": "@field.type_canal_info == \"par_photo\"",
-      "_nested_name": "info_image",
-      "_dynamicFields": {
-        "condition": [
-          {
-            "fullExpression": "@field.type_canal_info == \"par_photo\"",
-            "matchedExpression": "@field.type_canal_info",
-            "type": "field",
-            "fieldName": "type_canal_info"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@field.type_canal_info": [
+        "!@local.valid_cout_pnt_png": [
           "condition"
         ]
       }
     },
     {
       "name": "completed_enabled",
-      "value": "!!@local.type_canal_info",
+      "value": "@local.valid_quantite_pnt_png && @local.valid_cout_pnt_png",
       "_translations": {
         "value": {}
       },
@@ -451,15 +597,24 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "!!@local.type_canal_info",
-            "matchedExpression": "!@local.type_canal_info",
+            "fullExpression": "@local.valid_quantite_pnt_png && @local.valid_cout_pnt_png",
+            "matchedExpression": "@local.valid_quantite_pnt_png",
             "type": "local",
-            "fieldName": "type_canal_info"
+            "fieldName": "valid_quantite_pnt_png"
+          },
+          {
+            "fullExpression": "@local.valid_quantite_pnt_png && @local.valid_cout_pnt_png",
+            "matchedExpression": "@local.valid_cout_pnt_png",
+            "type": "local",
+            "fieldName": "valid_cout_pnt_png"
           }
         ]
       },
       "_dynamicDependencies": {
-        "!@local.type_canal_info": [
+        "@local.valid_quantite_pnt_png": [
+          "value"
+        ],
+        "@local.valid_cout_pnt_png": [
           "value"
         ]
       }
@@ -496,12 +651,112 @@
         },
         {
           "type": "button",
+          "name": "page_10_btn_attempt_submit",
+          "value": "@global.btn_continue",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "attempt_submit",
+                true
+              ],
+              "_raw": "click | set_field: attempt_submit: true"
+            }
+          ],
+          "parameter_list": {
+            "disabled": "!@local.completed_enabled"
+          },
+          "condition": "!@local.completed_enabled",
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "dg_footer.page_10_btn_attempt_submit",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.btn_continue",
+                "matchedExpression": "@global.btn_continue",
+                "type": "global",
+                "fieldName": "btn_continue"
+              }
+            ],
+            "parameter_list": {
+              "disabled": [
+                {
+                  "fullExpression": "!@local.completed_enabled",
+                  "matchedExpression": "!@local.completed_enabled",
+                  "type": "local",
+                  "fieldName": "completed_enabled"
+                }
+              ]
+            },
+            "condition": [
+              {
+                "fullExpression": "!@local.completed_enabled",
+                "matchedExpression": "!@local.completed_enabled",
+                "type": "local",
+                "fieldName": "completed_enabled"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.btn_continue": [
+              "value"
+            ],
+            "!@local.completed_enabled": [
+              "parameter_list.disabled",
+              "condition"
+            ]
+          }
+        },
+        {
+          "type": "button",
           "name": "page_10_button_continue",
           "value": "@global.btn_continue",
           "_translations": {
             "value": {}
           },
           "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "@calc('quantite_pnt_png_' + @fields.current_primary_crop)",
+                "@fields.quantite_pnt_png"
+              ],
+              "_raw": "click | set_field: @calc('quantite_pnt_png_' + @fields.current_primary_crop) : @fields.quantite_pnt_png"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "@calc('cout_pnt_png_' + @fields.current_primary_crop)",
+                "@fields.cout_pnt_png"
+              ],
+              "_raw": "click | set_field: @calc('cout_pnt_png_' + @fields.current_primary_crop) : @fields.cout_pnt_png"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "quantite_pnt_png",
+                "null"
+              ],
+              "_raw": "click | set_field: quantite_pnt_png: null"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "cout_pnt_png",
+                "null"
+              ],
+              "_raw": "click | set_field: cout_pnt_png: null"
+            },
             {
               "trigger": "click",
               "action_id": "emit",
@@ -511,6 +766,7 @@
               "_raw": "click | emit: completed"
             }
           ],
+          "condition": "@local.completed_enabled",
           "style_list": [
             "flex: 1"
           ],
@@ -523,11 +779,124 @@
                 "type": "global",
                 "fieldName": "btn_continue"
               }
+            ],
+            "action_list": {
+              "0": {
+                "args": {
+                  "0": [
+                    {
+                      "fullExpression": "@calc('quantite_pnt_png_' + @fields.current_primary_crop)",
+                      "matchedExpression": "@fields.current_primary_crop",
+                      "type": "fields",
+                      "fieldName": "current_primary_crop"
+                    },
+                    {
+                      "fullExpression": "@calc('quantite_pnt_png_' + @fields.current_primary_crop)",
+                      "matchedExpression": "@calc('quantite_pnt_png_' + @fields.current_primary_crop)",
+                      "type": "calc",
+                      "fieldName": "'quantite_pnt_png_' + @fields.current_primary_crop"
+                    }
+                  ],
+                  "1": [
+                    {
+                      "fullExpression": "@fields.quantite_pnt_png",
+                      "matchedExpression": "@fields.quantite_pnt_png",
+                      "type": "fields",
+                      "fieldName": "quantite_pnt_png"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: @calc('quantite_pnt_png_' + @fields.current_primary_crop) : @fields.quantite_pnt_png",
+                    "matchedExpression": "@fields.current_primary_crop",
+                    "type": "fields",
+                    "fieldName": "current_primary_crop"
+                  },
+                  {
+                    "fullExpression": "click | set_field: @calc('quantite_pnt_png_' + @fields.current_primary_crop) : @fields.quantite_pnt_png",
+                    "matchedExpression": "@fields.quantite_pnt_png",
+                    "type": "fields",
+                    "fieldName": "quantite_pnt_png"
+                  }
+                ]
+              },
+              "1": {
+                "args": {
+                  "0": [
+                    {
+                      "fullExpression": "@calc('cout_pnt_png_' + @fields.current_primary_crop)",
+                      "matchedExpression": "@fields.current_primary_crop",
+                      "type": "fields",
+                      "fieldName": "current_primary_crop"
+                    },
+                    {
+                      "fullExpression": "@calc('cout_pnt_png_' + @fields.current_primary_crop)",
+                      "matchedExpression": "@calc('cout_pnt_png_' + @fields.current_primary_crop)",
+                      "type": "calc",
+                      "fieldName": "'cout_pnt_png_' + @fields.current_primary_crop"
+                    }
+                  ],
+                  "1": [
+                    {
+                      "fullExpression": "@fields.cout_pnt_png",
+                      "matchedExpression": "@fields.cout_pnt_png",
+                      "type": "fields",
+                      "fieldName": "cout_pnt_png"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: @calc('cout_pnt_png_' + @fields.current_primary_crop) : @fields.cout_pnt_png",
+                    "matchedExpression": "@fields.current_primary_crop",
+                    "type": "fields",
+                    "fieldName": "current_primary_crop"
+                  },
+                  {
+                    "fullExpression": "click | set_field: @calc('cout_pnt_png_' + @fields.current_primary_crop) : @fields.cout_pnt_png",
+                    "matchedExpression": "@fields.cout_pnt_png",
+                    "type": "fields",
+                    "fieldName": "cout_pnt_png"
+                  }
+                ]
+              }
+            },
+            "condition": [
+              {
+                "fullExpression": "@local.completed_enabled",
+                "matchedExpression": "@local.completed_enabled",
+                "type": "local",
+                "fieldName": "completed_enabled"
+              }
             ]
           },
           "_dynamicDependencies": {
             "@global.btn_continue": [
               "value"
+            ],
+            "@fields.current_primary_crop": [
+              "action_list.0.args.0",
+              "action_list.0._raw",
+              "action_list.1.args.0",
+              "action_list.1._raw"
+            ],
+            "@calc('quantite_pnt_png_' + @fields.current_primary_crop)": [
+              "action_list.0.args.0"
+            ],
+            "@fields.quantite_pnt_png": [
+              "action_list.0.args.1",
+              "action_list.0._raw"
+            ],
+            "@calc('cout_pnt_png_' + @fields.current_primary_crop)": [
+              "action_list.1.args.0"
+            ],
+            "@fields.cout_pnt_png": [
+              "action_list.1.args.1",
+              "action_list.1._raw"
+            ],
+            "@local.completed_enabled": [
+              "condition"
             ]
           }
         }

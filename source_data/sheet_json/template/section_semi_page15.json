@@ -1,0 +1,181 @@
+{
+  "flow_type": "template",
+  "flow_name": "section_semi_page15",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "name": "page_title",
+      "value": "OBSERVATIONS PERIODE DE SEMIS"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "name": "type_canal_info_label",
+      "value": "Séléctionnez le canal à utiliser pour faire votre observation sur: "
+    },
+    {
+      "type": "audio",
+      "name": "audio_15_1",
+      "parameter_list": "variant: compact;\nsrc: audio/semis/canal_obser_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "style_list": "float: right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "name": "error_type_canal_info",
+      "value": "@global.error_required_answer",
+      "condition": "!!@field.type_canal_info",
+      "style_list": "color: red; font-size: 12px;"
+    },
+    {
+      "type": "radio_button_grid",
+      "name": "type_canal_info",
+      "value": "@field.type_canal_info",
+      "action_list": "changed | set_field : type_canal_info: this.value;",
+      "parameter_list": "answer_list: @data.group_observation; \nvariant: flex;\nitem_width: 60px;\ngrid_gap: 8px;"
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@field.type_canal_info == \"par_text\""
+    },
+    {
+      "type": "text",
+      "name": "info_text_label",
+      "value": "Entrez par écrit l'observation faite."
+    },
+    {
+      "type": "audio",
+      "name": "audio_15_2",
+      "parameter_list": "variant: compact;\nsrc: audio/semis/oberv_ecrit_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "style_list": "float: right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text_area",
+      "name": "observation",
+      "value": "@field.info_text",
+      "action_list": "changed | set_field : observation: this.value;",
+      "parameter_list": "placeholder: Info par écrit ",
+      "condition": "@field.type_canal_info == \"par_text\""
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@field.type_canal_info == \"par_video\""
+    },
+    {
+      "type": "text",
+      "name": "info_video_label",
+      "value": "Enregistrez par vidéo l'observation faite"
+    },
+    {
+      "type": "audio",
+      "name": "audio_15_3",
+      "parameter_list": "variant: compact;\nsrc: audio/semis/oberv_vid_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "style_list": "float: right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "name": "info_video",
+      "value": "We would need a video recorder here",
+      "condition": "@field.type_canal_info == \"par_video\""
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@field.type_canal_info == \"par_vocal\""
+    },
+    {
+      "type": "text",
+      "name": "info_audio_label",
+      "value": "Enregistrez par vocal l'observation faite."
+    },
+    {
+      "type": "audio",
+      "name": "audio_15_4",
+      "parameter_list": "variant: compact;\nsrc: audio/semis/oberv_audio_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "style_list": "float: right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "name": "info_audio",
+      "value": "We would need a audio recorder here",
+      "condition": "@field.type_canal_info == \"par_vocal\""
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@field.type_canal_info == \"par_photo\""
+    },
+    {
+      "type": "text",
+      "name": "info_image_label",
+      "value": "Enregistrez par image l'observation faite."
+    },
+    {
+      "type": "audio",
+      "name": "audio_15_5",
+      "parameter_list": "variant: compact;\nsrc: audio/semis/oberv_phot_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "style_list": "float: right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "name": "info_image",
+      "value": "We would need a camera here",
+      "condition": "@field.type_canal_info == \"par_photo\""
+    },
+    {
+      "name": "completed_enabled",
+      "value": "!!@local.type_canal_info"
+    },
+    {
+      "name": "last_primary_crop_loop_idx",
+      "value": "@calc((Number(@fields.primary_crop_loop_idx) + 1) >= Number(@fields.primary_crops_selected_count))"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "dg_footer",
+      "value": " ",
+      "parameter_list": "sticky: bottom;",
+      "style_list": "padding: 12px 24px;"
+    },
+    {
+      "type": "round_button",
+      "name": "page_15_button_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+    },
+    {
+      "type": "button",
+      "name": "btn_next_crop",
+      "value": "@global.btn_continue",
+      "action_list": "click | set_field: @calc('observation' + @fields.current_primary_crop) : @fields.observation;\nclick | set_field: observation: null;\nclick | set_field: primary_crop_loop_idx : @calc(Number(@fields.primary_crop_loop_idx) + 1);\nclick | set_field: current_primary_crop : @calc(@fields.primary_crops_selected.split(',')[Number(@fields.primary_crop_loop_idx) + 1]);",
+      "condition": "!@local.last_primary_crop_loop_idx",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "button",
+      "name": "page_15_button_continue",
+      "value": "@global.btn_continue",
+      "action_list": "click | set_field: @calc('observation' + @fields.current_primary_crop) : @fields.observation;\nclick | set_field: observation: null;\nclick | emit: completed",
+      "condition": "@local.last_primary_crop_loop_idx",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "end_display_group"
+    }
+  ]
+}

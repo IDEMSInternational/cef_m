@@ -1,0 +1,1526 @@
+{
+  "flow_type": "template",
+  "flow_name": "recolte_page7",
+  "status": "released",
+  "rows": [
+    {
+      "name": "v_current_human",
+      "value": "@calc(Number(@field.current_idx) + 1)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_current_human",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Number(@field.current_idx) + 1)",
+            "matchedExpression": "@field.current_idx",
+            "type": "field",
+            "fieldName": "current_idx"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.current_idx) + 1)",
+            "matchedExpression": "@calc(Number(@field.current_idx) + 1)",
+            "type": "calc",
+            "fieldName": "Number(@field.current_idx) + 1"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.current_idx": [
+          "value"
+        ],
+        "@calc(Number(@field.current_idx) + 1)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "v_is_last_crop",
+      "value": "@calc(Number(@field.current_idx) == (Number(@field.total_recolte_count) - 1))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_is_last_crop",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Number(@field.current_idx) == (Number(@field.total_recolte_count) - 1))",
+            "matchedExpression": "@field.current_idx",
+            "type": "field",
+            "fieldName": "current_idx"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.current_idx) == (Number(@field.total_recolte_count) - 1))",
+            "matchedExpression": "@field.total_recolte_count",
+            "type": "field",
+            "fieldName": "total_recolte_count"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.current_idx) == (Number(@field.total_recolte_count) - 1))",
+            "matchedExpression": "@calc(Number(@field.current_idx) == (Number(@field.total_recolte_count) - 1))",
+            "type": "calc",
+            "fieldName": "Number(@field.current_idx) == (Number(@field.total_recolte_count) - 1)"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.current_idx": [
+          "value"
+        ],
+        "@field.total_recolte_count": [
+          "value"
+        ],
+        "@calc(Number(@field.current_idx) == (Number(@field.total_recolte_count) - 1))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "header",
+      "style_list": [
+        "background: #00adcc",
+        "padding: 15px",
+        "border-radius: 0 0 15px 15px",
+        "margin-bottom: 20px"
+      ],
+      "rows": [
+        {
+          "type": "html",
+          "value": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_recolte_count</div>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_1",
+          "_nested_name": "header.html_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_recolte_count</div>",
+                "matchedExpression": "@local.v_current_human",
+                "type": "local",
+                "fieldName": "v_current_human"
+              },
+              {
+                "fullExpression": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_recolte_count</div>",
+                "matchedExpression": "@field.total_recolte_count",
+                "type": "field",
+                "fieldName": "total_recolte_count"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.v_current_human": [
+              "value"
+            ],
+            "@field.total_recolte_count": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "header"
+    },
+    {
+      "type": "audio",
+      "name": "aud_obs",
+      "parameter_list": {
+        "variant": "compact",
+        "src": "audio/recolte/canal_obser_fr.mp3",
+        "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+      },
+      "exclude_from_translation": true,
+      "style_list": [
+        "float: right"
+      ],
+      "_nested_name": "aud_obs"
+    },
+    {
+      "type": "display_group",
+      "style_list": [
+        "width: 100%",
+        "display: flex",
+        "flex-direction: column",
+        "align-items: center",
+        "border: 1px solid #FFCC80",
+        "border-radius: 12px",
+        "background: white",
+        "margin-bottom: 10px",
+        "overflow: hidden"
+      ],
+      "rows": [
+        {
+          "type": "image",
+          "value": "@calc(['coton', 'maïs', 'mil', 'sorgho', 'arachide', 'fourrage'].includes(@field.active_crop_name.toLowerCase()) ? 'images/' + @field.active_crop_name.toLowerCase() + '.jpg' : 'images/autre_cult_2.jpg')",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width: 60%",
+            "object-fit: contain"
+          ],
+          "name": "image_1",
+          "_nested_name": "display_group_7.image_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@calc(['coton', 'maïs', 'mil', 'sorgho', 'arachide', 'fourrage'].includes(@field.active_crop_name.toLowerCase()) ? 'images/' + @field.active_crop_name.toLowerCase() + '.jpg' : 'images/autre_cult_2.jpg')",
+                "matchedExpression": "@field.active_crop_name.toLowerCase",
+                "type": "field",
+                "fieldName": "active_crop_name"
+              },
+              {
+                "fullExpression": "@calc(['coton', 'maïs', 'mil', 'sorgho', 'arachide', 'fourrage'].includes(@field.active_crop_name.toLowerCase()) ? 'images/' + @field.active_crop_name.toLowerCase() + '.jpg' : 'images/autre_cult_2.jpg')",
+                "matchedExpression": "@field.active_crop_name.toLowerCase",
+                "type": "field",
+                "fieldName": "active_crop_name"
+              },
+              {
+                "fullExpression": "@calc(['coton', 'maïs', 'mil', 'sorgho', 'arachide', 'fourrage'].includes(@field.active_crop_name.toLowerCase()) ? 'images/' + @field.active_crop_name.toLowerCase() + '.jpg' : 'images/autre_cult_2.jpg')",
+                "matchedExpression": "@calc(['coton', 'maïs', 'mil', 'sorgho', 'arachide', 'fourrage'].includes(@field.active_crop_name.toLowerCase()) ? 'images/' + @field.active_crop_name.toLowerCase() + '.jpg' : 'images/autre_cult_2.jpg')",
+                "type": "calc",
+                "fieldName": "['coton', 'maïs', 'mil', 'sorgho', 'arachide', 'fourrage'].includes(@field.active_crop_name.toLowerCase()) ? 'images/' + @field.active_crop_name.toLowerCase() + '.jpg' : 'images/autre_cult_2.jpg'"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@field.active_crop_name.toLowerCase": [
+              "value",
+              "value"
+            ],
+            "@calc(['coton', 'maïs', 'mil', 'sorgho', 'arachide', 'fourrage'].includes(@field.active_crop_name.toLowerCase()) ? 'images/' + @field.active_crop_name.toLowerCase() + '.jpg' : 'images/autre_cult_2.jpg')": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "html",
+          "value": "<div style=\"background: rgba(255,255,255,0.2); padding: 15px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.3);\">\n    <h3 style=\"color: black; margin: 0;\">Culture : <span style=\"color: #FFCC80;\">@field.active_crop_name</span></h3>\n</div>",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-weight: bold"
+          ],
+          "name": "html_2",
+          "_nested_name": "display_group_7.html_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<div style=\"background: rgba(255,255,255,0.2); padding: 15px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.3);\">\n    <h3 style=\"color: black; margin: 0;\">Culture : <span style=\"color: #FFCC80;\">@field.active_crop_name</span></h3>\n</div>",
+                "matchedExpression": "@field.active_crop_name",
+                "type": "field",
+                "fieldName": "active_crop_name"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@field.active_crop_name": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_7",
+      "_nested_name": "display_group_7"
+    },
+    {
+      "name": "v_total_recolte_culture",
+      "value": "@calc((Number(@field.final_cout_prestation) || 0) + (Number(@field.final_cout_battage) || 0))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_total_recolte_culture",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc((Number(@field.final_cout_prestation) || 0) + (Number(@field.final_cout_battage) || 0))",
+            "matchedExpression": "@field.final_cout_prestation",
+            "type": "field",
+            "fieldName": "final_cout_prestation"
+          },
+          {
+            "fullExpression": "@calc((Number(@field.final_cout_prestation) || 0) + (Number(@field.final_cout_battage) || 0))",
+            "matchedExpression": "@field.final_cout_battage",
+            "type": "field",
+            "fieldName": "final_cout_battage"
+          },
+          {
+            "fullExpression": "@calc((Number(@field.final_cout_prestation) || 0) + (Number(@field.final_cout_battage) || 0))",
+            "matchedExpression": "@calc((Number(@field.final_cout_prestation) || 0) + (Number(@field.final_cout_battage) || 0))",
+            "type": "calc",
+            "fieldName": "(Number(@field.final_cout_prestation) || 0) + (Number(@field.final_cout_battage) || 0)"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.final_cout_prestation": [
+          "value"
+        ],
+        "@field.final_cout_battage": [
+          "value"
+        ],
+        "@calc((Number(@field.final_cout_prestation) || 0) + (Number(@field.final_cout_battage) || 0))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "v_total_recolte_culture_fcfa",
+      "value": "@calc(@local.v_total_recolte_culture * 5)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_total_recolte_culture_fcfa",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(@local.v_total_recolte_culture * 5)",
+            "matchedExpression": "@local.v_total_recolte_culture",
+            "type": "local",
+            "fieldName": "v_total_recolte_culture"
+          },
+          {
+            "fullExpression": "@calc(@local.v_total_recolte_culture * 5)",
+            "matchedExpression": "@calc(@local.v_total_recolte_culture * 5)",
+            "type": "calc",
+            "fieldName": "@local.v_total_recolte_culture * 5"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.v_total_recolte_culture": [
+          "value"
+        ],
+        "@calc(@local.v_total_recolte_culture * 5)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "bilan_financier",
+      "style_list": [
+        "background: #f8f9fa",
+        "padding: 20px",
+        "margin-bottom: 20px"
+      ],
+      "rows": [
+        {
+          "type": "html",
+          "value": "<div style=\"color: black; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;\">Bilan Récolte : @field.active_crop_name</div>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_1",
+          "_nested_name": "bilan_financier.html_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<div style=\"color: black; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;\">Bilan Récolte : @field.active_crop_name</div>",
+                "matchedExpression": "@field.active_crop_name",
+                "type": "field",
+                "fieldName": "active_crop_name"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@field.active_crop_name": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "html",
+          "value": "<div style=\"font-size: 28px; font-weight: bold; color: #e3a730; margin-top: 10px;\">@local.v_total_recolte_culture <span style=\"font-size: 16px;\">Dram</span></div>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_2",
+          "_nested_name": "bilan_financier.html_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<div style=\"font-size: 28px; font-weight: bold; color: #e3a730; margin-top: 10px;\">@local.v_total_recolte_culture <span style=\"font-size: 16px;\">Dram</span></div>",
+                "matchedExpression": "@local.v_total_recolte_culture",
+                "type": "local",
+                "fieldName": "v_total_recolte_culture"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.v_total_recolte_culture": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "html",
+          "value": "<div style=\"color: #e3a730; font-size: 12px; margin-top: 5px;\">≈ @local.v_total_recolte_culture_fcfa FCFA</div>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_3",
+          "_nested_name": "bilan_financier.html_3",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<div style=\"color: #e3a730; font-size: 12px; margin-top: 5px;\">≈ @local.v_total_recolte_culture_fcfa FCFA</div>",
+                "matchedExpression": "@local.v_total_recolte_culture_fcfa",
+                "type": "local",
+                "fieldName": "v_total_recolte_culture_fcfa"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.v_total_recolte_culture_fcfa": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "bilan_financier"
+    },
+    {
+      "type": "html",
+      "value": "<h3 style=\"color: #e3a730; font-size: 16px;\">Une observation sur cette récolte ?</h3>",
+      "_translations": {
+        "value": {}
+      },
+      "name": "html_13",
+      "_nested_name": "html_13"
+    },
+    {
+      "type": "radio_button_grid",
+      "name": "canal_observation",
+      "value": "@field.canal_observation",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "canal_observation",
+            "this.value"
+          ],
+          "_raw": "changed | set_field: canal_observation : this.value"
+        }
+      ],
+      "parameter_list": {
+        "answer_list": "@data.group_observation",
+        "variant": "flex",
+        "item_width": "60px",
+        "grid_gap": "8px"
+      },
+      "_nested_name": "canal_observation",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@field.canal_observation",
+            "matchedExpression": "@field.canal_observation",
+            "type": "field",
+            "fieldName": "canal_observation"
+          }
+        ],
+        "parameter_list": {
+          "answer_list": [
+            {
+              "fullExpression": "@data.group_observation",
+              "matchedExpression": "@data.group_observation",
+              "type": "data",
+              "fieldName": "group_observation"
+            }
+          ]
+        }
+      },
+      "_dynamicDependencies": {
+        "@field.canal_observation": [
+          "value"
+        ],
+        "@data.group_observation": [
+          "parameter_list.answer_list"
+        ]
+      }
+    },
+    {
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "@calc('obs_audio_' + @item.name)",
+            "this.value"
+          ],
+          "_raw": "changed | set_field: @calc('obs_audio_' + @item.name) : this.value"
+        }
+      ],
+      "type": "set_variable",
+      "name": "set_variable_3",
+      "_nested_name": "set_variable_3",
+      "_dynamicFields": {
+        "action_list": {
+          "0": {
+            "args": {
+              "0": [
+                {
+                  "fullExpression": "@calc('obs_audio_' + @item.name)",
+                  "matchedExpression": "@item.name",
+                  "type": "item",
+                  "fieldName": "name"
+                },
+                {
+                  "fullExpression": "@calc('obs_audio_' + @item.name)",
+                  "matchedExpression": "@calc('obs_audio_' + @item.name)",
+                  "type": "calc",
+                  "fieldName": "'obs_audio_' + @item.name"
+                }
+              ]
+            },
+            "_raw": [
+              {
+                "fullExpression": "changed | set_field: @calc('obs_audio_' + @item.name) : this.value",
+                "matchedExpression": "@item.name",
+                "type": "item",
+                "fieldName": "name"
+              }
+            ]
+          }
+        }
+      },
+      "_dynamicDependencies": {
+        "@item.name": [
+          "action_list.0.args.0",
+          "action_list.0._raw"
+        ],
+        "@calc('obs_audio_' + @item.name)": [
+          "action_list.0.args.0"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "obs_audio",
+      "condition": "@field.canal_observation == 'par_vocal'",
+      "style_list": [
+        "display: block",
+        "width: 100%"
+      ],
+      "rows": [
+        {
+          "type": "audio",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/recolte/Ob_audio_recoltes_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "exclude_from_translation": true,
+          "style_list": [
+            "float: right"
+          ],
+          "name": "audio_1",
+          "_nested_name": "obs_audio.audio_1"
+        },
+        {
+          "type": "text",
+          "value": "Enregistrez votre témoignage vocal ci-dessus.",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_2",
+          "_nested_name": "obs_audio.text_2"
+        }
+      ],
+      "_nested_name": "obs_audio",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@field.canal_observation == 'par_vocal'",
+            "matchedExpression": "@field.canal_observation",
+            "type": "field",
+            "fieldName": "canal_observation"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.canal_observation": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "@calc('obs_photo_' + @item.name)",
+            "this.value"
+          ],
+          "_raw": "changed | set_field: @calc('obs_photo_' + @item.name) : this.value"
+        }
+      ],
+      "type": "set_variable",
+      "name": "set_variable_3",
+      "_nested_name": "set_variable_3",
+      "_dynamicFields": {
+        "action_list": {
+          "0": {
+            "args": {
+              "0": [
+                {
+                  "fullExpression": "@calc('obs_photo_' + @item.name)",
+                  "matchedExpression": "@item.name",
+                  "type": "item",
+                  "fieldName": "name"
+                },
+                {
+                  "fullExpression": "@calc('obs_photo_' + @item.name)",
+                  "matchedExpression": "@calc('obs_photo_' + @item.name)",
+                  "type": "calc",
+                  "fieldName": "'obs_photo_' + @item.name"
+                }
+              ]
+            },
+            "_raw": [
+              {
+                "fullExpression": "changed | set_field: @calc('obs_photo_' + @item.name) : this.value",
+                "matchedExpression": "@item.name",
+                "type": "item",
+                "fieldName": "name"
+              }
+            ]
+          }
+        }
+      },
+      "_dynamicDependencies": {
+        "@item.name": [
+          "action_list.0.args.0",
+          "action_list.0._raw"
+        ],
+        "@calc('obs_photo_' + @item.name)": [
+          "action_list.0.args.0"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "obs_photo",
+      "condition": "@field.canal_observation == 'par_photo'",
+      "style_list": [
+        "display: block",
+        "width: 100%"
+      ],
+      "rows": [
+        {
+          "type": "audio",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/recolte/Ob_photo_recoltes_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "exclude_from_translation": true,
+          "style_list": [
+            "float: right"
+          ],
+          "name": "audio_1",
+          "_nested_name": "obs_photo.audio_1"
+        },
+        {
+          "type": "text",
+          "value": "Prenez une photo d'un point précis du champ.",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_2",
+          "_nested_name": "obs_photo.text_2"
+        }
+      ],
+      "_nested_name": "obs_photo",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@field.canal_observation == 'par_photo'",
+            "matchedExpression": "@field.canal_observation",
+            "type": "field",
+            "fieldName": "canal_observation"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.canal_observation": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "obs_video",
+      "condition": "@field.canal_observation == 'par_video'",
+      "style_list": [
+        "display: block",
+        "width: 100%"
+      ],
+      "rows": [
+        {
+          "type": "audio",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/recolte/Ob_video_recoltes_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "exclude_from_translation": true,
+          "style_list": [
+            "float: right"
+          ],
+          "name": "audio_1",
+          "_nested_name": "obs_video.audio_1"
+        },
+        {
+          "type": "text",
+          "value": "Filmez l'état général de la culture.",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_2",
+          "_nested_name": "obs_video.text_2"
+        }
+      ],
+      "_nested_name": "obs_video",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@field.canal_observation == 'par_video'",
+            "matchedExpression": "@field.canal_observation",
+            "type": "field",
+            "fieldName": "canal_observation"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.canal_observation": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "obs_text",
+      "condition": "@field.canal_observation == 'par_text'",
+      "style_list": [
+        "display: block",
+        "width: 100%"
+      ],
+      "rows": [
+        {
+          "type": "audio",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/recolte/Ob_ecrit_recoltes_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "exclude_from_translation": true,
+          "style_list": [
+            "float: right"
+          ],
+          "name": "audio_1",
+          "_nested_name": "obs_text.audio_1"
+        },
+        {
+          "type": "text_area",
+          "parameter_list": {
+            "placeholder": "Saisissez vos remarques...",
+            "multiline": "true"
+          },
+          "style_list": [
+            "font-size: 12px",
+            "font-style: italic"
+          ],
+          "name": "text_area_2",
+          "_nested_name": "obs_text.text_area_2"
+        }
+      ],
+      "_nested_name": "obs_text",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@field.canal_observation == 'par_text'",
+            "matchedExpression": "@field.canal_observation",
+            "type": "field",
+            "fieldName": "canal_observation"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.canal_observation": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "v_page7_valid",
+      "value": "@calc(@field.canal_observation !== undefined && @field.canal_observation !== '')",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_page7_valid",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(@field.canal_observation !== undefined && @field.canal_observation !== '')",
+            "matchedExpression": "@field.canal_observation",
+            "type": "field",
+            "fieldName": "canal_observation"
+          },
+          {
+            "fullExpression": "@calc(@field.canal_observation !== undefined && @field.canal_observation !== '')",
+            "matchedExpression": "@field.canal_observation",
+            "type": "field",
+            "fieldName": "canal_observation"
+          },
+          {
+            "fullExpression": "@calc(@field.canal_observation !== undefined && @field.canal_observation !== '')",
+            "matchedExpression": "@calc(@field.canal_observation !== undefined && @field.canal_observation !== '')",
+            "type": "calc",
+            "fieldName": "@field.canal_observation !== undefined && @field.canal_observation !== ''"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.canal_observation": [
+          "value",
+          "value"
+        ],
+        "@calc(@field.canal_observation !== undefined && @field.canal_observation !== '')": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "v_new_idx",
+      "value": "@calc(Number(@field.current_idx) + 1)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_new_idx",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Number(@field.current_idx) + 1)",
+            "matchedExpression": "@field.current_idx",
+            "type": "field",
+            "fieldName": "current_idx"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.current_idx) + 1)",
+            "matchedExpression": "@calc(Number(@field.current_idx) + 1)",
+            "type": "calc",
+            "fieldName": "Number(@field.current_idx) + 1"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.current_idx": [
+          "value"
+        ],
+        "@calc(Number(@field.current_idx) + 1)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "v_new_total",
+      "value": "@calc((Number(@field.grand_total_recolte) || 0) + Number(@local.v_total_recolte_culture))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_new_total",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc((Number(@field.grand_total_recolte) || 0) + Number(@local.v_total_recolte_culture))",
+            "matchedExpression": "@field.grand_total_recolte",
+            "type": "field",
+            "fieldName": "grand_total_recolte"
+          },
+          {
+            "fullExpression": "@calc((Number(@field.grand_total_recolte) || 0) + Number(@local.v_total_recolte_culture))",
+            "matchedExpression": "@local.v_total_recolte_culture",
+            "type": "local",
+            "fieldName": "v_total_recolte_culture"
+          },
+          {
+            "fullExpression": "@calc((Number(@field.grand_total_recolte) || 0) + Number(@local.v_total_recolte_culture))",
+            "matchedExpression": "@calc((Number(@field.grand_total_recolte) || 0) + Number(@local.v_total_recolte_culture))",
+            "type": "calc",
+            "fieldName": "(Number(@field.grand_total_recolte) || 0) + Number(@local.v_total_recolte_culture)"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.grand_total_recolte": [
+          "value"
+        ],
+        "@local.v_total_recolte_culture": [
+          "value"
+        ],
+        "@calc((Number(@field.grand_total_recolte) || 0) + Number(@local.v_total_recolte_culture))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "dg_footer",
+      "parameter_list": {
+        "sticky": "bottom"
+      },
+      "style_list": [
+        "padding: 12px 24px"
+      ],
+      "rows": [
+        {
+          "type": "round_button",
+          "name": "button_back",
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "uncompleted"
+              ],
+              "_raw": "click | emit: uncompleted"
+            }
+          ],
+          "parameter_list": {
+            "icon_src": "arrow-back",
+            "variant": "no-background"
+          },
+          "_nested_name": "dg_footer.button_back"
+        },
+        {
+          "type": "button",
+          "name": "button_completed",
+          "value": "@global.btn_continue",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "add_data",
+              "args": [],
+              "_raw": "click | add_data | \n    _list_id: recolte_summary_list, \n    culture: @field.active_crop_name,\n    superficie: @field.sup_prestation,\n    cout_prestation: @field.final_cout_prestation,\n    production_kg: @field.production,\n    cout_battage: @field.final_cout_battage,\n    residus_charretee: @field.production_residu_culture,\n    fanes_botte: @field.nombre_botte,\n    observation_canal: @field.canal_observation,\n    cout_total_culture: @local.v_total_recolte_culture",
+              "params": {
+                "_list_id": "recolte_summary_list",
+                "culture": "@field.active_crop_name",
+                "superficie": "@field.sup_prestation",
+                "cout_prestation": "@field.final_cout_prestation",
+                "production_kg": "@field.production",
+                "cout_battage": "@field.final_cout_battage",
+                "residus_charretee": "@field.production_residu_culture",
+                "fanes_botte": "@field.nombre_botte",
+                "observation_canal": "@field.canal_observation",
+                "cout_total_culture": "@local.v_total_recolte_culture"
+              }
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "grand_total_recolte",
+                "@local.v_new_total"
+              ],
+              "_raw": "click | set_field: grand_total_recolte : @local.v_new_total"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_data",
+              "args": [],
+              "_raw": "click | set_data | _list_id: recolte_settings_pages, _index: 3, completed: false",
+              "params": {
+                "_list_id": "recolte_settings_pages",
+                "_index": 3,
+                "completed": false
+              }
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_data",
+              "args": [],
+              "_raw": "click | set_data | _list_id: recolte_settings_pages, _index: 4, completed: false",
+              "params": {
+                "_list_id": "recolte_settings_pages",
+                "_index": 4,
+                "completed": false
+              }
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_data",
+              "args": [],
+              "_raw": "click | set_data | _list_id: recolte_settings_pages, _index: 5, completed: false",
+              "params": {
+                "_list_id": "recolte_settings_pages",
+                "_index": 5,
+                "completed": false
+              }
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_data",
+              "args": [],
+              "_raw": "click | set_data | _list_id: recolte_settings_pages, _index: 6, completed: false",
+              "params": {
+                "_list_id": "recolte_settings_pages",
+                "_index": 6,
+                "completed": false
+              }
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "sup_prestation",
+                ""
+              ],
+              "_raw": "click | set_field: sup_prestation :"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "cout_recolte_val",
+                ""
+              ],
+              "_raw": "click | set_field: cout_recolte_val :"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "production",
+                ""
+              ],
+              "_raw": "click | set_field: production :"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "cout_total_battage_nonzero",
+                "click"
+              ],
+              "_raw": "click | set_field: cout_total_battage_nonzero :\nclick | set_field: production_residu_culture :",
+              "params": {
+                "set_field": "production_residu_culture"
+              }
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "nombre_botte",
+                ""
+              ],
+              "_raw": "click | set_field: nombre_botte :"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "canal_observation",
+                ""
+              ],
+              "_raw": "click | set_field: canal_observation :"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "current_idx",
+                "@local.v_new_idx"
+              ],
+              "_raw": "click | set_field: current_idx : @local.v_new_idx"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "active_crop_name",
+                "@calc(@field.selected_recolte_list.split(',')[@local.v_new_idx])"
+              ],
+              "_raw": "click | set_field: active_crop_name : @calc(@field.selected_recolte_list.split(',')[@local.v_new_idx])"
+            },
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "force_reprocess"
+              ],
+              "_raw": "click | emit: force_reprocess"
+            }
+          ],
+          "parameter_list": {
+            "style": "navigation",
+            "disabled": "!@local.v_page7_valid"
+          },
+          "condition": "!@local.v_is_last_crop",
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "dg_footer.button_completed",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.btn_continue",
+                "matchedExpression": "@global.btn_continue",
+                "type": "global",
+                "fieldName": "btn_continue"
+              }
+            ],
+            "action_list": {
+              "0": {
+                "_raw": [
+                  {
+                    "fullExpression": "click | add_data | \n    _list_id: recolte_summary_list, \n    culture: @field.active_crop_name,\n    superficie: @field.sup_prestation,\n    cout_prestation: @field.final_cout_prestation,\n    production_kg: @field.production,\n    cout_battage: @field.final_cout_battage,\n    residus_charretee: @field.production_residu_culture,\n    fanes_botte: @field.nombre_botte,\n    observation_canal: @field.canal_observation,\n    cout_total_culture: @local.v_total_recolte_culture",
+                    "matchedExpression": "@field.active_crop_name",
+                    "type": "field",
+                    "fieldName": "active_crop_name"
+                  },
+                  {
+                    "fullExpression": "click | add_data | \n    _list_id: recolte_summary_list, \n    culture: @field.active_crop_name,\n    superficie: @field.sup_prestation,\n    cout_prestation: @field.final_cout_prestation,\n    production_kg: @field.production,\n    cout_battage: @field.final_cout_battage,\n    residus_charretee: @field.production_residu_culture,\n    fanes_botte: @field.nombre_botte,\n    observation_canal: @field.canal_observation,\n    cout_total_culture: @local.v_total_recolte_culture",
+                    "matchedExpression": "@field.sup_prestation",
+                    "type": "field",
+                    "fieldName": "sup_prestation"
+                  },
+                  {
+                    "fullExpression": "click | add_data | \n    _list_id: recolte_summary_list, \n    culture: @field.active_crop_name,\n    superficie: @field.sup_prestation,\n    cout_prestation: @field.final_cout_prestation,\n    production_kg: @field.production,\n    cout_battage: @field.final_cout_battage,\n    residus_charretee: @field.production_residu_culture,\n    fanes_botte: @field.nombre_botte,\n    observation_canal: @field.canal_observation,\n    cout_total_culture: @local.v_total_recolte_culture",
+                    "matchedExpression": "@field.final_cout_prestation",
+                    "type": "field",
+                    "fieldName": "final_cout_prestation"
+                  },
+                  {
+                    "fullExpression": "click | add_data | \n    _list_id: recolte_summary_list, \n    culture: @field.active_crop_name,\n    superficie: @field.sup_prestation,\n    cout_prestation: @field.final_cout_prestation,\n    production_kg: @field.production,\n    cout_battage: @field.final_cout_battage,\n    residus_charretee: @field.production_residu_culture,\n    fanes_botte: @field.nombre_botte,\n    observation_canal: @field.canal_observation,\n    cout_total_culture: @local.v_total_recolte_culture",
+                    "matchedExpression": "@field.production",
+                    "type": "field",
+                    "fieldName": "production"
+                  },
+                  {
+                    "fullExpression": "click | add_data | \n    _list_id: recolte_summary_list, \n    culture: @field.active_crop_name,\n    superficie: @field.sup_prestation,\n    cout_prestation: @field.final_cout_prestation,\n    production_kg: @field.production,\n    cout_battage: @field.final_cout_battage,\n    residus_charretee: @field.production_residu_culture,\n    fanes_botte: @field.nombre_botte,\n    observation_canal: @field.canal_observation,\n    cout_total_culture: @local.v_total_recolte_culture",
+                    "matchedExpression": "@field.final_cout_battage",
+                    "type": "field",
+                    "fieldName": "final_cout_battage"
+                  },
+                  {
+                    "fullExpression": "click | add_data | \n    _list_id: recolte_summary_list, \n    culture: @field.active_crop_name,\n    superficie: @field.sup_prestation,\n    cout_prestation: @field.final_cout_prestation,\n    production_kg: @field.production,\n    cout_battage: @field.final_cout_battage,\n    residus_charretee: @field.production_residu_culture,\n    fanes_botte: @field.nombre_botte,\n    observation_canal: @field.canal_observation,\n    cout_total_culture: @local.v_total_recolte_culture",
+                    "matchedExpression": "@field.production_residu_culture",
+                    "type": "field",
+                    "fieldName": "production_residu_culture"
+                  },
+                  {
+                    "fullExpression": "click | add_data | \n    _list_id: recolte_summary_list, \n    culture: @field.active_crop_name,\n    superficie: @field.sup_prestation,\n    cout_prestation: @field.final_cout_prestation,\n    production_kg: @field.production,\n    cout_battage: @field.final_cout_battage,\n    residus_charretee: @field.production_residu_culture,\n    fanes_botte: @field.nombre_botte,\n    observation_canal: @field.canal_observation,\n    cout_total_culture: @local.v_total_recolte_culture",
+                    "matchedExpression": "@field.nombre_botte",
+                    "type": "field",
+                    "fieldName": "nombre_botte"
+                  },
+                  {
+                    "fullExpression": "click | add_data | \n    _list_id: recolte_summary_list, \n    culture: @field.active_crop_name,\n    superficie: @field.sup_prestation,\n    cout_prestation: @field.final_cout_prestation,\n    production_kg: @field.production,\n    cout_battage: @field.final_cout_battage,\n    residus_charretee: @field.production_residu_culture,\n    fanes_botte: @field.nombre_botte,\n    observation_canal: @field.canal_observation,\n    cout_total_culture: @local.v_total_recolte_culture",
+                    "matchedExpression": "@field.canal_observation",
+                    "type": "field",
+                    "fieldName": "canal_observation"
+                  },
+                  {
+                    "fullExpression": "click | add_data | \n    _list_id: recolte_summary_list, \n    culture: @field.active_crop_name,\n    superficie: @field.sup_prestation,\n    cout_prestation: @field.final_cout_prestation,\n    production_kg: @field.production,\n    cout_battage: @field.final_cout_battage,\n    residus_charretee: @field.production_residu_culture,\n    fanes_botte: @field.nombre_botte,\n    observation_canal: @field.canal_observation,\n    cout_total_culture: @local.v_total_recolte_culture",
+                    "matchedExpression": "@local.v_total_recolte_culture",
+                    "type": "local",
+                    "fieldName": "v_total_recolte_culture"
+                  }
+                ],
+                "params": {
+                  "culture": [
+                    {
+                      "fullExpression": "@field.active_crop_name",
+                      "matchedExpression": "@field.active_crop_name",
+                      "type": "field",
+                      "fieldName": "active_crop_name"
+                    }
+                  ],
+                  "superficie": [
+                    {
+                      "fullExpression": "@field.sup_prestation",
+                      "matchedExpression": "@field.sup_prestation",
+                      "type": "field",
+                      "fieldName": "sup_prestation"
+                    }
+                  ],
+                  "cout_prestation": [
+                    {
+                      "fullExpression": "@field.final_cout_prestation",
+                      "matchedExpression": "@field.final_cout_prestation",
+                      "type": "field",
+                      "fieldName": "final_cout_prestation"
+                    }
+                  ],
+                  "production_kg": [
+                    {
+                      "fullExpression": "@field.production",
+                      "matchedExpression": "@field.production",
+                      "type": "field",
+                      "fieldName": "production"
+                    }
+                  ],
+                  "cout_battage": [
+                    {
+                      "fullExpression": "@field.final_cout_battage",
+                      "matchedExpression": "@field.final_cout_battage",
+                      "type": "field",
+                      "fieldName": "final_cout_battage"
+                    }
+                  ],
+                  "residus_charretee": [
+                    {
+                      "fullExpression": "@field.production_residu_culture",
+                      "matchedExpression": "@field.production_residu_culture",
+                      "type": "field",
+                      "fieldName": "production_residu_culture"
+                    }
+                  ],
+                  "fanes_botte": [
+                    {
+                      "fullExpression": "@field.nombre_botte",
+                      "matchedExpression": "@field.nombre_botte",
+                      "type": "field",
+                      "fieldName": "nombre_botte"
+                    }
+                  ],
+                  "observation_canal": [
+                    {
+                      "fullExpression": "@field.canal_observation",
+                      "matchedExpression": "@field.canal_observation",
+                      "type": "field",
+                      "fieldName": "canal_observation"
+                    }
+                  ],
+                  "cout_total_culture": [
+                    {
+                      "fullExpression": "@local.v_total_recolte_culture",
+                      "matchedExpression": "@local.v_total_recolte_culture",
+                      "type": "local",
+                      "fieldName": "v_total_recolte_culture"
+                    }
+                  ]
+                }
+              },
+              "1": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@local.v_new_total",
+                      "matchedExpression": "@local.v_new_total",
+                      "type": "local",
+                      "fieldName": "v_new_total"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: grand_total_recolte : @local.v_new_total",
+                    "matchedExpression": "@local.v_new_total",
+                    "type": "local",
+                    "fieldName": "v_new_total"
+                  }
+                ]
+              },
+              "12": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@local.v_new_idx",
+                      "matchedExpression": "@local.v_new_idx",
+                      "type": "local",
+                      "fieldName": "v_new_idx"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: current_idx : @local.v_new_idx",
+                    "matchedExpression": "@local.v_new_idx",
+                    "type": "local",
+                    "fieldName": "v_new_idx"
+                  }
+                ]
+              },
+              "13": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@calc(@field.selected_recolte_list.split(',')[@local.v_new_idx])",
+                      "matchedExpression": "@field.selected_recolte_list.split",
+                      "type": "field",
+                      "fieldName": "selected_recolte_list"
+                    },
+                    {
+                      "fullExpression": "@calc(@field.selected_recolte_list.split(',')[@local.v_new_idx])",
+                      "matchedExpression": "@local.v_new_idx",
+                      "type": "local",
+                      "fieldName": "v_new_idx"
+                    },
+                    {
+                      "fullExpression": "@calc(@field.selected_recolte_list.split(',')[@local.v_new_idx])",
+                      "matchedExpression": "@calc(@field.selected_recolte_list.split(',')[@local.v_new_idx])",
+                      "type": "calc",
+                      "fieldName": "@field.selected_recolte_list.split(',')[@local.v_new_idx]"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: active_crop_name : @calc(@field.selected_recolte_list.split(',')[@local.v_new_idx])",
+                    "matchedExpression": "@field.selected_recolte_list.split",
+                    "type": "field",
+                    "fieldName": "selected_recolte_list"
+                  },
+                  {
+                    "fullExpression": "click | set_field: active_crop_name : @calc(@field.selected_recolte_list.split(',')[@local.v_new_idx])",
+                    "matchedExpression": "@local.v_new_idx",
+                    "type": "local",
+                    "fieldName": "v_new_idx"
+                  },
+                  {
+                    "fullExpression": "click | set_field: active_crop_name : @calc(@field.selected_recolte_list.split(',')[@local.v_new_idx])",
+                    "matchedExpression": "@calc(@field.selected_recolte_list.split(',')[@local.v_new_idx])",
+                    "type": "calc",
+                    "fieldName": "@field.selected_recolte_list.split(',')[@local.v_new_idx]"
+                  }
+                ]
+              }
+            },
+            "parameter_list": {
+              "disabled": [
+                {
+                  "fullExpression": "!@local.v_page7_valid",
+                  "matchedExpression": "!@local.v_page7_valid",
+                  "type": "local",
+                  "fieldName": "v_page7_valid"
+                }
+              ]
+            },
+            "condition": [
+              {
+                "fullExpression": "!@local.v_is_last_crop",
+                "matchedExpression": "!@local.v_is_last_crop",
+                "type": "local",
+                "fieldName": "v_is_last_crop"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.btn_continue": [
+              "value"
+            ],
+            "@field.active_crop_name": [
+              "action_list.0._raw",
+              "action_list.0.params.culture"
+            ],
+            "@field.sup_prestation": [
+              "action_list.0._raw",
+              "action_list.0.params.superficie"
+            ],
+            "@field.final_cout_prestation": [
+              "action_list.0._raw",
+              "action_list.0.params.cout_prestation"
+            ],
+            "@field.production": [
+              "action_list.0._raw",
+              "action_list.0.params.production_kg"
+            ],
+            "@field.final_cout_battage": [
+              "action_list.0._raw",
+              "action_list.0.params.cout_battage"
+            ],
+            "@field.production_residu_culture": [
+              "action_list.0._raw",
+              "action_list.0.params.residus_charretee"
+            ],
+            "@field.nombre_botte": [
+              "action_list.0._raw",
+              "action_list.0.params.fanes_botte"
+            ],
+            "@field.canal_observation": [
+              "action_list.0._raw",
+              "action_list.0.params.observation_canal"
+            ],
+            "@local.v_total_recolte_culture": [
+              "action_list.0._raw",
+              "action_list.0.params.cout_total_culture"
+            ],
+            "@local.v_new_total": [
+              "action_list.1.args.1",
+              "action_list.1._raw"
+            ],
+            "@local.v_new_idx": [
+              "action_list.12.args.1",
+              "action_list.12._raw",
+              "action_list.13.args.1",
+              "action_list.13._raw"
+            ],
+            "@field.selected_recolte_list.split": [
+              "action_list.13.args.1",
+              "action_list.13._raw"
+            ],
+            "@calc(@field.selected_recolte_list.split(',')[@local.v_new_idx])": [
+              "action_list.13.args.1",
+              "action_list.13._raw"
+            ],
+            "!@local.v_page7_valid": [
+              "parameter_list.disabled"
+            ],
+            "!@local.v_is_last_crop": [
+              "condition"
+            ]
+          }
+        },
+        {
+          "type": "button",
+          "name": "button_completed",
+          "value": "Terminer",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "total_recolte_culture",
+                "@local.v_total_recolte_culture"
+              ],
+              "_raw": "click | set_field: total_recolte_culture : @local.v_total_recolte_culture"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "grand_total_recolte",
+                "@local.v_new_total"
+              ],
+              "_raw": "click | set_field: grand_total_recolte : @local.v_new_total"
+            },
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "completed"
+              ],
+              "_raw": "click | emit: completed"
+            }
+          ],
+          "parameter_list": {
+            "style": "navigation",
+            "disabled": "!@local.v_page7_valid"
+          },
+          "condition": "@local.v_is_last_crop",
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "dg_footer.button_completed",
+          "_dynamicFields": {
+            "action_list": {
+              "0": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@local.v_total_recolte_culture",
+                      "matchedExpression": "@local.v_total_recolte_culture",
+                      "type": "local",
+                      "fieldName": "v_total_recolte_culture"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: total_recolte_culture : @local.v_total_recolte_culture",
+                    "matchedExpression": "@local.v_total_recolte_culture",
+                    "type": "local",
+                    "fieldName": "v_total_recolte_culture"
+                  }
+                ]
+              },
+              "1": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@local.v_new_total",
+                      "matchedExpression": "@local.v_new_total",
+                      "type": "local",
+                      "fieldName": "v_new_total"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: grand_total_recolte : @local.v_new_total",
+                    "matchedExpression": "@local.v_new_total",
+                    "type": "local",
+                    "fieldName": "v_new_total"
+                  }
+                ]
+              }
+            },
+            "parameter_list": {
+              "disabled": [
+                {
+                  "fullExpression": "!@local.v_page7_valid",
+                  "matchedExpression": "!@local.v_page7_valid",
+                  "type": "local",
+                  "fieldName": "v_page7_valid"
+                }
+              ]
+            },
+            "condition": [
+              {
+                "fullExpression": "@local.v_is_last_crop",
+                "matchedExpression": "@local.v_is_last_crop",
+                "type": "local",
+                "fieldName": "v_is_last_crop"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.v_total_recolte_culture": [
+              "action_list.0.args.1",
+              "action_list.0._raw"
+            ],
+            "@local.v_new_total": [
+              "action_list.1.args.1",
+              "action_list.1._raw"
+            ],
+            "!@local.v_page7_valid": [
+              "parameter_list.disabled"
+            ],
+            "@local.v_is_last_crop": [
+              "condition"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "dg_footer"
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/Recolte_form_sheets.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/1Ntx5DFmilfEnlVuuxWLQ2UmbTS8HV8mlyPWYLNnCE2U"
+  }
+}

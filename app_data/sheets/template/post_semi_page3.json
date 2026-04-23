@@ -34,16 +34,16 @@
           "_nested_name": "display_group_3.audio_select_cul"
         },
         {
-          "type": "text",
-          "value": "Sélectionnez vos culture(s) principales*",
+          "type": "html",
+          "value": "Sélectionnez vos culture(s) principales<span style=\"color: red;\">*</span>",
           "_translations": {
             "value": {}
           },
           "style_list": [
             "font-weight: bold"
           ],
-          "name": "text_2",
-          "_nested_name": "display_group_3.text_2"
+          "name": "html_2",
+          "_nested_name": "display_group_3.html_2"
         },
         {
           "type": "text",
@@ -339,7 +339,7 @@
     },
     {
       "type": "text",
-      "value": "Veuillez sélectionner au moins une culture!",
+      "value": "Veuillez sélectionner au moins une culture pour continuer.",
       "_translations": {
         "value": {}
       },
@@ -369,56 +369,89 @@
       }
     },
     {
-      "name": "v_total_calc",
-      "value": "@calc([(@field.cul_mais?1:0), (@field.cul_mil?1:0), (@field.cul_sorgho?1:0), (@field.cul_coton?1:0), (@field.cul_arachide?1:0), (@field.cul_fourrage?1:0)].reduce((a, b) => a + b, 0))",
+      "name": "completed_enabled",
+      "value": "@calc(@local.v_has_selection)",
       "_translations": {
         "value": {}
       },
       "type": "set_variable",
-      "_nested_name": "v_total_calc",
+      "_nested_name": "completed_enabled",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc([(@field.cul_mais?1:0), (@field.cul_mil?1:0), (@field.cul_sorgho?1:0), (@field.cul_coton?1:0), (@field.cul_arachide?1:0), (@field.cul_fourrage?1:0)].reduce((a, b) => a + b, 0))",
+            "fullExpression": "@calc(@local.v_has_selection)",
+            "matchedExpression": "@local.v_has_selection",
+            "type": "local",
+            "fieldName": "v_has_selection"
+          },
+          {
+            "fullExpression": "@calc(@local.v_has_selection)",
+            "matchedExpression": "@calc(@local.v_has_selection)",
+            "type": "calc",
+            "fieldName": "@local.v_has_selection"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.v_has_selection": [
+          "value"
+        ],
+        "@calc(@local.v_has_selection)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "v_list",
+      "value": "@calc([@field.cul_mais?'mais':null,@field.cul_mil?'mil':null,@field.cul_sorgho?'sorgho':null,@field.cul_coton?'coton':null,@field.cul_arachide?'arachide':null,@field.cul_fourrage?'fourrage':null].filter(v=>v!==null).join(','))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_list",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc([@field.cul_mais?'mais':null,@field.cul_mil?'mil':null,@field.cul_sorgho?'sorgho':null,@field.cul_coton?'coton':null,@field.cul_arachide?'arachide':null,@field.cul_fourrage?'fourrage':null].filter(v=>v!==null).join(','))",
             "matchedExpression": "@field.cul_mais",
             "type": "field",
             "fieldName": "cul_mais"
           },
           {
-            "fullExpression": "@calc([(@field.cul_mais?1:0), (@field.cul_mil?1:0), (@field.cul_sorgho?1:0), (@field.cul_coton?1:0), (@field.cul_arachide?1:0), (@field.cul_fourrage?1:0)].reduce((a, b) => a + b, 0))",
+            "fullExpression": "@calc([@field.cul_mais?'mais':null,@field.cul_mil?'mil':null,@field.cul_sorgho?'sorgho':null,@field.cul_coton?'coton':null,@field.cul_arachide?'arachide':null,@field.cul_fourrage?'fourrage':null].filter(v=>v!==null).join(','))",
             "matchedExpression": "@field.cul_mil",
             "type": "field",
             "fieldName": "cul_mil"
           },
           {
-            "fullExpression": "@calc([(@field.cul_mais?1:0), (@field.cul_mil?1:0), (@field.cul_sorgho?1:0), (@field.cul_coton?1:0), (@field.cul_arachide?1:0), (@field.cul_fourrage?1:0)].reduce((a, b) => a + b, 0))",
+            "fullExpression": "@calc([@field.cul_mais?'mais':null,@field.cul_mil?'mil':null,@field.cul_sorgho?'sorgho':null,@field.cul_coton?'coton':null,@field.cul_arachide?'arachide':null,@field.cul_fourrage?'fourrage':null].filter(v=>v!==null).join(','))",
             "matchedExpression": "@field.cul_sorgho",
             "type": "field",
             "fieldName": "cul_sorgho"
           },
           {
-            "fullExpression": "@calc([(@field.cul_mais?1:0), (@field.cul_mil?1:0), (@field.cul_sorgho?1:0), (@field.cul_coton?1:0), (@field.cul_arachide?1:0), (@field.cul_fourrage?1:0)].reduce((a, b) => a + b, 0))",
+            "fullExpression": "@calc([@field.cul_mais?'mais':null,@field.cul_mil?'mil':null,@field.cul_sorgho?'sorgho':null,@field.cul_coton?'coton':null,@field.cul_arachide?'arachide':null,@field.cul_fourrage?'fourrage':null].filter(v=>v!==null).join(','))",
             "matchedExpression": "@field.cul_coton",
             "type": "field",
             "fieldName": "cul_coton"
           },
           {
-            "fullExpression": "@calc([(@field.cul_mais?1:0), (@field.cul_mil?1:0), (@field.cul_sorgho?1:0), (@field.cul_coton?1:0), (@field.cul_arachide?1:0), (@field.cul_fourrage?1:0)].reduce((a, b) => a + b, 0))",
+            "fullExpression": "@calc([@field.cul_mais?'mais':null,@field.cul_mil?'mil':null,@field.cul_sorgho?'sorgho':null,@field.cul_coton?'coton':null,@field.cul_arachide?'arachide':null,@field.cul_fourrage?'fourrage':null].filter(v=>v!==null).join(','))",
             "matchedExpression": "@field.cul_arachide",
             "type": "field",
             "fieldName": "cul_arachide"
           },
           {
-            "fullExpression": "@calc([(@field.cul_mais?1:0), (@field.cul_mil?1:0), (@field.cul_sorgho?1:0), (@field.cul_coton?1:0), (@field.cul_arachide?1:0), (@field.cul_fourrage?1:0)].reduce((a, b) => a + b, 0))",
+            "fullExpression": "@calc([@field.cul_mais?'mais':null,@field.cul_mil?'mil':null,@field.cul_sorgho?'sorgho':null,@field.cul_coton?'coton':null,@field.cul_arachide?'arachide':null,@field.cul_fourrage?'fourrage':null].filter(v=>v!==null).join(','))",
             "matchedExpression": "@field.cul_fourrage",
             "type": "field",
             "fieldName": "cul_fourrage"
           },
           {
-            "fullExpression": "@calc([(@field.cul_mais?1:0), (@field.cul_mil?1:0), (@field.cul_sorgho?1:0), (@field.cul_coton?1:0), (@field.cul_arachide?1:0), (@field.cul_fourrage?1:0)].reduce((a, b) => a + b, 0))",
-            "matchedExpression": "@calc([(@field.cul_mais?1:0), (@field.cul_mil?1:0), (@field.cul_sorgho?1:0), (@field.cul_coton?1:0), (@field.cul_arachide?1:0), (@field.cul_fourrage?1:0)].reduce((a, b) => a + b, 0))",
+            "fullExpression": "@calc([@field.cul_mais?'mais':null,@field.cul_mil?'mil':null,@field.cul_sorgho?'sorgho':null,@field.cul_coton?'coton':null,@field.cul_arachide?'arachide':null,@field.cul_fourrage?'fourrage':null].filter(v=>v!==null).join(','))",
+            "matchedExpression": "@calc([@field.cul_mais?'mais':null,@field.cul_mil?'mil':null,@field.cul_sorgho?'sorgho':null,@field.cul_coton?'coton':null,@field.cul_arachide?'arachide':null,@field.cul_fourrage?'fourrage':null].filter(v=>v!==null).join(','))",
             "type": "calc",
-            "fieldName": "[(@field.cul_mais?1:0), (@field.cul_mil?1:0), (@field.cul_sorgho?1:0), (@field.cul_coton?1:0), (@field.cul_arachide?1:0), (@field.cul_fourrage?1:0)].reduce((a, b) => a + b, 0)"
+            "fieldName": "[@field.cul_mais?'mais':null,@field.cul_mil?'mil':null,@field.cul_sorgho?'sorgho':null,@field.cul_coton?'coton':null,@field.cul_arachide?'arachide':null,@field.cul_fourrage?'fourrage':null].filter(v=>v!==null).join(',')"
           }
         ]
       },
@@ -441,40 +474,163 @@
         "@field.cul_fourrage": [
           "value"
         ],
-        "@calc([(@field.cul_mais?1:0), (@field.cul_mil?1:0), (@field.cul_sorgho?1:0), (@field.cul_coton?1:0), (@field.cul_arachide?1:0), (@field.cul_fourrage?1:0)].reduce((a, b) => a + b, 0))": [
+        "@calc([@field.cul_mais?'mais':null,@field.cul_mil?'mil':null,@field.cul_sorgho?'sorgho':null,@field.cul_coton?'coton':null,@field.cul_arachide?'arachide':null,@field.cul_fourrage?'fourrage':null].filter(v=>v!==null).join(','))": [
           "value"
         ]
       }
     },
     {
-      "name": "completed_enabled",
-      "value": "@calc(!!@local.v_has_selection)",
+      "name": "v_count",
+      "value": "@calc([@field.cul_mais,@field.cul_mil,@field.cul_sorgho,@field.cul_coton,@field.cul_arachide,@field.cul_fourrage].filter(v=>!!v).length)",
       "_translations": {
         "value": {}
       },
       "type": "set_variable",
-      "_nested_name": "completed_enabled",
+      "_nested_name": "v_count",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc(!!@local.v_has_selection)",
-            "matchedExpression": "!@local.v_has_selection",
-            "type": "local",
-            "fieldName": "v_has_selection"
+            "fullExpression": "@calc([@field.cul_mais,@field.cul_mil,@field.cul_sorgho,@field.cul_coton,@field.cul_arachide,@field.cul_fourrage].filter(v=>!!v).length)",
+            "matchedExpression": "@field.cul_mais",
+            "type": "field",
+            "fieldName": "cul_mais"
           },
           {
-            "fullExpression": "@calc(!!@local.v_has_selection)",
-            "matchedExpression": "@calc(!!@local.v_has_selection)",
+            "fullExpression": "@calc([@field.cul_mais,@field.cul_mil,@field.cul_sorgho,@field.cul_coton,@field.cul_arachide,@field.cul_fourrage].filter(v=>!!v).length)",
+            "matchedExpression": "@field.cul_mil",
+            "type": "field",
+            "fieldName": "cul_mil"
+          },
+          {
+            "fullExpression": "@calc([@field.cul_mais,@field.cul_mil,@field.cul_sorgho,@field.cul_coton,@field.cul_arachide,@field.cul_fourrage].filter(v=>!!v).length)",
+            "matchedExpression": "@field.cul_sorgho",
+            "type": "field",
+            "fieldName": "cul_sorgho"
+          },
+          {
+            "fullExpression": "@calc([@field.cul_mais,@field.cul_mil,@field.cul_sorgho,@field.cul_coton,@field.cul_arachide,@field.cul_fourrage].filter(v=>!!v).length)",
+            "matchedExpression": "@field.cul_coton",
+            "type": "field",
+            "fieldName": "cul_coton"
+          },
+          {
+            "fullExpression": "@calc([@field.cul_mais,@field.cul_mil,@field.cul_sorgho,@field.cul_coton,@field.cul_arachide,@field.cul_fourrage].filter(v=>!!v).length)",
+            "matchedExpression": "@field.cul_arachide",
+            "type": "field",
+            "fieldName": "cul_arachide"
+          },
+          {
+            "fullExpression": "@calc([@field.cul_mais,@field.cul_mil,@field.cul_sorgho,@field.cul_coton,@field.cul_arachide,@field.cul_fourrage].filter(v=>!!v).length)",
+            "matchedExpression": "@field.cul_fourrage",
+            "type": "field",
+            "fieldName": "cul_fourrage"
+          },
+          {
+            "fullExpression": "@calc([@field.cul_mais,@field.cul_mil,@field.cul_sorgho,@field.cul_coton,@field.cul_arachide,@field.cul_fourrage].filter(v=>!!v).length)",
+            "matchedExpression": "@calc([@field.cul_mais,@field.cul_mil,@field.cul_sorgho,@field.cul_coton,@field.cul_arachide,@field.cul_fourrage].filter(v=>!!v).length)",
             "type": "calc",
-            "fieldName": "!!@local.v_has_selection"
+            "fieldName": "[@field.cul_mais,@field.cul_mil,@field.cul_sorgho,@field.cul_coton,@field.cul_arachide,@field.cul_fourrage].filter(v=>!!v).length"
           }
         ]
       },
       "_dynamicDependencies": {
-        "!@local.v_has_selection": [
+        "@field.cul_mais": [
           "value"
         ],
-        "@calc(!!@local.v_has_selection)": [
+        "@field.cul_mil": [
+          "value"
+        ],
+        "@field.cul_sorgho": [
+          "value"
+        ],
+        "@field.cul_coton": [
+          "value"
+        ],
+        "@field.cul_arachide": [
+          "value"
+        ],
+        "@field.cul_fourrage": [
+          "value"
+        ],
+        "@calc([@field.cul_mais,@field.cul_mil,@field.cul_sorgho,@field.cul_coton,@field.cul_arachide,@field.cul_fourrage].filter(v=>!!v).length)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "v_first",
+      "value": "@calc(@field.cul_mais?'mais':(@field.cul_mil?'mil':(@field.cul_sorgho?'sorgho':(@field.cul_coton?'coton':(@field.cul_arachide?'arachide':(@field.cul_fourrage?'fourrage':''))))))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_first",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(@field.cul_mais?'mais':(@field.cul_mil?'mil':(@field.cul_sorgho?'sorgho':(@field.cul_coton?'coton':(@field.cul_arachide?'arachide':(@field.cul_fourrage?'fourrage':''))))))",
+            "matchedExpression": "@field.cul_mais",
+            "type": "field",
+            "fieldName": "cul_mais"
+          },
+          {
+            "fullExpression": "@calc(@field.cul_mais?'mais':(@field.cul_mil?'mil':(@field.cul_sorgho?'sorgho':(@field.cul_coton?'coton':(@field.cul_arachide?'arachide':(@field.cul_fourrage?'fourrage':''))))))",
+            "matchedExpression": "@field.cul_mil",
+            "type": "field",
+            "fieldName": "cul_mil"
+          },
+          {
+            "fullExpression": "@calc(@field.cul_mais?'mais':(@field.cul_mil?'mil':(@field.cul_sorgho?'sorgho':(@field.cul_coton?'coton':(@field.cul_arachide?'arachide':(@field.cul_fourrage?'fourrage':''))))))",
+            "matchedExpression": "@field.cul_sorgho",
+            "type": "field",
+            "fieldName": "cul_sorgho"
+          },
+          {
+            "fullExpression": "@calc(@field.cul_mais?'mais':(@field.cul_mil?'mil':(@field.cul_sorgho?'sorgho':(@field.cul_coton?'coton':(@field.cul_arachide?'arachide':(@field.cul_fourrage?'fourrage':''))))))",
+            "matchedExpression": "@field.cul_coton",
+            "type": "field",
+            "fieldName": "cul_coton"
+          },
+          {
+            "fullExpression": "@calc(@field.cul_mais?'mais':(@field.cul_mil?'mil':(@field.cul_sorgho?'sorgho':(@field.cul_coton?'coton':(@field.cul_arachide?'arachide':(@field.cul_fourrage?'fourrage':''))))))",
+            "matchedExpression": "@field.cul_arachide",
+            "type": "field",
+            "fieldName": "cul_arachide"
+          },
+          {
+            "fullExpression": "@calc(@field.cul_mais?'mais':(@field.cul_mil?'mil':(@field.cul_sorgho?'sorgho':(@field.cul_coton?'coton':(@field.cul_arachide?'arachide':(@field.cul_fourrage?'fourrage':''))))))",
+            "matchedExpression": "@field.cul_fourrage",
+            "type": "field",
+            "fieldName": "cul_fourrage"
+          },
+          {
+            "fullExpression": "@calc(@field.cul_mais?'mais':(@field.cul_mil?'mil':(@field.cul_sorgho?'sorgho':(@field.cul_coton?'coton':(@field.cul_arachide?'arachide':(@field.cul_fourrage?'fourrage':''))))))",
+            "matchedExpression": "@calc(@field.cul_mais?'mais':(@field.cul_mil?'mil':(@field.cul_sorgho?'sorgho':(@field.cul_coton?'coton':(@field.cul_arachide?'arachide':(@field.cul_fourrage?'fourrage':''))))))",
+            "type": "calc",
+            "fieldName": "@field.cul_mais?'mais':(@field.cul_mil?'mil':(@field.cul_sorgho?'sorgho':(@field.cul_coton?'coton':(@field.cul_arachide?'arachide':(@field.cul_fourrage?'fourrage':'')))))"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.cul_mais": [
+          "value"
+        ],
+        "@field.cul_mil": [
+          "value"
+        ],
+        "@field.cul_sorgho": [
+          "value"
+        ],
+        "@field.cul_coton": [
+          "value"
+        ],
+        "@field.cul_arachide": [
+          "value"
+        ],
+        "@field.cul_fourrage": [
+          "value"
+        ],
+        "@calc(@field.cul_mais?'mais':(@field.cul_mil?'mil':(@field.cul_sorgho?'sorgho':(@field.cul_coton?'coton':(@field.cul_arachide?'arachide':(@field.cul_fourrage?'fourrage':''))))))": [
           "value"
         ]
       }
@@ -520,10 +676,19 @@
               "trigger": "click",
               "action_id": "set_field",
               "args": [
-                "total_cultures_selected",
-                "@local.v_total_calc"
+                "selected_cultures_list",
+                "@local.v_list"
               ],
-              "_raw": "click | set_field: total_cultures_selected: @local.v_total_calc"
+              "_raw": "click | set_field: selected_cultures_list : @local.v_list"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "total_cultures_selected",
+                "@local.v_count"
+              ],
+              "_raw": "click | set_field: total_cultures_selected : @local.v_count"
             },
             {
               "trigger": "click",
@@ -532,7 +697,16 @@
                 "current_culture_index",
                 "0"
               ],
-              "_raw": "click | set_field: current_culture_index: 0"
+              "_raw": "click | set_field: current_culture_index : 0"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "active_culture_name",
+                "@local.v_first"
+              ],
+              "_raw": "click | set_field: active_culture_name : @local.v_first"
             },
             {
               "trigger": "click",
@@ -565,19 +739,59 @@
                 "args": {
                   "1": [
                     {
-                      "fullExpression": "@local.v_total_calc",
-                      "matchedExpression": "@local.v_total_calc",
+                      "fullExpression": "@local.v_list",
+                      "matchedExpression": "@local.v_list",
                       "type": "local",
-                      "fieldName": "v_total_calc"
+                      "fieldName": "v_list"
                     }
                   ]
                 },
                 "_raw": [
                   {
-                    "fullExpression": "click | set_field: total_cultures_selected: @local.v_total_calc",
-                    "matchedExpression": "@local.v_total_calc",
+                    "fullExpression": "click | set_field: selected_cultures_list : @local.v_list",
+                    "matchedExpression": "@local.v_list",
                     "type": "local",
-                    "fieldName": "v_total_calc"
+                    "fieldName": "v_list"
+                  }
+                ]
+              },
+              "1": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@local.v_count",
+                      "matchedExpression": "@local.v_count",
+                      "type": "local",
+                      "fieldName": "v_count"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: total_cultures_selected : @local.v_count",
+                    "matchedExpression": "@local.v_count",
+                    "type": "local",
+                    "fieldName": "v_count"
+                  }
+                ]
+              },
+              "3": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@local.v_first",
+                      "matchedExpression": "@local.v_first",
+                      "type": "local",
+                      "fieldName": "v_first"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: active_culture_name : @local.v_first",
+                    "matchedExpression": "@local.v_first",
+                    "type": "local",
+                    "fieldName": "v_first"
                   }
                 ]
               }
@@ -597,9 +811,17 @@
             "@global.btn_continue": [
               "value"
             ],
-            "@local.v_total_calc": [
+            "@local.v_list": [
               "action_list.0.args.1",
               "action_list.0._raw"
+            ],
+            "@local.v_count": [
+              "action_list.1.args.1",
+              "action_list.1._raw"
+            ],
+            "@local.v_first": [
+              "action_list.3.args.1",
+              "action_list.3._raw"
             ],
             "!@local.completed_enabled": [
               "parameter_list.disabled"

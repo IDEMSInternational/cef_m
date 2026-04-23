@@ -40,47 +40,59 @@
       "condition": "!@fields.type_upa"
     },
     {
-      "type": "text",
-      "name": "note_superficie",
-      "value": "@global.note_superficie",
-      "parameter_list": "style: contextual"
-    },
-    {
-      "type": "text",
-      "value": "@global.title_campagne"
-    },
-    {
-      "type": "date_time_picker",
-      "name": "year_campaign",
-      "parameter_list": "type: year;"
+      "type": "begin_display_group"
     },
     {
       "type": "html",
-      "name": "html_text",
-      "value": "<p style=\"color: red;\"> @global.note_campagne </p>"
+      "name": "camera_scane_label",
+      "value": "@global.camera_scane_label",
+      "style_list": "@global.label_style"
     },
     {
-      "name": "completed_enabled",
-      "value": "!!@local.chef_UPA && !!@local.year_campaign && !!@local.type_upa"
+      "type": "audio",
+      "name": "audio_1_1",
+      "parameter_list": "variant: compact;\nsrc: audio/semis/qr_code_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "style_list": "@global.audio_style"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/icons/scan.svg",
+      "style_list": "width:120px; height:120px; object-fit:contain; flex-shrink:0;"
+    },
+    {
+      "type": "text",
+      "name": "camera_scane_hint",
+      "value": "@global.camera_scane_hint",
+      "style_list": "@global.hint_style"
+    },
+    {
+      "type": "button",
+      "name": "button_camera_scane",
+      "value": "@global.camera_scane_btn",
+      "parameter_list": "button_align: centre; style: flexible"
     },
     {
       "type": "begin_display_group",
+      "name": "dg_footer",
       "value": " ",
       "parameter_list": "sticky: bottom;",
       "style_list": "padding: 12px 24px;"
     },
     {
       "type": "round_button",
-      "name": "page1_button_back",
+      "name": "page_1_btn_back",
       "action_list": "click | emit: uncompleted",
       "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
     },
     {
       "type": "button",
-      "name": "button_continue_1",
-      "value": "Continuer",
-      "action_list": "click | set_field: chef_UPA: @local.chef_UPA;\nclick | set_field: type_upa: @local.type_upa;\nclick | set_field: year_campaign: @local.year_campaign\n\nclick | emit: completed;",
-      "parameter_list": "disabled: !@local.completed_enabled"
+      "name": "page_1_btn_continue",
+      "value": "@global.btn_continue",
+      "action_list": "click | set_field: chef_UPA: @local.chef_UPA;\nclick | set_field: type_upa: @local.type_upa;\nclick | emit: completed",
+      "style_list": "flex: 1"
     },
     {
       "type": "end_display_group"

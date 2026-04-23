@@ -20,28 +20,31 @@
     },
     {
       "type": "image",
-      "value": "images/qr_code.jpg"
-    },
-    {
-      "type": "text",
-      "value": "Utilisez la camera pour scanner votre code"
+      "value": "images/qr_code.jpg",
+      "style_list": "width: 80%; object-fit: contain;"
     },
     {
       "type": "end_display_group"
     },
     {
       "type": "text",
-      "value": "Choisissez l'année de la campagne:"
+      "value": "Utilisez la camera pour scanner votre code",
+      "style_list": "text-align: center; font-weight: bold;"
+    },
+    {
+      "type": "text",
+      "value": "Choisissez l'année de la campagne:",
+      "style_list": "margin-top: 20px;"
     },
     {
       "type": "date_time_picker",
-      "name": "year_campaign",
+      "name": "year_picker",
       "action_list": "changed | set_field: campagne: this.value;",
       "parameter_list": "type: year;\nmin: 2023; \nmax: @calc(now());"
     },
     {
       "name": "v_year_ok",
-      "value": "@calc(!!@local.year_campaign)"
+      "value": "@calc(!!@field.campagne)"
     },
     {
       "name": "completed_enabled",

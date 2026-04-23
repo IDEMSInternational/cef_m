@@ -1,0 +1,85 @@
+{
+  "flow_type": "template",
+  "flow_name": "superficie_champs_page6",
+  "status": "released",
+  "rows": [
+    {
+      "type": "subtitle",
+      "value": "**Recapitulatif des superficies mesurées des cultures dans @fields.nom_champ**",
+      "_translations": {
+        "value": {}
+      },
+      "name": "subtitle_2",
+      "_nested_name": "subtitle_2",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "**Recapitulatif des superficies mesurées des cultures dans @fields.nom_champ**",
+            "matchedExpression": "@fields.nom_champ",
+            "type": "fields",
+            "fieldName": "nom_champ"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.nom_champ": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "text",
+          "value": "La superficie cumulée (ha) des parcelles mesurées dans @fields.nom_champ est:",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_1",
+          "_nested_name": "display_group_3.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "La superficie cumulée (ha) des parcelles mesurées dans @fields.nom_champ est:",
+                "matchedExpression": "@fields.nom_champ",
+                "type": "fields",
+                "fieldName": "nom_champ"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@fields.nom_champ": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "audio",
+          "name": "audio_8_1",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Superficie/sup_tot_gps_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "display_group_3.audio_8_1"
+        }
+      ],
+      "name": "display_group_3",
+      "_nested_name": "display_group_3"
+    },
+    {
+      "type": "text_box",
+      "name": "superficie",
+      "_nested_name": "superficie"
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/superficie_champs_form_sheets.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/1Za6KnU73iDgbTARvf6JCQo0vJb_EkTgiHEyZUJdNgXs"
+  }
+}

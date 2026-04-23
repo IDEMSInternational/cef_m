@@ -1,0 +1,136 @@
+{
+  "flow_type": "template",
+  "flow_name": "parcelle_form_page2",
+  "status": "released",
+  "rows": [
+    {
+      "name": "num_parcelle",
+      "value": "1"
+    },
+    {
+      "type": "subtitle",
+      "value": "**Niveau de fertilité de la parcelle N⁰ de @fields.nom_champ** *"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "Indiquez le niveau de fertilité de la parcelle N⁰"
+    },
+    {
+      "type": "audio",
+      "name": "audio_1",
+      "parameter_list": "variant: compact;\nsrc: audio/Superficie/fertilite_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/fertilite.jpg",
+      "style_list": "width:100px; height:100px; "
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: black;\"> Sélectionner un niveau en dessous !</p>"
+    },
+    {
+      "type": "radio_button_grid",
+      "name": "fertilite_sol",
+      "value": "@fields.fertilite_sol",
+      "action_list": "changed | set_local : fertilite_sol: this.value;",
+      "parameter_list": "answer_list: @data.fertilite_sol; \nstyle: secondary;\nitem_width: 60px;\ngrid_gap: 8px;"
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "condition": "!@local.fertilite_sol"
+    },
+    {
+      "type": "subtitle",
+      "value": "**Culture précédente dans la parcelle N⁰ lors de la saison passée du champ @fields.nom_champ** ",
+      "condition": "@fields.nom_champ"
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@fields.nom_champ"
+    },
+    {
+      "type": "text",
+      "value": "Sélectionnez le nom de la culture précédente "
+    },
+    {
+      "type": "audio",
+      "name": "audio_2",
+      "parameter_list": "variant: compact;\nsrc: audio/Superficie/cult_preced_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "radio_button_grid",
+      "name": "cult_preced",
+      "action_list": "changed | set_local: cult_preced: this.value;",
+      "parameter_list": "answer_list: @data.cult_princip;\nitem_width: 80px;\ngrid_width: 150%;\ngrid_gap: 10px;\nvariant: circle-icon;",
+      "condition": "@fields.nom_champ"
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "condition": "!@local.cult_preced"
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@local.cult_preced == 'autre'"
+    },
+    {
+      "type": "text",
+      "name": "message_aucun",
+      "value": "@global.aucun_message"
+    },
+    {
+      "type": "audio",
+      "name": "audio_3",
+      "parameter_list": "variant: compact;\nsrc: audio/Superficie/autre_cult_nom1_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text_box",
+      "value": "@fields.autre_cult_pred",
+      "action_list": "changed | set_field: autre_cult_preced: this.value;",
+      "parameter_list": "max_length: 30;\nplaceholder: Entrez le nom de la culture",
+      "condition": "@local.cult_preced == 'autre'",
+      "exclude_from_translation_1": true
+    },
+    {
+      "type": "begin_display_group",
+      "value": " ",
+      "parameter_list": "sticky: bottom;",
+      "style_list": "padding: 12px 24px;"
+    },
+    {
+      "type": "round_button",
+      "name": "page1_button_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+    },
+    {
+      "type": "button",
+      "name": "button_continue_1",
+      "value": "Continuer",
+      "action_list": "click | go_to: superficie_champs_page5;\nclick | emit: completed;"
+    },
+    {
+      "type": "end_display_group"
+    }
+  ]
+}

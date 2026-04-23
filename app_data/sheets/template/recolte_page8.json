@@ -1,0 +1,359 @@
+{
+  "flow_type": "template",
+  "flow_name": "recolte_page8",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "value": "BILAN GLOBAL DE LA RECOLTE",
+      "_translations": {
+        "value": {}
+      },
+      "name": "title_2",
+      "_nested_name": "title_2"
+    },
+    {
+      "name": "montant",
+      "value": "@calc(Number(@field.grand_total_recolte || 0))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "montant",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Number(@field.grand_total_recolte || 0))",
+            "matchedExpression": "@field.grand_total_recolte",
+            "type": "field",
+            "fieldName": "grand_total_recolte"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.grand_total_recolte || 0))",
+            "matchedExpression": "@calc(Number(@field.grand_total_recolte || 0))",
+            "type": "calc",
+            "fieldName": "Number(@field.grand_total_recolte || 0)"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.grand_total_recolte": [
+          "value"
+        ],
+        "@calc(Number(@field.grand_total_recolte || 0))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "montant_cfa",
+      "value": "@calc(@local.montant * 5)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "montant_cfa",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(@local.montant * 5)",
+            "matchedExpression": "@local.montant",
+            "type": "local",
+            "fieldName": "montant"
+          },
+          {
+            "fullExpression": "@calc(@local.montant * 5)",
+            "matchedExpression": "@calc(@local.montant * 5)",
+            "type": "calc",
+            "fieldName": "@local.montant * 5"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.montant": [
+          "value"
+        ],
+        "@calc(@local.montant * 5)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "final_grp",
+      "style_list": [
+        "background: #00adcc",
+        "padding: 25px",
+        "border-radius: 0 0 25px 25px",
+        "margin-bottom: 20px",
+        "text-align: center"
+      ],
+      "rows": [
+        {
+          "type": "html",
+          "value": "<div style=\"color: black; text-transform: uppercase; font-size: 12px; letter-spacing: 2px;\">Total Investi (Récolte)</div>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_1",
+          "_nested_name": "final_grp.html_1"
+        },
+        {
+          "type": "html",
+          "value": "<div style=\"font-size: 36px; font-weight: bold; color: white; margin: 10px 0;\">@local.montant<span style=\"font-size: 18px;\">Dram</span></div>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_2",
+          "_nested_name": "final_grp.html_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<div style=\"font-size: 36px; font-weight: bold; color: white; margin: 10px 0;\">@local.montant<span style=\"font-size: 18px;\">Dram</span></div>",
+                "matchedExpression": "@local.montant",
+                "type": "local",
+                "fieldName": "montant"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.montant": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "html",
+          "value": "<div style=\"background: rgba(255,255,255,0.1); padding: 8px 15px; border-radius: 20px; display: inline-block; color: white; font-weight: bold;\">≈ @local.montant_cfa FCFA</div>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_3",
+          "_nested_name": "final_grp.html_3",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<div style=\"background: rgba(255,255,255,0.1); padding: 8px 15px; border-radius: 20px; display: inline-block; color: white; font-weight: bold;\">≈ @local.montant_cfa FCFA</div>",
+                "matchedExpression": "@local.montant_cfa",
+                "type": "local",
+                "fieldName": "montant_cfa"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.montant_cfa": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "final_grp"
+    },
+    {
+      "type": "display_group",
+      "name": "cultures_list",
+      "style_list": [
+        "padding: 20px"
+      ],
+      "rows": [
+        {
+          "type": "html",
+          "value": "<h4 style=\"color: #e3a730; border-bottom: 1px solid #eee; padding-bottom: 10px;\">Cultures enregistrées</h4>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_1",
+          "_nested_name": "cultures_list.html_1"
+        },
+        {
+          "type": "text",
+          "value": "@field.selected_recolte_list",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "color: #666",
+            "font-style: italic",
+            "margin-top: 5px"
+          ],
+          "name": "text_2",
+          "_nested_name": "cultures_list.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@field.selected_recolte_list",
+                "matchedExpression": "@field.selected_recolte_list",
+                "type": "field",
+                "fieldName": "selected_recolte_list"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@field.selected_recolte_list": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "cultures_list"
+    },
+    {
+      "style_list": [
+        "margin: 20px",
+        "padding: 20px",
+        "background: #FFF9F2",
+        "border-radius: 15px",
+        "border: 1px dashed #FFCC80"
+      ],
+      "type": "set_variable",
+      "name": "set_variable_9",
+      "_nested_name": "set_variable_9"
+    },
+    {
+      "type": "html",
+      "value": "<span style=\"color: #E65100; font-weight: bold;\">Votre avis nous intéresse</span>",
+      "_translations": {
+        "value": {}
+      },
+      "name": "html_10",
+      "_nested_name": "html_10"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"font-size: 13px; color: #6D4C41;\">Le formulaire était-il facile à utiliser ? Enregistrez votre avis :</p>",
+      "_translations": {
+        "value": {}
+      },
+      "name": "html_11",
+      "_nested_name": "html_11"
+    },
+    {
+      "type": "image",
+      "value": "images/vocal.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width: 50px",
+        "float: left",
+        "margin-right: 10px"
+      ],
+      "name": "image_12",
+      "_nested_name": "image_12"
+    },
+    {
+      "type": "display_group",
+      "style_list": [
+        "text-align: center"
+      ],
+      "rows": [
+        {
+          "type": "html",
+          "value": "<div style=\"font-size: 18px; color: #e3a730; font-weight: bold;\">Merci pour votre collaboration !</div>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_1",
+          "_nested_name": "display_group_14.html_1"
+        },
+        {
+          "type": "html",
+          "value": "<div style=\"font-size: 14px; color: #666; margin-top: 10px;\">Vous pouvez consulter vos données sur :</div>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_2",
+          "_nested_name": "display_group_14.html_2"
+        },
+        {
+          "type": "html",
+          "value": "<a href=\"https://chemins-iae.stats4sd.org/login\" style=\"color:#4f8ff1 ; text-decoration: underline; font-weight: bold;\">https://chemins-iae.stats4sd.org</a>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_3",
+          "_nested_name": "display_group_14.html_3"
+        }
+      ],
+      "name": "display_group_14",
+      "_nested_name": "display_group_14"
+    },
+    {
+      "type": "display_group",
+      "name": "dg_footer",
+      "parameter_list": {
+        "sticky": "bottom"
+      },
+      "style_list": [
+        "padding: 12px 24px"
+      ],
+      "rows": [
+        {
+          "type": "round_button",
+          "name": "button_back",
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "uncompleted"
+              ],
+              "_raw": "click | emit: uncompleted"
+            }
+          ],
+          "parameter_list": {
+            "icon_src": "arrow-back",
+            "variant": "no-background"
+          },
+          "_nested_name": "dg_footer.button_back"
+        },
+        {
+          "type": "button",
+          "name": "button_completed",
+          "value": "@global.btn_continue",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "go_to",
+              "args": [
+                "home_screen"
+              ],
+              "_raw": "click | go_to: home_screen"
+            }
+          ],
+          "parameter_list": {
+            "style": "navigation"
+          },
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "dg_footer.button_completed",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.btn_continue",
+                "matchedExpression": "@global.btn_continue",
+                "type": "global",
+                "fieldName": "btn_continue"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.btn_continue": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "dg_footer"
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/Recolte_form_sheets.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/1Ntx5DFmilfEnlVuuxWLQ2UmbTS8HV8mlyPWYLNnCE2U"
+  }
+}

@@ -1,0 +1,419 @@
+{
+  "flow_type": "template",
+  "flow_name": "superficie_champs_page4",
+  "status": "released",
+  "rows": [
+    {
+      "name": "task_group",
+      "value": "parcelle_form_settings_pages",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "task_group"
+    },
+    {
+      "name": "page_count",
+      "type": "set_variable",
+      "_nested_name": "page_count"
+    },
+    {
+      "type": "data_items",
+      "name": "compute_page_count",
+      "value": "@data.parcelle_form_settings_pages",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "data_changed",
+          "action_id": "set_local",
+          "args": [
+            "page_count",
+            "@items.length"
+          ],
+          "_raw": "data_changed | set_local: page_count:  @items.length"
+        }
+      ],
+      "_nested_name": "compute_page_count",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@data.parcelle_form_settings_pages",
+            "matchedExpression": "@data.parcelle_form_settings_pages",
+            "type": "data",
+            "fieldName": "parcelle_form_settings_pages"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@data.parcelle_form_settings_pages": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "completed_count",
+      "type": "set_variable",
+      "_nested_name": "completed_count"
+    },
+    {
+      "type": "data_items",
+      "name": "compute_completed_count",
+      "value": "@data.parcelle_form_settings_pages",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "data_changed",
+          "action_id": "set_local",
+          "args": [
+            "completed_count",
+            "@items.length"
+          ],
+          "_raw": "data_changed | set_local: completed_count:  @items.length"
+        }
+      ],
+      "parameter_list": {
+        "filter": "@item.completed"
+      },
+      "_nested_name": "compute_completed_count",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@data.parcelle_form_settings_pages",
+            "matchedExpression": "@data.parcelle_form_settings_pages",
+            "type": "data",
+            "fieldName": "parcelle_form_settings_pages"
+          }
+        ],
+        "parameter_list": {
+          "filter": [
+            {
+              "fullExpression": "@item.completed",
+              "matchedExpression": "@item.completed",
+              "type": "item",
+              "fieldName": "completed"
+            }
+          ]
+        }
+      },
+      "_dynamicDependencies": {
+        "@data.parcelle_form_settings_pages": [
+          "value"
+        ],
+        "@item.completed": [
+          "parameter_list.filter"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "name": "debug_completed_count",
+      "value": "Completed count: @local.completed_count",
+      "_translations": {
+        "value": {}
+      },
+      "condition": false,
+      "exclude_from_translation": true,
+      "_nested_name": "debug_completed_count",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "Completed count: @local.completed_count",
+            "matchedExpression": "@local.completed_count",
+            "type": "local",
+            "fieldName": "completed_count"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.completed_count": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "data_items",
+      "value": "@data.test",
+      "parameter_list": {
+        "limit": "@fields.nb_parcelles"
+      },
+      "rows": [
+        {
+          "name": "num_parcelle",
+          "value": "@item.number",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "changed",
+              "action_id": "set_field",
+              "args": [
+                "num_parcelle",
+                "@item.number"
+              ],
+              "_raw": "changed | set_field: num_parcelle :@item.number"
+            }
+          ],
+          "type": "set_variable",
+          "_nested_name": "data_items_8.num_parcelle",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@item.number",
+                "matchedExpression": "@item.number",
+                "type": "item",
+                "fieldName": "number"
+              }
+            ],
+            "action_list": {
+              "0": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@item.number",
+                      "matchedExpression": "@item.number",
+                      "type": "item",
+                      "fieldName": "number"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "changed | set_field: num_parcelle :@item.number",
+                    "matchedExpression": "@item.number",
+                    "type": "item",
+                    "fieldName": "number"
+                  }
+                ]
+              }
+            }
+          },
+          "_dynamicDependencies": {
+            "@item.number": [
+              "value",
+              "action_list.0.args.1",
+              "action_list.0._raw"
+            ]
+          }
+        },
+        {
+          "type": "data_items",
+          "name": "loop_pages",
+          "value": "@data.parcelle_form_settings_pages",
+          "rows": [
+            {
+              "type": "display_group",
+              "name": "await_data_loop_evaluation",
+              "parameter_list": {
+                "style": "column"
+              },
+              "condition": "@local.completed_count !== undefined",
+              "rows": [
+                {
+                  "type": "display_group",
+                  "name": "condition",
+                  "parameter_list": {
+                    "style": "column"
+                  },
+                  "condition": "@item._index == @local.completed_count",
+                  "rows": [
+                    {
+                      "type": "template",
+                      "name": "page",
+                      "value": "parcelle_form_@item.id",
+                      "action_list": [
+                        {
+                          "trigger": "completed",
+                          "action_id": "set_data",
+                          "args": [],
+                          "_raw": "completed | set_data |\n_list_id: parcelle_form_settings_pages,\n_id: @item.id,\ncompleted: true",
+                          "params": {
+                            "_list_id": "parcelle_form_settings_pages",
+                            "_id": "@item.id",
+                            "completed": true
+                          }
+                        },
+                        {
+                          "trigger": "uncompleted",
+                          "action_id": "set_data",
+                          "args": [],
+                          "_raw": "uncompleted | set_data | \n_list_id: parcelle_form_settings_pages,\n_id: page@local.completed_count,\ncompleted: false",
+                          "params": {
+                            "_list_id": "parcelle_form_settings_pages",
+                            "_id": "page@local.completed_count",
+                            "completed": false
+                          }
+                        }
+                      ],
+                      "rows": [],
+                      "_nested_name": "data_items_8.loop_pages.await_data_loop_evaluation.condition.page",
+                      "_dynamicFields": {
+                        "value": [
+                          {
+                            "fullExpression": "parcelle_form_@item.id",
+                            "matchedExpression": "@item.id",
+                            "type": "item",
+                            "fieldName": "id"
+                          }
+                        ],
+                        "action_list": {
+                          "0": {
+                            "_raw": [
+                              {
+                                "fullExpression": "completed | set_data |\n_list_id: parcelle_form_settings_pages,\n_id: @item.id,\ncompleted: true",
+                                "matchedExpression": "@item.id",
+                                "type": "item",
+                                "fieldName": "id"
+                              }
+                            ],
+                            "params": {
+                              "_id": [
+                                {
+                                  "fullExpression": "@item.id",
+                                  "matchedExpression": "@item.id",
+                                  "type": "item",
+                                  "fieldName": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "1": {
+                            "_raw": [
+                              {
+                                "fullExpression": "uncompleted | set_data | \n_list_id: parcelle_form_settings_pages,\n_id: page@local.completed_count,\ncompleted: false",
+                                "matchedExpression": "@local.completed_count",
+                                "type": "local",
+                                "fieldName": "completed_count"
+                              }
+                            ],
+                            "params": {
+                              "_id": [
+                                {
+                                  "fullExpression": "page@local.completed_count",
+                                  "matchedExpression": "@local.completed_count",
+                                  "type": "local",
+                                  "fieldName": "completed_count"
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      },
+                      "_dynamicDependencies": {
+                        "@item.id": [
+                          "value",
+                          "action_list.0._raw",
+                          "action_list.0.params._id"
+                        ],
+                        "@local.completed_count": [
+                          "action_list.1._raw",
+                          "action_list.1.params._id"
+                        ]
+                      }
+                    }
+                  ],
+                  "_nested_name": "data_items_8.loop_pages.await_data_loop_evaluation.condition",
+                  "_dynamicFields": {
+                    "condition": [
+                      {
+                        "fullExpression": "@item._index == @local.completed_count",
+                        "matchedExpression": "@item._index",
+                        "type": "item",
+                        "fieldName": "_index"
+                      },
+                      {
+                        "fullExpression": "@item._index == @local.completed_count",
+                        "matchedExpression": "@local.completed_count",
+                        "type": "local",
+                        "fieldName": "completed_count"
+                      }
+                    ]
+                  },
+                  "_dynamicDependencies": {
+                    "@item._index": [
+                      "condition"
+                    ],
+                    "@local.completed_count": [
+                      "condition"
+                    ]
+                  }
+                }
+              ],
+              "_nested_name": "data_items_8.loop_pages.await_data_loop_evaluation",
+              "_dynamicFields": {
+                "condition": [
+                  {
+                    "fullExpression": "@local.completed_count !== undefined",
+                    "matchedExpression": "@local.completed_count",
+                    "type": "local",
+                    "fieldName": "completed_count"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@local.completed_count": [
+                  "condition"
+                ]
+              }
+            }
+          ],
+          "_nested_name": "data_items_8.loop_pages",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@data.parcelle_form_settings_pages",
+                "matchedExpression": "@data.parcelle_form_settings_pages",
+                "type": "data",
+                "fieldName": "parcelle_form_settings_pages"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@data.parcelle_form_settings_pages": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "name": "data_items_8",
+      "_nested_name": "data_items_8",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@data.test",
+            "matchedExpression": "@data.test",
+            "type": "data",
+            "fieldName": "test"
+          }
+        ],
+        "parameter_list": {
+          "limit": [
+            {
+              "fullExpression": "@fields.nb_parcelles",
+              "matchedExpression": "@fields.nb_parcelles",
+              "type": "fields",
+              "fieldName": "nb_parcelles"
+            }
+          ]
+        }
+      },
+      "_dynamicDependencies": {
+        "@data.test": [
+          "value"
+        ],
+        "@fields.nb_parcelles": [
+          "parameter_list.limit"
+        ]
+      }
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/superficie_champs_form_sheets.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/1Za6KnU73iDgbTARvf6JCQo0vJb_EkTgiHEyZUJdNgXs"
+  }
+}

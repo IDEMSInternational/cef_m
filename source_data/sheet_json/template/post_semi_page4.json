@@ -4,111 +4,423 @@
   "status": "released",
   "rows": [
     {
-      "type": "title",
-      "value": "DÉTAILS DE LA CULTURE"
-    },
-    {
-      "name": "v_list",
-      "value": "@calc([(@field.cul_mais?'mais':null), (@field.cul_mil?'mil':null), (@field.cul_sorgho?'sorgho':null), (@field.cul_coton?'coton':null), (@field.cul_arachide?'arachide':null), (@field.cul_fourrage?'fourrage':null)].filter(Boolean))"
-    },
-    {
-      "name": "v_idx",
-      "value": "Number(@field.current_culture_index || 0)"
-    },
-    {
-      "name": "v_target_id",
-      "value": "@local.v_list[@local.v_idx]"
-    },
-    {
-      "name": "v_label",
-      "value": "chargement..."
-    },
-    {
-      "name": "v_img",
-      "value": "images/mais.jpg"
-    },
-    {
-      "name": "found_culture",
-      "value": false
-    },
-    {
-      "type": "begin_data_items",
-      "name": "find_culture_info",
-      "value": "@data.cultures"
+      "name": "v_current_human",
+      "value": "@calc(Number(@field.current_culture_index) + 1)"
     },
     {
       "type": "begin_display_group",
-      "name": "search_logic",
-      "condition": "!!!@local.found_culture"
+      "name": "header",
+      "style_list": "background: #00adcc; padding: 15px; border-radius: 0 0 15px 15px; margin-bottom: 20px;"
     },
     {
-      "name": "v_is_match",
-      "value": "@calc(@item.name === @local.v_target_id)"
-    },
-    {
-      "condition": "@local.v_is_match"
-    },
-    {
-      "name": "v_label",
-      "value": "@item.text"
-    },
-    {
-      "name": "v_img",
-      "value": "@item.image"
-    },
-    {
-      "name": "found_culture",
-      "value": true
-    },
-    {
-      "type": "stop_loop",
-      "name": "stop",
-      "value": true
+      "type": "html",
+      "value": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>"
     },
     {
       "type": "end_display_group"
     },
     {
-      "type": "end_display_group"
+      "type": "title",
+      "value": "DÉTAILS DE LA CULTURE : ENTRETIEN"
     },
     {
-      "type": "end_data_items"
-    },
-    {
-      "type": "begin_display_group"
+      "type": "begin_display_group",
+      "name": "header_culture",
+      "style_list": "width: 100%; display: flex; flex-direction: column; align-items: center; border: 1px solid #FFCC80; border-radius: 12px; background: white; margin-bottom: 10px; overflow: hidden;"
     },
     {
       "type": "image",
-      "value": "@local.v_img"
+      "value": "@calc('images/' + @field.active_culture_name + '.jpg')",
+      "style_list": "width: 60%; object-fit: contain;"
     },
     {
       "type": "text",
-      "value": "Culture : **@local.v_label**"
+      "value": "<h3 style='color: black; margin: 10px 0;'>Culture : <span style='color: #e3a730;'>@field.active_culture_name</span></h3>",
+      "style_list": "font-weight: bold; font-size: 18px;"
     },
     {
-      "type": "text",
-      "value": "Étape Number(@field.current_culture_index) + 1 / @field.total_cultures_selected"
+      "type": "end_display_group"
+    },
+    {
+      "name": "sarclage_pos",
+      "value": "@calc(Number(@field.sup_sarclage) > 0 && /^\\d+(\\.\\d+)?$/.test(@field.sup_sarclage))"
+    },
+    {
+      "name": "sarclage_neg",
+      "value": "@calc(!/^\\d+(\\.\\d+)?$/.test(@field.sup_sarclage) || Number(@field.sup_sarclage) < 0)"
+    },
+    {
+      "type": "html",
+      "value": "<br><b style=\"color: #e67e22\">1. SARCLAGE</b>"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "sarclage_card",
+      "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "audio",
+      "parameter_list": "variant: compact;\nsrc: audio/postSemi/super_sarclage_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "float: right;"
+    },
+    {
+      "type": "html",
+      "value": "Superficie sarclée par prestation (Ha)<span style=\"color: red;\">*</span>"
+    },
+    {
+      "type": "image",
+      "value": "images/superf_unit.jpg",
+      "style_list": "width: 80%; object-fit: contain;"
+    },
+    {
+      "type": "text_box",
+      "name": "sup_sarclage",
+      "value": "@field.sup_sarclage",
+      "action_list": "changed | set_field: sup_sarclage : this.value;",
+      "parameter_list": "number_input: true; placeholder: 0;"
     },
     {
       "type": "end_display_group"
     },
     {
       "type": "text",
-      "value": "Quelle est la superficie (Ha) pour le **@local.v_label**?"
+      "name": "err_sup1",
+      "value": "*Mettez une valeur positive*",
+      "condition": "@local.sarclage_neg",
+      "style_list": "color: red; font-size: 12px;"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "sarclage_card_cout",
+      "condition": "@local.sarclage_pos",
+      "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "audio",
+      "parameter_list": "variant: compact;\nsrc: audio/postSemi/cout_sarclage_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "float: right;"
+    },
+    {
+      "type": "html",
+      "value": "Coût total payé (Dram)<span style=\"color: red;\">*</span>"
+    },
+    {
+      "type": "text",
+      "value": "*Rappel : 1 dram = 5 FCFA*",
+      "style_list": "font-size: 14px; color: gray;"
+    },
+    {
+      "type": "image",
+      "value": "images/cfa.jpg",
+      "style_list": "width: 80%; object-fit: contain;"
     },
     {
       "type": "text_box",
-      "name": "superficie",
-      "value": "@field.@calc('sup_' + @local.v_target_id)",
-      "parameter_list": "number_input: true; placeholder: 0.0;"
+      "name": "cost_sarclage",
+      "value": "@field.cost_sarclage",
+      "action_list": "changed | set_field: cost_sarclage : this.value;",
+      "parameter_list": "number_input: true; placeholder: Coût en drm...;"
     },
     {
-      "name": "v_sup_ok",
-      "value": "@calc(Number(@local.superficie) > 0)"
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "sarclage_card_cout_zero",
+      "condition": "@field.sup_sarclage == 0",
+      "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "audio",
+      "parameter_list": "variant: compact;\nsrc: audio/postSemi/cout_sarclage_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "float: right;"
+    },
+    {
+      "type": "html",
+      "value": "Coût total payé (Dram)<span style=\"color: red;\">*</span>"
+    },
+    {
+      "type": "text",
+      "value": "*Rappel : 1 dram = 5 FCFA*",
+      "style_list": "font-size: 14px; color: gray;"
+    },
+    {
+      "type": "image",
+      "value": "images/cfa.jpg",
+      "style_list": "width: 80%; object-fit: contain;"
+    },
+    {
+      "type": "text_box",
+      "name": "cost_sarclage_zero",
+      "value": 0,
+      "parameter_list": "disabled:true;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "name": "desherbage_neg",
+      "value": "@calc(!/^\\d+(\\.\\d+)?$/.test(@field.sup_desherbage) || Number(@field.sup_desherbage) < 0)"
+    },
+    {
+      "name": "desherbage_pos",
+      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.sup_desherbage) && Number(@field.sup_desherbage) > 0)\n"
+    },
+    {
+      "type": "html",
+      "value": "<br><b style=\"color: #e67e22\">2. DÉSHERBAGE</b>"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "desherbage_card",
+      "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "audio",
+      "parameter_list": "variant: compact;\nsrc: audio/postSemi/super_desherbage_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "float: right;"
+    },
+    {
+      "type": "html",
+      "value": "Superficie désherbée par prestation (Ha)<span style=\"color: red;\">*</span>"
+    },
+    {
+      "type": "image",
+      "value": "images/superf_unit.jpg",
+      "style_list": "width: 80%; object-fit: contain;"
+    },
+    {
+      "type": "text_box",
+      "name": "sup_desherbage",
+      "value": "@field.sup_desherbage",
+      "action_list": "changed | set_field: sup_desherbage : this.value;",
+      "parameter_list": "number_input: true; placeholder: 0;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "name": "err1",
+      "value": "*Mettez une valeur positive*",
+      "condition": "@local.desherbage_neg",
+      "style_list": "color: red; font-size: 12px;"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "desherbage_card_cout",
+      "condition": "@local.desherbage_pos",
+      "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "audio",
+      "name": "aud_desh",
+      "parameter_list": "variant: compact;\nsrc: audio/postSemi/cout_desherbage_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "float: right;"
+    },
+    {
+      "type": "html",
+      "value": "Coût total payé (Dram)<span style=\"color: red;\">*</span>"
+    },
+    {
+      "type": "text",
+      "value": "*Rappel : 1 dram = 5 FCFA*",
+      "style_list": "font-size: 14px; color: gray;"
+    },
+    {
+      "type": "image",
+      "value": "images/cfa.jpg",
+      "style_list": "width: 80%; object-fit: contain;"
+    },
+    {
+      "type": "text_box",
+      "name": "cost_desherbage",
+      "value": "@field.cost_desherbage",
+      "action_list": "changed | set_field: cost_desherbage : this.value;",
+      "parameter_list": "placeholder: Prix total payé (drm)...;number_input: true;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "desherbage_card_cout_zero",
+      "condition": "@field.sup_desherbage == 0",
+      "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "audio",
+      "name": "aud_desh_zero",
+      "parameter_list": "variant: compact;\nsrc: audio/postSemi/cout_desherbage_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "float: right;"
+    },
+    {
+      "type": "html",
+      "value": "Coût total payé (Dram)<span style=\"color: red;\">*</span>"
+    },
+    {
+      "type": "text",
+      "value": "*Rappel : 1 dram = 5 FCFA*",
+      "style_list": "font-size: 14px; color: gray;"
+    },
+    {
+      "type": "image",
+      "value": "images/cfa.jpg",
+      "style_list": "width: 80%; object-fit: contain;"
+    },
+    {
+      "type": "text_box",
+      "name": "cost_desherbage_zero",
+      "value": 0,
+      "parameter_list": "disabled:true;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "name": "buttage_neg",
+      "value": "@calc(!/^\\d+(\\.\\d+)?$/.test(@field.sup_buttage) || Number(@field.sup_buttage) < 0)"
+    },
+    {
+      "name": "buttage_pos",
+      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.sup_buttage) && Number(@field.sup_buttage) >0)\n"
+    },
+    {
+      "type": "html",
+      "value": "<br><b style=\"color: #e67e22\">3. BUTTAGE</b>"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "buttage_card",
+      "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "audio",
+      "parameter_list": "variant: compact;\nsrc: audio/postSemi/sup_buttage_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "float: right;"
+    },
+    {
+      "type": "html",
+      "value": "Superficie buttée par prestation (Ha)<span style=\"color: red;\">*</span>"
+    },
+    {
+      "type": "image",
+      "value": "images/superf_unit.jpg",
+      "style_list": "width: 80%; object-fit: contain;"
+    },
+    {
+      "type": "text_box",
+      "name": "sup_buttage",
+      "value": "@field.sup_buttage",
+      "action_list": "changed | set_field: sup_buttage : this.value;",
+      "parameter_list": "number_input: true; placeholder: 0;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "value": "*Mettez une valeur positive*",
+      "condition": "@local.buttage_neg",
+      "style_list": "color: red; font-size: 12px;"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "buttage_card3",
+      "condition": "@local.buttage_pos",
+      "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "audio",
+      "parameter_list": "variant: compact;\nsrc: audio/postSemi/cout_buttage_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "float: right;"
+    },
+    {
+      "type": "html",
+      "value": "Coût total payé (Dram)<span style=\"color: red;\">*</span>"
+    },
+    {
+      "type": "text",
+      "value": "*Rappel : 1 dram = 5 FCFA*",
+      "style_list": "font-size: 14px; color: gray;"
+    },
+    {
+      "type": "image",
+      "value": "images/cfa.jpg",
+      "style_list": "width: 80%; object-fit: contain;"
+    },
+    {
+      "type": "text_box",
+      "name": "cost_buttage",
+      "value": "@field.cost_buttage",
+      "action_list": "changed | set_field: cost_buttage : this.value;",
+      "parameter_list": "placeholder: Prix total payé (drm)...;number_input: true;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "buttage_card3_zero",
+      "condition": "@field.sup_buttage == 0",
+      "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "audio",
+      "parameter_list": "variant: compact;\nsrc: audio/postSemi/cout_buttage_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "float: right;"
+    },
+    {
+      "type": "html",
+      "value": "Coût total payé (Dram)<span style=\"color: red;\">*</span>"
+    },
+    {
+      "type": "text",
+      "value": "*Rappel : 1 dram = 5 FCFA*",
+      "style_list": "font-size: 14px; color: gray;"
+    },
+    {
+      "type": "image",
+      "value": "images/cfa.jpg",
+      "style_list": "width: 80%; object-fit: contain;"
+    },
+    {
+      "type": "text_box",
+      "name": "cost_buttage_zero",
+      "value": 0,
+      "parameter_list": "disabled:true;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "name": "v_current_sarc_ok",
+      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.sup_sarclage) && (Number(@field.sup_sarclage) === 0 || (Number(@field.cost_sarclage) >= 0 && @field.cost_sarclage !== '')))"
+    },
+    {
+      "name": "v_current_desh_ok",
+      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.sup_desherbage) && (Number(@field.sup_desherbage) === 0 || (Number(@field.cost_desherbage) >= 0 && @field.cost_desherbage !== '')))"
+    },
+    {
+      "name": "v_current_butt_ok",
+      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.sup_buttage) && (Number(@field.sup_buttage) === 0 || (Number(@field.cost_buttage) >= 0 && @field.cost_buttage !== '')))"
+    },
+    {
+      "name": "v_total_entret_culture",
+      "value": "@calc((Number(@field.cost_sarclage) || 0) + (Number(@field.cost_desherbage) || 0) + (Number(@field.cost_buttage) || 0))"
     },
     {
       "name": "completed_enabled",
-      "value": "@calc(!!@local.v_sup_ok)"
+      "value": "@calc(@local.v_current_sarc_ok && @local.v_current_desh_ok && @local.v_current_butt_ok)"
     },
     {
       "type": "begin_display_group",
@@ -125,8 +437,8 @@
     {
       "type": "button",
       "name": "button_completed",
-      "value": "@calc(Number(@field.current_culture_index || 0) + 1 < @field.total_cultures_selected ? 'SUIVANTE' : 'TERMINER')",
-      "action_list": "click | set_field: current_culture_index : @calc(Number(@field.current_culture_index || 0) + 1); click | emit: @calc(Number(@field.current_culture_index || 0) + 1 < @field.total_cultures_selected ? 'repeat_page' : 'completed')",
+      "value": "@global.btn_continue",
+      "action_list": "click | set_field: final_cout_entre : @local.v_total_entret_culture;\nclick | emit: completed",
       "parameter_list": "style: navigation;\ndisabled: !@local.completed_enabled",
       "style_list": "flex: 1"
     },

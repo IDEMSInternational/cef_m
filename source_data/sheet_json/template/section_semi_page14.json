@@ -1,0 +1,112 @@
+{
+  "flow_type": "template",
+  "flow_name": "section_semi_page14",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "name": "page_title",
+      "value": "coûts des intrants & services SEMIS (drm)"
+    },
+    {
+      "name": "key_fum",
+      "value": "cout_transport_fumure_organique_@fields.current_primary_crop"
+    },
+    {
+      "name": "key_chaux",
+      "value": "cout_transport_chaux_agricole_@fields.current_primary_crop"
+    },
+    {
+      "name": "key_pnt",
+      "value": "cout_pnt_png_@fields.current_primary_crop"
+    },
+    {
+      "name": "key_sup",
+      "value": "cout_superficie_labouree_@fields.current_primary_crop"
+    },
+    {
+      "name": "key_sem",
+      "value": "cout_semence_achetee_@fields.current_primary_crop"
+    },
+    {
+      "name": "key_herb",
+      "value": "cout_herbicide_prelevee_@fields.current_primary_crop"
+    },
+    {
+      "name": "c_fum",
+      "value": "@fields.@local.key_fum"
+    },
+    {
+      "name": "c_chaux",
+      "value": "@fields.@local.key_chaux"
+    },
+    {
+      "name": "c_pnt",
+      "value": "@fields.@local.key_pnt"
+    },
+    {
+      "name": "c_sup",
+      "value": "@fields.@local.key_sup"
+    },
+    {
+      "name": "c_sem",
+      "value": "@fields.@local.key_sem"
+    },
+    {
+      "name": "c_herb",
+      "value": "@fields.@local.key_herb"
+    },
+    {
+      "type": "begin_data_items",
+      "value": "@data.primary_crops",
+      "parameter_list": "filter: @item.name == @fields.current_primary_crop;",
+      "style_list": "display: flex; flex-wrap: wrap; justify-content: space-between; width: 100%; gap: 10px;"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "image",
+      "value": "@item.image"
+    },
+    {
+      "type": "text",
+      "value": "**@item.text**",
+      "style_list": "font-weight: bold; font-size: 18px;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "end_data_items"
+    },
+    {
+      "type": "text",
+      "name": "current_primary_crop_total_cost",
+      "value": "@calc(Number(@local.c_fum) + Number(@local.c_chaux) + Number(@local.c_pnt) + Number(@local.c_sup) + Number(@local.c_sem) + Number(@local.c_herb))"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "dg_footer",
+      "value": " ",
+      "parameter_list": "sticky: bottom;",
+      "style_list": "padding: 12px 24px;"
+    },
+    {
+      "type": "round_button",
+      "name": "page_14_button_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+    },
+    {
+      "type": "button",
+      "name": "page_14_button_continue",
+      "value": "@global.btn_continue",
+      "action_list": "click | emit: completed",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "end_display_group"
+    }
+  ]
+}

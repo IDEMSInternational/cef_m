@@ -1,0 +1,71 @@
+{
+  "flow_type": "template",
+  "flow_name": "parcelle_form_page1",
+  "status": "released",
+  "rows": [
+    {
+      "type": "subtitle",
+      "value": "**Niveau de fertilité de la parcelle N⁰ @fields.num_parcelle de @fields.nom_champ** *"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "Indiquez le niveau de fertilité de la parcelle  N⁰@fields.parcelle_we_want_to_see"
+    },
+    {
+      "type": "audio",
+      "name": "audio_1",
+      "parameter_list": "variant: compact;\nsrc: audio/Superficie/fertilite_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/fertilite.jpg",
+      "style_list": "width:100px; height:100px; "
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: black;\"> Sélectionner un niveau en dessous !</p>"
+    },
+    {
+      "type": "radio_button_grid",
+      "name": "fertilite_sol",
+      "value": "@fields.fertilite_sol",
+      "action_list": "changed | set_local : fertilite_sol: this.value;",
+      "parameter_list": "answer_list: @data.fertilite_sol; \nstyle: secondary;\nitem_width: 60px;\ngrid_gap: 8px;"
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "condition": "!@local.fertilite_sol"
+    },
+    {
+      "type": "begin_display_group",
+      "value": " ",
+      "parameter_list": "sticky: bottom;",
+      "style_list": "padding: 12px 24px;"
+    },
+    {
+      "type": "round_button",
+      "name": "page1_button_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+    },
+    {
+      "type": "button",
+      "name": "button_continue_1",
+      "value": "Continuer",
+      "action_list": "click | emit: completed;"
+    },
+    {
+      "type": "end_display_group"
+    }
+  ]
+}

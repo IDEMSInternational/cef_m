@@ -6,10 +6,133 @@
     {
       "type": "title",
       "name": "page_title",
-      "value": "HERBICIDAGE PRE-LEVEE"
+      "value": "APPORT CHAUX AGRICOLE"
     },
     {
-      "name": "completed_enabled"
+      "name": "attempt_submit",
+      "value": "@fields.attempt_submit"
+    },
+    {
+      "type": "begin_data_items",
+      "value": "@data.primary_crops",
+      "parameter_list": "filter: @item.name == @fields.current_primary_crop;",
+      "style_list": "display: flex; flex-wrap: wrap; justify-content: space-between; width: 100%; gap: 10px;"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "image",
+      "value": "@item.image"
+    },
+    {
+      "type": "text",
+      "value": "**@item.text**",
+      "style_list": "font-weight: bold; font-size: 18px;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "end_data_items"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "html",
+      "name": "quantite_chaux_agricole_label",
+      "value": "<span style=\"color: red;\">*</span> Quantité chaux (sac) @fields.current_primary_crop\n",
+      "style_list": "font-size:20px;"
+    },
+    {
+      "type": "audio",
+      "name": "audio_9_1",
+      "parameter_list": "variant: compact;\nsrc: audio/semis/q_chaux_agri_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "float: right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/sac.jpg",
+      "style_list": "width:120px; height:120px; object-fit:contain; flex-shrink:0;"
+    },
+    {
+      "type": "text",
+      "name": "quantite_chaux_agricole_hint",
+      "value": "Mettez 0 si aucune chaux",
+      "style_list": "color: gray; font-size: 16px;"
+    },
+    {
+      "type": "text_box",
+      "name": "quantite_chaux_agricole",
+      "value": "@fields.quantite_chaux_agricole",
+      "action_list": "changed | set_field : quantite_chaux_agricole: this.value;",
+      "parameter_list": "number_input: true"
+    },
+    {
+      "name": "valid_quantite_chaux_agricole",
+      "value": "@calc(@fields.quantite_chaux_agricole >= 0)"
+    },
+    {
+      "type": "text",
+      "name": "error_quantite_chaux_agricole",
+      "value": "@global.error_positive_value",
+      "condition": "@fields.attempt_submit && !@local.valid_quantite_chaux_agricole",
+      "style_list": "color: red; font-size: 16px;"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "html",
+      "name": "cout_chaux_agricole_label",
+      "value": "<span style=\"color: red;\">*</span> Coût chaux (drm)",
+      "style_list": "font-size:20px;"
+    },
+    {
+      "type": "audio",
+      "name": "audio_9_2",
+      "parameter_list": "variant: compact;\nsrc: audio/semis/cout_chaux_agri_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "float: right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/cfa.jpg",
+      "style_list": "width:120px; height:120px; object-fit:contain; flex-shrink:0;"
+    },
+    {
+      "type": "text",
+      "name": "cout_transport_chaux_agricole_hint",
+      "value": "@global.hint_price",
+      "style_list": "color: gray; font-size: 16px;"
+    },
+    {
+      "type": "text_box",
+      "name": "cout_transport_chaux_agricole",
+      "value": "@fields.cout_transport_chaux_agricole",
+      "action_list": "changed | set_field : cout_transport_chaux_agricole: this.value;",
+      "parameter_list": "number_input: true"
+    },
+    {
+      "name": "valid_cout_transport_chaux_agricole",
+      "value": "@calc(@fields.cout_transport_chaux_agricole >= 0)"
+    },
+    {
+      "type": "text",
+      "name": "error_cout_transport_chaux_agricole",
+      "value": "@global.error_required_answer",
+      "condition": "@fields.attempt_submit && !@local.valid_cout_transport_chaux_agricole",
+      "style_list": "color: red; font-size: 16px;"
+    },
+    {
+      "name": "completed_enabled",
+      "value": "@local.valid_quantite_chaux_agricole && @local.valid_cout_transport_chaux_agricole"
     },
     {
       "type": "begin_display_group",
@@ -20,15 +143,25 @@
     },
     {
       "type": "round_button",
-      "name": "page_1_button_back",
+      "name": "page_9_button_back",
       "action_list": "click | emit: uncompleted",
       "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
     },
     {
       "type": "button",
-      "name": "page_1_button_continue",
+      "name": "page_9_btn_attempt_submit",
       "value": "@global.btn_continue",
-      "action_list": "click | emit: completed",
+      "action_list": "click | set_field: attempt_submit: true;",
+      "parameter_list": "disabled: !@local.completed_enabled",
+      "condition": "!@local.completed_enabled",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "button",
+      "name": "page_9_button_continue",
+      "value": "@global.btn_continue",
+      "action_list": "click | set_field: @calc('quantite_chaux_agricole_' + @fields.current_primary_crop) : @fields.quantite_chaux_agricole;\nclick | set_field: @calc('cout_transport_chaux_agricole_' + @fields.current_primary_crop) : @fields.cout_transport_chaux_agricole;\nclick | set_field: quantite_chaux_agricole: null;\nclick | set_field: cout_transport_chaux_agricole: null;\nclick | emit: completed",
+      "condition": "@local.completed_enabled",
       "style_list": "flex: 1"
     },
     {

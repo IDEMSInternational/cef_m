@@ -1,0 +1,878 @@
+{
+  "flow_type": "template",
+  "flow_name": "recolte_page6",
+  "status": "released",
+  "rows": [
+    {
+      "name": "v_current_human",
+      "value": "@calc(Number(@field.current_idx) + 1)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_current_human",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Number(@field.current_idx) + 1)",
+            "matchedExpression": "@field.current_idx",
+            "type": "field",
+            "fieldName": "current_idx"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.current_idx) + 1)",
+            "matchedExpression": "@calc(Number(@field.current_idx) + 1)",
+            "type": "calc",
+            "fieldName": "Number(@field.current_idx) + 1"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.current_idx": [
+          "value"
+        ],
+        "@calc(Number(@field.current_idx) + 1)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "header",
+      "style_list": [
+        "background: #00adcc",
+        "padding: 15px",
+        "border-radius: 0 0 15px 15px",
+        "margin-bottom: 20px"
+      ],
+      "rows": [
+        {
+          "type": "html",
+          "value": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_recolte_count</div>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_1",
+          "_nested_name": "header.html_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_recolte_count</div>",
+                "matchedExpression": "@local.v_current_human",
+                "type": "local",
+                "fieldName": "v_current_human"
+              },
+              {
+                "fullExpression": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_recolte_count</div>",
+                "matchedExpression": "@field.total_recolte_count",
+                "type": "field",
+                "fieldName": "total_recolte_count"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.v_current_human": [
+              "value"
+            ],
+            "@field.total_recolte_count": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "header"
+    },
+    {
+      "name": "v_has_file",
+      "value": "@calc(['coton', 'maïs', 'mil', 'sorgho', 'arachide'].includes(@local.v_crop_clean))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_has_file",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(['coton', 'maïs', 'mil', 'sorgho', 'arachide'].includes(@local.v_crop_clean))",
+            "matchedExpression": "@local.v_crop_clean",
+            "type": "local",
+            "fieldName": "v_crop_clean"
+          },
+          {
+            "fullExpression": "@calc(['coton', 'maïs', 'mil', 'sorgho', 'arachide'].includes(@local.v_crop_clean))",
+            "matchedExpression": "@calc(['coton', 'maïs', 'mil', 'sorgho', 'arachide'].includes(@local.v_crop_clean))",
+            "type": "calc",
+            "fieldName": "['coton', 'maïs', 'mil', 'sorgho', 'arachide'].includes(@local.v_crop_clean)"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.v_crop_clean": [
+          "value"
+        ],
+        "@calc(['coton', 'maïs', 'mil', 'sorgho', 'arachide'].includes(@local.v_crop_clean))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "v_crop_clean",
+      "value": "@calc(@field.active_crop_name.toLowerCase())",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_crop_clean",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(@field.active_crop_name.toLowerCase())",
+            "matchedExpression": "@field.active_crop_name.toLowerCase",
+            "type": "field",
+            "fieldName": "active_crop_name"
+          },
+          {
+            "fullExpression": "@calc(@field.active_crop_name.toLowerCase())",
+            "matchedExpression": "@calc(@field.active_crop_name.toLowerCase())",
+            "type": "calc",
+            "fieldName": "@field.active_crop_name.toLowerCase()"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.active_crop_name.toLowerCase": [
+          "value"
+        ],
+        "@calc(@field.active_crop_name.toLowerCase())": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "v_res_fmt",
+      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.production_residu_culture))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_res_fmt",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.production_residu_culture))",
+            "matchedExpression": "@field.production_residu_culture",
+            "type": "field",
+            "fieldName": "production_residu_culture"
+          },
+          {
+            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.production_residu_culture))",
+            "matchedExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.production_residu_culture))",
+            "type": "calc",
+            "fieldName": "/^\\d+(\\.\\d+)?$/.test(@field.production_residu_culture)"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.production_residu_culture": [
+          "value"
+        ],
+        "@calc(/^\\d+(\\.\\d+)?$/.test(@field.production_residu_culture))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "v_res_err",
+      "value": "@calc(!@local.v_res_fmt || Number(@field.production_residu_culture) < 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_res_err",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(!@local.v_res_fmt || Number(@field.production_residu_culture) < 0)",
+            "matchedExpression": "!@local.v_res_fmt",
+            "type": "local",
+            "fieldName": "v_res_fmt"
+          },
+          {
+            "fullExpression": "@calc(!@local.v_res_fmt || Number(@field.production_residu_culture) < 0)",
+            "matchedExpression": "@field.production_residu_culture",
+            "type": "field",
+            "fieldName": "production_residu_culture"
+          },
+          {
+            "fullExpression": "@calc(!@local.v_res_fmt || Number(@field.production_residu_culture) < 0)",
+            "matchedExpression": "@calc(!@local.v_res_fmt || Number(@field.production_residu_culture) < 0)",
+            "type": "calc",
+            "fieldName": "!@local.v_res_fmt || Number(@field.production_residu_culture) < 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@local.v_res_fmt": [
+          "value"
+        ],
+        "@field.production_residu_culture": [
+          "value"
+        ],
+        "@calc(!@local.v_res_fmt || Number(@field.production_residu_culture) < 0)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "v_fane_fmt",
+      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.nombre_botte))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_fane_fmt",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.nombre_botte))",
+            "matchedExpression": "@field.nombre_botte",
+            "type": "field",
+            "fieldName": "nombre_botte"
+          },
+          {
+            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.nombre_botte))",
+            "matchedExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.nombre_botte))",
+            "type": "calc",
+            "fieldName": "/^\\d+(\\.\\d+)?$/.test(@field.nombre_botte)"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.nombre_botte": [
+          "value"
+        ],
+        "@calc(/^\\d+(\\.\\d+)?$/.test(@field.nombre_botte))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "v_fane_err",
+      "value": "@calc(!@local.v_fane_fmt || Number(@field.nombre_botte) < 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_fane_err",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(!@local.v_fane_fmt || Number(@field.nombre_botte) < 0)",
+            "matchedExpression": "!@local.v_fane_fmt",
+            "type": "local",
+            "fieldName": "v_fane_fmt"
+          },
+          {
+            "fullExpression": "@calc(!@local.v_fane_fmt || Number(@field.nombre_botte) < 0)",
+            "matchedExpression": "@field.nombre_botte",
+            "type": "field",
+            "fieldName": "nombre_botte"
+          },
+          {
+            "fullExpression": "@calc(!@local.v_fane_fmt || Number(@field.nombre_botte) < 0)",
+            "matchedExpression": "@calc(!@local.v_fane_fmt || Number(@field.nombre_botte) < 0)",
+            "type": "calc",
+            "fieldName": "!@local.v_fane_fmt || Number(@field.nombre_botte) < 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@local.v_fane_fmt": [
+          "value"
+        ],
+        "@field.nombre_botte": [
+          "value"
+        ],
+        "@calc(!@local.v_fane_fmt || Number(@field.nombre_botte) < 0)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "html",
+      "value": "<div style=\"color: black; font-weight: bold; font-size: 14px;\">VALORISATION DES RÉSIDUS</div>",
+      "_translations": {
+        "value": {}
+      },
+      "name": "html_11",
+      "_nested_name": "html_11"
+    },
+    {
+      "type": "display_group",
+      "style_list": [
+        "width: 100%",
+        "display: flex",
+        "flex-direction: column",
+        "align-items: center",
+        "border: 1px solid #FFCC80",
+        "border-radius: 12px",
+        "background: white",
+        "margin-bottom: 10px",
+        "overflow: hidden"
+      ],
+      "rows": [
+        {
+          "type": "image",
+          "value": "@calc(@local.v_has_file ? 'images/' + @local.v_crop_clean + '.jpg' : 'images/autre_cult_2.jpg')",
+          "_translations": {
+            "value": {}
+          },
+          "name": "image_1",
+          "_nested_name": "display_group_12.image_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@calc(@local.v_has_file ? 'images/' + @local.v_crop_clean + '.jpg' : 'images/autre_cult_2.jpg')",
+                "matchedExpression": "@local.v_has_file",
+                "type": "local",
+                "fieldName": "v_has_file"
+              },
+              {
+                "fullExpression": "@calc(@local.v_has_file ? 'images/' + @local.v_crop_clean + '.jpg' : 'images/autre_cult_2.jpg')",
+                "matchedExpression": "@local.v_crop_clean",
+                "type": "local",
+                "fieldName": "v_crop_clean"
+              },
+              {
+                "fullExpression": "@calc(@local.v_has_file ? 'images/' + @local.v_crop_clean + '.jpg' : 'images/autre_cult_2.jpg')",
+                "matchedExpression": "@calc(@local.v_has_file ? 'images/' + @local.v_crop_clean + '.jpg' : 'images/autre_cult_2.jpg')",
+                "type": "calc",
+                "fieldName": "@local.v_has_file ? 'images/' + @local.v_crop_clean + '.jpg' : 'images/autre_cult_2.jpg'"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.v_has_file": [
+              "value"
+            ],
+            "@local.v_crop_clean": [
+              "value"
+            ],
+            "@calc(@local.v_has_file ? 'images/' + @local.v_crop_clean + '.jpg' : 'images/autre_cult_2.jpg')": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "html",
+          "value": "<div style=\"background: rgba(255,255,255,0.2); padding: 15px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.3);\">\n    <h3 style=\"color: black; margin: 0;\">Culture : <span style=\"color: #e3a730;\">@field.active_crop_name</span></h3>\n</div>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_2",
+          "_nested_name": "display_group_12.html_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<div style=\"background: rgba(255,255,255,0.2); padding: 15px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.3);\">\n    <h3 style=\"color: black; margin: 0;\">Culture : <span style=\"color: #e3a730;\">@field.active_crop_name</span></h3>\n</div>",
+                "matchedExpression": "@field.active_crop_name",
+                "type": "field",
+                "fieldName": "active_crop_name"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@field.active_crop_name": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_12",
+      "_nested_name": "display_group_12"
+    },
+    {
+      "type": "display_group",
+      "name": "grp_residus",
+      "condition": "@calc(@local.v_crop_clean == 'coton' || @local.v_crop_clean == 'maïs' || @local.v_crop_clean == 'mil' || @local.v_crop_clean == 'sorgho')",
+      "style_list": [
+        "display: block",
+        "width: 100%"
+      ],
+      "rows": [
+        {
+          "type": "audio",
+          "name": "aud_residu",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/recolte/production_residu_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "exclude_from_translation": true,
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "grp_residus.aud_residu"
+        },
+        {
+          "type": "html",
+          "value": "<span style=\"color: red;\">*</span>Collecte de résidus (charretée)",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-weight: bold"
+          ],
+          "name": "html_2",
+          "_nested_name": "grp_residus.html_2"
+        },
+        {
+          "type": "image",
+          "value": "images/charrette.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width: 80%",
+            "object-fit: contain",
+            "margin-bottom: 10px"
+          ],
+          "name": "image_3",
+          "_nested_name": "grp_residus.image_3"
+        },
+        {
+          "type": "text_box",
+          "name": "production_residu_culture",
+          "value": "@field.production_residu_culture",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "changed",
+              "action_id": "set_field",
+              "args": [
+                "production_residu_culture",
+                "this.value"
+              ],
+              "_raw": "changed | set_field: production_residu_culture : this.value"
+            }
+          ],
+          "parameter_list": {
+            "number_input": "true",
+            "placeholder": "Nombre de charretées"
+          },
+          "_nested_name": "grp_residus.production_residu_culture",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@field.production_residu_culture",
+                "matchedExpression": "@field.production_residu_culture",
+                "type": "field",
+                "fieldName": "production_residu_culture"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@field.production_residu_culture": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "value": "Mettez un nombre positif valide",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "@local.v_res_err",
+          "style_list": [
+            "font-size: 12px",
+            "color: red"
+          ],
+          "name": "text_5",
+          "_nested_name": "grp_residus.text_5",
+          "_dynamicFields": {
+            "condition": [
+              {
+                "fullExpression": "@local.v_res_err",
+                "matchedExpression": "@local.v_res_err",
+                "type": "local",
+                "fieldName": "v_res_err"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.v_res_err": [
+              "condition"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "grp_residus",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@calc(@local.v_crop_clean == 'coton' || @local.v_crop_clean == 'maïs' || @local.v_crop_clean == 'mil' || @local.v_crop_clean == 'sorgho')",
+            "matchedExpression": "@local.v_crop_clean",
+            "type": "local",
+            "fieldName": "v_crop_clean"
+          },
+          {
+            "fullExpression": "@calc(@local.v_crop_clean == 'coton' || @local.v_crop_clean == 'maïs' || @local.v_crop_clean == 'mil' || @local.v_crop_clean == 'sorgho')",
+            "matchedExpression": "@local.v_crop_clean",
+            "type": "local",
+            "fieldName": "v_crop_clean"
+          },
+          {
+            "fullExpression": "@calc(@local.v_crop_clean == 'coton' || @local.v_crop_clean == 'maïs' || @local.v_crop_clean == 'mil' || @local.v_crop_clean == 'sorgho')",
+            "matchedExpression": "@local.v_crop_clean",
+            "type": "local",
+            "fieldName": "v_crop_clean"
+          },
+          {
+            "fullExpression": "@calc(@local.v_crop_clean == 'coton' || @local.v_crop_clean == 'maïs' || @local.v_crop_clean == 'mil' || @local.v_crop_clean == 'sorgho')",
+            "matchedExpression": "@local.v_crop_clean",
+            "type": "local",
+            "fieldName": "v_crop_clean"
+          },
+          {
+            "fullExpression": "@calc(@local.v_crop_clean == 'coton' || @local.v_crop_clean == 'maïs' || @local.v_crop_clean == 'mil' || @local.v_crop_clean == 'sorgho')",
+            "matchedExpression": "@calc(@local.v_crop_clean == 'coton' || @local.v_crop_clean == 'maïs' || @local.v_crop_clean == 'mil' || @local.v_crop_clean == 'sorgho')",
+            "type": "calc",
+            "fieldName": "@local.v_crop_clean == 'coton' || @local.v_crop_clean == 'maïs' || @local.v_crop_clean == 'mil' || @local.v_crop_clean == 'sorgho'"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.v_crop_clean": [
+          "condition",
+          "condition",
+          "condition",
+          "condition"
+        ],
+        "@calc(@local.v_crop_clean == 'coton' || @local.v_crop_clean == 'maïs' || @local.v_crop_clean == 'mil' || @local.v_crop_clean == 'sorgho')": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "grp_fanes",
+      "condition": "@calc(@local.v_crop_clean == 'arachide' || @local.v_crop_clean == 'fourrage')",
+      "style_list": [
+        "display: block",
+        "width: 100%"
+      ],
+      "rows": [
+        {
+          "type": "audio",
+          "name": "aud_residu",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/recolte/production_fane_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "exclude_from_translation": true,
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "grp_fanes.aud_residu"
+        },
+        {
+          "type": "html",
+          "value": "<span style=\"color: red;\">*</span>Production de fânes (botte)",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-weight: bold"
+          ],
+          "name": "html_2",
+          "_nested_name": "grp_fanes.html_2"
+        },
+        {
+          "type": "image",
+          "value": "images/botte.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width: 80%",
+            "object-fit: contain",
+            "margin-bottom: 10px"
+          ],
+          "name": "image_3",
+          "_nested_name": "grp_fanes.image_3"
+        },
+        {
+          "type": "text_box",
+          "name": "nombre_botte",
+          "value": "@field.nombre_botte",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "changed",
+              "action_id": "set_field",
+              "args": [
+                "nombre_botte",
+                "this.value"
+              ],
+              "_raw": "changed | set_field: nombre_botte : this.value"
+            }
+          ],
+          "parameter_list": {
+            "number_input": "true",
+            "placeholder": "Nombre de bottes"
+          },
+          "_nested_name": "grp_fanes.nombre_botte",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@field.nombre_botte",
+                "matchedExpression": "@field.nombre_botte",
+                "type": "field",
+                "fieldName": "nombre_botte"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@field.nombre_botte": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "value": "Mettez un nombre positif valide",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "@local.v_fane_err",
+          "style_list": [
+            "font-size: 12px",
+            "color: red"
+          ],
+          "name": "text_5",
+          "_nested_name": "grp_fanes.text_5",
+          "_dynamicFields": {
+            "condition": [
+              {
+                "fullExpression": "@local.v_fane_err",
+                "matchedExpression": "@local.v_fane_err",
+                "type": "local",
+                "fieldName": "v_fane_err"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.v_fane_err": [
+              "condition"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "grp_fanes",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@calc(@local.v_crop_clean == 'arachide' || @local.v_crop_clean == 'fourrage')",
+            "matchedExpression": "@local.v_crop_clean",
+            "type": "local",
+            "fieldName": "v_crop_clean"
+          },
+          {
+            "fullExpression": "@calc(@local.v_crop_clean == 'arachide' || @local.v_crop_clean == 'fourrage')",
+            "matchedExpression": "@local.v_crop_clean",
+            "type": "local",
+            "fieldName": "v_crop_clean"
+          },
+          {
+            "fullExpression": "@calc(@local.v_crop_clean == 'arachide' || @local.v_crop_clean == 'fourrage')",
+            "matchedExpression": "@calc(@local.v_crop_clean == 'arachide' || @local.v_crop_clean == 'fourrage')",
+            "type": "calc",
+            "fieldName": "@local.v_crop_clean == 'arachide' || @local.v_crop_clean == 'fourrage'"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.v_crop_clean": [
+          "condition",
+          "condition"
+        ],
+        "@calc(@local.v_crop_clean == 'arachide' || @local.v_crop_clean == 'fourrage')": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "v_page6_valid",
+      "value": "@calc((['coton', 'maïs', 'mil', 'sorgho'].includes(@local.v_crop_clean) ? (@local.v_res_fmt && Number(@field.production_residu_culture) >= 0) : true) && (['arachide', 'fourrage'].includes(@local.v_crop_clean) ? (@local.v_fane_fmt && Number(@field.nombre_botte) >= 0) : true))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_page6_valid",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc((['coton', 'maïs', 'mil', 'sorgho'].includes(@local.v_crop_clean) ? (@local.v_res_fmt && Number(@field.production_residu_culture) >= 0) : true) && (['arachide', 'fourrage'].includes(@local.v_crop_clean) ? (@local.v_fane_fmt && Number(@field.nombre_botte) >= 0) : true))",
+            "matchedExpression": "@local.v_crop_clean",
+            "type": "local",
+            "fieldName": "v_crop_clean"
+          },
+          {
+            "fullExpression": "@calc((['coton', 'maïs', 'mil', 'sorgho'].includes(@local.v_crop_clean) ? (@local.v_res_fmt && Number(@field.production_residu_culture) >= 0) : true) && (['arachide', 'fourrage'].includes(@local.v_crop_clean) ? (@local.v_fane_fmt && Number(@field.nombre_botte) >= 0) : true))",
+            "matchedExpression": "@local.v_res_fmt",
+            "type": "local",
+            "fieldName": "v_res_fmt"
+          },
+          {
+            "fullExpression": "@calc((['coton', 'maïs', 'mil', 'sorgho'].includes(@local.v_crop_clean) ? (@local.v_res_fmt && Number(@field.production_residu_culture) >= 0) : true) && (['arachide', 'fourrage'].includes(@local.v_crop_clean) ? (@local.v_fane_fmt && Number(@field.nombre_botte) >= 0) : true))",
+            "matchedExpression": "@field.production_residu_culture",
+            "type": "field",
+            "fieldName": "production_residu_culture"
+          },
+          {
+            "fullExpression": "@calc((['coton', 'maïs', 'mil', 'sorgho'].includes(@local.v_crop_clean) ? (@local.v_res_fmt && Number(@field.production_residu_culture) >= 0) : true) && (['arachide', 'fourrage'].includes(@local.v_crop_clean) ? (@local.v_fane_fmt && Number(@field.nombre_botte) >= 0) : true))",
+            "matchedExpression": "@local.v_crop_clean",
+            "type": "local",
+            "fieldName": "v_crop_clean"
+          },
+          {
+            "fullExpression": "@calc((['coton', 'maïs', 'mil', 'sorgho'].includes(@local.v_crop_clean) ? (@local.v_res_fmt && Number(@field.production_residu_culture) >= 0) : true) && (['arachide', 'fourrage'].includes(@local.v_crop_clean) ? (@local.v_fane_fmt && Number(@field.nombre_botte) >= 0) : true))",
+            "matchedExpression": "@local.v_fane_fmt",
+            "type": "local",
+            "fieldName": "v_fane_fmt"
+          },
+          {
+            "fullExpression": "@calc((['coton', 'maïs', 'mil', 'sorgho'].includes(@local.v_crop_clean) ? (@local.v_res_fmt && Number(@field.production_residu_culture) >= 0) : true) && (['arachide', 'fourrage'].includes(@local.v_crop_clean) ? (@local.v_fane_fmt && Number(@field.nombre_botte) >= 0) : true))",
+            "matchedExpression": "@field.nombre_botte",
+            "type": "field",
+            "fieldName": "nombre_botte"
+          },
+          {
+            "fullExpression": "@calc((['coton', 'maïs', 'mil', 'sorgho'].includes(@local.v_crop_clean) ? (@local.v_res_fmt && Number(@field.production_residu_culture) >= 0) : true) && (['arachide', 'fourrage'].includes(@local.v_crop_clean) ? (@local.v_fane_fmt && Number(@field.nombre_botte) >= 0) : true))",
+            "matchedExpression": "@calc((['coton', 'maïs', 'mil', 'sorgho'].includes(@local.v_crop_clean) ? (@local.v_res_fmt && Number(@field.production_residu_culture) >= 0) : true) && (['arachide', 'fourrage'].includes(@local.v_crop_clean) ? (@local.v_fane_fmt && Number(@field.nombre_botte) >= 0) : true))",
+            "type": "calc",
+            "fieldName": "(['coton', 'maïs', 'mil', 'sorgho'].includes(@local.v_crop_clean) ? (@local.v_res_fmt && Number(@field.production_residu_culture) >= 0) : true) && (['arachide', 'fourrage'].includes(@local.v_crop_clean) ? (@local.v_fane_fmt && Number(@field.nombre_botte) >= 0) : true)"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.v_crop_clean": [
+          "value",
+          "value"
+        ],
+        "@local.v_res_fmt": [
+          "value"
+        ],
+        "@field.production_residu_culture": [
+          "value"
+        ],
+        "@local.v_fane_fmt": [
+          "value"
+        ],
+        "@field.nombre_botte": [
+          "value"
+        ],
+        "@calc((['coton', 'maïs', 'mil', 'sorgho'].includes(@local.v_crop_clean) ? (@local.v_res_fmt && Number(@field.production_residu_culture) >= 0) : true) && (['arachide', 'fourrage'].includes(@local.v_crop_clean) ? (@local.v_fane_fmt && Number(@field.nombre_botte) >= 0) : true))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "dg_footer",
+      "parameter_list": {
+        "sticky": "bottom"
+      },
+      "style_list": [
+        "padding: 12px 24px"
+      ],
+      "rows": [
+        {
+          "type": "round_button",
+          "name": "button_back",
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "uncompleted"
+              ],
+              "_raw": "click | emit: uncompleted"
+            }
+          ],
+          "parameter_list": {
+            "icon_src": "arrow-back",
+            "variant": "no-background"
+          },
+          "_nested_name": "dg_footer.button_back"
+        },
+        {
+          "type": "button",
+          "name": "button_completed",
+          "value": "@global.btn_continue",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "completed"
+              ],
+              "_raw": "click | emit: completed"
+            }
+          ],
+          "parameter_list": {
+            "style": "navigation",
+            "disabled": "!@local.v_page6_valid"
+          },
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "dg_footer.button_completed",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.btn_continue",
+                "matchedExpression": "@global.btn_continue",
+                "type": "global",
+                "fieldName": "btn_continue"
+              }
+            ],
+            "parameter_list": {
+              "disabled": [
+                {
+                  "fullExpression": "!@local.v_page6_valid",
+                  "matchedExpression": "!@local.v_page6_valid",
+                  "type": "local",
+                  "fieldName": "v_page6_valid"
+                }
+              ]
+            }
+          },
+          "_dynamicDependencies": {
+            "@global.btn_continue": [
+              "value"
+            ],
+            "!@local.v_page6_valid": [
+              "parameter_list.disabled"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "dg_footer"
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/Recolte_form_sheets.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/1Ntx5DFmilfEnlVuuxWLQ2UmbTS8HV8mlyPWYLNnCE2U"
+  }
+}

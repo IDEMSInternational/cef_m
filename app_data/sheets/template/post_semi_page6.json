@@ -1,0 +1,1386 @@
+{
+  "flow_type": "template",
+  "flow_name": "post_semi_page6",
+  "status": "released",
+  "rows": [
+    {
+      "name": "v_current_human",
+      "value": "@calc(Number(@field.current_culture_index) + 1)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_current_human",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Number(@field.current_culture_index) + 1)",
+            "matchedExpression": "@field.current_culture_index",
+            "type": "field",
+            "fieldName": "current_culture_index"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.current_culture_index) + 1)",
+            "matchedExpression": "@calc(Number(@field.current_culture_index) + 1)",
+            "type": "calc",
+            "fieldName": "Number(@field.current_culture_index) + 1"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.current_culture_index": [
+          "value"
+        ],
+        "@calc(Number(@field.current_culture_index) + 1)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "header_top",
+      "style_list": [
+        "background: #00adcc",
+        "padding: 15px",
+        "border-radius: 0 0 15px 15px",
+        "margin-bottom: 20px"
+      ],
+      "rows": [
+        {
+          "type": "html",
+          "value": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_1",
+          "_nested_name": "header_top.html_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>",
+                "matchedExpression": "@local.v_current_human",
+                "type": "local",
+                "fieldName": "v_current_human"
+              },
+              {
+                "fullExpression": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>",
+                "matchedExpression": "@field.total_cultures_selected",
+                "type": "field",
+                "fieldName": "total_cultures_selected"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.v_current_human": [
+              "value"
+            ],
+            "@field.total_cultures_selected": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "header_top"
+    },
+    {
+      "type": "title",
+      "value": "DÉTAILS DE LA CULTURE : PROTECTION CHIMIQUE",
+      "_translations": {
+        "value": {}
+      },
+      "name": "title_5",
+      "_nested_name": "title_5"
+    },
+    {
+      "type": "display_group",
+      "style_list": [
+        "width: 100%",
+        "display: flex",
+        "flex-direction: column",
+        "align-items: center",
+        "border: 1px solid #FFCC80",
+        "border-radius: 12px",
+        "background: white",
+        "margin-bottom: 10px",
+        "overflow: hidden"
+      ],
+      "rows": [
+        {
+          "type": "image",
+          "value": "@calc('images/' + @field.active_culture_name + '.jpg')",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width: 60%",
+            "object-fit: contain"
+          ],
+          "name": "image_1",
+          "_nested_name": "display_group_6.image_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@calc('images/' + @field.active_culture_name + '.jpg')",
+                "matchedExpression": "@field.active_culture_name",
+                "type": "field",
+                "fieldName": "active_culture_name"
+              },
+              {
+                "fullExpression": "@calc('images/' + @field.active_culture_name + '.jpg')",
+                "matchedExpression": "@calc('images/' + @field.active_culture_name + '.jpg')",
+                "type": "calc",
+                "fieldName": "'images/' + @field.active_culture_name + '.jpg'"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@field.active_culture_name": [
+              "value"
+            ],
+            "@calc('images/' + @field.active_culture_name + '.jpg')": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "value": "<h3 style='color: black; margin: 10px 0;'>Culture : <span style='color: #e3a730;'>@field.active_culture_name</span></h3>",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-weight: bold",
+            "font-size: 18px"
+          ],
+          "name": "text_2",
+          "_nested_name": "display_group_6.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<h3 style='color: black; margin: 10px 0;'>Culture : <span style='color: #e3a730;'>@field.active_culture_name</span></h3>",
+                "matchedExpression": "@field.active_culture_name",
+                "type": "field",
+                "fieldName": "active_culture_name"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@field.active_culture_name": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_6",
+      "_nested_name": "display_group_6"
+    },
+    {
+      "name": "v_q_herb_fmt",
+      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.q_herb))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_q_herb_fmt",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.q_herb))",
+            "matchedExpression": "@field.q_herb",
+            "type": "field",
+            "fieldName": "q_herb"
+          },
+          {
+            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.q_herb))",
+            "matchedExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.q_herb))",
+            "type": "calc",
+            "fieldName": "/^\\d+(\\.\\d+)?$/.test(@field.q_herb)"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.q_herb": [
+          "value"
+        ],
+        "@calc(/^\\d+(\\.\\d+)?$/.test(@field.q_herb))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "v_q_herb_pos",
+      "value": "@calc(@local.v_q_herb_fmt && Number(@field.q_herb) > 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_q_herb_pos",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(@local.v_q_herb_fmt && Number(@field.q_herb) > 0)",
+            "matchedExpression": "@local.v_q_herb_fmt",
+            "type": "local",
+            "fieldName": "v_q_herb_fmt"
+          },
+          {
+            "fullExpression": "@calc(@local.v_q_herb_fmt && Number(@field.q_herb) > 0)",
+            "matchedExpression": "@field.q_herb",
+            "type": "field",
+            "fieldName": "q_herb"
+          },
+          {
+            "fullExpression": "@calc(@local.v_q_herb_fmt && Number(@field.q_herb) > 0)",
+            "matchedExpression": "@calc(@local.v_q_herb_fmt && Number(@field.q_herb) > 0)",
+            "type": "calc",
+            "fieldName": "@local.v_q_herb_fmt && Number(@field.q_herb) > 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.v_q_herb_fmt": [
+          "value"
+        ],
+        "@field.q_herb": [
+          "value"
+        ],
+        "@calc(@local.v_q_herb_fmt && Number(@field.q_herb) > 0)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "v_q_herb_err",
+      "value": "@calc(!@local.v_q_herb_fmt || Number(@field.q_herb) < 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_q_herb_err",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(!@local.v_q_herb_fmt || Number(@field.q_herb) < 0)",
+            "matchedExpression": "!@local.v_q_herb_fmt",
+            "type": "local",
+            "fieldName": "v_q_herb_fmt"
+          },
+          {
+            "fullExpression": "@calc(!@local.v_q_herb_fmt || Number(@field.q_herb) < 0)",
+            "matchedExpression": "@field.q_herb",
+            "type": "field",
+            "fieldName": "q_herb"
+          },
+          {
+            "fullExpression": "@calc(!@local.v_q_herb_fmt || Number(@field.q_herb) < 0)",
+            "matchedExpression": "@calc(!@local.v_q_herb_fmt || Number(@field.q_herb) < 0)",
+            "type": "calc",
+            "fieldName": "!@local.v_q_herb_fmt || Number(@field.q_herb) < 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@local.v_q_herb_fmt": [
+          "value"
+        ],
+        "@field.q_herb": [
+          "value"
+        ],
+        "@calc(!@local.v_q_herb_fmt || Number(@field.q_herb) < 0)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "html",
+      "value": "<br><b style=\"color: #e67e22\">1. HERBICIDAGE</b>",
+      "_translations": {
+        "value": {}
+      },
+      "name": "html_11",
+      "_nested_name": "html_11"
+    },
+    {
+      "type": "display_group",
+      "name": "npk_card",
+      "style_list": [
+        "display: block",
+        "width: 100%"
+      ],
+      "rows": [
+        {
+          "type": "audio",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/postSemi/q_herbicide_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "exclude_from_translation": true,
+          "style_list": [
+            "float: right"
+          ],
+          "name": "audio_1",
+          "_nested_name": "npk_card.audio_1"
+        },
+        {
+          "type": "html",
+          "value": "Quantité Herbicide utilisée (Flacons)<span style=\"color: red;\">*</span>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_2",
+          "_nested_name": "npk_card.html_2"
+        },
+        {
+          "type": "image",
+          "value": "images/flacon.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width: 80%",
+            "object-fit: contain"
+          ],
+          "name": "image_3",
+          "_nested_name": "npk_card.image_3"
+        },
+        {
+          "type": "text_box",
+          "name": "q_herb",
+          "value": "@field.q_herb",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "changed",
+              "action_id": "set_field",
+              "args": [
+                "q_herb",
+                "this.value"
+              ],
+              "_raw": "changed | set_field: q_herb : this.value"
+            }
+          ],
+          "parameter_list": {
+            "number_input": "true",
+            "placeholder": "0"
+          },
+          "_nested_name": "npk_card.q_herb",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@field.q_herb",
+                "matchedExpression": "@field.q_herb",
+                "type": "field",
+                "fieldName": "q_herb"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@field.q_herb": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "value": "Mettz une valeur positive.",
+          "_translations": {
+            "value": {}
+          },
+          "condition": "@local.v_q_herb_err",
+          "style_list": [
+            "color: red",
+            "font-size: 12px"
+          ],
+          "name": "text_5",
+          "_nested_name": "npk_card.text_5",
+          "_dynamicFields": {
+            "condition": [
+              {
+                "fullExpression": "@local.v_q_herb_err",
+                "matchedExpression": "@local.v_q_herb_err",
+                "type": "local",
+                "fieldName": "v_q_herb_err"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.v_q_herb_err": [
+              "condition"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "npk_card"
+    },
+    {
+      "type": "display_group",
+      "name": "npk_cost_card",
+      "condition": "@local.v_q_herb_pos",
+      "style_list": [
+        "display: block",
+        "width: 100%"
+      ],
+      "rows": [
+        {
+          "type": "audio",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/postSemi/cout_herbicide_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "exclude_from_translation": true,
+          "style_list": [
+            "float: right"
+          ],
+          "name": "audio_1",
+          "_nested_name": "npk_cost_card.audio_1"
+        },
+        {
+          "type": "html",
+          "value": "Coût total Herbicide (Dram)<span style=\"color: red;\">*</span>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_2",
+          "_nested_name": "npk_cost_card.html_2"
+        },
+        {
+          "type": "text",
+          "value": "*Rappel : 1 dram = 5 FCFA*",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-size: 14px",
+            "color: gray"
+          ],
+          "name": "text_3",
+          "_nested_name": "npk_cost_card.text_3"
+        },
+        {
+          "type": "image",
+          "value": "images/cfa.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width: 80%",
+            "object-fit: contain"
+          ],
+          "name": "image_4",
+          "_nested_name": "npk_cost_card.image_4"
+        },
+        {
+          "type": "text_box",
+          "name": "c_herb",
+          "value": "@field.c_herb",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "changed",
+              "action_id": "set_field",
+              "args": [
+                "c_herb",
+                "this.value"
+              ],
+              "_raw": "changed | set_field: c_herb : this.value"
+            }
+          ],
+          "parameter_list": {
+            "number_input": "true",
+            "placeholder": "Coût total herbicide..."
+          },
+          "_nested_name": "npk_cost_card.c_herb",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@field.c_herb",
+                "matchedExpression": "@field.c_herb",
+                "type": "field",
+                "fieldName": "c_herb"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@field.c_herb": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "npk_cost_card",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@local.v_q_herb_pos",
+            "matchedExpression": "@local.v_q_herb_pos",
+            "type": "local",
+            "fieldName": "v_q_herb_pos"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.v_q_herb_pos": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "npk_cost_card_zero",
+      "condition": "@field.q_herb == 0",
+      "style_list": [
+        "display: block",
+        "width: 100%"
+      ],
+      "rows": [
+        {
+          "type": "audio",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/postSemi/cout_herbicide_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "exclude_from_translation": true,
+          "style_list": [
+            "float: right"
+          ],
+          "name": "audio_1",
+          "_nested_name": "npk_cost_card_zero.audio_1"
+        },
+        {
+          "type": "html",
+          "value": "Coût total Herbicide (Dram)<span style=\"color: red;\">*</span>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_2",
+          "_nested_name": "npk_cost_card_zero.html_2"
+        },
+        {
+          "type": "text",
+          "value": "*Rappel : 1 dram = 5 FCFA*",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-size: 14px",
+            "color: gray"
+          ],
+          "name": "text_3",
+          "_nested_name": "npk_cost_card_zero.text_3"
+        },
+        {
+          "type": "image",
+          "value": "images/cfa.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width: 80%",
+            "object-fit: contain"
+          ],
+          "name": "image_4",
+          "_nested_name": "npk_cost_card_zero.image_4"
+        },
+        {
+          "type": "text_box",
+          "value": 0,
+          "parameter_list": {
+            "disabled": "true"
+          },
+          "name": "text_box_5",
+          "_nested_name": "npk_cost_card_zero.text_box_5"
+        }
+      ],
+      "_nested_name": "npk_cost_card_zero",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@field.q_herb == 0",
+            "matchedExpression": "@field.q_herb",
+            "type": "field",
+            "fieldName": "q_herb"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.q_herb": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "v_q_ins_fmt",
+      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.q_ins))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_q_ins_fmt",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.q_ins))",
+            "matchedExpression": "@field.q_ins",
+            "type": "field",
+            "fieldName": "q_ins"
+          },
+          {
+            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.q_ins))",
+            "matchedExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.q_ins))",
+            "type": "calc",
+            "fieldName": "/^\\d+(\\.\\d+)?$/.test(@field.q_ins)"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.q_ins": [
+          "value"
+        ],
+        "@calc(/^\\d+(\\.\\d+)?$/.test(@field.q_ins))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "v_q_ins_pos",
+      "value": "@calc(@local.v_q_ins_fmt && Number(@field.q_ins) > 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_q_ins_pos",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(@local.v_q_ins_fmt && Number(@field.q_ins) > 0)",
+            "matchedExpression": "@local.v_q_ins_fmt",
+            "type": "local",
+            "fieldName": "v_q_ins_fmt"
+          },
+          {
+            "fullExpression": "@calc(@local.v_q_ins_fmt && Number(@field.q_ins) > 0)",
+            "matchedExpression": "@field.q_ins",
+            "type": "field",
+            "fieldName": "q_ins"
+          },
+          {
+            "fullExpression": "@calc(@local.v_q_ins_fmt && Number(@field.q_ins) > 0)",
+            "matchedExpression": "@calc(@local.v_q_ins_fmt && Number(@field.q_ins) > 0)",
+            "type": "calc",
+            "fieldName": "@local.v_q_ins_fmt && Number(@field.q_ins) > 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.v_q_ins_fmt": [
+          "value"
+        ],
+        "@field.q_ins": [
+          "value"
+        ],
+        "@calc(@local.v_q_ins_fmt && Number(@field.q_ins) > 0)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "v_q_ins_err",
+      "value": "@calc(!@local.v_q_ins_fmt || Number(@field.q_ins) < 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_q_ins_err",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(!@local.v_q_ins_fmt || Number(@field.q_ins) < 0)",
+            "matchedExpression": "!@local.v_q_ins_fmt",
+            "type": "local",
+            "fieldName": "v_q_ins_fmt"
+          },
+          {
+            "fullExpression": "@calc(!@local.v_q_ins_fmt || Number(@field.q_ins) < 0)",
+            "matchedExpression": "@field.q_ins",
+            "type": "field",
+            "fieldName": "q_ins"
+          },
+          {
+            "fullExpression": "@calc(!@local.v_q_ins_fmt || Number(@field.q_ins) < 0)",
+            "matchedExpression": "@calc(!@local.v_q_ins_fmt || Number(@field.q_ins) < 0)",
+            "type": "calc",
+            "fieldName": "!@local.v_q_ins_fmt || Number(@field.q_ins) < 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@local.v_q_ins_fmt": [
+          "value"
+        ],
+        "@field.q_ins": [
+          "value"
+        ],
+        "@calc(!@local.v_q_ins_fmt || Number(@field.q_ins) < 0)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "html",
+      "value": "<br><b style=\"color: #e67e22\">2. INSECTICIDAGE</b>",
+      "_translations": {
+        "value": {}
+      },
+      "name": "html_21",
+      "_nested_name": "html_21"
+    },
+    {
+      "type": "display_group",
+      "name": "desherbage_card",
+      "style_list": [
+        "display: block",
+        "width: 100%"
+      ],
+      "rows": [
+        {
+          "type": "audio",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/postSemi/q_insecticide_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "exclude_from_translation": true,
+          "style_list": [
+            "float: right"
+          ],
+          "name": "audio_1",
+          "_nested_name": "desherbage_card.audio_1"
+        },
+        {
+          "type": "html",
+          "value": "Quantité Insecticide utilisée (Flacons)<span style=\"color: red;\">*</span>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_2",
+          "_nested_name": "desherbage_card.html_2"
+        }
+      ],
+      "_nested_name": "desherbage_card"
+    },
+    {
+      "type": "text_box",
+      "name": "q_ins",
+      "value": "@field.q_ins",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "q_ins",
+            "this.value"
+          ],
+          "_raw": "changed | set_field: q_ins : this.value"
+        }
+      ],
+      "parameter_list": {
+        "number_input": "true",
+        "placeholder": "0"
+      },
+      "_nested_name": "q_ins",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@field.q_ins",
+            "matchedExpression": "@field.q_ins",
+            "type": "field",
+            "fieldName": "q_ins"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.q_ins": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "value": "images/flacon.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width: 80%",
+        "object-fit: contain"
+      ],
+      "name": "image_25",
+      "_nested_name": "image_25"
+    },
+    {
+      "type": "text",
+      "value": "Mettez une valeur positive.",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@local.v_q_ins_err",
+      "style_list": [
+        "color: red",
+        "font-size: 12px"
+      ],
+      "name": "text_26",
+      "_nested_name": "text_26",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@local.v_q_ins_err",
+            "matchedExpression": "@local.v_q_ins_err",
+            "type": "local",
+            "fieldName": "v_q_ins_err"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.v_q_ins_err": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "card_cout",
+      "condition": "@local.v_q_ins_pos",
+      "style_list": [
+        "display: block",
+        "width: 100%"
+      ],
+      "rows": [
+        {
+          "type": "audio",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/postSemi/cout_insecticide_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "exclude_from_translation": true,
+          "style_list": [
+            "float: right"
+          ],
+          "name": "audio_1",
+          "_nested_name": "card_cout.audio_1"
+        },
+        {
+          "type": "html",
+          "value": "Coût total Insecticide (Dram)<span style=\"color: red;\">*</span>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_2",
+          "_nested_name": "card_cout.html_2"
+        },
+        {
+          "type": "text",
+          "value": "*Rappel : 1 dram = 5 FCFA*",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-size: 14px",
+            "color: gray"
+          ],
+          "name": "text_3",
+          "_nested_name": "card_cout.text_3"
+        },
+        {
+          "type": "image",
+          "value": "images/cfa.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width: 80%",
+            "object-fit: contain"
+          ],
+          "name": "image_4",
+          "_nested_name": "card_cout.image_4"
+        },
+        {
+          "type": "text_box",
+          "name": "c_ins",
+          "value": "@field.c_ins",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "changed",
+              "action_id": "set_field",
+              "args": [
+                "c_ins",
+                "this.value"
+              ],
+              "_raw": "changed | set_field: c_ins : this.value"
+            }
+          ],
+          "parameter_list": {
+            "placeholder": "Coût total insecticide...",
+            "number_input": "true"
+          },
+          "_nested_name": "card_cout.c_ins",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@field.c_ins",
+                "matchedExpression": "@field.c_ins",
+                "type": "field",
+                "fieldName": "c_ins"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@field.c_ins": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "card_cout",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@local.v_q_ins_pos",
+            "matchedExpression": "@local.v_q_ins_pos",
+            "type": "local",
+            "fieldName": "v_q_ins_pos"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.v_q_ins_pos": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "card_cout_zero",
+      "condition": "@field.q_ins == 0",
+      "style_list": [
+        "display: block",
+        "width: 100%"
+      ],
+      "rows": [
+        {
+          "type": "audio",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/postSemi/cout_insecticide_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "exclude_from_translation": true,
+          "style_list": [
+            "float: right"
+          ],
+          "name": "audio_1",
+          "_nested_name": "card_cout_zero.audio_1"
+        },
+        {
+          "type": "html",
+          "value": "Coût total Insecticide (Dram)<span style=\"color: red;\">*</span>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_2",
+          "_nested_name": "card_cout_zero.html_2"
+        },
+        {
+          "type": "text",
+          "value": "*Rappel : 1 dram = 5 FCFA*",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-size: 14px",
+            "color: gray"
+          ],
+          "name": "text_3",
+          "_nested_name": "card_cout_zero.text_3"
+        },
+        {
+          "type": "image",
+          "value": "images/cfa.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width: 80%",
+            "object-fit: contain"
+          ],
+          "name": "image_4",
+          "_nested_name": "card_cout_zero.image_4"
+        },
+        {
+          "type": "text_box",
+          "name": "c_ins_zero",
+          "value": 0,
+          "parameter_list": {
+            "disabled": "true"
+          },
+          "_nested_name": "card_cout_zero.c_ins_zero"
+        }
+      ],
+      "_nested_name": "card_cout_zero",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@field.q_ins == 0",
+            "matchedExpression": "@field.q_ins",
+            "type": "field",
+            "fieldName": "q_ins"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.q_ins": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "v_phyto_herb_ok",
+      "value": "@calc(@local.v_q_herb_fmt && (Number(@field.q_herb) === 0 || (Number(@field.c_herb) >= 0 && @field.c_herb !== '')))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_phyto_herb_ok",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(@local.v_q_herb_fmt && (Number(@field.q_herb) === 0 || (Number(@field.c_herb) >= 0 && @field.c_herb !== '')))",
+            "matchedExpression": "@local.v_q_herb_fmt",
+            "type": "local",
+            "fieldName": "v_q_herb_fmt"
+          },
+          {
+            "fullExpression": "@calc(@local.v_q_herb_fmt && (Number(@field.q_herb) === 0 || (Number(@field.c_herb) >= 0 && @field.c_herb !== '')))",
+            "matchedExpression": "@field.q_herb",
+            "type": "field",
+            "fieldName": "q_herb"
+          },
+          {
+            "fullExpression": "@calc(@local.v_q_herb_fmt && (Number(@field.q_herb) === 0 || (Number(@field.c_herb) >= 0 && @field.c_herb !== '')))",
+            "matchedExpression": "@field.c_herb",
+            "type": "field",
+            "fieldName": "c_herb"
+          },
+          {
+            "fullExpression": "@calc(@local.v_q_herb_fmt && (Number(@field.q_herb) === 0 || (Number(@field.c_herb) >= 0 && @field.c_herb !== '')))",
+            "matchedExpression": "@field.c_herb",
+            "type": "field",
+            "fieldName": "c_herb"
+          },
+          {
+            "fullExpression": "@calc(@local.v_q_herb_fmt && (Number(@field.q_herb) === 0 || (Number(@field.c_herb) >= 0 && @field.c_herb !== '')))",
+            "matchedExpression": "@calc(@local.v_q_herb_fmt && (Number(@field.q_herb) === 0 || (Number(@field.c_herb) >= 0 && @field.c_herb !== '')))",
+            "type": "calc",
+            "fieldName": "@local.v_q_herb_fmt && (Number(@field.q_herb) === 0 || (Number(@field.c_herb) >= 0 && @field.c_herb !== ''))"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.v_q_herb_fmt": [
+          "value"
+        ],
+        "@field.q_herb": [
+          "value"
+        ],
+        "@field.c_herb": [
+          "value",
+          "value"
+        ],
+        "@calc(@local.v_q_herb_fmt && (Number(@field.q_herb) === 0 || (Number(@field.c_herb) >= 0 && @field.c_herb !== '')))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "v_phyto_ins_ok",
+      "value": "@calc(@local.v_q_ins_fmt && (Number(@field.q_ins) === 0 || (Number(@field.c_ins) >= 0 && @field.c_ins !== '')))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_phyto_ins_ok",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(@local.v_q_ins_fmt && (Number(@field.q_ins) === 0 || (Number(@field.c_ins) >= 0 && @field.c_ins !== '')))",
+            "matchedExpression": "@local.v_q_ins_fmt",
+            "type": "local",
+            "fieldName": "v_q_ins_fmt"
+          },
+          {
+            "fullExpression": "@calc(@local.v_q_ins_fmt && (Number(@field.q_ins) === 0 || (Number(@field.c_ins) >= 0 && @field.c_ins !== '')))",
+            "matchedExpression": "@field.q_ins",
+            "type": "field",
+            "fieldName": "q_ins"
+          },
+          {
+            "fullExpression": "@calc(@local.v_q_ins_fmt && (Number(@field.q_ins) === 0 || (Number(@field.c_ins) >= 0 && @field.c_ins !== '')))",
+            "matchedExpression": "@field.c_ins",
+            "type": "field",
+            "fieldName": "c_ins"
+          },
+          {
+            "fullExpression": "@calc(@local.v_q_ins_fmt && (Number(@field.q_ins) === 0 || (Number(@field.c_ins) >= 0 && @field.c_ins !== '')))",
+            "matchedExpression": "@field.c_ins",
+            "type": "field",
+            "fieldName": "c_ins"
+          },
+          {
+            "fullExpression": "@calc(@local.v_q_ins_fmt && (Number(@field.q_ins) === 0 || (Number(@field.c_ins) >= 0 && @field.c_ins !== '')))",
+            "matchedExpression": "@calc(@local.v_q_ins_fmt && (Number(@field.q_ins) === 0 || (Number(@field.c_ins) >= 0 && @field.c_ins !== '')))",
+            "type": "calc",
+            "fieldName": "@local.v_q_ins_fmt && (Number(@field.q_ins) === 0 || (Number(@field.c_ins) >= 0 && @field.c_ins !== ''))"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.v_q_ins_fmt": [
+          "value"
+        ],
+        "@field.q_ins": [
+          "value"
+        ],
+        "@field.c_ins": [
+          "value",
+          "value"
+        ],
+        "@calc(@local.v_q_ins_fmt && (Number(@field.q_ins) === 0 || (Number(@field.c_ins) >= 0 && @field.c_ins !== '')))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "v_total_phyto_culture",
+      "value": "@calc((Number(@field.c_herb) || 0) + (Number(@field.c_ins) || 0))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_total_phyto_culture",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc((Number(@field.c_herb) || 0) + (Number(@field.c_ins) || 0))",
+            "matchedExpression": "@field.c_herb",
+            "type": "field",
+            "fieldName": "c_herb"
+          },
+          {
+            "fullExpression": "@calc((Number(@field.c_herb) || 0) + (Number(@field.c_ins) || 0))",
+            "matchedExpression": "@field.c_ins",
+            "type": "field",
+            "fieldName": "c_ins"
+          },
+          {
+            "fullExpression": "@calc((Number(@field.c_herb) || 0) + (Number(@field.c_ins) || 0))",
+            "matchedExpression": "@calc((Number(@field.c_herb) || 0) + (Number(@field.c_ins) || 0))",
+            "type": "calc",
+            "fieldName": "(Number(@field.c_herb) || 0) + (Number(@field.c_ins) || 0)"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.c_herb": [
+          "value"
+        ],
+        "@field.c_ins": [
+          "value"
+        ],
+        "@calc((Number(@field.c_herb) || 0) + (Number(@field.c_ins) || 0))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "completed_enabled",
+      "value": "@calc(@local.v_phyto_herb_ok && @local.v_phyto_ins_ok)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "completed_enabled",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(@local.v_phyto_herb_ok && @local.v_phyto_ins_ok)",
+            "matchedExpression": "@local.v_phyto_herb_ok",
+            "type": "local",
+            "fieldName": "v_phyto_herb_ok"
+          },
+          {
+            "fullExpression": "@calc(@local.v_phyto_herb_ok && @local.v_phyto_ins_ok)",
+            "matchedExpression": "@local.v_phyto_ins_ok",
+            "type": "local",
+            "fieldName": "v_phyto_ins_ok"
+          },
+          {
+            "fullExpression": "@calc(@local.v_phyto_herb_ok && @local.v_phyto_ins_ok)",
+            "matchedExpression": "@calc(@local.v_phyto_herb_ok && @local.v_phyto_ins_ok)",
+            "type": "calc",
+            "fieldName": "@local.v_phyto_herb_ok && @local.v_phyto_ins_ok"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.v_phyto_herb_ok": [
+          "value"
+        ],
+        "@local.v_phyto_ins_ok": [
+          "value"
+        ],
+        "@calc(@local.v_phyto_herb_ok && @local.v_phyto_ins_ok)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "dg_footer",
+      "parameter_list": {
+        "sticky": "bottom"
+      },
+      "style_list": [
+        "padding: 12px 24px"
+      ],
+      "rows": [
+        {
+          "type": "round_button",
+          "name": "button_back",
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "uncompleted"
+              ],
+              "_raw": "click | emit: uncompleted"
+            }
+          ],
+          "parameter_list": {
+            "icon_src": "arrow-back",
+            "variant": "no-background"
+          },
+          "_nested_name": "dg_footer.button_back"
+        },
+        {
+          "type": "button",
+          "name": "button_completed",
+          "value": "@global.btn_continue",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "final_count_phyto",
+                "@local.v_total_phyto_culture"
+              ],
+              "_raw": "click | set_field: final_count_phyto: @local.v_total_phyto_culture"
+            },
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "completed"
+              ],
+              "_raw": "click | emit: completed"
+            }
+          ],
+          "parameter_list": {
+            "style": "navigation",
+            "disabled": "!@local.completed_enabled"
+          },
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "dg_footer.button_completed",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.btn_continue",
+                "matchedExpression": "@global.btn_continue",
+                "type": "global",
+                "fieldName": "btn_continue"
+              }
+            ],
+            "action_list": {
+              "0": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@local.v_total_phyto_culture",
+                      "matchedExpression": "@local.v_total_phyto_culture",
+                      "type": "local",
+                      "fieldName": "v_total_phyto_culture"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: final_count_phyto: @local.v_total_phyto_culture",
+                    "matchedExpression": "@local.v_total_phyto_culture",
+                    "type": "local",
+                    "fieldName": "v_total_phyto_culture"
+                  }
+                ]
+              }
+            },
+            "parameter_list": {
+              "disabled": [
+                {
+                  "fullExpression": "!@local.completed_enabled",
+                  "matchedExpression": "!@local.completed_enabled",
+                  "type": "local",
+                  "fieldName": "completed_enabled"
+                }
+              ]
+            }
+          },
+          "_dynamicDependencies": {
+            "@global.btn_continue": [
+              "value"
+            ],
+            "@local.v_total_phyto_culture": [
+              "action_list.0.args.1",
+              "action_list.0._raw"
+            ],
+            "!@local.completed_enabled": [
+              "parameter_list.disabled"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "dg_footer"
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/Post-semis_form_sheets.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/12PZPM4h6d74rSqBrmHZOvENYeVPTI8AAYZmt-zTmsJs"
+  }
+}

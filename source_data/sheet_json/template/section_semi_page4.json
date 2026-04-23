@@ -5,11 +5,93 @@
   "rows": [
     {
       "type": "title",
-      "name": "page_title",
-      "value": "APPORT FUMURE ORGANIQUE"
+      "name": "page_title"
     },
     {
-      "name": "completed_enabled"
+      "name": "attempt_submit",
+      "value": "@fields.attempt_submit"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "html",
+      "name": "primary_crops_label",
+      "value": "<span style=\"color: red;\">*</span> @global.primary_crops_label",
+      "style_list": "font-size:20px;"
+    },
+    {
+      "type": "audio",
+      "name": "audio_4_1",
+      "parameter_list": "variant: compact;\nsrc: audio/semis/select_culture_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "name": "primary_crops_hint",
+      "value": "@global.primary_crops_hint",
+      "style_list": "color: gray; font-size: 16px;"
+    },
+    {
+      "name": "valid_primary_crops",
+      "value": "@calc(!!@fields.coton || !!@fields.mais || !!@fields.mil || !!@fields.sorgho || !!@fields.arachide || !!@fields.fourrage)"
+    },
+    {
+      "type": "begin_data_items",
+      "value": "@data.primary_crops"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "image",
+      "value": "@item.image",
+      "style_list": "width:90px; height:90px; object-fit:contain; flex-shrink:0;"
+    },
+    {
+      "type": "simple_checkbox",
+      "name": "@item.name",
+      "value": "@fields.@item.name",
+      "action_list": "changed | set_field: @item.name: !@fields.@item.name;",
+      "parameter_list": "label_text: @item.text;",
+      "exclude_from_translation": true,
+      "style_list": "margin-bottom: 10px;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "end_data_items"
+    },
+    {
+      "type": "text",
+      "name": "primary_crops_error",
+      "value": "@global.error_required_answer",
+      "condition": "@fields.attempt_submit && !@local.valid_primary_crops",
+      "style_list": "color: red; font-size: 16px;"
+    },
+    {
+      "name": "completed_enabled",
+      "value": "@local.valid_primary_crops"
+    },
+    {
+      "name": "primary_crops_selected",
+      "value": "@calc([@fields.mais ? 'mais': null, @fields.mil ? 'mil' : null, @fields.sorgho ? 'sorgho' : null, @fields.coton ? 'coton' : null, @fields.arachide ? 'arachide' : null, @fields.fourrage ? 'fourrage' : null].filter(v => v !== null).join(','))"
+    },
+    {
+      "name": "primary_crops_selected_count",
+      "value": "@calc([@fields.mais,@fields.mil,@fields.sorgho,@fields.coton,@fields.arachide,@fields.fourrage].filter(v=>!!v).length)"
+    },
+    {
+      "name": "current_primary_crop",
+      "value": "@calc(@fields.mais ? 'mais':(@fields.mil ? 'mil':(@fields.sorgho ? 'sorgho':(@fields.coton ? 'coton':(@fields.arachide ? 'arachide':(@fields.fourrage ?'fourrage':''))))))"
+    },
+    {
+      "name": "primary_crop_loop_idx",
+      "value": 0
     },
     {
       "type": "begin_display_group",
@@ -20,15 +102,25 @@
     },
     {
       "type": "round_button",
-      "name": "page_1_button_back",
+      "name": "page_4_btn_back",
       "action_list": "click | emit: uncompleted",
       "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
     },
     {
       "type": "button",
-      "name": "page_1_button_continue",
+      "name": "page_4_btn_attempt_submit",
       "value": "@global.btn_continue",
-      "action_list": "click | emit: completed",
+      "action_list": "click | set_field: attempt_submit: true;",
+      "parameter_list": "disabled: !@local.completed_enabled",
+      "condition": "!@local.completed_enabled",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "button",
+      "name": "page_4_btn_continue",
+      "value": "@global.btn_continue",
+      "action_list": "click | set_field: primary_crops_selected : @local.primary_crops_selected;\nclick | set_field: primary_crops_selected_count : @local.primary_crops_selected_count;\nclick | set_field: current_primary_crop : @local.current_primary_crop;\nclick | set_field: primary_crop_loop_idx : @local.primary_crop_loop_idx;\nclick | emit: completed;",
+      "condition": "@local.completed_enabled",
       "style_list": "flex: 1"
     },
     {

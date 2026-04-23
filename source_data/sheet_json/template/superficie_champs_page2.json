@@ -4,194 +4,36 @@
   "status": "released",
   "rows": [
     {
-      "type": "title",
-      "value": "@global.title_page2"
+      "type": "text",
+      "name": "note_superficie",
+      "value": "@global.note_superficie",
+      "parameter_list": "style: contextual"
     },
     {
-      "type": "begin_display_group"
+      "type": "text",
+      "value": "@global.title_campagne"
     },
     {
-      "type": "subtitle",
-      "value": "@global.nom_champ"
-    },
-    {
-      "type": "image",
-      "value": "images/champ.jpg",
-      "parameter_list": "width: 10px; height: 10px"
-    },
-    {
-      "type": "end_display_group"
-    },
-    {
-      "type": "audio",
-      "name": "audio_1",
-      "parameter_list": "variant: compact;\nsrc: audio/Superficie/nom_champ_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "style_list": "float : right;"
+      "type": "date_time_picker",
+      "name": "year_campaign",
+      "value": "@fields.year_campaign",
+      "action_list": "changed | set_local: year_campaign: this.value;",
+      "parameter_list": "type: date"
     },
     {
       "type": "html",
       "name": "html_text",
-      "value": "<p style=\"color: red;\"> @global.note_nom_champ </p>"
+      "value": "<p style=\"color: red;\"> @global.note_campagne </p>"
     },
     {
-      "type": "begin_display_group"
-    },
-    {
-      "type": "text_box",
-      "name": "nom_champ",
-      "value": "@fields.nom_champ",
-      "parameter_list": "max_length: 30;\nplaceholder: Entrez le nom du type d'exploitation",
-      "condition": "!!@fields.nom_champ"
-    },
-    {
-      "type": "text_box",
-      "name": "nom_champ",
-      "parameter_list": "max_length: 30;\nplaceholder: Entrez le nom du type d'exploitation",
-      "condition": "!@fields.nom_champ"
-    },
-    {
-      "name": "valid_nom_champ",
-      "value": "@calc(/^[A-Z ]+$/.test(@local.nom_champ) || @local.nom_champ == '' || !@local.nom_champ )"
-    },
-    {
-      "type": "end_display_group"
-    },
-    {
-      "type": "text",
-      "value": "❌ Invalide s'il vous plaît, saisissez le nom en majuscules uniquement !",
-      "condition": "!@local.valid_nom_champ",
-      "exclude_from_translation": true,
-      "style_list": "color: #FF0000;\nfont-size: 14px"
-    },
-    {
-      "type": "subtitle",
-      "value": "**Caracteristiques du champ @local.nom_champ**"
-    },
-    {
-      "type": "begin_display_group"
-    },
-    {
-      "type": "text",
-      "value": "**Sélectionnez le type de sol du champ**: @local.nom_champ *"
-    },
-    {
-      "type": "image",
-      "value": "images/soil_type.jpg"
-    },
-    {
-      "type": "end_display_group"
-    },
-    {
-      "type": "audio",
-      "name": "audio_2",
-      "parameter_list": "variant: compact;\nsrc: audio/Superficie/type_sol_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "style_list": "float : right;"
-    },
-    {
-      "type": "radio_button_grid",
-      "name": "type_sol",
-      "value": "@fields.type_sol",
-      "action_list": "changed | set_local : type_sol: this.value;",
-      "parameter_list": "answer_list: @data.type_sol; \nstyle: secondary;\nitem_width: 60px;\ngrid_gap: 8px;"
-    },
-    {
-      "type": "begin_display_group"
-    },
-    {
-      "type": "text",
-      "value": "**Sélectionnez le niveau d'inclinaison du champ**: @local.nom_champ *"
-    },
-    {
-      "type": "image",
-      "value": "images/pente.jpg"
-    },
-    {
-      "type": "end_display_group"
-    },
-    {
-      "type": "audio",
-      "name": "audio_2",
-      "parameter_list": "variant: compact;\nsrc: audio/Superficie/inclinaison_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "style_list": "float : right;"
-    },
-    {
-      "type": "begin_radio_list",
-      "name": "pente_sol"
-    },
-    {
-      "type": "begin_data_items",
-      "value": "@data.pente_sol"
-    },
-    {
-      "type": "end_data_items"
-    },
-    {
-      "type": "end_radio_list"
-    },
-    {
-      "type": "begin_display_group"
-    },
-    {
-      "type": "subtitle",
-      "value": "**Comptez et renseignez le nombre de parcelles de** @local.nom_champ*"
-    },
-    {
-      "type": "image",
-      "value": "images/superf_champ.jpg"
-    },
-    {
-      "type": "end_display_group"
-    },
-    {
-      "type": "begin_display_group"
-    },
-    {
-      "type": "text_box",
-      "name": "nb_parcelles",
-      "value": "@fields.nb_parcelles",
-      "parameter_list": "number_input: true;\nplaceholder: Entrez le nombre;",
-      "condition": "!!@field.nb_parcelles",
-      "exclude_from_translation": true
-    },
-    {
-      "type": "text_box",
-      "name": "nb_parcelles",
-      "parameter_list": "number_input: true;\nplaceholder: Entrez le nombre;",
-      "condition": "!@field.nb_parcelles",
-      "exclude_from_translation": true
-    },
-    {
-      "name": "valid_nb_parcelles",
-      "value": "@calc((/^\\d+$/.test(@local.nb_parcelles) && @local.nb_parcelles>= 0) || @local.nb_parcelles == '' || !@local.nb_parcelles)",
-      "exclude_from_translation": true
-    },
-    {
-      "type": "audio",
-      "name": "audio_3",
-      "parameter_list": "variant: compact;\nsrc: audio/superficie/nbre_parcel_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "exclude_from_translation": true,
-      "style_list": "align-self: flex-end;"
-    },
-    {
-      "type": "end_display_group"
-    },
-    {
-      "type": "text",
-      "value": "S'il vous plaît, saisissez un nombre valide !",
-      "condition": "!@local.valid_nb_parcelles",
-      "exclude_from_translation": true,
-      "style_list": "color: #FF0000;\nfont-size: 14px"
+      "name": "completed_enabled",
+      "value": "@local.year_campaign "
     },
     {
       "type": "begin_display_group",
       "value": " ",
       "parameter_list": "sticky: bottom;",
       "style_list": "padding: 12px 24px;"
-    },
-    {
-      "name": "completed_enabled",
-      "value": "!!@local.nom_champ  && @local.valid_nb_parcelles && !!@local.type_sol && !!@local.pente_sol && !!@local.nb_parcelles",
-      "style_list": true
     },
     {
       "type": "round_button",
@@ -203,7 +45,7 @@
       "type": "button",
       "name": "button_continue_1",
       "value": "Continuer",
-      "action_list": "click | set_field: nom_champ: @local.nom_champ;\nclick | set_field: type_sol: @local.type_sol;\nclick | set_field: pente_sol: @local.pente_sol;\nclick | set_field: nb_parcelles: @local.nb_parcelles;\n\nclick | emit: completed;",
+      "action_list": "click | set_field: year_campaign: @local.year_campaign;\nclick | emit: completed;",
       "parameter_list": "disabled: !@local.completed_enabled"
     },
     {

@@ -1,0 +1,1641 @@
+{
+  "flow_type": "template",
+  "flow_name": "post_semi_page7",
+  "status": "released",
+  "rows": [
+    {
+      "name": "v_current_human",
+      "value": "@calc(Number(@field.current_culture_index) + 1)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_current_human",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Number(@field.current_culture_index) + 1)",
+            "matchedExpression": "@field.current_culture_index",
+            "type": "field",
+            "fieldName": "current_culture_index"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.current_culture_index) + 1)",
+            "matchedExpression": "@calc(Number(@field.current_culture_index) + 1)",
+            "type": "calc",
+            "fieldName": "Number(@field.current_culture_index) + 1"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.current_culture_index": [
+          "value"
+        ],
+        "@calc(Number(@field.current_culture_index) + 1)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "v_tot_cult",
+      "value": "@calc((Number(@field.final_cout_entre) || 0) + (Number(@field.final_count_fert) || 0) + (Number(@field.final_count_phyto) || 0))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_tot_cult",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc((Number(@field.final_cout_entre) || 0) + (Number(@field.final_count_fert) || 0) + (Number(@field.final_count_phyto) || 0))",
+            "matchedExpression": "@field.final_cout_entre",
+            "type": "field",
+            "fieldName": "final_cout_entre"
+          },
+          {
+            "fullExpression": "@calc((Number(@field.final_cout_entre) || 0) + (Number(@field.final_count_fert) || 0) + (Number(@field.final_count_phyto) || 0))",
+            "matchedExpression": "@field.final_count_fert",
+            "type": "field",
+            "fieldName": "final_count_fert"
+          },
+          {
+            "fullExpression": "@calc((Number(@field.final_cout_entre) || 0) + (Number(@field.final_count_fert) || 0) + (Number(@field.final_count_phyto) || 0))",
+            "matchedExpression": "@field.final_count_phyto",
+            "type": "field",
+            "fieldName": "final_count_phyto"
+          },
+          {
+            "fullExpression": "@calc((Number(@field.final_cout_entre) || 0) + (Number(@field.final_count_fert) || 0) + (Number(@field.final_count_phyto) || 0))",
+            "matchedExpression": "@calc((Number(@field.final_cout_entre) || 0) + (Number(@field.final_count_fert) || 0) + (Number(@field.final_count_phyto) || 0))",
+            "type": "calc",
+            "fieldName": "(Number(@field.final_cout_entre) || 0) + (Number(@field.final_count_fert) || 0) + (Number(@field.final_count_phyto) || 0)"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.final_cout_entre": [
+          "value"
+        ],
+        "@field.final_count_fert": [
+          "value"
+        ],
+        "@field.final_count_phyto": [
+          "value"
+        ],
+        "@calc((Number(@field.final_cout_entre) || 0) + (Number(@field.final_count_fert) || 0) + (Number(@field.final_count_phyto) || 0))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "v_tot_fcfa",
+      "value": "@calc(@local.v_tot_cult * 5)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_tot_fcfa",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(@local.v_tot_cult * 5)",
+            "matchedExpression": "@local.v_tot_cult",
+            "type": "local",
+            "fieldName": "v_tot_cult"
+          },
+          {
+            "fullExpression": "@calc(@local.v_tot_cult * 5)",
+            "matchedExpression": "@calc(@local.v_tot_cult * 5)",
+            "type": "calc",
+            "fieldName": "@local.v_tot_cult * 5"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.v_tot_cult": [
+          "value"
+        ],
+        "@calc(@local.v_tot_cult * 5)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "header_top",
+      "style_list": [
+        "background: #00adcc",
+        "padding: 15px",
+        "border-radius: 0 0 15px 15px",
+        "margin-bottom: 20px"
+      ],
+      "rows": [
+        {
+          "type": "html",
+          "value": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_1",
+          "_nested_name": "header_top.html_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>",
+                "matchedExpression": "@local.v_current_human",
+                "type": "local",
+                "fieldName": "v_current_human"
+              },
+              {
+                "fullExpression": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>",
+                "matchedExpression": "@field.total_cultures_selected",
+                "type": "field",
+                "fieldName": "total_cultures_selected"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.v_current_human": [
+              "value"
+            ],
+            "@field.total_cultures_selected": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "header_top"
+    },
+    {
+      "type": "title",
+      "value": "DÉTAILS DE LA CULTURE : BILAN & OBSERVATIONS",
+      "_translations": {
+        "value": {}
+      },
+      "name": "title_7",
+      "_nested_name": "title_7"
+    },
+    {
+      "type": "display_group",
+      "style_list": [
+        "width: 100%",
+        "display: flex",
+        "flex-direction: column",
+        "align-items: center",
+        "border: 1px solid #FFCC80",
+        "border-radius: 12px",
+        "background: white",
+        "margin-bottom: 10px",
+        "overflow: hidden"
+      ],
+      "rows": [
+        {
+          "type": "image",
+          "value": "@calc('images/' + @field.active_culture_name + '.jpg')",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width: 60%",
+            "object-fit: contain"
+          ],
+          "name": "image_1",
+          "_nested_name": "display_group_8.image_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@calc('images/' + @field.active_culture_name + '.jpg')",
+                "matchedExpression": "@field.active_culture_name",
+                "type": "field",
+                "fieldName": "active_culture_name"
+              },
+              {
+                "fullExpression": "@calc('images/' + @field.active_culture_name + '.jpg')",
+                "matchedExpression": "@calc('images/' + @field.active_culture_name + '.jpg')",
+                "type": "calc",
+                "fieldName": "'images/' + @field.active_culture_name + '.jpg'"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@field.active_culture_name": [
+              "value"
+            ],
+            "@calc('images/' + @field.active_culture_name + '.jpg')": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "value": "<h3 style='color: black; margin: 10px 0;'>Culture : <span style='color: #e3a730;'>@field.active_culture_name</span></h3>",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-weight: bold",
+            "font-size: 18px"
+          ],
+          "name": "text_2",
+          "_nested_name": "display_group_8.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<h3 style='color: black; margin: 10px 0;'>Culture : <span style='color: #e3a730;'>@field.active_culture_name</span></h3>",
+                "matchedExpression": "@field.active_culture_name",
+                "type": "field",
+                "fieldName": "active_culture_name"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@field.active_culture_name": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_8",
+      "_nested_name": "display_group_8"
+    },
+    {
+      "type": "html",
+      "value": "<br><h3 style=\"color: #E65100; margin:0;\">TOTAL INVESTI : @local.v_tot_cult Dram</h3>",
+      "_translations": {
+        "value": {}
+      },
+      "name": "html_10",
+      "_nested_name": "html_10",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "<br><h3 style=\"color: #E65100; margin:0;\">TOTAL INVESTI : @local.v_tot_cult Dram</h3>",
+            "matchedExpression": "@local.v_tot_cult",
+            "type": "local",
+            "fieldName": "v_tot_cult"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.v_tot_cult": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: #757575; font-size: 14px;\">Équivalent : <b>@local.v_tot_fcfa FCFA</b><br><small><i>(Base : 1 dram = 5 FCFA)</i></small></p>",
+      "_translations": {
+        "value": {}
+      },
+      "name": "html_11",
+      "_nested_name": "html_11",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "<p style=\"color: #757575; font-size: 14px;\">Équivalent : <b>@local.v_tot_fcfa FCFA</b><br><small><i>(Base : 1 dram = 5 FCFA)</i></small></p>",
+            "matchedExpression": "@local.v_tot_fcfa",
+            "type": "local",
+            "fieldName": "v_tot_fcfa"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.v_tot_fcfa": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "bilan_card",
+      "style_list": [
+        "display: block",
+        "width: 100%"
+      ],
+      "rows": [
+        {
+          "type": "audio",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/postSemi/cout_cult_postsemis_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "exclude_from_translation": true,
+          "style_list": [
+            "float: right"
+          ],
+          "name": "audio_1",
+          "_nested_name": "bilan_card.audio_1"
+        }
+      ],
+      "_nested_name": "bilan_card"
+    },
+    {
+      "type": "html",
+      "value": "<br><b style=\"color: #455A64\">COMMENT SOUHAITEZ-VOUS FAIRE VOTRE CONSTAT ?</b>",
+      "_translations": {
+        "value": {}
+      },
+      "name": "html_14",
+      "_nested_name": "html_14"
+    },
+    {
+      "type": "radio_button_grid",
+      "name": "obs_grid",
+      "value": "@field.obs_type",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "obs_type",
+            "this.value"
+          ],
+          "_raw": "changed | set_field: obs_type : this.value"
+        }
+      ],
+      "parameter_list": {
+        "answer_list": "@data.group_observation",
+        "variant": "flex",
+        "item_width": "60px",
+        "grid_gap": "8px"
+      },
+      "_nested_name": "obs_grid",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@field.obs_type",
+            "matchedExpression": "@field.obs_type",
+            "type": "field",
+            "fieldName": "obs_type"
+          }
+        ],
+        "parameter_list": {
+          "answer_list": [
+            {
+              "fullExpression": "@data.group_observation",
+              "matchedExpression": "@data.group_observation",
+              "type": "data",
+              "fieldName": "group_observation"
+            }
+          ]
+        }
+      },
+      "_dynamicDependencies": {
+        "@field.obs_type": [
+          "value"
+        ],
+        "@data.group_observation": [
+          "parameter_list.answer_list"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "obs_audio",
+      "condition": "@field.obs_type == 'par_vocal'",
+      "style_list": [
+        "display: block",
+        "width: 100%"
+      ],
+      "rows": [
+        {
+          "type": "audio",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/postSemi/Ob_audio_postsemis_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "exclude_from_translation": true,
+          "style_list": [
+            "float: right"
+          ],
+          "name": "audio_1",
+          "_nested_name": "obs_audio.audio_1"
+        },
+        {
+          "type": "text",
+          "value": "Enregistrez votre témoignage vocal ci-dessus.",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_2",
+          "_nested_name": "obs_audio.text_2"
+        }
+      ],
+      "_nested_name": "obs_audio",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@field.obs_type == 'par_vocal'",
+            "matchedExpression": "@field.obs_type",
+            "type": "field",
+            "fieldName": "obs_type"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.obs_type": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "obs_photo",
+      "condition": "@field.obs_type == 'par_photo'",
+      "style_list": [
+        "display: block",
+        "width: 100%"
+      ],
+      "rows": [
+        {
+          "type": "audio",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/postSemi/Ob_photo_postsemis_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "exclude_from_translation": true,
+          "style_list": [
+            "float: right"
+          ],
+          "name": "audio_1",
+          "_nested_name": "obs_photo.audio_1"
+        },
+        {
+          "type": "text",
+          "value": "Prenez une photo d'un point précis du champ.",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_2",
+          "_nested_name": "obs_photo.text_2"
+        }
+      ],
+      "_nested_name": "obs_photo",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@field.obs_type == 'par_photo'",
+            "matchedExpression": "@field.obs_type",
+            "type": "field",
+            "fieldName": "obs_type"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.obs_type": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "obs_video",
+      "condition": "@field.obs_type == 'par_video'",
+      "style_list": [
+        "display: block",
+        "width: 100%"
+      ],
+      "rows": [
+        {
+          "type": "audio",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/postSemi/Ob_video_postsemis_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "exclude_from_translation": true,
+          "style_list": [
+            "float: right"
+          ],
+          "name": "audio_1",
+          "_nested_name": "obs_video.audio_1"
+        },
+        {
+          "type": "text",
+          "value": "Filmez l'état général de la culture.",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_2",
+          "_nested_name": "obs_video.text_2"
+        }
+      ],
+      "_nested_name": "obs_video",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@field.obs_type == 'par_video'",
+            "matchedExpression": "@field.obs_type",
+            "type": "field",
+            "fieldName": "obs_type"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.obs_type": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "obs_text",
+      "condition": "@field.obs_type == 'par_text'",
+      "style_list": [
+        "display: block",
+        "width: 100%"
+      ],
+      "rows": [
+        {
+          "type": "audio",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/postSemi/Ob_ecrit_postsemis_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "exclude_from_translation": true,
+          "style_list": [
+            "float: right"
+          ],
+          "name": "audio_1",
+          "_nested_name": "obs_text.audio_1"
+        },
+        {
+          "type": "text_area",
+          "name": "obs_text",
+          "value": "@field.obs_text",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "changed",
+              "action_id": "set_field",
+              "args": [
+                "obs_text",
+                "this.value"
+              ],
+              "_raw": "changed | set_field: obs_text : this.value"
+            }
+          ],
+          "parameter_list": {
+            "placeholder": "Saisissez vos remarques...",
+            "multiline": "true"
+          },
+          "style_list": [
+            "font-size: 12px",
+            "font-style: italic"
+          ],
+          "_nested_name": "obs_text.obs_text",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@field.obs_text",
+                "matchedExpression": "@field.obs_text",
+                "type": "field",
+                "fieldName": "obs_text"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@field.obs_text": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "obs_text",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@field.obs_type == 'par_text'",
+            "matchedExpression": "@field.obs_type",
+            "type": "field",
+            "fieldName": "obs_type"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.obs_type": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "name",
+      "value": "@calc(@field.selected_cultures_list.split(',')[Number(@field.current_culture_index) + 1])",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "name",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(@field.selected_cultures_list.split(',')[Number(@field.current_culture_index) + 1])",
+            "matchedExpression": "@field.selected_cultures_list.split",
+            "type": "field",
+            "fieldName": "selected_cultures_list"
+          },
+          {
+            "fullExpression": "@calc(@field.selected_cultures_list.split(',')[Number(@field.current_culture_index) + 1])",
+            "matchedExpression": "@field.current_culture_index",
+            "type": "field",
+            "fieldName": "current_culture_index"
+          },
+          {
+            "fullExpression": "@calc(@field.selected_cultures_list.split(',')[Number(@field.current_culture_index) + 1])",
+            "matchedExpression": "@calc(@field.selected_cultures_list.split(',')[Number(@field.current_culture_index) + 1])",
+            "type": "calc",
+            "fieldName": "@field.selected_cultures_list.split(',')[Number(@field.current_culture_index) + 1]"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.selected_cultures_list.split": [
+          "value"
+        ],
+        "@field.current_culture_index": [
+          "value"
+        ],
+        "@calc(@field.selected_cultures_list.split(',')[Number(@field.current_culture_index) + 1])": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "v_new_total_global",
+      "value": "@calc((Number(@field.grand_total_post_semi) || 0) + Number(@local.v_tot_cult))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_new_total_global",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc((Number(@field.grand_total_post_semi) || 0) + Number(@local.v_tot_cult))",
+            "matchedExpression": "@field.grand_total_post_semi",
+            "type": "field",
+            "fieldName": "grand_total_post_semi"
+          },
+          {
+            "fullExpression": "@calc((Number(@field.grand_total_post_semi) || 0) + Number(@local.v_tot_cult))",
+            "matchedExpression": "@local.v_tot_cult",
+            "type": "local",
+            "fieldName": "v_tot_cult"
+          },
+          {
+            "fullExpression": "@calc((Number(@field.grand_total_post_semi) || 0) + Number(@local.v_tot_cult))",
+            "matchedExpression": "@calc((Number(@field.grand_total_post_semi) || 0) + Number(@local.v_tot_cult))",
+            "type": "calc",
+            "fieldName": "(Number(@field.grand_total_post_semi) || 0) + Number(@local.v_tot_cult)"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.grand_total_post_semi": [
+          "value"
+        ],
+        "@local.v_tot_cult": [
+          "value"
+        ],
+        "@calc((Number(@field.grand_total_post_semi) || 0) + Number(@local.v_tot_cult))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "v_current_obs_ok",
+      "value": "@calc(@field.obs_type !== '' && @field.obs_type !== null)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_current_obs_ok",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(@field.obs_type !== '' && @field.obs_type !== null)",
+            "matchedExpression": "@field.obs_type",
+            "type": "field",
+            "fieldName": "obs_type"
+          },
+          {
+            "fullExpression": "@calc(@field.obs_type !== '' && @field.obs_type !== null)",
+            "matchedExpression": "@field.obs_type",
+            "type": "field",
+            "fieldName": "obs_type"
+          },
+          {
+            "fullExpression": "@calc(@field.obs_type !== '' && @field.obs_type !== null)",
+            "matchedExpression": "@calc(@field.obs_type !== '' && @field.obs_type !== null)",
+            "type": "calc",
+            "fieldName": "@field.obs_type !== '' && @field.obs_type !== null"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.obs_type": [
+          "value",
+          "value"
+        ],
+        "@calc(@field.obs_type !== '' && @field.obs_type !== null)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "completed_enabled",
+      "value": "@local.v_current_obs_ok",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "completed_enabled",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@local.v_current_obs_ok",
+            "matchedExpression": "@local.v_current_obs_ok",
+            "type": "local",
+            "fieldName": "v_current_obs_ok"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.v_current_obs_ok": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "dg_footer",
+      "parameter_list": {
+        "sticky": "bottom"
+      },
+      "style_list": [
+        "padding: 12px 24px"
+      ],
+      "rows": [
+        {
+          "type": "round_button",
+          "name": "button_back",
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "uncompleted"
+              ],
+              "_raw": "click | emit: uncompleted"
+            }
+          ],
+          "parameter_list": {
+            "icon_src": "arrow-back",
+            "variant": "no-background"
+          },
+          "_nested_name": "dg_footer.button_back"
+        },
+        {
+          "type": "button",
+          "name": "button_completed",
+          "value": "@global.btn_continue",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "add_data",
+              "args": [],
+              "_raw": "click | add_data | \n    _list_id: post_semi_summary_list, \n    culture: @field.active_culture_name,\n    sup_sarclage: @field.sup_sarclage,\n    cost_sarclage: @field.cost_sarclage,\n    sup_desherbage: @field.sup_desherbage,\n    cost_desherbage: @field.cost_desherbage,\n    sup_buttage: @field.sup_buttage,\n    cost_buttage: @field.cost_buttage,\n    q_npk: @field.q_npk,\n    c_npk: @field.c_npk,\n    q_uree: @field.q_ur,\n    c_uree: @field.c_ur,\n    q_herb: @field.q_herb,\n    c_herb: @field.c_herb,\n    q_ins: @field.q_ins,\n    c_ins: @field.c_ins,\n    obs_type: @field.obs_type,\n    total_investi: @local.v_tot_cult",
+              "params": {
+                "_list_id": "post_semi_summary_list",
+                "culture": "@field.active_culture_name",
+                "sup_sarclage": "@field.sup_sarclage",
+                "cost_sarclage": "@field.cost_sarclage",
+                "sup_desherbage": "@field.sup_desherbage",
+                "cost_desherbage": "@field.cost_desherbage",
+                "sup_buttage": "@field.sup_buttage",
+                "cost_buttage": "@field.cost_buttage",
+                "q_npk": "@field.q_npk",
+                "c_npk": "@field.c_npk",
+                "q_uree": "@field.q_ur",
+                "c_uree": "@field.c_ur",
+                "q_herb": "@field.q_herb",
+                "c_herb": "@field.c_herb",
+                "q_ins": "@field.q_ins",
+                "c_ins": "@field.c_ins",
+                "obs_type": "@field.obs_type",
+                "total_investi": "@local.v_tot_cult"
+              }
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_data",
+              "args": [],
+              "_raw": "click | set_data | _list_id: post_semi_settings_pages, _index: 3, completed: false",
+              "params": {
+                "_list_id": "post_semi_settings_pages",
+                "_index": 3,
+                "completed": false
+              }
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_data",
+              "args": [],
+              "_raw": "click | set_data | _list_id: post_semi_settings_pages, _index: 4, completed: false",
+              "params": {
+                "_list_id": "post_semi_settings_pages",
+                "_index": 4,
+                "completed": false
+              }
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_data",
+              "args": [],
+              "_raw": "click | set_data | _list_id: post_semi_settings_pages, _index: 5, completed: false",
+              "params": {
+                "_list_id": "post_semi_settings_pages",
+                "_index": 5,
+                "completed": false
+              }
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_data",
+              "args": [],
+              "_raw": "click | set_data | _list_id: post_semi_settings_pages, _index: 6, completed: false",
+              "params": {
+                "_list_id": "post_semi_settings_pages",
+                "_index": 6,
+                "completed": false
+              }
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "active_culture_name",
+                "@local.name"
+              ],
+              "_raw": "click | set_field: active_culture_name : @local.name"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "current_culture_index",
+                "@calc(Number(@field.current_culture_index) + 1)"
+              ],
+              "_raw": "click | set_field: current_culture_index : @calc(Number(@field.current_culture_index) + 1)"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "sup_sarclage",
+                ""
+              ],
+              "_raw": "click | set_field: sup_sarclage :"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "cost_sarclage",
+                ""
+              ],
+              "_raw": "click | set_field: cost_sarclage :"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "sup_desherbage",
+                ""
+              ],
+              "_raw": "click | set_field: sup_desherbage :"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "cost_desherbage",
+                ""
+              ],
+              "_raw": "click | set_field: cost_desherbage :"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "sup_buttage",
+                ""
+              ],
+              "_raw": "click | set_field: sup_buttage :"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "cost_buttage",
+                ""
+              ],
+              "_raw": "click | set_field: cost_buttage :"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "q_npk",
+                ""
+              ],
+              "_raw": "click | set_field: q_npk :"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "c_npk",
+                ""
+              ],
+              "_raw": "click | set_field: c_npk :"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "q_ur",
+                ""
+              ],
+              "_raw": "click | set_field: q_ur :"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "c_ur",
+                ""
+              ],
+              "_raw": "click | set_field: c_ur :"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "q_herb",
+                ""
+              ],
+              "_raw": "click | set_field: q_herb :"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "c_herb",
+                ""
+              ],
+              "_raw": "click | set_field: c_herb :"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "q_ins",
+                ""
+              ],
+              "_raw": "click | set_field: q_ins :"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "c_ins",
+                ""
+              ],
+              "_raw": "click | set_field: c_ins :"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "obs_type",
+                ""
+              ],
+              "_raw": "click | set_field: obs_type :"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "grand_total_post_semi",
+                "@local.v_new_total_global"
+              ],
+              "_raw": "click | set_field: grand_total_post_semi : @local.v_new_total_global"
+            },
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "force_reprocess"
+              ],
+              "_raw": "click | emit: force_reprocess"
+            }
+          ],
+          "parameter_list": {
+            "style": "navigation",
+            "disabled": "!@local.completed_enabled"
+          },
+          "condition": "@calc(Number(@field.current_culture_index) < Number(@field.total_cultures_selected) - 1)",
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "dg_footer.button_completed",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.btn_continue",
+                "matchedExpression": "@global.btn_continue",
+                "type": "global",
+                "fieldName": "btn_continue"
+              }
+            ],
+            "action_list": {
+              "0": {
+                "_raw": [
+                  {
+                    "fullExpression": "click | add_data | \n    _list_id: post_semi_summary_list, \n    culture: @field.active_culture_name,\n    sup_sarclage: @field.sup_sarclage,\n    cost_sarclage: @field.cost_sarclage,\n    sup_desherbage: @field.sup_desherbage,\n    cost_desherbage: @field.cost_desherbage,\n    sup_buttage: @field.sup_buttage,\n    cost_buttage: @field.cost_buttage,\n    q_npk: @field.q_npk,\n    c_npk: @field.c_npk,\n    q_uree: @field.q_ur,\n    c_uree: @field.c_ur,\n    q_herb: @field.q_herb,\n    c_herb: @field.c_herb,\n    q_ins: @field.q_ins,\n    c_ins: @field.c_ins,\n    obs_type: @field.obs_type,\n    total_investi: @local.v_tot_cult",
+                    "matchedExpression": "@field.active_culture_name",
+                    "type": "field",
+                    "fieldName": "active_culture_name"
+                  },
+                  {
+                    "fullExpression": "click | add_data | \n    _list_id: post_semi_summary_list, \n    culture: @field.active_culture_name,\n    sup_sarclage: @field.sup_sarclage,\n    cost_sarclage: @field.cost_sarclage,\n    sup_desherbage: @field.sup_desherbage,\n    cost_desherbage: @field.cost_desherbage,\n    sup_buttage: @field.sup_buttage,\n    cost_buttage: @field.cost_buttage,\n    q_npk: @field.q_npk,\n    c_npk: @field.c_npk,\n    q_uree: @field.q_ur,\n    c_uree: @field.c_ur,\n    q_herb: @field.q_herb,\n    c_herb: @field.c_herb,\n    q_ins: @field.q_ins,\n    c_ins: @field.c_ins,\n    obs_type: @field.obs_type,\n    total_investi: @local.v_tot_cult",
+                    "matchedExpression": "@field.sup_sarclage",
+                    "type": "field",
+                    "fieldName": "sup_sarclage"
+                  },
+                  {
+                    "fullExpression": "click | add_data | \n    _list_id: post_semi_summary_list, \n    culture: @field.active_culture_name,\n    sup_sarclage: @field.sup_sarclage,\n    cost_sarclage: @field.cost_sarclage,\n    sup_desherbage: @field.sup_desherbage,\n    cost_desherbage: @field.cost_desherbage,\n    sup_buttage: @field.sup_buttage,\n    cost_buttage: @field.cost_buttage,\n    q_npk: @field.q_npk,\n    c_npk: @field.c_npk,\n    q_uree: @field.q_ur,\n    c_uree: @field.c_ur,\n    q_herb: @field.q_herb,\n    c_herb: @field.c_herb,\n    q_ins: @field.q_ins,\n    c_ins: @field.c_ins,\n    obs_type: @field.obs_type,\n    total_investi: @local.v_tot_cult",
+                    "matchedExpression": "@field.cost_sarclage",
+                    "type": "field",
+                    "fieldName": "cost_sarclage"
+                  },
+                  {
+                    "fullExpression": "click | add_data | \n    _list_id: post_semi_summary_list, \n    culture: @field.active_culture_name,\n    sup_sarclage: @field.sup_sarclage,\n    cost_sarclage: @field.cost_sarclage,\n    sup_desherbage: @field.sup_desherbage,\n    cost_desherbage: @field.cost_desherbage,\n    sup_buttage: @field.sup_buttage,\n    cost_buttage: @field.cost_buttage,\n    q_npk: @field.q_npk,\n    c_npk: @field.c_npk,\n    q_uree: @field.q_ur,\n    c_uree: @field.c_ur,\n    q_herb: @field.q_herb,\n    c_herb: @field.c_herb,\n    q_ins: @field.q_ins,\n    c_ins: @field.c_ins,\n    obs_type: @field.obs_type,\n    total_investi: @local.v_tot_cult",
+                    "matchedExpression": "@field.sup_desherbage",
+                    "type": "field",
+                    "fieldName": "sup_desherbage"
+                  },
+                  {
+                    "fullExpression": "click | add_data | \n    _list_id: post_semi_summary_list, \n    culture: @field.active_culture_name,\n    sup_sarclage: @field.sup_sarclage,\n    cost_sarclage: @field.cost_sarclage,\n    sup_desherbage: @field.sup_desherbage,\n    cost_desherbage: @field.cost_desherbage,\n    sup_buttage: @field.sup_buttage,\n    cost_buttage: @field.cost_buttage,\n    q_npk: @field.q_npk,\n    c_npk: @field.c_npk,\n    q_uree: @field.q_ur,\n    c_uree: @field.c_ur,\n    q_herb: @field.q_herb,\n    c_herb: @field.c_herb,\n    q_ins: @field.q_ins,\n    c_ins: @field.c_ins,\n    obs_type: @field.obs_type,\n    total_investi: @local.v_tot_cult",
+                    "matchedExpression": "@field.cost_desherbage",
+                    "type": "field",
+                    "fieldName": "cost_desherbage"
+                  },
+                  {
+                    "fullExpression": "click | add_data | \n    _list_id: post_semi_summary_list, \n    culture: @field.active_culture_name,\n    sup_sarclage: @field.sup_sarclage,\n    cost_sarclage: @field.cost_sarclage,\n    sup_desherbage: @field.sup_desherbage,\n    cost_desherbage: @field.cost_desherbage,\n    sup_buttage: @field.sup_buttage,\n    cost_buttage: @field.cost_buttage,\n    q_npk: @field.q_npk,\n    c_npk: @field.c_npk,\n    q_uree: @field.q_ur,\n    c_uree: @field.c_ur,\n    q_herb: @field.q_herb,\n    c_herb: @field.c_herb,\n    q_ins: @field.q_ins,\n    c_ins: @field.c_ins,\n    obs_type: @field.obs_type,\n    total_investi: @local.v_tot_cult",
+                    "matchedExpression": "@field.sup_buttage",
+                    "type": "field",
+                    "fieldName": "sup_buttage"
+                  },
+                  {
+                    "fullExpression": "click | add_data | \n    _list_id: post_semi_summary_list, \n    culture: @field.active_culture_name,\n    sup_sarclage: @field.sup_sarclage,\n    cost_sarclage: @field.cost_sarclage,\n    sup_desherbage: @field.sup_desherbage,\n    cost_desherbage: @field.cost_desherbage,\n    sup_buttage: @field.sup_buttage,\n    cost_buttage: @field.cost_buttage,\n    q_npk: @field.q_npk,\n    c_npk: @field.c_npk,\n    q_uree: @field.q_ur,\n    c_uree: @field.c_ur,\n    q_herb: @field.q_herb,\n    c_herb: @field.c_herb,\n    q_ins: @field.q_ins,\n    c_ins: @field.c_ins,\n    obs_type: @field.obs_type,\n    total_investi: @local.v_tot_cult",
+                    "matchedExpression": "@field.cost_buttage",
+                    "type": "field",
+                    "fieldName": "cost_buttage"
+                  },
+                  {
+                    "fullExpression": "click | add_data | \n    _list_id: post_semi_summary_list, \n    culture: @field.active_culture_name,\n    sup_sarclage: @field.sup_sarclage,\n    cost_sarclage: @field.cost_sarclage,\n    sup_desherbage: @field.sup_desherbage,\n    cost_desherbage: @field.cost_desherbage,\n    sup_buttage: @field.sup_buttage,\n    cost_buttage: @field.cost_buttage,\n    q_npk: @field.q_npk,\n    c_npk: @field.c_npk,\n    q_uree: @field.q_ur,\n    c_uree: @field.c_ur,\n    q_herb: @field.q_herb,\n    c_herb: @field.c_herb,\n    q_ins: @field.q_ins,\n    c_ins: @field.c_ins,\n    obs_type: @field.obs_type,\n    total_investi: @local.v_tot_cult",
+                    "matchedExpression": "@field.q_npk",
+                    "type": "field",
+                    "fieldName": "q_npk"
+                  },
+                  {
+                    "fullExpression": "click | add_data | \n    _list_id: post_semi_summary_list, \n    culture: @field.active_culture_name,\n    sup_sarclage: @field.sup_sarclage,\n    cost_sarclage: @field.cost_sarclage,\n    sup_desherbage: @field.sup_desherbage,\n    cost_desherbage: @field.cost_desherbage,\n    sup_buttage: @field.sup_buttage,\n    cost_buttage: @field.cost_buttage,\n    q_npk: @field.q_npk,\n    c_npk: @field.c_npk,\n    q_uree: @field.q_ur,\n    c_uree: @field.c_ur,\n    q_herb: @field.q_herb,\n    c_herb: @field.c_herb,\n    q_ins: @field.q_ins,\n    c_ins: @field.c_ins,\n    obs_type: @field.obs_type,\n    total_investi: @local.v_tot_cult",
+                    "matchedExpression": "@field.c_npk",
+                    "type": "field",
+                    "fieldName": "c_npk"
+                  },
+                  {
+                    "fullExpression": "click | add_data | \n    _list_id: post_semi_summary_list, \n    culture: @field.active_culture_name,\n    sup_sarclage: @field.sup_sarclage,\n    cost_sarclage: @field.cost_sarclage,\n    sup_desherbage: @field.sup_desherbage,\n    cost_desherbage: @field.cost_desherbage,\n    sup_buttage: @field.sup_buttage,\n    cost_buttage: @field.cost_buttage,\n    q_npk: @field.q_npk,\n    c_npk: @field.c_npk,\n    q_uree: @field.q_ur,\n    c_uree: @field.c_ur,\n    q_herb: @field.q_herb,\n    c_herb: @field.c_herb,\n    q_ins: @field.q_ins,\n    c_ins: @field.c_ins,\n    obs_type: @field.obs_type,\n    total_investi: @local.v_tot_cult",
+                    "matchedExpression": "@field.q_ur",
+                    "type": "field",
+                    "fieldName": "q_ur"
+                  },
+                  {
+                    "fullExpression": "click | add_data | \n    _list_id: post_semi_summary_list, \n    culture: @field.active_culture_name,\n    sup_sarclage: @field.sup_sarclage,\n    cost_sarclage: @field.cost_sarclage,\n    sup_desherbage: @field.sup_desherbage,\n    cost_desherbage: @field.cost_desherbage,\n    sup_buttage: @field.sup_buttage,\n    cost_buttage: @field.cost_buttage,\n    q_npk: @field.q_npk,\n    c_npk: @field.c_npk,\n    q_uree: @field.q_ur,\n    c_uree: @field.c_ur,\n    q_herb: @field.q_herb,\n    c_herb: @field.c_herb,\n    q_ins: @field.q_ins,\n    c_ins: @field.c_ins,\n    obs_type: @field.obs_type,\n    total_investi: @local.v_tot_cult",
+                    "matchedExpression": "@field.c_ur",
+                    "type": "field",
+                    "fieldName": "c_ur"
+                  },
+                  {
+                    "fullExpression": "click | add_data | \n    _list_id: post_semi_summary_list, \n    culture: @field.active_culture_name,\n    sup_sarclage: @field.sup_sarclage,\n    cost_sarclage: @field.cost_sarclage,\n    sup_desherbage: @field.sup_desherbage,\n    cost_desherbage: @field.cost_desherbage,\n    sup_buttage: @field.sup_buttage,\n    cost_buttage: @field.cost_buttage,\n    q_npk: @field.q_npk,\n    c_npk: @field.c_npk,\n    q_uree: @field.q_ur,\n    c_uree: @field.c_ur,\n    q_herb: @field.q_herb,\n    c_herb: @field.c_herb,\n    q_ins: @field.q_ins,\n    c_ins: @field.c_ins,\n    obs_type: @field.obs_type,\n    total_investi: @local.v_tot_cult",
+                    "matchedExpression": "@field.q_herb",
+                    "type": "field",
+                    "fieldName": "q_herb"
+                  },
+                  {
+                    "fullExpression": "click | add_data | \n    _list_id: post_semi_summary_list, \n    culture: @field.active_culture_name,\n    sup_sarclage: @field.sup_sarclage,\n    cost_sarclage: @field.cost_sarclage,\n    sup_desherbage: @field.sup_desherbage,\n    cost_desherbage: @field.cost_desherbage,\n    sup_buttage: @field.sup_buttage,\n    cost_buttage: @field.cost_buttage,\n    q_npk: @field.q_npk,\n    c_npk: @field.c_npk,\n    q_uree: @field.q_ur,\n    c_uree: @field.c_ur,\n    q_herb: @field.q_herb,\n    c_herb: @field.c_herb,\n    q_ins: @field.q_ins,\n    c_ins: @field.c_ins,\n    obs_type: @field.obs_type,\n    total_investi: @local.v_tot_cult",
+                    "matchedExpression": "@field.c_herb",
+                    "type": "field",
+                    "fieldName": "c_herb"
+                  },
+                  {
+                    "fullExpression": "click | add_data | \n    _list_id: post_semi_summary_list, \n    culture: @field.active_culture_name,\n    sup_sarclage: @field.sup_sarclage,\n    cost_sarclage: @field.cost_sarclage,\n    sup_desherbage: @field.sup_desherbage,\n    cost_desherbage: @field.cost_desherbage,\n    sup_buttage: @field.sup_buttage,\n    cost_buttage: @field.cost_buttage,\n    q_npk: @field.q_npk,\n    c_npk: @field.c_npk,\n    q_uree: @field.q_ur,\n    c_uree: @field.c_ur,\n    q_herb: @field.q_herb,\n    c_herb: @field.c_herb,\n    q_ins: @field.q_ins,\n    c_ins: @field.c_ins,\n    obs_type: @field.obs_type,\n    total_investi: @local.v_tot_cult",
+                    "matchedExpression": "@field.q_ins",
+                    "type": "field",
+                    "fieldName": "q_ins"
+                  },
+                  {
+                    "fullExpression": "click | add_data | \n    _list_id: post_semi_summary_list, \n    culture: @field.active_culture_name,\n    sup_sarclage: @field.sup_sarclage,\n    cost_sarclage: @field.cost_sarclage,\n    sup_desherbage: @field.sup_desherbage,\n    cost_desherbage: @field.cost_desherbage,\n    sup_buttage: @field.sup_buttage,\n    cost_buttage: @field.cost_buttage,\n    q_npk: @field.q_npk,\n    c_npk: @field.c_npk,\n    q_uree: @field.q_ur,\n    c_uree: @field.c_ur,\n    q_herb: @field.q_herb,\n    c_herb: @field.c_herb,\n    q_ins: @field.q_ins,\n    c_ins: @field.c_ins,\n    obs_type: @field.obs_type,\n    total_investi: @local.v_tot_cult",
+                    "matchedExpression": "@field.c_ins",
+                    "type": "field",
+                    "fieldName": "c_ins"
+                  },
+                  {
+                    "fullExpression": "click | add_data | \n    _list_id: post_semi_summary_list, \n    culture: @field.active_culture_name,\n    sup_sarclage: @field.sup_sarclage,\n    cost_sarclage: @field.cost_sarclage,\n    sup_desherbage: @field.sup_desherbage,\n    cost_desherbage: @field.cost_desherbage,\n    sup_buttage: @field.sup_buttage,\n    cost_buttage: @field.cost_buttage,\n    q_npk: @field.q_npk,\n    c_npk: @field.c_npk,\n    q_uree: @field.q_ur,\n    c_uree: @field.c_ur,\n    q_herb: @field.q_herb,\n    c_herb: @field.c_herb,\n    q_ins: @field.q_ins,\n    c_ins: @field.c_ins,\n    obs_type: @field.obs_type,\n    total_investi: @local.v_tot_cult",
+                    "matchedExpression": "@field.obs_type",
+                    "type": "field",
+                    "fieldName": "obs_type"
+                  },
+                  {
+                    "fullExpression": "click | add_data | \n    _list_id: post_semi_summary_list, \n    culture: @field.active_culture_name,\n    sup_sarclage: @field.sup_sarclage,\n    cost_sarclage: @field.cost_sarclage,\n    sup_desherbage: @field.sup_desherbage,\n    cost_desherbage: @field.cost_desherbage,\n    sup_buttage: @field.sup_buttage,\n    cost_buttage: @field.cost_buttage,\n    q_npk: @field.q_npk,\n    c_npk: @field.c_npk,\n    q_uree: @field.q_ur,\n    c_uree: @field.c_ur,\n    q_herb: @field.q_herb,\n    c_herb: @field.c_herb,\n    q_ins: @field.q_ins,\n    c_ins: @field.c_ins,\n    obs_type: @field.obs_type,\n    total_investi: @local.v_tot_cult",
+                    "matchedExpression": "@local.v_tot_cult",
+                    "type": "local",
+                    "fieldName": "v_tot_cult"
+                  }
+                ],
+                "params": {
+                  "culture": [
+                    {
+                      "fullExpression": "@field.active_culture_name",
+                      "matchedExpression": "@field.active_culture_name",
+                      "type": "field",
+                      "fieldName": "active_culture_name"
+                    }
+                  ],
+                  "sup_sarclage": [
+                    {
+                      "fullExpression": "@field.sup_sarclage",
+                      "matchedExpression": "@field.sup_sarclage",
+                      "type": "field",
+                      "fieldName": "sup_sarclage"
+                    }
+                  ],
+                  "cost_sarclage": [
+                    {
+                      "fullExpression": "@field.cost_sarclage",
+                      "matchedExpression": "@field.cost_sarclage",
+                      "type": "field",
+                      "fieldName": "cost_sarclage"
+                    }
+                  ],
+                  "sup_desherbage": [
+                    {
+                      "fullExpression": "@field.sup_desherbage",
+                      "matchedExpression": "@field.sup_desherbage",
+                      "type": "field",
+                      "fieldName": "sup_desherbage"
+                    }
+                  ],
+                  "cost_desherbage": [
+                    {
+                      "fullExpression": "@field.cost_desherbage",
+                      "matchedExpression": "@field.cost_desherbage",
+                      "type": "field",
+                      "fieldName": "cost_desherbage"
+                    }
+                  ],
+                  "sup_buttage": [
+                    {
+                      "fullExpression": "@field.sup_buttage",
+                      "matchedExpression": "@field.sup_buttage",
+                      "type": "field",
+                      "fieldName": "sup_buttage"
+                    }
+                  ],
+                  "cost_buttage": [
+                    {
+                      "fullExpression": "@field.cost_buttage",
+                      "matchedExpression": "@field.cost_buttage",
+                      "type": "field",
+                      "fieldName": "cost_buttage"
+                    }
+                  ],
+                  "q_npk": [
+                    {
+                      "fullExpression": "@field.q_npk",
+                      "matchedExpression": "@field.q_npk",
+                      "type": "field",
+                      "fieldName": "q_npk"
+                    }
+                  ],
+                  "c_npk": [
+                    {
+                      "fullExpression": "@field.c_npk",
+                      "matchedExpression": "@field.c_npk",
+                      "type": "field",
+                      "fieldName": "c_npk"
+                    }
+                  ],
+                  "q_uree": [
+                    {
+                      "fullExpression": "@field.q_ur",
+                      "matchedExpression": "@field.q_ur",
+                      "type": "field",
+                      "fieldName": "q_ur"
+                    }
+                  ],
+                  "c_uree": [
+                    {
+                      "fullExpression": "@field.c_ur",
+                      "matchedExpression": "@field.c_ur",
+                      "type": "field",
+                      "fieldName": "c_ur"
+                    }
+                  ],
+                  "q_herb": [
+                    {
+                      "fullExpression": "@field.q_herb",
+                      "matchedExpression": "@field.q_herb",
+                      "type": "field",
+                      "fieldName": "q_herb"
+                    }
+                  ],
+                  "c_herb": [
+                    {
+                      "fullExpression": "@field.c_herb",
+                      "matchedExpression": "@field.c_herb",
+                      "type": "field",
+                      "fieldName": "c_herb"
+                    }
+                  ],
+                  "q_ins": [
+                    {
+                      "fullExpression": "@field.q_ins",
+                      "matchedExpression": "@field.q_ins",
+                      "type": "field",
+                      "fieldName": "q_ins"
+                    }
+                  ],
+                  "c_ins": [
+                    {
+                      "fullExpression": "@field.c_ins",
+                      "matchedExpression": "@field.c_ins",
+                      "type": "field",
+                      "fieldName": "c_ins"
+                    }
+                  ],
+                  "obs_type": [
+                    {
+                      "fullExpression": "@field.obs_type",
+                      "matchedExpression": "@field.obs_type",
+                      "type": "field",
+                      "fieldName": "obs_type"
+                    }
+                  ],
+                  "total_investi": [
+                    {
+                      "fullExpression": "@local.v_tot_cult",
+                      "matchedExpression": "@local.v_tot_cult",
+                      "type": "local",
+                      "fieldName": "v_tot_cult"
+                    }
+                  ]
+                }
+              },
+              "5": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@local.name",
+                      "matchedExpression": "@local.name",
+                      "type": "local",
+                      "fieldName": "name"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: active_culture_name : @local.name",
+                    "matchedExpression": "@local.name",
+                    "type": "local",
+                    "fieldName": "name"
+                  }
+                ]
+              },
+              "6": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@calc(Number(@field.current_culture_index) + 1)",
+                      "matchedExpression": "@field.current_culture_index",
+                      "type": "field",
+                      "fieldName": "current_culture_index"
+                    },
+                    {
+                      "fullExpression": "@calc(Number(@field.current_culture_index) + 1)",
+                      "matchedExpression": "@calc(Number(@field.current_culture_index) + 1)",
+                      "type": "calc",
+                      "fieldName": "Number(@field.current_culture_index) + 1"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: current_culture_index : @calc(Number(@field.current_culture_index) + 1)",
+                    "matchedExpression": "@field.current_culture_index",
+                    "type": "field",
+                    "fieldName": "current_culture_index"
+                  },
+                  {
+                    "fullExpression": "click | set_field: current_culture_index : @calc(Number(@field.current_culture_index) + 1)",
+                    "matchedExpression": "@calc(Number(@field.current_culture_index) + 1)",
+                    "type": "calc",
+                    "fieldName": "Number(@field.current_culture_index) + 1"
+                  }
+                ]
+              },
+              "22": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@local.v_new_total_global",
+                      "matchedExpression": "@local.v_new_total_global",
+                      "type": "local",
+                      "fieldName": "v_new_total_global"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: grand_total_post_semi : @local.v_new_total_global",
+                    "matchedExpression": "@local.v_new_total_global",
+                    "type": "local",
+                    "fieldName": "v_new_total_global"
+                  }
+                ]
+              }
+            },
+            "parameter_list": {
+              "disabled": [
+                {
+                  "fullExpression": "!@local.completed_enabled",
+                  "matchedExpression": "!@local.completed_enabled",
+                  "type": "local",
+                  "fieldName": "completed_enabled"
+                }
+              ]
+            },
+            "condition": [
+              {
+                "fullExpression": "@calc(Number(@field.current_culture_index) < Number(@field.total_cultures_selected) - 1)",
+                "matchedExpression": "@field.current_culture_index",
+                "type": "field",
+                "fieldName": "current_culture_index"
+              },
+              {
+                "fullExpression": "@calc(Number(@field.current_culture_index) < Number(@field.total_cultures_selected) - 1)",
+                "matchedExpression": "@field.total_cultures_selected",
+                "type": "field",
+                "fieldName": "total_cultures_selected"
+              },
+              {
+                "fullExpression": "@calc(Number(@field.current_culture_index) < Number(@field.total_cultures_selected) - 1)",
+                "matchedExpression": "@calc(Number(@field.current_culture_index) < Number(@field.total_cultures_selected) - 1)",
+                "type": "calc",
+                "fieldName": "Number(@field.current_culture_index) < Number(@field.total_cultures_selected) - 1"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.btn_continue": [
+              "value"
+            ],
+            "@field.active_culture_name": [
+              "action_list.0._raw",
+              "action_list.0.params.culture"
+            ],
+            "@field.sup_sarclage": [
+              "action_list.0._raw",
+              "action_list.0.params.sup_sarclage"
+            ],
+            "@field.cost_sarclage": [
+              "action_list.0._raw",
+              "action_list.0.params.cost_sarclage"
+            ],
+            "@field.sup_desherbage": [
+              "action_list.0._raw",
+              "action_list.0.params.sup_desherbage"
+            ],
+            "@field.cost_desherbage": [
+              "action_list.0._raw",
+              "action_list.0.params.cost_desherbage"
+            ],
+            "@field.sup_buttage": [
+              "action_list.0._raw",
+              "action_list.0.params.sup_buttage"
+            ],
+            "@field.cost_buttage": [
+              "action_list.0._raw",
+              "action_list.0.params.cost_buttage"
+            ],
+            "@field.q_npk": [
+              "action_list.0._raw",
+              "action_list.0.params.q_npk"
+            ],
+            "@field.c_npk": [
+              "action_list.0._raw",
+              "action_list.0.params.c_npk"
+            ],
+            "@field.q_ur": [
+              "action_list.0._raw",
+              "action_list.0.params.q_uree"
+            ],
+            "@field.c_ur": [
+              "action_list.0._raw",
+              "action_list.0.params.c_uree"
+            ],
+            "@field.q_herb": [
+              "action_list.0._raw",
+              "action_list.0.params.q_herb"
+            ],
+            "@field.c_herb": [
+              "action_list.0._raw",
+              "action_list.0.params.c_herb"
+            ],
+            "@field.q_ins": [
+              "action_list.0._raw",
+              "action_list.0.params.q_ins"
+            ],
+            "@field.c_ins": [
+              "action_list.0._raw",
+              "action_list.0.params.c_ins"
+            ],
+            "@field.obs_type": [
+              "action_list.0._raw",
+              "action_list.0.params.obs_type"
+            ],
+            "@local.v_tot_cult": [
+              "action_list.0._raw",
+              "action_list.0.params.total_investi"
+            ],
+            "@local.name": [
+              "action_list.5.args.1",
+              "action_list.5._raw"
+            ],
+            "@field.current_culture_index": [
+              "action_list.6.args.1",
+              "action_list.6._raw",
+              "condition"
+            ],
+            "@calc(Number(@field.current_culture_index) + 1)": [
+              "action_list.6.args.1",
+              "action_list.6._raw"
+            ],
+            "@local.v_new_total_global": [
+              "action_list.22.args.1",
+              "action_list.22._raw"
+            ],
+            "!@local.completed_enabled": [
+              "parameter_list.disabled"
+            ],
+            "@field.total_cultures_selected": [
+              "condition"
+            ],
+            "@calc(Number(@field.current_culture_index) < Number(@field.total_cultures_selected) - 1)": [
+              "condition"
+            ]
+          }
+        },
+        {
+          "type": "button",
+          "name": "button_completed",
+          "value": "Terminer",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "grand_total_post_semi",
+                "@local.v_new_total_global"
+              ],
+              "_raw": "click | set_field: grand_total_post_semi : @local.v_new_total_global"
+            },
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "completed"
+              ],
+              "_raw": "click | emit: completed"
+            }
+          ],
+          "parameter_list": {
+            "style": "navigation",
+            "disabled": "!@local.completed_enabled"
+          },
+          "condition": "@calc(Number(@field.current_culture_index) >= Number(@field.total_cultures_selected) - 1)",
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "dg_footer.button_completed",
+          "_dynamicFields": {
+            "action_list": {
+              "0": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@local.v_new_total_global",
+                      "matchedExpression": "@local.v_new_total_global",
+                      "type": "local",
+                      "fieldName": "v_new_total_global"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: grand_total_post_semi : @local.v_new_total_global",
+                    "matchedExpression": "@local.v_new_total_global",
+                    "type": "local",
+                    "fieldName": "v_new_total_global"
+                  }
+                ]
+              }
+            },
+            "parameter_list": {
+              "disabled": [
+                {
+                  "fullExpression": "!@local.completed_enabled",
+                  "matchedExpression": "!@local.completed_enabled",
+                  "type": "local",
+                  "fieldName": "completed_enabled"
+                }
+              ]
+            },
+            "condition": [
+              {
+                "fullExpression": "@calc(Number(@field.current_culture_index) >= Number(@field.total_cultures_selected) - 1)",
+                "matchedExpression": "@field.current_culture_index",
+                "type": "field",
+                "fieldName": "current_culture_index"
+              },
+              {
+                "fullExpression": "@calc(Number(@field.current_culture_index) >= Number(@field.total_cultures_selected) - 1)",
+                "matchedExpression": "@field.total_cultures_selected",
+                "type": "field",
+                "fieldName": "total_cultures_selected"
+              },
+              {
+                "fullExpression": "@calc(Number(@field.current_culture_index) >= Number(@field.total_cultures_selected) - 1)",
+                "matchedExpression": "@calc(Number(@field.current_culture_index) >= Number(@field.total_cultures_selected) - 1)",
+                "type": "calc",
+                "fieldName": "Number(@field.current_culture_index) >= Number(@field.total_cultures_selected) - 1"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.v_new_total_global": [
+              "action_list.0.args.1",
+              "action_list.0._raw"
+            ],
+            "!@local.completed_enabled": [
+              "parameter_list.disabled"
+            ],
+            "@field.current_culture_index": [
+              "condition"
+            ],
+            "@field.total_cultures_selected": [
+              "condition"
+            ],
+            "@calc(Number(@field.current_culture_index) >= Number(@field.total_cultures_selected) - 1)": [
+              "condition"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "dg_footer"
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/Post-semis_form_sheets.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/12PZPM4h6d74rSqBrmHZOvENYeVPTI8AAYZmt-zTmsJs"
+  }
+}
