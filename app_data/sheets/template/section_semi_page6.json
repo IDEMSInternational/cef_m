@@ -4,16 +4,185 @@
   "status": "released",
   "rows": [
     {
+      "name": "attempt_submit",
+      "value": "@fields.attempt_submit",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "attempt_submit",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.attempt_submit",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.attempt_submit": [
+          "value"
+        ]
+      }
+    },
+    {
       "type": "title",
       "name": "page_title",
-      "value": "APPORT PNT/PNG",
+      "value": "DATA",
       "_translations": {
         "value": {}
       },
       "_nested_name": "page_title"
     },
     {
+      "type": "text",
+      "value": "Current primary crop + @fields.current_primary_crop",
+      "_translations": {
+        "value": {}
+      },
+      "name": "text_4",
+      "_nested_name": "text_4",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "Current primary crop + @fields.current_primary_crop",
+            "matchedExpression": "@fields.current_primary_crop",
+            "type": "fields",
+            "fieldName": "current_primary_crop"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.current_primary_crop": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "Selected primary crops+ @fields.primary_crops_selected",
+      "_translations": {
+        "value": {}
+      },
+      "name": "text_5",
+      "_nested_name": "text_5",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "Selected primary crops+ @fields.primary_crops_selected",
+            "matchedExpression": "@fields.primary_crops_selected",
+            "type": "fields",
+            "fieldName": "primary_crops_selected"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.primary_crops_selected": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "Primary crops selected count + @fields.primary_crops_selected_count",
+      "_translations": {
+        "value": {}
+      },
+      "name": "text_6",
+      "_nested_name": "text_6",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "Primary crops selected count + @fields.primary_crops_selected_count",
+            "matchedExpression": "@fields.primary_crops_selected_count",
+            "type": "fields",
+            "fieldName": "primary_crops_selected_count"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.primary_crops_selected_count": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "Current secondary crop + @fields.current_secondary_crop",
+      "_translations": {
+        "value": {}
+      },
+      "name": "text_7",
+      "_nested_name": "text_7",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "Current secondary crop + @fields.current_secondary_crop",
+            "matchedExpression": "@fields.current_secondary_crop",
+            "type": "fields",
+            "fieldName": "current_secondary_crop"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.current_secondary_crop": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "Selected secondary crops+ @fields.secondary_crops_selected",
+      "_translations": {
+        "value": {}
+      },
+      "name": "text_8",
+      "_nested_name": "text_8",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "Selected secondary crops+ @fields.secondary_crops_selected",
+            "matchedExpression": "@fields.secondary_crops_selected",
+            "type": "fields",
+            "fieldName": "secondary_crops_selected"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.secondary_crops_selected": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "Secondary crops selected count + @fields.secondary_crops_selected_count",
+      "_translations": {
+        "value": {}
+      },
+      "name": "text_9",
+      "_nested_name": "text_9",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "Secondary crops selected count + @fields.secondary_crops_selected_count",
+            "matchedExpression": "@fields.secondary_crops_selected_count",
+            "type": "fields",
+            "fieldName": "secondary_crops_selected_count"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.secondary_crops_selected_count": [
+          "value"
+        ]
+      }
+    },
+    {
       "name": "completed_enabled",
+      "value": true,
       "type": "set_variable",
       "_nested_name": "completed_enabled"
     },
@@ -30,7 +199,7 @@
       "rows": [
         {
           "type": "round_button",
-          "name": "page_1_button_back",
+          "name": "page_6_btn_back",
           "action_list": [
             {
               "trigger": "click",
@@ -45,11 +214,61 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "dg_footer.page_1_button_back"
+          "_nested_name": "dg_footer.page_6_btn_back"
         },
         {
           "type": "button",
-          "name": "page_1_button_continue",
+          "name": "page_6_btn_attempt_submit",
+          "value": "@global.btn_continue",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "attempt_submit",
+                true
+              ],
+              "_raw": "click | set_field: attempt_submit: true"
+            }
+          ],
+          "condition": "!@local.completed_enabled",
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "dg_footer.page_6_btn_attempt_submit",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.btn_continue",
+                "matchedExpression": "@global.btn_continue",
+                "type": "global",
+                "fieldName": "btn_continue"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "!@local.completed_enabled",
+                "matchedExpression": "!@local.completed_enabled",
+                "type": "local",
+                "fieldName": "completed_enabled"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.btn_continue": [
+              "value"
+            ],
+            "!@local.completed_enabled": [
+              "condition"
+            ]
+          }
+        },
+        {
+          "type": "button",
+          "name": "page_6_btn_continue",
           "value": "@global.btn_continue",
           "_translations": {
             "value": {}
@@ -64,10 +283,14 @@
               "_raw": "click | emit: completed"
             }
           ],
+          "parameter_list": {
+            "disabled": "!@local.completed_enabled"
+          },
+          "condition": "@local.completed_enabled",
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "dg_footer.page_1_button_continue",
+          "_nested_name": "dg_footer.page_6_btn_continue",
           "_dynamicFields": {
             "value": [
               {
@@ -76,11 +299,35 @@
                 "type": "global",
                 "fieldName": "btn_continue"
               }
+            ],
+            "parameter_list": {
+              "disabled": [
+                {
+                  "fullExpression": "!@local.completed_enabled",
+                  "matchedExpression": "!@local.completed_enabled",
+                  "type": "local",
+                  "fieldName": "completed_enabled"
+                }
+              ]
+            },
+            "condition": [
+              {
+                "fullExpression": "@local.completed_enabled",
+                "matchedExpression": "@local.completed_enabled",
+                "type": "local",
+                "fieldName": "completed_enabled"
+              }
             ]
           },
           "_dynamicDependencies": {
             "@global.btn_continue": [
               "value"
+            ],
+            "!@local.completed_enabled": [
+              "parameter_list.disabled"
+            ],
+            "@local.completed_enabled": [
+              "condition"
             ]
           }
         }

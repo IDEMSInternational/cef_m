@@ -6,32 +6,50 @@
     {
       "type": "title",
       "name": "page_title",
-      "value": "Identification de l'Unité de Production Agricole (UPA) par QR code",
-      "_translations": {
-        "value": {}
-      },
       "_nested_name": "page_title"
-    },
-    {
-      "type": "image",
-      "value": "images/icons/scan.svg",
-      "_translations": {
-        "value": {}
-      },
-      "name": "image_3",
-      "_nested_name": "image_3"
     },
     {
       "type": "display_group",
       "rows": [
         {
-          "type": "text",
-          "value": "Utilisez la camera pour scanner votre code",
+          "type": "html",
+          "name": "camera_scane_label",
+          "value": "@global.camera_scane_label",
           "_translations": {
             "value": {}
           },
-          "name": "text_1",
-          "_nested_name": "display_group_4.text_1"
+          "style_list": [
+            "@global.label_style"
+          ],
+          "_nested_name": "display_group_3.camera_scane_label",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.camera_scane_label",
+                "matchedExpression": "@global.camera_scane_label",
+                "type": "global",
+                "fieldName": "camera_scane_label"
+              }
+            ],
+            "style_list": {
+              "0": [
+                {
+                  "fullExpression": "@global.label_style",
+                  "matchedExpression": "@global.label_style",
+                  "type": "global",
+                  "fieldName": "label_style"
+                }
+              ]
+            }
+          },
+          "_dynamicDependencies": {
+            "@global.camera_scane_label": [
+              "value"
+            ],
+            "@global.label_style": [
+              "style_list.0"
+            ]
+          }
         },
         {
           "type": "audio",
@@ -41,83 +59,111 @@
             "src": "audio/semis/qr_code_fr.mp3",
             "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
-          "exclude_from_translation": true,
           "style_list": [
-            "float: right"
+            "@global.audio_style"
           ],
-          "_nested_name": "display_group_4.audio_1_1"
+          "_nested_name": "display_group_3.audio_1_1",
+          "_dynamicFields": {
+            "style_list": {
+              "0": [
+                {
+                  "fullExpression": "@global.audio_style",
+                  "matchedExpression": "@global.audio_style",
+                  "type": "global",
+                  "fieldName": "audio_style"
+                }
+              ]
+            }
+          },
+          "_dynamicDependencies": {
+            "@global.audio_style": [
+              "style_list.0"
+            ]
+          }
         }
       ],
-      "name": "display_group_4",
-      "_nested_name": "display_group_4"
+      "name": "display_group_3",
+      "_nested_name": "display_group_3"
     },
     {
-      "type": "text",
-      "value": "Choisissez l'année de la campagne:",
+      "type": "image",
+      "value": "images/icons/scan.svg",
       "_translations": {
         "value": {}
       },
-      "name": "text_6",
-      "_nested_name": "text_6"
+      "style_list": [
+        "width:120px",
+        "height:120px",
+        "object-fit:contain",
+        "flex-shrink:0"
+      ],
+      "name": "image_5",
+      "_nested_name": "image_5"
     },
     {
-      "type": "date_time_picker",
-      "name": "year_campaign",
-      "action_list": [
-        {
-          "trigger": "changed",
-          "action_id": "set_field",
-          "args": [
-            "campagne",
-            "this.value"
-          ],
-          "_raw": "changed | set_field: campagne: this.value"
-        }
-      ],
-      "parameter_list": {
-        "type": "year",
-        "min": "2023",
-        "max": "@calc(now())"
+      "type": "text",
+      "name": "camera_scane_hint",
+      "value": "@global.camera_scane_hint",
+      "_translations": {
+        "value": {}
       },
-      "_nested_name": "year_campaign",
+      "style_list": [
+        "@global.hint_style"
+      ],
+      "_nested_name": "camera_scane_hint",
       "_dynamicFields": {
-        "parameter_list": {
-          "max": [
+        "value": [
+          {
+            "fullExpression": "@global.camera_scane_hint",
+            "matchedExpression": "@global.camera_scane_hint",
+            "type": "global",
+            "fieldName": "camera_scane_hint"
+          }
+        ],
+        "style_list": {
+          "0": [
             {
-              "fullExpression": "@calc(now())",
-              "matchedExpression": "@calc(now())",
-              "type": "calc",
-              "fieldName": "now()"
+              "fullExpression": "@global.hint_style",
+              "matchedExpression": "@global.hint_style",
+              "type": "global",
+              "fieldName": "hint_style"
             }
           ]
         }
       },
       "_dynamicDependencies": {
-        "@calc(now())": [
-          "parameter_list.max"
+        "@global.camera_scane_hint": [
+          "value"
+        ],
+        "@global.hint_style": [
+          "style_list.0"
         ]
       }
     },
     {
-      "name": "completed_enabled",
-      "value": "!!@local.year_campaign",
+      "type": "button",
+      "name": "button_camera_scane",
+      "value": "@global.camera_scane_btn",
       "_translations": {
         "value": {}
       },
-      "type": "set_variable",
-      "_nested_name": "completed_enabled",
+      "parameter_list": {
+        "button_align": "centre",
+        "style": "flexible"
+      },
+      "_nested_name": "button_camera_scane",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "!!@local.year_campaign",
-            "matchedExpression": "!@local.year_campaign",
-            "type": "local",
-            "fieldName": "year_campaign"
+            "fullExpression": "@global.camera_scane_btn",
+            "matchedExpression": "@global.camera_scane_btn",
+            "type": "global",
+            "fieldName": "camera_scane_btn"
           }
         ]
       },
       "_dynamicDependencies": {
-        "!@local.year_campaign": [
+        "@global.camera_scane_btn": [
           "value"
         ]
       }
@@ -135,7 +181,7 @@
       "rows": [
         {
           "type": "round_button",
-          "name": "page_1_button_back",
+          "name": "page_1_btn_back",
           "action_list": [
             {
               "trigger": "click",
@@ -150,11 +196,11 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "dg_footer.page_1_button_back"
+          "_nested_name": "dg_footer.page_1_btn_back"
         },
         {
           "type": "button",
-          "name": "page_1_button_continue",
+          "name": "page_1_btn_continue",
           "value": "@global.btn_continue",
           "_translations": {
             "value": {}
@@ -169,13 +215,10 @@
               "_raw": "click | emit: completed"
             }
           ],
-          "parameter_list": {
-            "disabled": "!@local.completed_enabled"
-          },
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "dg_footer.page_1_button_continue",
+          "_nested_name": "dg_footer.page_1_btn_continue",
           "_dynamicFields": {
             "value": [
               {
@@ -184,24 +227,11 @@
                 "type": "global",
                 "fieldName": "btn_continue"
               }
-            ],
-            "parameter_list": {
-              "disabled": [
-                {
-                  "fullExpression": "!@local.completed_enabled",
-                  "matchedExpression": "!@local.completed_enabled",
-                  "type": "local",
-                  "fieldName": "completed_enabled"
-                }
-              ]
-            }
+            ]
           },
           "_dynamicDependencies": {
             "@global.btn_continue": [
               "value"
-            ],
-            "!@local.completed_enabled": [
-              "parameter_list.disabled"
             ]
           }
         }

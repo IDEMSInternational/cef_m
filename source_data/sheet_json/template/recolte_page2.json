@@ -1,0 +1,53 @@
+{
+  "flow_type": "template",
+  "flow_name": "recolte_page2",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "value": "IMPORTANT : Gestion des coûts de la recolte"
+    },
+    {
+      "type": "audio",
+      "name": "audio_note_fr",
+      "parameter_list": "variant: compact;\nsrc: audio/recolte/note_form_recolte_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "float: right;"
+    },
+    {
+      "type": "begin_display_group",
+      "style_list": "display: block;width: 100%; background: #F4F7FA; border-radius: 12px; padding: 16px; margin-top: 10px;"
+    },
+    {
+      "type": "text",
+      "name": "note_formulaire_info_postsems",
+      "value": "@global.note_formulaire_info_recolte",
+      "style_list": "font-size: 16px; line-height: 1.5; color: #333;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "dg_footer",
+      "parameter_list": "sticky: bottom;",
+      "style_list": "padding: 12px 24px;"
+    },
+    {
+      "type": "round_button",
+      "name": "button_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+    },
+    {
+      "type": "button",
+      "name": "button_completed",
+      "value": "@global.btn_continue",
+      "action_list": " click | emit: completed;",
+      "parameter_list": "style: navigation;\n",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "end_display_group"
+    }
+  ]
+}

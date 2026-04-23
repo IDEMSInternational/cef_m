@@ -1,0 +1,163 @@
+{
+  "flow_type": "template",
+  "flow_name": "superficie_champs_page7",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "name": "page_observ",
+      "value": "**Observations sur la fertilité de la parcelle N⁰**"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: black;\"> Séléctionnez le canal à utiliser pour faire votre observation sur la parcelle N⁰ </p>",
+      "style_list": "font-size:20px;"
+    },
+    {
+      "type": "audio",
+      "name": "audio_7_1",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/canal_obser_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "style_list": "float: right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "radio_button_grid",
+      "name": "type_observation",
+      "value": "@fields.type_observation",
+      "action_list": "changed | set_field : type_observation: this.value;",
+      "parameter_list": "answer_list: @data.group_observation; \nvariant: flex;\nitem_width: 60px;\ngrid_gap: 8px;"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "condition": "!@fields.type_observation"
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@fields.type_observation == \"par_text\""
+    },
+    {
+      "type": "text",
+      "value": "Entrez par écrit l'information supplémentaire."
+    },
+    {
+      "type": "audio",
+      "name": "audio_7_2",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/oberv_ecrit_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "style_list": "float: right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text_area",
+      "value": "@fields.info_text",
+      "action_list": "changed | set_field : info_text: this.value;",
+      "parameter_list": "placeholder: Ecrivez votre observation",
+      "condition": "@fields.type_observation == \"par_text\""
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@fields.type_observation == \"par_video\""
+    },
+    {
+      "type": "text",
+      "name": "info_video_label",
+      "value": "Enregistrez par vidéo l'information supplémentaire."
+    },
+    {
+      "type": "audio",
+      "name": "audio_7_3",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/oberv_vid_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "style_list": "float: right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "name": "info_video",
+      "value": "We would need a video recorder here",
+      "condition": "@fields.type_observation == \"par_video\""
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@fields.type_observation == \"par_vocal\""
+    },
+    {
+      "type": "text",
+      "name": "info_audio_label",
+      "value": "Enregistrez par vocal l'information supplémentaire."
+    },
+    {
+      "type": "audio",
+      "name": "audio_7_4",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/oberv_audio_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "style_list": "float: right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "name": "info_audio",
+      "value": "We would need a audio recorder here",
+      "condition": "@fields.type_observation == \"par_vocal\""
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@fields.type_observation == \"par_photo\""
+    },
+    {
+      "type": "text",
+      "name": "info_image_label",
+      "value": "Enregistrez par image l'information supplémentaire."
+    },
+    {
+      "type": "audio",
+      "name": "audio_7_5",
+      "parameter_list": "variant: compact;\nsrc: audio/Enrolement/oberv_phot_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "style_list": "float: right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "name": "info_image",
+      "value": "We would need a camera here",
+      "condition": "@fields.type_observation == \"par_photo\""
+    },
+    {
+      "name": "completed_enabled",
+      "value": "!!@local.type_observation"
+    },
+    {
+      "type": "begin_display_group",
+      "value": " ",
+      "parameter_list": "sticky: bottom;",
+      "style_list": "padding: 12px 24px;"
+    },
+    {
+      "type": "round_button",
+      "name": "button_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+    },
+    {
+      "type": "button",
+      "name": "button_continue",
+      "value": "@global.btn_continue",
+      "action_list": "click | emit: completed",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "end_display_group"
+    }
+  ]
+}

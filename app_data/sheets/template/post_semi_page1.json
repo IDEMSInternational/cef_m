@@ -39,17 +39,12 @@
           "_translations": {
             "value": {}
           },
+          "style_list": [
+            "width: 80%",
+            "object-fit: contain"
+          ],
           "name": "image_2",
           "_nested_name": "display_group_3.image_2"
-        },
-        {
-          "type": "text",
-          "value": "Utilisez la camera pour scanner votre code",
-          "_translations": {
-            "value": {}
-          },
-          "name": "text_3",
-          "_nested_name": "display_group_3.text_3"
         }
       ],
       "name": "display_group_3",
@@ -57,16 +52,32 @@
     },
     {
       "type": "text",
-      "value": "Choisissez l'année de la campagne:",
+      "value": "Utilisez la camera pour scanner votre code",
       "_translations": {
         "value": {}
       },
+      "style_list": [
+        "text-align: center",
+        "font-weight: bold"
+      ],
       "name": "text_5",
       "_nested_name": "text_5"
     },
     {
+      "type": "text",
+      "value": "Choisissez l'année de la campagne:",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "margin-top: 20px"
+      ],
+      "name": "text_6",
+      "_nested_name": "text_6"
+    },
+    {
       "type": "date_time_picker",
-      "name": "year_campaign",
+      "name": "year_picker",
       "action_list": [
         {
           "trigger": "changed",
@@ -83,7 +94,7 @@
         "min": "2023",
         "max": "@calc(now())"
       },
-      "_nested_name": "year_campaign",
+      "_nested_name": "year_picker",
       "_dynamicFields": {
         "parameter_list": {
           "max": [
@@ -104,7 +115,7 @@
     },
     {
       "name": "v_year_ok",
-      "value": "@calc(!!@local.year_campaign)",
+      "value": "@calc(!!@field.campagne)",
       "_translations": {
         "value": {}
       },
@@ -113,24 +124,24 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc(!!@local.year_campaign)",
-            "matchedExpression": "!@local.year_campaign",
-            "type": "local",
-            "fieldName": "year_campaign"
+            "fullExpression": "@calc(!!@field.campagne)",
+            "matchedExpression": "!@field.campagne",
+            "type": "field",
+            "fieldName": "campagne"
           },
           {
-            "fullExpression": "@calc(!!@local.year_campaign)",
-            "matchedExpression": "@calc(!!@local.year_campaign)",
+            "fullExpression": "@calc(!!@field.campagne)",
+            "matchedExpression": "@calc(!!@field.campagne)",
             "type": "calc",
-            "fieldName": "!!@local.year_campaign"
+            "fieldName": "!!@field.campagne"
           }
         ]
       },
       "_dynamicDependencies": {
-        "!@local.year_campaign": [
+        "!@field.campagne": [
           "value"
         ],
-        "@calc(!!@local.year_campaign)": [
+        "@calc(!!@field.campagne)": [
           "value"
         ]
       }

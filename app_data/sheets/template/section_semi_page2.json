@@ -4,25 +4,96 @@
   "status": "released",
   "rows": [
     {
-      "type": "text",
-      "name": "note_consentement",
-      "value": "@global.note_info_semis",
+      "type": "title",
+      "name": "page_title",
+      "_nested_name": "page_title"
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "html",
+          "name": "campaign_year_label",
+          "value": "<span style=\"color: red;\">*</span> @global.campaign_year_label",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-size:20px"
+          ],
+          "_nested_name": "display_group_3.campaign_year_label",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<span style=\"color: red;\">*</span> @global.campaign_year_label",
+                "matchedExpression": "@global.campaign_year_label",
+                "type": "global",
+                "fieldName": "campaign_year_label"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.campaign_year_label": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "audio",
+          "name": "audio_2_1",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/semis/annee_saison_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float : right"
+          ],
+          "_nested_name": "display_group_3.audio_2_1"
+        }
+      ],
+      "name": "display_group_3",
+      "_nested_name": "display_group_3"
+    },
+    {
+      "name": "year_campaign",
+      "type": "set_variable",
+      "_nested_name": "year_campaign"
+    },
+    {
+      "type": "date_time_picker",
+      "name": "year_campaign",
+      "value": "@fields.year_campaign",
       "_translations": {
         "value": {}
       },
-      "_nested_name": "note_consentement",
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_local",
+          "args": [
+            "year_campaign",
+            "this.value"
+          ],
+          "_raw": "changed | set_local: year_campaign: this.value"
+        }
+      ],
+      "parameter_list": {
+        "type": "year"
+      },
+      "_nested_name": "year_campaign",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@global.note_info_semis",
-            "matchedExpression": "@global.note_info_semis",
-            "type": "global",
-            "fieldName": "note_info_semis"
+            "fullExpression": "@fields.year_campaign",
+            "matchedExpression": "@fields.year_campaign",
+            "type": "fields",
+            "fieldName": "year_campaign"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@global.note_info_semis": [
+        "@fields.year_campaign": [
           "value"
         ]
       }
@@ -40,7 +111,7 @@
       "rows": [
         {
           "type": "round_button",
-          "name": "page_1_button_back",
+          "name": "page_2_btn_back",
           "action_list": [
             {
               "trigger": "click",
@@ -55,11 +126,11 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "dg_footer.page_1_button_back"
+          "_nested_name": "dg_footer.page_2_btn_back"
         },
         {
           "type": "button",
-          "name": "page_1_button_continue",
+          "name": "page_2_btn_continue",
           "value": "@global.btn_continue",
           "_translations": {
             "value": {}
@@ -74,10 +145,13 @@
               "_raw": "click | emit: completed"
             }
           ],
+          "parameter_list": {
+            "disabled": "!@local.year_campaign"
+          },
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "dg_footer.page_1_button_continue",
+          "_nested_name": "dg_footer.page_2_btn_continue",
           "_dynamicFields": {
             "value": [
               {
@@ -86,11 +160,24 @@
                 "type": "global",
                 "fieldName": "btn_continue"
               }
-            ]
+            ],
+            "parameter_list": {
+              "disabled": [
+                {
+                  "fullExpression": "!@local.year_campaign",
+                  "matchedExpression": "!@local.year_campaign",
+                  "type": "local",
+                  "fieldName": "year_campaign"
+                }
+              ]
+            }
           },
           "_dynamicDependencies": {
             "@global.btn_continue": [
               "value"
+            ],
+            "!@local.year_campaign": [
+              "parameter_list.disabled"
             ]
           }
         }

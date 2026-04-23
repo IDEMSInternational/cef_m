@@ -1,0 +1,525 @@
+{
+  "flow_type": "template",
+  "flow_name": "parcelle_form_page2",
+  "status": "released",
+  "rows": [
+    {
+      "name": "num_parcelle",
+      "value": "1",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "num_parcelle"
+    },
+    {
+      "type": "subtitle",
+      "value": "**Niveau de fertilité de la parcelle N⁰ de @fields.nom_champ** *",
+      "_translations": {
+        "value": {}
+      },
+      "name": "subtitle_3",
+      "_nested_name": "subtitle_3",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "**Niveau de fertilité de la parcelle N⁰ de @fields.nom_champ** *",
+            "matchedExpression": "@fields.nom_champ",
+            "type": "fields",
+            "fieldName": "nom_champ"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.nom_champ": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "text",
+          "value": "Indiquez le niveau de fertilité de la parcelle N⁰",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_1",
+          "_nested_name": "display_group_4.text_1"
+        },
+        {
+          "type": "audio",
+          "name": "audio_1",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Superficie/fertilite_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float : right"
+          ],
+          "_nested_name": "display_group_4.audio_1"
+        }
+      ],
+      "name": "display_group_4",
+      "_nested_name": "display_group_4"
+    },
+    {
+      "type": "image",
+      "value": "images/fertilite.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width:100px",
+        "height:100px"
+      ],
+      "name": "image_6",
+      "_nested_name": "image_6"
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: black;\"> Sélectionner un niveau en dessous !</p>",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "html_text"
+    },
+    {
+      "type": "radio_button_grid",
+      "name": "fertilite_sol",
+      "value": "@fields.fertilite_sol",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_local",
+          "args": [
+            "fertilite_sol",
+            "this.value"
+          ],
+          "_raw": "changed | set_local : fertilite_sol: this.value"
+        }
+      ],
+      "parameter_list": {
+        "answer_list": "@data.fertilite_sol",
+        "style": "secondary",
+        "item_width": "60px",
+        "grid_gap": "8px"
+      },
+      "_nested_name": "fertilite_sol",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.fertilite_sol",
+            "matchedExpression": "@fields.fertilite_sol",
+            "type": "fields",
+            "fieldName": "fertilite_sol"
+          }
+        ],
+        "parameter_list": {
+          "answer_list": [
+            {
+              "fullExpression": "@data.fertilite_sol",
+              "matchedExpression": "@data.fertilite_sol",
+              "type": "data",
+              "fieldName": "fertilite_sol"
+            }
+          ]
+        }
+      },
+      "_dynamicDependencies": {
+        "@fields.fertilite_sol": [
+          "value"
+        ],
+        "@data.fertilite_sol": [
+          "parameter_list.answer_list"
+        ]
+      }
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@local.fertilite_sol",
+      "_nested_name": "html_text",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "<p style=\"color: red;\"> @global.warning_message </p>",
+            "matchedExpression": "@global.warning_message",
+            "type": "global",
+            "fieldName": "warning_message"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!@local.fertilite_sol",
+            "matchedExpression": "!@local.fertilite_sol",
+            "type": "local",
+            "fieldName": "fertilite_sol"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.warning_message": [
+          "value"
+        ],
+        "!@local.fertilite_sol": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "subtitle",
+      "value": "**Culture précédente dans la parcelle N⁰ lors de la saison passée du champ @fields.nom_champ**",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@fields.nom_champ",
+      "name": "subtitle_10",
+      "_nested_name": "subtitle_10",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "**Culture précédente dans la parcelle N⁰ lors de la saison passée du champ @fields.nom_champ**",
+            "matchedExpression": "@fields.nom_champ",
+            "type": "fields",
+            "fieldName": "nom_champ"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "@fields.nom_champ",
+            "matchedExpression": "@fields.nom_champ",
+            "type": "fields",
+            "fieldName": "nom_champ"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.nom_champ": [
+          "value",
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "condition": "@fields.nom_champ",
+      "rows": [
+        {
+          "type": "text",
+          "value": "Sélectionnez le nom de la culture précédente",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_1",
+          "_nested_name": "display_group_11.text_1"
+        },
+        {
+          "type": "audio",
+          "name": "audio_2",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Superficie/cult_preced_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float : right"
+          ],
+          "_nested_name": "display_group_11.audio_2"
+        }
+      ],
+      "name": "display_group_11",
+      "_nested_name": "display_group_11",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.nom_champ",
+            "matchedExpression": "@fields.nom_champ",
+            "type": "fields",
+            "fieldName": "nom_champ"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.nom_champ": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "radio_button_grid",
+      "name": "cult_preced",
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_local",
+          "args": [
+            "cult_preced",
+            "this.value"
+          ],
+          "_raw": "changed | set_local: cult_preced: this.value"
+        }
+      ],
+      "parameter_list": {
+        "answer_list": "@data.cult_princip",
+        "item_width": "80px",
+        "grid_width": "150%",
+        "grid_gap": "10px",
+        "variant": "circle-icon"
+      },
+      "condition": "@fields.nom_champ",
+      "_nested_name": "cult_preced",
+      "_dynamicFields": {
+        "parameter_list": {
+          "answer_list": [
+            {
+              "fullExpression": "@data.cult_princip",
+              "matchedExpression": "@data.cult_princip",
+              "type": "data",
+              "fieldName": "cult_princip"
+            }
+          ]
+        },
+        "condition": [
+          {
+            "fullExpression": "@fields.nom_champ",
+            "matchedExpression": "@fields.nom_champ",
+            "type": "fields",
+            "fieldName": "nom_champ"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@data.cult_princip": [
+          "parameter_list.answer_list"
+        ],
+        "@fields.nom_champ": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@local.cult_preced",
+      "_nested_name": "html_text",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "<p style=\"color: red;\"> @global.warning_message </p>",
+            "matchedExpression": "@global.warning_message",
+            "type": "global",
+            "fieldName": "warning_message"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!@local.cult_preced",
+            "matchedExpression": "!@local.cult_preced",
+            "type": "local",
+            "fieldName": "cult_preced"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.warning_message": [
+          "value"
+        ],
+        "!@local.cult_preced": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "condition": "@local.cult_preced == 'autre'",
+      "rows": [
+        {
+          "type": "text",
+          "name": "message_aucun",
+          "value": "@global.aucun_message",
+          "_translations": {
+            "value": {}
+          },
+          "_nested_name": "display_group_15.message_aucun",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.aucun_message",
+                "matchedExpression": "@global.aucun_message",
+                "type": "global",
+                "fieldName": "aucun_message"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.aucun_message": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "audio",
+          "name": "audio_3",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Superficie/autre_cult_nom1_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float : right"
+          ],
+          "_nested_name": "display_group_15.audio_3"
+        }
+      ],
+      "name": "display_group_15",
+      "_nested_name": "display_group_15",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@local.cult_preced == 'autre'",
+            "matchedExpression": "@local.cult_preced",
+            "type": "local",
+            "fieldName": "cult_preced"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.cult_preced": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "text_box",
+      "value": "@fields.autre_cult_pred",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "autre_cult_preced",
+            "this.value"
+          ],
+          "_raw": "changed | set_field: autre_cult_preced: this.value"
+        }
+      ],
+      "parameter_list": {
+        "max_length": "30",
+        "placeholder": "Entrez le nom de la culture"
+      },
+      "condition": "@local.cult_preced == 'autre'",
+      "exclude_from_translation_1": true,
+      "name": "text_box_17",
+      "_nested_name": "text_box_17",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.autre_cult_pred",
+            "matchedExpression": "@fields.autre_cult_pred",
+            "type": "fields",
+            "fieldName": "autre_cult_pred"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "@local.cult_preced == 'autre'",
+            "matchedExpression": "@local.cult_preced",
+            "type": "local",
+            "fieldName": "cult_preced"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.autre_cult_pred": [
+          "value"
+        ],
+        "@local.cult_preced": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "value": "",
+      "parameter_list": {
+        "sticky": "bottom"
+      },
+      "style_list": [
+        "padding: 12px 24px"
+      ],
+      "rows": [
+        {
+          "type": "round_button",
+          "name": "page1_button_back",
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "uncompleted"
+              ],
+              "_raw": "click | emit: uncompleted"
+            }
+          ],
+          "parameter_list": {
+            "icon_src": "arrow-back",
+            "variant": "no-background"
+          },
+          "_nested_name": "display_group_18.page1_button_back"
+        },
+        {
+          "type": "button",
+          "name": "button_continue_1",
+          "value": "Continuer",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "go_to",
+              "args": [
+                "superficie_champs_page5"
+              ],
+              "_raw": "click | go_to: superficie_champs_page5"
+            },
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "completed"
+              ],
+              "_raw": "click | emit: completed"
+            }
+          ],
+          "_nested_name": "display_group_18.button_continue_1"
+        }
+      ],
+      "name": "display_group_18",
+      "_nested_name": "display_group_18"
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/superficie_champs_form_sheets.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/1Za6KnU73iDgbTARvf6JCQo0vJb_EkTgiHEyZUJdNgXs"
+  }
+}

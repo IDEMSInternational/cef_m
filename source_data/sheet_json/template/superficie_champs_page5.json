@@ -1,0 +1,1063 @@
+{
+  "flow_type": "template",
+  "flow_name": "superficie_champs_page5",
+  "status": "released",
+  "rows": [
+    {
+      "name": "num_parcelle",
+      "value": "1"
+    },
+    {
+      "type": "subtitle",
+      "value": "**Niveau de fertilité de la parcelle N⁰ de @fields.nom_champ** *"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "Indiquez le niveau de fertilité de la parcelle N⁰"
+    },
+    {
+      "type": "audio",
+      "name": "audio_1",
+      "parameter_list": "variant: compact;\nsrc: audio/Superficie/fertilite_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/fertilite.jpg",
+      "style_list": "width:100px; height:100px; "
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: black;\"> Sélectionner un niveau en dessous !</p>"
+    },
+    {
+      "type": "radio_button_grid",
+      "name": "fertilite_sol",
+      "value": "@fields.fertilite_sol",
+      "action_list": "changed | set_local : fertilite_sol: this.value;",
+      "parameter_list": "answer_list: @data.fertilite_sol; \nstyle: secondary;\nitem_width: 60px;\ngrid_gap: 8px;"
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "condition": "!@local.fertilite_sol"
+    },
+    {
+      "type": "subtitle",
+      "value": "**Culture précédente dans la parcelle N⁰ lors de la saison passée du champ @fields.nom_champ** ",
+      "condition": "@fields.nom_champ"
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@fields.nom_champ"
+    },
+    {
+      "type": "text",
+      "value": "Sélectionnez le nom de la culture précédente "
+    },
+    {
+      "type": "audio",
+      "name": "audio_2",
+      "parameter_list": "variant: compact;\nsrc: audio/Superficie/cult_preced_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "radio_button_grid",
+      "name": "cult_preced",
+      "action_list": "changed | set_local: cult_preced: this.value;",
+      "parameter_list": "answer_list: @data.cult_princip;\nitem_width: 80px;\ngrid_width: 150%;\ngrid_gap: 10px;\nvariant: circle-icon;",
+      "condition": "@fields.nom_champ"
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "condition": "!@local.cult_preced"
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@local.cult_preced == 'autre'"
+    },
+    {
+      "type": "text",
+      "name": "message_aucun",
+      "value": "@global.aucun_message"
+    },
+    {
+      "type": "audio",
+      "name": "audio_3",
+      "parameter_list": "variant: compact;\nsrc: audio/Superficie/autre_cult_nom1_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text_box",
+      "value": "@fields.autre_cult_pred",
+      "action_list": "changed | set_field: autre_cult_preced: this.value;",
+      "parameter_list": "max_length: 30;\nplaceholder: Entrez le nom de la culture",
+      "condition": "@local.cult_preced == 'autre'",
+      "exclude_from_translation_1": true
+    },
+    {
+      "type": "subtitle",
+      "value": "**Culture principale dans la parcelle N⁰ de @fields.nom_champ** ",
+      "condition": "@fields.nom_champ"
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@fields.nom_champ"
+    },
+    {
+      "type": "text",
+      "value": "Sélectionnez la culture principale dans la parcelle N⁰ @fields.num_parcelle "
+    },
+    {
+      "type": "audio",
+      "name": "audio_4",
+      "parameter_list": "variant: compact;\nsrc: audio/Superficie/cult_prin_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "radio_button_grid",
+      "name": "cult_princip",
+      "action_list": "changed | set_local: cult_princip: this.value;",
+      "parameter_list": "answer_list: @data.cult_princip;\nitem_width: 80px;\ngrid_width: 150%;\ngrid_gap: 10px;\nvariant: circle-icon;",
+      "condition": "@fields.nom_champ"
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "condition": "!@local.cult_princip"
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@local.cult_princip == 'autre'"
+    },
+    {
+      "type": "text",
+      "name": "message_aucun",
+      "value": "@global.aucun_message"
+    },
+    {
+      "type": "audio",
+      "name": "audio_5",
+      "parameter_list": "variant: compact;\nsrc: audio/Superficie/autre_cult_nom1_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text_box",
+      "name": "cult_princip",
+      "value": "@fields.cult_princip",
+      "parameter_list": "max_length: 30;\nplaceholder: Entrez le nom de la culture",
+      "condition": "@local.cult_princip == 'autre'",
+      "exclude_from_translation_1": true
+    },
+    {
+      "name": "variete"
+    },
+    {
+      "type": "begin_display_group",
+      "parameter_list": "filter: @local.cult_princip"
+    },
+    {
+      "type": "subtitle",
+      "value": "**Variété utilisée de @local.cult_princip dans la parcelle N⁰ de @fields.nom_champ**"
+    },
+    {
+      "type": "audio",
+      "name": "audio_6",
+      "parameter_list": "variant: compact;\nsrc: audio/Superficie/var_seme_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: black;\">Écrivez \"Je ne sais pas\" si vous ne connaissez pas le nom de la variété </p>"
+    },
+    {
+      "type": "text_box",
+      "name": "nom_variete",
+      "value": "@fields.nom_variete",
+      "parameter_list": "max_length: 30;\nplaceholder:Écrivez le nom de la variété cultivée",
+      "exclude_from_translation_1": true
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "condition": "!@local.nom_variete"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "**Le type de variété de @local.cult_princip dans la parcelle N⁰**"
+    },
+    {
+      "type": "audio",
+      "name": "audio_7",
+      "parameter_list": "variant: compact;\nsrc: audio/Superficie/var_type_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "value": "Sélectionnez le type de variété de @local.cult_princip "
+    },
+    {
+      "type": "begin_radio_list",
+      "name": "type_variete",
+      "value": "@fields.variete_type"
+    },
+    {
+      "type": "begin_data_items",
+      "value": "@data.type_variete"
+    },
+    {
+      "type": "end_data_items"
+    },
+    {
+      "type": "end_radio_list"
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "condition": "!@local.type_variete"
+    },
+    {
+      "type": "subtitle",
+      "value": "**Semence cultivée dans la parcelle N⁰de @fields.nom_champ**"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "Sélectionnez la date de semis de @local.cult_princip dans la parcelle N⁰"
+    },
+    {
+      "type": "audio",
+      "name": "audio_8",
+      "parameter_list": "variant: compact;\nsrc: audio/Superficie/date_semence_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "date_time_picker",
+      "name": "date_semis",
+      "value": "@fields.date_semis",
+      "action_list": "changed | set_local: date_semis : this.value;",
+      "parameter_list": "type: date"
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "condition": "!@local.date_semis"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "**La quantité de semence (kg)**"
+    },
+    {
+      "type": "audio",
+      "name": "audio_9",
+      "parameter_list": "variant: compact;\nsrc: audio/Superficie/q_semence_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/kg.jpg",
+      "style_list": "width:100px; height:100px; "
+    },
+    {
+      "type": "text",
+      "value": "Selectionnez la quantite de semance en Kilogrammes(kg)"
+    },
+    {
+      "type": "text_box",
+      "name": "quantite_semence",
+      "value": "@fields.quantite_semence",
+      "parameter_list": "number_input: true\nplaceholder: Entrez la quantite en kg;",
+      "condition": "!!@fields.quantite_semence",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text_box",
+      "name": "quantite_semence",
+      "parameter_list": "number_input: true;\nplaceholder: Entrez la quantite en kg;",
+      "condition": "!@field.quantite_semence",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "condition": "!@local.quantite_semence "
+    },
+    {
+      "name": "valid_quantite_semence",
+      "value": "@calc((/^\\d+$/.test(@local.quantite_semence) && @local.quantite_semence>0 ) || @local.quantite_semence == '' || !@local.quantite_semence )",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text",
+      "value": "@global.validite_nombre",
+      "condition": "!@local.valid_quantite_semence",
+      "exclude_from_translation": true,
+      "style_list": "color: #FF0000;\nfont-size: 14px"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "**Sélectionnez la source de la semence de @local.cult_princip dans la parcelle N⁰**"
+    },
+    {
+      "type": "audio",
+      "name": "audio_10",
+      "parameter_list": "variant: compact;\nsrc: audio/Superficie/source_semence_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_radio_list",
+      "name": "source_semence"
+    },
+    {
+      "type": "begin_data_items",
+      "value": "@data.source_semence"
+    },
+    {
+      "type": "end_data_items"
+    },
+    {
+      "type": "end_radio_list"
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "condition": "!@local.source_semence"
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@local.source_semence == 'semence_autre_source'"
+    },
+    {
+      "type": "text",
+      "name": "message_aucun",
+      "value": "@global.aucun_message"
+    },
+    {
+      "type": "audio",
+      "name": "audio_11",
+      "parameter_list": "variant: compact;\nsrc: audio/Superficie/nom_autre_source_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text_box",
+      "name": "source_semence",
+      "value": "@fields.source_semence",
+      "parameter_list": "max_length: 30;\nplaceholder: Entrez le nom de la culture",
+      "condition": "@local.source_semence == 'semence_autre_source'",
+      "exclude_from_translation_1": true
+    },
+    {
+      "type": "subtitle",
+      "value": "**La diversité culturale dans la parcelle  N⁰ de @fields.nom_champ**"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "Comptez et renseignez le nombre d'arbres dans la parcelle N° "
+    },
+    {
+      "type": "audio",
+      "name": "audio_12",
+      "parameter_list": "variant: compact;\nsrc: audio/Superficie/nbre_arbre_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/arbre.jpg",
+      "style_list": "width:100px; height:100px; "
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_arbre",
+      "value": "@fields.nombre_arbre",
+      "parameter_list": "number_input: true\nplaceholder: Entrez le nombre;",
+      "condition": "!!@fields.nombre_arbre",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_arbre",
+      "parameter_list": "number_input: true;\nplaceholder: Entrez le nombre;",
+      "condition": "!@field.nombre_arbre",
+      "exclude_from_translation": true
+    },
+    {
+      "name": "valid_nombre_arbre",
+      "value": "@calc((/^\\d+$/.test(@local.nombre_arbre) && @local.nombre_arbre>= 0 ) || @local.nombre_arbre == '' || !@local.nombre_arbre)",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "condition": "!@local.nombre_arbre "
+    },
+    {
+      "type": "text",
+      "value": "@global.validite_nombre",
+      "condition": "!@local.valid_nombre_arbre",
+      "exclude_from_translation": true,
+      "style_list": "color: #FF0000;\nfont-size: 14px"
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@local.nombre_arbre > 0"
+    },
+    {
+      "type": "text",
+      "value": "Ecrivez le(s) nom(s) des arbres se trouvant dans la parcelle N⁰"
+    },
+    {
+      "type": "audio",
+      "name": "audio_13",
+      "parameter_list": "variant: compact;\nsrc: audio/Superficie/nom_arbre_fr.mp3\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text_box",
+      "name": "nom_arbre",
+      "parameter_list": "placeholder: Entrez le nombre;",
+      "condition": "@local.nombre_arbre > 0"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "Indiquez si d’autre(s) culture(s) sont associées avec @local.cult_princip dans la parcellle N⁰ "
+    },
+    {
+      "type": "audio",
+      "name": "audio_14",
+      "parameter_list": "variant: compact;\nsrc: audio/Superficie/cult_asso_yn_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/association.jpg",
+      "style_list": "width:100px; height:100px; "
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: black;\">Il s'agit de l'association de deux ou plusieurs cultures dans la même parcelle avec la culture principale</p>",
+      "condition": "!@local.association_oui_non"
+    },
+    {
+      "type": "begin_radio_list",
+      "name": "association_oui_non"
+    },
+    {
+      "type": "begin_data_items",
+      "value": "@data.oui_non"
+    },
+    {
+      "type": "end_data_items"
+    },
+    {
+      "type": "end_radio_list"
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "condition": "!@local.association_oui_non"
+    },
+    {
+      "type": "subtitle",
+      "value": "**Association de cultures dans la parcelle N⁰ de @local.nom_champ**"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "Sélectionnez les cultures associées à @local.cult_princip dans la parcelle N⁰ "
+    },
+    {
+      "type": "audio",
+      "name": "audio_15",
+      "parameter_list": "variant: compact;\nsrc: audio/Superficie/cult_asso_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "name": "valid_cult_asso",
+      "value": "@calc(!!@fields.coton || !!@fields.mais || !!@fields.mil || !!@fields.sorgho || !!@fields.arachide || !!@fields.fourrage || !!@fields.fonio | !!@fields.riz | !!@fields.sesame | !!@fields.wauandzou | !!@fields.patate_douce | !!@fields.bissap)"
+    },
+    {
+      "type": "begin_data_items",
+      "value": "@data.culture_association"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "image",
+      "value": "@item.image",
+      "style_list": "width:90px; height:90px; object-fit:contain; flex-shrink:0;"
+    },
+    {
+      "type": "simple_checkbox",
+      "name": "@item.name",
+      "value": "@fields.@item.name",
+      "action_list": "changed | set_field: @item.name: !@fields.@item.name;",
+      "parameter_list": "label_text: @item.text;",
+      "exclude_from_translation": true,
+      "style_list": "margin-bottom: 10px;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "end_data_items"
+    },
+    {
+      "type": "text",
+      "value": "@global.warning_message ",
+      "condition": "!@local.valid_cult_asso",
+      "style_list": "color: red; font-size: 16px;"
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@fields.autre_culture1 == true"
+    },
+    {
+      "type": "text",
+      "name": "message_aucun",
+      "value": "@global.aucun_message"
+    },
+    {
+      "type": "audio",
+      "name": "audio_16",
+      "parameter_list": "variant: compact;\nsrc: audio/Superficie/autre_cult_nom1_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text_box",
+      "value": "@fields.autre_cult_asso1",
+      "action_list": "changed | set_field: autre_cult_asso1: this.value;",
+      "parameter_list": "max_length: 30;\nplaceholder: Encrivez le nom ",
+      "condition": "@fields.autre_culture1 == true",
+      "exclude_from_translation_1": true
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@fields.autre_culture2 == true"
+    },
+    {
+      "type": "text",
+      "name": "message_aucun",
+      "value": "@global.aucun_message"
+    },
+    {
+      "type": "audio",
+      "name": "audio_16",
+      "parameter_list": "variant: compact;\nsrc: audio/Superficie/autre_cult_nom2_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text_box",
+      "value": "@fields.autre_cult_asso2",
+      "action_list": "changed | set_field: autre_cult_asso2: this.value;",
+      "parameter_list": "max_length: 30;\nplaceholder: Encrivez le nom ",
+      "condition": "@fields.autre_culture2 == true",
+      "exclude_from_translation_1": true
+    },
+    {
+      "type": "subtitle ",
+      "value": "**Quantité de fertilisant dans la parcelle N⁰ de @fields.nom_champ**"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "Quantité de fumure organique (charretée) dans la parcelle N⁰"
+    },
+    {
+      "type": "audio",
+      "name": "audio_17",
+      "parameter_list": "variant: compact;\nsrc: audio/Superficie/qte_fo_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "float : right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/charrette.jpg",
+      "style_list": "width:100px; height:100px; "
+    },
+    {
+      "name": "valid_type_fumure",
+      "value": "@calc(!!@fields.tas_ordures|| !!@fields.fumier_parcs || !!@fields.fumier_fosses)"
+    },
+    {
+      "type": "begin_data_items",
+      "value": "@data.type_fumure"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "simple_checkbox",
+      "name": "@item.name",
+      "value": "@fields.@item.name",
+      "action_list": "changed | set_field: @item.name: !@fields.@item.name;",
+      "parameter_list": "align: left; label_text: @item.text;\n",
+      "exclude_from_translation": true,
+      "style_list": "margin-bottom: 10px;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "end_data_items"
+    },
+    {
+      "type": "text",
+      "value": "@global.warning_message ",
+      "condition": "!@local.valid_type_fumure",
+      "style_list": "color: red; font-size: 16px;"
+    },
+    {
+      "type": "text",
+      "name": "message_aucun",
+      "value": "@global.aucun_message",
+      "condition": "@fields.autre_fumier == true"
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: black;\"> @global.autre_fumure</p>",
+      "condition": "@fields.autre_fumier == true"
+    },
+    {
+      "type": "text_box",
+      "action_list": "changed | set_field: autre_fumier: this.value;",
+      "parameter_list": "max_length: 30;\nplaceholder: Encrivez le nom ",
+      "condition": "@fields.autre_fumier == true",
+      "exclude_from_translation_1": true
+    },
+    {
+      "type": "subtitle",
+      "value": "**Quantite d'engrais mineraux dans la parcelle N⁰ de @fields.nom_champ**"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "**Quantité NPK (sac 50 kg) dans la parcelle N⁰**"
+    },
+    {
+      "type": "audio",
+      "name": "audio_18",
+      "parameter_list": "variant: compact;\nsrc: audio/Superficie/qte_npk_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/sac.jpg",
+      "style_list": "width:100px; height:100px; "
+    },
+    {
+      "type": "text",
+      "value": "Écrivez le nombre de sacs(50kg) ou 0 si aucun apport de NPK"
+    },
+    {
+      "type": "text_box",
+      "name": "quantite_npk",
+      "value": "@fields.quantite_npk",
+      "parameter_list": "number_input: true\nplaceholder: Entrez la quantité;",
+      "condition": "!!@fields.quantite_npk",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text_box",
+      "name": "quantite_npk",
+      "parameter_list": "number_input: true;\nplaceholder: Entrez la quantité;",
+      "condition": "!@field.quantite_npk",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "condition": "!@local.quantite_npk "
+    },
+    {
+      "name": "valid_quantite_npk",
+      "value": "@calc((/^\\d+$/.test(@local.quantite_npk) && @local.quantite_npk>= 0 ) || @local.quantite_npk == '' || !@local.quantite_npk )",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text",
+      "value": "@global.validite_nombre",
+      "condition": "!@local.valid_quantite_npk",
+      "exclude_from_translation": true,
+      "style_list": "color: #FF0000;\nfont-size: 14px"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "**Quantité Urée (sac 50 kg) dans la parcelle N⁰**"
+    },
+    {
+      "type": "audio",
+      "name": "audio_18",
+      "parameter_list": "variant: compact;\nsrc: audio/Superficie/qte_uree_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/sac.jpg",
+      "style_list": "width:100px; height:100px; "
+    },
+    {
+      "type": "text",
+      "value": "Écrivez le nombre de sacs(50kg) ou 0 si aucun apport de NPK"
+    },
+    {
+      "type": "text_box",
+      "name": "quantite_uree",
+      "value": "@fields.quantite_uree",
+      "parameter_list": "number_input: true\nplaceholder: Entrez la quantité;",
+      "condition": "!!@fields.quantite_uree",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text_box",
+      "name": "quantite_uree",
+      "parameter_list": "number_input: true;\nplaceholder: Entrez la quantité;",
+      "condition": "!@field.quantite_uree",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "condition": "!@local.quantite_uree "
+    },
+    {
+      "name": "valid_quantite_uree",
+      "value": "@calc((/^\\d+$/.test(@local.quantite_uree) && @local.quantite_uree>= 0 ) || @local.quantite_uree == '' || !@local.quantite_uree )",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text",
+      "value": "@global.validite_nombre",
+      "condition": "!@local.valid_quantite_uree",
+      "exclude_from_translation": true,
+      "style_list": "color: #FF0000;\nfont-size: 14px"
+    },
+    {
+      "type": "text",
+      "value": "**Indiquez si une autre formule d'engrais est apportée à la culture @fields.cult_princip dans la parcelle N⁰?**"
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: black;\"> Il s'agit d'une autre formule d'engrais différente de NPK et urée en sac de 50kg </p>"
+    },
+    {
+      "type": "begin_radio_list",
+      "name": "autre_engrais_oui_non"
+    },
+    {
+      "type": "begin_data_items",
+      "value": "@data.oui_non"
+    },
+    {
+      "type": "end_data_items"
+    },
+    {
+      "type": "end_radio_list"
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "condition": "!@local.autre_engrais_oui_non"
+    },
+    {
+      "type": "text_box",
+      "name": "autre_engrais",
+      "value": "@fields.autre_engrais",
+      "action_list": "changed | set_field: autre_engrais: this.value;",
+      "parameter_list": "placeholder: Entrez le nom de l'engrais;",
+      "condition": "@local.autre_engrais_oui_non == 'oui'"
+    },
+    {
+      "type": "subtitle",
+      "value": "**Superficie de la parcelle N⁰ de @fields.nom_champ**"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "**Superficie de @fields.cult_princip dans la parcelle N⁰**"
+    },
+    {
+      "type": "audio",
+      "name": "audio_19",
+      "parameter_list": "variant: compact;\nsrc: audio/Superficie/sup_estim_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/superf_unit.jpg",
+      "style_list": "width:100px; height:100px; "
+    },
+    {
+      "type": "text",
+      "value": "Donnez votre meilleure estimation de la superficie (ha)"
+    },
+    {
+      "type": "text_box",
+      "name": "superficie_parcelle",
+      "value": "@fields.superficie_parcelle",
+      "parameter_list": "number_input: true\nplaceholder: Entrez la valeur;",
+      "condition": "!!@fields.superficie_parcelle",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text_box",
+      "name": "superficie_parcelle",
+      "parameter_list": "number_input: true;\nplaceholder: Entrez la valeur;",
+      "condition": "!@field.superficie_parcelle",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "condition": "!@local.superficie_parcelle "
+    },
+    {
+      "name": "valid_superficie_parcelle",
+      "value": "@calc((/^\\d+$/.test(@local.superficie_parcelle) && @local.superficie_parcelle>= 0 ) || @local.superficie_parcelle == '' || !@local.superficie_parcelle )",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text",
+      "value": "@global.validite_nombre",
+      "condition": "!@local.valid_superficie_parcelle",
+      "exclude_from_translation": true,
+      "style_list": "color: #FF0000;\nfont-size: 14px"
+    },
+    {
+      "type": "subtitle",
+      "value": "**Mesure de superficie de la parcelle N⁰ de @fields.nom_champ**"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "Superficie de @fields.cult_princip dans la parcelle N⁰ de @fields.nom_champ"
+    },
+    {
+      "type": "audio",
+      "name": "audio_20",
+      "parameter_list": "variant: compact;\nsrc: audio/Superficie/sup_mes_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/superf_geoloca.jpg",
+      "style_list": "width:100px; height:100px; "
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: red;\"> Mesurez à l'aide du GPS la superficie de @fields.cult_princip dans la parcelle N⁰  </p>"
+    },
+    {
+      "name": "superficie_geo",
+      "value": "@local.superficie_parcelle"
+    },
+    {
+      "type": "subtitle",
+      "value": "**Superficie réelle de la parcellle N⁰ de @fields.nom_champ**"
+    },
+    {
+      "type": "text",
+      "value": "Superficie de @fields.cult_princip dans la parcelle N⁰ de @fields.nom_champ"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "La superficie estimée (ha) était :"
+    },
+    {
+      "type": "text",
+      "name": "superficie_estimee",
+      "value": "@local.superficie_parcelle"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "La superficie mesurée (ha) est :"
+    },
+    {
+      "type": "text",
+      "name": "superficie_mesuree",
+      "value": "@local.superficie_parcelle"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "name": "superficie_diff",
+      "value": "@calc(Number(@local.superficie_estimee) - Number(@local.superficie_mesuree))",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "La différence entre la superficie donnée et la superficie mésurée (ha) est :"
+    },
+    {
+      "type": "text_box",
+      "value": "@local.superficie_diff"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: green;\"> Bonne estimation de la superficie, Bravo! </p>",
+      "condition": "@local.superficie_diff < 0.1 || @local.superficie_diff > -0.1"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: red;\"> Superficie sur-estimée ! </p>",
+      "condition": "@local.superficie_diff > 0.1 "
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: red;\"> Superficie sous-estimée !</p>",
+      "condition": "@local.superficie_diff < -0.1"
+    },
+    {
+      "type": "begin_display_group",
+      "value": " ",
+      "parameter_list": "sticky: bottom;",
+      "style_list": "padding: 12px 24px;"
+    },
+    {
+      "name": "completed_enabled",
+      "value": "!!@local.fertilite_sol  && @local.cult_preced && !!@local.cult_princip ",
+      "style_list": true
+    },
+    {
+      "type": "round_button",
+      "name": "button_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+    },
+    {
+      "type": "button",
+      "name": "button_continue",
+      "value": "Continuer",
+      "action_list": "click | set_field: fertilite_sol: @local.fertilite_sol;\nclick | set_field: cult_preced: @local.cult_preced;\nclick | set_field: cult_princip: @local.cult_princip;\nclick | set_field: type_variete: @local.type_variete;\nclick | emit: completed;",
+      "parameter_list": "disabled: !@local.completed_enabled"
+    },
+    {
+      "type": "end_display_group"
+    }
+  ]
+}

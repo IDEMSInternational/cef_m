@@ -1,0 +1,171 @@
+{
+  "flow_type": "template",
+  "flow_name": "recolte_page6",
+  "status": "released",
+  "rows": [
+    {
+      "name": "v_current_human",
+      "value": "@calc(Number(@field.current_idx) + 1)"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "header",
+      "style_list": "background: #00adcc; padding: 15px; border-radius: 0 0 15px 15px; margin-bottom: 20px;"
+    },
+    {
+      "type": "html",
+      "value": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_recolte_count</div>"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "name": "v_has_file",
+      "value": "@calc(['coton', 'maïs', 'mil', 'sorgho', 'arachide'].includes(@local.v_crop_clean))"
+    },
+    {
+      "name": "v_crop_clean",
+      "value": "@calc(@field.active_crop_name.toLowerCase())"
+    },
+    {
+      "name": "v_res_fmt",
+      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.production_residu_culture))"
+    },
+    {
+      "name": "v_res_err",
+      "value": "@calc(!@local.v_res_fmt || Number(@field.production_residu_culture) < 0)"
+    },
+    {
+      "name": "v_fane_fmt",
+      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.nombre_botte))"
+    },
+    {
+      "name": "v_fane_err",
+      "value": "@calc(!@local.v_fane_fmt || Number(@field.nombre_botte) < 0)"
+    },
+    {
+      "type": "html",
+      "value": "<div style=\"color: black; font-weight: bold; font-size: 14px;\">VALORISATION DES RÉSIDUS</div>"
+    },
+    {
+      "type": "begin_display_group",
+      "style_list": "width: 100%; display: flex; flex-direction: column; align-items: center; border: 1px solid #FFCC80; border-radius: 12px; background: white; margin-bottom: 10px; overflow: hidden;"
+    },
+    {
+      "type": "image ",
+      "value": "@calc(@local.v_has_file ? 'images/' + @local.v_crop_clean + '.jpg' : 'images/autre_cult_2.jpg')"
+    },
+    {
+      "type": "html",
+      "value": "<div style=\"background: rgba(255,255,255,0.2); padding: 15px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.3);\">\n    <h3 style=\"color: black; margin: 0;\">Culture : <span style=\"color: #e3a730;\">@field.active_crop_name</span></h3>\n</div>"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "grp_residus",
+      "condition": "@calc(@local.v_crop_clean == 'coton' || @local.v_crop_clean == 'maïs' || @local.v_crop_clean == 'mil' || @local.v_crop_clean == 'sorgho')",
+      "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "audio",
+      "name": "aud_residu",
+      "parameter_list": "variant: compact;\nsrc: audio/recolte/production_residu_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "float: right;"
+    },
+    {
+      "type": "html",
+      "value": "<span style=\"color: red;\">*</span>Collecte de résidus (charretée)",
+      "style_list": "font-weight: bold;"
+    },
+    {
+      "type": "image",
+      "value": "images/charrette.jpg",
+      "style_list": "width: 80%; object-fit: contain; margin-bottom: 10px;"
+    },
+    {
+      "type": "text_box",
+      "name": "production_residu_culture",
+      "value": "@field.production_residu_culture",
+      "action_list": "changed | set_field: production_residu_culture : this.value;",
+      "parameter_list": "number_input: true;    placeholder: Nombre de charretées;"
+    },
+    {
+      "type": "text",
+      "value": "Mettez un nombre positif valide",
+      "condition": "@local.v_res_err",
+      "style_list": "font-size: 12px; color: red;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "grp_fanes",
+      "condition": "@calc(@local.v_crop_clean == 'arachide' || @local.v_crop_clean == 'fourrage')",
+      "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "audio",
+      "name": "aud_residu",
+      "parameter_list": "variant: compact;\nsrc: audio/recolte/production_fane_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "float: right;"
+    },
+    {
+      "type": "html",
+      "value": "<span style=\"color: red;\">*</span>Production de fânes (botte)",
+      "style_list": "font-weight: bold;"
+    },
+    {
+      "type": "image",
+      "value": "images/botte.jpg",
+      "style_list": "width: 80%; object-fit: contain; margin-bottom: 10px;"
+    },
+    {
+      "type": "text_box ",
+      "name": "nombre_botte",
+      "value": "@field.nombre_botte",
+      "action_list": "changed | set_field: nombre_botte : this.value;",
+      "parameter_list": "number_input: true;    placeholder: Nombre de bottes;"
+    },
+    {
+      "type": "text",
+      "value": "Mettez un nombre positif valide",
+      "condition": "@local.v_fane_err",
+      "style_list": "font-size: 12px; color: red;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "name": "v_page6_valid",
+      "value": "@calc((['coton', 'maïs', 'mil', 'sorgho'].includes(@local.v_crop_clean) ? (@local.v_res_fmt && Number(@field.production_residu_culture) >= 0) : true) && (['arachide', 'fourrage'].includes(@local.v_crop_clean) ? (@local.v_fane_fmt && Number(@field.nombre_botte) >= 0) : true))"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "dg_footer",
+      "parameter_list": "sticky: bottom;",
+      "style_list": "padding: 12px 24px;"
+    },
+    {
+      "type": "round_button",
+      "name": "button_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+    },
+    {
+      "type": "button",
+      "name": "button_completed",
+      "value": "@global.btn_continue",
+      "action_list": "click | emit: completed;",
+      "parameter_list": "style: navigation;\ndisabled: !@local.v_page6_valid",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "end_display_group"
+    }
+  ]
+}

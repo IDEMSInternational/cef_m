@@ -1,0 +1,259 @@
+{
+  "flow_type": "template",
+  "flow_name": "recolte_page3",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "value": "SÉLECTION DES CULTURES"
+    },
+    {
+      "type": "begin_display_group\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t",
+      "name": "cult_pri",
+      "style_list": "display: block; width: 100%\n"
+    },
+    {
+      "type": "audio",
+      "parameter_list": "variant: compact;\nsrc: audio/recolte/select_culture_fr;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "exclude_from_translation": true,
+      "style_list": "float:right;"
+    },
+    {
+      "type": "html",
+      "value": "<span style=\"color: red;\">*</span>1. Séléctionnez vos culture(s) principales"
+    },
+    {
+      "type": "end_display_group\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t"
+    },
+    {
+      "type": "begin_data_items",
+      "value": "@data.cultures_primaires",
+      "style_list": "display: flex; flex-wrap: wrap; justify-content: space-between; width: 100%; gap: 10px;"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "card_culture",
+      "style_list": "width: 100%; display: flex; flex-direction: column; align-items: center; border: 1px solid #ddd; border-radius: 12px; background: white; margin-bottom: 10px; overflow: hidden;\n"
+    },
+    {
+      "type": "image",
+      "value": "@item.image",
+      "style_list": "width: 60%; object-fit: contain;"
+    },
+    {
+      "name": "v_key",
+      "value": "@calc('cul_' + @item.name)"
+    },
+    {
+      "type": "simple_checkbox ",
+      "name": "checkbox",
+      "value": "@field.@local.v_key",
+      "action_list": "changed | set_field: @local.v_key: @local.checkbox;",
+      "parameter_list": "label_text: @item.text; reverse: true;",
+      "style_list": "margin-bottom: 10px;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "end_data_items"
+    },
+    {
+      "type": "begin_display_group\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t",
+      "name": "cult_sec",
+      "style_list": "display: block; width: 100%\n"
+    },
+    {
+      "type": "audio",
+      "parameter_list": "variant: compact;\nsrc: audio/recolte/cult_second_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "exclude_from_translation": true,
+      "style_list": "float:right;"
+    },
+    {
+      "type": "html",
+      "value": "<br><span style=\"color: red;\">*</span>2. Séléctionnez les cultures secondaires"
+    },
+    {
+      "type": "end_display_group\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t"
+    },
+    {
+      "type": "begin_data_items",
+      "value": "@data.cultures_secondaires",
+      "style_list": "display: flex; flex-wrap: wrap; justify-content: space-between; width: 100%; gap: 10px;"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "card_culture",
+      "style_list": "width: 100%; display: flex; flex-direction: column; align-items: center; border: 1px solid #ddd; border-radius: 12px; background: white; margin-bottom: 10px; overflow: hidden;\n"
+    },
+    {
+      "type": "image",
+      "value": "@item.image",
+      "style_list": "width: 60%; object-fit: contain;"
+    },
+    {
+      "name": "v_key1",
+      "value": "@calc('cul_' + @item.name)"
+    },
+    {
+      "type": "simple_checkbox ",
+      "name": "checkbox",
+      "value": "@field.@local.v_key1",
+      "action_list": "changed | set_field: @local.v_key1: @local.checkbox;",
+      "parameter_list": "label_text: @item.text; reverse: true;",
+      "style_list": "margin-bottom: 10px;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "end_data_items"
+    },
+    {
+      "type": "begin_display_group\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t",
+      "name": "premier",
+      "condition": "@field.cul_autre_1",
+      "style_list": "display: block; width: 100%\n"
+    },
+    {
+      "type": "audio",
+      "parameter_list": "variant: compact;\nsrc: audio/recolte/cult_second_nom2_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "exclude_from_translation": true,
+      "style_list": "float:right;"
+    },
+    {
+      "type": "html",
+      "value": "<br><span style=\"color: red;\">*</span>Ecrivez le nom de l'autre culture secondaire 1"
+    },
+    {
+      "type": "end_display_group\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t"
+    },
+    {
+      "type": "text_box",
+      "name": "name_autre_1",
+      "value": "@field.name_autre_1",
+      "action_list": "changed | set_field: name_autre_1 : this.value;",
+      "parameter_list": "placeholder: Nom de l'autre culture 1;",
+      "condition": "@field.cul_autre_1"
+    },
+    {
+      "type": "text",
+      "value": "Cette culture existe déjà dans vos cultures primaires: veuillez la cocher directement",
+      "condition": "@field.cul_autre_1 && @field.name_autre_1 && @local.v_ref_list.includes(String(@field.name_autre_1).toLowerCase().trim())",
+      "style_list": "color: red; font-size: 12px;margin-bottom: 10px;"
+    },
+    {
+      "type": "begin_display_group\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t",
+      "name": "deuxieme",
+      "condition": "@field.cul_autre_2 && !!@field.name_autre_1",
+      "style_list": "display: block; width: 100%\n"
+    },
+    {
+      "type": "audio",
+      "parameter_list": "variant: compact;\nsrc: audio/recolte/cult_second_nom1_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "exclude_from_translation": true,
+      "style_list": "float:right;"
+    },
+    {
+      "type": "html",
+      "value": "<br><span style=\"color: red;\">*</span>Ecrivez le nom de l'autre culture secondaire 2"
+    },
+    {
+      "type": "end_display_group\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t"
+    },
+    {
+      "type": "text_box",
+      "name": "name_autre_2",
+      "value": "@field.name_autre_2",
+      "action_list": "changed | set_field: name_autre_2: this.value;",
+      "parameter_list": "placeholder: Nom de l'autre culture 2;",
+      "condition": "@field.cul_autre_2 && !!@field.name_autre_1"
+    },
+    {
+      "type": "text",
+      "value": "Cette culture existe déjà dans vos cultures secondaires: veuillez la cocher directement",
+      "condition": "@field.cul_autre_2 && @field.name_autre_2 && (@local.v_ref_list.includes(String(@field.name_autre_2).toLowerCase().trim()) || String(@field.name_autre_2).toLowerCase().trim() == String(@field.name_autre_1).toLowerCase().trim())",
+      "style_list": "color: red; font-size: 12px;margin-bottom: 10px;"
+    },
+    {
+      "type": "text",
+      "name": "err_ordre",
+      "value": "*Veuillez d'abord remplir le nom de la première culture.*",
+      "condition": "@field.cul_autre_2 && !@field.name_autre_1",
+      "style_list": "color: red; font-size: 12"
+    },
+    {
+      "type": "text",
+      "name": "error_select",
+      "value": "*Veuillez sélectionner au moins une culture pour continuer*",
+      "condition": "!@local.completed_enabled && @field.campagne !== undefined;",
+      "style_list": "color: #D32F2F; background: #FFEBEE; padding: 10px; border-radius: 8px; font-size: 13px; margin-top: 15px; text-align: center;"
+    },
+    {
+      "type": "text",
+      "name": "info_autre",
+      "value": "*Il s'agit d'une culture qui n'existe pas dans la liste des cultures primaires ou secondaires ci-dessus.*",
+      "condition": "@field.cul_autre_1 || @field.cul_autre_2",
+      "style_list": "color: red; font-size: 13px; font-style: italic; margin-bottom: 10px;"
+    },
+    {
+      "name": "v_ref_list",
+      "value": "@calc(['maïs','mil','sorgho','coton','arachide','fourrage','fonio','riz','rice','sésame','sesame','wouandzou','patate','bissap'])"
+    },
+    {
+      "name": "v_list_prim",
+      "value": "@calc([@field.cul_mais?'Maïs':null,@field.cul_mil?'Mil':null,@field.cul_sorgho?'Sorgho':null,@field.cul_coton?'Coton':null,@field.cul_arachide?'Arachide':null,@field.cul_fourrage?'Fourrage':null].filter(v=>v!==null))"
+    },
+    {
+      "name": "v_list_sec",
+      "value": "@calc([@field.cul_fonio?'Fonio':null,@field.cul_rice?'Riz':null,@field.cul_sesame?'Sésame':null,@field.cul_wouandzou?'Wouandzou':null,@field.cul_patate_douce?'Patate':null,@field.cul_bissap?'Bissap':null].filter(v=>v!==null))"
+    },
+    {
+      "name": "v_list_autres",
+      "value": "@calc([@field.cul_autre_1?@field.name_autre_1:null,@field.cul_autre_2?@field.name_autre_2:null].filter(v=>v!==null))"
+    },
+    {
+      "name": "v_no_doublons",
+      "value": "@calc(\n  (!@field.name_autre_1 || !@local.v_ref_list.includes(String(@field.name_autre_1).toLowerCase().trim())) && \n  (!@field.name_autre_2 || (\n    !@local.v_ref_list.includes(String(@field.name_autre_2).toLowerCase().trim()) && \n    String(@field.name_autre_2).toLowerCase().trim() !== String(@field.name_autre_1).toLowerCase().trim()\n  ))\n)"
+    },
+    {
+      "name": "v_names_filled",
+      "value": "@calc((!@field.cul_autre_1 || !!@field.name_autre_1) && (!@field.cul_autre_2 || !!@field.name_autre_2))"
+    },
+    {
+      "name": "v_final_list",
+      "value": "@calc(@local.v_list_prim.concat(@local.v_list_sec).concat(@local.v_list_autres).join(','))"
+    },
+    {
+      "name": "v_total_count",
+      "value": "@calc(@local.v_list_prim.length + @local.v_list_sec.length + @local.v_list_autres.length)"
+    },
+    {
+      "name": "completed_enabled",
+      "value": "@calc(@local.v_total_count > 0 && @local.v_names_filled && @local.v_no_doublons)"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "dg_footer",
+      "parameter_list": "sticky: bottom;",
+      "style_list": "padding: 12px 24px;"
+    },
+    {
+      "type": "round_button",
+      "name": "button_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+    },
+    {
+      "type": "button",
+      "name": "button_completed",
+      "value": "@global.btn_continue",
+      "action_list": "click | set_field: selected_recolte_list : @local.v_final_list;\nclick | set_field: total_recolte_count : @local.v_total_count;\nclick | set_field: current_idx : 0;\nclick | set_field: active_crop_name : @calc(@local.v_final_list.split(',')[0]);\nclick | emit: completed;",
+      "parameter_list": "style: navigation;\ndisabled: !@local.completed_enabled",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "end_display_group"
+    }
+  ]
+}

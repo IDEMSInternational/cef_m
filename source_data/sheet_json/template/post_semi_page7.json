@@ -1,0 +1,217 @@
+{
+  "flow_type": "template",
+  "flow_name": "post_semi_page7",
+  "status": "released",
+  "rows": [
+    {
+      "name": "v_current_human",
+      "value": "@calc(Number(@field.current_culture_index) + 1)"
+    },
+    {
+      "name": "v_tot_cult",
+      "value": "@calc((Number(@field.final_cout_entre) || 0) + (Number(@field.final_count_fert) || 0) + (Number(@field.final_count_phyto) || 0))"
+    },
+    {
+      "name": "v_tot_fcfa",
+      "value": "@calc(@local.v_tot_cult * 5)"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "header_top",
+      "style_list": "background: #00adcc; padding: 15px; border-radius: 0 0 15px 15px; margin-bottom: 20px;"
+    },
+    {
+      "type": "html",
+      "value": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "title",
+      "value": "DÉTAILS DE LA CULTURE : BILAN & OBSERVATIONS"
+    },
+    {
+      "type": "begin_display_group",
+      "style_list": "width: 100%; display: flex; flex-direction: column; align-items: center; border: 1px solid #FFCC80; border-radius: 12px; background: white; margin-bottom: 10px; overflow: hidden;"
+    },
+    {
+      "type": "image",
+      "value": "@calc('images/' + @field.active_culture_name + '.jpg')",
+      "style_list": "width: 60%; object-fit: contain;"
+    },
+    {
+      "type": "text",
+      "value": "<h3 style='color: black; margin: 10px 0;'>Culture : <span style='color: #e3a730;'>@field.active_culture_name</span></h3>",
+      "style_list": "font-weight: bold; font-size: 18px;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "html",
+      "value": "<br><h3 style=\"color: #E65100; margin:0;\">TOTAL INVESTI : @local.v_tot_cult Dram</h3>"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"color: #757575; font-size: 14px;\">Équivalent : <b>@local.v_tot_fcfa FCFA</b><br><small><i>(Base : 1 dram = 5 FCFA)</i></small></p>"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "bilan_card",
+      "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "audio",
+      "parameter_list": "variant: compact;\nsrc: audio/postSemi/cout_cult_postsemis_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "float: right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "html",
+      "value": "<br><b style=\"color: #455A64\">COMMENT SOUHAITEZ-VOUS FAIRE VOTRE CONSTAT ?</b>"
+    },
+    {
+      "type": "radio_button_grid",
+      "name": "obs_grid",
+      "value": "@field.obs_type",
+      "action_list": "changed | set_field: obs_type : this.value;",
+      "parameter_list": "answer_list: @data.group_observation;\nvariant: flex;\nitem_width: 60px;\ngrid_gap: 8px;"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "obs_audio",
+      "condition": "@field.obs_type == 'par_vocal'",
+      "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "audio",
+      "parameter_list": "variant: compact;\nsrc: audio/postSemi/Ob_audio_postsemis_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "float: right;"
+    },
+    {
+      "type": "text",
+      "value": "Enregistrez votre témoignage vocal ci-dessus."
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "obs_photo",
+      "condition": "@field.obs_type == 'par_photo'",
+      "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "audio",
+      "parameter_list": "variant: compact;\nsrc: audio/postSemi/Ob_photo_postsemis_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "float: right;"
+    },
+    {
+      "type": "text",
+      "value": "Prenez une photo d'un point précis du champ."
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "obs_video",
+      "condition": "@field.obs_type == 'par_video'",
+      "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "audio",
+      "parameter_list": "variant: compact;\nsrc: audio/postSemi/Ob_video_postsemis_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "float: right;"
+    },
+    {
+      "type": "text",
+      "value": "Filmez l'état général de la culture."
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "obs_text",
+      "condition": "@field.obs_type == 'par_text'",
+      "style_list": "display: block; width: 100%"
+    },
+    {
+      "type": "audio",
+      "parameter_list": "variant: compact;\nsrc: audio/postSemi/Ob_ecrit_postsemis_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "float: right;"
+    },
+    {
+      "type": "text_area",
+      "name": "obs_text",
+      "value": "@field.obs_text",
+      "action_list": "changed | set_field: obs_text : this.value;",
+      "parameter_list": "placeholder: Saisissez vos remarques...;multiline: true;",
+      "style_list": "font-size: 12px; font-style: italic;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "end_data_items"
+    },
+    {
+      "name": "name",
+      "value": "@calc(@field.selected_cultures_list.split(',')[Number(@field.current_culture_index) + 1])"
+    },
+    {
+      "name": "v_new_total_global",
+      "value": "@calc((Number(@field.grand_total_post_semi) || 0) + Number(@local.v_tot_cult))"
+    },
+    {
+      "name": "v_current_obs_ok",
+      "value": "@calc(@field.obs_type !== '' && @field.obs_type !== null)"
+    },
+    {
+      "name": "completed_enabled",
+      "value": "@local.v_current_obs_ok\n\n"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "dg_footer",
+      "parameter_list": "sticky: bottom;",
+      "style_list": "padding: 12px 24px;"
+    },
+    {
+      "type": "round_button",
+      "name": "button_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+    },
+    {
+      "type": "button",
+      "name": "button_completed",
+      "value": "@global.btn_continue",
+      "action_list": "click | add_data | \n    _list_id: post_semi_summary_list, \n    culture: @field.active_culture_name,\n    sup_sarclage: @field.sup_sarclage,\n    cost_sarclage: @field.cost_sarclage,\n    sup_desherbage: @field.sup_desherbage,\n    cost_desherbage: @field.cost_desherbage,\n    sup_buttage: @field.sup_buttage,\n    cost_buttage: @field.cost_buttage,\n    q_npk: @field.q_npk,\n    c_npk: @field.c_npk,\n    q_uree: @field.q_ur,\n    c_uree: @field.c_ur,\n    q_herb: @field.q_herb,\n    c_herb: @field.c_herb,\n    q_ins: @field.q_ins,\n    c_ins: @field.c_ins,\n    obs_type: @field.obs_type,\n    total_investi: @local.v_tot_cult;\nclick | set_data | _list_id: post_semi_settings_pages, _index: 3, completed: false;\nclick | set_data | _list_id: post_semi_settings_pages, _index: 4, completed: false;\nclick | set_data | _list_id: post_semi_settings_pages, _index: 5, completed: false;\nclick | set_data | _list_id: post_semi_settings_pages, _index: 6, completed: false;\nclick | set_field: active_culture_name : @local.name;\nclick | set_field: current_culture_index : @calc(Number(@field.current_culture_index) + 1);\nclick | set_field: sup_sarclage :;\nclick | set_field: cost_sarclage :;\nclick | set_field: sup_desherbage :;\nclick | set_field: cost_desherbage :;\nclick | set_field: sup_buttage :;\nclick | set_field: cost_buttage :;\nclick | set_field: q_npk :;\nclick | set_field: c_npk :;\nclick | set_field: q_ur :;\nclick | set_field: c_ur :;\nclick | set_field: q_herb :;\nclick | set_field: c_herb :;\nclick | set_field: q_ins :;\nclick | set_field: c_ins :;\nclick | set_field: obs_type :;\nclick | set_field: grand_total_post_semi : @local.v_new_total_global;\nclick | emit: force_reprocess;",
+      "parameter_list": "style: navigation;\ndisabled: !@local.completed_enabled",
+      "condition": "@calc(Number(@field.current_culture_index) < Number(@field.total_cultures_selected) - 1)",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "button",
+      "name": "button_completed",
+      "value": "Terminer",
+      "action_list": "click | set_field: grand_total_post_semi : @local.v_new_total_global;\nclick | emit: completed;\n",
+      "parameter_list": "style: navigation;\ndisabled: !@local.completed_enabled",
+      "condition": "@calc(Number(@field.current_culture_index) >= Number(@field.total_cultures_selected) - 1)",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "end_display_group"
+    }
+  ]
+}

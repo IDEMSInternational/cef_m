@@ -1,0 +1,115 @@
+{
+  "flow_type": "template",
+  "flow_name": "section_semi_page18",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "name": "page_title",
+      "value": "FIN DU FORMULAIRE",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "page_title"
+    },
+    {
+      "type": "text",
+      "name": "note_fin",
+      "value": "@global.note_fin",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "note_fin",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.note_fin",
+            "matchedExpression": "@global.note_fin",
+            "type": "global",
+            "fieldName": "note_fin"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.note_fin": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "dg_footer",
+      "value": "",
+      "parameter_list": {
+        "sticky": "bottom"
+      },
+      "style_list": [
+        "padding: 12px 24px"
+      ],
+      "rows": [
+        {
+          "type": "round_button",
+          "name": "page_1_button_back",
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "uncompleted"
+              ],
+              "_raw": "click | emit: uncompleted"
+            }
+          ],
+          "parameter_list": {
+            "icon_src": "arrow-back",
+            "variant": "no-background"
+          },
+          "_nested_name": "dg_footer.page_1_button_back"
+        },
+        {
+          "type": "button",
+          "name": "page_1_button_continue",
+          "value": "@global.btn_continue",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "completed"
+              ],
+              "_raw": "click | emit: completed"
+            }
+          ],
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "dg_footer.page_1_button_continue",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.btn_continue",
+                "matchedExpression": "@global.btn_continue",
+                "type": "global",
+                "fieldName": "btn_continue"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.btn_continue": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "dg_footer"
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/section_semis_sheets.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/1kj3U-JlzVhdPzr3JYksRfo6BjJglZF-FS_dO-yGxY1w"
+  }
+}

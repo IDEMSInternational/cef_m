@@ -1,0 +1,119 @@
+{
+  "flow_type": "template",
+  "flow_name": "post_semi_page8",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "value": "BILAN GLOBAL POST-SEMIS"
+    },
+    {
+      "name": "v_grand_total",
+      "value": "@calc(Number(@field.grand_total_post_semi || 0))"
+    },
+    {
+      "name": "v_grand_total_fcfa",
+      "value": "@calc(Number(@local.v_grand_total || 0) * 5)"
+    },
+    {
+      "type": "audio",
+      "parameter_list": "variant: compact;\nsrc: audio/postSemi/cout_tot_postsemis_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "float: right;"
+    },
+    {
+      "type": "html",
+      "value": "<h2 style=\"color: #1B5E20; text-align: center; margin: 0;\">INVESTISSEMENT TOTAL UPA</h2>"
+    },
+    {
+      "type": "image",
+      "value": "images/cfa_tot.jpg",
+      "style_list": "width: 100%; object-fit: contain;\nmargin-bottom: 10px;"
+    },
+    {
+      "type": "html",
+      "value": "<div style=\"background: #FFF3E0; padding: 20px; border-radius: 15px; text-align: center; border: 2px solid #E65100;\">\n  <span style=\"font-size: 16px; color: #6D4C41; text-transform: uppercase;\">Total Investi (Toutes Cultures)</span>\n  <h1 style=\"color: #E65100; margin: 10px 0;\">@local.v_grand_total Dram</h1>\n  \n  <div style=\"background: #E8F5E9; padding: 10px; border-radius: 10px;\">\n    <span style=\"color: #2E7D32; font-weight: bold; font-size: 20px;\">\n      @local.v_grand_total_fcfa FCFA\n    </span>\n  </div>\n</div>"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "cultures_list",
+      "style_list": "padding: 20px;"
+    },
+    {
+      "type": "html",
+      "value": "<h4 style=\"color: #e3a730; border-bottom: 1px solid #eee; padding-bottom: 10px;\">Cultures enregistrées</h4>"
+    },
+    {
+      "type": "text ",
+      "value": "@field.selected_cultures_list ",
+      "style_list": "color: #666; font-style: italic; margin-top: 5px;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "html",
+      "value": "<br><b style=\"color: #455A64\">VOTRE AVIS SUR LE FORMULAIRE </b>"
+    },
+    {
+      "type": "html",
+      "value": "<p style=\"font-size: 12px; color: gray;\">Partagez vos suggestions ou difficultés rencontrées.</p>"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "feedback_card",
+      "style_list": "display: block; width: 100%; border: 1px dashed #9E9E9E; border-radius: 10px; padding: 10px;"
+    },
+    {
+      "type": "image",
+      "value": "images/vocal.jpg",
+      "style_list": "width: 50px; float: left; margin-right: 10px;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "html",
+      "value": "<br>"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "final_note",
+      "style_list": "display: flex; flex-direction: column; align-items: center; text-align: center; background: white; padding: 20px; border-radius: 12px;"
+    },
+    {
+      "type": "html",
+      "value": "<h3 style=\"color: #D84315;\"> FIN DU FORMULAIRE</h3>"
+    },
+    {
+      "type": "html",
+      "value": "<p>Merci pour votre rigueur !<br>L'étape suivante sera le formulaire de <b>RÉCOLTE</b>.</p>"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "dg_footer",
+      "parameter_list": "sticky: bottom;",
+      "style_list": "padding: 12px 24px;"
+    },
+    {
+      "type": "round_button",
+      "name": "button_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+    },
+    {
+      "type": "button",
+      "name": "button_completed",
+      "value": "@global.btn_continue",
+      "action_list": "click | go_to: home_screen;",
+      "parameter_list": "style: navigation;",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "end_display_group"
+    }
+  ]
+}

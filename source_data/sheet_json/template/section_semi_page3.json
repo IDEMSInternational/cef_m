@@ -4,12 +4,15 @@
   "status": "released",
   "rows": [
     {
-      "type": "title",
-      "name": "page_title",
-      "value": "SUPERFICIE"
+      "type": "audio",
+      "name": "audio_3_1",
+      "parameter_list": "variant: compact;\nsrc: audio/semis/note_form_semis_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "float : right;"
     },
     {
-      "name": "completed_enabled"
+      "type": "text",
+      "name": "note_consentement",
+      "value": "@global.note_info_semis"
     },
     {
       "type": "begin_display_group",
@@ -20,13 +23,13 @@
     },
     {
       "type": "round_button",
-      "name": "page_1_button_back",
+      "name": "page_3_btn_back",
       "action_list": "click | emit: uncompleted",
       "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
     },
     {
       "type": "button",
-      "name": "page_1_button_continue",
+      "name": "page_3_btn_continue",
       "value": "@global.btn_continue",
       "action_list": "click | emit: completed",
       "style_list": "flex: 1"

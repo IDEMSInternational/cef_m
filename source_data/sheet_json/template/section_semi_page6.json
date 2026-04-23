@@ -4,12 +4,41 @@
   "status": "released",
   "rows": [
     {
-      "type": "title",
-      "name": "page_title",
-      "value": "APPORT PNT/PNG"
+      "name": "attempt_submit",
+      "value": "@fields.attempt_submit"
     },
     {
-      "name": "completed_enabled"
+      "type": "title",
+      "name": "page_title",
+      "value": "DATA"
+    },
+    {
+      "type": "text",
+      "value": "Current primary crop + @fields.current_primary_crop"
+    },
+    {
+      "type": "text",
+      "value": "Selected primary crops+ @fields.primary_crops_selected"
+    },
+    {
+      "type": "text",
+      "value": "Primary crops selected count + @fields.primary_crops_selected_count"
+    },
+    {
+      "type": "text",
+      "value": "Current secondary crop + @fields.current_secondary_crop"
+    },
+    {
+      "type": "text",
+      "value": "Selected secondary crops+ @fields.secondary_crops_selected"
+    },
+    {
+      "type": "text",
+      "value": "Secondary crops selected count + @fields.secondary_crops_selected_count"
+    },
+    {
+      "name": "completed_enabled",
+      "value": true
     },
     {
       "type": "begin_display_group",
@@ -20,15 +49,25 @@
     },
     {
       "type": "round_button",
-      "name": "page_1_button_back",
+      "name": "page_6_btn_back",
       "action_list": "click | emit: uncompleted",
       "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
     },
     {
       "type": "button",
-      "name": "page_1_button_continue",
+      "name": "page_6_btn_attempt_submit",
+      "value": "@global.btn_continue",
+      "action_list": "click | set_field: attempt_submit: true;",
+      "condition": "!@local.completed_enabled",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "button",
+      "name": "page_6_btn_continue",
       "value": "@global.btn_continue",
       "action_list": "click | emit: completed",
+      "parameter_list": "disabled: !@local.completed_enabled",
+      "condition": "@local.completed_enabled",
       "style_list": "flex: 1"
     },
     {

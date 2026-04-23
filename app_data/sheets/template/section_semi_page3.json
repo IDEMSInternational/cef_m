@@ -4,18 +4,41 @@
   "status": "released",
   "rows": [
     {
-      "type": "title",
-      "name": "page_title",
-      "value": "SUPERFICIE",
+      "type": "audio",
+      "name": "audio_3_1",
+      "parameter_list": {
+        "variant": "compact",
+        "src": "audio/semis/note_form_semis_fr.mp3",
+        "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+      },
+      "style_list": [
+        "float : right"
+      ],
+      "_nested_name": "audio_3_1"
+    },
+    {
+      "type": "text",
+      "name": "note_consentement",
+      "value": "@global.note_info_semis",
       "_translations": {
         "value": {}
       },
-      "_nested_name": "page_title"
-    },
-    {
-      "name": "completed_enabled",
-      "type": "set_variable",
-      "_nested_name": "completed_enabled"
+      "_nested_name": "note_consentement",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.note_info_semis",
+            "matchedExpression": "@global.note_info_semis",
+            "type": "global",
+            "fieldName": "note_info_semis"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.note_info_semis": [
+          "value"
+        ]
+      }
     },
     {
       "type": "display_group",
@@ -30,7 +53,7 @@
       "rows": [
         {
           "type": "round_button",
-          "name": "page_1_button_back",
+          "name": "page_3_btn_back",
           "action_list": [
             {
               "trigger": "click",
@@ -45,11 +68,11 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "dg_footer.page_1_button_back"
+          "_nested_name": "dg_footer.page_3_btn_back"
         },
         {
           "type": "button",
-          "name": "page_1_button_continue",
+          "name": "page_3_btn_continue",
           "value": "@global.btn_continue",
           "_translations": {
             "value": {}
@@ -67,7 +90,7 @@
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "dg_footer.page_1_button_continue",
+          "_nested_name": "dg_footer.page_3_btn_continue",
           "_dynamicFields": {
             "value": [
               {

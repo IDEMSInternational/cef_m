@@ -1,0 +1,253 @@
+{
+  "flow_type": "template",
+  "flow_name": "parcelle_form_page1",
+  "status": "released",
+  "rows": [
+    {
+      "type": "subtitle",
+      "value": "**Niveau de fertilité de la parcelle N⁰ @fields.num_parcelle de @fields.nom_champ** *",
+      "_translations": {
+        "value": {}
+      },
+      "name": "subtitle_2",
+      "_nested_name": "subtitle_2",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "**Niveau de fertilité de la parcelle N⁰ @fields.num_parcelle de @fields.nom_champ** *",
+            "matchedExpression": "@fields.num_parcelle",
+            "type": "fields",
+            "fieldName": "num_parcelle"
+          },
+          {
+            "fullExpression": "**Niveau de fertilité de la parcelle N⁰ @fields.num_parcelle de @fields.nom_champ** *",
+            "matchedExpression": "@fields.nom_champ",
+            "type": "fields",
+            "fieldName": "nom_champ"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.num_parcelle": [
+          "value"
+        ],
+        "@fields.nom_champ": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "text",
+          "value": "Indiquez le niveau de fertilité de la parcelle  N⁰@fields.parcelle_we_want_to_see",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_1",
+          "_nested_name": "display_group_3.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "Indiquez le niveau de fertilité de la parcelle  N⁰@fields.parcelle_we_want_to_see",
+                "matchedExpression": "@fields.parcelle_we_want_to_see",
+                "type": "fields",
+                "fieldName": "parcelle_we_want_to_see"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@fields.parcelle_we_want_to_see": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "audio",
+          "name": "audio_1",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/Superficie/fertilite_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float : right"
+          ],
+          "_nested_name": "display_group_3.audio_1"
+        }
+      ],
+      "name": "display_group_3",
+      "_nested_name": "display_group_3"
+    },
+    {
+      "type": "image",
+      "value": "images/fertilite.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width:100px",
+        "height:100px"
+      ],
+      "name": "image_5",
+      "_nested_name": "image_5"
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: black;\"> Sélectionner un niveau en dessous !</p>",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "html_text"
+    },
+    {
+      "type": "radio_button_grid",
+      "name": "fertilite_sol",
+      "value": "@fields.fertilite_sol",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_local",
+          "args": [
+            "fertilite_sol",
+            "this.value"
+          ],
+          "_raw": "changed | set_local : fertilite_sol: this.value"
+        }
+      ],
+      "parameter_list": {
+        "answer_list": "@data.fertilite_sol",
+        "style": "secondary",
+        "item_width": "60px",
+        "grid_gap": "8px"
+      },
+      "_nested_name": "fertilite_sol",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.fertilite_sol",
+            "matchedExpression": "@fields.fertilite_sol",
+            "type": "fields",
+            "fieldName": "fertilite_sol"
+          }
+        ],
+        "parameter_list": {
+          "answer_list": [
+            {
+              "fullExpression": "@data.fertilite_sol",
+              "matchedExpression": "@data.fertilite_sol",
+              "type": "data",
+              "fieldName": "fertilite_sol"
+            }
+          ]
+        }
+      },
+      "_dynamicDependencies": {
+        "@fields.fertilite_sol": [
+          "value"
+        ],
+        "@data.fertilite_sol": [
+          "parameter_list.answer_list"
+        ]
+      }
+    },
+    {
+      "type": "html",
+      "name": "html_text",
+      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@local.fertilite_sol",
+      "_nested_name": "html_text",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "<p style=\"color: red;\"> @global.warning_message </p>",
+            "matchedExpression": "@global.warning_message",
+            "type": "global",
+            "fieldName": "warning_message"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!@local.fertilite_sol",
+            "matchedExpression": "!@local.fertilite_sol",
+            "type": "local",
+            "fieldName": "fertilite_sol"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.warning_message": [
+          "value"
+        ],
+        "!@local.fertilite_sol": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "value": "",
+      "parameter_list": {
+        "sticky": "bottom"
+      },
+      "style_list": [
+        "padding: 12px 24px"
+      ],
+      "rows": [
+        {
+          "type": "round_button",
+          "name": "page1_button_back",
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "uncompleted"
+              ],
+              "_raw": "click | emit: uncompleted"
+            }
+          ],
+          "parameter_list": {
+            "icon_src": "arrow-back",
+            "variant": "no-background"
+          },
+          "_nested_name": "display_group_9.page1_button_back"
+        },
+        {
+          "type": "button",
+          "name": "button_continue_1",
+          "value": "Continuer",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "completed"
+              ],
+              "_raw": "click | emit: completed"
+            }
+          ],
+          "_nested_name": "display_group_9.button_continue_1"
+        }
+      ],
+      "name": "display_group_9",
+      "_nested_name": "display_group_9"
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/superficie_champs_form_sheets.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/1Za6KnU73iDgbTARvf6JCQo0vJb_EkTgiHEyZUJdNgXs"
+  }
+}

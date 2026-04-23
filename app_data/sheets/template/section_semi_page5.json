@@ -6,16 +6,714 @@
     {
       "type": "title",
       "name": "page_title",
-      "value": "APPORT CHAUX AGRICOLE",
-      "_translations": {
-        "value": {}
-      },
       "_nested_name": "page_title"
     },
     {
-      "name": "completed_enabled",
+      "name": "attempt_submit",
+      "value": "@fields.attempt_submit",
+      "_translations": {
+        "value": {}
+      },
       "type": "set_variable",
-      "_nested_name": "completed_enabled"
+      "_nested_name": "attempt_submit",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.attempt_submit",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.attempt_submit": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "html",
+          "name": "secondary_crops_label",
+          "value": "<span style=\"color: red;\">*</span> @global.secondary_crops_label",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-size:20px"
+          ],
+          "_nested_name": "display_group_4.secondary_crops_label",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<span style=\"color: red;\">*</span> @global.secondary_crops_label",
+                "matchedExpression": "@global.secondary_crops_label",
+                "type": "global",
+                "fieldName": "secondary_crops_label"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.secondary_crops_label": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "audio",
+          "name": "audio_4_1",
+          "parameter_list": {
+            "variant": "compact",
+            "src": "audio/semis/cult_second_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float : right"
+          ],
+          "_nested_name": "display_group_4.audio_4_1"
+        }
+      ],
+      "name": "display_group_4",
+      "_nested_name": "display_group_4"
+    },
+    {
+      "type": "text",
+      "name": "secondary_crops_hint",
+      "value": "@global.secondary_crops_hint",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "color: gray",
+        "font-size: 16px"
+      ],
+      "_nested_name": "secondary_crops_hint",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.secondary_crops_hint",
+            "matchedExpression": "@global.secondary_crops_hint",
+            "type": "global",
+            "fieldName": "secondary_crops_hint"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.secondary_crops_hint": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "valid_secondary_crops",
+      "value": "@calc(!!@fields.fonio || !!@fields.rice || !!@fields.sesame || !!@fields.wouandzou || !!@fields.patate_douce || !!@fields.bissap)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "valid_secondary_crops",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(!!@fields.fonio || !!@fields.rice || !!@fields.sesame || !!@fields.wouandzou || !!@fields.patate_douce || !!@fields.bissap)",
+            "matchedExpression": "!@fields.fonio",
+            "type": "fields",
+            "fieldName": "fonio"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.fonio || !!@fields.rice || !!@fields.sesame || !!@fields.wouandzou || !!@fields.patate_douce || !!@fields.bissap)",
+            "matchedExpression": "!@fields.rice",
+            "type": "fields",
+            "fieldName": "rice"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.fonio || !!@fields.rice || !!@fields.sesame || !!@fields.wouandzou || !!@fields.patate_douce || !!@fields.bissap)",
+            "matchedExpression": "!@fields.sesame",
+            "type": "fields",
+            "fieldName": "sesame"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.fonio || !!@fields.rice || !!@fields.sesame || !!@fields.wouandzou || !!@fields.patate_douce || !!@fields.bissap)",
+            "matchedExpression": "!@fields.wouandzou",
+            "type": "fields",
+            "fieldName": "wouandzou"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.fonio || !!@fields.rice || !!@fields.sesame || !!@fields.wouandzou || !!@fields.patate_douce || !!@fields.bissap)",
+            "matchedExpression": "!@fields.patate_douce",
+            "type": "fields",
+            "fieldName": "patate_douce"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.fonio || !!@fields.rice || !!@fields.sesame || !!@fields.wouandzou || !!@fields.patate_douce || !!@fields.bissap)",
+            "matchedExpression": "!@fields.bissap",
+            "type": "fields",
+            "fieldName": "bissap"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.fonio || !!@fields.rice || !!@fields.sesame || !!@fields.wouandzou || !!@fields.patate_douce || !!@fields.bissap)",
+            "matchedExpression": "@calc(!!@fields.fonio || !!@fields.rice || !!@fields.sesame || !!@fields.wouandzou || !!@fields.patate_douce || !!@fields.bissap)",
+            "type": "calc",
+            "fieldName": "!!@fields.fonio || !!@fields.rice || !!@fields.sesame || !!@fields.wouandzou || !!@fields.patate_douce || !!@fields.bissap"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@fields.fonio": [
+          "value"
+        ],
+        "!@fields.rice": [
+          "value"
+        ],
+        "!@fields.sesame": [
+          "value"
+        ],
+        "!@fields.wouandzou": [
+          "value"
+        ],
+        "!@fields.patate_douce": [
+          "value"
+        ],
+        "!@fields.bissap": [
+          "value"
+        ],
+        "@calc(!!@fields.fonio || !!@fields.rice || !!@fields.sesame || !!@fields.wouandzou || !!@fields.patate_douce || !!@fields.bissap)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "data_items",
+      "value": "@data.secondary_crops",
+      "rows": [
+        {
+          "type": "display_group",
+          "rows": [
+            {
+              "type": "image",
+              "value": "@item.image",
+              "_translations": {
+                "value": {}
+              },
+              "style_list": [
+                "width:90px",
+                "height:90px",
+                "object-fit:contain",
+                "flex-shrink:0"
+              ],
+              "name": "image_1",
+              "_nested_name": "data_items_8.display_group_1_@item.id.image_1",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "@item.image",
+                    "matchedExpression": "@item.image",
+                    "type": "item",
+                    "fieldName": "image"
+                  }
+                ],
+                "_nested_name": [
+                  {
+                    "fullExpression": "data_items_8.display_group_1_@item.id.image_1",
+                    "matchedExpression": "@item.id.image_1",
+                    "type": "item",
+                    "fieldName": "id"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@item.image": [
+                  "value"
+                ],
+                "@item.id.image_1": [
+                  "_nested_name"
+                ]
+              }
+            },
+            {
+              "type": "simple_checkbox",
+              "name": "@item.name",
+              "value": "@fields.@item.name",
+              "_translations": {
+                "value": {}
+              },
+              "action_list": [
+                {
+                  "trigger": "changed",
+                  "action_id": "set_field",
+                  "args": [
+                    "@item.name",
+                    "!@fields.@item.name"
+                  ],
+                  "_raw": "changed | set_field: @item.name: !@fields.@item.name"
+                }
+              ],
+              "parameter_list": {
+                "label_text": "@item.text"
+              },
+              "exclude_from_translation": true,
+              "style_list": [
+                "margin-bottom: 10px"
+              ],
+              "_nested_name": "data_items_8.display_group_1_@item.id.@item.name",
+              "_dynamicFields": {
+                "name": [
+                  {
+                    "fullExpression": "@item.name",
+                    "matchedExpression": "@item.name",
+                    "type": "item",
+                    "fieldName": "name"
+                  }
+                ],
+                "value": [
+                  {
+                    "fullExpression": "@fields.@item.name",
+                    "matchedExpression": "@item.name",
+                    "type": "item",
+                    "fieldName": "name"
+                  }
+                ],
+                "action_list": {
+                  "0": {
+                    "args": {
+                      "0": [
+                        {
+                          "fullExpression": "@item.name",
+                          "matchedExpression": "@item.name",
+                          "type": "item",
+                          "fieldName": "name"
+                        }
+                      ],
+                      "1": [
+                        {
+                          "fullExpression": "!@fields.@item.name",
+                          "matchedExpression": "@item.name",
+                          "type": "item",
+                          "fieldName": "name"
+                        }
+                      ]
+                    },
+                    "_raw": [
+                      {
+                        "fullExpression": "changed | set_field: @item.name: !@fields.@item.name",
+                        "matchedExpression": "@item.name",
+                        "type": "item",
+                        "fieldName": "name"
+                      },
+                      {
+                        "fullExpression": "changed | set_field: @item.name: !@fields.@item.name",
+                        "matchedExpression": "@item.name",
+                        "type": "item",
+                        "fieldName": "name"
+                      }
+                    ]
+                  }
+                },
+                "parameter_list": {
+                  "label_text": [
+                    {
+                      "fullExpression": "@item.text",
+                      "matchedExpression": "@item.text",
+                      "type": "item",
+                      "fieldName": "text"
+                    }
+                  ]
+                },
+                "_nested_name": [
+                  {
+                    "fullExpression": "data_items_8.display_group_1_@item.id.@item.name",
+                    "matchedExpression": "@item.id",
+                    "type": "item",
+                    "fieldName": "id"
+                  },
+                  {
+                    "fullExpression": "data_items_8.display_group_1_@item.id.@item.name",
+                    "matchedExpression": "@item.name",
+                    "type": "item",
+                    "fieldName": "name"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@item.name": [
+                  "name",
+                  "value",
+                  "action_list.0.args.0",
+                  "action_list.0.args.1",
+                  "action_list.0._raw",
+                  "action_list.0._raw",
+                  "_nested_name"
+                ],
+                "@item.text": [
+                  "parameter_list.label_text"
+                ],
+                "@item.id": [
+                  "_nested_name"
+                ]
+              }
+            }
+          ],
+          "name": "display_group_1_@item.id",
+          "_nested_name": "data_items_8.display_group_1_@item.id",
+          "_dynamicFields": {
+            "name": [
+              {
+                "fullExpression": "display_group_1_@item.id",
+                "matchedExpression": "@item.id",
+                "type": "item",
+                "fieldName": "id"
+              }
+            ],
+            "_nested_name": [
+              {
+                "fullExpression": "data_items_8.display_group_1_@item.id",
+                "matchedExpression": "@item.id",
+                "type": "item",
+                "fieldName": "id"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@item.id": [
+              "name",
+              "_nested_name"
+            ]
+          }
+        }
+      ],
+      "name": "data_items_8",
+      "_nested_name": "data_items_8",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@data.secondary_crops",
+            "matchedExpression": "@data.secondary_crops",
+            "type": "data",
+            "fieldName": "secondary_crops"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@data.secondary_crops": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "name": "secondary_crops_error",
+      "value": "@global.error_required_answer",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@fields.attempt_submit && !@local.valid_secondary_crops",
+      "style_list": [
+        "color: red",
+        "font-size: 16px"
+      ],
+      "_nested_name": "secondary_crops_error",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.error_required_answer",
+            "matchedExpression": "@global.error_required_answer",
+            "type": "global",
+            "fieldName": "error_required_answer"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "@fields.attempt_submit && !@local.valid_secondary_crops",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
+          },
+          {
+            "fullExpression": "@fields.attempt_submit && !@local.valid_secondary_crops",
+            "matchedExpression": "!@local.valid_secondary_crops",
+            "type": "local",
+            "fieldName": "valid_secondary_crops"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.error_required_answer": [
+          "value"
+        ],
+        "@fields.attempt_submit": [
+          "condition"
+        ],
+        "!@local.valid_secondary_crops": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "completed_enabled",
+      "value": "@local.valid_secondary_crops",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "completed_enabled",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@local.valid_secondary_crops",
+            "matchedExpression": "@local.valid_secondary_crops",
+            "type": "local",
+            "fieldName": "valid_secondary_crops"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.valid_secondary_crops": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "secondary_crops_selected",
+      "value": "@calc([@fields.fonio ? 'fonio': null, @fields.rice ? 'rice' : null, @fields.sesame ? 'sesame' : null, @fields.wouandzou ? 'wouandzou' : null, @fields.patate_douce ? 'patate_douce' : null, @fields.bissap ? 'bissap' : null].filter(v => v !== null).join(','))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "secondary_crops_selected",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc([@fields.fonio ? 'fonio': null, @fields.rice ? 'rice' : null, @fields.sesame ? 'sesame' : null, @fields.wouandzou ? 'wouandzou' : null, @fields.patate_douce ? 'patate_douce' : null, @fields.bissap ? 'bissap' : null].filter(v => v !== null).join(','))",
+            "matchedExpression": "@fields.fonio",
+            "type": "fields",
+            "fieldName": "fonio"
+          },
+          {
+            "fullExpression": "@calc([@fields.fonio ? 'fonio': null, @fields.rice ? 'rice' : null, @fields.sesame ? 'sesame' : null, @fields.wouandzou ? 'wouandzou' : null, @fields.patate_douce ? 'patate_douce' : null, @fields.bissap ? 'bissap' : null].filter(v => v !== null).join(','))",
+            "matchedExpression": "@fields.rice",
+            "type": "fields",
+            "fieldName": "rice"
+          },
+          {
+            "fullExpression": "@calc([@fields.fonio ? 'fonio': null, @fields.rice ? 'rice' : null, @fields.sesame ? 'sesame' : null, @fields.wouandzou ? 'wouandzou' : null, @fields.patate_douce ? 'patate_douce' : null, @fields.bissap ? 'bissap' : null].filter(v => v !== null).join(','))",
+            "matchedExpression": "@fields.sesame",
+            "type": "fields",
+            "fieldName": "sesame"
+          },
+          {
+            "fullExpression": "@calc([@fields.fonio ? 'fonio': null, @fields.rice ? 'rice' : null, @fields.sesame ? 'sesame' : null, @fields.wouandzou ? 'wouandzou' : null, @fields.patate_douce ? 'patate_douce' : null, @fields.bissap ? 'bissap' : null].filter(v => v !== null).join(','))",
+            "matchedExpression": "@fields.wouandzou",
+            "type": "fields",
+            "fieldName": "wouandzou"
+          },
+          {
+            "fullExpression": "@calc([@fields.fonio ? 'fonio': null, @fields.rice ? 'rice' : null, @fields.sesame ? 'sesame' : null, @fields.wouandzou ? 'wouandzou' : null, @fields.patate_douce ? 'patate_douce' : null, @fields.bissap ? 'bissap' : null].filter(v => v !== null).join(','))",
+            "matchedExpression": "@fields.patate_douce",
+            "type": "fields",
+            "fieldName": "patate_douce"
+          },
+          {
+            "fullExpression": "@calc([@fields.fonio ? 'fonio': null, @fields.rice ? 'rice' : null, @fields.sesame ? 'sesame' : null, @fields.wouandzou ? 'wouandzou' : null, @fields.patate_douce ? 'patate_douce' : null, @fields.bissap ? 'bissap' : null].filter(v => v !== null).join(','))",
+            "matchedExpression": "@fields.bissap",
+            "type": "fields",
+            "fieldName": "bissap"
+          },
+          {
+            "fullExpression": "@calc([@fields.fonio ? 'fonio': null, @fields.rice ? 'rice' : null, @fields.sesame ? 'sesame' : null, @fields.wouandzou ? 'wouandzou' : null, @fields.patate_douce ? 'patate_douce' : null, @fields.bissap ? 'bissap' : null].filter(v => v !== null).join(','))",
+            "matchedExpression": "@calc([@fields.fonio ? 'fonio': null, @fields.rice ? 'rice' : null, @fields.sesame ? 'sesame' : null, @fields.wouandzou ? 'wouandzou' : null, @fields.patate_douce ? 'patate_douce' : null, @fields.bissap ? 'bissap' : null].filter(v => v !== null).join(','))",
+            "type": "calc",
+            "fieldName": "[@fields.fonio ? 'fonio': null, @fields.rice ? 'rice' : null, @fields.sesame ? 'sesame' : null, @fields.wouandzou ? 'wouandzou' : null, @fields.patate_douce ? 'patate_douce' : null, @fields.bissap ? 'bissap' : null].filter(v => v !== null).join(',')"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.fonio": [
+          "value"
+        ],
+        "@fields.rice": [
+          "value"
+        ],
+        "@fields.sesame": [
+          "value"
+        ],
+        "@fields.wouandzou": [
+          "value"
+        ],
+        "@fields.patate_douce": [
+          "value"
+        ],
+        "@fields.bissap": [
+          "value"
+        ],
+        "@calc([@fields.fonio ? 'fonio': null, @fields.rice ? 'rice' : null, @fields.sesame ? 'sesame' : null, @fields.wouandzou ? 'wouandzou' : null, @fields.patate_douce ? 'patate_douce' : null, @fields.bissap ? 'bissap' : null].filter(v => v !== null).join(','))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "secondary_crops_selected_count",
+      "value": "@calc([@fields.fonio,@fields.rice,@fields.sesame,@fields.wouandzou,@fields.patate_douce,@fields.bissap].filter(v=>!!v).length)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "secondary_crops_selected_count",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc([@fields.fonio,@fields.rice,@fields.sesame,@fields.wouandzou,@fields.patate_douce,@fields.bissap].filter(v=>!!v).length)",
+            "matchedExpression": "@fields.fonio",
+            "type": "fields",
+            "fieldName": "fonio"
+          },
+          {
+            "fullExpression": "@calc([@fields.fonio,@fields.rice,@fields.sesame,@fields.wouandzou,@fields.patate_douce,@fields.bissap].filter(v=>!!v).length)",
+            "matchedExpression": "@fields.rice",
+            "type": "fields",
+            "fieldName": "rice"
+          },
+          {
+            "fullExpression": "@calc([@fields.fonio,@fields.rice,@fields.sesame,@fields.wouandzou,@fields.patate_douce,@fields.bissap].filter(v=>!!v).length)",
+            "matchedExpression": "@fields.sesame",
+            "type": "fields",
+            "fieldName": "sesame"
+          },
+          {
+            "fullExpression": "@calc([@fields.fonio,@fields.rice,@fields.sesame,@fields.wouandzou,@fields.patate_douce,@fields.bissap].filter(v=>!!v).length)",
+            "matchedExpression": "@fields.wouandzou",
+            "type": "fields",
+            "fieldName": "wouandzou"
+          },
+          {
+            "fullExpression": "@calc([@fields.fonio,@fields.rice,@fields.sesame,@fields.wouandzou,@fields.patate_douce,@fields.bissap].filter(v=>!!v).length)",
+            "matchedExpression": "@fields.patate_douce",
+            "type": "fields",
+            "fieldName": "patate_douce"
+          },
+          {
+            "fullExpression": "@calc([@fields.fonio,@fields.rice,@fields.sesame,@fields.wouandzou,@fields.patate_douce,@fields.bissap].filter(v=>!!v).length)",
+            "matchedExpression": "@fields.bissap",
+            "type": "fields",
+            "fieldName": "bissap"
+          },
+          {
+            "fullExpression": "@calc([@fields.fonio,@fields.rice,@fields.sesame,@fields.wouandzou,@fields.patate_douce,@fields.bissap].filter(v=>!!v).length)",
+            "matchedExpression": "@calc([@fields.fonio,@fields.rice,@fields.sesame,@fields.wouandzou,@fields.patate_douce,@fields.bissap].filter(v=>!!v).length)",
+            "type": "calc",
+            "fieldName": "[@fields.fonio,@fields.rice,@fields.sesame,@fields.wouandzou,@fields.patate_douce,@fields.bissap].filter(v=>!!v).length"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.fonio": [
+          "value"
+        ],
+        "@fields.rice": [
+          "value"
+        ],
+        "@fields.sesame": [
+          "value"
+        ],
+        "@fields.wouandzou": [
+          "value"
+        ],
+        "@fields.patate_douce": [
+          "value"
+        ],
+        "@fields.bissap": [
+          "value"
+        ],
+        "@calc([@fields.fonio,@fields.rice,@fields.sesame,@fields.wouandzou,@fields.patate_douce,@fields.bissap].filter(v=>!!v).length)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "current_secondary_crop",
+      "value": "@calc(@fields.fonio ? 'fonio':(@fields.rice ? 'rice':(@fields.sesame ? 'sesame':(@fields.wouandzou ? 'wouandzou':(@fields.patate_douce ? 'patate_douce':(@fields.bissap ?'bissap':''))))))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "current_secondary_crop",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(@fields.fonio ? 'fonio':(@fields.rice ? 'rice':(@fields.sesame ? 'sesame':(@fields.wouandzou ? 'wouandzou':(@fields.patate_douce ? 'patate_douce':(@fields.bissap ?'bissap':''))))))",
+            "matchedExpression": "@fields.fonio",
+            "type": "fields",
+            "fieldName": "fonio"
+          },
+          {
+            "fullExpression": "@calc(@fields.fonio ? 'fonio':(@fields.rice ? 'rice':(@fields.sesame ? 'sesame':(@fields.wouandzou ? 'wouandzou':(@fields.patate_douce ? 'patate_douce':(@fields.bissap ?'bissap':''))))))",
+            "matchedExpression": "@fields.rice",
+            "type": "fields",
+            "fieldName": "rice"
+          },
+          {
+            "fullExpression": "@calc(@fields.fonio ? 'fonio':(@fields.rice ? 'rice':(@fields.sesame ? 'sesame':(@fields.wouandzou ? 'wouandzou':(@fields.patate_douce ? 'patate_douce':(@fields.bissap ?'bissap':''))))))",
+            "matchedExpression": "@fields.sesame",
+            "type": "fields",
+            "fieldName": "sesame"
+          },
+          {
+            "fullExpression": "@calc(@fields.fonio ? 'fonio':(@fields.rice ? 'rice':(@fields.sesame ? 'sesame':(@fields.wouandzou ? 'wouandzou':(@fields.patate_douce ? 'patate_douce':(@fields.bissap ?'bissap':''))))))",
+            "matchedExpression": "@fields.wouandzou",
+            "type": "fields",
+            "fieldName": "wouandzou"
+          },
+          {
+            "fullExpression": "@calc(@fields.fonio ? 'fonio':(@fields.rice ? 'rice':(@fields.sesame ? 'sesame':(@fields.wouandzou ? 'wouandzou':(@fields.patate_douce ? 'patate_douce':(@fields.bissap ?'bissap':''))))))",
+            "matchedExpression": "@fields.patate_douce",
+            "type": "fields",
+            "fieldName": "patate_douce"
+          },
+          {
+            "fullExpression": "@calc(@fields.fonio ? 'fonio':(@fields.rice ? 'rice':(@fields.sesame ? 'sesame':(@fields.wouandzou ? 'wouandzou':(@fields.patate_douce ? 'patate_douce':(@fields.bissap ?'bissap':''))))))",
+            "matchedExpression": "@fields.bissap",
+            "type": "fields",
+            "fieldName": "bissap"
+          },
+          {
+            "fullExpression": "@calc(@fields.fonio ? 'fonio':(@fields.rice ? 'rice':(@fields.sesame ? 'sesame':(@fields.wouandzou ? 'wouandzou':(@fields.patate_douce ? 'patate_douce':(@fields.bissap ?'bissap':''))))))",
+            "matchedExpression": "@calc(@fields.fonio ? 'fonio':(@fields.rice ? 'rice':(@fields.sesame ? 'sesame':(@fields.wouandzou ? 'wouandzou':(@fields.patate_douce ? 'patate_douce':(@fields.bissap ?'bissap':''))))))",
+            "type": "calc",
+            "fieldName": "@fields.fonio ? 'fonio':(@fields.rice ? 'rice':(@fields.sesame ? 'sesame':(@fields.wouandzou ? 'wouandzou':(@fields.patate_douce ? 'patate_douce':(@fields.bissap ?'bissap':'')))))"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.fonio": [
+          "value"
+        ],
+        "@fields.rice": [
+          "value"
+        ],
+        "@fields.sesame": [
+          "value"
+        ],
+        "@fields.wouandzou": [
+          "value"
+        ],
+        "@fields.patate_douce": [
+          "value"
+        ],
+        "@fields.bissap": [
+          "value"
+        ],
+        "@calc(@fields.fonio ? 'fonio':(@fields.rice ? 'rice':(@fields.sesame ? 'sesame':(@fields.wouandzou ? 'wouandzou':(@fields.patate_douce ? 'patate_douce':(@fields.bissap ?'bissap':''))))))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "secondary_crop_loop_idx",
+      "value": 0,
+      "type": "set_variable",
+      "_nested_name": "secondary_crop_loop_idx"
     },
     {
       "type": "display_group",
@@ -30,7 +728,7 @@
       "rows": [
         {
           "type": "round_button",
-          "name": "page_1_button_back",
+          "name": "page_5_btn_back",
           "action_list": [
             {
               "trigger": "click",
@@ -45,16 +743,116 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "dg_footer.page_1_button_back"
+          "_nested_name": "dg_footer.page_5_btn_back"
         },
         {
           "type": "button",
-          "name": "page_1_button_continue",
+          "name": "page_5_btn_attempt_submit",
           "value": "@global.btn_continue",
           "_translations": {
             "value": {}
           },
           "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "attempt_submit",
+                true
+              ],
+              "_raw": "click | set_field: attempt_submit: true"
+            }
+          ],
+          "parameter_list": {
+            "disabled": "!@local.completed_enabled"
+          },
+          "condition": "!@local.completed_enabled",
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "dg_footer.page_5_btn_attempt_submit",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.btn_continue",
+                "matchedExpression": "@global.btn_continue",
+                "type": "global",
+                "fieldName": "btn_continue"
+              }
+            ],
+            "parameter_list": {
+              "disabled": [
+                {
+                  "fullExpression": "!@local.completed_enabled",
+                  "matchedExpression": "!@local.completed_enabled",
+                  "type": "local",
+                  "fieldName": "completed_enabled"
+                }
+              ]
+            },
+            "condition": [
+              {
+                "fullExpression": "!@local.completed_enabled",
+                "matchedExpression": "!@local.completed_enabled",
+                "type": "local",
+                "fieldName": "completed_enabled"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.btn_continue": [
+              "value"
+            ],
+            "!@local.completed_enabled": [
+              "parameter_list.disabled",
+              "condition"
+            ]
+          }
+        },
+        {
+          "type": "button",
+          "name": "page_5_btn_continue",
+          "value": "@global.btn_continue",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "secondary_crops_selected",
+                "@local.secondary_crops_selected"
+              ],
+              "_raw": "click | set_field: secondary_crops_selected : @local.secondary_crops_selected"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "secondary_crops_selected_count",
+                "@local.secondary_crops_selected_count"
+              ],
+              "_raw": "click | set_field: secondary_crops_selected_count : @local.secondary_crops_selected_count"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "current_secondary_crop",
+                "@local.current_secondary_crop"
+              ],
+              "_raw": "click | set_field: current_secondary_crop : @local.current_secondary_crop"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "secondary_crop_loop_idx",
+                "@local.secondary_crop_loop_idx"
+              ],
+              "_raw": "click | set_field: secondary_crop_loop_idx : @local.secondary_crop_loop_idx"
+            },
             {
               "trigger": "click",
               "action_id": "emit",
@@ -64,10 +862,11 @@
               "_raw": "click | emit: completed"
             }
           ],
+          "condition": "@local.completed_enabled",
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "dg_footer.page_1_button_continue",
+          "_nested_name": "dg_footer.page_5_btn_continue",
           "_dynamicFields": {
             "value": [
               {
@@ -76,11 +875,120 @@
                 "type": "global",
                 "fieldName": "btn_continue"
               }
+            ],
+            "action_list": {
+              "0": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@local.secondary_crops_selected",
+                      "matchedExpression": "@local.secondary_crops_selected",
+                      "type": "local",
+                      "fieldName": "secondary_crops_selected"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: secondary_crops_selected : @local.secondary_crops_selected",
+                    "matchedExpression": "@local.secondary_crops_selected",
+                    "type": "local",
+                    "fieldName": "secondary_crops_selected"
+                  }
+                ]
+              },
+              "1": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@local.secondary_crops_selected_count",
+                      "matchedExpression": "@local.secondary_crops_selected_count",
+                      "type": "local",
+                      "fieldName": "secondary_crops_selected_count"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: secondary_crops_selected_count : @local.secondary_crops_selected_count",
+                    "matchedExpression": "@local.secondary_crops_selected_count",
+                    "type": "local",
+                    "fieldName": "secondary_crops_selected_count"
+                  }
+                ]
+              },
+              "2": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@local.current_secondary_crop",
+                      "matchedExpression": "@local.current_secondary_crop",
+                      "type": "local",
+                      "fieldName": "current_secondary_crop"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: current_secondary_crop : @local.current_secondary_crop",
+                    "matchedExpression": "@local.current_secondary_crop",
+                    "type": "local",
+                    "fieldName": "current_secondary_crop"
+                  }
+                ]
+              },
+              "3": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@local.secondary_crop_loop_idx",
+                      "matchedExpression": "@local.secondary_crop_loop_idx",
+                      "type": "local",
+                      "fieldName": "secondary_crop_loop_idx"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field: secondary_crop_loop_idx : @local.secondary_crop_loop_idx",
+                    "matchedExpression": "@local.secondary_crop_loop_idx",
+                    "type": "local",
+                    "fieldName": "secondary_crop_loop_idx"
+                  }
+                ]
+              }
+            },
+            "condition": [
+              {
+                "fullExpression": "@local.completed_enabled",
+                "matchedExpression": "@local.completed_enabled",
+                "type": "local",
+                "fieldName": "completed_enabled"
+              }
             ]
           },
           "_dynamicDependencies": {
             "@global.btn_continue": [
               "value"
+            ],
+            "@local.secondary_crops_selected": [
+              "action_list.0.args.1",
+              "action_list.0._raw"
+            ],
+            "@local.secondary_crops_selected_count": [
+              "action_list.1.args.1",
+              "action_list.1._raw"
+            ],
+            "@local.current_secondary_crop": [
+              "action_list.2.args.1",
+              "action_list.2._raw"
+            ],
+            "@local.secondary_crop_loop_idx": [
+              "action_list.3.args.1",
+              "action_list.3._raw"
+            ],
+            "@local.completed_enabled": [
+              "condition"
             ]
           }
         }
