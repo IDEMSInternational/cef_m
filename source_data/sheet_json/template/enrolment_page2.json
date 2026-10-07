@@ -9,15 +9,15 @@
     },
     {
       "type": "title",
-      "value": "Année de la campagne agricole"
+      "value": "@global.annee_campagne"
     },
     {
       "type": "begin_display_group",
       "style_list": "display: flex; flex-direction: row; align-items: center; justify-content: flex-start; width: 100%; margin-top: 20px; gap: 10px;"
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: #d71920; font-weight: bold; margin-right: 4px;\">*</span><span style=\"color: #333333; font-weight: 600; font-size: 20px;\">Sélectionnez l'année de la campagne agricole</span>",
+      "type": "subtitle",
+      "value": "@global.select_date",
       "style_list": "margin-top: 20px; font-weight: 600;"
     },
     {
@@ -34,26 +34,28 @@
       "name": "season_label",
       "value": "@fields.season_label",
       "action_list": "changed | set_field: season_label: this.value;",
-      "parameter_list": "type: date;\nmin: 2023; \nmax: @calc(now());"
+      "parameter_list": "type: year;\nmin: 2023; \nmax: @calc(now());"
     },
     {
       "name": "v_year_ok",
       "value": "@calc(!!@field.season_label)"
     },
     {
-      "type": "html",
-      "value": "<div style=\"width:100%; text-align:center; padding: 20px 0; margin-top:16px; background: #f7fafc; border: 1px dashed #cbd5e0; border-radius: 12px; font-size:18px; font-weight:600; color:#718096;\">📅 Aucune date choisie</div>",
-      "condition": "!@local.v_year_ok"
+      "type": "text",
+      "value": "@global.aucune_date",
+      "condition": "!@local.v_year_ok",
+      "style_list": "width: 100%; text-align: center; background: #f7fafc; border: 1px dashed #cbd5e0; border-radius: 12px; font-size: 18px; color: #718096;"
     },
     {
-      "type": "html",
-      "value": "<div style=\"width:100%; text-align:center; padding: 20px 0; margin-top:16px; background: #e6fffa; border: 2px solid #00adcc; border-radius: 12px; font-size:26px; font-weight:800; color:#00adcc; box-shadow: 0 4px 12px rgba(0,173,204,0.1);\">@field.season_label</div>",
-      "condition": "@local.v_year_ok"
+      "type": "text",
+      "value": "@fields.season_label",
+      "condition": "@local.v_year_ok",
+      "style_list": "width:100%; text-align:center;background: #e6fffa; border: 2px solid #00adcc; border-radius: 12px; font-size:26px; font-weight:800; color:#00adcc; "
     },
     {
-      "type": "html",
-      "value": "<div style=\"width:100%; color:#d71920; font-size:13px; font-weight:700; margin-top:14px; background: #fff5f5; padding: 10px; border-radius: 6px; border-left: 4px solid #d71920;\">❗ Réponse obligatoire, aucune année indiquée !</div>",
-      "condition": "!@local.v_year_ok"
+      "name": "year",
+      "value": "@calc(@fields.season_label.substring(0,4))",
+      "condition": "@fields.season_label"
     },
     {
       "name": "completed_enabled",
@@ -68,12 +70,11 @@
     {
       "type": "round_button",
       "name": "button_back",
-      "action_list": "click | go_to: scan_creen",
+      "action_list": "click | emit: uncompleted",
       "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
     },
     {
       "type": "button",
-      "name": "button_continue_attempt_submit",
       "value": "Continuer",
       "action_list": "click | set_field: attempt_submit: true;\n",
       "condition": "!@local.completed_enabled",
@@ -81,9 +82,8 @@
     },
     {
       "type": "button",
-      "name": "button_completed",
       "value": "Continuer",
-      "action_list": "click | set_field: season_label: @field.season_label;\nclick | set_field: attempt_submit: false;\nclick | emit: completed",
+      "action_list": "click | set_field: year: @local.year;\n\nclick | set_field: attempt_submit: false;\nclick | emit: completed",
       "parameter_list": "disabled: !@local.completed_enabled",
       "condition": "@local.completed_enabled",
       "style_list": "flex: 1"

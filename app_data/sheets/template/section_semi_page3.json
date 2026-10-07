@@ -924,12 +924,12 @@
       }
     },
     {
+      "type": "text",
       "name": "v_list_sec",
       "value": "@calc([@field.sec_fonio?'fonio':null,@field.sec_rice?'riz':null,@field.sec_sesame?'sésame':null,@field.sec_wouandzou?'wouandzou':null,@field.sec_patate_douce?'patate':null,@field.sec_bissap?'bissap':null,@field.sec_autre_1?@field.secondary_crop_1:null,@field.sec_autre_2?@field.secondary_crop_2:null].filter(v=>v!==null))",
       "_translations": {
         "value": {}
       },
-      "type": "set_variable",
       "_nested_name": "v_list_sec",
       "_dynamicFields": {
         "value": [
@@ -1231,7 +1231,7 @@
     },
     {
       "name": "completed_enabled",
-      "value": "@calc(@local.v_list_sec.length > 0 && @local.v_sec_valid)",
+      "value": "@local.v_sec_valid",
       "_translations": {
         "value": {}
       },
@@ -1240,33 +1240,15 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc(@local.v_list_sec.length > 0 && @local.v_sec_valid)",
-            "matchedExpression": "@local.v_list_sec.length",
-            "type": "local",
-            "fieldName": "v_list_sec"
-          },
-          {
-            "fullExpression": "@calc(@local.v_list_sec.length > 0 && @local.v_sec_valid)",
+            "fullExpression": "@local.v_sec_valid",
             "matchedExpression": "@local.v_sec_valid",
             "type": "local",
             "fieldName": "v_sec_valid"
-          },
-          {
-            "fullExpression": "@calc(@local.v_list_sec.length > 0 && @local.v_sec_valid)",
-            "matchedExpression": "@calc(@local.v_list_sec.length > 0 && @local.v_sec_valid)",
-            "type": "calc",
-            "fieldName": "@local.v_list_sec.length > 0 && @local.v_sec_valid"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@local.v_list_sec.length": [
-          "value"
-        ],
         "@local.v_sec_valid": [
-          "value"
-        ],
-        "@calc(@local.v_list_sec.length > 0 && @local.v_sec_valid)": [
           "value"
         ]
       }
@@ -1474,7 +1456,7 @@
   ],
   "_source": {
     "name": "cef_m sheets",
-    "path": "template/section_semis_sheets.xlsx",
+    "path": "template/Suivi/section_semis_sheets.xlsx",
     "url": "https://docs.google.com/spreadsheets/d/1kj3U-JlzVhdPzr3JYksRfo6BjJglZF-FS_dO-yGxY1w"
   }
 }

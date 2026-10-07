@@ -24,12 +24,11 @@
       "value": "<h1 style=\"color: #1e3656; margin: 0; font-size: 15px; text-transform: uppercase;\">Semis de @fields.cult_princip dans la parcelle N⁰@fields.num_parcelle</h1>"
     },
     {
-      "type": "begin_display_group",
-      "style_list": "width: 100%; padding: 10px; background: #f4f7fc; border-radius: 8px;"
+      "type": "begin_display_group"
     },
     {
       "type": "html",
-      "value": "<label font-weight: bold;\"><span style=\"color: red;\">*</span> Date de semis de <b>@fields.cult_princip</b> :</label>"
+      "value": "<label font-weight: bold;\"><span style=\"color: red;\">*</span> Date de semis de <b>@fields.cult_princip</b> </label>"
     },
     {
       "type": "audio",
@@ -39,6 +38,25 @@
     },
     {
       "type": "end_display_group"
+    },
+    {
+      "type": "begin_data_items",
+      "value": "@data.cult_princip",
+      "parameter_list": "filter: @item.name == @fields.cult_princip"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "image",
+      "value": "@item.image",
+      "style_list": "width: 40%; object-fit: contain;\n"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "end_data_items"
     },
     {
       "type": "date_time_picker",
@@ -58,7 +76,7 @@
     },
     {
       "type": "html",
-      "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Quantité de semence de @fields.cult_princip (en kg) :</label"
+      "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Quantité de semence de @fields.cult_princip (en kg) </label"
     },
     {
       "type": "audio",
@@ -71,7 +89,7 @@
     {
       "type": "image",
       "value": "images/kg.jpg",
-      "style_list": "width:100px; height:100px; object-fit:contain; flex-shrink:0;\n"
+      "style_list": "width:30%;object-fit:contain;"
     },
     {
       "type": "html",

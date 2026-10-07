@@ -1,0 +1,138 @@
+{
+  "flow_type": "template",
+  "flow_name": "superficies_cultures",
+  "status": "released",
+  "rows": [
+    {
+      "name": "annee_choisie",
+      "value": "@calc(String(@fields.date_choisie || '').substring(0,4))",
+      "condition": "@calc(!!@fields.date_choisie)"
+    },
+    {
+      "name": "superficie_tot_upa",
+      "value": "@calc(Object.values(@data.champs).filter(item => item.upa_code == @fields.upa_code && item.year == @local.annee_choisie).reduce((sum, item) => sum + Number(item.superficie_total), 0))",
+      "condition": "@local.annee_choisie"
+    },
+    {
+      "name": "crop_totals",
+      "value": "@calc(Object.values(@data.parcelles || {}).filter(p => Object.values(@data.champs || {}).some(c => String(c.id) === String(p.champ_id) && String(c.upa_code) === String(@fields.upa_code) && String(c.year) === String(@local.annee_choisie))).reduce((acc, p) => { acc[p.crop_id] = (acc[p.crop_id] || 0) + Number(p.superficie_measuree || 0); return acc; }, {}))"
+    },
+    {
+      "name": "crop_list",
+      "value": "@calc(Object.keys(@local.crop_totals || {}))"
+    },
+    {
+      "name": "condition_affiche",
+      "value": "@local.crop_list.length > 0 && @local.annee_choisie"
+    },
+    {
+      "name": "liste_sup",
+      "value": "@calc(@local.crop_list.reduce((text, crop, i, arr) => text + crop + ': ' + Number(@local.crop_totals[crop]).toFixed(2) + ' ha' + (i < arr.length - 1 ? '<br>' : ''), ''))",
+      "condition": "@local.condition_affiche"
+    },
+    {
+      "type": "begin_template",
+      "value": "evaluation_page_entete"
+    },
+    {
+      "name": "page_id",
+      "value": "superficie"
+    },
+    {
+      "type": "end_template"
+    },
+    {
+      "type": "text",
+      "value": "@global.choix_annee_text"
+    },
+    {
+      "type": "date_time_picker",
+      "value": "@fields.date_choisie",
+      "action_list": "changed | set_field: date_choisie: this.value;\n",
+      "parameter_list": "type: year;\nmin: 2023; \nmax: @calc(now());"
+    },
+    {
+      "type": "begin_display_group",
+      "parameter_list": "style: tool_3;",
+      "condition": "@local.annee_choisie && @local.superficie_tot_upa != 0"
+    },
+    {
+      "type": "text",
+      "value": "@global.superf_total",
+      "style_list": "text-align: center; font-weight: bold;"
+    },
+    {
+      "type": "text",
+      "value": "@local.superficie_tot_upa ha",
+      "style_list": "text-align: center; font-weight: bold;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_data_items",
+      "value": "@data.cultures"
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@local.annee_choisie && @local.crop_list.length > 0",
+      "style_list": "width:100%; box-sizing:border-box; padding: 10px 10px;"
+    },
+    {
+      "type": "begin_display_group",
+      "parameter_list": "style: white_box;",
+      "condition": "@calc(@local.crop_totals.hasOwnProperty(@item.id))"
+    },
+    {
+      "type": "image",
+      "value": "@item.image",
+      "style_list": "width:60px; height:60px;"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "@item.title",
+      "parameter_list": "style: primary;",
+      "style_list": "font-weight:bold; font-size:15px; margin: 1px;"
+    },
+    {
+      "type": "text",
+      "value": "@calc(Number(@local.crop_totals[@item.id] || 0).toFixed(2) + ' ha')",
+      "parameter_list": "text_align: left;",
+      "style_list": "font-weight:bold; font-size:15px; "
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "end_data_items"
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@local.annee_choisie && @local.superficie_tot_upa == 0",
+      "style_list": "padding: 22px 16px; margin: 10px 12px; background: #fff7ed;text-align: center;"
+    },
+    {
+      "type": "text",
+      "name": "no_data",
+      "value": "@global.no_data_text",
+      "style_list": "color: #9a3412; font-weight: 700; font-size: 15px;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "navigation_bar",
+      "parameter_list": "button_list: @data.footer;",
+      "style_list": "position: fixed; bottom: 0; left: 0; box-sizing: border-box; "
+    }
+  ]
+}

@@ -1,0 +1,281 @@
+{
+  "flow_type": "template",
+  "flow_name": "cout_productions_detail",
+  "status": "released",
+  "rows": [
+    {
+      "name": "selected_year",
+      "value": "@calc(@fields.selected_cout_year || '')"
+    },
+    {
+      "name": "selected_culture",
+      "value": "@calc(@fields.selected_cout_culture || '')"
+    },
+    {
+      "name": "selected_culture_label",
+      "value": "@calc(@fields.selected_cout_culture_label || @fields.selected_cout_culture || '')"
+    },
+    {
+      "name": "selected_semis_id",
+      "value": "@calc(((Object.values(@data.semis || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.year || '') === String(@local.selected_year)) || {}).id || ''))"
+    },
+    {
+      "name": "selected_post_semis_id",
+      "value": "@calc(((Object.values(@data.post_semis || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.year || '') === String(@local.selected_year)) || {}).id || ''))"
+    },
+    {
+      "name": "selected_recolte_id",
+      "value": "@calc(((Object.values(@data.recolte || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.year || '') === String(@local.selected_year)) || {}).id || ''))"
+    },
+    {
+      "name": "semis_culture",
+      "value": "@calc(Object.values(@data.semis_culture || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.semis_id || '').replace('id_', '').trim() === String(@local.selected_semis_id || '').replace('id_', '').trim() && String(item.culture_id || '').toLowerCase().trim() === String(@local.selected_culture).toLowerCase().trim()) || {})"
+    },
+    {
+      "name": "post_semis_culture",
+      "value": "@calc(Object.values(@data.post_semisCulture || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').replace('id_', '').trim() === String(@local.selected_post_semis_id || '').replace('id_', '').trim() && String(item.culture_id || '').toLowerCase().trim() === String(@local.selected_culture).toLowerCase().trim()) || {})"
+    },
+    {
+      "name": "recolte_culture",
+      "value": "@calc(Object.values(@data.recolte_culture || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.recolte_id || '').replace('id_', '').trim() === String(@local.selected_recolte_id || '').replace('id_', '').trim() && String(item.culture_id || '').toLowerCase().trim() === String(@local.selected_culture).toLowerCase().trim()) || {})"
+    },
+    {
+      "name": "cout_transport",
+      "value": "@calc(Number(String(@local.semis_culture.cout_transport || 0).replace(',', '.')))"
+    },
+    {
+      "name": "cout_labour",
+      "value": "@calc(Number(String(@local.semis_culture.cout_superficie_labouree || 0).replace(',', '.')))"
+    },
+    {
+      "name": "cout_buttage",
+      "value": "@calc(Number(String(@local.post_semis_culture.cout_buttage || 0).replace(',', '.')))"
+    },
+    {
+      "name": "cout_semence",
+      "value": "@calc(Number(String(@local.semis_culture.cout_semence_achetee || 0).replace(',', '.')))"
+    },
+    {
+      "name": "cout_desherbage",
+      "value": "@calc(Number(String(@local.post_semis_culture.cout_desherbage || 0).replace(',', '.')))"
+    },
+    {
+      "name": "cout_sarclage",
+      "value": "@calc(Number(String(@local.post_semis_culture.cout_sarclage || 0).replace(',', '.')))"
+    },
+    {
+      "name": "cout_fertilisant",
+      "value": "@calc(Number(String(@local.semis_culture.cout_chaux_agricole || 0).replace(',', '.')) + Number(String(@local.semis_culture.cout_pnt_png || 0).replace(',', '.')) + Number(String(@local.post_semis_culture.cout_npk || 0).replace(',', '.')) + Number(String(@local.post_semis_culture.cout_uree || 0).replace(',', '.')))"
+    },
+    {
+      "name": "cout_herbicide",
+      "value": "@calc(Number(String(@local.semis_culture.cout_herbicide_prelevee || 0).replace(',', '.')) + Number(String(@local.post_semis_culture.cout_herbicide || 0).replace(',', '.')))"
+    },
+    {
+      "name": "cout_recolte_prestation",
+      "value": "@calc(Number(String(@local.recolte_culture.cout_total_prestation_recolte || 0).replace(',', '.')))"
+    },
+    {
+      "name": "cout_battage",
+      "value": "@calc(Number(String(@local.recolte_culture.cout_total_battage || 0).replace(',', '.')))"
+    },
+    {
+      "name": "cout_total_culture",
+      "value": "@calc(Number(String(@local.semis_culture.cout || 0).replace(',', '.')) + Number(String(@local.post_semis_culture.cout || 0).replace(',', '.')) + Number(String(@local.recolte_culture.cout || 0).replace(',', '.')))"
+    },
+    {
+      "type": "begin_display_group",
+      "style_list": "width:100%; box-sizing:border-box; background:#45c5b8; padding:28px 16px; text-align:center; border-bottom:2px solid rgba(255,255,255,0.2);"
+    },
+    {
+      "type": "text",
+      "value": "@local.selected_culture_label",
+      "style_list": "style_list: color:white; margin:0 0 6px 0; font-size:22px; font-weight:800; text-transform:uppercase; letter-spacing:0.5px;"
+    },
+    {
+      "type": "text",
+      "value": "@local.cout_total_culture DRM",
+      "style_list": "style_list: color:#ffffff; font-size:20px; font-weight:800; background:rgba(255,255,255,0.2); padding:4px 14px; border-radius:20px; display:inline-block;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "style_list": "display:grid; grid-template-columns:minmax(0,1fr) auto; gap:16px; align-items:center; padding:12px 0; border-bottom:1px solid #f0f0f0;"
+    },
+    {
+      "type": "text",
+      "value": "@global.frais_trans",
+      "style_list": "font-weight:600; color:#1e3656; font-size:14px; line-height:1.25; margin:0; min-width:0;"
+    },
+    {
+      "type": "text",
+      "value": "@local.cout_transport DRM",
+      "style_list": "color:#45c5b8; font-size:15px; font-weight:700; white-space:nowrap; margin:0;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "style_list": "display:grid; grid-template-columns:minmax(0,1fr) auto; gap:16px; align-items:center; padding:12px 0; border-bottom:1px solid #f0f0f0;"
+    },
+    {
+      "type": "text",
+      "value": "@global.c_labour",
+      "style_list": "font-weight:600; color:#1e3656; font-size:14px; line-height:1.25; margin:0; min-width:0;"
+    },
+    {
+      "type": "text",
+      "value": "@local.cout_labour DRM",
+      "style_list": "color:#45c5b8; font-size:15px; font-weight:700; white-space:nowrap; margin:0;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "style_list": "display:grid; grid-template-columns:minmax(0,1fr) auto; gap:16px; align-items:center; padding:12px 0; border-bottom:1px solid #f0f0f0;"
+    },
+    {
+      "type": "text",
+      "value": "@global.c_buttage ",
+      "style_list": "font-weight:600; color:#1e3656; font-size:14px; line-height:1.25; margin:0; min-width:0;"
+    },
+    {
+      "type": "text",
+      "value": "@local.cout_buttage DRM",
+      "style_list": "color:#45c5b8; font-size:15px; font-weight:700; white-space:nowrap; margin:0;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "style_list": "display:grid; grid-template-columns:minmax(0,1fr) auto; gap:16px; align-items:center; padding:12px 0; border-bottom:1px solid #f0f0f0;"
+    },
+    {
+      "type": "text",
+      "value": "@global.c_semences_ach",
+      "style_list": "font-weight:600; color:#1e3656; font-size:14px; line-height:1.25; margin:0; min-width:0;"
+    },
+    {
+      "type": "text",
+      "value": "@local.cout_semence DRM",
+      "style_list": "color:#45c5b8; font-size:15px; font-weight:700; white-space:nowrap; margin:0;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "style_list": "display:grid; grid-template-columns:minmax(0,1fr) auto; gap:16px; align-items:center; padding:12px 0; border-bottom:1px solid #f0f0f0;"
+    },
+    {
+      "type": "text",
+      "value": "@global.c_desh",
+      "style_list": "font-weight:600; color:#1e3656; font-size:14px; line-height:1.25; margin:0; min-width:0;"
+    },
+    {
+      "type": "text",
+      "value": "@local.cout_desherbage DRM",
+      "style_list": "color:#45c5b8; font-size:15px; font-weight:700; white-space:nowrap; margin:0;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "style_list": "display:grid; grid-template-columns:minmax(0,1fr) auto; gap:16px; align-items:center; padding:12px 0; border-bottom:1px solid #f0f0f0;"
+    },
+    {
+      "type": "text",
+      "value": "@global.c_sarclage",
+      "style_list": "font-weight:600; color:#1e3656; font-size:14px; line-height:1.25; margin:0; min-width:0;"
+    },
+    {
+      "type": "text",
+      "value": "@local.cout_sarclage DRM",
+      "style_list": "color:#45c5b8; font-size:15px; font-weight:700; white-space:nowrap; margin:0;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "style_list": "display:grid; grid-template-columns:minmax(0,1fr) auto; gap:16px; align-items:center; padding:12px 0; border-bottom:1px solid #f0f0f0;"
+    },
+    {
+      "type": "text",
+      "value": "@global.c_engrais",
+      "style_list": "font-weight:600; color:#1e3656; font-size:14px; line-height:1.25; margin:0; min-width:0;"
+    },
+    {
+      "type": "text",
+      "value": "@local.cout_fertilisant DRM",
+      "style_list": "color:#45c5b8; font-size:15px; font-weight:700; white-space:nowrap; margin:0;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "style_list": "display:grid; grid-template-columns:minmax(0,1fr) auto; gap:16px; align-items:center; padding:12px 0; border-bottom:1px solid #f0f0f0;"
+    },
+    {
+      "type": "text",
+      "value": "@global.c_herbicide\n",
+      "style_list": "font-weight:600; color:#1e3656; font-size:14px; line-height:1.25; margin:0; min-width:0;"
+    },
+    {
+      "type": "text",
+      "value": "@local.cout_herbicide DRM",
+      "style_list": "color:#45c5b8; font-size:15px; font-weight:700; white-space:nowrap; margin:0;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "style_list": "display:grid; grid-template-columns:minmax(0,1fr) auto; gap:16px; align-items:center; padding:12px 0; border-bottom:1px solid #f0f0f0;"
+    },
+    {
+      "type": "text",
+      "value": "@global.c_recolte",
+      "style_list": "font-weight:600; color:#1e3656; font-size:14px; line-height:1.25; margin:0; min-width:0;"
+    },
+    {
+      "type": "text",
+      "value": "@local.cout_recolte_prestation DRM",
+      "style_list": "color:#45c5b8; font-size:15px; font-weight:700; white-space:nowrap; margin:0;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "style_list": "display:grid; grid-template-columns:minmax(0,1fr) auto; gap:16px; align-items:center; padding:12px 0; border-bottom:1px solid #f0f0f0;"
+    },
+    {
+      "type": "text",
+      "value": "@global.c_battage",
+      "style_list": "font-weight:600; color:#1e3656; font-size:14px; line-height:1.25; margin:0; min-width:0;"
+    },
+    {
+      "type": "text",
+      "value": "@local.cout_battage DRM",
+      "style_list": "color:#45c5b8; font-size:15px; font-weight:700; white-space:nowrap; margin:0;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "round_button",
+      "name": "retour",
+      "action_list": "click | set_field: selected_cout_culture:;\nclick | set_field: selected_cout_culture_label:;\nclick | set_field: cout_transport: ;\nclick | set_field: cout_labour: ;\nclick | set_field: cout_buttage: ;\nclick | set_field: cout_semence: ;\nclick | set_field: cout_desherbage: ;\nclick | set_field: cout_sarclage: ;\nclick | set_field: cout_fertilisant: ;\nclick | set_field: cout_herbicide: ;\nclick | set_field: cout_recolte_prestation: ;\nclick | set_field: cout_battage: ;\nclick | set_field: cout_total_culture: ;\nclick | go_to: cout_productions;",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;",
+      "style_list": "margin: 20px 16px;"
+    }
+  ]
+}

@@ -1,0 +1,1869 @@
+{
+  "flow_type": "template",
+  "flow_name": "cout_productions_detail",
+  "status": "released",
+  "rows": [
+    {
+      "name": "selected_year",
+      "value": "@calc(@fields.selected_cout_year || '')",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "selected_year",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(@fields.selected_cout_year || '')",
+            "matchedExpression": "@fields.selected_cout_year",
+            "type": "fields",
+            "fieldName": "selected_cout_year"
+          },
+          {
+            "fullExpression": "@calc(@fields.selected_cout_year || '')",
+            "matchedExpression": "@calc(@fields.selected_cout_year || '')",
+            "type": "calc",
+            "fieldName": "@fields.selected_cout_year || ''"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.selected_cout_year": [
+          "value"
+        ],
+        "@calc(@fields.selected_cout_year || '')": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "selected_culture",
+      "value": "@calc(@fields.selected_cout_culture || '')",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "selected_culture",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(@fields.selected_cout_culture || '')",
+            "matchedExpression": "@fields.selected_cout_culture",
+            "type": "fields",
+            "fieldName": "selected_cout_culture"
+          },
+          {
+            "fullExpression": "@calc(@fields.selected_cout_culture || '')",
+            "matchedExpression": "@calc(@fields.selected_cout_culture || '')",
+            "type": "calc",
+            "fieldName": "@fields.selected_cout_culture || ''"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.selected_cout_culture": [
+          "value"
+        ],
+        "@calc(@fields.selected_cout_culture || '')": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "selected_culture_label",
+      "value": "@calc(@fields.selected_cout_culture_label || @fields.selected_cout_culture || '')",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "selected_culture_label",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(@fields.selected_cout_culture_label || @fields.selected_cout_culture || '')",
+            "matchedExpression": "@fields.selected_cout_culture_label",
+            "type": "fields",
+            "fieldName": "selected_cout_culture_label"
+          },
+          {
+            "fullExpression": "@calc(@fields.selected_cout_culture_label || @fields.selected_cout_culture || '')",
+            "matchedExpression": "@fields.selected_cout_culture",
+            "type": "fields",
+            "fieldName": "selected_cout_culture"
+          },
+          {
+            "fullExpression": "@calc(@fields.selected_cout_culture_label || @fields.selected_cout_culture || '')",
+            "matchedExpression": "@calc(@fields.selected_cout_culture_label || @fields.selected_cout_culture || '')",
+            "type": "calc",
+            "fieldName": "@fields.selected_cout_culture_label || @fields.selected_cout_culture || ''"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.selected_cout_culture_label": [
+          "value"
+        ],
+        "@fields.selected_cout_culture": [
+          "value"
+        ],
+        "@calc(@fields.selected_cout_culture_label || @fields.selected_cout_culture || '')": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "selected_semis_id",
+      "value": "@calc(((Object.values(@data.semis || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.year || '') === String(@local.selected_year)) || {}).id || ''))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "selected_semis_id",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(((Object.values(@data.semis || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.year || '') === String(@local.selected_year)) || {}).id || ''))",
+            "matchedExpression": "@data.semis",
+            "type": "data",
+            "fieldName": "semis"
+          },
+          {
+            "fullExpression": "@calc(((Object.values(@data.semis || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.year || '') === String(@local.selected_year)) || {}).id || ''))",
+            "matchedExpression": "@fields.upa_code",
+            "type": "fields",
+            "fieldName": "upa_code"
+          },
+          {
+            "fullExpression": "@calc(((Object.values(@data.semis || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.year || '') === String(@local.selected_year)) || {}).id || ''))",
+            "matchedExpression": "@local.selected_year",
+            "type": "local",
+            "fieldName": "selected_year"
+          },
+          {
+            "fullExpression": "@calc(((Object.values(@data.semis || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.year || '') === String(@local.selected_year)) || {}).id || ''))",
+            "matchedExpression": "@calc(((Object.values(@data.semis || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.year || '') === String(@local.selected_year)) || {}).id || ''))",
+            "type": "calc",
+            "fieldName": "((Object.values(@data.semis || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.year || '') === String(@local.selected_year)) || {}).id || '')"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@data.semis": [
+          "value"
+        ],
+        "@fields.upa_code": [
+          "value"
+        ],
+        "@local.selected_year": [
+          "value"
+        ],
+        "@calc(((Object.values(@data.semis || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.year || '') === String(@local.selected_year)) || {}).id || ''))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "selected_post_semis_id",
+      "value": "@calc(((Object.values(@data.post_semis || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.year || '') === String(@local.selected_year)) || {}).id || ''))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "selected_post_semis_id",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(((Object.values(@data.post_semis || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.year || '') === String(@local.selected_year)) || {}).id || ''))",
+            "matchedExpression": "@data.post_semis",
+            "type": "data",
+            "fieldName": "post_semis"
+          },
+          {
+            "fullExpression": "@calc(((Object.values(@data.post_semis || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.year || '') === String(@local.selected_year)) || {}).id || ''))",
+            "matchedExpression": "@fields.upa_code",
+            "type": "fields",
+            "fieldName": "upa_code"
+          },
+          {
+            "fullExpression": "@calc(((Object.values(@data.post_semis || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.year || '') === String(@local.selected_year)) || {}).id || ''))",
+            "matchedExpression": "@local.selected_year",
+            "type": "local",
+            "fieldName": "selected_year"
+          },
+          {
+            "fullExpression": "@calc(((Object.values(@data.post_semis || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.year || '') === String(@local.selected_year)) || {}).id || ''))",
+            "matchedExpression": "@calc(((Object.values(@data.post_semis || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.year || '') === String(@local.selected_year)) || {}).id || ''))",
+            "type": "calc",
+            "fieldName": "((Object.values(@data.post_semis || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.year || '') === String(@local.selected_year)) || {}).id || '')"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@data.post_semis": [
+          "value"
+        ],
+        "@fields.upa_code": [
+          "value"
+        ],
+        "@local.selected_year": [
+          "value"
+        ],
+        "@calc(((Object.values(@data.post_semis || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.year || '') === String(@local.selected_year)) || {}).id || ''))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "selected_recolte_id",
+      "value": "@calc(((Object.values(@data.recolte || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.year || '') === String(@local.selected_year)) || {}).id || ''))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "selected_recolte_id",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(((Object.values(@data.recolte || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.year || '') === String(@local.selected_year)) || {}).id || ''))",
+            "matchedExpression": "@data.recolte",
+            "type": "data",
+            "fieldName": "recolte"
+          },
+          {
+            "fullExpression": "@calc(((Object.values(@data.recolte || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.year || '') === String(@local.selected_year)) || {}).id || ''))",
+            "matchedExpression": "@fields.upa_code",
+            "type": "fields",
+            "fieldName": "upa_code"
+          },
+          {
+            "fullExpression": "@calc(((Object.values(@data.recolte || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.year || '') === String(@local.selected_year)) || {}).id || ''))",
+            "matchedExpression": "@local.selected_year",
+            "type": "local",
+            "fieldName": "selected_year"
+          },
+          {
+            "fullExpression": "@calc(((Object.values(@data.recolte || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.year || '') === String(@local.selected_year)) || {}).id || ''))",
+            "matchedExpression": "@calc(((Object.values(@data.recolte || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.year || '') === String(@local.selected_year)) || {}).id || ''))",
+            "type": "calc",
+            "fieldName": "((Object.values(@data.recolte || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.year || '') === String(@local.selected_year)) || {}).id || '')"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@data.recolte": [
+          "value"
+        ],
+        "@fields.upa_code": [
+          "value"
+        ],
+        "@local.selected_year": [
+          "value"
+        ],
+        "@calc(((Object.values(@data.recolte || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.year || '') === String(@local.selected_year)) || {}).id || ''))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "semis_culture",
+      "value": "@calc(Object.values(@data.semis_culture || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.semis_id || '').replace('id_', '').trim() === String(@local.selected_semis_id || '').replace('id_', '').trim() && String(item.culture_id || '').toLowerCase().trim() === String(@local.selected_culture).toLowerCase().trim()) || {})",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "semis_culture",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Object.values(@data.semis_culture || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.semis_id || '').replace('id_', '').trim() === String(@local.selected_semis_id || '').replace('id_', '').trim() && String(item.culture_id || '').toLowerCase().trim() === String(@local.selected_culture).toLowerCase().trim()) || {})",
+            "matchedExpression": "@data.semis_culture",
+            "type": "data",
+            "fieldName": "semis_culture"
+          },
+          {
+            "fullExpression": "@calc(Object.values(@data.semis_culture || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.semis_id || '').replace('id_', '').trim() === String(@local.selected_semis_id || '').replace('id_', '').trim() && String(item.culture_id || '').toLowerCase().trim() === String(@local.selected_culture).toLowerCase().trim()) || {})",
+            "matchedExpression": "@fields.upa_code",
+            "type": "fields",
+            "fieldName": "upa_code"
+          },
+          {
+            "fullExpression": "@calc(Object.values(@data.semis_culture || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.semis_id || '').replace('id_', '').trim() === String(@local.selected_semis_id || '').replace('id_', '').trim() && String(item.culture_id || '').toLowerCase().trim() === String(@local.selected_culture).toLowerCase().trim()) || {})",
+            "matchedExpression": "@local.selected_semis_id",
+            "type": "local",
+            "fieldName": "selected_semis_id"
+          },
+          {
+            "fullExpression": "@calc(Object.values(@data.semis_culture || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.semis_id || '').replace('id_', '').trim() === String(@local.selected_semis_id || '').replace('id_', '').trim() && String(item.culture_id || '').toLowerCase().trim() === String(@local.selected_culture).toLowerCase().trim()) || {})",
+            "matchedExpression": "@local.selected_culture",
+            "type": "local",
+            "fieldName": "selected_culture"
+          },
+          {
+            "fullExpression": "@calc(Object.values(@data.semis_culture || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.semis_id || '').replace('id_', '').trim() === String(@local.selected_semis_id || '').replace('id_', '').trim() && String(item.culture_id || '').toLowerCase().trim() === String(@local.selected_culture).toLowerCase().trim()) || {})",
+            "matchedExpression": "@calc(Object.values(@data.semis_culture || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.semis_id || '').replace('id_', '').trim() === String(@local.selected_semis_id || '').replace('id_', '').trim() && String(item.culture_id || '').toLowerCase().trim() === String(@local.selected_culture).toLowerCase().trim()) || {})",
+            "type": "calc",
+            "fieldName": "Object.values(@data.semis_culture || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.semis_id || '').replace('id_', '').trim() === String(@local.selected_semis_id || '').replace('id_', '').trim() && String(item.culture_id || '').toLowerCase().trim() === String(@local.selected_culture).toLowerCase().trim()) || {}"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@data.semis_culture": [
+          "value"
+        ],
+        "@fields.upa_code": [
+          "value"
+        ],
+        "@local.selected_semis_id": [
+          "value"
+        ],
+        "@local.selected_culture": [
+          "value"
+        ],
+        "@calc(Object.values(@data.semis_culture || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.semis_id || '').replace('id_', '').trim() === String(@local.selected_semis_id || '').replace('id_', '').trim() && String(item.culture_id || '').toLowerCase().trim() === String(@local.selected_culture).toLowerCase().trim()) || {})": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "post_semis_culture",
+      "value": "@calc(Object.values(@data.post_semisCulture || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').replace('id_', '').trim() === String(@local.selected_post_semis_id || '').replace('id_', '').trim() && String(item.culture_id || '').toLowerCase().trim() === String(@local.selected_culture).toLowerCase().trim()) || {})",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "post_semis_culture",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Object.values(@data.post_semisCulture || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').replace('id_', '').trim() === String(@local.selected_post_semis_id || '').replace('id_', '').trim() && String(item.culture_id || '').toLowerCase().trim() === String(@local.selected_culture).toLowerCase().trim()) || {})",
+            "matchedExpression": "@data.post_semisCulture",
+            "type": "data",
+            "fieldName": "post_semisCulture"
+          },
+          {
+            "fullExpression": "@calc(Object.values(@data.post_semisCulture || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').replace('id_', '').trim() === String(@local.selected_post_semis_id || '').replace('id_', '').trim() && String(item.culture_id || '').toLowerCase().trim() === String(@local.selected_culture).toLowerCase().trim()) || {})",
+            "matchedExpression": "@fields.upa_code",
+            "type": "fields",
+            "fieldName": "upa_code"
+          },
+          {
+            "fullExpression": "@calc(Object.values(@data.post_semisCulture || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').replace('id_', '').trim() === String(@local.selected_post_semis_id || '').replace('id_', '').trim() && String(item.culture_id || '').toLowerCase().trim() === String(@local.selected_culture).toLowerCase().trim()) || {})",
+            "matchedExpression": "@local.selected_post_semis_id",
+            "type": "local",
+            "fieldName": "selected_post_semis_id"
+          },
+          {
+            "fullExpression": "@calc(Object.values(@data.post_semisCulture || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').replace('id_', '').trim() === String(@local.selected_post_semis_id || '').replace('id_', '').trim() && String(item.culture_id || '').toLowerCase().trim() === String(@local.selected_culture).toLowerCase().trim()) || {})",
+            "matchedExpression": "@local.selected_culture",
+            "type": "local",
+            "fieldName": "selected_culture"
+          },
+          {
+            "fullExpression": "@calc(Object.values(@data.post_semisCulture || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').replace('id_', '').trim() === String(@local.selected_post_semis_id || '').replace('id_', '').trim() && String(item.culture_id || '').toLowerCase().trim() === String(@local.selected_culture).toLowerCase().trim()) || {})",
+            "matchedExpression": "@calc(Object.values(@data.post_semisCulture || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').replace('id_', '').trim() === String(@local.selected_post_semis_id || '').replace('id_', '').trim() && String(item.culture_id || '').toLowerCase().trim() === String(@local.selected_culture).toLowerCase().trim()) || {})",
+            "type": "calc",
+            "fieldName": "Object.values(@data.post_semisCulture || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').replace('id_', '').trim() === String(@local.selected_post_semis_id || '').replace('id_', '').trim() && String(item.culture_id || '').toLowerCase().trim() === String(@local.selected_culture).toLowerCase().trim()) || {}"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@data.post_semisCulture": [
+          "value"
+        ],
+        "@fields.upa_code": [
+          "value"
+        ],
+        "@local.selected_post_semis_id": [
+          "value"
+        ],
+        "@local.selected_culture": [
+          "value"
+        ],
+        "@calc(Object.values(@data.post_semisCulture || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').replace('id_', '').trim() === String(@local.selected_post_semis_id || '').replace('id_', '').trim() && String(item.culture_id || '').toLowerCase().trim() === String(@local.selected_culture).toLowerCase().trim()) || {})": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "recolte_culture",
+      "value": "@calc(Object.values(@data.recolte_culture || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.recolte_id || '').replace('id_', '').trim() === String(@local.selected_recolte_id || '').replace('id_', '').trim() && String(item.culture_id || '').toLowerCase().trim() === String(@local.selected_culture).toLowerCase().trim()) || {})",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "recolte_culture",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Object.values(@data.recolte_culture || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.recolte_id || '').replace('id_', '').trim() === String(@local.selected_recolte_id || '').replace('id_', '').trim() && String(item.culture_id || '').toLowerCase().trim() === String(@local.selected_culture).toLowerCase().trim()) || {})",
+            "matchedExpression": "@data.recolte_culture",
+            "type": "data",
+            "fieldName": "recolte_culture"
+          },
+          {
+            "fullExpression": "@calc(Object.values(@data.recolte_culture || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.recolte_id || '').replace('id_', '').trim() === String(@local.selected_recolte_id || '').replace('id_', '').trim() && String(item.culture_id || '').toLowerCase().trim() === String(@local.selected_culture).toLowerCase().trim()) || {})",
+            "matchedExpression": "@fields.upa_code",
+            "type": "fields",
+            "fieldName": "upa_code"
+          },
+          {
+            "fullExpression": "@calc(Object.values(@data.recolte_culture || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.recolte_id || '').replace('id_', '').trim() === String(@local.selected_recolte_id || '').replace('id_', '').trim() && String(item.culture_id || '').toLowerCase().trim() === String(@local.selected_culture).toLowerCase().trim()) || {})",
+            "matchedExpression": "@local.selected_recolte_id",
+            "type": "local",
+            "fieldName": "selected_recolte_id"
+          },
+          {
+            "fullExpression": "@calc(Object.values(@data.recolte_culture || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.recolte_id || '').replace('id_', '').trim() === String(@local.selected_recolte_id || '').replace('id_', '').trim() && String(item.culture_id || '').toLowerCase().trim() === String(@local.selected_culture).toLowerCase().trim()) || {})",
+            "matchedExpression": "@local.selected_culture",
+            "type": "local",
+            "fieldName": "selected_culture"
+          },
+          {
+            "fullExpression": "@calc(Object.values(@data.recolte_culture || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.recolte_id || '').replace('id_', '').trim() === String(@local.selected_recolte_id || '').replace('id_', '').trim() && String(item.culture_id || '').toLowerCase().trim() === String(@local.selected_culture).toLowerCase().trim()) || {})",
+            "matchedExpression": "@calc(Object.values(@data.recolte_culture || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.recolte_id || '').replace('id_', '').trim() === String(@local.selected_recolte_id || '').replace('id_', '').trim() && String(item.culture_id || '').toLowerCase().trim() === String(@local.selected_culture).toLowerCase().trim()) || {})",
+            "type": "calc",
+            "fieldName": "Object.values(@data.recolte_culture || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.recolte_id || '').replace('id_', '').trim() === String(@local.selected_recolte_id || '').replace('id_', '').trim() && String(item.culture_id || '').toLowerCase().trim() === String(@local.selected_culture).toLowerCase().trim()) || {}"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@data.recolte_culture": [
+          "value"
+        ],
+        "@fields.upa_code": [
+          "value"
+        ],
+        "@local.selected_recolte_id": [
+          "value"
+        ],
+        "@local.selected_culture": [
+          "value"
+        ],
+        "@calc(Object.values(@data.recolte_culture || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.recolte_id || '').replace('id_', '').trim() === String(@local.selected_recolte_id || '').replace('id_', '').trim() && String(item.culture_id || '').toLowerCase().trim() === String(@local.selected_culture).toLowerCase().trim()) || {})": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "cout_transport",
+      "value": "@calc(Number(String(@local.semis_culture.cout_transport || 0).replace(',', '.')))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "cout_transport",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Number(String(@local.semis_culture.cout_transport || 0).replace(',', '.')))",
+            "matchedExpression": "@local.semis_culture.cout_transport",
+            "type": "local",
+            "fieldName": "semis_culture"
+          },
+          {
+            "fullExpression": "@calc(Number(String(@local.semis_culture.cout_transport || 0).replace(',', '.')))",
+            "matchedExpression": "@calc(Number(String(@local.semis_culture.cout_transport || 0).replace(',', '.')))",
+            "type": "calc",
+            "fieldName": "Number(String(@local.semis_culture.cout_transport || 0).replace(',', '.'))"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.semis_culture.cout_transport": [
+          "value"
+        ],
+        "@calc(Number(String(@local.semis_culture.cout_transport || 0).replace(',', '.')))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "cout_labour",
+      "value": "@calc(Number(String(@local.semis_culture.cout_superficie_labouree || 0).replace(',', '.')))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "cout_labour",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Number(String(@local.semis_culture.cout_superficie_labouree || 0).replace(',', '.')))",
+            "matchedExpression": "@local.semis_culture.cout_superficie_labouree",
+            "type": "local",
+            "fieldName": "semis_culture"
+          },
+          {
+            "fullExpression": "@calc(Number(String(@local.semis_culture.cout_superficie_labouree || 0).replace(',', '.')))",
+            "matchedExpression": "@calc(Number(String(@local.semis_culture.cout_superficie_labouree || 0).replace(',', '.')))",
+            "type": "calc",
+            "fieldName": "Number(String(@local.semis_culture.cout_superficie_labouree || 0).replace(',', '.'))"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.semis_culture.cout_superficie_labouree": [
+          "value"
+        ],
+        "@calc(Number(String(@local.semis_culture.cout_superficie_labouree || 0).replace(',', '.')))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "cout_buttage",
+      "value": "@calc(Number(String(@local.post_semis_culture.cout_buttage || 0).replace(',', '.')))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "cout_buttage",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Number(String(@local.post_semis_culture.cout_buttage || 0).replace(',', '.')))",
+            "matchedExpression": "@local.post_semis_culture.cout_buttage",
+            "type": "local",
+            "fieldName": "post_semis_culture"
+          },
+          {
+            "fullExpression": "@calc(Number(String(@local.post_semis_culture.cout_buttage || 0).replace(',', '.')))",
+            "matchedExpression": "@calc(Number(String(@local.post_semis_culture.cout_buttage || 0).replace(',', '.')))",
+            "type": "calc",
+            "fieldName": "Number(String(@local.post_semis_culture.cout_buttage || 0).replace(',', '.'))"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.post_semis_culture.cout_buttage": [
+          "value"
+        ],
+        "@calc(Number(String(@local.post_semis_culture.cout_buttage || 0).replace(',', '.')))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "cout_semence",
+      "value": "@calc(Number(String(@local.semis_culture.cout_semence_achetee || 0).replace(',', '.')))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "cout_semence",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Number(String(@local.semis_culture.cout_semence_achetee || 0).replace(',', '.')))",
+            "matchedExpression": "@local.semis_culture.cout_semence_achetee",
+            "type": "local",
+            "fieldName": "semis_culture"
+          },
+          {
+            "fullExpression": "@calc(Number(String(@local.semis_culture.cout_semence_achetee || 0).replace(',', '.')))",
+            "matchedExpression": "@calc(Number(String(@local.semis_culture.cout_semence_achetee || 0).replace(',', '.')))",
+            "type": "calc",
+            "fieldName": "Number(String(@local.semis_culture.cout_semence_achetee || 0).replace(',', '.'))"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.semis_culture.cout_semence_achetee": [
+          "value"
+        ],
+        "@calc(Number(String(@local.semis_culture.cout_semence_achetee || 0).replace(',', '.')))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "cout_desherbage",
+      "value": "@calc(Number(String(@local.post_semis_culture.cout_desherbage || 0).replace(',', '.')))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "cout_desherbage",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Number(String(@local.post_semis_culture.cout_desherbage || 0).replace(',', '.')))",
+            "matchedExpression": "@local.post_semis_culture.cout_desherbage",
+            "type": "local",
+            "fieldName": "post_semis_culture"
+          },
+          {
+            "fullExpression": "@calc(Number(String(@local.post_semis_culture.cout_desherbage || 0).replace(',', '.')))",
+            "matchedExpression": "@calc(Number(String(@local.post_semis_culture.cout_desherbage || 0).replace(',', '.')))",
+            "type": "calc",
+            "fieldName": "Number(String(@local.post_semis_culture.cout_desherbage || 0).replace(',', '.'))"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.post_semis_culture.cout_desherbage": [
+          "value"
+        ],
+        "@calc(Number(String(@local.post_semis_culture.cout_desherbage || 0).replace(',', '.')))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "cout_sarclage",
+      "value": "@calc(Number(String(@local.post_semis_culture.cout_sarclage || 0).replace(',', '.')))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "cout_sarclage",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Number(String(@local.post_semis_culture.cout_sarclage || 0).replace(',', '.')))",
+            "matchedExpression": "@local.post_semis_culture.cout_sarclage",
+            "type": "local",
+            "fieldName": "post_semis_culture"
+          },
+          {
+            "fullExpression": "@calc(Number(String(@local.post_semis_culture.cout_sarclage || 0).replace(',', '.')))",
+            "matchedExpression": "@calc(Number(String(@local.post_semis_culture.cout_sarclage || 0).replace(',', '.')))",
+            "type": "calc",
+            "fieldName": "Number(String(@local.post_semis_culture.cout_sarclage || 0).replace(',', '.'))"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.post_semis_culture.cout_sarclage": [
+          "value"
+        ],
+        "@calc(Number(String(@local.post_semis_culture.cout_sarclage || 0).replace(',', '.')))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "cout_fertilisant",
+      "value": "@calc(Number(String(@local.semis_culture.cout_chaux_agricole || 0).replace(',', '.')) + Number(String(@local.semis_culture.cout_pnt_png || 0).replace(',', '.')) + Number(String(@local.post_semis_culture.cout_npk || 0).replace(',', '.')) + Number(String(@local.post_semis_culture.cout_uree || 0).replace(',', '.')))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "cout_fertilisant",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Number(String(@local.semis_culture.cout_chaux_agricole || 0).replace(',', '.')) + Number(String(@local.semis_culture.cout_pnt_png || 0).replace(',', '.')) + Number(String(@local.post_semis_culture.cout_npk || 0).replace(',', '.')) + Number(String(@local.post_semis_culture.cout_uree || 0).replace(',', '.')))",
+            "matchedExpression": "@local.semis_culture.cout_chaux_agricole",
+            "type": "local",
+            "fieldName": "semis_culture"
+          },
+          {
+            "fullExpression": "@calc(Number(String(@local.semis_culture.cout_chaux_agricole || 0).replace(',', '.')) + Number(String(@local.semis_culture.cout_pnt_png || 0).replace(',', '.')) + Number(String(@local.post_semis_culture.cout_npk || 0).replace(',', '.')) + Number(String(@local.post_semis_culture.cout_uree || 0).replace(',', '.')))",
+            "matchedExpression": "@local.semis_culture.cout_pnt_png",
+            "type": "local",
+            "fieldName": "semis_culture"
+          },
+          {
+            "fullExpression": "@calc(Number(String(@local.semis_culture.cout_chaux_agricole || 0).replace(',', '.')) + Number(String(@local.semis_culture.cout_pnt_png || 0).replace(',', '.')) + Number(String(@local.post_semis_culture.cout_npk || 0).replace(',', '.')) + Number(String(@local.post_semis_culture.cout_uree || 0).replace(',', '.')))",
+            "matchedExpression": "@local.post_semis_culture.cout_npk",
+            "type": "local",
+            "fieldName": "post_semis_culture"
+          },
+          {
+            "fullExpression": "@calc(Number(String(@local.semis_culture.cout_chaux_agricole || 0).replace(',', '.')) + Number(String(@local.semis_culture.cout_pnt_png || 0).replace(',', '.')) + Number(String(@local.post_semis_culture.cout_npk || 0).replace(',', '.')) + Number(String(@local.post_semis_culture.cout_uree || 0).replace(',', '.')))",
+            "matchedExpression": "@local.post_semis_culture.cout_uree",
+            "type": "local",
+            "fieldName": "post_semis_culture"
+          },
+          {
+            "fullExpression": "@calc(Number(String(@local.semis_culture.cout_chaux_agricole || 0).replace(',', '.')) + Number(String(@local.semis_culture.cout_pnt_png || 0).replace(',', '.')) + Number(String(@local.post_semis_culture.cout_npk || 0).replace(',', '.')) + Number(String(@local.post_semis_culture.cout_uree || 0).replace(',', '.')))",
+            "matchedExpression": "@calc(Number(String(@local.semis_culture.cout_chaux_agricole || 0).replace(',', '.')) + Number(String(@local.semis_culture.cout_pnt_png || 0).replace(',', '.')) + Number(String(@local.post_semis_culture.cout_npk || 0).replace(',', '.')) + Number(String(@local.post_semis_culture.cout_uree || 0).replace(',', '.')))",
+            "type": "calc",
+            "fieldName": "Number(String(@local.semis_culture.cout_chaux_agricole || 0).replace(',', '.')) + Number(String(@local.semis_culture.cout_pnt_png || 0).replace(',', '.')) + Number(String(@local.post_semis_culture.cout_npk || 0).replace(',', '.')) + Number(String(@local.post_semis_culture.cout_uree || 0).replace(',', '.'))"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.semis_culture.cout_chaux_agricole": [
+          "value"
+        ],
+        "@local.semis_culture.cout_pnt_png": [
+          "value"
+        ],
+        "@local.post_semis_culture.cout_npk": [
+          "value"
+        ],
+        "@local.post_semis_culture.cout_uree": [
+          "value"
+        ],
+        "@calc(Number(String(@local.semis_culture.cout_chaux_agricole || 0).replace(',', '.')) + Number(String(@local.semis_culture.cout_pnt_png || 0).replace(',', '.')) + Number(String(@local.post_semis_culture.cout_npk || 0).replace(',', '.')) + Number(String(@local.post_semis_culture.cout_uree || 0).replace(',', '.')))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "cout_herbicide",
+      "value": "@calc(Number(String(@local.semis_culture.cout_herbicide_prelevee || 0).replace(',', '.')) + Number(String(@local.post_semis_culture.cout_herbicide || 0).replace(',', '.')))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "cout_herbicide",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Number(String(@local.semis_culture.cout_herbicide_prelevee || 0).replace(',', '.')) + Number(String(@local.post_semis_culture.cout_herbicide || 0).replace(',', '.')))",
+            "matchedExpression": "@local.semis_culture.cout_herbicide_prelevee",
+            "type": "local",
+            "fieldName": "semis_culture"
+          },
+          {
+            "fullExpression": "@calc(Number(String(@local.semis_culture.cout_herbicide_prelevee || 0).replace(',', '.')) + Number(String(@local.post_semis_culture.cout_herbicide || 0).replace(',', '.')))",
+            "matchedExpression": "@local.post_semis_culture.cout_herbicide",
+            "type": "local",
+            "fieldName": "post_semis_culture"
+          },
+          {
+            "fullExpression": "@calc(Number(String(@local.semis_culture.cout_herbicide_prelevee || 0).replace(',', '.')) + Number(String(@local.post_semis_culture.cout_herbicide || 0).replace(',', '.')))",
+            "matchedExpression": "@calc(Number(String(@local.semis_culture.cout_herbicide_prelevee || 0).replace(',', '.')) + Number(String(@local.post_semis_culture.cout_herbicide || 0).replace(',', '.')))",
+            "type": "calc",
+            "fieldName": "Number(String(@local.semis_culture.cout_herbicide_prelevee || 0).replace(',', '.')) + Number(String(@local.post_semis_culture.cout_herbicide || 0).replace(',', '.'))"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.semis_culture.cout_herbicide_prelevee": [
+          "value"
+        ],
+        "@local.post_semis_culture.cout_herbicide": [
+          "value"
+        ],
+        "@calc(Number(String(@local.semis_culture.cout_herbicide_prelevee || 0).replace(',', '.')) + Number(String(@local.post_semis_culture.cout_herbicide || 0).replace(',', '.')))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "cout_recolte_prestation",
+      "value": "@calc(Number(String(@local.recolte_culture.cout_total_prestation_recolte || 0).replace(',', '.')))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "cout_recolte_prestation",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Number(String(@local.recolte_culture.cout_total_prestation_recolte || 0).replace(',', '.')))",
+            "matchedExpression": "@local.recolte_culture.cout_total_prestation_recolte",
+            "type": "local",
+            "fieldName": "recolte_culture"
+          },
+          {
+            "fullExpression": "@calc(Number(String(@local.recolte_culture.cout_total_prestation_recolte || 0).replace(',', '.')))",
+            "matchedExpression": "@calc(Number(String(@local.recolte_culture.cout_total_prestation_recolte || 0).replace(',', '.')))",
+            "type": "calc",
+            "fieldName": "Number(String(@local.recolte_culture.cout_total_prestation_recolte || 0).replace(',', '.'))"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.recolte_culture.cout_total_prestation_recolte": [
+          "value"
+        ],
+        "@calc(Number(String(@local.recolte_culture.cout_total_prestation_recolte || 0).replace(',', '.')))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "cout_battage",
+      "value": "@calc(Number(String(@local.recolte_culture.cout_total_battage || 0).replace(',', '.')))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "cout_battage",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Number(String(@local.recolte_culture.cout_total_battage || 0).replace(',', '.')))",
+            "matchedExpression": "@local.recolte_culture.cout_total_battage",
+            "type": "local",
+            "fieldName": "recolte_culture"
+          },
+          {
+            "fullExpression": "@calc(Number(String(@local.recolte_culture.cout_total_battage || 0).replace(',', '.')))",
+            "matchedExpression": "@calc(Number(String(@local.recolte_culture.cout_total_battage || 0).replace(',', '.')))",
+            "type": "calc",
+            "fieldName": "Number(String(@local.recolte_culture.cout_total_battage || 0).replace(',', '.'))"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.recolte_culture.cout_total_battage": [
+          "value"
+        ],
+        "@calc(Number(String(@local.recolte_culture.cout_total_battage || 0).replace(',', '.')))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "cout_total_culture",
+      "value": "@calc(Number(String(@local.semis_culture.cout || 0).replace(',', '.')) + Number(String(@local.post_semis_culture.cout || 0).replace(',', '.')) + Number(String(@local.recolte_culture.cout || 0).replace(',', '.')))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "cout_total_culture",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Number(String(@local.semis_culture.cout || 0).replace(',', '.')) + Number(String(@local.post_semis_culture.cout || 0).replace(',', '.')) + Number(String(@local.recolte_culture.cout || 0).replace(',', '.')))",
+            "matchedExpression": "@local.semis_culture.cout",
+            "type": "local",
+            "fieldName": "semis_culture"
+          },
+          {
+            "fullExpression": "@calc(Number(String(@local.semis_culture.cout || 0).replace(',', '.')) + Number(String(@local.post_semis_culture.cout || 0).replace(',', '.')) + Number(String(@local.recolte_culture.cout || 0).replace(',', '.')))",
+            "matchedExpression": "@local.post_semis_culture.cout",
+            "type": "local",
+            "fieldName": "post_semis_culture"
+          },
+          {
+            "fullExpression": "@calc(Number(String(@local.semis_culture.cout || 0).replace(',', '.')) + Number(String(@local.post_semis_culture.cout || 0).replace(',', '.')) + Number(String(@local.recolte_culture.cout || 0).replace(',', '.')))",
+            "matchedExpression": "@local.recolte_culture.cout",
+            "type": "local",
+            "fieldName": "recolte_culture"
+          },
+          {
+            "fullExpression": "@calc(Number(String(@local.semis_culture.cout || 0).replace(',', '.')) + Number(String(@local.post_semis_culture.cout || 0).replace(',', '.')) + Number(String(@local.recolte_culture.cout || 0).replace(',', '.')))",
+            "matchedExpression": "@calc(Number(String(@local.semis_culture.cout || 0).replace(',', '.')) + Number(String(@local.post_semis_culture.cout || 0).replace(',', '.')) + Number(String(@local.recolte_culture.cout || 0).replace(',', '.')))",
+            "type": "calc",
+            "fieldName": "Number(String(@local.semis_culture.cout || 0).replace(',', '.')) + Number(String(@local.post_semis_culture.cout || 0).replace(',', '.')) + Number(String(@local.recolte_culture.cout || 0).replace(',', '.'))"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.semis_culture.cout": [
+          "value"
+        ],
+        "@local.post_semis_culture.cout": [
+          "value"
+        ],
+        "@local.recolte_culture.cout": [
+          "value"
+        ],
+        "@calc(Number(String(@local.semis_culture.cout || 0).replace(',', '.')) + Number(String(@local.post_semis_culture.cout || 0).replace(',', '.')) + Number(String(@local.recolte_culture.cout || 0).replace(',', '.')))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "style_list": [
+        "width:100%",
+        "box-sizing:border-box",
+        "background:#45c5b8",
+        "padding:28px 16px",
+        "text-align:center",
+        "border-bottom:2px solid rgba(255,255,255,0.2)"
+      ],
+      "rows": [
+        {
+          "type": "text",
+          "value": "@local.selected_culture_label",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "style_list: color:white",
+            "margin:0 0 6px 0",
+            "font-size:22px",
+            "font-weight:800",
+            "text-transform:uppercase",
+            "letter-spacing:0.5px"
+          ],
+          "name": "text_1",
+          "_nested_name": "display_group_22.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@local.selected_culture_label",
+                "matchedExpression": "@local.selected_culture_label",
+                "type": "local",
+                "fieldName": "selected_culture_label"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.selected_culture_label": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "value": "@local.cout_total_culture DRM",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "style_list: color:#ffffff",
+            "font-size:20px",
+            "font-weight:800",
+            "background:rgba(255,255,255,0.2)",
+            "padding:4px 14px",
+            "border-radius:20px",
+            "display:inline-block"
+          ],
+          "name": "text_2",
+          "_nested_name": "display_group_22.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@local.cout_total_culture DRM",
+                "matchedExpression": "@local.cout_total_culture",
+                "type": "local",
+                "fieldName": "cout_total_culture"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.cout_total_culture": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_22",
+      "_nested_name": "display_group_22"
+    },
+    {
+      "type": "display_group",
+      "style_list": [
+        "display:grid",
+        "grid-template-columns:minmax(0,1fr) auto",
+        "gap:16px",
+        "align-items:center",
+        "padding:12px 0",
+        "border-bottom:1px solid #f0f0f0"
+      ],
+      "rows": [
+        {
+          "type": "text",
+          "value": "@global.frais_trans",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-weight:600",
+            "color:#1e3656",
+            "font-size:14px",
+            "line-height:1.25",
+            "margin:0",
+            "min-width:0"
+          ],
+          "name": "text_1",
+          "_nested_name": "display_group_24.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.frais_trans",
+                "matchedExpression": "@global.frais_trans",
+                "type": "global",
+                "fieldName": "frais_trans"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.frais_trans": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "value": "@local.cout_transport DRM",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "color:#45c5b8",
+            "font-size:15px",
+            "font-weight:700",
+            "white-space:nowrap",
+            "margin:0"
+          ],
+          "name": "text_2",
+          "_nested_name": "display_group_24.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@local.cout_transport DRM",
+                "matchedExpression": "@local.cout_transport",
+                "type": "local",
+                "fieldName": "cout_transport"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.cout_transport": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_24",
+      "_nested_name": "display_group_24"
+    },
+    {
+      "type": "display_group",
+      "style_list": [
+        "display:grid",
+        "grid-template-columns:minmax(0,1fr) auto",
+        "gap:16px",
+        "align-items:center",
+        "padding:12px 0",
+        "border-bottom:1px solid #f0f0f0"
+      ],
+      "rows": [
+        {
+          "type": "text",
+          "value": "@global.c_labour",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-weight:600",
+            "color:#1e3656",
+            "font-size:14px",
+            "line-height:1.25",
+            "margin:0",
+            "min-width:0"
+          ],
+          "name": "text_1",
+          "_nested_name": "display_group_26.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.c_labour",
+                "matchedExpression": "@global.c_labour",
+                "type": "global",
+                "fieldName": "c_labour"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.c_labour": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "value": "@local.cout_labour DRM",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "color:#45c5b8",
+            "font-size:15px",
+            "font-weight:700",
+            "white-space:nowrap",
+            "margin:0"
+          ],
+          "name": "text_2",
+          "_nested_name": "display_group_26.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@local.cout_labour DRM",
+                "matchedExpression": "@local.cout_labour",
+                "type": "local",
+                "fieldName": "cout_labour"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.cout_labour": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_26",
+      "_nested_name": "display_group_26"
+    },
+    {
+      "type": "display_group",
+      "style_list": [
+        "display:grid",
+        "grid-template-columns:minmax(0,1fr) auto",
+        "gap:16px",
+        "align-items:center",
+        "padding:12px 0",
+        "border-bottom:1px solid #f0f0f0"
+      ],
+      "rows": [
+        {
+          "type": "text",
+          "value": "@global.c_buttage",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-weight:600",
+            "color:#1e3656",
+            "font-size:14px",
+            "line-height:1.25",
+            "margin:0",
+            "min-width:0"
+          ],
+          "name": "text_1",
+          "_nested_name": "display_group_28.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.c_buttage",
+                "matchedExpression": "@global.c_buttage",
+                "type": "global",
+                "fieldName": "c_buttage"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.c_buttage": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "value": "@local.cout_buttage DRM",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "color:#45c5b8",
+            "font-size:15px",
+            "font-weight:700",
+            "white-space:nowrap",
+            "margin:0"
+          ],
+          "name": "text_2",
+          "_nested_name": "display_group_28.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@local.cout_buttage DRM",
+                "matchedExpression": "@local.cout_buttage",
+                "type": "local",
+                "fieldName": "cout_buttage"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.cout_buttage": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_28",
+      "_nested_name": "display_group_28"
+    },
+    {
+      "type": "display_group",
+      "style_list": [
+        "display:grid",
+        "grid-template-columns:minmax(0,1fr) auto",
+        "gap:16px",
+        "align-items:center",
+        "padding:12px 0",
+        "border-bottom:1px solid #f0f0f0"
+      ],
+      "rows": [
+        {
+          "type": "text",
+          "value": "@global.c_semences_ach",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-weight:600",
+            "color:#1e3656",
+            "font-size:14px",
+            "line-height:1.25",
+            "margin:0",
+            "min-width:0"
+          ],
+          "name": "text_1",
+          "_nested_name": "display_group_30.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.c_semences_ach",
+                "matchedExpression": "@global.c_semences_ach",
+                "type": "global",
+                "fieldName": "c_semences_ach"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.c_semences_ach": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "value": "@local.cout_semence DRM",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "color:#45c5b8",
+            "font-size:15px",
+            "font-weight:700",
+            "white-space:nowrap",
+            "margin:0"
+          ],
+          "name": "text_2",
+          "_nested_name": "display_group_30.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@local.cout_semence DRM",
+                "matchedExpression": "@local.cout_semence",
+                "type": "local",
+                "fieldName": "cout_semence"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.cout_semence": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_30",
+      "_nested_name": "display_group_30"
+    },
+    {
+      "type": "display_group",
+      "style_list": [
+        "display:grid",
+        "grid-template-columns:minmax(0,1fr) auto",
+        "gap:16px",
+        "align-items:center",
+        "padding:12px 0",
+        "border-bottom:1px solid #f0f0f0"
+      ],
+      "rows": [
+        {
+          "type": "text",
+          "value": "@global.c_desh",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-weight:600",
+            "color:#1e3656",
+            "font-size:14px",
+            "line-height:1.25",
+            "margin:0",
+            "min-width:0"
+          ],
+          "name": "text_1",
+          "_nested_name": "display_group_32.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.c_desh",
+                "matchedExpression": "@global.c_desh",
+                "type": "global",
+                "fieldName": "c_desh"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.c_desh": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "value": "@local.cout_desherbage DRM",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "color:#45c5b8",
+            "font-size:15px",
+            "font-weight:700",
+            "white-space:nowrap",
+            "margin:0"
+          ],
+          "name": "text_2",
+          "_nested_name": "display_group_32.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@local.cout_desherbage DRM",
+                "matchedExpression": "@local.cout_desherbage",
+                "type": "local",
+                "fieldName": "cout_desherbage"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.cout_desherbage": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_32",
+      "_nested_name": "display_group_32"
+    },
+    {
+      "type": "display_group",
+      "style_list": [
+        "display:grid",
+        "grid-template-columns:minmax(0,1fr) auto",
+        "gap:16px",
+        "align-items:center",
+        "padding:12px 0",
+        "border-bottom:1px solid #f0f0f0"
+      ],
+      "rows": [
+        {
+          "type": "text",
+          "value": "@global.c_sarclage",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-weight:600",
+            "color:#1e3656",
+            "font-size:14px",
+            "line-height:1.25",
+            "margin:0",
+            "min-width:0"
+          ],
+          "name": "text_1",
+          "_nested_name": "display_group_34.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.c_sarclage",
+                "matchedExpression": "@global.c_sarclage",
+                "type": "global",
+                "fieldName": "c_sarclage"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.c_sarclage": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "value": "@local.cout_sarclage DRM",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "color:#45c5b8",
+            "font-size:15px",
+            "font-weight:700",
+            "white-space:nowrap",
+            "margin:0"
+          ],
+          "name": "text_2",
+          "_nested_name": "display_group_34.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@local.cout_sarclage DRM",
+                "matchedExpression": "@local.cout_sarclage",
+                "type": "local",
+                "fieldName": "cout_sarclage"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.cout_sarclage": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_34",
+      "_nested_name": "display_group_34"
+    },
+    {
+      "type": "display_group",
+      "style_list": [
+        "display:grid",
+        "grid-template-columns:minmax(0,1fr) auto",
+        "gap:16px",
+        "align-items:center",
+        "padding:12px 0",
+        "border-bottom:1px solid #f0f0f0"
+      ],
+      "rows": [
+        {
+          "type": "text",
+          "value": "@global.c_engrais",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-weight:600",
+            "color:#1e3656",
+            "font-size:14px",
+            "line-height:1.25",
+            "margin:0",
+            "min-width:0"
+          ],
+          "name": "text_1",
+          "_nested_name": "display_group_36.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.c_engrais",
+                "matchedExpression": "@global.c_engrais",
+                "type": "global",
+                "fieldName": "c_engrais"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.c_engrais": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "value": "@local.cout_fertilisant DRM",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "color:#45c5b8",
+            "font-size:15px",
+            "font-weight:700",
+            "white-space:nowrap",
+            "margin:0"
+          ],
+          "name": "text_2",
+          "_nested_name": "display_group_36.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@local.cout_fertilisant DRM",
+                "matchedExpression": "@local.cout_fertilisant",
+                "type": "local",
+                "fieldName": "cout_fertilisant"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.cout_fertilisant": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_36",
+      "_nested_name": "display_group_36"
+    },
+    {
+      "type": "display_group",
+      "style_list": [
+        "display:grid",
+        "grid-template-columns:minmax(0,1fr) auto",
+        "gap:16px",
+        "align-items:center",
+        "padding:12px 0",
+        "border-bottom:1px solid #f0f0f0"
+      ],
+      "rows": [
+        {
+          "type": "text",
+          "value": "@global.c_herbicide",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-weight:600",
+            "color:#1e3656",
+            "font-size:14px",
+            "line-height:1.25",
+            "margin:0",
+            "min-width:0"
+          ],
+          "name": "text_1",
+          "_nested_name": "display_group_38.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.c_herbicide",
+                "matchedExpression": "@global.c_herbicide",
+                "type": "global",
+                "fieldName": "c_herbicide"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.c_herbicide": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "value": "@local.cout_herbicide DRM",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "color:#45c5b8",
+            "font-size:15px",
+            "font-weight:700",
+            "white-space:nowrap",
+            "margin:0"
+          ],
+          "name": "text_2",
+          "_nested_name": "display_group_38.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@local.cout_herbicide DRM",
+                "matchedExpression": "@local.cout_herbicide",
+                "type": "local",
+                "fieldName": "cout_herbicide"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.cout_herbicide": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_38",
+      "_nested_name": "display_group_38"
+    },
+    {
+      "type": "display_group",
+      "style_list": [
+        "display:grid",
+        "grid-template-columns:minmax(0,1fr) auto",
+        "gap:16px",
+        "align-items:center",
+        "padding:12px 0",
+        "border-bottom:1px solid #f0f0f0"
+      ],
+      "rows": [
+        {
+          "type": "text",
+          "value": "@global.c_recolte",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-weight:600",
+            "color:#1e3656",
+            "font-size:14px",
+            "line-height:1.25",
+            "margin:0",
+            "min-width:0"
+          ],
+          "name": "text_1",
+          "_nested_name": "display_group_40.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.c_recolte",
+                "matchedExpression": "@global.c_recolte",
+                "type": "global",
+                "fieldName": "c_recolte"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.c_recolte": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "value": "@local.cout_recolte_prestation DRM",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "color:#45c5b8",
+            "font-size:15px",
+            "font-weight:700",
+            "white-space:nowrap",
+            "margin:0"
+          ],
+          "name": "text_2",
+          "_nested_name": "display_group_40.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@local.cout_recolte_prestation DRM",
+                "matchedExpression": "@local.cout_recolte_prestation",
+                "type": "local",
+                "fieldName": "cout_recolte_prestation"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.cout_recolte_prestation": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_40",
+      "_nested_name": "display_group_40"
+    },
+    {
+      "type": "display_group",
+      "style_list": [
+        "display:grid",
+        "grid-template-columns:minmax(0,1fr) auto",
+        "gap:16px",
+        "align-items:center",
+        "padding:12px 0",
+        "border-bottom:1px solid #f0f0f0"
+      ],
+      "rows": [
+        {
+          "type": "text",
+          "value": "@global.c_battage",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-weight:600",
+            "color:#1e3656",
+            "font-size:14px",
+            "line-height:1.25",
+            "margin:0",
+            "min-width:0"
+          ],
+          "name": "text_1",
+          "_nested_name": "display_group_42.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.c_battage",
+                "matchedExpression": "@global.c_battage",
+                "type": "global",
+                "fieldName": "c_battage"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.c_battage": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "value": "@local.cout_battage DRM",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "color:#45c5b8",
+            "font-size:15px",
+            "font-weight:700",
+            "white-space:nowrap",
+            "margin:0"
+          ],
+          "name": "text_2",
+          "_nested_name": "display_group_42.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@local.cout_battage DRM",
+                "matchedExpression": "@local.cout_battage",
+                "type": "local",
+                "fieldName": "cout_battage"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.cout_battage": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_42",
+      "_nested_name": "display_group_42"
+    },
+    {
+      "type": "round_button",
+      "name": "retour",
+      "action_list": [
+        {
+          "trigger": "click",
+          "action_id": "set_field",
+          "args": [
+            "selected_cout_culture",
+            ""
+          ],
+          "_raw": "click | set_field: selected_cout_culture:"
+        },
+        {
+          "trigger": "click",
+          "action_id": "set_field",
+          "args": [
+            "selected_cout_culture_label",
+            ""
+          ],
+          "_raw": "click | set_field: selected_cout_culture_label:"
+        },
+        {
+          "trigger": "click",
+          "action_id": "set_field",
+          "args": [
+            "cout_transport",
+            ""
+          ],
+          "_raw": "click | set_field: cout_transport:"
+        },
+        {
+          "trigger": "click",
+          "action_id": "set_field",
+          "args": [
+            "cout_labour",
+            ""
+          ],
+          "_raw": "click | set_field: cout_labour:"
+        },
+        {
+          "trigger": "click",
+          "action_id": "set_field",
+          "args": [
+            "cout_buttage",
+            ""
+          ],
+          "_raw": "click | set_field: cout_buttage:"
+        },
+        {
+          "trigger": "click",
+          "action_id": "set_field",
+          "args": [
+            "cout_semence",
+            ""
+          ],
+          "_raw": "click | set_field: cout_semence:"
+        },
+        {
+          "trigger": "click",
+          "action_id": "set_field",
+          "args": [
+            "cout_desherbage",
+            ""
+          ],
+          "_raw": "click | set_field: cout_desherbage:"
+        },
+        {
+          "trigger": "click",
+          "action_id": "set_field",
+          "args": [
+            "cout_sarclage",
+            ""
+          ],
+          "_raw": "click | set_field: cout_sarclage:"
+        },
+        {
+          "trigger": "click",
+          "action_id": "set_field",
+          "args": [
+            "cout_fertilisant",
+            ""
+          ],
+          "_raw": "click | set_field: cout_fertilisant:"
+        },
+        {
+          "trigger": "click",
+          "action_id": "set_field",
+          "args": [
+            "cout_herbicide",
+            ""
+          ],
+          "_raw": "click | set_field: cout_herbicide:"
+        },
+        {
+          "trigger": "click",
+          "action_id": "set_field",
+          "args": [
+            "cout_recolte_prestation",
+            ""
+          ],
+          "_raw": "click | set_field: cout_recolte_prestation:"
+        },
+        {
+          "trigger": "click",
+          "action_id": "set_field",
+          "args": [
+            "cout_battage",
+            ""
+          ],
+          "_raw": "click | set_field: cout_battage:"
+        },
+        {
+          "trigger": "click",
+          "action_id": "set_field",
+          "args": [
+            "cout_total_culture",
+            ""
+          ],
+          "_raw": "click | set_field: cout_total_culture:"
+        },
+        {
+          "trigger": "click",
+          "action_id": "go_to",
+          "args": [
+            "cout_productions"
+          ],
+          "_raw": "click | go_to: cout_productions"
+        }
+      ],
+      "parameter_list": {
+        "icon_src": "arrow-back",
+        "variant": "no-background"
+      },
+      "style_list": [
+        "margin: 20px 16px"
+      ],
+      "_nested_name": "retour"
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/Evaluation/evaluation_form_sheets.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/1W7U2vmhWYnxS8Ooj3qbcz1pyHAeGUCVlxMIAHghKQFU"
+  }
+}

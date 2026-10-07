@@ -1,0 +1,68 @@
+{
+  "flow_type": "template",
+  "flow_name": "observation_photo",
+  "status": "released",
+  "rows": [
+    {
+      "type": "html",
+      "value": "<h2 style=\"color:#1e3656; text-align:center;\">@fields.selected_observation_culture</h2>",
+      "_translations": {
+        "value": {}
+      },
+      "name": "html_2",
+      "_nested_name": "html_2",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "<h2 style=\"color:#1e3656; text-align:center;\">@fields.selected_observation_culture</h2>",
+            "matchedExpression": "@fields.selected_observation_culture",
+            "type": "fields",
+            "fieldName": "selected_observation_culture"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.selected_observation_culture": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "value": "@fields.selected_observation_image",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width: 100%",
+        "max-width: 360px",
+        "display: block",
+        "margin: 16px auto",
+        "border-radius: 8px",
+        "object-fit: contain"
+      ],
+      "name": "image_3",
+      "_nested_name": "image_3",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.selected_observation_image",
+            "matchedExpression": "@fields.selected_observation_image",
+            "type": "fields",
+            "fieldName": "selected_observation_image"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.selected_observation_image": [
+          "value"
+        ]
+      }
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/Evaluation/evaluation_form_sheets.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/1W7U2vmhWYnxS8Ooj3qbcz1pyHAeGUCVlxMIAHghKQFU"
+  }
+}

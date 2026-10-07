@@ -162,16 +162,10 @@
     },
     {
       "type": "display_group",
-      "style_list": [
-        "width: 100%",
-        "padding: 10px",
-        "background: #f4f7fc",
-        "border-radius: 8px"
-      ],
       "rows": [
         {
           "type": "html",
-          "value": "<label font-weight: bold;\"><span style=\"color: red;\">*</span> Date de semis de <b>@fields.cult_princip</b> :</label>",
+          "value": "<label font-weight: bold;\"><span style=\"color: red;\">*</span> Date de semis de <b>@fields.cult_princip</b> </label>",
           "_translations": {
             "value": {}
           },
@@ -180,7 +174,7 @@
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "<label font-weight: bold;\"><span style=\"color: red;\">*</span> Date de semis de <b>@fields.cult_princip</b> :</label>",
+                "fullExpression": "<label font-weight: bold;\"><span style=\"color: red;\">*</span> Date de semis de <b>@fields.cult_princip</b> </label>",
                 "matchedExpression": "@fields.cult_princip",
                 "type": "fields",
                 "fieldName": "cult_princip"
@@ -209,6 +203,124 @@
       ],
       "name": "display_group_7",
       "_nested_name": "display_group_7"
+    },
+    {
+      "type": "data_items",
+      "value": "@data.cult_princip",
+      "parameter_list": {
+        "filter": "@item.name == @fields.cult_princip"
+      },
+      "rows": [
+        {
+          "type": "display_group",
+          "rows": [
+            {
+              "type": "image",
+              "value": "@item.image",
+              "_translations": {
+                "value": {}
+              },
+              "style_list": [
+                "width: 40%",
+                "object-fit: contain"
+              ],
+              "name": "image_1",
+              "_nested_name": "data_items_9.display_group_1_@item.id.image_1",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "@item.image",
+                    "matchedExpression": "@item.image",
+                    "type": "item",
+                    "fieldName": "image"
+                  }
+                ],
+                "_nested_name": [
+                  {
+                    "fullExpression": "data_items_9.display_group_1_@item.id.image_1",
+                    "matchedExpression": "@item.id.image_1",
+                    "type": "item",
+                    "fieldName": "id"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@item.image": [
+                  "value"
+                ],
+                "@item.id.image_1": [
+                  "_nested_name"
+                ]
+              }
+            }
+          ],
+          "name": "display_group_1_@item.id",
+          "_nested_name": "data_items_9.display_group_1_@item.id",
+          "_dynamicFields": {
+            "name": [
+              {
+                "fullExpression": "display_group_1_@item.id",
+                "matchedExpression": "@item.id",
+                "type": "item",
+                "fieldName": "id"
+              }
+            ],
+            "_nested_name": [
+              {
+                "fullExpression": "data_items_9.display_group_1_@item.id",
+                "matchedExpression": "@item.id",
+                "type": "item",
+                "fieldName": "id"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@item.id": [
+              "name",
+              "_nested_name"
+            ]
+          }
+        }
+      ],
+      "name": "data_items_9",
+      "_nested_name": "data_items_9",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@data.cult_princip",
+            "matchedExpression": "@data.cult_princip",
+            "type": "data",
+            "fieldName": "cult_princip"
+          }
+        ],
+        "parameter_list": {
+          "filter": [
+            {
+              "fullExpression": "@item.name == @fields.cult_princip",
+              "matchedExpression": "@item.name",
+              "type": "item",
+              "fieldName": "name"
+            },
+            {
+              "fullExpression": "@item.name == @fields.cult_princip",
+              "matchedExpression": "@fields.cult_princip",
+              "type": "fields",
+              "fieldName": "cult_princip"
+            }
+          ]
+        }
+      },
+      "_dynamicDependencies": {
+        "@data.cult_princip": [
+          "value"
+        ],
+        "@item.name": [
+          "parameter_list.filter"
+        ],
+        "@fields.cult_princip": [
+          "parameter_list.filter"
+        ]
+      }
     },
     {
       "type": "date_time_picker",
@@ -287,16 +399,16 @@
       "rows": [
         {
           "type": "html",
-          "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Quantité de semence de @fields.cult_princip (en kg) :</label",
+          "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Quantité de semence de @fields.cult_princip (en kg) </label",
           "_translations": {
             "value": {}
           },
           "name": "html_1",
-          "_nested_name": "display_group_11.html_1",
+          "_nested_name": "display_group_13.html_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Quantité de semence de @fields.cult_princip (en kg) :</label",
+                "fullExpression": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Quantité de semence de @fields.cult_princip (en kg) </label",
                 "matchedExpression": "@fields.cult_princip",
                 "type": "fields",
                 "fieldName": "cult_princip"
@@ -317,11 +429,11 @@
             "src": "audio/Superficie/q_semence_fr.mp3",
             "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
-          "_nested_name": "display_group_11.audio_9_2"
+          "_nested_name": "display_group_13.audio_9_2"
         }
       ],
-      "name": "display_group_11",
-      "_nested_name": "display_group_11"
+      "name": "display_group_13",
+      "_nested_name": "display_group_13"
     },
     {
       "type": "image",
@@ -330,13 +442,11 @@
         "value": {}
       },
       "style_list": [
-        "width:100px",
-        "height:100px",
-        "object-fit:contain",
-        "flex-shrink:0"
+        "width:30%",
+        "object-fit:contain"
       ],
-      "name": "image_13",
-      "_nested_name": "image_13"
+      "name": "image_15",
+      "_nested_name": "image_15"
     },
     {
       "type": "html",
@@ -344,8 +454,8 @@
       "_translations": {
         "value": {}
       },
-      "name": "html_14",
-      "_nested_name": "html_14",
+      "name": "html_16",
+      "_nested_name": "html_16",
       "_dynamicFields": {
         "value": [
           {
@@ -491,8 +601,8 @@
         "value": {}
       },
       "condition": "!!@fields.quantite_semence && !@local.valid_qte",
-      "name": "html_18",
-      "_nested_name": "html_18",
+      "name": "html_20",
+      "_nested_name": "html_20",
       "_dynamicFields": {
         "condition": [
           {
@@ -543,7 +653,7 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "display_group_19.page9_button_back"
+          "_nested_name": "display_group_21.page9_button_back"
         },
         {
           "type": "button",
@@ -595,7 +705,7 @@
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "display_group_19.page9_button_continue",
+          "_nested_name": "display_group_21.page9_button_continue",
           "_dynamicFields": {
             "action_list": {
               "0": {
@@ -717,13 +827,13 @@
           }
         }
       ],
-      "name": "display_group_19",
-      "_nested_name": "display_group_19"
+      "name": "display_group_21",
+      "_nested_name": "display_group_21"
     }
   ],
   "_source": {
     "name": "cef_m sheets",
-    "path": "template/superficie_champs_form_sheets.xlsx",
+    "path": "template/Suivi/superficie_champs_form_sheets.xlsx",
     "url": "https://docs.google.com/spreadsheets/d/1Za6KnU73iDgbTARvf6JCQo0vJb_EkTgiHEyZUJdNgXs"
   }
 }

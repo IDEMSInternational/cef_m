@@ -65,6 +65,10 @@
       "value": "@calc(!!@field.sec_ids_agriculture || !!@field.sec_ids_elevage || !!@field.sec_ids_commerce || !!@field.sec_ids_maraichage || !!@field.sec_ids_autre1)"
     },
     {
+      "name": "activite_sec",
+      "value": "@calc(@field.sec_ids_agriculture || @field.sec_ids_elevage || @field.sec_ids_commerce || @field.sec_ids_maraichage || @field.sec_ids_autre1)"
+    },
+    {
       "name": "v_is_autre",
       "value": "@calc(!!@field.sec_ids_autre1)"
     },
@@ -188,7 +192,7 @@
       "type": "button",
       "name": "button_completed",
       "value": "@global.btn_continue",
-      "action_list": "click | emit: completed",
+      "action_list": "click | set_field :activite_sec : @local.activite_sec\nclick | emit: completed",
       "parameter_list": "disabled: !@local.completed_enabled",
       "style_list": "flex: 1"
     },

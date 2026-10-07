@@ -13,13 +13,58 @@
     },
     {
       "type": "begin_display_group",
-      "style_list": "display: flex; justify-content: center; align-items: center; width: 100%; padding: 10px;"
+      "parameter_list": "style: column"
     },
     {
-      "type": "radio_button_grid",
-      "name": "section_step",
-      "value": "@fields.section_step",
-      "parameter_list": "answer_list: @data.differrentes_sections; style: secondary; item_width: 180px; grid_gap: 12px;"
+      "type": "begin_display_group",
+      "style_list": "display: flex; justify-content: center; align-items: center; width: 100%; flex-direction: column; margin-top: 10px;"
+    },
+    {
+      "type": "begin_button",
+      "value": "PLANIFICATION ",
+      "action_list": "click | go_to: planification_anl",
+      "parameter_list": "variant: card-portrait; image_asset: images/agri.jpg; style: full;\nimage_width: 100%;",
+      "style_list": "font-size: 10px; text-align: center;"
+    },
+    {
+      "type": "end_button"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "style_list": "display: flex; justify-content: center; align-items: center; width: 100%; flex-direction: column; margin-top: 10px;"
+    },
+    {
+      "type": "begin_button",
+      "value": "SUIVI DE CAMPAGNE",
+      "action_list": "click | go_to: suivi_anl",
+      "parameter_list": "variant: card-portrait; image_asset: images/cultures.jpg; style: full;\nimage_width: 100%;",
+      "style_list": "font-size: 10px; text-align: center;"
+    },
+    {
+      "type": "end_button"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "style_list": "display: flex; justify-content: center; align-items: center; width: 100%; flex-direction: column; margin-top: 10px;"
+    },
+    {
+      "type": "begin_button",
+      "value": "EVALUATION ",
+      "action_list": "click | go_to: auth",
+      "parameter_list": "variant: card-portrait; image_asset: images/statisque _img.avif; style: full;\nimage_width: 100%;",
+      "style_list": "font-size: 10px; text-align: center;"
+    },
+    {
+      "type": "end_button"
+    },
+    {
+      "type": "end_display_group"
     },
     {
       "type": "end_display_group"
@@ -28,32 +73,6 @@
       "type": "html",
       "value": "<span style=\"color: red; font-size: 13px; text-align: center; display: block;\">Veuillez faire un choix pour continuer !</span>\t",
       "condition": "@fields.attempt_submit && !@fields.section_step"
-    },
-    {
-      "type": "begin_display_group"
-    },
-    {
-      "type": "button",
-      "value": "Continuer",
-      "action_list": "click | set_field: section_step : @local.section_step;\nclick | go_to: planification_anl",
-      "condition": "@local.section_step == 'planification'",
-      "style_list": "flex: 1; border-radius: 8px; font-weight: bold;"
-    },
-    {
-      "type": "button",
-      "value": "Continuer",
-      "action_list": "click | set_field: section_step : @local.section_step;\n\nclick | go_to: suivi_anl",
-      "condition": "@local.section_step == 'suivi'",
-      "style_list": "flex: 1; border-radius: 8px; font-weight: bold;"
-    },
-    {
-      "type": "button",
-      "value": "Continuer",
-      "action_list": "click | set_field: section_step : @local.section_step;\n\nclick | go_to: auth",
-      "condition": "@local.section_step == 'evaluation'"
-    },
-    {
-      "type": "end_display_group"
     }
   ]
 }

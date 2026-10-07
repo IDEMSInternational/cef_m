@@ -4,12 +4,24 @@
   "status": "released",
   "rows": [
     {
+      "name": "cult_princip_display",
+      "value": "@calc(@fields.cult_princip || '')"
+    },
+    {
+      "name": "association_current ",
+      "value": "@calc(@fields.association_oui_non || @fields['association_parcelle_N' + @fields.num_parcelle] || '')"
+    },
+    {
+      "name": "cult_asso_display",
+      "value": "@calc(@fields['cult_asso_selected_parcelle_N' + @fields.num_parcelle] || @fields.cult_asso_selected || @fields.cult_asso || '')"
+    },
+    {
       "name": "valid_prod_cult1",
-      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@fields.production_parcelle_culture1) && Number(@fields.production_parcelle_culture1) >= 0)"
+      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@fields.production_parcelle_culture1 || '') && Number(@fields.production_parcelle_culture1) >= 0)"
     },
     {
       "name": "valid_prod_cult2",
-      "value": "@calc(!@fields.association || @fields.association !== 'oui' || (/^\\d+(\\.\\d+)?$/.test(@fields.production_parcelle_culture2) && Number(@fields.production_parcelle_culture2) >= 0))"
+      "value": "@calc(@local.association_current !== 'oui' || (/^\\d+(\\.\\d+)?$/.test(@fields.production_parcelle_culture2 || '') && Number(@fields.production_parcelle_culture2) >= 0))\n"
     },
     {
       "name": "completed_enabled",
@@ -65,16 +77,15 @@
     },
     {
       "type": "begin_display_group",
-      "condition": "@fields.on_production_info == 'oui' && @fields.culture == 'coton'",
-      "style_list": "display: block; width: 100%; margin-top: 20px; border-top: 1px dashed #cbd5e0; padding-top: 15px;"
+      "condition": "@fields.on_production_info == 'oui'",
+      "style_list": "display: block; width: 100%; margin-top: 15px; padding: 12px; "
     },
     {
-      "type": "begin_display_group",
-      "style_list": "display: flex; align-items: center; grid_gap: 12px; margin-bottom: 8px;"
+      "type": "begin_display_group"
     },
     {
       "type": "html",
-      "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Production de @fields.culture_label (en kg) :</label>"
+      "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Production de @local.cult_princip_display (en kg) :</label>"
     },
     {
       "type": "audio",
@@ -82,12 +93,12 @@
       "parameter_list": "variant: button_only;\nsrc: audio/Superficie/pro_cult_prim_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n"
     },
     {
-      "type": "image",
-      "value": "images/kg.jpg",
-      "style_list": "width: 50px; height: 50px; object-fit: contain; flex-shrink: 0;"
+      "type": "end_display_group"
     },
     {
-      "type": "end_display_group"
+      "type": "image",
+      "value": "images/kg.jpg",
+      "style_list": "width: 50%; object-fit: contain;"
     },
     {
       "type": "text_box",
@@ -105,15 +116,15 @@
     },
     {
       "type": "begin_display_group",
-      "condition": "@fields.on_production_info == 'oui' && @fields.association_oui_non\n == 'oui'",
-      "style_list": "display: block; width: 100%; margin-top: 15px; background: #f8f9fa; padding: 12px;"
+      "condition": "@fields.on_production_info == 'oui' && @local.association_current == 'oui'",
+      "style_list": "display: block; width: 100%; margin-top: 15px; padding: 12px; "
     },
     {
       "type": "begin_display_group"
     },
     {
       "type": "html",
-      "value": "<span style=\"font-size: 20px; color: #1e3656; font-weight: bold;\">Production de la culture associée @fields.nom_culture_associee (en kg)</span>"
+      "value": "<span style=\"font-size: 20px; color: #1e3656; font-weight: bold;\">Production de la culture associée @field.cult_asso_selected(en kg)</span>"
     },
     {
       "type": "audio",
@@ -126,7 +137,7 @@
     {
       "type": "image",
       "value": "images/kg.jpg",
-      "style_list": "width: 50px; height: 50px; object-fit: contain; flex-shrink: 0;"
+      "style_list": "width: 50%; object-fit: contain;"
     },
     {
       "type": "text_box",

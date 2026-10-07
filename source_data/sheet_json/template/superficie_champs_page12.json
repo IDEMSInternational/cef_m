@@ -32,8 +32,7 @@
       "value": "**Quantité d'engrais minéraux dans la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**"
     },
     {
-      "type": "begin_display_group",
-      "style_list": "display: block; width: 100%; margin-top: 10px; padding: 10px; background: #f4f7fc;"
+      "type": "begin_display_group"
     },
     {
       "type": "html",
@@ -66,7 +65,7 @@
     },
     {
       "type": "html",
-      "value": "<span style=\"color: red; font-size: 13px;\">La sélection est obligatoire !</span>",
+      "value": "<span style=\"color: red; font-size: 17px;\">La sélection est obligatoire !</span>",
       "condition": "@fields.attempt_submit_p13 && !@fields.on_fertilisant_info"
     },
     {
@@ -76,7 +75,7 @@
     },
     {
       "type": "html",
-      "value": "<p style=\"margin: 0; color: #856404; font-size: 13px; line-height: 1.4; font-weight: 500;\">VEUILLEZ CONTINUER. Cependant, vous devez revenir renseigner les quantités des engrais minéraux dès que l'information sera disponible.</p>"
+      "value": "<p style=\"margin: 0; color: #856404; font-size: 17px; line-height: 1.4; font-weight: 500;\">VEUILLEZ CONTINUER. Cependant, vous devez revenir renseigner les quantités des engrais minéraux dès que l'information sera disponible.</p>"
     },
     {
       "type": "end_display_group"
@@ -87,11 +86,11 @@
     },
     {
       "type": "begin_display_group",
-      "style_list": "display: flex; align-items: center; grid_gap: 12px; margin-bottom: 8px;"
+      "style_list": "display: block; width: 100%; margin-top: 10px; padding: 10px;\n"
     },
     {
       "type": "html",
-      "value": "<span style=\"font-size: 13px; color: #1e3656; font-weight: bold;\">Complexe Coton 14-18-18 (sacs de 50kg)</span>"
+      "value": "<span style=\"font-size: 17px; color: #1e3656; font-weight: bold;\">Complexe Coton 14-18-18 (sacs de 50kg)</span>"
     },
     {
       "type": "audio",
@@ -99,12 +98,12 @@
       "parameter_list": "variant: button_only;\nsrc: audio/Superficie/qte_npk_coton_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n"
     },
     {
-      "type": "image",
-      "value": "images/sac.jpg",
-      "style_list": "width: 80%; object-fit: contain;\n\n"
+      "type": "end_display_group"
     },
     {
-      "type": "end_display_group"
+      "type": "image",
+      "value": "images/sac.jpg",
+      "style_list": "width: 50%; object-fit: contain;\n\n"
     },
     {
       "type": "end_display_group"
@@ -119,21 +118,20 @@
     },
     {
       "type": "html",
-      "value": "<span style=\"color: red; font-size: 13px;\">Veuillez entrer une quantité valide (nombre positif ou 0) !</span>",
+      "value": "<span style=\"color: red; font-size: 17px;\">Veuillez entrer une quantité valide (nombre positif ou 0) !</span>",
       "condition": "@fields.attempt_submit_p13 && !@local.valid_npk_coton"
     },
     {
       "type": "begin_display_group",
       "condition": "@fields.on_fertilisant_info == 'oui' && @fields.culture != 'coton'",
-      "style_list": "display: block; width: 100%; margin-top: 20px; "
+      "style_list": "display: block; width: 100%; margin-top: 10px; padding: 10px;"
     },
     {
-      "type": "begin_display_group",
-      "style_list": "display: flex; align-items: center; grid_gap: 12px; margin-bottom: 8px;"
+      "type": "begin_display_group"
     },
     {
       "type": "html",
-      "value": "<span style=\"font-size: 13px; color: #1e3656; font-weight: bold;\">Complexe Céréale NPK (sacs de 50kg)</span>"
+      "value": "<span style=\"color: red;\">*</span><span style=\"font-size: 17px; color: #1e3656; font-weight: bold;\">Complexe Céréale NPK (sacs de 50kg)</span>"
     },
     {
       "type": "audio",
@@ -141,12 +139,12 @@
       "parameter_list": "variant: button_only;\nsrc: audio/Superficie/qte_npk_15_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n"
     },
     {
+      "type": "end_display_group"
+    },
+    {
       "type": "image",
       "value": "images/sac.jpg",
       "style_list": "width: 50%; object-fit: contain;\n\n\n"
-    },
-    {
-      "type": "end_display_group"
     },
     {
       "type": "end_display_group"
@@ -161,21 +159,20 @@
     },
     {
       "type": "html",
-      "value": "<span style=\"color: red; font-size: 13px;\">Veuillez entrer une quantité valide (nombre positif ou 0) !</span>",
+      "value": "<span style=\"color: red; font-size: 17px;\">Veuillez entrer une quantité valide (nombre positif ou 0) !</span>",
       "condition": "@fields.attempt_submit_p13 && !@local.valid_npk_cerealeTRUE"
     },
     {
       "type": "begin_display_group",
       "condition": "@fields.on_fertilisant_info == 'oui'",
-      "style_list": "display: block; width: 100%; margin-top: 15px;padding: 12px; border-radius: 8px;"
+      "style_list": "display: block; width: 100%; margin-top: 10px; padding: 10px;"
     },
     {
-      "type": "begin_display_group",
-      "style_list": "display: flex; align-items: center; grid_gap: 12px; margin-bottom: 8px;"
+      "type": "begin_display_group"
     },
     {
       "type": "html",
-      "value": "<span style=\"font-size: 13px; color: #1e3656; font-weight: bold;\">Urée (sacs de 50kg)</span>"
+      "value": "<span style=\"color: red;\">*</span><span style=\"font-size: 17px; color: #1e3656; font-weight: bold;\">Urée (sacs de 50kg)</span>"
     },
     {
       "type": "audio",
@@ -183,12 +180,12 @@
       "parameter_list": "variant: button_only;\nsrc: audio/Superficie/qte_uree_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n"
     },
     {
+      "type": "end_display_group"
+    },
+    {
       "type": "image",
       "value": "images/sac.jpg",
       "style_list": "width: 50%; object-fit: contain;\n\n\n"
-    },
-    {
-      "type": "end_display_group"
     },
     {
       "type": "end_display_group"
@@ -203,17 +200,17 @@
     },
     {
       "type": "html",
-      "value": "<span style=\"color: red; font-size: 13px;\">Veuillez entrer une quantité valide (nombre positif ou 0) !</span>",
+      "value": "<span style=\"color: red; font-size: 17px;\">Veuillez entrer une quantité valide (nombre positif ou 0) !</span>",
       "condition": "@fields.attempt_submit_p13 && !@local.valid_uree"
     },
     {
       "type": "begin_display_group",
       "condition": "@fields.on_fertilisant_info == 'oui' && @fields.culture == 'riz'",
-      "style_list": "display: block; width: 100%; margin-top: 15px; padding: 12px;"
+      "style_list": "display: block; width: 100%; margin-top: 10px; padding: 10px;\n"
     },
     {
       "type": "begin_display_group",
-      "style_list": "display: flex; align-items: center; grid_gap: 12px; margin-bottom: 8px;"
+      "style_list": "\n"
     },
     {
       "type": "html",
@@ -225,12 +222,12 @@
       "parameter_list": "variant: button_only;\nsrc: audio/Superficie/qte_dap_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n"
     },
     {
+      "type": "end_display_group"
+    },
+    {
       "type": "image",
       "value": "images/sac.jpg",
       "style_list": "width: 50%; object-fit: contain;\n\n"
-    },
-    {
-      "type": "end_display_group"
     },
     {
       "type": "end_display_group"
@@ -245,17 +242,17 @@
     },
     {
       "type": "html",
-      "value": "<span style=\"color: red; font-size: 13px;\">Veuillez entrer une quantité valide (nombre positif ou 0) !</span>",
+      "value": "<span style=\"color: red; font-size: 12px;\">Veuillez entrer une quantité valide (nombre positif ou 0) !</span>",
       "style_list": "@fields.attempt_submit_p13 && !@local.valid_dap"
     },
     {
       "type": "begin_display_group",
       "condition": "@fields.on_fertilisant_info == 'oui'",
-      "style_list": "display: block; width: 100%; margin-top: 20px; padding-top: 15px;"
+      "style_list": "display: block; width: 100%; margin-top: 10px; padding: 10px;\n"
     },
     {
       "type": "html",
-      "value": "<label style=\"color: #1e3656; font-weight: bold;\">Un autre type d'engrais a-t-il été apporté ?</label>"
+      "value": "<span style=\"color: red;\">*</span><label style=\"color: #1e3656; font-size: 17px;font-weight: bold;\">Un autre type d'engrais a-t-il été apporté ?</label>"
     },
     {
       "type": "audio",
@@ -278,7 +275,7 @@
     },
     {
       "type": "html",
-      "value": "<span style=\"color: red; font-size: 13px;\">La sélection est obligatoire !</span>",
+      "value": "<span style=\"color: red; font-size: 17px;\">La sélection est obligatoire !</span>",
       "condition": "@fields.attempt_submit_p13 && !@fields.autre_engrais_mineral"
     },
     {
@@ -287,11 +284,11 @@
     {
       "type": "begin_display_group",
       "condition": "@fields.on_fertilisant_info == 'oui' && @fields.autre_engrais_mineral == 'oui'",
-      "style_list": "display: block; width: 100%; margin-top: 12px; padding: 12px;"
+      "style_list": "display: block; width: 100%; margin-top: 10px; padding: 10px;\n\n"
     },
     {
       "type": "html",
-      "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Nom de l'autre engrais :</label>"
+      "value": "<label style=\"color: #1e3656;font-size: 17px ;font-weight: bold;\"><span style=\"color: red;\">*</span> Nom de l'autre engrais :</label>"
     },
     {
       "type": "audio",
@@ -312,11 +309,11 @@
     {
       "type": "begin_display_group",
       "condition": "@fields.on_fertilisant_info == 'oui' && @fields.autre_engrais_mineral == 'oui'",
-      "style_list": "display: block; width: 100%; margin-top: 12px; padding: 12px;"
+      "style_list": "display: block; width: 100%; margin-top: 10px; padding: 10px;\n\n"
     },
     {
       "type": "html",
-      "value": "<label style=\"color: #1e3656; font-weight: bold; margin-top: 12px; display: block;\"><span style=\"color: red;\">*</span> Quantité apportée (sacs de 50kg) :</label>"
+      "value": "<label style=\"color: #1e3656; font-weight: bold;font-size: 17px;margin-top: 12px; display: block;\"><span style=\"color: red;\">*</span> Quantité apportée (sacs de 50kg) :</label>"
     },
     {
       "type": "audio",
@@ -336,7 +333,7 @@
     },
     {
       "type": "html",
-      "value": "<span style=\"color: red; font-size: 13px;\">Veuillez entrer une quantité valide (nombre positif ou 0) !</span>\n",
+      "value": "<span style=\"color: red; font-size: 12px;\">Veuillez entrer une quantité valide (nombre positif ou 0) !</span>\n",
       "condition": "@fields.attempt_submit_p13 && (!@fields.quantite_autre_engrais || !/^\\d+(\\.\\d+)?$/.test(@fields.quantite_autre_engrais))"
     },
     {

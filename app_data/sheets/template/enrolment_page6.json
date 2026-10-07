@@ -346,6 +346,75 @@
       }
     },
     {
+      "name": "activite_sec",
+      "value": "@calc(@field.sec_ids_agriculture || @field.sec_ids_elevage || @field.sec_ids_commerce || @field.sec_ids_maraichage || @field.sec_ids_autre1)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "activite_sec",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(@field.sec_ids_agriculture || @field.sec_ids_elevage || @field.sec_ids_commerce || @field.sec_ids_maraichage || @field.sec_ids_autre1)",
+            "matchedExpression": "@field.sec_ids_agriculture",
+            "type": "field",
+            "fieldName": "sec_ids_agriculture"
+          },
+          {
+            "fullExpression": "@calc(@field.sec_ids_agriculture || @field.sec_ids_elevage || @field.sec_ids_commerce || @field.sec_ids_maraichage || @field.sec_ids_autre1)",
+            "matchedExpression": "@field.sec_ids_elevage",
+            "type": "field",
+            "fieldName": "sec_ids_elevage"
+          },
+          {
+            "fullExpression": "@calc(@field.sec_ids_agriculture || @field.sec_ids_elevage || @field.sec_ids_commerce || @field.sec_ids_maraichage || @field.sec_ids_autre1)",
+            "matchedExpression": "@field.sec_ids_commerce",
+            "type": "field",
+            "fieldName": "sec_ids_commerce"
+          },
+          {
+            "fullExpression": "@calc(@field.sec_ids_agriculture || @field.sec_ids_elevage || @field.sec_ids_commerce || @field.sec_ids_maraichage || @field.sec_ids_autre1)",
+            "matchedExpression": "@field.sec_ids_maraichage",
+            "type": "field",
+            "fieldName": "sec_ids_maraichage"
+          },
+          {
+            "fullExpression": "@calc(@field.sec_ids_agriculture || @field.sec_ids_elevage || @field.sec_ids_commerce || @field.sec_ids_maraichage || @field.sec_ids_autre1)",
+            "matchedExpression": "@field.sec_ids_autre1",
+            "type": "field",
+            "fieldName": "sec_ids_autre1"
+          },
+          {
+            "fullExpression": "@calc(@field.sec_ids_agriculture || @field.sec_ids_elevage || @field.sec_ids_commerce || @field.sec_ids_maraichage || @field.sec_ids_autre1)",
+            "matchedExpression": "@calc(@field.sec_ids_agriculture || @field.sec_ids_elevage || @field.sec_ids_commerce || @field.sec_ids_maraichage || @field.sec_ids_autre1)",
+            "type": "calc",
+            "fieldName": "@field.sec_ids_agriculture || @field.sec_ids_elevage || @field.sec_ids_commerce || @field.sec_ids_maraichage || @field.sec_ids_autre1"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.sec_ids_agriculture": [
+          "value"
+        ],
+        "@field.sec_ids_elevage": [
+          "value"
+        ],
+        "@field.sec_ids_commerce": [
+          "value"
+        ],
+        "@field.sec_ids_maraichage": [
+          "value"
+        ],
+        "@field.sec_ids_autre1": [
+          "value"
+        ],
+        "@calc(@field.sec_ids_agriculture || @field.sec_ids_elevage || @field.sec_ids_commerce || @field.sec_ids_maraichage || @field.sec_ids_autre1)": [
+          "value"
+        ]
+      }
+    },
+    {
       "name": "v_is_autre",
       "value": "@calc(!!@field.sec_ids_autre1)",
       "_translations": {
@@ -389,8 +458,8 @@
         "color: orange",
         "font-size: 12px"
       ],
-      "name": "text_9",
-      "_nested_name": "text_9",
+      "name": "text_10",
+      "_nested_name": "text_10",
       "_dynamicFields": {
         "condition": [
           {
@@ -745,7 +814,7 @@
             "background: transparent",
             "margin-top: 10px"
           ],
-          "_nested_name": "display_group_16.box_autre_2",
+          "_nested_name": "display_group_17.box_autre_2",
           "_dynamicFields": {
             "value": [
               {
@@ -774,7 +843,7 @@
             "font-size: 12px"
           ],
           "name": "text_2",
-          "_nested_name": "display_group_16.text_2",
+          "_nested_name": "display_group_17.text_2",
           "_dynamicFields": {
             "condition": [
               {
@@ -803,7 +872,7 @@
             "font-size: 12px"
           ],
           "name": "text_3",
-          "_nested_name": "display_group_16.text_3",
+          "_nested_name": "display_group_17.text_3",
           "_dynamicFields": {
             "condition": [
               {
@@ -853,7 +922,7 @@
             "display: flex",
             "margin-bottom: 12px"
           ],
-          "_nested_name": "display_group_16.btn_add",
+          "_nested_name": "display_group_17.btn_add",
           "_dynamicFields": {
             "condition": [
               {
@@ -915,7 +984,7 @@
             "background: transparent",
             "margin-top: 10px"
           ],
-          "_nested_name": "display_group_16.box_autre_3",
+          "_nested_name": "display_group_17.box_autre_3",
           "_dynamicFields": {
             "value": [
               {
@@ -955,7 +1024,7 @@
             "font-size: 12px"
           ],
           "name": "text_6",
-          "_nested_name": "display_group_16.text_6",
+          "_nested_name": "display_group_17.text_6",
           "_dynamicFields": {
             "condition": [
               {
@@ -984,7 +1053,7 @@
             "font-size: 12px"
           ],
           "name": "text_7",
-          "_nested_name": "display_group_16.text_7",
+          "_nested_name": "display_group_17.text_7",
           "_dynamicFields": {
             "condition": [
               {
@@ -1002,8 +1071,8 @@
           }
         }
       ],
-      "name": "display_group_16",
-      "_nested_name": "display_group_16",
+      "name": "display_group_17",
+      "_nested_name": "display_group_17",
       "_dynamicFields": {
         "condition": [
           {
@@ -1101,11 +1170,15 @@
           "action_list": [
             {
               "trigger": "click",
-              "action_id": "emit",
+              "action_id": "set_field",
               "args": [
-                "completed"
+                "activite_sec",
+                "@local.activite_sec\nclick"
               ],
-              "_raw": "click | emit: completed"
+              "_raw": "click | set_field :activite_sec : @local.activite_sec\nclick | emit: completed",
+              "params": {
+                "emit": "completed"
+              }
             }
           ],
           "parameter_list": {
@@ -1124,6 +1197,28 @@
                 "fieldName": "btn_continue"
               }
             ],
+            "action_list": {
+              "0": {
+                "args": {
+                  "1": [
+                    {
+                      "fullExpression": "@local.activite_sec\nclick",
+                      "matchedExpression": "@local.activite_sec",
+                      "type": "local",
+                      "fieldName": "activite_sec"
+                    }
+                  ]
+                },
+                "_raw": [
+                  {
+                    "fullExpression": "click | set_field :activite_sec : @local.activite_sec\nclick | emit: completed",
+                    "matchedExpression": "@local.activite_sec",
+                    "type": "local",
+                    "fieldName": "activite_sec"
+                  }
+                ]
+              }
+            },
             "parameter_list": {
               "disabled": [
                 {
@@ -1139,6 +1234,10 @@
             "@global.btn_continue": [
               "value"
             ],
+            "@local.activite_sec": [
+              "action_list.0.args.1",
+              "action_list.0._raw"
+            ],
             "!@local.completed_enabled": [
               "parameter_list.disabled"
             ]
@@ -1150,7 +1249,7 @@
   ],
   "_source": {
     "name": "cef_m sheets",
-    "path": "template/Enrolment_form_sheets.xlsx",
+    "path": "template/Planification/enrolment_form_sheets.xlsx",
     "url": "https://docs.google.com/spreadsheets/d/1mR9iAG_wjGK0G39YVxIlwlGFILSbgZvCqESHTMNXNgA"
   }
 }

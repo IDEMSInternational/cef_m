@@ -1,0 +1,148 @@
+{
+  "flow_type": "template",
+  "flow_name": "rendement",
+  "status": "released",
+  "rows": [
+    {
+      "name": "choix_annee",
+      "value": "@calc(String(@local.selected_year || '').trim() === '')"
+    },
+    {
+      "name": "aff_data",
+      "value": "@calc(String(@local.selected_year || '').trim() !== '')"
+    },
+    {
+      "name": "selected_year",
+      "value": "@calc(String(@fields.selected_rendement_year || '').slice(0, 4))"
+    },
+    {
+      "name": "selected_recolte_id",
+      "value": "@calc(((Object.values(@data.recolte || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.year || '') === String(@local.selected_year)) || {}).id || ''))"
+    },
+    {
+      "name": "has_rendements",
+      "value": "@calc(Object.values(@data.recolte_culture || {}).some(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.recolte_id || '').trim() === String(@local.selected_recolte_id || '').trim()))"
+    },
+    {
+      "type": "begin_template",
+      "value": "evaluation_page_entete"
+    },
+    {
+      "name": "page_id",
+      "value": "rendement"
+    },
+    {
+      "type": "end_template"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "value": "@global.choix_annee_text"
+    },
+    {
+      "type": "begin_display_group",
+      "style_list": "display: flex; align-items: center; gap: 10px; justify-content: center; margin-bottom: 20px;"
+    },
+    {
+      "type": "date_time_picker",
+      "name": "selected_production_year",
+      "value": "@fields.selected_rendement_year ",
+      "action_list": "changed | set_field: selected_rendement_year : this.value;",
+      "parameter_list": "type: year; min: 2023; max: @calc(now());\n\n",
+      "style_list": "flex: 1; max-width: 300px;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@local.aff_data",
+      "style_list": "width: 100%; padding: 0 12px;"
+    },
+    {
+      "type": "begin_data_items",
+      "value": "@data.recolte_culture",
+      "parameter_list": "filter: String(@item.upa_code || '') === String(@fields.upa_code) && String(@item.recolte_id || '').trim() === String(@local.selected_recolte_id || '').trim()",
+      "style_list": "display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; width: 100%;"
+    },
+    {
+      "type": "begin_display_group",
+      "style_list": "display: flex; flex-direction: column; align-items: center; justify-content: center; background: #fbfbf9; padding: 12px;"
+    },
+    {
+      "type": "image",
+      "value": "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@item.culture_id || '').toLowerCase().trim()) ? 'images/' + @item.culture_id + '.jpg' : 'images/autre.jpeg')",
+      "style_list": "width: 54px; height: 54px; object-fit: contain; margin-bottom: 8px;"
+    },
+    {
+      "type": "begin_display_group",
+      "style_list": "display: flex; flex-direction: column; align-items: center; text-align: center;"
+    },
+    {
+      "name": "superficie_item",
+      "value": "@calc(Object.values(@data.parcelles || {}).filter(p => String(p.upa_code || '') === String(@fields.upa_code) && String(p.crop_id || '').trim().toLowerCase() === String(@item.culture_id || '').trim().toLowerCase() && !!Object.values(@data.champ || {}).find(c => String(c.id || '').trim() === String(p.champ_id || '').trim() && String(c.upa_code || '') === String(@fields.upa_code) && String(c.year || '') === String(@local.selected_year))).reduce((total, p) => total + Number(String(p.superficie_measuree || 0).replace(',', '.')), 0))"
+    },
+    {
+      "name": "rendement_item",
+      "value": "@calc(Number(String(@local.superficie_item || 0).replace(',', '.')) > 0 ? Math.round(Number(String(@item.production || 0).replace(',', '.')) / Number(String(@local.superficie_item || 0).replace(',', '.'))) : 0)"
+    },
+    {
+      "type": "text",
+      "value": "@item.culture_id",
+      "style_list": "font-weight: bold; font-size: 15px; color: #1e3656; text-transform: capitalize;"
+    },
+    {
+      "type": "text",
+      "value": "@local.rendement_item kg/ha",
+      "style_list": "font-weight: bold; font-size: 16px; color: #000000;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "end_data_items"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "!@local.has_rendements && @local.aff_data ",
+      "style_list": "padding: 22px 16px; margin: 10px 12px; background: #fff7ed;text-align: center;"
+    },
+    {
+      "type": "text",
+      "value": "@global.no_data_text",
+      "style_list": "color: #9a3412; font-weight: 700; font-size: 15px;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@local.choix_annee ",
+      "style_list": "padding: 22px 16px; margin: 10px 12px; background: #ffffff;text-align: center;"
+    },
+    {
+      "type": "text",
+      "value": "@global.choice_year",
+      "style_list": "color: red; font-weight: 700; font-size: 15px;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "navigation_bar",
+      "parameter_list": "button_list: @data.footer;\n",
+      "style_list": "position: fixed; bottom: 0; left: 0; box-sizing: border-box; "
+    }
+  ]
+}

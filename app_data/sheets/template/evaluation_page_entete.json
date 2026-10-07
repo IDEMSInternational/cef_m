@@ -1,0 +1,208 @@
+{
+  "flow_type": "template",
+  "flow_name": "evaluation_page_entete",
+  "status": "released",
+  "rows": [
+    {
+      "name": "page_id",
+      "value": "id",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "page_id"
+    },
+    {
+      "name": "image_path",
+      "type": "set_variable",
+      "_nested_name": "image_path"
+    },
+    {
+      "name": "title",
+      "type": "set_variable",
+      "_nested_name": "title"
+    },
+    {
+      "name": "background_colour",
+      "type": "set_variable",
+      "_nested_name": "background_colour"
+    },
+    {
+      "type": "data_items",
+      "name": "pick_values",
+      "value": "@data.evaluation_pages",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "data_changed",
+          "action_id": "set_local",
+          "args": [
+            "image_path",
+            "@items[0]?.image_path"
+          ],
+          "_raw": "data_changed | set_local: image_path: @items[0]?.image_path"
+        },
+        {
+          "trigger": "data_changed",
+          "action_id": "set_local",
+          "args": [
+            "title",
+            "@items[0]?.page_title"
+          ],
+          "_raw": "data_changed | set_local: title: @items[0]?.page_title"
+        },
+        {
+          "trigger": "data_changed",
+          "action_id": "set_local",
+          "args": [
+            "background_colour",
+            "@items[0]?.colour"
+          ],
+          "_raw": "data_changed | set_local: background_colour: @items[0]?.colour"
+        }
+      ],
+      "parameter_list": {
+        "filter": "(@item.id == @local.page_id)"
+      },
+      "_nested_name": "pick_values",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@data.evaluation_pages",
+            "matchedExpression": "@data.evaluation_pages",
+            "type": "data",
+            "fieldName": "evaluation_pages"
+          }
+        ],
+        "parameter_list": {
+          "filter": [
+            {
+              "fullExpression": "(@item.id == @local.page_id)",
+              "matchedExpression": "@item.id",
+              "type": "item",
+              "fieldName": "id"
+            },
+            {
+              "fullExpression": "(@item.id == @local.page_id)",
+              "matchedExpression": "@local.page_id",
+              "type": "local",
+              "fieldName": "page_id"
+            }
+          ]
+        }
+      },
+      "_dynamicDependencies": {
+        "@data.evaluation_pages": [
+          "value"
+        ],
+        "@item.id": [
+          "parameter_list.filter"
+        ],
+        "@local.page_id": [
+          "parameter_list.filter"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "style_list": [
+        "display: flex",
+        "align-items: center",
+        "gap: 5px",
+        "width: calc(100% + 32px)",
+        "height: 100px",
+        "background-color: @local.background_colour",
+        "margin-left: -16px",
+        "margin-right: -16px",
+        "margin-top: -24px",
+        "padding-top: 24px",
+        "box-sizing: border-box"
+      ],
+      "rows": [
+        {
+          "type": "image",
+          "value": "@local.image_path",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width: 150px",
+            "height: 150px",
+            "object-fit: contain"
+          ],
+          "name": "image_1",
+          "_nested_name": "display_group_7.image_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@local.image_path",
+                "matchedExpression": "@local.image_path",
+                "type": "local",
+                "fieldName": "image_path"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.image_path": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "value": "**@local.title**",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-size: 20px",
+            "text-align: left"
+          ],
+          "name": "text_2",
+          "_nested_name": "display_group_7.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "**@local.title**",
+                "matchedExpression": "@local.title",
+                "type": "local",
+                "fieldName": "title"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.title": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_7",
+      "_nested_name": "display_group_7",
+      "_dynamicFields": {
+        "style_list": {
+          "5": [
+            {
+              "fullExpression": "background-color: @local.background_colour",
+              "matchedExpression": "@local.background_colour",
+              "type": "local",
+              "fieldName": "background_colour"
+            }
+          ]
+        }
+      },
+      "_dynamicDependencies": {
+        "@local.background_colour": [
+          "style_list.5"
+        ]
+      }
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/Evaluation/evaluation_form_data.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/1uCivYMqKmfqAmvJoB9xmtxL4EoHJ6zVeXLh8x_Nhc6Y"
+  }
+}
