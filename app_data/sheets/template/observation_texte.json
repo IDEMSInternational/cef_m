@@ -1,0 +1,104 @@
+{
+  "flow_type": "template",
+  "flow_name": "observation_texte",
+  "status": "released",
+  "rows": [
+    {
+      "type": "display_group",
+      "style_list": [
+        "width: calc(100% + 32px)",
+        "margin-left: -16px",
+        "margin-right: -16px",
+        "background: #ffffff",
+        "padding: 0",
+        "box-sizing: border-box",
+        "display: flex",
+        "flex-direction: column",
+        "align-items: stretch",
+        "justify-content: flex-start"
+      ],
+      "rows": [
+        {
+          "type": "html",
+          "value": "<div style=\"width:100%; box-sizing:border-box;\">\n  <div style=\"width:100%; box-sizing:border-box; background:linear-gradient(135deg,#45c5b8,#34a89b); padding:28px 16px; text-align:center;\">\n    <h2 style=\"color:white; margin:0; font-size:22px; font-weight:800; text-transform:uppercase; letter-spacing:0.5px;\">@fields.selected_observation_culture</h2>\n    <span style=\"display:inline-block; margin-top:8px; color:#ffffff; font-size:14px; font-weight:700; background:rgba(255,255,255,0.2); padding:5px 14px; border-radius:20px;\">Observation</span>\n  </div>\n\n  <div style=\"width:100%; box-sizing:border-box; padding:18px 16px 90px 16px;\">\n    <div style=\"width:100%; box-sizing:border-box; background:#fbfbf9; border:1px solid #eef0f2; padding:18px 16px;\">\n      <p style=\"font-size:16px; line-height:1.65; color:#1e3656; margin:0; font-weight:500; white-space:pre-wrap;\">@fields.selected_observation_text</p>\n    </div>\n  </div>\n</div>",
+          "_translations": {
+            "value": {}
+          },
+          "name": "html_1",
+          "_nested_name": "display_group_2.html_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "<div style=\"width:100%; box-sizing:border-box;\">\n  <div style=\"width:100%; box-sizing:border-box; background:linear-gradient(135deg,#45c5b8,#34a89b); padding:28px 16px; text-align:center;\">\n    <h2 style=\"color:white; margin:0; font-size:22px; font-weight:800; text-transform:uppercase; letter-spacing:0.5px;\">@fields.selected_observation_culture</h2>\n    <span style=\"display:inline-block; margin-top:8px; color:#ffffff; font-size:14px; font-weight:700; background:rgba(255,255,255,0.2); padding:5px 14px; border-radius:20px;\">Observation</span>\n  </div>\n\n  <div style=\"width:100%; box-sizing:border-box; padding:18px 16px 90px 16px;\">\n    <div style=\"width:100%; box-sizing:border-box; background:#fbfbf9; border:1px solid #eef0f2; padding:18px 16px;\">\n      <p style=\"font-size:16px; line-height:1.65; color:#1e3656; margin:0; font-weight:500; white-space:pre-wrap;\">@fields.selected_observation_text</p>\n    </div>\n  </div>\n</div>",
+                "matchedExpression": "@fields.selected_observation_culture",
+                "type": "fields",
+                "fieldName": "selected_observation_culture"
+              },
+              {
+                "fullExpression": "<div style=\"width:100%; box-sizing:border-box;\">\n  <div style=\"width:100%; box-sizing:border-box; background:linear-gradient(135deg,#45c5b8,#34a89b); padding:28px 16px; text-align:center;\">\n    <h2 style=\"color:white; margin:0; font-size:22px; font-weight:800; text-transform:uppercase; letter-spacing:0.5px;\">@fields.selected_observation_culture</h2>\n    <span style=\"display:inline-block; margin-top:8px; color:#ffffff; font-size:14px; font-weight:700; background:rgba(255,255,255,0.2); padding:5px 14px; border-radius:20px;\">Observation</span>\n  </div>\n\n  <div style=\"width:100%; box-sizing:border-box; padding:18px 16px 90px 16px;\">\n    <div style=\"width:100%; box-sizing:border-box; background:#fbfbf9; border:1px solid #eef0f2; padding:18px 16px;\">\n      <p style=\"font-size:16px; line-height:1.65; color:#1e3656; margin:0; font-weight:500; white-space:pre-wrap;\">@fields.selected_observation_text</p>\n    </div>\n  </div>\n</div>",
+                "matchedExpression": "@fields.selected_observation_text",
+                "type": "fields",
+                "fieldName": "selected_observation_text"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@fields.selected_observation_culture": [
+              "value"
+            ],
+            "@fields.selected_observation_text": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_2",
+      "_nested_name": "display_group_2"
+    },
+    {
+      "type": "round_button",
+      "name": "retour",
+      "action_list": [
+        {
+          "trigger": "click",
+          "action_id": "set_field",
+          "args": [
+            "selected_observation_text",
+            ""
+          ],
+          "_raw": "click | set_field: selected_observation_text:"
+        },
+        {
+          "trigger": "click",
+          "action_id": "set_field",
+          "args": [
+            "selected_observation_culture",
+            ""
+          ],
+          "_raw": "click | set_field: selected_observation_culture:"
+        },
+        {
+          "trigger": "click",
+          "action_id": "go_to",
+          "args": [
+            "observation_suite2"
+          ],
+          "_raw": "click | go_to: observation_suite2"
+        }
+      ],
+      "parameter_list": {
+        "icon_src": "arrow-back",
+        "variant": "no-background"
+      },
+      "style_list": [
+        "margin: 20px 16px"
+      ],
+      "_nested_name": "retour"
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/Evaluation/evaluation_form_sheets.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/1W7U2vmhWYnxS8Ooj3qbcz1pyHAeGUCVlxMIAHghKQFU"
+  }
+}

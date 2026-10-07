@@ -1,0 +1,44 @@
+{
+  "flow_type": "template",
+  "flow_name": "evaluation_page_header",
+  "status": "released",
+  "rows": [
+    {
+      "name": "page_id",
+      "value": "id"
+    },
+    {
+      "name": "image_path"
+    },
+    {
+      "name": "title"
+    },
+    {
+      "name": "background_colour"
+    },
+    {
+      "type": "data_items",
+      "name": "pick_values",
+      "value": "@data.evaluation_pages_data",
+      "action_list": "data_changed | set_local: image_path: @items[0]?.image_path;\ndata_changed | set_local: title: @items[0]?.page_title;\ndata_changed | set_local: background_colour: @items[0]?.colour;",
+      "parameter_list": "filter: (@item.id == @local.page_id)"
+    },
+    {
+      "type": "begin_display_group",
+      "style_list": "display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; max-width: 100%; height: 80px; background-color: @local.background_colour; border-radius: 8px; box-shadow: 0 2px 2px rgba(0,0,0,0.1); box-sizing: border-box;"
+    },
+    {
+      "type": "image",
+      "value": "@local.image_path",
+      "style_list": "width:150px; height:150px;"
+    },
+    {
+      "type": "text",
+      "value": "**@local.title**",
+      "style_list": "font-size: 20px; text-align: left;"
+    },
+    {
+      "type": "end_display_group"
+    }
+  ]
+}

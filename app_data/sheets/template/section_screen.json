@@ -23,56 +23,135 @@
     },
     {
       "type": "display_group",
-      "style_list": [
-        "display: flex",
-        "justify-content: center",
-        "align-items: center",
-        "width: 100%",
-        "padding: 10px"
-      ],
+      "parameter_list": {
+        "style": "column"
+      },
       "rows": [
         {
-          "type": "radio_button_grid",
-          "name": "section_step",
-          "value": "@fields.section_step",
-          "_translations": {
-            "value": {}
-          },
-          "parameter_list": {
-            "answer_list": "@data.differrentes_sections",
-            "style": "secondary",
-            "item_width": "180px",
-            "grid_gap": "12px"
-          },
-          "_nested_name": "display_group_4.section_step",
-          "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "@fields.section_step",
-                "matchedExpression": "@fields.section_step",
-                "type": "fields",
-                "fieldName": "section_step"
-              }
-            ],
-            "parameter_list": {
-              "answer_list": [
+          "type": "display_group",
+          "style_list": [
+            "display: flex",
+            "justify-content: center",
+            "align-items: center",
+            "width: 100%",
+            "flex-direction: column",
+            "margin-top: 10px"
+          ],
+          "rows": [
+            {
+              "type": "button",
+              "value": "PLANIFICATION",
+              "action_list": [
                 {
-                  "fullExpression": "@data.differrentes_sections",
-                  "matchedExpression": "@data.differrentes_sections",
-                  "type": "data",
-                  "fieldName": "differrentes_sections"
+                  "trigger": "click",
+                  "action_id": "go_to",
+                  "args": [
+                    "planification_anl"
+                  ],
+                  "_raw": "click | go_to: planification_anl"
                 }
-              ]
+              ],
+              "parameter_list": {
+                "variant": "card-portrait",
+                "image_asset": "images/agri.jpg",
+                "style": "full",
+                "image_width": "100%"
+              },
+              "style_list": [
+                "font-size: 10px",
+                "text-align: center"
+              ],
+              "rows": [],
+              "name": "button_1",
+              "_nested_name": "display_group_4.display_group_1.button_1"
             }
-          },
-          "_dynamicDependencies": {
-            "@fields.section_step": [
-              "value"
-            ],
-            "@data.differrentes_sections": [
-              "parameter_list.answer_list"
-            ]
-          }
+          ],
+          "name": "display_group_1",
+          "_nested_name": "display_group_4.display_group_1"
+        },
+        {
+          "type": "display_group",
+          "style_list": [
+            "display: flex",
+            "justify-content: center",
+            "align-items: center",
+            "width: 100%",
+            "flex-direction: column",
+            "margin-top: 10px"
+          ],
+          "rows": [
+            {
+              "type": "button",
+              "value": "SUIVI DE CAMPAGNE",
+              "action_list": [
+                {
+                  "trigger": "click",
+                  "action_id": "go_to",
+                  "args": [
+                    "suivi_anl"
+                  ],
+                  "_raw": "click | go_to: suivi_anl"
+                }
+              ],
+              "parameter_list": {
+                "variant": "card-portrait",
+                "image_asset": "images/cultures.jpg",
+                "style": "full",
+                "image_width": "100%"
+              },
+              "style_list": [
+                "font-size: 10px",
+                "text-align: center"
+              ],
+              "rows": [],
+              "name": "button_1",
+              "_nested_name": "display_group_4.display_group_2.button_1"
+            }
+          ],
+          "name": "display_group_2",
+          "_nested_name": "display_group_4.display_group_2"
+        },
+        {
+          "type": "display_group",
+          "style_list": [
+            "display: flex",
+            "justify-content: center",
+            "align-items: center",
+            "width: 100%",
+            "flex-direction: column",
+            "margin-top: 10px"
+          ],
+          "rows": [
+            {
+              "type": "button",
+              "value": "EVALUATION",
+              "action_list": [
+                {
+                  "trigger": "click",
+                  "action_id": "go_to",
+                  "args": [
+                    "auth"
+                  ],
+                  "_raw": "click | go_to: auth"
+                }
+              ],
+              "parameter_list": {
+                "variant": "card-portrait",
+                "image_asset": "images/statisque _img.avif",
+                "style": "full",
+                "image_width": "100%"
+              },
+              "style_list": [
+                "font-size: 10px",
+                "text-align: center"
+              ],
+              "rows": [],
+              "name": "button_1",
+              "_nested_name": "display_group_4.display_group_3.button_1"
+            }
+          ],
+          "name": "display_group_3",
+          "_nested_name": "display_group_4.display_group_3"
         }
       ],
       "name": "display_group_4",
@@ -111,227 +190,6 @@
           "condition"
         ]
       }
-    },
-    {
-      "type": "display_group",
-      "rows": [
-        {
-          "type": "button",
-          "value": "Continuer",
-          "_translations": {
-            "value": {}
-          },
-          "action_list": [
-            {
-              "trigger": "click",
-              "action_id": "set_field",
-              "args": [
-                "section_step",
-                "@local.section_step"
-              ],
-              "_raw": "click | set_field: section_step : @local.section_step"
-            },
-            {
-              "trigger": "click",
-              "action_id": "go_to",
-              "args": [
-                "planification_anl"
-              ],
-              "_raw": "click | go_to: planification_anl"
-            }
-          ],
-          "condition": "@local.section_step == 'planification'",
-          "style_list": [
-            "flex: 1",
-            "border-radius: 8px",
-            "font-weight: bold"
-          ],
-          "name": "button_1",
-          "_nested_name": "display_group_7.button_1",
-          "_dynamicFields": {
-            "action_list": {
-              "0": {
-                "args": {
-                  "1": [
-                    {
-                      "fullExpression": "@local.section_step",
-                      "matchedExpression": "@local.section_step",
-                      "type": "local",
-                      "fieldName": "section_step"
-                    }
-                  ]
-                },
-                "_raw": [
-                  {
-                    "fullExpression": "click | set_field: section_step : @local.section_step",
-                    "matchedExpression": "@local.section_step",
-                    "type": "local",
-                    "fieldName": "section_step"
-                  }
-                ]
-              }
-            },
-            "condition": [
-              {
-                "fullExpression": "@local.section_step == 'planification'",
-                "matchedExpression": "@local.section_step",
-                "type": "local",
-                "fieldName": "section_step"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@local.section_step": [
-              "action_list.0.args.1",
-              "action_list.0._raw",
-              "condition"
-            ]
-          }
-        },
-        {
-          "type": "button",
-          "value": "Continuer",
-          "_translations": {
-            "value": {}
-          },
-          "action_list": [
-            {
-              "trigger": "click",
-              "action_id": "set_field",
-              "args": [
-                "section_step",
-                "@local.section_step"
-              ],
-              "_raw": "click | set_field: section_step : @local.section_step"
-            },
-            {
-              "trigger": "click",
-              "action_id": "go_to",
-              "args": [
-                "suivi_anl"
-              ],
-              "_raw": "click | go_to: suivi_anl"
-            }
-          ],
-          "condition": "@local.section_step == 'suivi'",
-          "style_list": [
-            "flex: 1",
-            "border-radius: 8px",
-            "font-weight: bold"
-          ],
-          "name": "button_2",
-          "_nested_name": "display_group_7.button_2",
-          "_dynamicFields": {
-            "action_list": {
-              "0": {
-                "args": {
-                  "1": [
-                    {
-                      "fullExpression": "@local.section_step",
-                      "matchedExpression": "@local.section_step",
-                      "type": "local",
-                      "fieldName": "section_step"
-                    }
-                  ]
-                },
-                "_raw": [
-                  {
-                    "fullExpression": "click | set_field: section_step : @local.section_step",
-                    "matchedExpression": "@local.section_step",
-                    "type": "local",
-                    "fieldName": "section_step"
-                  }
-                ]
-              }
-            },
-            "condition": [
-              {
-                "fullExpression": "@local.section_step == 'suivi'",
-                "matchedExpression": "@local.section_step",
-                "type": "local",
-                "fieldName": "section_step"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@local.section_step": [
-              "action_list.0.args.1",
-              "action_list.0._raw",
-              "condition"
-            ]
-          }
-        },
-        {
-          "type": "button",
-          "value": "Continuer",
-          "_translations": {
-            "value": {}
-          },
-          "action_list": [
-            {
-              "trigger": "click",
-              "action_id": "set_field",
-              "args": [
-                "section_step",
-                "@local.section_step"
-              ],
-              "_raw": "click | set_field: section_step : @local.section_step"
-            },
-            {
-              "trigger": "click",
-              "action_id": "go_to",
-              "args": [
-                "auth"
-              ],
-              "_raw": "click | go_to: auth"
-            }
-          ],
-          "condition": "@local.section_step == 'evaluation'",
-          "name": "button_3",
-          "_nested_name": "display_group_7.button_3",
-          "_dynamicFields": {
-            "action_list": {
-              "0": {
-                "args": {
-                  "1": [
-                    {
-                      "fullExpression": "@local.section_step",
-                      "matchedExpression": "@local.section_step",
-                      "type": "local",
-                      "fieldName": "section_step"
-                    }
-                  ]
-                },
-                "_raw": [
-                  {
-                    "fullExpression": "click | set_field: section_step : @local.section_step",
-                    "matchedExpression": "@local.section_step",
-                    "type": "local",
-                    "fieldName": "section_step"
-                  }
-                ]
-              }
-            },
-            "condition": [
-              {
-                "fullExpression": "@local.section_step == 'evaluation'",
-                "matchedExpression": "@local.section_step",
-                "type": "local",
-                "fieldName": "section_step"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@local.section_step": [
-              "action_list.0.args.1",
-              "action_list.0._raw",
-              "condition"
-            ]
-          }
-        }
-      ],
-      "name": "display_group_7",
-      "_nested_name": "display_group_7"
     }
   ],
   "_source": {

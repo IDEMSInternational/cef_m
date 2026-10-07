@@ -6,11 +6,26 @@
     {
       "type": "title",
       "name": "consentement",
-      "value": "**CONSENTEMENT**",
+      "value": "@global.consentement_title",
       "_translations": {
         "value": {}
       },
-      "_nested_name": "consentement"
+      "_nested_name": "consentement",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.consentement_title",
+            "matchedExpression": "@global.consentement_title",
+            "type": "global",
+            "fieldName": "consentement_title"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.consentement_title": [
+          "value"
+        ]
+      }
     },
     {
       "name": "attempt_submit",
@@ -89,16 +104,16 @@
     },
     {
       "type": "radio_list",
-      "value": "@fields.user_oui_non",
+      "value": "@fields.consentement_oui_non",
       "action_list": [
         {
           "trigger": "changed",
           "action_id": "set_field",
           "args": [
-            "user_oui_non",
+            "consentement_oui_non",
             "this.value"
           ],
-          "_raw": "changed | set_field : user_oui_non: this.value"
+          "_raw": "changed | set_field : consentement_oui_non: this.value"
         }
       ],
       "rows": [
@@ -130,15 +145,15 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@fields.user_oui_non",
-            "matchedExpression": "@fields.user_oui_non",
+            "fullExpression": "@fields.consentement_oui_non",
+            "matchedExpression": "@fields.consentement_oui_non",
             "type": "fields",
-            "fieldName": "user_oui_non"
+            "fieldName": "consentement_oui_non"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.user_oui_non": [
+        "@fields.consentement_oui_non": [
           "value"
         ]
       }
@@ -149,7 +164,7 @@
       "_translations": {
         "value": {}
       },
-      "condition": "!@fields.user_oui_non && @fields.attempt_submit",
+      "condition": "!@fields.consentement_oui_non && @fields.attempt_submit",
       "name": "html_8",
       "_nested_name": "html_8",
       "_dynamicFields": {
@@ -163,13 +178,13 @@
         ],
         "condition": [
           {
-            "fullExpression": "!@fields.user_oui_non && @fields.attempt_submit",
-            "matchedExpression": "!@fields.user_oui_non",
+            "fullExpression": "!@fields.consentement_oui_non && @fields.attempt_submit",
+            "matchedExpression": "!@fields.consentement_oui_non",
             "type": "fields",
-            "fieldName": "user_oui_non"
+            "fieldName": "consentement_oui_non"
           },
           {
-            "fullExpression": "!@fields.user_oui_non && @fields.attempt_submit",
+            "fullExpression": "!@fields.consentement_oui_non && @fields.attempt_submit",
             "matchedExpression": "@fields.attempt_submit",
             "type": "fields",
             "fieldName": "attempt_submit"
@@ -180,7 +195,7 @@
         "@global.reponse_obligatoire": [
           "value"
         ],
-        "!@fields.user_oui_non": [
+        "!@fields.consentement_oui_non": [
           "condition"
         ],
         "@fields.attempt_submit": [
@@ -190,7 +205,7 @@
     },
     {
       "name": "completed_enabled",
-      "value": "@fields.user_oui_non",
+      "value": "@fields.consentement_oui_non",
       "_translations": {
         "value": {}
       },
@@ -199,15 +214,15 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@fields.user_oui_non",
-            "matchedExpression": "@fields.user_oui_non",
+            "fullExpression": "@fields.consentement_oui_non",
+            "matchedExpression": "@fields.consentement_oui_non",
             "type": "fields",
-            "fieldName": "user_oui_non"
+            "fieldName": "consentement_oui_non"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.user_oui_non": [
+        "@fields.consentement_oui_non": [
           "value"
         ]
       }
@@ -258,7 +273,7 @@
               "_raw": "click | go_to: enrolment_page18"
             }
           ],
-          "condition": "@fields.user_oui_non == 'non'",
+          "condition": "@fields.consentement_oui_non == 'non'",
           "style_list": [
             "flex: 1"
           ],
@@ -266,15 +281,15 @@
           "_dynamicFields": {
             "condition": [
               {
-                "fullExpression": "@fields.user_oui_non == 'non'",
-                "matchedExpression": "@fields.user_oui_non",
+                "fullExpression": "@fields.consentement_oui_non == 'non'",
+                "matchedExpression": "@fields.consentement_oui_non",
                 "type": "fields",
-                "fieldName": "user_oui_non"
+                "fieldName": "consentement_oui_non"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@fields.user_oui_non": [
+            "@fields.consentement_oui_non": [
               "condition"
             ]
           }
@@ -330,10 +345,10 @@
               "trigger": "click",
               "action_id": "set_field",
               "args": [
-                "user_oui_non",
-                "@fields.user_oui_non"
+                "consentement_oui_non",
+                "@fields.consentement_oui_non"
               ],
-              "_raw": "click | set_field: user_oui_non: @fields.user_oui_non"
+              "_raw": "click | set_field: consentement_oui_non: @fields.consentement_oui_non"
             },
             {
               "trigger": "click",
@@ -356,7 +371,7 @@
           "parameter_list": {
             "disabled": "!@local.completed_enabled"
           },
-          "condition": "@local.completed_enabled && @fields.user_oui_non == 'oui'",
+          "condition": "@local.completed_enabled && @fields.consentement_oui_non == 'oui'",
           "style_list": [
             "flex: 1"
           ],
@@ -375,19 +390,19 @@
                 "args": {
                   "1": [
                     {
-                      "fullExpression": "@fields.user_oui_non",
-                      "matchedExpression": "@fields.user_oui_non",
+                      "fullExpression": "@fields.consentement_oui_non",
+                      "matchedExpression": "@fields.consentement_oui_non",
                       "type": "fields",
-                      "fieldName": "user_oui_non"
+                      "fieldName": "consentement_oui_non"
                     }
                   ]
                 },
                 "_raw": [
                   {
-                    "fullExpression": "click | set_field: user_oui_non: @fields.user_oui_non",
-                    "matchedExpression": "@fields.user_oui_non",
+                    "fullExpression": "click | set_field: consentement_oui_non: @fields.consentement_oui_non",
+                    "matchedExpression": "@fields.consentement_oui_non",
                     "type": "fields",
-                    "fieldName": "user_oui_non"
+                    "fieldName": "consentement_oui_non"
                   }
                 ]
               }
@@ -404,16 +419,16 @@
             },
             "condition": [
               {
-                "fullExpression": "@local.completed_enabled && @fields.user_oui_non == 'oui'",
+                "fullExpression": "@local.completed_enabled && @fields.consentement_oui_non == 'oui'",
                 "matchedExpression": "@local.completed_enabled",
                 "type": "local",
                 "fieldName": "completed_enabled"
               },
               {
-                "fullExpression": "@local.completed_enabled && @fields.user_oui_non == 'oui'",
-                "matchedExpression": "@fields.user_oui_non",
+                "fullExpression": "@local.completed_enabled && @fields.consentement_oui_non == 'oui'",
+                "matchedExpression": "@fields.consentement_oui_non",
                 "type": "fields",
-                "fieldName": "user_oui_non"
+                "fieldName": "consentement_oui_non"
               }
             ]
           },
@@ -421,7 +436,7 @@
             "@global.btn_continue": [
               "value"
             ],
-            "@fields.user_oui_non": [
+            "@fields.consentement_oui_non": [
               "action_list.0.args.1",
               "action_list.0._raw",
               "condition"
@@ -441,7 +456,7 @@
   ],
   "_source": {
     "name": "cef_m sheets",
-    "path": "template/Enrolment_form_sheets.xlsx",
+    "path": "template/Planification/enrolment_form_sheets.xlsx",
     "url": "https://docs.google.com/spreadsheets/d/1mR9iAG_wjGK0G39YVxIlwlGFILSbgZvCqESHTMNXNgA"
   }
 }

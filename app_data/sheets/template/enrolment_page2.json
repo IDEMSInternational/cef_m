@@ -29,12 +29,27 @@
     },
     {
       "type": "title",
-      "value": "Année de la campagne agricole",
+      "value": "@global.annee_campagne",
       "_translations": {
         "value": {}
       },
       "name": "title_3",
-      "_nested_name": "title_3"
+      "_nested_name": "title_3",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.annee_campagne",
+            "matchedExpression": "@global.annee_campagne",
+            "type": "global",
+            "fieldName": "annee_campagne"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.annee_campagne": [
+          "value"
+        ]
+      }
     },
     {
       "type": "display_group",
@@ -49,8 +64,8 @@
       ],
       "rows": [
         {
-          "type": "html",
-          "value": "<span style=\"color: #d71920; font-weight: bold; margin-right: 4px;\">*</span><span style=\"color: #333333; font-weight: 600; font-size: 20px;\">Sélectionnez l'année de la campagne agricole</span>",
+          "type": "subtitle",
+          "value": "@global.select_date",
           "_translations": {
             "value": {}
           },
@@ -58,8 +73,23 @@
             "margin-top: 20px",
             "font-weight: 600"
           ],
-          "name": "html_1",
-          "_nested_name": "display_group_4.html_1"
+          "name": "subtitle_1",
+          "_nested_name": "display_group_4.subtitle_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.select_date",
+                "matchedExpression": "@global.select_date",
+                "type": "global",
+                "fieldName": "select_date"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.select_date": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",
@@ -98,7 +128,7 @@
         }
       ],
       "parameter_list": {
-        "type": "date",
+        "type": "year",
         "min": "2023",
         "max": "@calc(now())"
       },
@@ -166,15 +196,32 @@
       }
     },
     {
-      "type": "html",
-      "value": "<div style=\"width:100%; text-align:center; padding: 20px 0; margin-top:16px; background: #f7fafc; border: 1px dashed #cbd5e0; border-radius: 12px; font-size:18px; font-weight:600; color:#718096;\">📅 Aucune date choisie</div>",
+      "type": "text",
+      "value": "@global.aucune_date",
       "_translations": {
         "value": {}
       },
       "condition": "!@local.v_year_ok",
-      "name": "html_8",
-      "_nested_name": "html_8",
+      "style_list": [
+        "width: 100%",
+        "text-align: center",
+        "background: #f7fafc",
+        "border: 1px dashed #cbd5e0",
+        "border-radius: 12px",
+        "font-size: 18px",
+        "color: #718096"
+      ],
+      "name": "text_8",
+      "_nested_name": "text_8",
       "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.aucune_date",
+            "matchedExpression": "@global.aucune_date",
+            "type": "global",
+            "fieldName": "aucune_date"
+          }
+        ],
         "condition": [
           {
             "fullExpression": "!@local.v_year_ok",
@@ -185,26 +232,39 @@
         ]
       },
       "_dynamicDependencies": {
+        "@global.aucune_date": [
+          "value"
+        ],
         "!@local.v_year_ok": [
           "condition"
         ]
       }
     },
     {
-      "type": "html",
-      "value": "<div style=\"width:100%; text-align:center; padding: 20px 0; margin-top:16px; background: #e6fffa; border: 2px solid #00adcc; border-radius: 12px; font-size:26px; font-weight:800; color:#00adcc; box-shadow: 0 4px 12px rgba(0,173,204,0.1);\">@field.season_label</div>",
+      "type": "text",
+      "value": "@fields.season_label",
       "_translations": {
         "value": {}
       },
       "condition": "@local.v_year_ok",
-      "name": "html_9",
-      "_nested_name": "html_9",
+      "style_list": [
+        "width:100%",
+        "text-align:center",
+        "background: #e6fffa",
+        "border: 2px solid #00adcc",
+        "border-radius: 12px",
+        "font-size:26px",
+        "font-weight:800",
+        "color:#00adcc"
+      ],
+      "name": "text_9",
+      "_nested_name": "text_9",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<div style=\"width:100%; text-align:center; padding: 20px 0; margin-top:16px; background: #e6fffa; border: 2px solid #00adcc; border-radius: 12px; font-size:26px; font-weight:800; color:#00adcc; box-shadow: 0 4px 12px rgba(0,173,204,0.1);\">@field.season_label</div>",
-            "matchedExpression": "@field.season_label",
-            "type": "field",
+            "fullExpression": "@fields.season_label",
+            "matchedExpression": "@fields.season_label",
+            "type": "fields",
             "fieldName": "season_label"
           }
         ],
@@ -218,7 +278,7 @@
         ]
       },
       "_dynamicDependencies": {
-        "@field.season_label": [
+        "@fields.season_label": [
           "value"
         ],
         "@local.v_year_ok": [
@@ -227,26 +287,46 @@
       }
     },
     {
-      "type": "html",
-      "value": "<div style=\"width:100%; color:#d71920; font-size:13px; font-weight:700; margin-top:14px; background: #fff5f5; padding: 10px; border-radius: 6px; border-left: 4px solid #d71920;\">❗ Réponse obligatoire, aucune année indiquée !</div>",
+      "name": "year",
+      "value": "@calc(@fields.season_label.substring(0,4))",
       "_translations": {
         "value": {}
       },
-      "condition": "!@local.v_year_ok",
-      "name": "html_10",
-      "_nested_name": "html_10",
+      "condition": "@fields.season_label",
+      "type": "set_variable",
+      "_nested_name": "year",
       "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(@fields.season_label.substring(0,4))",
+            "matchedExpression": "@fields.season_label.substring",
+            "type": "fields",
+            "fieldName": "season_label"
+          },
+          {
+            "fullExpression": "@calc(@fields.season_label.substring(0,4))",
+            "matchedExpression": "@calc(@fields.season_label.substring(0,4))",
+            "type": "calc",
+            "fieldName": "@fields.season_label.substring(0,4)"
+          }
+        ],
         "condition": [
           {
-            "fullExpression": "!@local.v_year_ok",
-            "matchedExpression": "!@local.v_year_ok",
-            "type": "local",
-            "fieldName": "v_year_ok"
+            "fullExpression": "@fields.season_label",
+            "matchedExpression": "@fields.season_label",
+            "type": "fields",
+            "fieldName": "season_label"
           }
         ]
       },
       "_dynamicDependencies": {
-        "!@local.v_year_ok": [
+        "@fields.season_label.substring": [
+          "value"
+        ],
+        "@calc(@fields.season_label.substring(0,4))": [
+          "value"
+        ],
+        "@fields.season_label": [
           "condition"
         ]
       }
@@ -291,11 +371,11 @@
           "action_list": [
             {
               "trigger": "click",
-              "action_id": "go_to",
+              "action_id": "emit",
               "args": [
-                "scan_creen"
+                "uncompleted"
               ],
-              "_raw": "click | go_to: scan_creen"
+              "_raw": "click | emit: uncompleted"
             }
           ],
           "parameter_list": {
@@ -306,7 +386,6 @@
         },
         {
           "type": "button",
-          "name": "button_continue_attempt_submit",
           "value": "Continuer",
           "_translations": {
             "value": {}
@@ -326,7 +405,8 @@
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "dg_footer.button_continue_attempt_submit",
+          "name": "button_2",
+          "_nested_name": "dg_footer.button_2",
           "_dynamicFields": {
             "condition": [
               {
@@ -345,7 +425,6 @@
         },
         {
           "type": "button",
-          "name": "button_completed",
           "value": "Continuer",
           "_translations": {
             "value": {}
@@ -355,10 +434,10 @@
               "trigger": "click",
               "action_id": "set_field",
               "args": [
-                "season_label",
-                "@field.season_label"
+                "year",
+                "@local.year"
               ],
-              "_raw": "click | set_field: season_label: @field.season_label"
+              "_raw": "click | set_field: year: @local.year"
             },
             {
               "trigger": "click",
@@ -385,26 +464,27 @@
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "dg_footer.button_completed",
+          "name": "button_3",
+          "_nested_name": "dg_footer.button_3",
           "_dynamicFields": {
             "action_list": {
               "0": {
                 "args": {
                   "1": [
                     {
-                      "fullExpression": "@field.season_label",
-                      "matchedExpression": "@field.season_label",
-                      "type": "field",
-                      "fieldName": "season_label"
+                      "fullExpression": "@local.year",
+                      "matchedExpression": "@local.year",
+                      "type": "local",
+                      "fieldName": "year"
                     }
                   ]
                 },
                 "_raw": [
                   {
-                    "fullExpression": "click | set_field: season_label: @field.season_label",
-                    "matchedExpression": "@field.season_label",
-                    "type": "field",
-                    "fieldName": "season_label"
+                    "fullExpression": "click | set_field: year: @local.year",
+                    "matchedExpression": "@local.year",
+                    "type": "local",
+                    "fieldName": "year"
                   }
                 ]
               }
@@ -429,7 +509,7 @@
             ]
           },
           "_dynamicDependencies": {
-            "@field.season_label": [
+            "@local.year": [
               "action_list.0.args.1",
               "action_list.0._raw"
             ],
@@ -447,7 +527,7 @@
   ],
   "_source": {
     "name": "cef_m sheets",
-    "path": "template/Enrolment_form_sheets.xlsx",
+    "path": "template/Planification/enrolment_form_sheets.xlsx",
     "url": "https://docs.google.com/spreadsheets/d/1mR9iAG_wjGK0G39YVxIlwlGFILSbgZvCqESHTMNXNgA"
   }
 }

@@ -1,0 +1,119 @@
+{
+  "flow_type": "template",
+  "flow_name": "evaluation_anl",
+  "status": "released",
+  "rows": [
+    {
+      "name": "chef_upa_display",
+      "value": "@calc(typeof @fields.logged_user === 'string' ? JSON.parse(@fields.logged_user || '{}').chef_upa : (@fields.logged_user?.chef_upa || ''))"
+    },
+    {
+      "type": "html",
+      "value": "<div style=\"background: linear-gradient(135deg, #2e7d32, #4caf50); color: white; padding: 16px; border-radius: 8px; text-align: center; margin-bottom: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);\"><span style=\"font-size: 14px; opacity: 0.9; text-transform: uppercase; letter-spacing: 1px;\">Unité de Production Agricole (UPA)</span><h2 style=\"margin: 4px 0 0 0; font-size: 22px; font-weight: bold;\">@local.chef_upa_display</h2></div>"
+    },
+    {
+      "type": "begin_display_group",
+      "parameter_list": "item_width: 100px;\nitem_border: solid;\ngrid_width: 50%;\ngrid_gap: 20px;"
+    },
+    {
+      "type": "begin_button",
+      "value": "Caractéristiques de l'UPA ",
+      "action_list": "click | go_to: caracteristique_upa ",
+      "parameter_list": "variant: card-portrait; image_asset: images/characteristics UPA.png; style: full;"
+    },
+    {
+      "type": "end_button"
+    },
+    {
+      "type": "begin_button",
+      "value": "Cartes des Champs",
+      "action_list": "click | go_to: carte_champs",
+      "parameter_list": "variant: card-portrait; image_asset: images/cartes champs.png;style: full;\n"
+    },
+    {
+      "type": "end_button"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "parameter_list": "item_width: 100px;\nitem_border: solid;\ngrid_width: 50%;\ngrid_gap: 20px;"
+    },
+    {
+      "type": "begin_button",
+      "value": "Superficies des Cultures ",
+      "action_list": "click | go_to: superficies_cultures ",
+      "parameter_list": "variant: card-portrait; image_asset: images/superficiescultures.png;button_align: centre; style: full;\n"
+    },
+    {
+      "type": "end_button"
+    },
+    {
+      "type": "begin_button",
+      "value": "Besoins Planifiés",
+      "action_list": "click | go_to: besoins_planifies",
+      "parameter_list": "variant: card-portrait; image_asset: images/besoins  planifiés.png;button_align: centre; style: full;\n"
+    },
+    {
+      "type": "end_button"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "parameter_list": "item_width: 100px;\nitem_border: solid;\ngrid_width: 50%;\ngrid_gap: 20px;"
+    },
+    {
+      "type": "begin_button",
+      "value": "Cout de Productions",
+      "action_list": "click | go_to: cout_productions;\n",
+      "parameter_list": "variant: card-portrait; image_asset: images/Cout de production.jpg;button_align: centre; style: full;"
+    },
+    {
+      "type": "end_button"
+    },
+    {
+      "type": "begin_button",
+      "value": "Productions totales",
+      "action_list": "\nclick | go_to: production_totale;\n",
+      "parameter_list": "variant: card-portrait; image_asset: images/Production.png;button_align: centre; style: full;"
+    },
+    {
+      "type": "end_button"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "parameter_list": "item_width: 100px;\nitem_border: solid;\ngrid_width: 50%;\ngrid_gap: 20px;",
+      "style_list": "padding-bottom: 20px;"
+    },
+    {
+      "type": "begin_button",
+      "value": "Rendement",
+      "action_list": "click | go_to: rendement;\n",
+      "parameter_list": "variant: card-portrait; image_asset: images/Rendement.png;button_align: centre; style: full;\n"
+    },
+    {
+      "type": "end_button"
+    },
+    {
+      "type": "begin_button",
+      "value": "Observations",
+      "action_list": "click | go_to: observation;",
+      "parameter_list": "variant: card-portrait; image_asset: images/Observation.png;button_align: centre; style: full;"
+    },
+    {
+      "type": "end_button"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "value": "<div style=\"\n    background-color: #FEF2F2;\n    border: 1px solid #FECACA;\n    border-left: 4px solid #EF4444;\n    border-radius: 8px;\n    padding: 12px 16px;\n    margin: 10px 0;\n    display: flex;\n    align-items: center;\n    gap: 10px;\n    box-shadow: 0 1px 3px rgba(0,0,0,0.05);\n\">\n    <!-- Icône d'avertissement -->\n    <svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#DC2626\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n        <circle cx=\"12\" cy=\"12\" r=\"10\"></circle>\n        <line x1=\"12\" y1=\"8\" x2=\"12\" y2=\"12\"></line>\n        <line x1=\"12\" y1=\"16\" x2=\"12.01\" y2=\"16\"></line>\n    </svg>\n    \n    <!-- Message -->\n    <span style=\"\n        color: #991B1B;\n        font-size: 13px;\n        font-weight: 600;\n        font-family: Arial, sans-serif;\n    \">\n        Veuillez faire un choix pour continuer !\n    </span>\n</div>"
+    }
+  ]
+}

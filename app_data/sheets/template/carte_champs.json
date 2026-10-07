@@ -1,0 +1,400 @@
+{
+  "flow_type": "template",
+  "flow_name": "carte_champs",
+  "status": "released",
+  "rows": [
+    {
+      "type": "template",
+      "value": "evaluation_page_entete",
+      "rows": [
+        {
+          "name": "page_id",
+          "value": "cartes",
+          "_translations": {
+            "value": {}
+          },
+          "type": "set_variable",
+          "_nested_name": "evaluation_page_entete.page_id"
+        }
+      ],
+      "name": "evaluation_page_entete",
+      "_nested_name": "evaluation_page_entete"
+    },
+    {
+      "value": "@global.no_data_text",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "name": "set_variable_4",
+      "_nested_name": "set_variable_4",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.no_data_text",
+            "matchedExpression": "@global.no_data_text",
+            "type": "global",
+            "fieldName": "no_data_text"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.no_data_text": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "@global.choix_annee_text",
+      "_translations": {
+        "value": {}
+      },
+      "name": "text_5",
+      "_nested_name": "text_5",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.choix_annee_text",
+            "matchedExpression": "@global.choix_annee_text",
+            "type": "global",
+            "fieldName": "choix_annee_text"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.choix_annee_text": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "date_time_picker",
+      "value": "@fields.date_choisie",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "date_choisie",
+            "this.value"
+          ],
+          "_raw": "changed | set_field: date_choisie: this.value"
+        }
+      ],
+      "parameter_list": {
+        "type": "year",
+        "min": "2023",
+        "max": "@calc(now())"
+      },
+      "name": "date_time_picker_6",
+      "_nested_name": "date_time_picker_6",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.date_choisie",
+            "matchedExpression": "@fields.date_choisie",
+            "type": "fields",
+            "fieldName": "date_choisie"
+          }
+        ],
+        "parameter_list": {
+          "max": [
+            {
+              "fullExpression": "@calc(now())",
+              "matchedExpression": "@calc(now())",
+              "type": "calc",
+              "fieldName": "now()"
+            }
+          ]
+        }
+      },
+      "_dynamicDependencies": {
+        "@fields.date_choisie": [
+          "value"
+        ],
+        "@calc(now())": [
+          "parameter_list.max"
+        ]
+      }
+    },
+    {
+      "name": "annee_choisie",
+      "value": "@calc(String(@fields.date_choisie || '').substring(0,4))",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@calc(!!@fields.date_choisie)",
+      "type": "set_variable",
+      "_nested_name": "annee_choisie",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(String(@fields.date_choisie || '').substring(0,4))",
+            "matchedExpression": "@fields.date_choisie",
+            "type": "fields",
+            "fieldName": "date_choisie"
+          },
+          {
+            "fullExpression": "@calc(String(@fields.date_choisie || '').substring(0,4))",
+            "matchedExpression": "@calc(String(@fields.date_choisie || '').substring(0,4))",
+            "type": "calc",
+            "fieldName": "String(@fields.date_choisie || '').substring(0,4)"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "@calc(!!@fields.date_choisie)",
+            "matchedExpression": "!@fields.date_choisie",
+            "type": "fields",
+            "fieldName": "date_choisie"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.date_choisie)",
+            "matchedExpression": "@calc(!!@fields.date_choisie)",
+            "type": "calc",
+            "fieldName": "!!@fields.date_choisie"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.date_choisie": [
+          "value"
+        ],
+        "@calc(String(@fields.date_choisie || '').substring(0,4))": [
+          "value"
+        ],
+        "!@fields.date_choisie": [
+          "condition"
+        ],
+        "@calc(!!@fields.date_choisie)": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "map",
+      "name": "main_map1",
+      "parameter_list": {
+        "data_list": "map_drawing_data",
+        "center_lon": "-3.996166",
+        "center_lat": "17.570692",
+        "zoom": "5"
+      },
+      "style_list": [
+        "height: 400px"
+      ],
+      "_nested_name": "main_map1"
+    },
+    {
+      "type": "data_items",
+      "value": "@data.map_drawing_data",
+      "rows": [
+        {
+          "type": "text",
+          "value": "@calc(JSON.stringify(@item.properties))",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_1_@item.id",
+          "_nested_name": "data_items_9.text_1_@item.id",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@calc(JSON.stringify(@item.properties))",
+                "matchedExpression": "@item.properties",
+                "type": "item",
+                "fieldName": "properties"
+              },
+              {
+                "fullExpression": "@calc(JSON.stringify(@item.properties))",
+                "matchedExpression": "@calc(JSON.stringify(@item.properties))",
+                "type": "calc",
+                "fieldName": "JSON.stringify(@item.properties)"
+              }
+            ],
+            "name": [
+              {
+                "fullExpression": "text_1_@item.id",
+                "matchedExpression": "@item.id",
+                "type": "item",
+                "fieldName": "id"
+              }
+            ],
+            "_nested_name": [
+              {
+                "fullExpression": "data_items_9.text_1_@item.id",
+                "matchedExpression": "@item.id",
+                "type": "item",
+                "fieldName": "id"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@item.properties": [
+              "value"
+            ],
+            "@calc(JSON.stringify(@item.properties))": [
+              "value"
+            ],
+            "@item.id": [
+              "name",
+              "_nested_name"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "value": "@calc(JSON.stringify(@item.geometry))",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_2_@item.id",
+          "_nested_name": "data_items_9.text_2_@item.id",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@calc(JSON.stringify(@item.geometry))",
+                "matchedExpression": "@item.geometry",
+                "type": "item",
+                "fieldName": "geometry"
+              },
+              {
+                "fullExpression": "@calc(JSON.stringify(@item.geometry))",
+                "matchedExpression": "@calc(JSON.stringify(@item.geometry))",
+                "type": "calc",
+                "fieldName": "JSON.stringify(@item.geometry)"
+              }
+            ],
+            "name": [
+              {
+                "fullExpression": "text_2_@item.id",
+                "matchedExpression": "@item.id",
+                "type": "item",
+                "fieldName": "id"
+              }
+            ],
+            "_nested_name": [
+              {
+                "fullExpression": "data_items_9.text_2_@item.id",
+                "matchedExpression": "@item.id",
+                "type": "item",
+                "fieldName": "id"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@item.geometry": [
+              "value"
+            ],
+            "@calc(JSON.stringify(@item.geometry))": [
+              "value"
+            ],
+            "@item.id": [
+              "name",
+              "_nested_name"
+            ]
+          }
+        }
+      ],
+      "name": "data_items_9",
+      "_nested_name": "data_items_9",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@data.map_drawing_data",
+            "matchedExpression": "@data.map_drawing_data",
+            "type": "data",
+            "fieldName": "map_drawing_data"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@data.map_drawing_data": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "style_list": [
+        "padding: 22px 16px",
+        "margin: 10px 12px",
+        "background: #fff7ed",
+        "text-align: center"
+      ],
+      "rows": [
+        {
+          "type": "text",
+          "value": "@global.no_data_text",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "color: #9a3412",
+            "font-weight: 700",
+            "font-size: 15px"
+          ],
+          "name": "text_1",
+          "_nested_name": "display_group_11.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.no_data_text",
+                "matchedExpression": "@global.no_data_text",
+                "type": "global",
+                "fieldName": "no_data_text"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.no_data_text": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_11",
+      "_nested_name": "display_group_11"
+    },
+    {
+      "type": "navigation_bar",
+      "parameter_list": {
+        "button_list": "@data.footer"
+      },
+      "style_list": [
+        "position: fixed",
+        "bottom: 0",
+        "left: 0",
+        "box-sizing: border-box"
+      ],
+      "name": "navigation_bar_13",
+      "_nested_name": "navigation_bar_13",
+      "_dynamicFields": {
+        "parameter_list": {
+          "button_list": [
+            {
+              "fullExpression": "@data.footer",
+              "matchedExpression": "@data.footer",
+              "type": "data",
+              "fieldName": "footer"
+            }
+          ]
+        }
+      },
+      "_dynamicDependencies": {
+        "@data.footer": [
+          "parameter_list.button_list"
+        ]
+      }
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/Evaluation/carte_champs_form_sheets.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/1gUS6-7xDJr2mEdHdd-YUK9p7wbUwn9foExUwzx3OT1o"
+  }
+}

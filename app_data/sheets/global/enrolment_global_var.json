@@ -1,0 +1,589 @@
+{
+  "flow_type": "global",
+  "flow_name": "enrolment_global_var",
+  "status": "released",
+  "rows": [
+    {
+      "type": "declare_global_constant",
+      "name": "consentement_title",
+      "value": "CONSENTEMENT",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "consentement_note",
+      "value": "L'institut d'Économie Rurale (IER) et ses partenaires co-développent avec les producteurs au Mali un outil digital de gestion de l’exploitation agricole familiale sur téléphone portable.\n---\n\nL’outil digital comprend trois principales composantes à mettre en œuvre dans le temps :\n\n1. **La planification de la saison de production** entre mars et mai  \n2. **Le suivi des activités de la saison** de juin à novembre  \n3. **L’évaluation de la saison** entre décembre et février  \n\n---\n\nDes informations seront collectées sur chacune des trois composantes.\n\nLes données sur l’exploitation seront analysées et partagées avec vous, le producteur, pour soutenir la prise de décision.\nLes informations collectées et les résultats générés sont confidentiels et seront stockées d’une façon sécurisée par l’Institut d’Économie Rurale (IER).\nNous confirmons que les données ne seront utilisées que par notre équipe et seulement à des fins de recherche.\n\n---",
+      "_translations": {
+        "value": {}
+      },
+      "exclude_from_translation": "Les données sur l’exploitation seront analysées et partagées avec vous, le producteur, pour soutenir la prise de décision.\nLes informations collectées et les résultats générés sont confidentiels et seront stockées d’une façon sécurisée par l’Institut d’Économie Rurale (IER).\nNous confirmons que les données ne seront utilisées que par notre équipe et seulement à des fins de recherche. \nVoudriez-vous participer ?"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "btn_continue",
+      "value": "Continuer",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "error_number_min_0",
+      "value": "Veuillez entrer un nombre valide supérieur ou égal à 0.",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "note_collecte_infos",
+      "value": "Ce formulaire a pour but de collecter les informations sur les caractéristiques de l'UPA et les utiliser pour le classer dans la typologie correspondante. De ce fait, l'exactitude de la classification dépendra des informations renseignées à travers ce formulaire. Il est recommandé de renseigner des informations correctes sur les caracteristiques de l'UPA. Notamment, l'information de la typologie de l'UPA sera utilisée après pour mieux conseiller l'UPA.",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "error_required_answer",
+      "value": "Réponse obligatoire !",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "reponse_obligatoire",
+      "value": "Réponse obligatoire !",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "consentement_question",
+      "value": "Voudriez-vous participer ?",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "annee_campagne",
+      "value": "Année de la campagne agricole",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "aucune_date",
+      "value": "📅Aucune date choisie",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "select_date",
+      "value": "Sélectionnez l'année de la campagne agricole",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "nom_region",
+      "value": "**Sélectionnez le nom de la région de l'UPA**",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "nom_cercle",
+      "value": "**Selectionnez le nom du cercle de l'UPA**",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "nom_commune",
+      "value": "**Selectionnez le nom de la commune de l'UPA**",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "nom_village",
+      "value": "**Selectionnez le nom du village de l'UPA**",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "appartenance_coton_note",
+      "value": "Indiquez si votre UPA est membre d'une SCPC",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "appartenance_cereale_note",
+      "value": "Indiquez si votre UPA est membre d'une coopérative de céréale",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "fr_scpc_id_note",
+      "value": "Selectionnez le nom de votre fédération régionale de SCPC",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "us_scpc_id_note",
+      "value": "Selectionnez le nom de votre union secteur de SCPC",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "base_scpc_id_note",
+      "value": "Selectionnez le nom de votre SCPC",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "un_cereale_id_note",
+      "value": "Selectionnez le nom de votre union coopérative de céréales",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "base_coop_cereale_id_note",
+      "value": "Selectionnez le nom de votre coopérative de céréales",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "sup_possede",
+      "value": "Saisissez la superficie totale possédée par l’UPA (ha)",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "valeur_positive",
+      "value": "Veuillez saisir une valeur positive.",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "sup_cult",
+      "value": "Saisissez la superficie totale cultivée par l’UPA (ha)",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "erreur_surface",
+      "value": "Erreur : la surface cultivée dépasse la surface possédée!",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "nb_personnes_upa",
+      "value": "Nombre de personnes dans l'UPA",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "nb_personnes_upa_hint",
+      "value": "Personnes vivant dans l'UPA de maniere permanente dans les six derniers mois.",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "nb_personnes_actifs",
+      "value": "Nombre de travailleurs actifs dans l'UPA",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "nb_personnes_actifs_hint",
+      "value": "Personnes qui participent aux travaux champêtres",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "erreur_membres",
+      "value": "Trop d'actifs ! (Max: @local.upa_membres)",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "nb_enfants",
+      "value": "Nombre d'enfants dans l'UPA (0-7 ans)  dans l'UPA",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "nb_adolescents",
+      "value": "Nombre d'adolescents dans l'UPA (8-15 ans)",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "nb_femmes",
+      "value": "Nombre de femmes adultes dans l'UPA (16-60 ans)",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "nb_hommes",
+      "value": "Nombre d'hommes adultes dans l'UPA (16-60 ans)",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "nb_femmes_agees",
+      "value": "Nombre de femmes agées (>60) dans l'UPA",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "nb_hommes_agees",
+      "value": "Nombre d'hommes agés (>60) dans l'UPA",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "erreur_check_total",
+      "value": "La somme des personnes de différentes catégories d'âge (@local.check_total) doit être égale au nombre de personnes dans l'UPA  déclaré ci-dessus (@local.upa_membres)",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "nb_charrues",
+      "value": "Nombre de charrues de l'UPA",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "nb_multiculteurs",
+      "value": "Nombre de multiculteurs de l'UPA",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "nb_charrettes",
+      "value": "Nombre de charrettes de l'UPA",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "nb_tracteurs",
+      "value": "Nombre de tracteurs de l'UPA",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "nb_semoirs",
+      "value": "Nombre de semoirs de l'UPA",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "nb_motoculteurs",
+      "value": "Nombre de motoculteurs de l'UPA",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "nb_appareils",
+      "value": "Nombre d'appareils de traitement herbicide ou insecticide",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "nb_pulverisateur_herse",
+      "value": "Nombre de pulvérisateurs ou herses",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "nb_corps_butteurs",
+      "value": "Nombre de corps butteurs",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "nb_moto_tricycles",
+      "value": "Nombre de moto-tricycles de l'UPA",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "nb_batteuses",
+      "value": "Nombre de batteuses de l'UPA",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "nb_decortiqueuses",
+      "value": "Nombre de décortiqueuses de l'UPA",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "oui_non_materiel",
+      "value": "Indiquez si un autre materiel existe",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "autre_materiel_hint",
+      "value": "Un materiel dont le nom n'existe pas la liste ci-dessus",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "nom_autre_materiel",
+      "value": "Écrivez le nom autre matériel ou écrire \"Aucun\"",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "nb_autre_materiel",
+      "value": "Nombre autre materiel (@fields.autre_materiel)",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "nb_boeufs",
+      "value": "Nombre de boeufs de labour",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "nb_taureaux",
+      "value": "Nombre de taureaux",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "nb_vache_taries",
+      "value": "Nombre de vaches taries",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "nb_vach_lait",
+      "value": "Nombre de vaches laitières",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "nb_genisses",
+      "value": "Nombre de génisses",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "nb_veaux",
+      "value": "Nombre de veaux",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "nb_ane",
+      "value": "Nombre d'ânes",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "nb_cheveaux",
+      "value": "Nombre de chevaux",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "nb_moutons",
+      "value": "Nombre de moutons",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "nb_chevre",
+      "value": "Nombre de chèvres",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "nb_porcs",
+      "value": "Nombre de porcs",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "nb_poulets",
+      "value": "Nombre  de poulets",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "nb_pintades",
+      "value": "Nombre de pintades",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "nb_lapins",
+      "value": "Nombre de lapins",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "nb_canards",
+      "value": "Nombre de canards",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "nb_pigeons",
+      "value": "Nombre de pigeons",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "autre_volaille",
+      "value": "Autre volaille (ecrivez son nom):",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "nombre_autre_volaille",
+      "value": "Nombre de @local.autre_animal",
+      "_translations": {
+        "value": {}
+      }
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/Planification/enrolment_form_data.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/1bsOPyv0Dfa9DAa3wAfsTvsv1qbTq_Fl8d0Wb9AO67xk"
+  }
+}

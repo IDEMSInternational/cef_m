@@ -6,7 +6,7 @@
     {
       "type": "title",
       "name": "consentement",
-      "value": "**CONSENTEMENT**"
+      "value": "@global.consentement_title"
     },
     {
       "name": "attempt_submit",
@@ -24,8 +24,8 @@
     },
     {
       "type": "begin_radio_list",
-      "value": "@fields.user_oui_non",
-      "action_list": "changed | set_field : user_oui_non: this.value;"
+      "value": "@fields.consentement_oui_non",
+      "action_list": "changed | set_field : consentement_oui_non: this.value;"
     },
     {
       "type": "begin_data_items",
@@ -40,11 +40,11 @@
     {
       "type": "html",
       "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@fields.user_oui_non && @fields.attempt_submit"
+      "condition": "!@fields.consentement_oui_non && @fields.attempt_submit"
     },
     {
       "name": "completed_enabled",
-      "value": "@fields.user_oui_non"
+      "value": "@fields.consentement_oui_non"
     },
     {
       "type": "begin_display_group",
@@ -63,7 +63,7 @@
       "name": "button_continue_no",
       "value": "Continuer",
       "action_list": "click | go_to: enrolment_page18;",
-      "condition": "@fields.user_oui_non == 'non' ",
+      "condition": "@fields.consentement_oui_non == 'non' ",
       "style_list": "flex: 1"
     },
     {
@@ -78,9 +78,9 @@
       "type": "button",
       "name": "page_1_button_continue",
       "value": "@global.btn_continue",
-      "action_list": "click | set_field: user_oui_non: @fields.user_oui_non;\nclick | set_field: attempt_submit: false;\n\nclick | emit: completed",
+      "action_list": "click | set_field: consentement_oui_non: @fields.consentement_oui_non;\nclick | set_field: attempt_submit: false;\nclick | emit: completed",
       "parameter_list": "disabled: !@local.completed_enabled",
-      "condition": "@local.completed_enabled && @fields.user_oui_non == 'oui' ",
+      "condition": "@local.completed_enabled && @fields.consentement_oui_non == 'oui' ",
       "style_list": "flex: 1"
     },
     {

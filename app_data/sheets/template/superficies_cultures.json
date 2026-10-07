@@ -1,0 +1,889 @@
+{
+  "flow_type": "template",
+  "flow_name": "superficies_cultures",
+  "status": "released",
+  "rows": [
+    {
+      "name": "annee_choisie",
+      "value": "@calc(String(@fields.date_choisie || '').substring(0,4))",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@calc(!!@fields.date_choisie)",
+      "type": "set_variable",
+      "_nested_name": "annee_choisie",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(String(@fields.date_choisie || '').substring(0,4))",
+            "matchedExpression": "@fields.date_choisie",
+            "type": "fields",
+            "fieldName": "date_choisie"
+          },
+          {
+            "fullExpression": "@calc(String(@fields.date_choisie || '').substring(0,4))",
+            "matchedExpression": "@calc(String(@fields.date_choisie || '').substring(0,4))",
+            "type": "calc",
+            "fieldName": "String(@fields.date_choisie || '').substring(0,4)"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "@calc(!!@fields.date_choisie)",
+            "matchedExpression": "!@fields.date_choisie",
+            "type": "fields",
+            "fieldName": "date_choisie"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.date_choisie)",
+            "matchedExpression": "@calc(!!@fields.date_choisie)",
+            "type": "calc",
+            "fieldName": "!!@fields.date_choisie"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.date_choisie": [
+          "value"
+        ],
+        "@calc(String(@fields.date_choisie || '').substring(0,4))": [
+          "value"
+        ],
+        "!@fields.date_choisie": [
+          "condition"
+        ],
+        "@calc(!!@fields.date_choisie)": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "superficie_tot_upa",
+      "value": "@calc(Object.values(@data.champs).filter(item => item.upa_code == @fields.upa_code && item.year == @local.annee_choisie).reduce((sum, item) => sum + Number(item.superficie_total), 0))",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@local.annee_choisie",
+      "type": "set_variable",
+      "_nested_name": "superficie_tot_upa",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Object.values(@data.champs).filter(item => item.upa_code == @fields.upa_code && item.year == @local.annee_choisie).reduce((sum, item) => sum + Number(item.superficie_total), 0))",
+            "matchedExpression": "@data.champs",
+            "type": "data",
+            "fieldName": "champs"
+          },
+          {
+            "fullExpression": "@calc(Object.values(@data.champs).filter(item => item.upa_code == @fields.upa_code && item.year == @local.annee_choisie).reduce((sum, item) => sum + Number(item.superficie_total), 0))",
+            "matchedExpression": "@fields.upa_code",
+            "type": "fields",
+            "fieldName": "upa_code"
+          },
+          {
+            "fullExpression": "@calc(Object.values(@data.champs).filter(item => item.upa_code == @fields.upa_code && item.year == @local.annee_choisie).reduce((sum, item) => sum + Number(item.superficie_total), 0))",
+            "matchedExpression": "@local.annee_choisie",
+            "type": "local",
+            "fieldName": "annee_choisie"
+          },
+          {
+            "fullExpression": "@calc(Object.values(@data.champs).filter(item => item.upa_code == @fields.upa_code && item.year == @local.annee_choisie).reduce((sum, item) => sum + Number(item.superficie_total), 0))",
+            "matchedExpression": "@calc(Object.values(@data.champs).filter(item => item.upa_code == @fields.upa_code && item.year == @local.annee_choisie).reduce((sum, item) => sum + Number(item.superficie_total), 0))",
+            "type": "calc",
+            "fieldName": "Object.values(@data.champs).filter(item => item.upa_code == @fields.upa_code && item.year == @local.annee_choisie).reduce((sum, item) => sum + Number(item.superficie_total), 0)"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "@local.annee_choisie",
+            "matchedExpression": "@local.annee_choisie",
+            "type": "local",
+            "fieldName": "annee_choisie"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@data.champs": [
+          "value"
+        ],
+        "@fields.upa_code": [
+          "value"
+        ],
+        "@local.annee_choisie": [
+          "value",
+          "condition"
+        ],
+        "@calc(Object.values(@data.champs).filter(item => item.upa_code == @fields.upa_code && item.year == @local.annee_choisie).reduce((sum, item) => sum + Number(item.superficie_total), 0))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "crop_totals",
+      "value": "@calc(Object.values(@data.parcelles || {}).filter(p => Object.values(@data.champs || {}).some(c => String(c.id) === String(p.champ_id) && String(c.upa_code) === String(@fields.upa_code) && String(c.year) === String(@local.annee_choisie))).reduce((acc, p) => { acc[p.crop_id] = (acc[p.crop_id] || 0) + Number(p.superficie_measuree || 0); return acc; }, {}))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "crop_totals",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Object.values(@data.parcelles || {}).filter(p => Object.values(@data.champs || {}).some(c => String(c.id) === String(p.champ_id) && String(c.upa_code) === String(@fields.upa_code) && String(c.year) === String(@local.annee_choisie))).reduce((acc, p) => { acc[p.crop_id] = (acc[p.crop_id] || 0) + Number(p.superficie_measuree || 0); return acc; }, {}))",
+            "matchedExpression": "@data.parcelles",
+            "type": "data",
+            "fieldName": "parcelles"
+          },
+          {
+            "fullExpression": "@calc(Object.values(@data.parcelles || {}).filter(p => Object.values(@data.champs || {}).some(c => String(c.id) === String(p.champ_id) && String(c.upa_code) === String(@fields.upa_code) && String(c.year) === String(@local.annee_choisie))).reduce((acc, p) => { acc[p.crop_id] = (acc[p.crop_id] || 0) + Number(p.superficie_measuree || 0); return acc; }, {}))",
+            "matchedExpression": "@data.champs",
+            "type": "data",
+            "fieldName": "champs"
+          },
+          {
+            "fullExpression": "@calc(Object.values(@data.parcelles || {}).filter(p => Object.values(@data.champs || {}).some(c => String(c.id) === String(p.champ_id) && String(c.upa_code) === String(@fields.upa_code) && String(c.year) === String(@local.annee_choisie))).reduce((acc, p) => { acc[p.crop_id] = (acc[p.crop_id] || 0) + Number(p.superficie_measuree || 0); return acc; }, {}))",
+            "matchedExpression": "@fields.upa_code",
+            "type": "fields",
+            "fieldName": "upa_code"
+          },
+          {
+            "fullExpression": "@calc(Object.values(@data.parcelles || {}).filter(p => Object.values(@data.champs || {}).some(c => String(c.id) === String(p.champ_id) && String(c.upa_code) === String(@fields.upa_code) && String(c.year) === String(@local.annee_choisie))).reduce((acc, p) => { acc[p.crop_id] = (acc[p.crop_id] || 0) + Number(p.superficie_measuree || 0); return acc; }, {}))",
+            "matchedExpression": "@local.annee_choisie",
+            "type": "local",
+            "fieldName": "annee_choisie"
+          },
+          {
+            "fullExpression": "@calc(Object.values(@data.parcelles || {}).filter(p => Object.values(@data.champs || {}).some(c => String(c.id) === String(p.champ_id) && String(c.upa_code) === String(@fields.upa_code) && String(c.year) === String(@local.annee_choisie))).reduce((acc, p) => { acc[p.crop_id] = (acc[p.crop_id] || 0) + Number(p.superficie_measuree || 0); return acc; }, {}))",
+            "matchedExpression": "@calc(Object.values(@data.parcelles || {}).filter(p => Object.values(@data.champs || {}).some(c => String(c.id) === String(p.champ_id) && String(c.upa_code) === String(@fields.upa_code) && String(c.year) === String(@local.annee_choisie))).reduce((acc, p) => { acc[p.crop_id] = (acc[p.crop_id] || 0) + Number(p.superficie_measuree || 0); return acc; }, {}))",
+            "type": "calc",
+            "fieldName": "Object.values(@data.parcelles || {}).filter(p => Object.values(@data.champs || {}).some(c => String(c.id) === String(p.champ_id) && String(c.upa_code) === String(@fields.upa_code) && String(c.year) === String(@local.annee_choisie))).reduce((acc, p) => { acc[p.crop_id] = (acc[p.crop_id] || 0) + Number(p.superficie_measuree || 0); return acc; }, {})"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@data.parcelles": [
+          "value"
+        ],
+        "@data.champs": [
+          "value"
+        ],
+        "@fields.upa_code": [
+          "value"
+        ],
+        "@local.annee_choisie": [
+          "value"
+        ],
+        "@calc(Object.values(@data.parcelles || {}).filter(p => Object.values(@data.champs || {}).some(c => String(c.id) === String(p.champ_id) && String(c.upa_code) === String(@fields.upa_code) && String(c.year) === String(@local.annee_choisie))).reduce((acc, p) => { acc[p.crop_id] = (acc[p.crop_id] || 0) + Number(p.superficie_measuree || 0); return acc; }, {}))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "crop_list",
+      "value": "@calc(Object.keys(@local.crop_totals || {}))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "crop_list",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Object.keys(@local.crop_totals || {}))",
+            "matchedExpression": "@local.crop_totals",
+            "type": "local",
+            "fieldName": "crop_totals"
+          },
+          {
+            "fullExpression": "@calc(Object.keys(@local.crop_totals || {}))",
+            "matchedExpression": "@calc(Object.keys(@local.crop_totals || {}))",
+            "type": "calc",
+            "fieldName": "Object.keys(@local.crop_totals || {})"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.crop_totals": [
+          "value"
+        ],
+        "@calc(Object.keys(@local.crop_totals || {}))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "condition_affiche",
+      "value": "@local.crop_list.length > 0 && @local.annee_choisie",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "condition_affiche",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@local.crop_list.length > 0 && @local.annee_choisie",
+            "matchedExpression": "@local.crop_list.length",
+            "type": "local",
+            "fieldName": "crop_list"
+          },
+          {
+            "fullExpression": "@local.crop_list.length > 0 && @local.annee_choisie",
+            "matchedExpression": "@local.annee_choisie",
+            "type": "local",
+            "fieldName": "annee_choisie"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.crop_list.length": [
+          "value"
+        ],
+        "@local.annee_choisie": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "liste_sup",
+      "value": "@calc(@local.crop_list.reduce((text, crop, i, arr) => text + crop + ': ' + Number(@local.crop_totals[crop]).toFixed(2) + ' ha' + (i < arr.length - 1 ? '<br>' : ''), ''))",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@local.condition_affiche",
+      "type": "set_variable",
+      "_nested_name": "liste_sup",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(@local.crop_list.reduce((text, crop, i, arr) => text + crop + ': ' + Number(@local.crop_totals[crop]).toFixed(2) + ' ha' + (i < arr.length - 1 ? '<br>' : ''), ''))",
+            "matchedExpression": "@local.crop_list.reduce",
+            "type": "local",
+            "fieldName": "crop_list"
+          },
+          {
+            "fullExpression": "@calc(@local.crop_list.reduce((text, crop, i, arr) => text + crop + ': ' + Number(@local.crop_totals[crop]).toFixed(2) + ' ha' + (i < arr.length - 1 ? '<br>' : ''), ''))",
+            "matchedExpression": "@local.crop_totals",
+            "type": "local",
+            "fieldName": "crop_totals"
+          },
+          {
+            "fullExpression": "@calc(@local.crop_list.reduce((text, crop, i, arr) => text + crop + ': ' + Number(@local.crop_totals[crop]).toFixed(2) + ' ha' + (i < arr.length - 1 ? '<br>' : ''), ''))",
+            "matchedExpression": "@calc(@local.crop_list.reduce((text, crop, i, arr) => text + crop + ': ' + Number(@local.crop_totals[crop]).toFixed(2) + ' ha' + (i < arr.length - 1 ? '<br>' : ''), ''))",
+            "type": "calc",
+            "fieldName": "@local.crop_list.reduce((text, crop, i, arr) => text + crop + ': ' + Number(@local.crop_totals[crop]).toFixed(2) + ' ha' + (i < arr.length - 1 ? '<br>' : ''), '')"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "@local.condition_affiche",
+            "matchedExpression": "@local.condition_affiche",
+            "type": "local",
+            "fieldName": "condition_affiche"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.crop_list.reduce": [
+          "value"
+        ],
+        "@local.crop_totals": [
+          "value"
+        ],
+        "@calc(@local.crop_list.reduce((text, crop, i, arr) => text + crop + ': ' + Number(@local.crop_totals[crop]).toFixed(2) + ' ha' + (i < arr.length - 1 ? '<br>' : ''), ''))": [
+          "value"
+        ],
+        "@local.condition_affiche": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "template",
+      "value": "evaluation_page_entete",
+      "rows": [
+        {
+          "name": "page_id",
+          "value": "superficie",
+          "_translations": {
+            "value": {}
+          },
+          "type": "set_variable",
+          "_nested_name": "evaluation_page_entete.page_id"
+        }
+      ],
+      "name": "evaluation_page_entete",
+      "_nested_name": "evaluation_page_entete"
+    },
+    {
+      "type": "text",
+      "value": "@global.choix_annee_text",
+      "_translations": {
+        "value": {}
+      },
+      "name": "text_10",
+      "_nested_name": "text_10",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.choix_annee_text",
+            "matchedExpression": "@global.choix_annee_text",
+            "type": "global",
+            "fieldName": "choix_annee_text"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.choix_annee_text": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "date_time_picker",
+      "value": "@fields.date_choisie",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "date_choisie",
+            "this.value"
+          ],
+          "_raw": "changed | set_field: date_choisie: this.value"
+        }
+      ],
+      "parameter_list": {
+        "type": "year",
+        "min": "2023",
+        "max": "@calc(now())"
+      },
+      "name": "date_time_picker_11",
+      "_nested_name": "date_time_picker_11",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.date_choisie",
+            "matchedExpression": "@fields.date_choisie",
+            "type": "fields",
+            "fieldName": "date_choisie"
+          }
+        ],
+        "parameter_list": {
+          "max": [
+            {
+              "fullExpression": "@calc(now())",
+              "matchedExpression": "@calc(now())",
+              "type": "calc",
+              "fieldName": "now()"
+            }
+          ]
+        }
+      },
+      "_dynamicDependencies": {
+        "@fields.date_choisie": [
+          "value"
+        ],
+        "@calc(now())": [
+          "parameter_list.max"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "parameter_list": {
+        "style": "tool_3"
+      },
+      "condition": "@local.annee_choisie && @local.superficie_tot_upa != 0",
+      "rows": [
+        {
+          "type": "text",
+          "value": "@global.superf_total",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "text-align: center",
+            "font-weight: bold"
+          ],
+          "name": "text_1",
+          "_nested_name": "display_group_12.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.superf_total",
+                "matchedExpression": "@global.superf_total",
+                "type": "global",
+                "fieldName": "superf_total"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.superf_total": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "value": "@local.superficie_tot_upa ha",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "text-align: center",
+            "font-weight: bold"
+          ],
+          "name": "text_2",
+          "_nested_name": "display_group_12.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@local.superficie_tot_upa ha",
+                "matchedExpression": "@local.superficie_tot_upa",
+                "type": "local",
+                "fieldName": "superficie_tot_upa"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.superficie_tot_upa": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_12",
+      "_nested_name": "display_group_12",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@local.annee_choisie && @local.superficie_tot_upa != 0",
+            "matchedExpression": "@local.annee_choisie",
+            "type": "local",
+            "fieldName": "annee_choisie"
+          },
+          {
+            "fullExpression": "@local.annee_choisie && @local.superficie_tot_upa != 0",
+            "matchedExpression": "@local.superficie_tot_upa",
+            "type": "local",
+            "fieldName": "superficie_tot_upa"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.annee_choisie": [
+          "condition"
+        ],
+        "@local.superficie_tot_upa": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "data_items",
+      "value": "@data.cultures",
+      "rows": [
+        {
+          "type": "display_group",
+          "condition": "@local.annee_choisie && @local.crop_list.length > 0",
+          "style_list": [
+            "width:100%",
+            "box-sizing:border-box",
+            "padding: 10px 10px"
+          ],
+          "rows": [
+            {
+              "type": "display_group",
+              "parameter_list": {
+                "style": "white_box"
+              },
+              "condition": "@calc(@local.crop_totals.hasOwnProperty(@item.id))",
+              "rows": [
+                {
+                  "type": "image",
+                  "value": "@item.image",
+                  "_translations": {
+                    "value": {}
+                  },
+                  "style_list": [
+                    "width:60px",
+                    "height:60px"
+                  ],
+                  "name": "image_1",
+                  "_nested_name": "data_items_14.display_group_1_@item.id.display_group_1.image_1",
+                  "_dynamicFields": {
+                    "value": [
+                      {
+                        "fullExpression": "@item.image",
+                        "matchedExpression": "@item.image",
+                        "type": "item",
+                        "fieldName": "image"
+                      }
+                    ],
+                    "_nested_name": [
+                      {
+                        "fullExpression": "data_items_14.display_group_1_@item.id.display_group_1.image_1",
+                        "matchedExpression": "@item.id.display_group_1.image_1",
+                        "type": "item",
+                        "fieldName": "id"
+                      }
+                    ]
+                  },
+                  "_dynamicDependencies": {
+                    "@item.image": [
+                      "value"
+                    ],
+                    "@item.id.display_group_1.image_1": [
+                      "_nested_name"
+                    ]
+                  }
+                },
+                {
+                  "type": "display_group",
+                  "rows": [
+                    {
+                      "type": "text",
+                      "value": "@item.title",
+                      "_translations": {
+                        "value": {}
+                      },
+                      "parameter_list": {
+                        "style": "primary"
+                      },
+                      "style_list": [
+                        "font-weight:bold",
+                        "font-size:15px",
+                        "margin: 1px"
+                      ],
+                      "name": "text_1",
+                      "_nested_name": "data_items_14.display_group_1_@item.id.display_group_1.display_group_2.text_1",
+                      "_dynamicFields": {
+                        "value": [
+                          {
+                            "fullExpression": "@item.title",
+                            "matchedExpression": "@item.title",
+                            "type": "item",
+                            "fieldName": "title"
+                          }
+                        ],
+                        "_nested_name": [
+                          {
+                            "fullExpression": "data_items_14.display_group_1_@item.id.display_group_1.display_group_2.text_1",
+                            "matchedExpression": "@item.id.display_group_1.display_group_2.text_1",
+                            "type": "item",
+                            "fieldName": "id"
+                          }
+                        ]
+                      },
+                      "_dynamicDependencies": {
+                        "@item.title": [
+                          "value"
+                        ],
+                        "@item.id.display_group_1.display_group_2.text_1": [
+                          "_nested_name"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "value": "@calc(Number(@local.crop_totals[@item.id] || 0).toFixed(2) + ' ha')",
+                      "_translations": {
+                        "value": {}
+                      },
+                      "parameter_list": {
+                        "text_align": "left"
+                      },
+                      "style_list": [
+                        "font-weight:bold",
+                        "font-size:15px"
+                      ],
+                      "name": "text_2",
+                      "_nested_name": "data_items_14.display_group_1_@item.id.display_group_1.display_group_2.text_2",
+                      "_dynamicFields": {
+                        "value": [
+                          {
+                            "fullExpression": "@calc(Number(@local.crop_totals[@item.id] || 0).toFixed(2) + ' ha')",
+                            "matchedExpression": "@local.crop_totals",
+                            "type": "local",
+                            "fieldName": "crop_totals"
+                          },
+                          {
+                            "fullExpression": "@calc(Number(@local.crop_totals[@item.id] || 0).toFixed(2) + ' ha')",
+                            "matchedExpression": "@item.id",
+                            "type": "item",
+                            "fieldName": "id"
+                          },
+                          {
+                            "fullExpression": "@calc(Number(@local.crop_totals[@item.id] || 0).toFixed(2) + ' ha')",
+                            "matchedExpression": "@calc(Number(@local.crop_totals[@item.id] || 0).toFixed(2) + ' ha')",
+                            "type": "calc",
+                            "fieldName": "Number(@local.crop_totals[@item.id] || 0).toFixed(2) + ' ha'"
+                          }
+                        ],
+                        "_nested_name": [
+                          {
+                            "fullExpression": "data_items_14.display_group_1_@item.id.display_group_1.display_group_2.text_2",
+                            "matchedExpression": "@item.id.display_group_1.display_group_2.text_2",
+                            "type": "item",
+                            "fieldName": "id"
+                          }
+                        ]
+                      },
+                      "_dynamicDependencies": {
+                        "@local.crop_totals": [
+                          "value"
+                        ],
+                        "@item.id": [
+                          "value"
+                        ],
+                        "@calc(Number(@local.crop_totals[@item.id] || 0).toFixed(2) + ' ha')": [
+                          "value"
+                        ],
+                        "@item.id.display_group_1.display_group_2.text_2": [
+                          "_nested_name"
+                        ]
+                      }
+                    }
+                  ],
+                  "name": "display_group_2",
+                  "_nested_name": "data_items_14.display_group_1_@item.id.display_group_1.display_group_2",
+                  "_dynamicFields": {
+                    "_nested_name": [
+                      {
+                        "fullExpression": "data_items_14.display_group_1_@item.id.display_group_1.display_group_2",
+                        "matchedExpression": "@item.id.display_group_1.display_group_2",
+                        "type": "item",
+                        "fieldName": "id"
+                      }
+                    ]
+                  },
+                  "_dynamicDependencies": {
+                    "@item.id.display_group_1.display_group_2": [
+                      "_nested_name"
+                    ]
+                  }
+                }
+              ],
+              "name": "display_group_1",
+              "_nested_name": "data_items_14.display_group_1_@item.id.display_group_1",
+              "_dynamicFields": {
+                "condition": [
+                  {
+                    "fullExpression": "@calc(@local.crop_totals.hasOwnProperty(@item.id))",
+                    "matchedExpression": "@local.crop_totals.hasOwnProperty",
+                    "type": "local",
+                    "fieldName": "crop_totals"
+                  },
+                  {
+                    "fullExpression": "@calc(@local.crop_totals.hasOwnProperty(@item.id))",
+                    "matchedExpression": "@item.id",
+                    "type": "item",
+                    "fieldName": "id"
+                  },
+                  {
+                    "fullExpression": "@calc(@local.crop_totals.hasOwnProperty(@item.id))",
+                    "matchedExpression": "@calc(@local.crop_totals.hasOwnProperty(@item.id))",
+                    "type": "calc",
+                    "fieldName": "@local.crop_totals.hasOwnProperty(@item.id)"
+                  }
+                ],
+                "_nested_name": [
+                  {
+                    "fullExpression": "data_items_14.display_group_1_@item.id.display_group_1",
+                    "matchedExpression": "@item.id.display_group_1",
+                    "type": "item",
+                    "fieldName": "id"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@local.crop_totals.hasOwnProperty": [
+                  "condition"
+                ],
+                "@item.id": [
+                  "condition"
+                ],
+                "@calc(@local.crop_totals.hasOwnProperty(@item.id))": [
+                  "condition"
+                ],
+                "@item.id.display_group_1": [
+                  "_nested_name"
+                ]
+              }
+            }
+          ],
+          "name": "display_group_1_@item.id",
+          "_nested_name": "data_items_14.display_group_1_@item.id",
+          "_dynamicFields": {
+            "condition": [
+              {
+                "fullExpression": "@local.annee_choisie && @local.crop_list.length > 0",
+                "matchedExpression": "@local.annee_choisie",
+                "type": "local",
+                "fieldName": "annee_choisie"
+              },
+              {
+                "fullExpression": "@local.annee_choisie && @local.crop_list.length > 0",
+                "matchedExpression": "@local.crop_list.length",
+                "type": "local",
+                "fieldName": "crop_list"
+              }
+            ],
+            "name": [
+              {
+                "fullExpression": "display_group_1_@item.id",
+                "matchedExpression": "@item.id",
+                "type": "item",
+                "fieldName": "id"
+              }
+            ],
+            "_nested_name": [
+              {
+                "fullExpression": "data_items_14.display_group_1_@item.id",
+                "matchedExpression": "@item.id",
+                "type": "item",
+                "fieldName": "id"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.annee_choisie": [
+              "condition"
+            ],
+            "@local.crop_list.length": [
+              "condition"
+            ],
+            "@item.id": [
+              "name",
+              "_nested_name"
+            ]
+          }
+        }
+      ],
+      "name": "data_items_14",
+      "_nested_name": "data_items_14",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@data.cultures",
+            "matchedExpression": "@data.cultures",
+            "type": "data",
+            "fieldName": "cultures"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@data.cultures": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "condition": "@local.annee_choisie && @local.superficie_tot_upa == 0",
+      "style_list": [
+        "padding: 22px 16px",
+        "margin: 10px 12px",
+        "background: #fff7ed",
+        "text-align: center"
+      ],
+      "rows": [
+        {
+          "type": "text",
+          "name": "no_data",
+          "value": "@global.no_data_text",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "color: #9a3412",
+            "font-weight: 700",
+            "font-size: 15px"
+          ],
+          "_nested_name": "display_group_16.no_data",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.no_data_text",
+                "matchedExpression": "@global.no_data_text",
+                "type": "global",
+                "fieldName": "no_data_text"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.no_data_text": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_16",
+      "_nested_name": "display_group_16",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@local.annee_choisie && @local.superficie_tot_upa == 0",
+            "matchedExpression": "@local.annee_choisie",
+            "type": "local",
+            "fieldName": "annee_choisie"
+          },
+          {
+            "fullExpression": "@local.annee_choisie && @local.superficie_tot_upa == 0",
+            "matchedExpression": "@local.superficie_tot_upa",
+            "type": "local",
+            "fieldName": "superficie_tot_upa"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.annee_choisie": [
+          "condition"
+        ],
+        "@local.superficie_tot_upa": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "navigation_bar",
+      "parameter_list": {
+        "button_list": "@data.footer"
+      },
+      "style_list": [
+        "position: fixed",
+        "bottom: 0",
+        "left: 0",
+        "box-sizing: border-box"
+      ],
+      "name": "navigation_bar_18",
+      "_nested_name": "navigation_bar_18",
+      "_dynamicFields": {
+        "parameter_list": {
+          "button_list": [
+            {
+              "fullExpression": "@data.footer",
+              "matchedExpression": "@data.footer",
+              "type": "data",
+              "fieldName": "footer"
+            }
+          ]
+        }
+      },
+      "_dynamicDependencies": {
+        "@data.footer": [
+          "parameter_list.button_list"
+        ]
+      }
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/Evaluation/superficies_cultures_form_sheets.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/1kKY8Z0IjyP4LMlDd9WsWfJN19T_yp_8-euhEEhGb5WU"
+  }
+}

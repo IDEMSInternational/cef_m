@@ -173,7 +173,7 @@
       "rows": [
         {
           "type": "html",
-          "value": "<span style=\"color: red;\">*</span> Indiquez si les tiges de <b>@local.v_nom_cult_prev</b> sont restées et retournées dans le sol de la parcelle N⁰@field.num_parcelle",
+          "value": "<span style=\"color: red;\">*</span> Indiquez si les tiges de <b>@local.v_nom_cult_prev</b> sont restées et retournées dans le sol de la parcelle N⁰@fields.num_parcelle",
           "_translations": {
             "value": {}
           },
@@ -182,15 +182,15 @@
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "<span style=\"color: red;\">*</span> Indiquez si les tiges de <b>@local.v_nom_cult_prev</b> sont restées et retournées dans le sol de la parcelle N⁰@field.num_parcelle",
+                "fullExpression": "<span style=\"color: red;\">*</span> Indiquez si les tiges de <b>@local.v_nom_cult_prev</b> sont restées et retournées dans le sol de la parcelle N⁰@fields.num_parcelle",
                 "matchedExpression": "@local.v_nom_cult_prev",
                 "type": "local",
                 "fieldName": "v_nom_cult_prev"
               },
               {
-                "fullExpression": "<span style=\"color: red;\">*</span> Indiquez si les tiges de <b>@local.v_nom_cult_prev</b> sont restées et retournées dans le sol de la parcelle N⁰@field.num_parcelle",
-                "matchedExpression": "@field.num_parcelle",
-                "type": "field",
+                "fullExpression": "<span style=\"color: red;\">*</span> Indiquez si les tiges de <b>@local.v_nom_cult_prev</b> sont restées et retournées dans le sol de la parcelle N⁰@fields.num_parcelle",
+                "matchedExpression": "@fields.num_parcelle",
+                "type": "fields",
                 "fieldName": "num_parcelle"
               }
             ]
@@ -199,7 +199,7 @@
             "@local.v_nom_cult_prev": [
               "value"
             ],
-            "@field.num_parcelle": [
+            "@fields.num_parcelle": [
               "value"
             ]
           }
@@ -208,7 +208,7 @@
           "type": "audio",
           "parameter_list": {
             "variant": "button_only",
-            "src": "audio/semis/tige_laisse_champ_fr.mp3",
+            "src": "audio/Superficie/tige_laisse_champ_fr.mp3",
             "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
           "style_list": [
@@ -477,7 +477,7 @@
   ],
   "_source": {
     "name": "cef_m sheets",
-    "path": "template/superficie_champs_form_sheets.xlsx",
+    "path": "template/Suivi/superficie_champs_form_sheets.xlsx",
     "url": "https://docs.google.com/spreadsheets/d/1Za6KnU73iDgbTARvf6JCQo0vJb_EkTgiHEyZUJdNgXs"
   }
 }

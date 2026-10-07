@@ -120,10 +120,11 @@
           "trigger": "click",
           "action_id": "add_data",
           "args": [],
-          "_raw": "click | add_data | \n\n_list_id: fruits_list,\nname: name_{{length(fruits_list)+1}},\ntext: @local.input_fruit",
+          "_raw": "click | add_data | \n\n_list_id: fruits_list,\n_id: @field.id,\nname: @local.input_fruit,\ntext: @local.input_fruit",
           "params": {
             "_list_id": "fruits_list",
-            "name": "name_{{length(fruits_list)+1}}",
+            "_id": "@field.id",
+            "name": "@local.input_fruit",
             "text": "@local.input_fruit"
           }
         }
@@ -134,13 +135,41 @@
           "0": {
             "_raw": [
               {
-                "fullExpression": "click | add_data | \n\n_list_id: fruits_list,\nname: name_{{length(fruits_list)+1}},\ntext: @local.input_fruit",
+                "fullExpression": "click | add_data | \n\n_list_id: fruits_list,\n_id: @field.id,\nname: @local.input_fruit,\ntext: @local.input_fruit",
+                "matchedExpression": "@field.id",
+                "type": "field",
+                "fieldName": "id"
+              },
+              {
+                "fullExpression": "click | add_data | \n\n_list_id: fruits_list,\n_id: @field.id,\nname: @local.input_fruit,\ntext: @local.input_fruit",
+                "matchedExpression": "@local.input_fruit",
+                "type": "local",
+                "fieldName": "input_fruit"
+              },
+              {
+                "fullExpression": "click | add_data | \n\n_list_id: fruits_list,\n_id: @field.id,\nname: @local.input_fruit,\ntext: @local.input_fruit",
                 "matchedExpression": "@local.input_fruit",
                 "type": "local",
                 "fieldName": "input_fruit"
               }
             ],
             "params": {
+              "_id": [
+                {
+                  "fullExpression": "@field.id",
+                  "matchedExpression": "@field.id",
+                  "type": "field",
+                  "fieldName": "id"
+                }
+              ],
+              "name": [
+                {
+                  "fullExpression": "@local.input_fruit",
+                  "matchedExpression": "@local.input_fruit",
+                  "type": "local",
+                  "fieldName": "input_fruit"
+                }
+              ],
               "text": [
                 {
                   "fullExpression": "@local.input_fruit",
@@ -154,8 +183,14 @@
         }
       },
       "_dynamicDependencies": {
+        "@field.id": [
+          "action_list.0._raw",
+          "action_list.0.params._id"
+        ],
         "@local.input_fruit": [
           "action_list.0._raw",
+          "action_list.0._raw",
+          "action_list.0.params.name",
           "action_list.0.params.text"
         ]
       }

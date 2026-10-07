@@ -21,7 +21,7 @@
     },
     {
       "name": "cult_asso_selected",
-      "value": "@calc([@fields.coton ? 'coton' : null, @fields.mais ? 'mais' : null, @fields.mil ? 'mil' : null, @fields.sorgho ? 'sorgho' : null, @fields.arachide ? 'arachide' : null, @fields.fourrage ? 'fourrage' : null, @fields.fonio ? 'fonio' : null, @fields.riz ? 'riz' : null, @fields.sesame ? 'sesame' : null, @fields.wauandzou ? 'wauandzou' : null, @fields.patate_douce ? 'patate_douce' : null, @fields.bissap ? 'bissap' : null, @fields.autre_culture1 ? @fields.autre_cult_asso1 : null, @fields.autre_culture2 ? @fields.autre_cult_asso2 : null].filter(Boolean).join(','))"
+      "value": "@calc(@fields.cult_asso === 'autre_culture1' ? (@fields.autre_cult_asso1 || '') : @fields.cult_asso === 'autre_culture2' ? (@fields.autre_cult_asso2 || '') : (@fields.cult_asso || ''))"
     },
     {
       "type": "title",
@@ -51,8 +51,7 @@
       "type": "end_data_items"
     },
     {
-      "type": "begin_display_group",
-      "style_list": "display: block; width: 100%; margin-top: 10px; padding: 10px; background: #f4f7fc;"
+      "type": "begin_display_group"
     },
     {
       "type": "html",
@@ -74,7 +73,7 @@
     {
       "type": "image",
       "value": "images/association.jpg",
-      "style_list": "width:100px; height:100px; \n\n"
+      "style_list": "width: 50%; object-fit: contain;"
     },
     {
       "type": "radio_button_grid",
@@ -110,42 +109,27 @@
       "type": "end_display_group"
     },
     {
-      "type": "begin_data_items",
-      "value": "@data.culture_association",
-      "parameter_list": "filter: @fields.association_oui_non == 'oui'"
-    },
-    {
       "type": "begin_display_group",
-      "condition": "@fields.association_oui_non == 'oui'",
-      "style_list": "display: flex; align-items: center; grid_gap: 12px; margin-bottom: 10px; padding: 8px 12px;"
+      "condition": "@fields.association_oui_non == 'oui'"
     },
     {
-      "type": "image",
-      "name": "img_item",
-      "value": "@item.image",
-      "style_list": "width: 50px; height: 50px; object-fit: contain; flex-shrink: 0;"
-    },
-    {
-      "type": "simple_checkbox",
-      "name": "@item.name",
-      "value": "@fields.@item.name",
-      "action_list": "changed | set_field: @item.name: !@fields.@item.name;",
-      "parameter_list": "label_text: @item.text;"
+      "type": "radio_button_grid",
+      "name": "cult_asso\n",
+      "value": "@fields.cult_asso\n\n",
+      "action_list": "changed | set_field: cult_asso: this.value;\n",
+      "parameter_list": "answer_list: @data.culture_association;\nitem_width: 80px;\ngrid_width: 150%;\ngrid_gap: 10px;\nvariant: circle-icon;\n"
     },
     {
       "type": "end_display_group"
     },
     {
-      "type": "end_data_items"
-    },
-    {
       "type": "begin_display_group",
-      "condition": "@fields.autre_culture1 == true && @fields.association_oui_non == 'oui'",
-      "style_list": "display: block; width: 100%; margin-top: 15px; padding: 12px; background: #f8f9fa;"
+      "condition": "@fields.cult_asso== 'autre_culture1' && @fields.association_oui_non == 'oui'",
+      "style_list": "display: block; width: 100%; margin-top: 15px; padding: 12px; "
     },
     {
       "type": "html",
-      "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Écrivez le nom de la 1ère culture associée spécifique :</label>"
+      "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Écrivez le nom de la 1ère culture associée spécifique </label>"
     },
     {
       "type": "audio",
@@ -166,16 +150,16 @@
     {
       "type": "html",
       "value": "<span style=\"color: red; font-size: 13px;\">Veuillez préciser le nom de la culture !</span>",
-      "condition": "@fields.attempt_submit_p11 && @fields.association_oui_non == 'oui' && @fields.autre_culture1 == true && !@fields.autre_cult_asso1"
+      "condition": "@fields.attempt_submit_p11 && @fields.association_oui_non == 'oui' && @fields.cult_asso==  'autre_culture1' && !@fields.autre_cult_asso1"
     },
     {
       "type": "begin_display_group",
-      "condition": "@fields.autre_culture1 == true && @fields.association_oui_non == 'oui' && @fields.autre_culture2 == true",
-      "style_list": "display: block; width: 100%; margin-top: 15px; padding: 12px; background: #f8f9fa;"
+      "condition": "@fields.autre_cult_asso1 && @fields.association_oui_non == 'oui' && @fields.cult_asso==  'autre_culture2'",
+      "style_list": "display: block; width: 100%; margin-top: 15px; padding: 12px;"
     },
     {
       "type": "html",
-      "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Écrivez le nom de la 2ème culture associée spécifique :</label>"
+      "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Écrivez le nom de la 2ème culture associée spécifique </label>"
     },
     {
       "type": "audio",

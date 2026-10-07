@@ -1,0 +1,217 @@
+{
+  "flow_type": "template",
+  "flow_name": "besoins_planifies",
+  "status": "released",
+  "rows": [
+    {
+      "type": "begin_template",
+      "value": "evaluation_page_entete"
+    },
+    {
+      "name": "page_id",
+      "value": "besoins"
+    },
+    {
+      "type": "end_template"
+    },
+    {
+      "type": "text",
+      "value": "@global.choix_annee_text"
+    },
+    {
+      "type": "date_time_picker",
+      "value": "@fields.date_choisie",
+      "action_list": "changed | set_field: date_choisie: this.value;\n",
+      "parameter_list": "type: year;\nmin: 2023; \nmax: @calc(now());"
+    },
+    {
+      "name": "annee_choisie",
+      "value": "@calc(String(@fields.date_choisie || '').substring(0,4))",
+      "condition": "@calc(!!@fields.date_choisie)"
+    },
+    {
+      "name": "last_upa_entry",
+      "value": "@calc(Object.values(@data.besoins_pour_cereales_humains).filter(item => item.upa_code == @fields.upa_code && item.year == @local.annee_choisie).slice(-1)[0])",
+      "condition": "@local.annee_choisie"
+    },
+    {
+      "name": "animal_totals",
+      "value": "@calc(Object.values(@data.alimentation_animaux_categorie || {}).filter(a => Object.values(@data.alimentation_animaux || {}).some(f => String(f.id) === String(a.animal_feed_id) && String(f.upa_code) === String(@fields.upa_code) && String(f.year) === String(@local.annee_choisie))).reduce((acc, a) => { acc[a.categorie] = (acc[a.categorie] || 0) + Number(a.nb_animaux || 0); return acc; }, {}))",
+      "condition": "@local.annee_choisie"
+    },
+    {
+      "type": "begin_task_card",
+      "condition": "!!@local.last_upa_entry"
+    },
+    {
+      "type": "begin_display_group",
+      "parameter_list": "style:column"
+    },
+    {
+      "type": "title",
+      "value": "@global.besoin_humain_title",
+      "style_list": "text-align: center;"
+    },
+    {
+      "type": "begin_display_group",
+      "style_list": "display: flex; width:100%; box-sizing:border-box; padding: 6px 4px; "
+    },
+    {
+      "type": "begin_display_group",
+      "parameter_list": "style:column",
+      "style_list": "width:80%;"
+    },
+    {
+      "type": "text",
+      "value": "@global.nbre_pers_nourrir",
+      "style_list": "text-align:left ; font-size: 15px; "
+    },
+    {
+      "type": "text",
+      "value": "@global.besoin_cereale",
+      "style_list": "text-align: left; font-size: 15px; "
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "parameter_list": "style:column"
+    },
+    {
+      "type": "text",
+      "value": "@local.last_upa_entry.personnes_nourrir",
+      "style_list": "text-align: center; font-size: 15px; font-weight: bold;"
+    },
+    {
+      "type": "text",
+      "value": "@local.last_upa_entry.besoin_cereale_exploitation",
+      "style_list": "text-align: center; font-size: 15px; font-weight: bold;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "end_display_card"
+    },
+    {
+      "type": "begin_task_card",
+      "condition": "@local.annee_choisie && @calc(Object.keys(@local.animal_totals || {}).length > 0)",
+      "style_list": "padding-bottom: 100px;"
+    },
+    {
+      "type": "begin_display_group",
+      "parameter_list": "style:column"
+    },
+    {
+      "type": "title",
+      "value": "@global.besoin_animaux_title",
+      "style_list": "text-align: center;"
+    },
+    {
+      "type": "begin_data_items",
+      "value": "@data.list_animaux"
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@local.animal_totals.hasOwnProperty(@item.anim_label) ",
+      "style_list": "display: flex; width: 100%; box-sizing: border-box; justify-content: space-between; align-items: center; padding: 10px 4px; border-bottom: 1px dashed #E0E0E0; gap: 12px;"
+    },
+    {
+      "type": "text",
+      "value": "@item.anim_title",
+      "style_list": "box-sizing: border-box; text-align: left; font-size: 16px;"
+    },
+    {
+      "type": "text",
+      "value": "String(@local.animal_totals[@item.anim_label])",
+      "style_list": "box-sizing: border-box; text-align: right; font-size: 14px; font-weight: bold;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "end_data_items"
+    },
+    {
+      "name": "son_tourteau_total",
+      "value": "@calc(Object.values(@data.alimentation_animaux || {}).filter(f => String(f.upa_code || '') === String(@fields.upa_code) && String(f.year || '') === String(@local.annee_choisie)).reduce((sum, f) => sum + Number(f.quantite_son || 0) + Number(f.quantite_tourteau || 0), 0))",
+      "condition": "@local.annee_choisie"
+    },
+    {
+      "name": "besoin_animaux_upa",
+      "value": "@calc(Object.values(@data.alimentation_animaux || {}).find(f => String(f.upa_code || '') === String(@fields.upa_code) && String(f.year || '') === String(@local.annee_choisie)) || {})",
+      "condition": "@local.annee_choisie"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "@global.qtite_son_tourteau",
+      "style_list": "text-align:left ; font-size: 16px; "
+    },
+    {
+      "type": "text",
+      "value": "@calc(Math.ceil(@local.son_tourteau_total))",
+      "style_list": "text-align: center; font-size: 14px; font-weight: bold;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_data_items",
+      "value": "@data.list_besoin_anim_upa"
+    },
+    {
+      "type": "begin_display_group",
+      "style_list": "display: flex; width: 100%; box-sizing: border-box; justify-content: space-between; align-items: center; padding: 10px 4px; border-bottom: 1px dashed #E0E0E0; gap: 12px;"
+    },
+    {
+      "type": "text",
+      "value": "@item.besoin_title",
+      "style_list": "box-sizing: border-box; text-align: left; font-size: 16px;"
+    },
+    {
+      "type": "text",
+      "value": "@calc(Math.ceil(@local.besoin_animaux_upa[@item.besoin_label] || 0))",
+      "style_list": "box-sizing: border-box; text-align: right; font-size: 14px; font-weight: bold;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "end_data_items"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "end_task_card"
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "!@local.last_upa_entry && @local.annee_choisie",
+      "style_list": "padding: 22px 16px; margin: 10px 12px; background: #fff7ed;text-align: center;"
+    },
+    {
+      "type": "text",
+      "value": "@global.no_data_text",
+      "style_list": "color: #9a3412; font-weight: 700; font-size: 15px;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "navigation_bar",
+      "parameter_list": "button_list: @data.footer;",
+      "style_list": "position: fixed; bottom: 0; left: 0; box-sizing: border-box; "
+    }
+  ]
+}

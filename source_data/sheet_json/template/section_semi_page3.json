@@ -158,6 +158,7 @@
       "value": "@calc([@field.cul_mais?'mais':null,@field.cul_mil?'mil':null,@field.cul_sorgho?'sorgho':null,@field.cul_coton?'coton':null,@field.cul_arachide?'arachide':null,@field.cul_fourrage?'fourrage':null,@field.cul_autre_1?@field.autre_culture_primaire_1:null,@field.cul_autre_2?@field.autre_culture_primaire_2:null].filter(v=>v!==null))"
     },
     {
+      "type": "text",
       "name": "v_list_sec",
       "value": "@calc([@field.sec_fonio?'fonio':null,@field.sec_rice?'riz':null,@field.sec_sesame?'sésame':null,@field.sec_wouandzou?'wouandzou':null,@field.sec_patate_douce?'patate':null,@field.sec_bissap?'bissap':null,@field.sec_autre_1?@field.secondary_crop_1:null,@field.sec_autre_2?@field.secondary_crop_2:null].filter(v=>v!==null))"
     },
@@ -175,7 +176,7 @@
     },
     {
       "name": "completed_enabled",
-      "value": "@calc(@local.v_list_sec.length > 0 && @local.v_sec_valid)"
+      "value": "@local.v_sec_valid"
     },
     {
       "type": "begin_display_group",

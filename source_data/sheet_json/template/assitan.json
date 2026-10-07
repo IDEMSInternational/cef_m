@@ -48,7 +48,7 @@
       "type": "button",
       "name": "button_add",
       "value": "Add a fruit",
-      "action_list": "click | add_data | \n\n_list_id: fruits_list,\nname: name_{{length(fruits_list)+1}},\ntext: @local.input_fruit"
+      "action_list": "click | add_data | \n\n_list_id: fruits_list,\n_id: @field.id,\nname: @local.input_fruit,\ntext: @local.input_fruit"
     },
     {
       "type": "title ",
