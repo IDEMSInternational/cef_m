@@ -4,6 +4,39 @@
   "status": "released",
   "rows": [
     {
+      "name": "selected_year",
+      "value": "@calc(String(@fields.selected_observation_year|| '').slice(0, 4))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "selected_year",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(String(@fields.selected_observation_year|| '').slice(0, 4))",
+            "matchedExpression": "@fields.selected_observation_year",
+            "type": "fields",
+            "fieldName": "selected_observation_year"
+          },
+          {
+            "fullExpression": "@calc(String(@fields.selected_observation_year|| '').slice(0, 4))",
+            "matchedExpression": "@calc(String(@fields.selected_observation_year|| '').slice(0, 4))",
+            "type": "calc",
+            "fieldName": "String(@fields.selected_observation_year|| '').slice(0, 4)"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.selected_observation_year": [
+          "value"
+        ],
+        "@calc(String(@fields.selected_observation_year|| '').slice(0, 4))": [
+          "value"
+        ]
+      }
+    },
+    {
       "name": "choix_annee",
       "value": "@calc(String(@local.selected_year || '').trim() === '')",
       "_translations": {
@@ -65,72 +98,6 @@
           "value"
         ],
         "@calc(String(@local.selected_year || '').trim() !== '')": [
-          "value"
-        ]
-      }
-    },
-    {
-      "name": "selected_year",
-      "value": "@calc(String(@fields.selected_observation_year|| '').slice(0, 4))",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "selected_year",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc(String(@fields.selected_observation_year|| '').slice(0, 4))",
-            "matchedExpression": "@fields.selected_observation_year",
-            "type": "fields",
-            "fieldName": "selected_observation_year"
-          },
-          {
-            "fullExpression": "@calc(String(@fields.selected_observation_year|| '').slice(0, 4))",
-            "matchedExpression": "@calc(String(@fields.selected_observation_year|| '').slice(0, 4))",
-            "type": "calc",
-            "fieldName": "String(@fields.selected_observation_year|| '').slice(0, 4)"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.selected_observation_year": [
-          "value"
-        ],
-        "@calc(String(@fields.selected_observation_year|| '').slice(0, 4))": [
-          "value"
-        ]
-      }
-    },
-    {
-      "name": "selected_year",
-      "value": "@calc(@fields.selected_observation_year || '')",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "selected_year",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc(@fields.selected_observation_year || '')",
-            "matchedExpression": "@fields.selected_observation_year",
-            "type": "fields",
-            "fieldName": "selected_observation_year"
-          },
-          {
-            "fullExpression": "@calc(@fields.selected_observation_year || '')",
-            "matchedExpression": "@calc(@fields.selected_observation_year || '')",
-            "type": "calc",
-            "fieldName": "@fields.selected_observation_year || ''"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.selected_observation_year": [
-          "value"
-        ],
-        "@calc(@fields.selected_observation_year || '')": [
           "value"
         ]
       }
@@ -290,7 +257,7 @@
     },
     {
       "name": "has_obs_post_semis",
-      "value": "@calc(Object.values(@data.post_semisCulture || {}).some(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').replace('id_', '').trim() === String(@local.selected_post_semis_id || '').replace('id_', '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte)))",
+      "value": "@calc(Object.values(@data.post_semis_culture || {}).some(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte)))",
       "_translations": {
         "value": {}
       },
@@ -299,33 +266,33 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc(Object.values(@data.post_semisCulture || {}).some(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').replace('id_', '').trim() === String(@local.selected_post_semis_id || '').replace('id_', '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte)))",
-            "matchedExpression": "@data.post_semisCulture",
+            "fullExpression": "@calc(Object.values(@data.post_semis_culture || {}).some(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte)))",
+            "matchedExpression": "@data.post_semis_culture",
             "type": "data",
-            "fieldName": "post_semisCulture"
+            "fieldName": "post_semis_culture"
           },
           {
-            "fullExpression": "@calc(Object.values(@data.post_semisCulture || {}).some(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').replace('id_', '').trim() === String(@local.selected_post_semis_id || '').replace('id_', '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte)))",
+            "fullExpression": "@calc(Object.values(@data.post_semis_culture || {}).some(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte)))",
             "matchedExpression": "@fields.upa_code",
             "type": "fields",
             "fieldName": "upa_code"
           },
           {
-            "fullExpression": "@calc(Object.values(@data.post_semisCulture || {}).some(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').replace('id_', '').trim() === String(@local.selected_post_semis_id || '').replace('id_', '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte)))",
+            "fullExpression": "@calc(Object.values(@data.post_semis_culture || {}).some(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte)))",
             "matchedExpression": "@local.selected_post_semis_id",
             "type": "local",
             "fieldName": "selected_post_semis_id"
           },
           {
-            "fullExpression": "@calc(Object.values(@data.post_semisCulture || {}).some(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').replace('id_', '').trim() === String(@local.selected_post_semis_id || '').replace('id_', '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte)))",
-            "matchedExpression": "@calc(Object.values(@data.post_semisCulture || {}).some(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').replace('id_', '').trim() === String(@local.selected_post_semis_id || '').replace('id_', '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte)))",
+            "fullExpression": "@calc(Object.values(@data.post_semis_culture || {}).some(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte)))",
+            "matchedExpression": "@calc(Object.values(@data.post_semis_culture || {}).some(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte)))",
             "type": "calc",
-            "fieldName": "Object.values(@data.post_semisCulture || {}).some(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').replace('id_', '').trim() === String(@local.selected_post_semis_id || '').replace('id_', '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte))"
+            "fieldName": "Object.values(@data.post_semis_culture || {}).some(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte))"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@data.post_semisCulture": [
+        "@data.post_semis_culture": [
           "value"
         ],
         "@fields.upa_code": [
@@ -334,14 +301,14 @@
         "@local.selected_post_semis_id": [
           "value"
         ],
-        "@calc(Object.values(@data.post_semisCulture || {}).some(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').replace('id_', '').trim() === String(@local.selected_post_semis_id || '').replace('id_', '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte)))": [
+        "@calc(Object.values(@data.post_semis_culture || {}).some(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte)))": [
           "value"
         ]
       }
     },
     {
       "name": "total_post_semis_culture",
-      "value": "@calc(Object.values(@data.post_semisCulture || {}).length)",
+      "value": "@calc(Object.values(@data.post_semis_culture || {}).length)",
       "_translations": {
         "value": {}
       },
@@ -350,31 +317,31 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc(Object.values(@data.post_semisCulture || {}).length)",
-            "matchedExpression": "@data.post_semisCulture",
+            "fullExpression": "@calc(Object.values(@data.post_semis_culture || {}).length)",
+            "matchedExpression": "@data.post_semis_culture",
             "type": "data",
-            "fieldName": "post_semisCulture"
+            "fieldName": "post_semis_culture"
           },
           {
-            "fullExpression": "@calc(Object.values(@data.post_semisCulture || {}).length)",
-            "matchedExpression": "@calc(Object.values(@data.post_semisCulture || {}).length)",
+            "fullExpression": "@calc(Object.values(@data.post_semis_culture || {}).length)",
+            "matchedExpression": "@calc(Object.values(@data.post_semis_culture || {}).length)",
             "type": "calc",
-            "fieldName": "Object.values(@data.post_semisCulture || {}).length"
+            "fieldName": "Object.values(@data.post_semis_culture || {}).length"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@data.post_semisCulture": [
+        "@data.post_semis_culture": [
           "value"
         ],
-        "@calc(Object.values(@data.post_semisCulture || {}).length)": [
+        "@calc(Object.values(@data.post_semis_culture || {}).length)": [
           "value"
         ]
       }
     },
     {
       "name": "lignes_post_semis",
-      "value": "@calc(Object.values(@data.post_semisCulture || {}).filter(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').replace('id_', '').trim() === String(@local.selected_post_semis_id || '').replace('id_', '').trim()).length)",
+      "value": "@calc(Object.values(@data.post_semis_culture || {}).filter(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim()).length)",
       "_translations": {
         "value": {}
       },
@@ -383,33 +350,33 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc(Object.values(@data.post_semisCulture || {}).filter(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').replace('id_', '').trim() === String(@local.selected_post_semis_id || '').replace('id_', '').trim()).length)",
-            "matchedExpression": "@data.post_semisCulture",
+            "fullExpression": "@calc(Object.values(@data.post_semis_culture || {}).filter(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim()).length)",
+            "matchedExpression": "@data.post_semis_culture",
             "type": "data",
-            "fieldName": "post_semisCulture"
+            "fieldName": "post_semis_culture"
           },
           {
-            "fullExpression": "@calc(Object.values(@data.post_semisCulture || {}).filter(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').replace('id_', '').trim() === String(@local.selected_post_semis_id || '').replace('id_', '').trim()).length)",
+            "fullExpression": "@calc(Object.values(@data.post_semis_culture || {}).filter(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim()).length)",
             "matchedExpression": "@fields.upa_code",
             "type": "fields",
             "fieldName": "upa_code"
           },
           {
-            "fullExpression": "@calc(Object.values(@data.post_semisCulture || {}).filter(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').replace('id_', '').trim() === String(@local.selected_post_semis_id || '').replace('id_', '').trim()).length)",
+            "fullExpression": "@calc(Object.values(@data.post_semis_culture || {}).filter(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim()).length)",
             "matchedExpression": "@local.selected_post_semis_id",
             "type": "local",
             "fieldName": "selected_post_semis_id"
           },
           {
-            "fullExpression": "@calc(Object.values(@data.post_semisCulture || {}).filter(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').replace('id_', '').trim() === String(@local.selected_post_semis_id || '').replace('id_', '').trim()).length)",
-            "matchedExpression": "@calc(Object.values(@data.post_semisCulture || {}).filter(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').replace('id_', '').trim() === String(@local.selected_post_semis_id || '').replace('id_', '').trim()).length)",
+            "fullExpression": "@calc(Object.values(@data.post_semis_culture || {}).filter(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim()).length)",
+            "matchedExpression": "@calc(Object.values(@data.post_semis_culture || {}).filter(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim()).length)",
             "type": "calc",
-            "fieldName": "Object.values(@data.post_semisCulture || {}).filter(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').replace('id_', '').trim() === String(@local.selected_post_semis_id || '').replace('id_', '').trim()).length"
+            "fieldName": "Object.values(@data.post_semis_culture || {}).filter(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim()).length"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@data.post_semisCulture": [
+        "@data.post_semis_culture": [
           "value"
         ],
         "@fields.upa_code": [
@@ -418,14 +385,14 @@
         "@local.selected_post_semis_id": [
           "value"
         ],
-        "@calc(Object.values(@data.post_semisCulture || {}).filter(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').replace('id_', '').trim() === String(@local.selected_post_semis_id || '').replace('id_', '').trim()).length)": [
+        "@calc(Object.values(@data.post_semis_culture || {}).filter(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim()).length)": [
           "value"
         ]
       }
     },
     {
       "name": "lignes_post_semis_obs",
-      "value": "@calc(Object.values(@data.post_semisCulture || {}).filter(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').replace('id_', '').trim() === String(@local.selected_post_semis_id || '').replace('id_', '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte)).length)",
+      "value": "@calc(Object.values(@data.post_semis_culture || {}).filter(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte)).length)",
       "_translations": {
         "value": {}
       },
@@ -434,33 +401,33 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc(Object.values(@data.post_semisCulture || {}).filter(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').replace('id_', '').trim() === String(@local.selected_post_semis_id || '').replace('id_', '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte)).length)",
-            "matchedExpression": "@data.post_semisCulture",
+            "fullExpression": "@calc(Object.values(@data.post_semis_culture || {}).filter(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte)).length)",
+            "matchedExpression": "@data.post_semis_culture",
             "type": "data",
-            "fieldName": "post_semisCulture"
+            "fieldName": "post_semis_culture"
           },
           {
-            "fullExpression": "@calc(Object.values(@data.post_semisCulture || {}).filter(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').replace('id_', '').trim() === String(@local.selected_post_semis_id || '').replace('id_', '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte)).length)",
+            "fullExpression": "@calc(Object.values(@data.post_semis_culture || {}).filter(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte)).length)",
             "matchedExpression": "@fields.upa_code",
             "type": "fields",
             "fieldName": "upa_code"
           },
           {
-            "fullExpression": "@calc(Object.values(@data.post_semisCulture || {}).filter(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').replace('id_', '').trim() === String(@local.selected_post_semis_id || '').replace('id_', '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte)).length)",
+            "fullExpression": "@calc(Object.values(@data.post_semis_culture || {}).filter(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte)).length)",
             "matchedExpression": "@local.selected_post_semis_id",
             "type": "local",
             "fieldName": "selected_post_semis_id"
           },
           {
-            "fullExpression": "@calc(Object.values(@data.post_semisCulture || {}).filter(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').replace('id_', '').trim() === String(@local.selected_post_semis_id || '').replace('id_', '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte)).length)",
-            "matchedExpression": "@calc(Object.values(@data.post_semisCulture || {}).filter(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').replace('id_', '').trim() === String(@local.selected_post_semis_id || '').replace('id_', '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte)).length)",
+            "fullExpression": "@calc(Object.values(@data.post_semis_culture || {}).filter(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte)).length)",
+            "matchedExpression": "@calc(Object.values(@data.post_semis_culture || {}).filter(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte)).length)",
             "type": "calc",
-            "fieldName": "Object.values(@data.post_semisCulture || {}).filter(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').replace('id_', '').trim() === String(@local.selected_post_semis_id || '').replace('id_', '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte)).length"
+            "fieldName": "Object.values(@data.post_semis_culture || {}).filter(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte)).length"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@data.post_semisCulture": [
+        "@data.post_semis_culture": [
           "value"
         ],
         "@fields.upa_code": [
@@ -469,7 +436,7 @@
         "@local.selected_post_semis_id": [
           "value"
         ],
-        "@calc(Object.values(@data.post_semisCulture || {}).filter(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').replace('id_', '').trim() === String(@local.selected_post_semis_id || '').replace('id_', '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte)).length)": [
+        "@calc(Object.values(@data.post_semis_culture || {}).filter(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte)).length)": [
           "value"
         ]
       }
@@ -494,8 +461,8 @@
     {
       "type": "display_group",
       "rows": [],
-      "name": "display_group_15",
-      "_nested_name": "display_group_15"
+      "name": "display_group_14",
+      "_nested_name": "display_group_14"
     },
     {
       "type": "text",
@@ -503,8 +470,8 @@
       "_translations": {
         "value": {}
       },
-      "name": "text_17",
-      "_nested_name": "text_17",
+      "name": "text_16",
+      "_nested_name": "text_16",
       "_dynamicFields": {
         "value": [
           {
@@ -558,7 +525,7 @@
             "flex: 1",
             "max-width: 300px"
           ],
-          "_nested_name": "display_group_18.selected_observation_year",
+          "_nested_name": "display_group_17.selected_observation_year",
           "_dynamicFields": {
             "value": [
               {
@@ -589,8 +556,8 @@
           }
         }
       ],
-      "name": "display_group_18",
-      "_nested_name": "display_group_18"
+      "name": "display_group_17",
+      "_nested_name": "display_group_17"
     },
     {
       "type": "text",
@@ -604,8 +571,8 @@
         "font-size:18px",
         "font-weight:800"
       ],
-      "name": "text_20",
-      "_nested_name": "text_20",
+      "name": "text_19",
+      "_nested_name": "text_19",
       "_dynamicFields": {
         "value": [
           {
@@ -634,9 +601,9 @@
       "rows": [
         {
           "type": "data_items",
-          "value": "@data.post_semisCulture",
+          "value": "@data.post_semis_culture",
           "parameter_list": {
-            "filter": "@item.id && String(@item.upa_code || '') === String(@fields.upa_code) && String(@item.post_semis_id || '').replace('id_', '').trim() === String(@local.selected_post_semis_id || '').replace('id_', '').trim() && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte)"
+            "filter": "@item.id && String(@item.upa_code || '') === String(@fields.upa_code) && String(@item.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim() && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte)"
           },
           "style_list": [
             "display: flex",
@@ -670,7 +637,7 @@
                     "margin-bottom: 10px"
                   ],
                   "name": "image_1",
-                  "_nested_name": "display_group_21.data_items_1.display_group_1_@item.id.image_1",
+                  "_nested_name": "display_group_20.data_items_1.display_group_1_@item.id.image_1",
                   "_dynamicFields": {
                     "value": [
                       {
@@ -694,7 +661,7 @@
                     ],
                     "_nested_name": [
                       {
-                        "fullExpression": "display_group_21.data_items_1.display_group_1_@item.id.image_1",
+                        "fullExpression": "display_group_20.data_items_1.display_group_1_@item.id.image_1",
                         "matchedExpression": "@item.id.image_1",
                         "type": "item",
                         "fieldName": "id"
@@ -727,7 +694,7 @@
                     "text-transform: capitalize"
                   ],
                   "name": "text_2",
-                  "_nested_name": "display_group_21.data_items_1.display_group_1_@item.id.text_2",
+                  "_nested_name": "display_group_20.data_items_1.display_group_1_@item.id.text_2",
                   "_dynamicFields": {
                     "value": [
                       {
@@ -739,7 +706,7 @@
                     ],
                     "_nested_name": [
                       {
-                        "fullExpression": "display_group_21.data_items_1.display_group_1_@item.id.text_2",
+                        "fullExpression": "display_group_20.data_items_1.display_group_1_@item.id.text_2",
                         "matchedExpression": "@item.id.text_2",
                         "type": "item",
                         "fieldName": "id"
@@ -784,7 +751,7 @@
                         "justify-content: center",
                         "overflow: hidden"
                       ],
-                      "_nested_name": "display_group_21.data_items_1.display_group_1_@item.id.display_group_3.audio_observation_@item.id",
+                      "_nested_name": "display_group_20.data_items_1.display_group_1_@item.id.display_group_3.audio_observation_@item.id",
                       "_dynamicFields": {
                         "name": [
                           {
@@ -814,13 +781,13 @@
                         ],
                         "_nested_name": [
                           {
-                            "fullExpression": "display_group_21.data_items_1.display_group_1_@item.id.display_group_3.audio_observation_@item.id",
+                            "fullExpression": "display_group_20.data_items_1.display_group_1_@item.id.display_group_3.audio_observation_@item.id",
                             "matchedExpression": "@item.id.display_group_3.audio_observation_",
                             "type": "item",
                             "fieldName": "id"
                           },
                           {
-                            "fullExpression": "display_group_21.data_items_1.display_group_1_@item.id.display_group_3.audio_observation_@item.id",
+                            "fullExpression": "display_group_20.data_items_1.display_group_1_@item.id.display_group_3.audio_observation_@item.id",
                             "matchedExpression": "@item.id",
                             "type": "item",
                             "fieldName": "id"
@@ -887,11 +854,11 @@
                             "object-fit: contain"
                           ],
                           "name": "image_1",
-                          "_nested_name": "display_group_21.data_items_1.display_group_1_@item.id.display_group_3.display_group_2.image_1",
+                          "_nested_name": "display_group_20.data_items_1.display_group_1_@item.id.display_group_3.display_group_2.image_1",
                           "_dynamicFields": {
                             "_nested_name": [
                               {
-                                "fullExpression": "display_group_21.data_items_1.display_group_1_@item.id.display_group_3.display_group_2.image_1",
+                                "fullExpression": "display_group_20.data_items_1.display_group_1_@item.id.display_group_3.display_group_2.image_1",
                                 "matchedExpression": "@item.id.display_group_3.display_group_2.image_1",
                                 "type": "item",
                                 "fieldName": "id"
@@ -906,7 +873,7 @@
                         }
                       ],
                       "name": "display_group_2",
-                      "_nested_name": "display_group_21.data_items_1.display_group_1_@item.id.display_group_3.display_group_2",
+                      "_nested_name": "display_group_20.data_items_1.display_group_1_@item.id.display_group_3.display_group_2",
                       "_dynamicFields": {
                         "action_list": {
                           "0": {
@@ -960,7 +927,7 @@
                         ],
                         "_nested_name": [
                           {
-                            "fullExpression": "display_group_21.data_items_1.display_group_1_@item.id.display_group_3.display_group_2",
+                            "fullExpression": "display_group_20.data_items_1.display_group_1_@item.id.display_group_3.display_group_2",
                             "matchedExpression": "@item.id.display_group_3.display_group_2",
                             "type": "item",
                             "fieldName": "id"
@@ -1028,11 +995,11 @@
                             "object-fit: contain"
                           ],
                           "name": "image_1",
-                          "_nested_name": "display_group_21.data_items_1.display_group_1_@item.id.display_group_3.display_group_3.image_1",
+                          "_nested_name": "display_group_20.data_items_1.display_group_1_@item.id.display_group_3.display_group_3.image_1",
                           "_dynamicFields": {
                             "_nested_name": [
                               {
-                                "fullExpression": "display_group_21.data_items_1.display_group_1_@item.id.display_group_3.display_group_3.image_1",
+                                "fullExpression": "display_group_20.data_items_1.display_group_1_@item.id.display_group_3.display_group_3.image_1",
                                 "matchedExpression": "@item.id.display_group_3.display_group_3.image_1",
                                 "type": "item",
                                 "fieldName": "id"
@@ -1047,7 +1014,7 @@
                         }
                       ],
                       "name": "display_group_3",
-                      "_nested_name": "display_group_21.data_items_1.display_group_1_@item.id.display_group_3.display_group_3",
+                      "_nested_name": "display_group_20.data_items_1.display_group_1_@item.id.display_group_3.display_group_3",
                       "_dynamicFields": {
                         "action_list": {
                           "0": {
@@ -1101,7 +1068,7 @@
                         ],
                         "_nested_name": [
                           {
-                            "fullExpression": "display_group_21.data_items_1.display_group_1_@item.id.display_group_3.display_group_3",
+                            "fullExpression": "display_group_20.data_items_1.display_group_1_@item.id.display_group_3.display_group_3",
                             "matchedExpression": "@item.id.display_group_3.display_group_3",
                             "type": "item",
                             "fieldName": "id"
@@ -1169,11 +1136,11 @@
                             "object-fit: contain"
                           ],
                           "name": "image_1",
-                          "_nested_name": "display_group_21.data_items_1.display_group_1_@item.id.display_group_3.display_group_4.image_1",
+                          "_nested_name": "display_group_20.data_items_1.display_group_1_@item.id.display_group_3.display_group_4.image_1",
                           "_dynamicFields": {
                             "_nested_name": [
                               {
-                                "fullExpression": "display_group_21.data_items_1.display_group_1_@item.id.display_group_3.display_group_4.image_1",
+                                "fullExpression": "display_group_20.data_items_1.display_group_1_@item.id.display_group_3.display_group_4.image_1",
                                 "matchedExpression": "@item.id.display_group_3.display_group_4.image_1",
                                 "type": "item",
                                 "fieldName": "id"
@@ -1188,7 +1155,7 @@
                         }
                       ],
                       "name": "display_group_4",
-                      "_nested_name": "display_group_21.data_items_1.display_group_1_@item.id.display_group_3.display_group_4",
+                      "_nested_name": "display_group_20.data_items_1.display_group_1_@item.id.display_group_3.display_group_4",
                       "_dynamicFields": {
                         "action_list": {
                           "0": {
@@ -1242,7 +1209,7 @@
                         ],
                         "_nested_name": [
                           {
-                            "fullExpression": "display_group_21.data_items_1.display_group_1_@item.id.display_group_3.display_group_4",
+                            "fullExpression": "display_group_20.data_items_1.display_group_1_@item.id.display_group_3.display_group_4",
                             "matchedExpression": "@item.id.display_group_3.display_group_4",
                             "type": "item",
                             "fieldName": "id"
@@ -1268,11 +1235,11 @@
                     }
                   ],
                   "name": "display_group_3",
-                  "_nested_name": "display_group_21.data_items_1.display_group_1_@item.id.display_group_3",
+                  "_nested_name": "display_group_20.data_items_1.display_group_1_@item.id.display_group_3",
                   "_dynamicFields": {
                     "_nested_name": [
                       {
-                        "fullExpression": "display_group_21.data_items_1.display_group_1_@item.id.display_group_3",
+                        "fullExpression": "display_group_20.data_items_1.display_group_1_@item.id.display_group_3",
                         "matchedExpression": "@item.id.display_group_3",
                         "type": "item",
                         "fieldName": "id"
@@ -1287,7 +1254,7 @@
                 }
               ],
               "name": "display_group_1_@item.id",
-              "_nested_name": "display_group_21.data_items_1.display_group_1_@item.id",
+              "_nested_name": "display_group_20.data_items_1.display_group_1_@item.id",
               "_dynamicFields": {
                 "name": [
                   {
@@ -1299,7 +1266,7 @@
                 ],
                 "_nested_name": [
                   {
-                    "fullExpression": "display_group_21.data_items_1.display_group_1_@item.id",
+                    "fullExpression": "display_group_20.data_items_1.display_group_1_@item.id",
                     "matchedExpression": "@item.id",
                     "type": "item",
                     "fieldName": "id"
@@ -1315,68 +1282,68 @@
             }
           ],
           "name": "data_items_1",
-          "_nested_name": "display_group_21.data_items_1",
+          "_nested_name": "display_group_20.data_items_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "@data.post_semisCulture",
-                "matchedExpression": "@data.post_semisCulture",
+                "fullExpression": "@data.post_semis_culture",
+                "matchedExpression": "@data.post_semis_culture",
                 "type": "data",
-                "fieldName": "post_semisCulture"
+                "fieldName": "post_semis_culture"
               }
             ],
             "parameter_list": {
               "filter": [
                 {
-                  "fullExpression": "@item.id && String(@item.upa_code || '') === String(@fields.upa_code) && String(@item.post_semis_id || '').replace('id_', '').trim() === String(@local.selected_post_semis_id || '').replace('id_', '').trim() && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte)",
+                  "fullExpression": "@item.id && String(@item.upa_code || '') === String(@fields.upa_code) && String(@item.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim() && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte)",
                   "matchedExpression": "@item.id",
                   "type": "item",
                   "fieldName": "id"
                 },
                 {
-                  "fullExpression": "@item.id && String(@item.upa_code || '') === String(@fields.upa_code) && String(@item.post_semis_id || '').replace('id_', '').trim() === String(@local.selected_post_semis_id || '').replace('id_', '').trim() && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte)",
+                  "fullExpression": "@item.id && String(@item.upa_code || '') === String(@fields.upa_code) && String(@item.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim() && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte)",
                   "matchedExpression": "@item.upa_code",
                   "type": "item",
                   "fieldName": "upa_code"
                 },
                 {
-                  "fullExpression": "@item.id && String(@item.upa_code || '') === String(@fields.upa_code) && String(@item.post_semis_id || '').replace('id_', '').trim() === String(@local.selected_post_semis_id || '').replace('id_', '').trim() && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte)",
+                  "fullExpression": "@item.id && String(@item.upa_code || '') === String(@fields.upa_code) && String(@item.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim() && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte)",
                   "matchedExpression": "@fields.upa_code",
                   "type": "fields",
                   "fieldName": "upa_code"
                 },
                 {
-                  "fullExpression": "@item.id && String(@item.upa_code || '') === String(@fields.upa_code) && String(@item.post_semis_id || '').replace('id_', '').trim() === String(@local.selected_post_semis_id || '').replace('id_', '').trim() && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte)",
+                  "fullExpression": "@item.id && String(@item.upa_code || '') === String(@fields.upa_code) && String(@item.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim() && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte)",
                   "matchedExpression": "@item.post_semis_id",
                   "type": "item",
                   "fieldName": "post_semis_id"
                 },
                 {
-                  "fullExpression": "@item.id && String(@item.upa_code || '') === String(@fields.upa_code) && String(@item.post_semis_id || '').replace('id_', '').trim() === String(@local.selected_post_semis_id || '').replace('id_', '').trim() && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte)",
+                  "fullExpression": "@item.id && String(@item.upa_code || '') === String(@fields.upa_code) && String(@item.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim() && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte)",
                   "matchedExpression": "@local.selected_post_semis_id",
                   "type": "local",
                   "fieldName": "selected_post_semis_id"
                 },
                 {
-                  "fullExpression": "@item.id && String(@item.upa_code || '') === String(@fields.upa_code) && String(@item.post_semis_id || '').replace('id_', '').trim() === String(@local.selected_post_semis_id || '').replace('id_', '').trim() && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte)",
+                  "fullExpression": "@item.id && String(@item.upa_code || '') === String(@fields.upa_code) && String(@item.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim() && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte)",
                   "matchedExpression": "!@item.observation_audio",
                   "type": "item",
                   "fieldName": "observation_audio"
                 },
                 {
-                  "fullExpression": "@item.id && String(@item.upa_code || '') === String(@fields.upa_code) && String(@item.post_semis_id || '').replace('id_', '').trim() === String(@local.selected_post_semis_id || '').replace('id_', '').trim() && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte)",
+                  "fullExpression": "@item.id && String(@item.upa_code || '') === String(@fields.upa_code) && String(@item.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim() && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte)",
                   "matchedExpression": "!@item.observation_image",
                   "type": "item",
                   "fieldName": "observation_image"
                 },
                 {
-                  "fullExpression": "@item.id && String(@item.upa_code || '') === String(@fields.upa_code) && String(@item.post_semis_id || '').replace('id_', '').trim() === String(@local.selected_post_semis_id || '').replace('id_', '').trim() && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte)",
+                  "fullExpression": "@item.id && String(@item.upa_code || '') === String(@fields.upa_code) && String(@item.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim() && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte)",
                   "matchedExpression": "!@item.observation_videos",
                   "type": "item",
                   "fieldName": "observation_videos"
                 },
                 {
-                  "fullExpression": "@item.id && String(@item.upa_code || '') === String(@fields.upa_code) && String(@item.post_semis_id || '').replace('id_', '').trim() === String(@local.selected_post_semis_id || '').replace('id_', '').trim() && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte)",
+                  "fullExpression": "@item.id && String(@item.upa_code || '') === String(@fields.upa_code) && String(@item.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim() && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte)",
                   "matchedExpression": "!@item.observation_texte",
                   "type": "item",
                   "fieldName": "observation_texte"
@@ -1385,7 +1352,7 @@
             }
           },
           "_dynamicDependencies": {
-            "@data.post_semisCulture": [
+            "@data.post_semis_culture": [
               "value"
             ],
             "@item.id": [
@@ -1418,8 +1385,8 @@
           }
         }
       ],
-      "name": "display_group_21",
-      "_nested_name": "display_group_21",
+      "name": "display_group_20",
+      "_nested_name": "display_group_20",
       "_dynamicFields": {
         "condition": [
           {
@@ -1458,7 +1425,7 @@
             "font-size: 15px"
           ],
           "name": "text_1",
-          "_nested_name": "display_group_23.text_1",
+          "_nested_name": "display_group_22.text_1",
           "_dynamicFields": {
             "value": [
               {
@@ -1476,8 +1443,8 @@
           }
         }
       ],
-      "name": "display_group_23",
-      "_nested_name": "display_group_23",
+      "name": "display_group_22",
+      "_nested_name": "display_group_22",
       "_dynamicFields": {
         "condition": [
           {
@@ -1525,7 +1492,7 @@
             "font-size: 15px"
           ],
           "name": "text_1",
-          "_nested_name": "display_group_25.text_1",
+          "_nested_name": "display_group_24.text_1",
           "_dynamicFields": {
             "value": [
               {
@@ -1543,8 +1510,8 @@
           }
         }
       ],
-      "name": "display_group_25",
-      "_nested_name": "display_group_25",
+      "name": "display_group_24",
+      "_nested_name": "display_group_24",
       "_dynamicFields": {
         "condition": [
           {
@@ -1586,7 +1553,7 @@
             "variant": "no-background"
           },
           "name": "round_button_1",
-          "_nested_name": "display_group_27.round_button_1"
+          "_nested_name": "display_group_26.round_button_1"
         },
         {
           "type": "button",
@@ -1610,11 +1577,11 @@
             "padding: 10px 16px"
           ],
           "name": "button_2",
-          "_nested_name": "display_group_27.button_2"
+          "_nested_name": "display_group_26.button_2"
         }
       ],
-      "name": "display_group_27",
-      "_nested_name": "display_group_27"
+      "name": "display_group_26",
+      "_nested_name": "display_group_26"
     }
   ],
   "_source": {

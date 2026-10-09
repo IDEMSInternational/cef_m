@@ -5,7 +5,7 @@
   "rows": [
     {
       "type": "title",
-      "value": " FONCIER AGRICOLE"
+      "value": "@global.foncier_agricole"
     },
     {
       "name": "attempt_submit",
@@ -16,15 +16,15 @@
       "style_list": "display: block; width: 100%\n"
     },
     {
+      "type": "subtitle",
+      "value": "@global.sup_possede"
+    },
+    {
       "type": "audio",
       "name": "audio_10_1",
       "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/sup_poss_upa_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
       "exclude_from_translation": true,
       "style_list": "float:right;"
-    },
-    {
-      "type": "html",
-      "value": "@global.sup_possede<span style=\"color: red;\">*</span>"
     },
     {
       "type": "end_display_group"
@@ -46,9 +46,10 @@
       "value": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.superficie_possede_upa) && Number(@local.superficie_possede_upa) > 0) || !@local.superficie_possede_upa)\n"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@fields.superficie_possede_upa && @fields.attempt_submit"
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@fields.superficie_possede_upa && @fields.attempt_submit",
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "text",
@@ -61,15 +62,15 @@
       "style_list": "display: block; width: 100%"
     },
     {
+      "type": "subtitle",
+      "value": "@global.sup_cult"
+    },
+    {
       "type": "audio",
       "name": "audio_10_2",
       "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/sup_cult_upa_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
       "exclude_from_translation": true,
       "style_list": "float:right;"
-    },
-    {
-      "type": "html",
-      "value": "@global.sup_cult<span style=\"color: red;\">*</span>"
     },
     {
       "type": "end_display_group"
@@ -91,9 +92,10 @@
       "value": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.superficie_cultive_upa) && Number(@local.superficie_cultive_upa) > 0) || !@local.superficie_cultive_upa)"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@fields.superficie_cultive_upa && @fields.attempt_submit"
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@fields.superficie_cultive_upa && @fields.attempt_submit",
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "text",
@@ -119,13 +121,11 @@
     },
     {
       "type": "round_button",
-      "name": "button_back",
       "action_list": "click | emit: uncompleted",
       "parameter_list": "icon_src: arrow-back;variant: no-background;"
     },
     {
       "type": "button",
-      "name": "btn_attempt_submit",
       "value": "@global.btn_continue",
       "action_list": "click | set_field: attempt_submit: true;",
       "condition": "!@local.completed_enabled",
@@ -133,7 +133,6 @@
     },
     {
       "type": "button",
-      "name": "button_completed_10",
       "value": "@global.btn_continue",
       "action_list": "click | set_field: superficie_possede_upa: @local.superficie_possede_upa;\nclick | set_field: superficie_cultive_upa: @local.superficie_cultive_upa;\nclick | set_field: attempt_submit: false;\nclick | emit: completed\n",
       "parameter_list": "disabled: !@local.completed_enabled",

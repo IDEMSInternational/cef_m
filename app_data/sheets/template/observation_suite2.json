@@ -4,6 +4,39 @@
   "status": "released",
   "rows": [
     {
+      "name": "selected_year",
+      "value": "@calc(String(@fields.selected_observation_year|| '').slice(0, 4))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "selected_year",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(String(@fields.selected_observation_year|| '').slice(0, 4))",
+            "matchedExpression": "@fields.selected_observation_year",
+            "type": "fields",
+            "fieldName": "selected_observation_year"
+          },
+          {
+            "fullExpression": "@calc(String(@fields.selected_observation_year|| '').slice(0, 4))",
+            "matchedExpression": "@calc(String(@fields.selected_observation_year|| '').slice(0, 4))",
+            "type": "calc",
+            "fieldName": "String(@fields.selected_observation_year|| '').slice(0, 4)"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.selected_observation_year": [
+          "value"
+        ],
+        "@calc(String(@fields.selected_observation_year|| '').slice(0, 4))": [
+          "value"
+        ]
+      }
+    },
+    {
       "name": "choix_annee",
       "value": "@calc(String(@local.selected_year || '').trim() === '')",
       "_translations": {
@@ -65,39 +98,6 @@
           "value"
         ],
         "@calc(String(@local.selected_year || '').trim() !== '')": [
-          "value"
-        ]
-      }
-    },
-    {
-      "name": "selected_year",
-      "value": "@calc(String(@fields.selected_observation_year|| '').slice(0, 4))",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "selected_year",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc(String(@fields.selected_observation_year|| '').slice(0, 4))",
-            "matchedExpression": "@fields.selected_observation_year",
-            "type": "fields",
-            "fieldName": "selected_observation_year"
-          },
-          {
-            "fullExpression": "@calc(String(@fields.selected_observation_year|| '').slice(0, 4))",
-            "matchedExpression": "@calc(String(@fields.selected_observation_year|| '').slice(0, 4))",
-            "type": "calc",
-            "fieldName": "String(@fields.selected_observation_year|| '').slice(0, 4)"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.selected_observation_year": [
-          "value"
-        ],
-        "@calc(String(@fields.selected_observation_year|| '').slice(0, 4))": [
           "value"
         ]
       }
@@ -257,7 +257,7 @@
     },
     {
       "name": "has_obs_recolte",
-      "value": "@calc(Object.values(@data.recolte_culture || {}).some(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.recolte_id || '').replace('id_', '').trim() === String(@local.selected_recolte_id || '').replace('id_', '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte)))",
+      "value": "@calc(Object.values(@data.recolte_culture || {}).some(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.recolte_id || '').trim() === String(@local.selected_recolte_id || '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte)))",
       "_translations": {
         "value": {}
       },
@@ -266,28 +266,28 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc(Object.values(@data.recolte_culture || {}).some(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.recolte_id || '').replace('id_', '').trim() === String(@local.selected_recolte_id || '').replace('id_', '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte)))",
+            "fullExpression": "@calc(Object.values(@data.recolte_culture || {}).some(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.recolte_id || '').trim() === String(@local.selected_recolte_id || '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte)))",
             "matchedExpression": "@data.recolte_culture",
             "type": "data",
             "fieldName": "recolte_culture"
           },
           {
-            "fullExpression": "@calc(Object.values(@data.recolte_culture || {}).some(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.recolte_id || '').replace('id_', '').trim() === String(@local.selected_recolte_id || '').replace('id_', '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte)))",
+            "fullExpression": "@calc(Object.values(@data.recolte_culture || {}).some(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.recolte_id || '').trim() === String(@local.selected_recolte_id || '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte)))",
             "matchedExpression": "@fields.upa_code",
             "type": "fields",
             "fieldName": "upa_code"
           },
           {
-            "fullExpression": "@calc(Object.values(@data.recolte_culture || {}).some(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.recolte_id || '').replace('id_', '').trim() === String(@local.selected_recolte_id || '').replace('id_', '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte)))",
+            "fullExpression": "@calc(Object.values(@data.recolte_culture || {}).some(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.recolte_id || '').trim() === String(@local.selected_recolte_id || '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte)))",
             "matchedExpression": "@local.selected_recolte_id",
             "type": "local",
             "fieldName": "selected_recolte_id"
           },
           {
-            "fullExpression": "@calc(Object.values(@data.recolte_culture || {}).some(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.recolte_id || '').replace('id_', '').trim() === String(@local.selected_recolte_id || '').replace('id_', '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte)))",
-            "matchedExpression": "@calc(Object.values(@data.recolte_culture || {}).some(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.recolte_id || '').replace('id_', '').trim() === String(@local.selected_recolte_id || '').replace('id_', '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte)))",
+            "fullExpression": "@calc(Object.values(@data.recolte_culture || {}).some(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.recolte_id || '').trim() === String(@local.selected_recolte_id || '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte)))",
+            "matchedExpression": "@calc(Object.values(@data.recolte_culture || {}).some(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.recolte_id || '').trim() === String(@local.selected_recolte_id || '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte)))",
             "type": "calc",
-            "fieldName": "Object.values(@data.recolte_culture || {}).some(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.recolte_id || '').replace('id_', '').trim() === String(@local.selected_recolte_id || '').replace('id_', '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte))"
+            "fieldName": "Object.values(@data.recolte_culture || {}).some(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.recolte_id || '').trim() === String(@local.selected_recolte_id || '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte))"
           }
         ]
       },
@@ -301,7 +301,7 @@
         "@local.selected_recolte_id": [
           "value"
         ],
-        "@calc(Object.values(@data.recolte_culture || {}).some(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.recolte_id || '').replace('id_', '').trim() === String(@local.selected_recolte_id || '').replace('id_', '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte)))": [
+        "@calc(Object.values(@data.recolte_culture || {}).some(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.recolte_id || '').trim() === String(@local.selected_recolte_id || '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte)))": [
           "value"
         ]
       }
@@ -480,7 +480,7 @@
           "type": "data_items",
           "value": "@data.recolte_culture",
           "parameter_list": {
-            "filter": "@item.id && String(@item.upa_code || '') === String(@fields.upa_code) && String(@item.recolte_id || '').replace('id_', '').trim() === String(@local.selected_recolte_id || '').replace('id_', '').trim() && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte)"
+            "filter": "@item.id && String(@item.upa_code || '') === String(@fields.upa_code) && String(@item.recolte_id || '').trim() === String(@local.selected_recolte_id || '').trim() && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte)"
           },
           "style_list": [
             "display: flex",
@@ -1022,55 +1022,55 @@
             "parameter_list": {
               "filter": [
                 {
-                  "fullExpression": "@item.id && String(@item.upa_code || '') === String(@fields.upa_code) && String(@item.recolte_id || '').replace('id_', '').trim() === String(@local.selected_recolte_id || '').replace('id_', '').trim() && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte)",
+                  "fullExpression": "@item.id && String(@item.upa_code || '') === String(@fields.upa_code) && String(@item.recolte_id || '').trim() === String(@local.selected_recolte_id || '').trim() && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte)",
                   "matchedExpression": "@item.id",
                   "type": "item",
                   "fieldName": "id"
                 },
                 {
-                  "fullExpression": "@item.id && String(@item.upa_code || '') === String(@fields.upa_code) && String(@item.recolte_id || '').replace('id_', '').trim() === String(@local.selected_recolte_id || '').replace('id_', '').trim() && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte)",
+                  "fullExpression": "@item.id && String(@item.upa_code || '') === String(@fields.upa_code) && String(@item.recolte_id || '').trim() === String(@local.selected_recolte_id || '').trim() && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte)",
                   "matchedExpression": "@item.upa_code",
                   "type": "item",
                   "fieldName": "upa_code"
                 },
                 {
-                  "fullExpression": "@item.id && String(@item.upa_code || '') === String(@fields.upa_code) && String(@item.recolte_id || '').replace('id_', '').trim() === String(@local.selected_recolte_id || '').replace('id_', '').trim() && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte)",
+                  "fullExpression": "@item.id && String(@item.upa_code || '') === String(@fields.upa_code) && String(@item.recolte_id || '').trim() === String(@local.selected_recolte_id || '').trim() && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte)",
                   "matchedExpression": "@fields.upa_code",
                   "type": "fields",
                   "fieldName": "upa_code"
                 },
                 {
-                  "fullExpression": "@item.id && String(@item.upa_code || '') === String(@fields.upa_code) && String(@item.recolte_id || '').replace('id_', '').trim() === String(@local.selected_recolte_id || '').replace('id_', '').trim() && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte)",
+                  "fullExpression": "@item.id && String(@item.upa_code || '') === String(@fields.upa_code) && String(@item.recolte_id || '').trim() === String(@local.selected_recolte_id || '').trim() && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte)",
                   "matchedExpression": "@item.recolte_id",
                   "type": "item",
                   "fieldName": "recolte_id"
                 },
                 {
-                  "fullExpression": "@item.id && String(@item.upa_code || '') === String(@fields.upa_code) && String(@item.recolte_id || '').replace('id_', '').trim() === String(@local.selected_recolte_id || '').replace('id_', '').trim() && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte)",
+                  "fullExpression": "@item.id && String(@item.upa_code || '') === String(@fields.upa_code) && String(@item.recolte_id || '').trim() === String(@local.selected_recolte_id || '').trim() && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte)",
                   "matchedExpression": "@local.selected_recolte_id",
                   "type": "local",
                   "fieldName": "selected_recolte_id"
                 },
                 {
-                  "fullExpression": "@item.id && String(@item.upa_code || '') === String(@fields.upa_code) && String(@item.recolte_id || '').replace('id_', '').trim() === String(@local.selected_recolte_id || '').replace('id_', '').trim() && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte)",
+                  "fullExpression": "@item.id && String(@item.upa_code || '') === String(@fields.upa_code) && String(@item.recolte_id || '').trim() === String(@local.selected_recolte_id || '').trim() && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte)",
                   "matchedExpression": "!@item.observation_audio",
                   "type": "item",
                   "fieldName": "observation_audio"
                 },
                 {
-                  "fullExpression": "@item.id && String(@item.upa_code || '') === String(@fields.upa_code) && String(@item.recolte_id || '').replace('id_', '').trim() === String(@local.selected_recolte_id || '').replace('id_', '').trim() && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte)",
+                  "fullExpression": "@item.id && String(@item.upa_code || '') === String(@fields.upa_code) && String(@item.recolte_id || '').trim() === String(@local.selected_recolte_id || '').trim() && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte)",
                   "matchedExpression": "!@item.observation_image",
                   "type": "item",
                   "fieldName": "observation_image"
                 },
                 {
-                  "fullExpression": "@item.id && String(@item.upa_code || '') === String(@fields.upa_code) && String(@item.recolte_id || '').replace('id_', '').trim() === String(@local.selected_recolte_id || '').replace('id_', '').trim() && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte)",
+                  "fullExpression": "@item.id && String(@item.upa_code || '') === String(@fields.upa_code) && String(@item.recolte_id || '').trim() === String(@local.selected_recolte_id || '').trim() && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte)",
                   "matchedExpression": "!@item.observation_videos",
                   "type": "item",
                   "fieldName": "observation_videos"
                 },
                 {
-                  "fullExpression": "@item.id && String(@item.upa_code || '') === String(@fields.upa_code) && String(@item.recolte_id || '').replace('id_', '').trim() === String(@local.selected_recolte_id || '').replace('id_', '').trim() && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte)",
+                  "fullExpression": "@item.id && String(@item.upa_code || '') === String(@fields.upa_code) && String(@item.recolte_id || '').trim() === String(@local.selected_recolte_id || '').trim() && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte)",
                   "matchedExpression": "!@item.observation_texte",
                   "type": "item",
                   "fieldName": "observation_texte"

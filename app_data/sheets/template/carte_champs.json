@@ -320,6 +320,7 @@
     },
     {
       "type": "display_group",
+      "condition": "@local.annee_choisie",
       "style_list": [
         "padding: 22px 16px",
         "margin: 10px 12px",
@@ -329,7 +330,7 @@
       "rows": [
         {
           "type": "text",
-          "value": "@global.no_data_text",
+          "value": "Les informations du map ne sont pas encore disponible",
           "_translations": {
             "value": {}
           },
@@ -339,26 +340,26 @@
             "font-size: 15px"
           ],
           "name": "text_1",
-          "_nested_name": "display_group_11.text_1",
-          "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "@global.no_data_text",
-                "matchedExpression": "@global.no_data_text",
-                "type": "global",
-                "fieldName": "no_data_text"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@global.no_data_text": [
-              "value"
-            ]
-          }
+          "_nested_name": "display_group_11.text_1"
         }
       ],
       "name": "display_group_11",
-      "_nested_name": "display_group_11"
+      "_nested_name": "display_group_11",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@local.annee_choisie",
+            "matchedExpression": "@local.annee_choisie",
+            "type": "local",
+            "fieldName": "annee_choisie"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.annee_choisie": [
+          "condition"
+        ]
+      }
     },
     {
       "type": "navigation_bar",

@@ -12,19 +12,17 @@
       "value": "@global.annee_campagne"
     },
     {
-      "type": "begin_display_group",
-      "style_list": "display: flex; flex-direction: row; align-items: center; justify-content: flex-start; width: 100%; margin-top: 20px; gap: 10px;"
+      "type": "begin_display_group"
     },
     {
       "type": "subtitle",
-      "value": "@global.select_date",
-      "style_list": "margin-top: 20px; font-weight: 600;"
+      "value": "@global.select_date"
     },
     {
       "type": "audio",
+      "name": "audio_2_1",
       "parameter_list": "variant: button_only;\nsrc: audio/recolte/annee_saison_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
-      "exclude_from_translation": true,
-      "style_list": "flex-shrink: 0;"
+      "exclude_from_translation": true
     },
     {
       "type": "end_display_group"
@@ -58,31 +56,35 @@
       "condition": "@fields.season_label"
     },
     {
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@local.year && @fields.attempt_submit",
+      "style_list": "@global.reponse_style"
+    },
+    {
       "name": "completed_enabled",
       "value": "@local.v_year_ok "
     },
     {
       "type": "begin_display_group",
-      "name": "dg_footer",
       "parameter_list": "sticky: bottom;",
       "style_list": "padding: 16px 24px;"
     },
     {
       "type": "round_button",
-      "name": "button_back",
       "action_list": "click | emit: uncompleted",
       "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
     },
     {
       "type": "button",
-      "value": "Continuer",
+      "value": "@global.btn_continue",
       "action_list": "click | set_field: attempt_submit: true;\n",
       "condition": "!@local.completed_enabled",
       "style_list": "flex: 1"
     },
     {
       "type": "button",
-      "value": "Continuer",
+      "value": "@global.btn_continue",
       "action_list": "click | set_field: year: @local.year;\n\nclick | set_field: attempt_submit: false;\nclick | emit: completed",
       "parameter_list": "disabled: !@local.completed_enabled",
       "condition": "@local.completed_enabled",

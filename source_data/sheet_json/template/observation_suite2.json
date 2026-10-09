@@ -4,16 +4,16 @@
   "status": "released",
   "rows": [
     {
+      "name": "selected_year",
+      "value": "@calc(String(@fields.selected_observation_year|| '').slice(0, 4))"
+    },
+    {
       "name": "choix_annee",
       "value": "@calc(String(@local.selected_year || '').trim() === '')"
     },
     {
       "name": "aff_data",
       "value": "@calc(String(@local.selected_year || '').trim() !== '')"
-    },
-    {
-      "name": "selected_year",
-      "value": "@calc(String(@fields.selected_observation_year|| '').slice(0, 4))"
     },
     {
       "name": "selected_semis_id",
@@ -29,7 +29,7 @@
     },
     {
       "name": "has_obs_recolte",
-      "value": "@calc(Object.values(@data.recolte_culture || {}).some(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.recolte_id || '').replace('id_', '').trim() === String(@local.selected_recolte_id || '').replace('id_', '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte)))"
+      "value": "@calc(Object.values(@data.recolte_culture || {}).some(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.recolte_id || '').trim() === String(@local.selected_recolte_id || '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte)))"
     },
     {
       "type": "begin_template",
@@ -81,7 +81,7 @@
     {
       "type": "begin_data_items",
       "value": "@data.recolte_culture",
-      "parameter_list": "filter: @item.id && String(@item.upa_code || '') === String(@fields.upa_code) && String(@item.recolte_id || '').replace('id_', '').trim() === String(@local.selected_recolte_id || '').replace('id_', '').trim() && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte)",
+      "parameter_list": "filter: @item.id && String(@item.upa_code || '') === String(@fields.upa_code) && String(@item.recolte_id || '').trim() === String(@local.selected_recolte_id || '').trim() && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte)",
       "style_list": "display: flex; flex-direction: column; gap: 16px; width: 100%;"
     },
     {

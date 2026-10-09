@@ -5,7 +5,7 @@
   "rows": [
     {
       "type": "title",
-      "value": "ASSOCIATIONS DES PRODUCTEURS"
+      "value": "@global.asso_producteur"
     },
     {
       "name": "attempt_submit",
@@ -15,7 +15,7 @@
       "type": "begin_display_group"
     },
     {
-      "type": "text",
+      "type": "subtitle",
       "value": "@global.un_cereale_id_note"
     },
     {
@@ -50,15 +50,16 @@
       "type": "end_radio_list"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@fields.un_cereale_id && @fields.attempt_submit"
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@fields.un_cereale_id && @fields.attempt_submit",
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "begin_display_group"
     },
     {
-      "type": "text",
+      "type": "subtitle",
       "value": "@global.base_coop_cereale_id_note"
     },
     {
@@ -93,9 +94,10 @@
       "type": "end_radio_list"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@fields.base_coop_cereale_id && @fields.attempt_submit"
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@fields.base_coop_cereale_id && @fields.attempt_submit",
+      "style_list": "@global.reponse_style"
     },
     {
       "name": "completed_enabled",
@@ -110,13 +112,11 @@
     },
     {
       "type": "round_button",
-      "name": "button_back_9",
       "action_list": "click | emit: uncompleted",
       "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
     },
     {
       "type": "button",
-      "name": "btn_attempt_submit",
       "value": "@global.btn_continue",
       "action_list": "click | set_field: attempt_submit: true;",
       "condition": "!@local.completed_enabled",
@@ -124,7 +124,6 @@
     },
     {
       "type": "button",
-      "name": "button_continue_9",
       "value": "@global.btn_continue",
       "action_list": "click | set_field: attempt_submit: false;\nclick | emit: completed",
       "parameter_list": "disabled: !@local.completed_enabled",
@@ -133,9 +132,6 @@
     },
     {
       "type": "end_display_group"
-    },
-    {
-      "action_list": "consentement_oui_non,season_label,num_phone,chef_upa,gender_chef,age_chef,chef_travaux,neo_alphabete,region_id,cercle_id,commune_id,village_id,activite,activite_sec,fr_scpc_id,us_scpc_id,base_scpc_id"
     }
   ]
 }

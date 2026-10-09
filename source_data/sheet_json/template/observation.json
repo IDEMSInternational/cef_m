@@ -4,16 +4,16 @@
   "status": "released",
   "rows": [
     {
+      "name": "selected_year",
+      "value": "@calc(String(@fields.selected_observation_year|| '').slice(0, 4))"
+    },
+    {
       "name": "choix_annee",
       "value": "@calc(String(@local.selected_year || '').trim() === '')"
     },
     {
       "name": "aff_data",
       "value": "@calc(String(@local.selected_year || '').trim() !== '')"
-    },
-    {
-      "name": "selected_year",
-      "value": "@calc(String(@fields.selected_observation_year|| '').slice(0, 4))"
     },
     {
       "name": "selected_semis_id",

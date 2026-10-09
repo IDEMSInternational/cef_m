@@ -18,9 +18,8 @@
       "value": "@global.consentement_note"
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: red;\">*</span> @global.consentement_question",
-      "style_list": "font-size:20px;"
+      "type": "subtitle",
+      "value": "@global.consentement_question"
     },
     {
       "type": "begin_radio_list",
@@ -38,9 +37,10 @@
       "type": "end_radio_list"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@fields.consentement_oui_non && @fields.attempt_submit"
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@fields.consentement_oui_non && @fields.attempt_submit",
+      "style_list": "@global.reponse_style"
     },
     {
       "name": "completed_enabled",
@@ -54,22 +54,19 @@
     },
     {
       "type": "round_button",
-      "name": "page1_button_back",
       "action_list": "click | emit: uncompleted",
       "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
     },
     {
       "type": "button",
-      "name": "button_continue_no",
-      "value": "Continuer",
+      "value": "@global.btn_continue",
       "action_list": "click | go_to: enrolment_page18;",
       "condition": "@fields.consentement_oui_non == 'non' ",
       "style_list": "flex: 1"
     },
     {
       "type": "button",
-      "name": "button_continue_attempt_submit",
-      "value": "Continuer",
+      "value": "@global.btn_continue",
       "action_list": "click | set_field: attempt_submit: true;\n",
       "condition": "!@local.completed_enabled",
       "style_list": "flex: 1"

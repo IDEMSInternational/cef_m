@@ -4,31 +4,31 @@
 | type | count |
 | --- | --- |
 | audio | 338 |
-| button | 224 |
+| button | 226 |
 | combo_box | 11 |
 | data_items | 120 |
 | date_time_picker | 18 |
 | declare_field_default | 2 |
-| display_group | 807 |
-| html | 458 |
+| display_group | 810 |
+| html | 430 |
 | image | 379 |
 | map | 1 |
 | navigation_bar | 8 |
 | plh_module_list_item | 10 |
 | radio_button_grid | 27 |
 | radio_list | 26 |
-| round_button | 142 |
+| round_button | 141 |
 | set_field | 35 |
-| set_variable | 752 |
+| set_variable | 747 |
 | simple_checkbox | 10 |
 | square_button | 2 |
-| subtitle | 4 |
+| subtitle | 26 |
 | task_card | 3 |
 | task_progress_bar | 10 |
 | template | 26 |
-| text | 907 |
+| text | 913 |
 | text_area | 10 |
-| text_box | 243 |
+| text_box | 242 |
 | title | 148 |
 | toggle_bar | 1 |
 </details>
@@ -44,9 +44,8 @@
 | background | 1 |
 | border | 1 |
 | border-radius | 1 |
-| consentement_oui_non,season_label,num_phone,chef_upa,gender_chef,age_chef,chef_travaux,neo_alphabete,region_id,cercle_id,commune_id,village_id,activite,activite_sec,fr_scpc_id,us_scpc_id,base_scpc_id | 1 |
 | display | 1 |
-| emit: completed | 136 |
+| emit: completed | 137 |
 | emit: completed
 click | 1 |
 | emit: force_reprocess | 3 |
@@ -67,8 +66,8 @@ click | 1 |
 
 | assets | KB | MB |
 | --- | --- | --- |
-| total | 49598 KB | 49.6 MB |
-| unused | 181449 KB | 181.4 MB |
+| total | 48987 KB | 49 MB |
+| unused | 181418 KB | 181.4 MB |
 </details>
 
 <details open>
@@ -665,7 +664,7 @@ Assets that appear in app-data but do not have references within sheets
 | images/cycle3_.jpg | 59.7 |
 | images/cycle4_.jpg | 60.4 |
 | images/cycle5_.jpg | 62.9 |
-| images/desherbage.jpg | 16.8 |
+| images/desherbage.jpg | 4 |
 | images/embouche_bovine.jpg | 18.4 |
 | images/embouche_ovine.jpg | 18.1 |
 | images/farming.png | 16.3 |
@@ -684,7 +683,6 @@ Assets that appear in app-data but do not have references within sheets
 | images/istockphoto.jpg | 14.7 |
 | images/labour.jpg | 23.1 |
 | images/logout.png | 14.8 |
-| images/maïs.jpg | 3.2 |
 | images/npk.jpg | 4.3 |
 | images/patate.jpg | 4.1 |
 | images/pnt_png.jpg | 4 |
@@ -700,15 +698,12 @@ Assets that appear in app-data but do not have references within sheets
 | images/superf_fumure1.jpg | 139 |
 | images/superf_mes.jpg | 4.7 |
 | images/superficie.jpg | 4.2 |
-| images/sésame.jpg | 5.6 |
 | images/transhumance.jpg | 65.3 |
 | images/type_fumure (2).jpg | 88.2 |
 | images/type_sol.jpg | 90.3 |
 | images/uree.jpg | 4.4 |
 | images/volume.png | 14.4 |
 | images/welcome_farmer.jpg | 89.6 |
-| premieresImages/maïs.jpg | 3.2 |
-| premieresImages/sésame.jpg | 5.6 |
 </details>
 
 <details open>
@@ -1251,7 +1246,7 @@ Assets that are used within sheets and also can be found in the synced asset dat
 | images/adolescent.jpg | 22.3 | 1 |
 | images/agri.jpg | 33.3 | 3 |
 | images/ane.jpg | 18.1 | 2 |
-| images/arachide.jpg | 20.8 | 6 |
+| images/arachide.jpg | 3.2 | 6 |
 | images/arbre.jpg | 4.8 | 1 |
 | images/association.jpg | 6.5 | 1 |
 | images/autre_act.jpg | 21.9 | 1 |
@@ -1281,7 +1276,7 @@ Assets that are used within sheets and also can be found in the synced asset dat
 | images/cfa_tot.jpg | 2.9 | 23 |
 | images/champ.jpg | 37.4 | 1 |
 | images/characteristics UPA.png | 2012.4 | 5 |
-| images/charrette.jpg | 21.1 | 4 |
+| images/charrette.jpg | 4.2 | 4 |
 | images/charrue.jpg | 10.6 | 1 |
 | images/chef_travaux.jpg | 3.6 | 1 |
 | images/cheval.jpg | 18.1 | 1 |
@@ -1316,10 +1311,10 @@ Assets that are used within sheets and also can be found in the synced asset dat
 | images/genisse.jpg | 17.8 | 1 |
 | images/grenier.jpg | 250.8 | 1 |
 | images/groupe_a.jpg | 87.4 | 2 |
-| images/groupe_b.jpg | 288.2 | 2 |
-| images/groupe_c.jpg | 477 | 2 |
+| images/groupe_b.jpg | 88.6 | 2 |
+| images/groupe_c.jpg | 82.5 | 2 |
 | images/groupe_d.jpg | 68.3 | 2 |
-| images/herbicide_cfa.jpg | 13.1 | 2 |
+| images/herbicide_cfa.jpg | 13.4 | 2 |
 | images/herse.jpg | 17.4 | 1 |
 | images/homme_adult.jpg | 19 | 1 |
 | images/icons/audio/Speaker_Icon.svg | 0.5 | 339 |
@@ -1419,7 +1414,7 @@ Assets that are used within sheets and also can be found in the synced asset dat
 | images/vieille.jpg | 23.5 | 1 |
 | images/vieux.jpg | 17.4 | 1 |
 | images/vocal.jpg | 4.2 | 10 |
-| images/wouandzou.jpg | 5.4 | 6 |
+| images/wouandzou.jpg | 22.6 | 6 |
 </details>
 
 <details >

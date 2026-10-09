@@ -5,12 +5,27 @@
   "rows": [
     {
       "type": "title",
-      "value": "SOCIETE COOPERATIVE|COTON",
+      "value": "@global.societe_coop",
       "_translations": {
         "value": {}
       },
       "name": "title_2",
-      "_nested_name": "title_2"
+      "_nested_name": "title_2",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.societe_coop",
+            "matchedExpression": "@global.societe_coop",
+            "type": "global",
+            "fieldName": "societe_coop"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.societe_coop": [
+          "value"
+        ]
+      }
     },
     {
       "name": "attempt_submit",
@@ -40,13 +55,13 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "text",
+          "type": "subtitle",
           "value": "@global.fr_scpc_id_note",
           "_translations": {
             "value": {}
           },
-          "name": "text_1",
-          "_nested_name": "display_group_4.text_1",
+          "name": "subtitle_1",
+          "_nested_name": "display_group_4.subtitle_1",
           "_dynamicFields": {
             "value": [
               {
@@ -176,18 +191,21 @@
       }
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
       "_translations": {
         "value": {}
       },
       "condition": "!@fields.fr_scpc_id && @fields.attempt_submit",
-      "name": "html_9",
-      "_nested_name": "html_9",
+      "style_list": [
+        "@global.reponse_style"
+      ],
+      "name": "text_9",
+      "_nested_name": "text_9",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+            "fullExpression": "@global.reponse_obligatoire",
             "matchedExpression": "@global.reponse_obligatoire",
             "type": "global",
             "fieldName": "reponse_obligatoire"
@@ -206,7 +224,17 @@
             "type": "fields",
             "fieldName": "attempt_submit"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.reponse_obligatoire": [
@@ -217,6 +245,9 @@
         ],
         "@fields.attempt_submit": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
@@ -360,18 +391,21 @@
       }
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
       "_translations": {
         "value": {}
       },
       "condition": "!@fields.us_scpc_id && @fields.attempt_submit",
-      "name": "html_15",
-      "_nested_name": "html_15",
+      "style_list": [
+        "@global.reponse_style"
+      ],
+      "name": "text_15",
+      "_nested_name": "text_15",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+            "fullExpression": "@global.reponse_obligatoire",
             "matchedExpression": "@global.reponse_obligatoire",
             "type": "global",
             "fieldName": "reponse_obligatoire"
@@ -390,7 +424,17 @@
             "type": "fields",
             "fieldName": "attempt_submit"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.reponse_obligatoire": [
@@ -401,6 +445,9 @@
         ],
         "@fields.attempt_submit": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
@@ -544,18 +591,21 @@
       }
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
       "_translations": {
         "value": {}
       },
       "condition": "!@fields.base_scpc_id && @fields.attempt_submit",
-      "name": "html_21",
-      "_nested_name": "html_21",
+      "style_list": [
+        "@global.reponse_style"
+      ],
+      "name": "text_21",
+      "_nested_name": "text_21",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+            "fullExpression": "@global.reponse_obligatoire",
             "matchedExpression": "@global.reponse_obligatoire",
             "type": "global",
             "fieldName": "reponse_obligatoire"
@@ -574,7 +624,17 @@
             "type": "fields",
             "fieldName": "attempt_submit"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.reponse_obligatoire": [
@@ -585,6 +645,9 @@
         ],
         "@fields.attempt_submit": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
@@ -632,7 +695,6 @@
     },
     {
       "type": "display_group",
-      "name": "dg_footer",
       "value": "",
       "parameter_list": {
         "sticky": "bottom"
@@ -643,7 +705,6 @@
       "rows": [
         {
           "type": "round_button",
-          "name": "page_8_button_back",
           "action_list": [
             {
               "trigger": "click",
@@ -658,11 +719,11 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "dg_footer.page_8_button_back"
+          "name": "round_button_1",
+          "_nested_name": "display_group_23.round_button_1"
         },
         {
           "type": "button",
-          "name": "btn_attempt_submit",
           "value": "@global.btn_continue",
           "_translations": {
             "value": {}
@@ -682,7 +743,8 @@
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "dg_footer.btn_attempt_submit",
+          "name": "button_2",
+          "_nested_name": "display_group_23.button_2",
           "_dynamicFields": {
             "value": [
               {
@@ -712,7 +774,6 @@
         },
         {
           "type": "button",
-          "name": "page_8_button_continue",
           "value": "@global.btn_continue",
           "_translations": {
             "value": {}
@@ -743,7 +804,8 @@
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "dg_footer.page_8_button_continue",
+          "name": "button_3",
+          "_nested_name": "display_group_23.button_3",
           "_dynamicFields": {
             "value": [
               {
@@ -785,7 +847,8 @@
           }
         }
       ],
-      "_nested_name": "dg_footer"
+      "name": "display_group_23",
+      "_nested_name": "display_group_23"
     }
   ],
   "_source": {

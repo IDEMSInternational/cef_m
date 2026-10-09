@@ -5,12 +5,27 @@
   "rows": [
     {
       "type": "title",
-      "value": "LOCALITE DE L'UPA",
+      "value": "@global.localite_upa",
       "_translations": {
         "value": {}
       },
       "name": "title_2",
-      "_nested_name": "title_2"
+      "_nested_name": "title_2",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.localite_upa",
+            "matchedExpression": "@global.localite_upa",
+            "type": "global",
+            "fieldName": "localite_upa"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.localite_upa": [
+          "value"
+        ]
+      }
     },
     {
       "name": "attempt_submit",
@@ -40,7 +55,7 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "text",
+          "type": "subtitle",
           "name": "region_text",
           "value": "@global.nom_region",
           "_translations": {
@@ -150,18 +165,21 @@
       }
     },
     {
-      "type": "html",
-      "name": "html_text",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
       "_translations": {
         "value": {}
       },
       "condition": "!@fields.region_id && @fields.attempt_submit",
-      "_nested_name": "html_text",
+      "style_list": [
+        "@global.reponse_style"
+      ],
+      "name": "text_9",
+      "_nested_name": "text_9",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+            "fullExpression": "@global.reponse_obligatoire",
             "matchedExpression": "@global.reponse_obligatoire",
             "type": "global",
             "fieldName": "reponse_obligatoire"
@@ -180,7 +198,17 @@
             "type": "fields",
             "fieldName": "attempt_submit"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.reponse_obligatoire": [
@@ -191,6 +219,9 @@
         ],
         "@fields.attempt_submit": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
@@ -199,7 +230,7 @@
       "condition": "@fields.region_id",
       "rows": [
         {
-          "type": "text",
+          "type": "subtitle",
           "name": "cercle_text",
           "value": "@global.nom_cercle",
           "_translations": {
@@ -373,18 +404,21 @@
       }
     },
     {
-      "type": "html",
-      "name": "html_text",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
       "_translations": {
         "value": {}
       },
       "condition": "!@fields.cercle_id && @fields.attempt_submit && @fields.region_id",
-      "_nested_name": "html_text",
+      "style_list": [
+        "@global.reponse_style"
+      ],
+      "name": "text_14",
+      "_nested_name": "text_14",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+            "fullExpression": "@global.reponse_obligatoire",
             "matchedExpression": "@global.reponse_obligatoire",
             "type": "global",
             "fieldName": "reponse_obligatoire"
@@ -409,7 +443,17 @@
             "type": "fields",
             "fieldName": "region_id"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.reponse_obligatoire": [
@@ -423,6 +467,9 @@
         ],
         "@fields.region_id": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
@@ -431,7 +478,7 @@
       "condition": "@fields.cercle_id",
       "rows": [
         {
-          "type": "text",
+          "type": "subtitle",
           "name": "commune_text",
           "value": "@global.nom_commune",
           "_translations": {
@@ -605,14 +652,17 @@
       }
     },
     {
-      "type": "html",
-      "name": "html_text",
+      "type": "text",
       "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
       "_translations": {
         "value": {}
       },
       "condition": "!@fields.commune_id && @fields.attempt_submit && @fields.cercle_id",
-      "_nested_name": "html_text",
+      "style_list": [
+        "@global.reponse_style"
+      ],
+      "name": "text_19",
+      "_nested_name": "text_19",
       "_dynamicFields": {
         "value": [
           {
@@ -641,7 +691,17 @@
             "type": "fields",
             "fieldName": "cercle_id"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.reponse_obligatoire": [
@@ -655,6 +715,9 @@
         ],
         "@fields.cercle_id": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
@@ -663,7 +726,7 @@
       "condition": "@fields.commune_id",
       "rows": [
         {
-          "type": "text",
+          "type": "subtitle",
           "name": "village_text",
           "value": "@global.nom_village",
           "_translations": {
@@ -945,14 +1008,17 @@
       }
     },
     {
-      "type": "html",
-      "name": "html_text",
+      "type": "text",
       "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
       "_translations": {
         "value": {}
       },
       "condition": "!@fields.village_id && @fields.attempt_submit && @fields.commune_id",
-      "_nested_name": "html_text",
+      "style_list": [
+        "@global.reponse_style"
+      ],
+      "name": "text_24",
+      "_nested_name": "text_24",
       "_dynamicFields": {
         "value": [
           {
@@ -981,7 +1047,17 @@
             "type": "fields",
             "fieldName": "commune_id"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.reponse_obligatoire": [
@@ -995,6 +1071,9 @@
         ],
         "@fields.commune_id": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
@@ -1051,7 +1130,6 @@
     },
     {
       "type": "display_group",
-      "name": "dg_footer",
       "value": "",
       "parameter_list": {
         "sticky": "bottom"
@@ -1062,7 +1140,6 @@
       "rows": [
         {
           "type": "round_button",
-          "name": "page_4_button_back",
           "action_list": [
             {
               "trigger": "click",
@@ -1077,11 +1154,11 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "dg_footer.page_4_button_back"
+          "name": "round_button_1",
+          "_nested_name": "display_group_26.round_button_1"
         },
         {
           "type": "button",
-          "name": "btn_attempt_submit",
           "value": "@global.btn_continue",
           "_translations": {
             "value": {}
@@ -1101,7 +1178,8 @@
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "dg_footer.btn_attempt_submit",
+          "name": "button_2",
+          "_nested_name": "display_group_26.button_2",
           "_dynamicFields": {
             "value": [
               {
@@ -1131,7 +1209,6 @@
         },
         {
           "type": "button",
-          "name": "page_4_button_continue",
           "value": "@global.btn_continue",
           "_translations": {
             "value": {}
@@ -1162,7 +1239,8 @@
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "dg_footer.page_4_button_continue",
+          "name": "button_3",
+          "_nested_name": "display_group_26.button_3",
           "_dynamicFields": {
             "value": [
               {
@@ -1204,7 +1282,8 @@
           }
         }
       ],
-      "_nested_name": "dg_footer"
+      "name": "display_group_26",
+      "_nested_name": "display_group_26"
     }
   ],
   "_source": {
