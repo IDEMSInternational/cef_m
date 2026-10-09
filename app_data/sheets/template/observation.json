@@ -4,6 +4,39 @@
   "status": "released",
   "rows": [
     {
+      "name": "selected_year",
+      "value": "@calc(String(@fields.selected_observation_year|| '').slice(0, 4))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "selected_year",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(String(@fields.selected_observation_year|| '').slice(0, 4))",
+            "matchedExpression": "@fields.selected_observation_year",
+            "type": "fields",
+            "fieldName": "selected_observation_year"
+          },
+          {
+            "fullExpression": "@calc(String(@fields.selected_observation_year|| '').slice(0, 4))",
+            "matchedExpression": "@calc(String(@fields.selected_observation_year|| '').slice(0, 4))",
+            "type": "calc",
+            "fieldName": "String(@fields.selected_observation_year|| '').slice(0, 4)"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.selected_observation_year": [
+          "value"
+        ],
+        "@calc(String(@fields.selected_observation_year|| '').slice(0, 4))": [
+          "value"
+        ]
+      }
+    },
+    {
       "name": "choix_annee",
       "value": "@calc(String(@local.selected_year || '').trim() === '')",
       "_translations": {
@@ -65,39 +98,6 @@
           "value"
         ],
         "@calc(String(@local.selected_year || '').trim() !== '')": [
-          "value"
-        ]
-      }
-    },
-    {
-      "name": "selected_year",
-      "value": "@calc(String(@fields.selected_observation_year|| '').slice(0, 4))",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "selected_year",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc(String(@fields.selected_observation_year|| '').slice(0, 4))",
-            "matchedExpression": "@fields.selected_observation_year",
-            "type": "fields",
-            "fieldName": "selected_observation_year"
-          },
-          {
-            "fullExpression": "@calc(String(@fields.selected_observation_year|| '').slice(0, 4))",
-            "matchedExpression": "@calc(String(@fields.selected_observation_year|| '').slice(0, 4))",
-            "type": "calc",
-            "fieldName": "String(@fields.selected_observation_year|| '').slice(0, 4)"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.selected_observation_year": [
-          "value"
-        ],
-        "@calc(String(@fields.selected_observation_year|| '').slice(0, 4))": [
           "value"
         ]
       }

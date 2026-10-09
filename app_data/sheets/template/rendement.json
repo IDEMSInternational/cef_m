@@ -4,6 +4,39 @@
   "status": "released",
   "rows": [
     {
+      "name": "selected_year",
+      "value": "@calc(String(@fields.selected_rendement_year || '').slice(0, 4))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "selected_year",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(String(@fields.selected_rendement_year || '').slice(0, 4))",
+            "matchedExpression": "@fields.selected_rendement_year",
+            "type": "fields",
+            "fieldName": "selected_rendement_year"
+          },
+          {
+            "fullExpression": "@calc(String(@fields.selected_rendement_year || '').slice(0, 4))",
+            "matchedExpression": "@calc(String(@fields.selected_rendement_year || '').slice(0, 4))",
+            "type": "calc",
+            "fieldName": "String(@fields.selected_rendement_year || '').slice(0, 4)"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.selected_rendement_year": [
+          "value"
+        ],
+        "@calc(String(@fields.selected_rendement_year || '').slice(0, 4))": [
+          "value"
+        ]
+      }
+    },
+    {
       "name": "choix_annee",
       "value": "@calc(String(@local.selected_year || '').trim() === '')",
       "_translations": {
@@ -65,39 +98,6 @@
           "value"
         ],
         "@calc(String(@local.selected_year || '').trim() !== '')": [
-          "value"
-        ]
-      }
-    },
-    {
-      "name": "selected_year",
-      "value": "@calc(String(@fields.selected_rendement_year || '').slice(0, 4))",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "selected_year",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc(String(@fields.selected_rendement_year || '').slice(0, 4))",
-            "matchedExpression": "@fields.selected_rendement_year",
-            "type": "fields",
-            "fieldName": "selected_rendement_year"
-          },
-          {
-            "fullExpression": "@calc(String(@fields.selected_rendement_year || '').slice(0, 4))",
-            "matchedExpression": "@calc(String(@fields.selected_rendement_year || '').slice(0, 4))",
-            "type": "calc",
-            "fieldName": "String(@fields.selected_rendement_year || '').slice(0, 4)"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.selected_rendement_year": [
-          "value"
-        ],
-        "@calc(String(@fields.selected_rendement_year || '').slice(0, 4))": [
           "value"
         ]
       }
@@ -223,9 +223,9 @@
     },
     {
       "type": "display_group",
+      "name": "card1",
       "rows": [],
-      "name": "display_group_9",
-      "_nested_name": "display_group_9"
+      "_nested_name": "card1"
     },
     {
       "type": "text",
@@ -253,6 +253,7 @@
     },
     {
       "type": "display_group",
+      "name": "card2",
       "style_list": [
         "display: flex",
         "align-items: center",
@@ -263,7 +264,7 @@
       "rows": [
         {
           "type": "date_time_picker",
-          "name": "selected_production_year",
+          "name": "selected_rendement_year",
           "value": "@fields.selected_rendement_year",
           "_translations": {
             "value": {}
@@ -288,7 +289,7 @@
             "flex: 1",
             "max-width: 300px"
           ],
-          "_nested_name": "display_group_12.selected_production_year",
+          "_nested_name": "card2.selected_rendement_year",
           "_dynamicFields": {
             "value": [
               {
@@ -319,11 +320,11 @@
           }
         }
       ],
-      "name": "display_group_12",
-      "_nested_name": "display_group_12"
+      "_nested_name": "card2"
     },
     {
       "type": "display_group",
+      "name": "card3",
       "condition": "@local.aff_data",
       "style_list": [
         "width: 100%",
@@ -345,6 +346,7 @@
           "rows": [
             {
               "type": "display_group",
+              "name": "card4",
               "style_list": [
                 "display: flex",
                 "flex-direction: column",
@@ -367,7 +369,7 @@
                     "margin-bottom: 8px"
                   ],
                   "name": "image_1",
-                  "_nested_name": "display_group_14.data_items_1.display_group_1_@item.id.image_1",
+                  "_nested_name": "card3.data_items_1.card4.image_1",
                   "_dynamicFields": {
                     "value": [
                       {
@@ -388,14 +390,6 @@
                         "type": "calc",
                         "fieldName": "['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@item.culture_id || '').toLowerCase().trim()) ? 'images/' + @item.culture_id + '.jpg' : 'images/autre.jpeg'"
                       }
-                    ],
-                    "_nested_name": [
-                      {
-                        "fullExpression": "display_group_14.data_items_1.display_group_1_@item.id.image_1",
-                        "matchedExpression": "@item.id.image_1",
-                        "type": "item",
-                        "fieldName": "id"
-                      }
                     ]
                   },
                   "_dynamicDependencies": {
@@ -405,14 +399,12 @@
                     ],
                     "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@item.culture_id || '').toLowerCase().trim()) ? 'images/' + @item.culture_id + '.jpg' : 'images/autre.jpeg')": [
                       "value"
-                    ],
-                    "@item.id.image_1": [
-                      "_nested_name"
                     ]
                   }
                 },
                 {
                   "type": "display_group",
+                  "name": "card5",
                   "style_list": [
                     "display: flex",
                     "flex-direction: column",
@@ -422,63 +414,55 @@
                   "rows": [
                     {
                       "name": "superficie_item",
-                      "value": "@calc(Object.values(@data.parcelles || {}).filter(p => String(p.upa_code || '') === String(@fields.upa_code) && String(p.crop_id || '').trim().toLowerCase() === String(@item.culture_id || '').trim().toLowerCase() && !!Object.values(@data.champ || {}).find(c => String(c.id || '').trim() === String(p.champ_id || '').trim() && String(c.upa_code || '') === String(@fields.upa_code) && String(c.year || '') === String(@local.selected_year))).reduce((total, p) => total + Number(String(p.superficie_measuree || 0).replace(',', '.')), 0))",
+                      "value": "@calc(Object.values(@data.parcelles || {}).filter(p => String(p.upa_code || '') === String(@fields.upa_code) && String(p.crop_id || '').trim().toLowerCase() === String(@item.culture_id || '').trim().toLowerCase() && !!Object.values(@data.champs || {}).find(c => String(c.id || '').trim() === String(p.champ_id || '').trim() && String(c.upa_code || '') === String(@fields.upa_code) && String(c.year || '') === String(@local.selected_year))).reduce((total, p) => total + Number(String(p.superficie_measuree || 0).replace(',', '.')), 0))",
                       "_translations": {
                         "value": {}
                       },
                       "type": "set_variable",
-                      "_nested_name": "display_group_14.data_items_1.display_group_1_@item.id.display_group_2.superficie_item",
+                      "_nested_name": "card3.data_items_1.card4.card5.superficie_item",
                       "_dynamicFields": {
                         "value": [
                           {
-                            "fullExpression": "@calc(Object.values(@data.parcelles || {}).filter(p => String(p.upa_code || '') === String(@fields.upa_code) && String(p.crop_id || '').trim().toLowerCase() === String(@item.culture_id || '').trim().toLowerCase() && !!Object.values(@data.champ || {}).find(c => String(c.id || '').trim() === String(p.champ_id || '').trim() && String(c.upa_code || '') === String(@fields.upa_code) && String(c.year || '') === String(@local.selected_year))).reduce((total, p) => total + Number(String(p.superficie_measuree || 0).replace(',', '.')), 0))",
+                            "fullExpression": "@calc(Object.values(@data.parcelles || {}).filter(p => String(p.upa_code || '') === String(@fields.upa_code) && String(p.crop_id || '').trim().toLowerCase() === String(@item.culture_id || '').trim().toLowerCase() && !!Object.values(@data.champs || {}).find(c => String(c.id || '').trim() === String(p.champ_id || '').trim() && String(c.upa_code || '') === String(@fields.upa_code) && String(c.year || '') === String(@local.selected_year))).reduce((total, p) => total + Number(String(p.superficie_measuree || 0).replace(',', '.')), 0))",
                             "matchedExpression": "@data.parcelles",
                             "type": "data",
                             "fieldName": "parcelles"
                           },
                           {
-                            "fullExpression": "@calc(Object.values(@data.parcelles || {}).filter(p => String(p.upa_code || '') === String(@fields.upa_code) && String(p.crop_id || '').trim().toLowerCase() === String(@item.culture_id || '').trim().toLowerCase() && !!Object.values(@data.champ || {}).find(c => String(c.id || '').trim() === String(p.champ_id || '').trim() && String(c.upa_code || '') === String(@fields.upa_code) && String(c.year || '') === String(@local.selected_year))).reduce((total, p) => total + Number(String(p.superficie_measuree || 0).replace(',', '.')), 0))",
+                            "fullExpression": "@calc(Object.values(@data.parcelles || {}).filter(p => String(p.upa_code || '') === String(@fields.upa_code) && String(p.crop_id || '').trim().toLowerCase() === String(@item.culture_id || '').trim().toLowerCase() && !!Object.values(@data.champs || {}).find(c => String(c.id || '').trim() === String(p.champ_id || '').trim() && String(c.upa_code || '') === String(@fields.upa_code) && String(c.year || '') === String(@local.selected_year))).reduce((total, p) => total + Number(String(p.superficie_measuree || 0).replace(',', '.')), 0))",
                             "matchedExpression": "@fields.upa_code",
                             "type": "fields",
                             "fieldName": "upa_code"
                           },
                           {
-                            "fullExpression": "@calc(Object.values(@data.parcelles || {}).filter(p => String(p.upa_code || '') === String(@fields.upa_code) && String(p.crop_id || '').trim().toLowerCase() === String(@item.culture_id || '').trim().toLowerCase() && !!Object.values(@data.champ || {}).find(c => String(c.id || '').trim() === String(p.champ_id || '').trim() && String(c.upa_code || '') === String(@fields.upa_code) && String(c.year || '') === String(@local.selected_year))).reduce((total, p) => total + Number(String(p.superficie_measuree || 0).replace(',', '.')), 0))",
+                            "fullExpression": "@calc(Object.values(@data.parcelles || {}).filter(p => String(p.upa_code || '') === String(@fields.upa_code) && String(p.crop_id || '').trim().toLowerCase() === String(@item.culture_id || '').trim().toLowerCase() && !!Object.values(@data.champs || {}).find(c => String(c.id || '').trim() === String(p.champ_id || '').trim() && String(c.upa_code || '') === String(@fields.upa_code) && String(c.year || '') === String(@local.selected_year))).reduce((total, p) => total + Number(String(p.superficie_measuree || 0).replace(',', '.')), 0))",
                             "matchedExpression": "@item.culture_id",
                             "type": "item",
                             "fieldName": "culture_id"
                           },
                           {
-                            "fullExpression": "@calc(Object.values(@data.parcelles || {}).filter(p => String(p.upa_code || '') === String(@fields.upa_code) && String(p.crop_id || '').trim().toLowerCase() === String(@item.culture_id || '').trim().toLowerCase() && !!Object.values(@data.champ || {}).find(c => String(c.id || '').trim() === String(p.champ_id || '').trim() && String(c.upa_code || '') === String(@fields.upa_code) && String(c.year || '') === String(@local.selected_year))).reduce((total, p) => total + Number(String(p.superficie_measuree || 0).replace(',', '.')), 0))",
-                            "matchedExpression": "@data.champ",
+                            "fullExpression": "@calc(Object.values(@data.parcelles || {}).filter(p => String(p.upa_code || '') === String(@fields.upa_code) && String(p.crop_id || '').trim().toLowerCase() === String(@item.culture_id || '').trim().toLowerCase() && !!Object.values(@data.champs || {}).find(c => String(c.id || '').trim() === String(p.champ_id || '').trim() && String(c.upa_code || '') === String(@fields.upa_code) && String(c.year || '') === String(@local.selected_year))).reduce((total, p) => total + Number(String(p.superficie_measuree || 0).replace(',', '.')), 0))",
+                            "matchedExpression": "@data.champs",
                             "type": "data",
-                            "fieldName": "champ"
+                            "fieldName": "champs"
                           },
                           {
-                            "fullExpression": "@calc(Object.values(@data.parcelles || {}).filter(p => String(p.upa_code || '') === String(@fields.upa_code) && String(p.crop_id || '').trim().toLowerCase() === String(@item.culture_id || '').trim().toLowerCase() && !!Object.values(@data.champ || {}).find(c => String(c.id || '').trim() === String(p.champ_id || '').trim() && String(c.upa_code || '') === String(@fields.upa_code) && String(c.year || '') === String(@local.selected_year))).reduce((total, p) => total + Number(String(p.superficie_measuree || 0).replace(',', '.')), 0))",
+                            "fullExpression": "@calc(Object.values(@data.parcelles || {}).filter(p => String(p.upa_code || '') === String(@fields.upa_code) && String(p.crop_id || '').trim().toLowerCase() === String(@item.culture_id || '').trim().toLowerCase() && !!Object.values(@data.champs || {}).find(c => String(c.id || '').trim() === String(p.champ_id || '').trim() && String(c.upa_code || '') === String(@fields.upa_code) && String(c.year || '') === String(@local.selected_year))).reduce((total, p) => total + Number(String(p.superficie_measuree || 0).replace(',', '.')), 0))",
                             "matchedExpression": "@fields.upa_code",
                             "type": "fields",
                             "fieldName": "upa_code"
                           },
                           {
-                            "fullExpression": "@calc(Object.values(@data.parcelles || {}).filter(p => String(p.upa_code || '') === String(@fields.upa_code) && String(p.crop_id || '').trim().toLowerCase() === String(@item.culture_id || '').trim().toLowerCase() && !!Object.values(@data.champ || {}).find(c => String(c.id || '').trim() === String(p.champ_id || '').trim() && String(c.upa_code || '') === String(@fields.upa_code) && String(c.year || '') === String(@local.selected_year))).reduce((total, p) => total + Number(String(p.superficie_measuree || 0).replace(',', '.')), 0))",
+                            "fullExpression": "@calc(Object.values(@data.parcelles || {}).filter(p => String(p.upa_code || '') === String(@fields.upa_code) && String(p.crop_id || '').trim().toLowerCase() === String(@item.culture_id || '').trim().toLowerCase() && !!Object.values(@data.champs || {}).find(c => String(c.id || '').trim() === String(p.champ_id || '').trim() && String(c.upa_code || '') === String(@fields.upa_code) && String(c.year || '') === String(@local.selected_year))).reduce((total, p) => total + Number(String(p.superficie_measuree || 0).replace(',', '.')), 0))",
                             "matchedExpression": "@local.selected_year",
                             "type": "local",
                             "fieldName": "selected_year"
                           },
                           {
-                            "fullExpression": "@calc(Object.values(@data.parcelles || {}).filter(p => String(p.upa_code || '') === String(@fields.upa_code) && String(p.crop_id || '').trim().toLowerCase() === String(@item.culture_id || '').trim().toLowerCase() && !!Object.values(@data.champ || {}).find(c => String(c.id || '').trim() === String(p.champ_id || '').trim() && String(c.upa_code || '') === String(@fields.upa_code) && String(c.year || '') === String(@local.selected_year))).reduce((total, p) => total + Number(String(p.superficie_measuree || 0).replace(',', '.')), 0))",
-                            "matchedExpression": "@calc(Object.values(@data.parcelles || {}).filter(p => String(p.upa_code || '') === String(@fields.upa_code) && String(p.crop_id || '').trim().toLowerCase() === String(@item.culture_id || '').trim().toLowerCase() && !!Object.values(@data.champ || {}).find(c => String(c.id || '').trim() === String(p.champ_id || '').trim() && String(c.upa_code || '') === String(@fields.upa_code) && String(c.year || '') === String(@local.selected_year))).reduce((total, p) => total + Number(String(p.superficie_measuree || 0).replace(',', '.')), 0))",
+                            "fullExpression": "@calc(Object.values(@data.parcelles || {}).filter(p => String(p.upa_code || '') === String(@fields.upa_code) && String(p.crop_id || '').trim().toLowerCase() === String(@item.culture_id || '').trim().toLowerCase() && !!Object.values(@data.champs || {}).find(c => String(c.id || '').trim() === String(p.champ_id || '').trim() && String(c.upa_code || '') === String(@fields.upa_code) && String(c.year || '') === String(@local.selected_year))).reduce((total, p) => total + Number(String(p.superficie_measuree || 0).replace(',', '.')), 0))",
+                            "matchedExpression": "@calc(Object.values(@data.parcelles || {}).filter(p => String(p.upa_code || '') === String(@fields.upa_code) && String(p.crop_id || '').trim().toLowerCase() === String(@item.culture_id || '').trim().toLowerCase() && !!Object.values(@data.champs || {}).find(c => String(c.id || '').trim() === String(p.champ_id || '').trim() && String(c.upa_code || '') === String(@fields.upa_code) && String(c.year || '') === String(@local.selected_year))).reduce((total, p) => total + Number(String(p.superficie_measuree || 0).replace(',', '.')), 0))",
                             "type": "calc",
-                            "fieldName": "Object.values(@data.parcelles || {}).filter(p => String(p.upa_code || '') === String(@fields.upa_code) && String(p.crop_id || '').trim().toLowerCase() === String(@item.culture_id || '').trim().toLowerCase() && !!Object.values(@data.champ || {}).find(c => String(c.id || '').trim() === String(p.champ_id || '').trim() && String(c.upa_code || '') === String(@fields.upa_code) && String(c.year || '') === String(@local.selected_year))).reduce((total, p) => total + Number(String(p.superficie_measuree || 0).replace(',', '.')), 0)"
-                          }
-                        ],
-                        "_nested_name": [
-                          {
-                            "fullExpression": "display_group_14.data_items_1.display_group_1_@item.id.display_group_2.superficie_item",
-                            "matchedExpression": "@item.id.display_group_2.superficie_item",
-                            "type": "item",
-                            "fieldName": "id"
+                            "fieldName": "Object.values(@data.parcelles || {}).filter(p => String(p.upa_code || '') === String(@fields.upa_code) && String(p.crop_id || '').trim().toLowerCase() === String(@item.culture_id || '').trim().toLowerCase() && !!Object.values(@data.champs || {}).find(c => String(c.id || '').trim() === String(p.champ_id || '').trim() && String(c.upa_code || '') === String(@fields.upa_code) && String(c.year || '') === String(@local.selected_year))).reduce((total, p) => total + Number(String(p.superficie_measuree || 0).replace(',', '.')), 0)"
                           }
                         ]
                       },
@@ -493,61 +477,50 @@
                         "@item.culture_id": [
                           "value"
                         ],
-                        "@data.champ": [
+                        "@data.champs": [
                           "value"
                         ],
                         "@local.selected_year": [
                           "value"
                         ],
-                        "@calc(Object.values(@data.parcelles || {}).filter(p => String(p.upa_code || '') === String(@fields.upa_code) && String(p.crop_id || '').trim().toLowerCase() === String(@item.culture_id || '').trim().toLowerCase() && !!Object.values(@data.champ || {}).find(c => String(c.id || '').trim() === String(p.champ_id || '').trim() && String(c.upa_code || '') === String(@fields.upa_code) && String(c.year || '') === String(@local.selected_year))).reduce((total, p) => total + Number(String(p.superficie_measuree || 0).replace(',', '.')), 0))": [
+                        "@calc(Object.values(@data.parcelles || {}).filter(p => String(p.upa_code || '') === String(@fields.upa_code) && String(p.crop_id || '').trim().toLowerCase() === String(@item.culture_id || '').trim().toLowerCase() && !!Object.values(@data.champs || {}).find(c => String(c.id || '').trim() === String(p.champ_id || '').trim() && String(c.upa_code || '') === String(@fields.upa_code) && String(c.year || '') === String(@local.selected_year))).reduce((total, p) => total + Number(String(p.superficie_measuree || 0).replace(',', '.')), 0))": [
                           "value"
-                        ],
-                        "@item.id.display_group_2.superficie_item": [
-                          "_nested_name"
                         ]
                       }
                     },
                     {
                       "name": "rendement_item",
-                      "value": "@calc(Number(String(@local.superficie_item || 0).replace(',', '.')) > 0 ? Math.round(Number(String(@item.production || 0).replace(',', '.')) / Number(String(@local.superficie_item || 0).replace(',', '.'))) : 0)",
+                      "value": "@calc(Number(String(@local.superficie_item || 0).replace(',', '.')) > 0 ? Math.round((Number(String(@item.production || 0).replace(',', '.')) / Number(String(@local.superficie_item || 0).replace(',', '.'))) * 10) / 10 : 0)",
                       "_translations": {
                         "value": {}
                       },
                       "type": "set_variable",
-                      "_nested_name": "display_group_14.data_items_1.display_group_1_@item.id.display_group_2.rendement_item",
+                      "_nested_name": "card3.data_items_1.card4.card5.rendement_item",
                       "_dynamicFields": {
                         "value": [
                           {
-                            "fullExpression": "@calc(Number(String(@local.superficie_item || 0).replace(',', '.')) > 0 ? Math.round(Number(String(@item.production || 0).replace(',', '.')) / Number(String(@local.superficie_item || 0).replace(',', '.'))) : 0)",
+                            "fullExpression": "@calc(Number(String(@local.superficie_item || 0).replace(',', '.')) > 0 ? Math.round((Number(String(@item.production || 0).replace(',', '.')) / Number(String(@local.superficie_item || 0).replace(',', '.'))) * 10) / 10 : 0)",
                             "matchedExpression": "@local.superficie_item",
                             "type": "local",
                             "fieldName": "superficie_item"
                           },
                           {
-                            "fullExpression": "@calc(Number(String(@local.superficie_item || 0).replace(',', '.')) > 0 ? Math.round(Number(String(@item.production || 0).replace(',', '.')) / Number(String(@local.superficie_item || 0).replace(',', '.'))) : 0)",
+                            "fullExpression": "@calc(Number(String(@local.superficie_item || 0).replace(',', '.')) > 0 ? Math.round((Number(String(@item.production || 0).replace(',', '.')) / Number(String(@local.superficie_item || 0).replace(',', '.'))) * 10) / 10 : 0)",
                             "matchedExpression": "@item.production",
                             "type": "item",
                             "fieldName": "production"
                           },
                           {
-                            "fullExpression": "@calc(Number(String(@local.superficie_item || 0).replace(',', '.')) > 0 ? Math.round(Number(String(@item.production || 0).replace(',', '.')) / Number(String(@local.superficie_item || 0).replace(',', '.'))) : 0)",
+                            "fullExpression": "@calc(Number(String(@local.superficie_item || 0).replace(',', '.')) > 0 ? Math.round((Number(String(@item.production || 0).replace(',', '.')) / Number(String(@local.superficie_item || 0).replace(',', '.'))) * 10) / 10 : 0)",
                             "matchedExpression": "@local.superficie_item",
                             "type": "local",
                             "fieldName": "superficie_item"
                           },
                           {
-                            "fullExpression": "@calc(Number(String(@local.superficie_item || 0).replace(',', '.')) > 0 ? Math.round(Number(String(@item.production || 0).replace(',', '.')) / Number(String(@local.superficie_item || 0).replace(',', '.'))) : 0)",
-                            "matchedExpression": "@calc(Number(String(@local.superficie_item || 0).replace(',', '.')) > 0 ? Math.round(Number(String(@item.production || 0).replace(',', '.')) / Number(String(@local.superficie_item || 0).replace(',', '.'))) : 0)",
+                            "fullExpression": "@calc(Number(String(@local.superficie_item || 0).replace(',', '.')) > 0 ? Math.round((Number(String(@item.production || 0).replace(',', '.')) / Number(String(@local.superficie_item || 0).replace(',', '.'))) * 10) / 10 : 0)",
+                            "matchedExpression": "@calc(Number(String(@local.superficie_item || 0).replace(',', '.')) > 0 ? Math.round((Number(String(@item.production || 0).replace(',', '.')) / Number(String(@local.superficie_item || 0).replace(',', '.'))) * 10) / 10 : 0)",
                             "type": "calc",
-                            "fieldName": "Number(String(@local.superficie_item || 0).replace(',', '.')) > 0 ? Math.round(Number(String(@item.production || 0).replace(',', '.')) / Number(String(@local.superficie_item || 0).replace(',', '.'))) : 0"
-                          }
-                        ],
-                        "_nested_name": [
-                          {
-                            "fullExpression": "display_group_14.data_items_1.display_group_1_@item.id.display_group_2.rendement_item",
-                            "matchedExpression": "@item.id.display_group_2.rendement_item",
-                            "type": "item",
-                            "fieldName": "id"
+                            "fieldName": "Number(String(@local.superficie_item || 0).replace(',', '.')) > 0 ? Math.round((Number(String(@item.production || 0).replace(',', '.')) / Number(String(@local.superficie_item || 0).replace(',', '.'))) * 10) / 10 : 0"
                           }
                         ]
                       },
@@ -559,11 +532,8 @@
                         "@item.production": [
                           "value"
                         ],
-                        "@calc(Number(String(@local.superficie_item || 0).replace(',', '.')) > 0 ? Math.round(Number(String(@item.production || 0).replace(',', '.')) / Number(String(@local.superficie_item || 0).replace(',', '.'))) : 0)": [
+                        "@calc(Number(String(@local.superficie_item || 0).replace(',', '.')) > 0 ? Math.round((Number(String(@item.production || 0).replace(',', '.')) / Number(String(@local.superficie_item || 0).replace(',', '.'))) * 10) / 10 : 0)": [
                           "value"
-                        ],
-                        "@item.id.display_group_2.rendement_item": [
-                          "_nested_name"
                         ]
                       }
                     },
@@ -580,7 +550,7 @@
                         "text-transform: capitalize"
                       ],
                       "name": "text_3",
-                      "_nested_name": "display_group_14.data_items_1.display_group_1_@item.id.display_group_2.text_3",
+                      "_nested_name": "card3.data_items_1.card4.card5.text_3",
                       "_dynamicFields": {
                         "value": [
                           {
@@ -589,22 +559,11 @@
                             "type": "item",
                             "fieldName": "culture_id"
                           }
-                        ],
-                        "_nested_name": [
-                          {
-                            "fullExpression": "display_group_14.data_items_1.display_group_1_@item.id.display_group_2.text_3",
-                            "matchedExpression": "@item.id.display_group_2.text_3",
-                            "type": "item",
-                            "fieldName": "id"
-                          }
                         ]
                       },
                       "_dynamicDependencies": {
                         "@item.culture_id": [
                           "value"
-                        ],
-                        "@item.id.display_group_2.text_3": [
-                          "_nested_name"
                         ]
                       }
                     },
@@ -620,7 +579,7 @@
                         "color: #000000"
                       ],
                       "name": "text_4",
-                      "_nested_name": "display_group_14.data_items_1.display_group_1_@item.id.display_group_2.text_4",
+                      "_nested_name": "card3.data_items_1.card4.card5.text_4",
                       "_dynamicFields": {
                         "value": [
                           {
@@ -629,75 +588,23 @@
                             "type": "local",
                             "fieldName": "rendement_item"
                           }
-                        ],
-                        "_nested_name": [
-                          {
-                            "fullExpression": "display_group_14.data_items_1.display_group_1_@item.id.display_group_2.text_4",
-                            "matchedExpression": "@item.id.display_group_2.text_4",
-                            "type": "item",
-                            "fieldName": "id"
-                          }
                         ]
                       },
                       "_dynamicDependencies": {
                         "@local.rendement_item": [
                           "value"
-                        ],
-                        "@item.id.display_group_2.text_4": [
-                          "_nested_name"
                         ]
                       }
                     }
                   ],
-                  "name": "display_group_2",
-                  "_nested_name": "display_group_14.data_items_1.display_group_1_@item.id.display_group_2",
-                  "_dynamicFields": {
-                    "_nested_name": [
-                      {
-                        "fullExpression": "display_group_14.data_items_1.display_group_1_@item.id.display_group_2",
-                        "matchedExpression": "@item.id.display_group_2",
-                        "type": "item",
-                        "fieldName": "id"
-                      }
-                    ]
-                  },
-                  "_dynamicDependencies": {
-                    "@item.id.display_group_2": [
-                      "_nested_name"
-                    ]
-                  }
+                  "_nested_name": "card3.data_items_1.card4.card5"
                 }
               ],
-              "name": "display_group_1_@item.id",
-              "_nested_name": "display_group_14.data_items_1.display_group_1_@item.id",
-              "_dynamicFields": {
-                "name": [
-                  {
-                    "fullExpression": "display_group_1_@item.id",
-                    "matchedExpression": "@item.id",
-                    "type": "item",
-                    "fieldName": "id"
-                  }
-                ],
-                "_nested_name": [
-                  {
-                    "fullExpression": "display_group_14.data_items_1.display_group_1_@item.id",
-                    "matchedExpression": "@item.id",
-                    "type": "item",
-                    "fieldName": "id"
-                  }
-                ]
-              },
-              "_dynamicDependencies": {
-                "@item.id": [
-                  "name",
-                  "_nested_name"
-                ]
-              }
+              "_nested_name": "card3.data_items_1.card4"
             }
           ],
           "name": "data_items_1",
-          "_nested_name": "display_group_14.data_items_1",
+          "_nested_name": "card3.data_items_1",
           "_dynamicFields": {
             "value": [
               {
@@ -755,8 +662,7 @@
           }
         }
       ],
-      "name": "display_group_14",
-      "_nested_name": "display_group_14",
+      "_nested_name": "card3",
       "_dynamicFields": {
         "condition": [
           {
@@ -775,6 +681,7 @@
     },
     {
       "type": "display_group",
+      "name": "card6",
       "condition": "!@local.has_rendements && @local.aff_data",
       "style_list": [
         "padding: 22px 16px",
@@ -795,7 +702,7 @@
             "font-size: 15px"
           ],
           "name": "text_1",
-          "_nested_name": "display_group_16.text_1",
+          "_nested_name": "card6.text_1",
           "_dynamicFields": {
             "value": [
               {
@@ -813,8 +720,7 @@
           }
         }
       ],
-      "name": "display_group_16",
-      "_nested_name": "display_group_16",
+      "_nested_name": "card6",
       "_dynamicFields": {
         "condition": [
           {
@@ -842,6 +748,7 @@
     },
     {
       "type": "display_group",
+      "name": "card7",
       "condition": "@local.choix_annee",
       "style_list": [
         "padding: 22px 16px",
@@ -862,7 +769,7 @@
             "font-size: 15px"
           ],
           "name": "text_1",
-          "_nested_name": "display_group_18.text_1",
+          "_nested_name": "card7.text_1",
           "_dynamicFields": {
             "value": [
               {
@@ -880,8 +787,7 @@
           }
         }
       ],
-      "name": "display_group_18",
-      "_nested_name": "display_group_18",
+      "_nested_name": "card7",
       "_dynamicFields": {
         "condition": [
           {

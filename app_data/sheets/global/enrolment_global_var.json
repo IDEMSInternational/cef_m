@@ -17,8 +17,7 @@
       "value": "L'institut d'Économie Rurale (IER) et ses partenaires co-développent avec les producteurs au Mali un outil digital de gestion de l’exploitation agricole familiale sur téléphone portable.\n---\n\nL’outil digital comprend trois principales composantes à mettre en œuvre dans le temps :\n\n1. **La planification de la saison de production** entre mars et mai  \n2. **Le suivi des activités de la saison** de juin à novembre  \n3. **L’évaluation de la saison** entre décembre et février  \n\n---\n\nDes informations seront collectées sur chacune des trois composantes.\n\nLes données sur l’exploitation seront analysées et partagées avec vous, le producteur, pour soutenir la prise de décision.\nLes informations collectées et les résultats générés sont confidentiels et seront stockées d’une façon sécurisée par l’Institut d’Économie Rurale (IER).\nNous confirmons que les données ne seront utilisées que par notre équipe et seulement à des fins de recherche.\n\n---",
       "_translations": {
         "value": {}
-      },
-      "exclude_from_translation": "Les données sur l’exploitation seront analysées et partagées avec vous, le producteur, pour soutenir la prise de décision.\nLes informations collectées et les résultats générés sont confidentiels et seront stockées d’une façon sécurisée par l’Institut d’Économie Rurale (IER).\nNous confirmons que les données ne seront utilisées que par notre équipe et seulement à des fins de recherche. \nVoudriez-vous participer ?"
+      }
     },
     {
       "type": "declare_global_constant",
@@ -46,7 +45,7 @@
     },
     {
       "type": "declare_global_constant",
-      "name": "error_required_answer",
+      "name": "reponse_obligatoire",
       "value": "Réponse obligatoire !",
       "_translations": {
         "value": {}
@@ -54,8 +53,8 @@
     },
     {
       "type": "declare_global_constant",
-      "name": "reponse_obligatoire",
-      "value": "Réponse obligatoire !",
+      "name": "reponse_style",
+      "value": "color: red; font-size: 16px;",
       "_translations": {
         "value": {}
       }
@@ -94,8 +93,120 @@
     },
     {
       "type": "declare_global_constant",
+      "name": "identifi_upa",
+      "value": "IDENTIFICATION DE l'UPA",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "num_phone_label",
+      "value": "Saisissez le numéro de téléphone utilisé comme identifiant",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "num_phone_hint",
+      "value": "Il s'agit du numero de téléphone pour l'identification de l'UPA (+223) qui sera utilisé de manière permanente",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "error_num_phone",
+      "value": "Veuillez saisir un numéro de téléphone correct (8 chiffres, sans 0 au début)",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "chef_upa_label",
+      "value": "Nom du chef de l'UPA",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "gender_label",
+      "value": "Sexe du chef de l'UPA",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "gender_chef_hint",
+      "value": "Selectionnez le sexe",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "age_chef_label",
+      "value": "Age du chef de l'UPA",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "age_chef_hint",
+      "value": "Selectionnez la fourchette d'age",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "chef_travaux_label",
+      "value": "Ecrivez le nom et prénom du chef des travaux champêtres",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "chef_travaux_hint",
+      "value": "Il s'agit de la personne qui supervise les travaux champêtres",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "neo_alphabete_label",
+      "value": "Ecrivez le nom et prénom du néo-alphabète",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "neo_alphabete_hint",
+      "value": "La personne aidant l'utilisation de l'outil",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "localite_upa",
+      "value": "LOCALITE DE L'UPA",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
       "name": "nom_region",
-      "value": "**Sélectionnez le nom de la région de l'UPA**",
+      "value": "Sélectionnez le nom de la région de l'UPA",
       "_translations": {
         "value": {}
       }
@@ -103,7 +214,7 @@
     {
       "type": "declare_global_constant",
       "name": "nom_cercle",
-      "value": "**Selectionnez le nom du cercle de l'UPA**",
+      "value": "Selectionnez le nom du cercle de l'UPA",
       "_translations": {
         "value": {}
       }
@@ -111,7 +222,7 @@
     {
       "type": "declare_global_constant",
       "name": "nom_commune",
-      "value": "**Selectionnez le nom de la commune de l'UPA**",
+      "value": "Selectionnez le nom de la commune de l'UPA",
       "_translations": {
         "value": {}
       }
@@ -119,7 +230,71 @@
     {
       "type": "declare_global_constant",
       "name": "nom_village",
-      "value": "**Selectionnez le nom du village de l'UPA**",
+      "value": "Selectionnez le nom du village de l'UPA",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "activite_primaire",
+      "value": "ACTIVITE PRIMAIRE DE L'UPA",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "activite_primaire_label",
+      "value": "Selectionnez l'activité primaire de l’UPA",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "autre_activite_primaire",
+      "value": "Précisez le nom de l'autre activité primaire",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "activite_secondaire",
+      "value": "ACTIVITE SECONDAIRE DE L'UPA",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "activite_secondaire_label",
+      "value": "Selectionnez les activité(s) secondaire(s) de l’UPA",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "autre_secondaire",
+      "value": "Précisez le nom de l'autre activité secondaire",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "erreur_activite_second",
+      "value": "Cette activité est déjà votre activité principale.",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "appartenance_asso",
+      "value": "APPARTENANCE ASSOCIATIVE",
       "_translations": {
         "value": {}
       }
@@ -142,6 +317,14 @@
     },
     {
       "type": "declare_global_constant",
+      "name": "societe_coop",
+      "value": "SOCIETE COOPERATIVE|COTON",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
       "name": "fr_scpc_id_note",
       "value": "Selectionnez le nom de votre fédération régionale de SCPC",
       "_translations": {
@@ -152,6 +335,14 @@
       "type": "declare_global_constant",
       "name": "us_scpc_id_note",
       "value": "Selectionnez le nom de votre union secteur de SCPC",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "asso_producteur",
+      "value": "ASSOCIATIONS DES PRODUCTEURS",
       "_translations": {
         "value": {}
       }
@@ -176,6 +367,14 @@
       "type": "declare_global_constant",
       "name": "base_coop_cereale_id_note",
       "value": "Selectionnez le nom de votre coopérative de céréales",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "foncier_agricole",
+      "value": "FONCIER AGRICOLE",
       "_translations": {
         "value": {}
       }

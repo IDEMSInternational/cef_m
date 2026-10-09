@@ -5,7 +5,7 @@
   "rows": [
     {
       "type": "title",
-      "value": "APPARTENANCE ASSOCIATIVE"
+      "value": "@global.appartenance_asso"
     },
     {
       "name": "attempt_submit",
@@ -15,7 +15,7 @@
       "type": "begin_display_group"
     },
     {
-      "type": "text",
+      "type": "subtitle",
       "value": "@global.appartenance_coton_note"
     },
     {
@@ -49,15 +49,16 @@
       "type": "end_radio_list"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@fields.appartenance_coton && @fields.attempt_submit"
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@fields.appartenance_coton && @fields.attempt_submit",
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "begin_display_group"
     },
     {
-      "type": "text",
+      "type": "subtitle",
       "value": "@global.appartenance_cereale_note"
     },
     {
@@ -91,9 +92,10 @@
       "type": "end_radio_list"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@fields.appartenance_cereale && @fields.attempt_submit"
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@fields.appartenance_cereale && @fields.attempt_submit",
+      "style_list": "@global.reponse_style"
     },
     {
       "name": "completed_enabled",
@@ -108,13 +110,11 @@
     },
     {
       "type": "round_button",
-      "name": "page_7_button_back",
       "action_list": "click | emit: uncompleted",
       "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
     },
     {
       "type": "button",
-      "name": "btn_attempt_submit",
       "value": "@global.btn_continue",
       "action_list": "click | set_field: attempt_submit: true;",
       "condition": "!@local.completed_enabled",
@@ -122,9 +122,8 @@
     },
     {
       "type": "button",
-      "name": "page_7_button_continue",
       "value": "@global.btn_continue",
-      "action_list": "click | set_field: attempt_submit: false;\nclick | emit: completed",
+      "action_list": "click | set_field: attempt_submit: false;\nclick | emit: completed;",
       "parameter_list": "disabled: !@local.completed_enabled",
       "condition": "@local.completed_enabled",
       "style_list": "flex: 1"

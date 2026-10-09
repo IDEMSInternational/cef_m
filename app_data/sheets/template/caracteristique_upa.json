@@ -469,7 +469,7 @@
     },
     {
       "type": "display_group",
-      "condition": "!@local.last_upa_entry",
+      "condition": "!@local.last_upa_entry && @local.annee_choisie",
       "style_list": [
         "padding: 22px 16px",
         "margin: 10px 12px",
@@ -512,15 +512,24 @@
       "_dynamicFields": {
         "condition": [
           {
-            "fullExpression": "!@local.last_upa_entry",
+            "fullExpression": "!@local.last_upa_entry && @local.annee_choisie",
             "matchedExpression": "!@local.last_upa_entry",
             "type": "local",
             "fieldName": "last_upa_entry"
+          },
+          {
+            "fullExpression": "!@local.last_upa_entry && @local.annee_choisie",
+            "matchedExpression": "@local.annee_choisie",
+            "type": "local",
+            "fieldName": "annee_choisie"
           }
         ]
       },
       "_dynamicDependencies": {
         "!@local.last_upa_entry": [
+          "condition"
+        ],
+        "@local.annee_choisie": [
           "condition"
         ]
       }

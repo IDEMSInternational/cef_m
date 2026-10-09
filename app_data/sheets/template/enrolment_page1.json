@@ -76,20 +76,17 @@
       }
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: red;\">*</span> @global.consentement_question",
+      "type": "subtitle",
+      "value": "@global.consentement_question",
       "_translations": {
         "value": {}
       },
-      "style_list": [
-        "font-size:20px"
-      ],
-      "name": "html_5",
-      "_nested_name": "html_5",
+      "name": "subtitle_5",
+      "_nested_name": "subtitle_5",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<span style=\"color: red;\">*</span> @global.consentement_question",
+            "fullExpression": "@global.consentement_question",
             "matchedExpression": "@global.consentement_question",
             "type": "global",
             "fieldName": "consentement_question"
@@ -159,18 +156,21 @@
       }
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
       "_translations": {
         "value": {}
       },
       "condition": "!@fields.consentement_oui_non && @fields.attempt_submit",
-      "name": "html_8",
-      "_nested_name": "html_8",
+      "style_list": [
+        "@global.reponse_style"
+      ],
+      "name": "text_8",
+      "_nested_name": "text_8",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+            "fullExpression": "@global.reponse_obligatoire",
             "matchedExpression": "@global.reponse_obligatoire",
             "type": "global",
             "fieldName": "reponse_obligatoire"
@@ -189,7 +189,17 @@
             "type": "fields",
             "fieldName": "attempt_submit"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.reponse_obligatoire": [
@@ -200,6 +210,9 @@
         ],
         "@fields.attempt_submit": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
@@ -239,7 +252,6 @@
       "rows": [
         {
           "type": "round_button",
-          "name": "page1_button_back",
           "action_list": [
             {
               "trigger": "click",
@@ -254,12 +266,12 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "display_group_10.page1_button_back"
+          "name": "round_button_1",
+          "_nested_name": "display_group_10.round_button_1"
         },
         {
           "type": "button",
-          "name": "button_continue_no",
-          "value": "Continuer",
+          "value": "@global.btn_continue",
           "_translations": {
             "value": {}
           },
@@ -277,8 +289,17 @@
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "display_group_10.button_continue_no",
+          "name": "button_2",
+          "_nested_name": "display_group_10.button_2",
           "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.btn_continue",
+                "matchedExpression": "@global.btn_continue",
+                "type": "global",
+                "fieldName": "btn_continue"
+              }
+            ],
             "condition": [
               {
                 "fullExpression": "@fields.consentement_oui_non == 'non'",
@@ -289,6 +310,9 @@
             ]
           },
           "_dynamicDependencies": {
+            "@global.btn_continue": [
+              "value"
+            ],
             "@fields.consentement_oui_non": [
               "condition"
             ]
@@ -296,8 +320,7 @@
         },
         {
           "type": "button",
-          "name": "button_continue_attempt_submit",
-          "value": "Continuer",
+          "value": "@global.btn_continue",
           "_translations": {
             "value": {}
           },
@@ -316,8 +339,17 @@
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "display_group_10.button_continue_attempt_submit",
+          "name": "button_3",
+          "_nested_name": "display_group_10.button_3",
           "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.btn_continue",
+                "matchedExpression": "@global.btn_continue",
+                "type": "global",
+                "fieldName": "btn_continue"
+              }
+            ],
             "condition": [
               {
                 "fullExpression": "!@local.completed_enabled",
@@ -328,6 +360,9 @@
             ]
           },
           "_dynamicDependencies": {
+            "@global.btn_continue": [
+              "value"
+            ],
             "!@local.completed_enabled": [
               "condition"
             ]

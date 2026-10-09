@@ -4,20 +4,16 @@
   "status": "released",
   "rows": [
     {
+      "name": "selected_year",
+      "value": "@calc(String(@fields.selected_observation_year|| '').slice(0, 4))"
+    },
+    {
       "name": "choix_annee",
       "value": "@calc(String(@local.selected_year || '').trim() === '')"
     },
     {
       "name": "aff_data",
       "value": "@calc(String(@local.selected_year || '').trim() !== '')"
-    },
-    {
-      "name": "selected_year",
-      "value": "@calc(String(@fields.selected_observation_year|| '').slice(0, 4))"
-    },
-    {
-      "name": "selected_year",
-      "value": "@calc(@fields.selected_observation_year || '')"
     },
     {
       "name": "selected_semis_id",
@@ -33,19 +29,19 @@
     },
     {
       "name": "has_obs_post_semis",
-      "value": "@calc(Object.values(@data.post_semisCulture || {}).some(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').replace('id_', '').trim() === String(@local.selected_post_semis_id || '').replace('id_', '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte)))"
+      "value": "@calc(Object.values(@data.post_semis_culture || {}).some(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte)))"
     },
     {
       "name": "total_post_semis_culture",
-      "value": "@calc(Object.values(@data.post_semisCulture || {}).length)"
+      "value": "@calc(Object.values(@data.post_semis_culture || {}).length)"
     },
     {
       "name": "lignes_post_semis",
-      "value": "@calc(Object.values(@data.post_semisCulture || {}).filter(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').replace('id_', '').trim() === String(@local.selected_post_semis_id || '').replace('id_', '').trim()).length)"
+      "value": "@calc(Object.values(@data.post_semis_culture || {}).filter(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim()).length)"
     },
     {
       "name": "lignes_post_semis_obs",
-      "value": "@calc(Object.values(@data.post_semisCulture || {}).filter(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').replace('id_', '').trim() === String(@local.selected_post_semis_id || '').replace('id_', '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte)).length)"
+      "value": "@calc(Object.values(@data.post_semis_culture || {}).filter(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte)).length)"
     },
     {
       "type": "begin_template",
@@ -95,8 +91,8 @@
     },
     {
       "type": "begin_data_items",
-      "value": "@data.post_semisCulture",
-      "parameter_list": "filter: @item.id && String(@item.upa_code || '') === String(@fields.upa_code) && String(@item.post_semis_id || '').replace('id_', '').trim() === String(@local.selected_post_semis_id || '').replace('id_', '').trim() && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte)",
+      "value": "@data.post_semis_culture",
+      "parameter_list": "filter: @item.id && String(@item.upa_code || '') === String(@fields.upa_code) && String(@item.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim() && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte)",
       "style_list": "display: flex; flex-direction: column; gap: 16px; width: 100%;"
     },
     {

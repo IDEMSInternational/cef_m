@@ -4,16 +4,16 @@
   "status": "released",
   "rows": [
     {
+      "name": "selected_year",
+      "value": "@calc(String(@fields.selected_rendement_year || '').slice(0, 4))"
+    },
+    {
       "name": "choix_annee",
       "value": "@calc(String(@local.selected_year || '').trim() === '')"
     },
     {
       "name": "aff_data",
       "value": "@calc(String(@local.selected_year || '').trim() !== '')"
-    },
-    {
-      "name": "selected_year",
-      "value": "@calc(String(@fields.selected_rendement_year || '').slice(0, 4))"
     },
     {
       "name": "selected_recolte_id",
@@ -35,7 +35,8 @@
       "type": "end_template"
     },
     {
-      "type": "begin_display_group"
+      "type": "begin_display_group",
+      "name": "card1"
     },
     {
       "type": "end_display_group"
@@ -46,12 +47,13 @@
     },
     {
       "type": "begin_display_group",
+      "name": "card2",
       "style_list": "display: flex; align-items: center; gap: 10px; justify-content: center; margin-bottom: 20px;"
     },
     {
       "type": "date_time_picker",
-      "name": "selected_production_year",
-      "value": "@fields.selected_rendement_year ",
+      "name": "selected_rendement_year",
+      "value": "@fields.selected_rendement_year",
       "action_list": "changed | set_field: selected_rendement_year : this.value;",
       "parameter_list": "type: year; min: 2023; max: @calc(now());\n\n",
       "style_list": "flex: 1; max-width: 300px;"
@@ -61,6 +63,7 @@
     },
     {
       "type": "begin_display_group",
+      "name": "card3",
       "condition": "@local.aff_data",
       "style_list": "width: 100%; padding: 0 12px;"
     },
@@ -72,6 +75,7 @@
     },
     {
       "type": "begin_display_group",
+      "name": "card4",
       "style_list": "display: flex; flex-direction: column; align-items: center; justify-content: center; background: #fbfbf9; padding: 12px;"
     },
     {
@@ -81,15 +85,16 @@
     },
     {
       "type": "begin_display_group",
+      "name": "card5",
       "style_list": "display: flex; flex-direction: column; align-items: center; text-align: center;"
     },
     {
       "name": "superficie_item",
-      "value": "@calc(Object.values(@data.parcelles || {}).filter(p => String(p.upa_code || '') === String(@fields.upa_code) && String(p.crop_id || '').trim().toLowerCase() === String(@item.culture_id || '').trim().toLowerCase() && !!Object.values(@data.champ || {}).find(c => String(c.id || '').trim() === String(p.champ_id || '').trim() && String(c.upa_code || '') === String(@fields.upa_code) && String(c.year || '') === String(@local.selected_year))).reduce((total, p) => total + Number(String(p.superficie_measuree || 0).replace(',', '.')), 0))"
+      "value": "@calc(Object.values(@data.parcelles || {}).filter(p => String(p.upa_code || '') === String(@fields.upa_code) && String(p.crop_id || '').trim().toLowerCase() === String(@item.culture_id || '').trim().toLowerCase() && !!Object.values(@data.champs || {}).find(c => String(c.id || '').trim() === String(p.champ_id || '').trim() && String(c.upa_code || '') === String(@fields.upa_code) && String(c.year || '') === String(@local.selected_year))).reduce((total, p) => total + Number(String(p.superficie_measuree || 0).replace(',', '.')), 0))"
     },
     {
       "name": "rendement_item",
-      "value": "@calc(Number(String(@local.superficie_item || 0).replace(',', '.')) > 0 ? Math.round(Number(String(@item.production || 0).replace(',', '.')) / Number(String(@local.superficie_item || 0).replace(',', '.'))) : 0)"
+      "value": "@calc(Number(String(@local.superficie_item || 0).replace(',', '.')) > 0 ? Math.round((Number(String(@item.production || 0).replace(',', '.')) / Number(String(@local.superficie_item || 0).replace(',', '.'))) * 10) / 10 : 0)"
     },
     {
       "type": "text",
@@ -108,13 +113,14 @@
       "type": "end_display_group"
     },
     {
-      "type": "end_data_items"
-    },
-    {
       "type": "end_display_group"
     },
     {
+      "type": "end_data_items"
+    },
+    {
       "type": "begin_display_group",
+      "name": "card6",
       "condition": "!@local.has_rendements && @local.aff_data ",
       "style_list": "padding: 22px 16px; margin: 10px 12px; background: #fff7ed;text-align: center;"
     },
@@ -128,6 +134,7 @@
     },
     {
       "type": "begin_display_group",
+      "name": "card7",
       "condition": "@local.choix_annee ",
       "style_list": "padding: 22px 16px; margin: 10px 12px; background: #ffffff;text-align: center;"
     },

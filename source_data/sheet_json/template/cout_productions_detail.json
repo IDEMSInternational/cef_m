@@ -4,12 +4,12 @@
   "status": "released",
   "rows": [
     {
-      "name": "selected_year",
-      "value": "@calc(@fields.selected_cout_year || '')"
+      "name": "selected_culture",
+      "value": "@calc(String(@fields.selected_cout_culture || ''))"
     },
     {
-      "name": "selected_culture",
-      "value": "@calc(@fields.selected_cout_culture || '')"
+      "name": "selected_year",
+      "value": "@calc(String(@fields.selected_cout_year|| '').substring(0,4))"
     },
     {
       "name": "selected_culture_label",
@@ -29,15 +29,15 @@
     },
     {
       "name": "semis_culture",
-      "value": "@calc(Object.values(@data.semis_culture || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.semis_id || '').replace('id_', '').trim() === String(@local.selected_semis_id || '').replace('id_', '').trim() && String(item.culture_id || '').toLowerCase().trim() === String(@local.selected_culture).toLowerCase().trim()) || {})"
+      "value": "@calc(Object.values(@data.semis_culture || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.semis_id || '').trim() === String(@local.selected_semis_id || '').trim() && String(item.culture_id || '').toLowerCase().trim() === String(@local.selected_culture).toLowerCase().trim()) || {})"
     },
     {
       "name": "post_semis_culture",
-      "value": "@calc(Object.values(@data.post_semisCulture || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').replace('id_', '').trim() === String(@local.selected_post_semis_id || '').replace('id_', '').trim() && String(item.culture_id || '').toLowerCase().trim() === String(@local.selected_culture).toLowerCase().trim()) || {})"
+      "value": "@calc(Object.values(@data.post_semis_culture || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim() && String(item.culture_id || '').toLowerCase().trim() === String(@local.selected_culture).toLowerCase().trim()) || {})"
     },
     {
       "name": "recolte_culture",
-      "value": "@calc(Object.values(@data.recolte_culture || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.recolte_id || '').replace('id_', '').trim() === String(@local.selected_recolte_id || '').replace('id_', '').trim() && String(item.culture_id || '').toLowerCase().trim() === String(@local.selected_culture).toLowerCase().trim()) || {})"
+      "value": "@calc(Object.values(@data.recolte_culture || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.recolte_id || '').trim() === String(@local.selected_recolte_id || '').trim() && String(item.culture_id || '').toLowerCase().trim() === String(@local.selected_culture).toLowerCase().trim()) || {})"
     },
     {
       "name": "cout_transport",
@@ -90,12 +90,12 @@
     {
       "type": "text",
       "value": "@local.selected_culture_label",
-      "style_list": "style_list: color:white; margin:0 0 6px 0; font-size:22px; font-weight:800; text-transform:uppercase; letter-spacing:0.5px;"
+      "style_list": "color:white; margin:0 0 6px 0; font-size:22px; font-weight:800; text-transform:uppercase; letter-spacing:0.5px;"
     },
     {
       "type": "text",
       "value": "@local.cout_total_culture DRM",
-      "style_list": "style_list: color:#ffffff; font-size:20px; font-weight:800; background:rgba(255,255,255,0.2); padding:4px 14px; border-radius:20px; display:inline-block;"
+      "style_list": "font-size:20px; font-weight:800;padding:4px 14px; border-radius:20px; display:inline-block;"
     },
     {
       "type": "end_display_group"
