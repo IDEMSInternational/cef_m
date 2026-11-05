@@ -1,0 +1,53 @@
+{
+  "flow_type": "template",
+  "flow_name": "new_evaluation_anl",
+  "status": "released",
+  "rows": [
+    {
+      "name": "chef_upa_display",
+      "value": "@calc((Object.values(@data.upas || {}).find(u => String(u.code || '') === String(@fields.upa_code)) || {}).chef_upa || '')"
+    },
+    {
+      "type": "begin_display_group",
+      "parameter_list": "style:column",
+      "style_list": "background: linear-gradient(135deg, #2e7d32, #4caf50); border-radius: 0 0 16px 16px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; width: 100%; box-sizing: border-box; box-shadow: 0 2px 6px rgba(0,0,0,0.15);"
+    },
+    {
+      "type": "text",
+      "value": "Unité de Production Agricole (UPA)",
+      "style_list": "color: white; font-size: 18px; margin: 0; padding: 0; line-height: 1.2; letter-spacing: 0.5px; text-transform: uppercase; opacity: 0.9; text-align: center;"
+    },
+    {
+      "type": "text",
+      "value": "**@local.chef_upa_display**",
+      "style_list": "color: white; font-size: 24px; font-weight: bold; margin: 0; padding: 0; line-height: 1.2; text-align: center;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_grid",
+      "name": "evaluation_menu",
+      "parameter_list": "item_width: 140px; item_border: none; grid_width: 100%; grid_gap: 16px",
+      "style_list": "padding-bottom: 20px"
+    },
+    {
+      "type": "begin_data_items",
+      "name": "evaluation_items",
+      "value": "@data.evaluation_pages"
+    },
+    {
+      "type": "button",
+      "name": "evaluation_tile",
+      "value": "@item.tile_title",
+      "action_list": "click | go_to: @item.target_template",
+      "parameter_list": "variant: card-portrait; image_asset: @item.image_path"
+    },
+    {
+      "type": "end_data_items"
+    },
+    {
+      "type": "end_display_grid"
+    }
+  ]
+}

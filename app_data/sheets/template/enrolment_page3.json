@@ -161,7 +161,7 @@
       ],
       "parameter_list": {
         "number_input": "true",
-        "placeholder": "Ecrivez le numero"
+        "placeholder": "@global.texte_placeholder"
       },
       "_nested_name": "num_phone",
       "_dynamicFields": {
@@ -172,11 +172,24 @@
             "type": "fields",
             "fieldName": "num_phone"
           }
-        ]
+        ],
+        "parameter_list": {
+          "placeholder": [
+            {
+              "fullExpression": "@global.texte_placeholder",
+              "matchedExpression": "@global.texte_placeholder",
+              "type": "global",
+              "fieldName": "texte_placeholder"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@fields.num_phone": [
           "value"
+        ],
+        "@global.texte_placeholder": [
+          "parameter_list.placeholder"
         ]
       }
     },
@@ -340,7 +353,7 @@
         }
       ],
       "parameter_list": {
-        "placeholder": "Ecrivez le nom"
+        "placeholder": "@global.texte_placeholder"
       },
       "_nested_name": "chef_upa",
       "_dynamicFields": {
@@ -351,11 +364,24 @@
             "type": "fields",
             "fieldName": "chef_upa"
           }
-        ]
+        ],
+        "parameter_list": {
+          "placeholder": [
+            {
+              "fullExpression": "@global.texte_placeholder",
+              "matchedExpression": "@global.texte_placeholder",
+              "type": "global",
+              "fieldName": "texte_placeholder"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@fields.chef_upa": [
           "value"
+        ],
+        "@global.texte_placeholder": [
+          "parameter_list.placeholder"
         ]
       }
     },
@@ -1063,7 +1089,7 @@
         }
       ],
       "parameter_list": {
-        "placeholder": "Ecrivez le nom"
+        "placeholder": "@global.texte_placeholder"
       },
       "_nested_name": "chef_travaux",
       "_dynamicFields": {
@@ -1074,11 +1100,24 @@
             "type": "fields",
             "fieldName": "chef_travaux"
           }
-        ]
+        ],
+        "parameter_list": {
+          "placeholder": [
+            {
+              "fullExpression": "@global.texte_placeholder",
+              "matchedExpression": "@global.texte_placeholder",
+              "type": "global",
+              "fieldName": "texte_placeholder"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@fields.chef_travaux": [
           "value"
+        ],
+        "@global.texte_placeholder": [
+          "parameter_list.placeholder"
         ]
       }
     },
@@ -1290,7 +1329,7 @@
         }
       ],
       "parameter_list": {
-        "placeholder": "Ecrivez le nom"
+        "placeholder": "@global.texte_placeholder"
       },
       "_nested_name": "neo_alphabete",
       "_dynamicFields": {
@@ -1301,11 +1340,24 @@
             "type": "fields",
             "fieldName": "neo_alphabete"
           }
-        ]
+        ],
+        "parameter_list": {
+          "placeholder": [
+            {
+              "fullExpression": "@global.texte_placeholder",
+              "matchedExpression": "@global.texte_placeholder",
+              "type": "global",
+              "fieldName": "texte_placeholder"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@fields.neo_alphabete": [
           "value"
+        ],
+        "@global.texte_placeholder": [
+          "parameter_list.placeholder"
         ]
       }
     },

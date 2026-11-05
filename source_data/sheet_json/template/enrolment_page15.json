@@ -5,7 +5,7 @@
   "rows": [
     {
       "type": "title",
-      "value": "AUTRE BETAIL DE L'UPA"
+      "value": "@global.autre_betail"
     },
     {
       "name": "attempt_submit",
@@ -15,11 +15,9 @@
       "type": "begin_display_group"
     },
     {
-      "type": "html",
-      "value": "@global.nb_ane<span style=\"color: red;\">*</span>",
-      "parameter_list": "style: contextual;",
-      "exclude_from_translation": true,
-      "style_list": "font-size:20px;"
+      "type": "subtitle",
+      "value": "@global.nb_ane",
+      "exclude_from_translation": true
     },
     {
       "type": "audio",
@@ -43,14 +41,14 @@
       "type": "text_box",
       "name": "nombre_anes",
       "value": "@fields.nombre_anes",
-      "parameter_list": "number_input: true;\nplaceholder: Entrez le nombre;",
+      "parameter_list": "number_input: true; placeholder:@global.texte_placeholder;",
       "condition": "!!@field.nombre_anes",
       "exclude_from_translation": true
     },
     {
       "type": "text_box",
       "name": "nombre_anes",
-      "parameter_list": "number_input: true;\nplaceholder: Entrez le nombre;",
+      "parameter_list": "number_input: true; placeholder:@global.texte_placeholder;",
       "condition": "!@field.nombre_anes",
       "exclude_from_translation": true
     },
@@ -63,26 +61,25 @@
       "type": "end_display_group"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@local.nombre_anes && @fields.attempt_submit"
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@local.nombre_anes && @fields.attempt_submit",
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "text",
       "value": "@global.error_number_min_0",
       "condition": "!@local.valid_nombre_anes && @fields.attempt_submit",
       "exclude_from_translation": true,
-      "style_list": "color: #FF0000;\nfont-size: 12px"
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "begin_display_group"
     },
     {
-      "type": "html",
-      "value": "@global.nb_cheveaux<span style=\"color: red;\">*</span>",
-      "parameter_list": "style: contextual;",
-      "exclude_from_translation": true,
-      "style_list": "font-size:20px;"
+      "type": "subtitle",
+      "value": "@global.nb_cheveaux",
+      "exclude_from_translation": true
     },
     {
       "type": "audio",
@@ -106,14 +103,14 @@
       "type": "text_box",
       "name": "nombre_chevaux",
       "value": "@fields.nombre_chevaux",
-      "parameter_list": "number_input: true;\nplaceholder: Entrez le nombre;",
+      "parameter_list": "number_input: true; placeholder:@global.texte_placeholder;",
       "condition": "!!@field.nombre_chevaux",
       "exclude_from_translation": true
     },
     {
       "type": "text_box",
       "name": "nombre_chevaux",
-      "parameter_list": "number_input: true;\nplaceholder: Entrez le nombre;",
+      "parameter_list": "number_input: true; placeholder:@global.texte_placeholder;",
       "condition": "!@field.nombre_chevaux",
       "exclude_from_translation": true
     },
@@ -126,26 +123,25 @@
       "type": "end_display_group"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@local.nombre_chevaux && @fields.attempt_submit"
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@local.nombre_chevaux && @fields.attempt_submit",
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "text",
       "value": "@global.error_number_min_0",
       "condition": "!@local.valid_nombre_chevaux && @fields.attempt_submit",
       "exclude_from_translation": true,
-      "style_list": "color: #FF0000;\nfont-size: 12px"
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "begin_display_group"
     },
     {
-      "type": "html",
-      "value": "@global.nb_moutons<span style=\"color: red;\">*</span>",
-      "parameter_list": "style: contextual;",
-      "exclude_from_translation": true,
-      "style_list": "font-size:20px;"
+      "type": "subtitle",
+      "value": "@global.nb_moutons",
+      "exclude_from_translation": true
     },
     {
       "type": "audio",
@@ -169,14 +165,14 @@
       "type": "text_box",
       "name": "nombre_moutons",
       "value": "@fields.nombre_moutons",
-      "parameter_list": "number_input: true;\nplaceholder: Entrez le nombre;",
+      "parameter_list": "number_input: true; placeholder:@global.texte_placeholder;",
       "condition": "!!@field.nombre_moutons",
       "exclude_from_translation": true
     },
     {
       "type": "text_box",
       "name": "nombre_moutons",
-      "parameter_list": "number_input: true;\nplaceholder: Entrez le nombre;",
+      "parameter_list": "number_input: true; placeholder:@global.texte_placeholder;",
       "condition": "!@field.nombre_moutons",
       "exclude_from_translation": true
     },
@@ -189,26 +185,25 @@
       "type": "end_display_group"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@local.nombre_moutons && @fields.attempt_submit"
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@local.nombre_moutons && @fields.attempt_submit",
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "text",
       "value": "@global.error_number_min_0 ",
       "condition": "!@local.valid_nombre_moutons && @fields.attempt_submit",
       "exclude_from_translation": true,
-      "style_list": "color: #FF0000;\nfont-size: 12px"
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "begin_display_group"
     },
     {
-      "type": "html",
-      "value": "@global.nb_chevre<span style=\"color: red;\">*</span>",
-      "parameter_list": "style: contextual;",
-      "exclude_from_translation": true,
-      "style_list": "font-size:20px;"
+      "type": "subtitle",
+      "value": "@global.nb_chevre",
+      "exclude_from_translation": true
     },
     {
       "type": "audio",
@@ -232,14 +227,14 @@
       "type": "text_box",
       "name": "nombre_chevres",
       "value": "@fields.nombre_chevres",
-      "parameter_list": "number_input: true;\nplaceholder: Entrez le nombre;",
+      "parameter_list": "number_input: true; placeholder:@global.texte_placeholder;",
       "condition": "!!@field.nombre_chevres",
       "exclude_from_translation": true
     },
     {
       "type": "text_box",
       "name": "nombre_chevres",
-      "parameter_list": "number_input: true;\nplaceholder: Entrez le nombre;",
+      "parameter_list": "number_input: true; placeholder:@global.texte_placeholder;",
       "condition": "!@field.nombre_chevres",
       "exclude_from_translation": true
     },
@@ -252,26 +247,25 @@
       "type": "end_display_group"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@local.nombre_chevres && @fields.attempt_submit"
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@local.nombre_chevres && @fields.attempt_submit",
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "text",
       "value": "@global.error_number_min_0",
       "condition": "!@local.valid_nombre_chevres && @fields.attempt_submit",
       "exclude_from_translation": true,
-      "style_list": "color: #FF0000;\nfont-size: 12px"
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "begin_display_group"
     },
     {
-      "type": "html",
-      "value": "@global.nb_porcs<span style=\"color: red;\">*</span>",
-      "parameter_list": "style: contextual;",
-      "exclude_from_translation": true,
-      "style_list": "font-size:20px;"
+      "type": "subtitle",
+      "value": "@global.nb_porcs",
+      "exclude_from_translation": true
     },
     {
       "type": "audio",
@@ -295,14 +289,14 @@
       "type": "text_box",
       "name": "nombre_porcs",
       "value": "@fields.nombre_porcs",
-      "parameter_list": "number_input: true;\nplaceholder: Entrez le nombre;",
+      "parameter_list": "number_input: true; placeholder:@global.texte_placeholder;",
       "condition": "!!@field.nombre_porcs",
       "exclude_from_translation": true
     },
     {
       "type": "text_box",
       "name": "nombre_porcs",
-      "parameter_list": "number_input: true;\nplaceholder: Entrez le nombre;",
+      "parameter_list": "number_input: true; placeholder:@global.texte_placeholder;",
       "condition": "!@field.nombre_porcs",
       "exclude_from_translation": true
     },
@@ -315,16 +309,17 @@
       "type": "end_display_group"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@local.nombre_porcs && @fields.attempt_submit"
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@local.nombre_porcs && @fields.attempt_submit",
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "text",
       "value": "@global.error_number_min_0",
       "condition": "!@local.valid_nombre_porcs && @fields.attempt_submit",
       "exclude_from_translation": true,
-      "style_list": "color: #FF0000;\nfont-size: 12px"
+      "style_list": "@global.reponse_style"
     },
     {
       "name": "completed_enabled",
@@ -353,7 +348,7 @@
     },
     {
       "type": "button",
-      "name": "button_continue_13",
+      "name": "button_continue_15",
       "value": "Continuer",
       "action_list": "click | set_field: nombre_anes: @local.nombre_anes;\nclick | set_field: nombre_chevaux: @local.nombre_chevaux;\nclick | set_field: nombre_moutons: @local.nombre_moutons;\nclick | set_field: nombre_chevres: @local.nombre_chevres;\nclick | set_field: nombre_porcs: @local.nombre_porcs;\nclick | set_field: attempt_submit: false;\nclick | emit: completed;",
       "parameter_list": "disabled: !@local.completed_enabled;",

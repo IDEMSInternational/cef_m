@@ -9,11 +9,26 @@
         {
           "type": "title",
           "name": "page_title",
-          "value": "DEPENSES DE L'UPA",
+          "value": "@global.depense_upa_title",
           "_translations": {
             "value": {}
           },
-          "_nested_name": "display_group_2.page_title"
+          "_nested_name": "display_group_2.page_title",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.depense_upa_title",
+                "matchedExpression": "@global.depense_upa_title",
+                "type": "global",
+                "fieldName": "depense_upa_title"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.depense_upa_title": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",
@@ -62,6 +77,11 @@
       "_translations": {
         "value": {}
       },
+      "style_list": [
+        "width: 180px",
+        "height: 180px",
+        "object-fit: cover"
+      ],
       "name": "image_5",
       "_nested_name": "image_5"
     },

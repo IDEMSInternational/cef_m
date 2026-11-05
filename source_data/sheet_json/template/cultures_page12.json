@@ -31,7 +31,7 @@
     },
     {
       "type": "title",
-      "value": "COÛTS PREVISIONNELS DE LA CULTURE"
+      "value": "@global.cout_prev_culture"
     },
     {
       "type": "audio",
@@ -44,7 +44,7 @@
     },
     {
       "type": "text",
-      "value": "**Coût total prévisionnel:**"
+      "value": "@global.cout_total_prev"
     },
     {
       "type": "begin_display_group",
@@ -52,7 +52,7 @@
     },
     {
       "type": "text",
-      "value": "Prestation de labour pour @fields.superficie_ha_prevue ha: **@fields.cout_prevue_superficie_labour drm**",
+      "value": "@global.cout_labour_label",
       "style_list": "background: #fdf6f0; color: #a44c20; border: 1px solid #f5decb; border-radius: 12px; padding: 14px 18px; margin: 12px 0px; box-shadow: 0 4px 6px rgba(164, 76, 32, 0.02); font-size: 20px; font-weight: 500;"
     },
     {
@@ -62,8 +62,8 @@
     },
     {
       "type": "text",
-      "value": "*1 drm=5 FCFA*",
-      "style_list": "color: gray; font-size: 16px;"
+      "value": "@global.hint_style ",
+      "style_list": "@global.hint_style "
     },
     {
       "type": "end_display_group"
@@ -74,7 +74,7 @@
     },
     {
       "type": "text",
-      "value": "Coût total fumure organique pour @fields.superficie_ha_prevue ha: **@fields.cout_total_fumure drm**",
+      "value": "@global.cout_fumure_label",
       "style_list": "background: #fdf6f0; color: #a44c20; border: 1px solid #f5decb; border-radius: 12px; padding: 14px 18px; margin: 12px 0px; box-shadow: 0 4px 6px rgba(164, 76, 32, 0.02); font-size: 20px; font-weight: 500;"
     },
     {
@@ -84,8 +84,8 @@
     },
     {
       "type": "text",
-      "value": "*1 drm=5 FCFA*",
-      "style_list": "color: gray; font-size: 16px;"
+      "value": "@global.drm_cfa_hint",
+      "style_list": "@global.hint_style "
     },
     {
       "type": "end_display_group"
@@ -96,7 +96,7 @@
     },
     {
       "type": "text",
-      "value": "Achat de semences pour @fields.superficie_ha_prevue ha: **@fields.cout_prevu_semence_achetee drm**",
+      "value": "@global.achat_semence_label",
       "style_list": "background: #fdf6f0; color: #a44c20; border: 1px solid #f5decb; border-radius: 12px; padding: 14px 18px; margin: 12px 0px; box-shadow: 0 4px 6px rgba(164, 76, 32, 0.02); font-size: 20px; font-weight: 500;"
     },
     {
@@ -106,8 +106,8 @@
     },
     {
       "type": "text",
-      "value": "Coûts prévisionels: toutes les variétés de semences\n*1 drm=5 FCFA*",
-      "style_list": "color: gray; font-size: 16px;"
+      "value": "@global.achat_semence_hint",
+      "style_list": "@global.hint_style "
     },
     {
       "type": "end_display_group"
@@ -118,7 +118,7 @@
     },
     {
       "type": "text",
-      "value": "Achat des engrais mineraux pour @fields.superficie_ha_prevue ha: **@fields.cout_prevu_engrais drm**",
+      "value": "@global.achat_engrais_label",
       "style_list": "background: #fdf6f0; color: #a44c20; border: 1px solid #f5decb; border-radius: 12px; padding: 14px 18px; margin: 12px 0px; box-shadow: 0 4px 6px rgba(164, 76, 32, 0.02); font-size: 20px; font-weight: 500;"
     },
     {
@@ -128,8 +128,8 @@
     },
     {
       "type": "text",
-      "value": "Coûts prévisionels des types d'engrais selectionnés pour la culture de @fields.culture_label\n*1 drm=5 FCFA*",
-      "style_list": "color: gray; font-size: 16px;"
+      "value": "@global.achat_engrais_hint",
+      "style_list": "@global.hint_style "
     },
     {
       "type": "end_display_group"
@@ -140,7 +140,7 @@
     },
     {
       "type": "text",
-      "value": "Achat autres intrants pour @fields.superficie_ha_prevue ha: **@fields.couts_totaux_prevus_autres_intrants drm**",
+      "value": "@global.autre_engrais_label",
       "style_list": "background: #fdf6f0; color: #a44c20; border: 1px solid #f5decb; border-radius: 12px; padding: 14px 18px; margin: 12px 0px; box-shadow: 0 4px 6px rgba(164, 76, 32, 0.02); font-size: 20px; font-weight: 500;"
     },
     {
@@ -150,8 +150,8 @@
     },
     {
       "type": "text",
-      "value": "Coûts prévisionels des autres intrants et services pour  la culture de @fields.culture_label\n*1 drm=5 FCFA*",
-      "style_list": "color: gray; font-size: 16px;"
+      "value": "@global.autre_engrais_hint",
+      "style_list": "@global.hint_style "
     },
     {
       "type": "end_display_group"
@@ -163,7 +163,7 @@
     },
     {
       "type": "text",
-      "value": "Autre(s) coût(s), @fields.nom_autre_cout_prevu, pour @fields.superficie_ha_prevue ha: **@fields.autre_cout_prevu drm**",
+      "value": "@global.autre_cout_label",
       "style_list": "background: #fdf6f0; color: #a44c20; border: 1px solid #f5decb; border-radius: 12px; padding: 14px 18px; margin: 12px 0px; box-shadow: 0 4px 6px rgba(164, 76, 32, 0.02); font-size: 20px; font-weight: 500;"
     },
     {
@@ -173,8 +173,8 @@
     },
     {
       "type": "text",
-      "value": "*1 drm=5 FCFA*",
-      "style_list": "color: gray; font-size: 16px;"
+      "value": "@global.drm_cfa_hint",
+      "style_list": "@global.hint_style "
     },
     {
       "type": "end_display_group"
@@ -185,7 +185,7 @@
     },
     {
       "type": "text",
-      "value": "Sevices de récolte et battage pour @fields.superficie_ha_prevue ha: **@fields.cout_prevu_recolte_battage drm**",
+      "value": "@global.service_recolte_label",
       "style_list": "background: #fdf6f0; color: #a44c20; border: 1px solid #f5decb; border-radius: 12px; padding: 14px 18px; margin: 12px 0px; box-shadow: 0 4px 6px rgba(164, 76, 32, 0.02); font-size: 20px; font-weight: 500;"
     },
     {
@@ -195,8 +195,8 @@
     },
     {
       "type": "text",
-      "value": "*1 drm=5 FCFA*",
-      "style_list": "color: gray; font-size: 16px;"
+      "value": "@global.drm_cfa_hint",
+      "style_list": "@global.hint_style "
     },
     {
       "type": "end_display_group"
@@ -208,7 +208,7 @@
     },
     {
       "type": "text",
-      "value": "Coûts totaux prévisionnels pour @fields.superficie_ha_prevue ha: **@fields.couts_totaux_prevus drm**",
+      "value": "@global.cout_totaux_label",
       "style_list": "background: #fdf6f0; color: #a44c20; border: 1px solid #f5decb; border-radius: 12px; padding: 14px 18px; margin: 12px 0px; box-shadow: 0 4px 6px rgba(164, 76, 32, 0.02); font-size: 20px; font-weight: 500;"
     },
     {
@@ -218,8 +218,8 @@
     },
     {
       "type": "text",
-      "value": "*1 drm=5 FCFA*",
-      "style_list": "color: gray; font-size: 16px;"
+      "value": "@global.drm_cfa_hint",
+      "style_list": "@global.hint_style "
     },
     {
       "type": "end_display_group"

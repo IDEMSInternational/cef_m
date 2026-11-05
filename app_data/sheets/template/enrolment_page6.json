@@ -562,7 +562,7 @@
             }
           ],
           "parameter_list": {
-            "placeholder": "Précisez l'activité..."
+            "placeholder": "@global.texte_placeholder"
           },
           "exclude_from_translation": true,
           "style_list": [
@@ -580,11 +580,24 @@
                 "type": "field",
                 "fieldName": "autre_activite_secondaire"
               }
-            ]
+            ],
+            "parameter_list": {
+              "placeholder": [
+                {
+                  "fullExpression": "@global.texte_placeholder",
+                  "matchedExpression": "@global.texte_placeholder",
+                  "type": "global",
+                  "fieldName": "texte_placeholder"
+                }
+              ]
+            }
           },
           "_dynamicDependencies": {
             "@field.autre_activite_secondaire": [
               "value"
+            ],
+            "@global.texte_placeholder": [
+              "parameter_list.placeholder"
             ]
           }
         }

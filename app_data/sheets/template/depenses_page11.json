@@ -52,25 +52,25 @@
       }
     },
     {
-      "type": "text",
-      "value": "@global.autre_invest_yesno",
+      "type": "subtitle",
+      "value": "@global.autre_invest_yesno_title",
       "_translations": {
         "value": {}
       },
-      "name": "text_4",
-      "_nested_name": "text_4",
+      "name": "subtitle_4",
+      "_nested_name": "subtitle_4",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@global.autre_invest_yesno",
-            "matchedExpression": "@global.autre_invest_yesno",
+            "fullExpression": "@global.autre_invest_yesno_title",
+            "matchedExpression": "@global.autre_invest_yesno_title",
             "type": "global",
-            "fieldName": "autre_invest_yesno"
+            "fieldName": "autre_invest_yesno_title"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@global.autre_invest_yesno": [
+        "@global.autre_invest_yesno_title": [
           "value"
         ]
       }
@@ -348,20 +348,20 @@
       ],
       "rows": [
         {
-          "type": "html",
-          "value": "<span style=\"color: red;\">*</span> @global.nom_autre_invest_label",
+          "type": "subtitle",
+          "value": "@global.nom_autre_invest_label",
           "_translations": {
             "value": {}
           },
           "style_list": [
             "font-size:20px"
           ],
-          "name": "html_1",
-          "_nested_name": "display_group_10.html_1",
+          "name": "subtitle_1",
+          "_nested_name": "display_group_10.subtitle_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "<span style=\"color: red;\">*</span> @global.nom_autre_invest_label",
+                "fullExpression": "@global.nom_autre_invest_label",
                 "matchedExpression": "@global.nom_autre_invest_label",
                 "type": "global",
                 "fieldName": "nom_autre_invest_label"
@@ -407,6 +407,10 @@
               "_raw": "changed | set_field : nom_autre_invest: this.value"
             }
           ],
+          "parameter_list": {
+            "number_input": "true",
+            "placeholder": "@global.texte_placeholder"
+          },
           "_nested_name": "display_group_10.nom_autre_invest",
           "_dynamicFields": {
             "value": [
@@ -416,11 +420,24 @@
                 "type": "fields",
                 "fieldName": "nom_autre_invest"
               }
-            ]
+            ],
+            "parameter_list": {
+              "placeholder": [
+                {
+                  "fullExpression": "@global.texte_placeholder",
+                  "matchedExpression": "@global.texte_placeholder",
+                  "type": "global",
+                  "fieldName": "texte_placeholder"
+                }
+              ]
+            }
           },
           "_dynamicDependencies": {
             "@fields.nom_autre_invest": [
               "value"
+            ],
+            "@global.texte_placeholder": [
+              "parameter_list.placeholder"
             ]
           }
         },
@@ -486,9 +503,9 @@
           }
         },
         {
-          "type": "html",
+          "type": "subtitle",
           "name": "montant_autre_invest_label",
-          "value": "<span style=\"color: red;\">*</span> @global.montant_autre_invest_label",
+          "value": "@global.montant_autre_invest_label",
           "_translations": {
             "value": {}
           },
@@ -500,7 +517,7 @@
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "<span style=\"color: red;\">*</span> @global.montant_autre_invest_label",
+                "fullExpression": "@global.montant_autre_invest_label",
                 "matchedExpression": "@global.montant_autre_invest_label",
                 "type": "global",
                 "fieldName": "montant_autre_invest_label"
@@ -575,7 +592,8 @@
             }
           ],
           "parameter_list": {
-            "number_input": "true"
+            "number_input": "true",
+            "placeholder": "@global.texte_placeholder"
           },
           "_nested_name": "display_group_10.montant_autre_invest",
           "_dynamicFields": {
@@ -586,11 +604,24 @@
                 "type": "fields",
                 "fieldName": "montant_autre_invest"
               }
-            ]
+            ],
+            "parameter_list": {
+              "placeholder": [
+                {
+                  "fullExpression": "@global.texte_placeholder",
+                  "matchedExpression": "@global.texte_placeholder",
+                  "type": "global",
+                  "fieldName": "texte_placeholder"
+                }
+              ]
+            }
           },
           "_dynamicDependencies": {
             "@fields.montant_autre_invest": [
               "value"
+            ],
+            "@global.texte_placeholder": [
+              "parameter_list.placeholder"
             ]
           }
         },

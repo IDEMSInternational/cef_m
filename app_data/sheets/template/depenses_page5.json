@@ -31,13 +31,28 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "text",
-          "value": "**Indiquez s'il y a des enfants de 7 à 25 ans de votre UPA qui sont scolarisés**",
+          "type": "subtitle",
+          "value": "@global.enfant_scolarise",
           "_translations": {
             "value": {}
           },
-          "name": "text_1",
-          "_nested_name": "display_group_3.text_1"
+          "name": "subtitle_1",
+          "_nested_name": "display_group_3.subtitle_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.enfant_scolarise",
+                "matchedExpression": "@global.enfant_scolarise",
+                "type": "global",
+                "fieldName": "enfant_scolarise"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.enfant_scolarise": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",
@@ -57,26 +72,42 @@
       "_nested_name": "display_group_3"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: black;\">@global.enfants_scolarise_oui_hint  </p>",
+      "type": "text",
+      "value": "@global.enfants_scolarise_oui_hint",
       "_translations": {
         "value": {}
       },
-      "name": "html_5",
-      "_nested_name": "html_5",
+      "style_list": [
+        "@global.hint_style"
+      ],
+      "name": "text_5",
+      "_nested_name": "text_5",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: black;\">@global.enfants_scolarise_oui_hint  </p>",
+            "fullExpression": "@global.enfants_scolarise_oui_hint",
             "matchedExpression": "@global.enfants_scolarise_oui_hint",
             "type": "global",
             "fieldName": "enfants_scolarise_oui_hint"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.hint_style",
+              "matchedExpression": "@global.hint_style",
+              "type": "global",
+              "fieldName": "hint_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.enfants_scolarise_oui_hint": [
           "value"
+        ],
+        "@global.hint_style": [
+          "style_list.0"
         ]
       }
     },
@@ -137,18 +168,21 @@
       }
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire",
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
       "_translations": {
         "value": {}
       },
       "condition": "!@fields.enfants_scolarise_oui && @fields.attempt_submit",
-      "name": "html_8",
-      "_nested_name": "html_8",
+      "style_list": [
+        "@reponse_style"
+      ],
+      "name": "text_8",
+      "_nested_name": "text_8",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: red;\"> @global.reponse_obligatoire",
+            "fullExpression": "@global.reponse_obligatoire",
             "matchedExpression": "@global.reponse_obligatoire",
             "type": "global",
             "fieldName": "reponse_obligatoire"
@@ -186,13 +220,28 @@
       "condition": "@fields.enfants_scolarise_oui == 'oui'",
       "rows": [
         {
-          "type": "text",
-          "value": "**Selectionnez les niveaux scolaires de fréquentation des enfants de 7 à 25 ans de votre UPA**",
+          "type": "subtitle",
+          "value": "@global.niveau_scolaire_enfant",
           "_translations": {
             "value": {}
           },
-          "name": "text_1",
-          "_nested_name": "display_group_9.text_1"
+          "name": "subtitle_1",
+          "_nested_name": "display_group_9.subtitle_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.niveau_scolaire_enfant",
+                "matchedExpression": "@global.niveau_scolaire_enfant",
+                "type": "global",
+                "fieldName": "niveau_scolaire_enfant"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.niveau_scolaire_enfant": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",
@@ -512,18 +561,21 @@
       }
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire",
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
       "_translations": {
         "value": {}
       },
       "condition": "!@local.valid_type_scolarite && @fields.attempt_submit",
-      "name": "html_14",
-      "_nested_name": "html_14",
+      "style_list": [
+        "@global.hint_style"
+      ],
+      "name": "text_14",
+      "_nested_name": "text_14",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: red;\"> @global.reponse_obligatoire",
+            "fullExpression": "@global.reponse_obligatoire",
             "matchedExpression": "@global.reponse_obligatoire",
             "type": "global",
             "fieldName": "reponse_obligatoire"
@@ -542,7 +594,17 @@
             "type": "fields",
             "fieldName": "attempt_submit"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.hint_style",
+              "matchedExpression": "@global.hint_style",
+              "type": "global",
+              "fieldName": "hint_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.reponse_obligatoire": [
@@ -553,6 +615,9 @@
         ],
         "@fields.attempt_submit": [
           "condition"
+        ],
+        "@global.hint_style": [
+          "style_list.0"
         ]
       }
     },

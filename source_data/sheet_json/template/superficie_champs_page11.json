@@ -25,15 +25,16 @@
     },
     {
       "type": "title ",
-      "value": "**Quantité de fertilisant dans la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**"
+      "value": "**QUANTITE DE FERTILISANT DANS LA PARCELLE N⁰@fields.num_parcelle DE @fields.nom_champ**"
     },
     {
       "type": "begin_display_group",
       "style_list": "display: block; width: 100%; margin-top: 10px; padding: 10px;"
     },
     {
-      "type": "html",
-      "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Quantité de fumure organique (charretée) :</label>"
+      "type": "text",
+      "value": "@global.note_qtite_fumure",
+      "style_list": "color: #1e3656; font-weight: bold;"
     },
     {
       "type": "audio",
@@ -42,8 +43,9 @@
       "style_list": "float : right;"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: #718096; font-size: 12px; margin-top: 2px;\">(Mettez 0 si aucune fumure organique n'a été apportée)</p>"
+      "type": "text",
+      "value": "@global.note_no_fumure",
+      "style_list": "color: #718096; font-size: 12px; margin-top: 2px;"
     },
     {
       "type": "end_display_group"
@@ -69,18 +71,19 @@
       "exclude_from_translation": true
     },
     {
-      "type": "html",
+      "type": "text",
       "name": "valid_quantite_fumure_organique",
-      "value": "<span style=\"color: red; font-size: 13px;\">@global.warning_message </span>",
+      "value": "@global.warning_message",
       "condition": "!@fields.quantite_fumure_organique",
-      "exclude_from_translation": true
+      "exclude_from_translation": true,
+      "style_list": "color: red; font-size: 13px;"
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: red; font-size: 13px;\">Veuillez entrer un nombre entier positif ou 0 !</span>",
+      "type": "text",
+      "value": "@global.message_positifValue",
       "condition": "!@fields.attempt_submit_p12 && !!@fields.quantite_fumure_organique && !@local.valid_quantite_fumure_organique",
       "exclude_from_translation": true,
-      "style_list": "color: #FF0000;\nfont-size: 14px"
+      "style_list": "color: red; font-size: 13px;"
     },
     {
       "type": "begin_display_group",
@@ -88,8 +91,9 @@
       "style_list": "display: block; width: 100%; margin-top: 25px; border-top: 1px dashed #cbd5e0; padding-top: 15px;"
     },
     {
-      "type": "html",
-      "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Sélectionnez le/les type(s) de fumure organique appliqué(s) :</label>"
+      "type": "text",
+      "value": "@global.note_type_fumure",
+      "style_list": "color: #1e3656; font-weight: bold;"
     },
     {
       "type": "audio",
@@ -125,18 +129,19 @@
       "type": "end_data_items"
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: red; font-size: 13px;\">Veuillez cocher au moins un type de fumure !",
+      "type": "text",
+      "value": "@global.select_fumure\n",
       "condition": "@fields.attempt_submit_p12 && Number(@fields.quantite_fumure_organique) > 0 && !@local.valid_type_fumure",
-      "style_list": "color: red; font-size: 16px;"
+      "style_list": "color: red; font-size: 13px;"
     },
     {
       "type": "begin_display_group",
       "condition": "@fields.autre_fumier == true && Number(@fields.quantite_fumure_organique) > 0"
     },
     {
-      "type": "html",
-      "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Écrivez le nom du type de fumure organique :</label>"
+      "type": "text",
+      "value": "@global.name_fumure",
+      "style_list": "color: #1e3656; font-weight: bold;"
     },
     {
       "type": "audio",
@@ -157,10 +162,11 @@
       "exclude_from_translation_1": true
     },
     {
-      "type": "html",
+      "type": "text",
       "name": "html_text",
-      "value": "<span style=\"color: red; font-size: 13px;\">Veuillez préciser le nom de la fumure !</span>",
-      "condition": "@fields.attempt_submit_p12 && Number(@fields.quantite_fumure_organique) > 0 && @fields.autre_fumier == true && !@fields.autre_fumier_texte"
+      "value": "@global.warring_name_fumure\n",
+      "condition": "@fields.attempt_submit_p12 && Number(@fields.quantite_fumure_organique) > 0 && @fields.autre_fumier == true && !@fields.autre_fumier_texte",
+      "style_list": "color: red; font-size: 13px;"
     },
     {
       "type": "begin_display_group",

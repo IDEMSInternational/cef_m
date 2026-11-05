@@ -5,7 +5,7 @@
   "rows": [
     {
       "type": "title",
-      "value": "**Mesure de superficie de la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**",
+      "value": "Mesurez à l'aide du GPS la superficie de @fields.cult_princip dans la parcelle N⁰@fields.num_parcelle",
       "_translations": {
         "value": {}
       },
@@ -14,24 +14,24 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "**Mesure de superficie de la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**",
+            "fullExpression": "Mesurez à l'aide du GPS la superficie de @fields.cult_princip dans la parcelle N⁰@fields.num_parcelle",
+            "matchedExpression": "@fields.cult_princip",
+            "type": "fields",
+            "fieldName": "cult_princip"
+          },
+          {
+            "fullExpression": "Mesurez à l'aide du GPS la superficie de @fields.cult_princip dans la parcelle N⁰@fields.num_parcelle",
             "matchedExpression": "@fields.num_parcelle",
             "type": "fields",
             "fieldName": "num_parcelle"
-          },
-          {
-            "fullExpression": "**Mesure de superficie de la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**",
-            "matchedExpression": "@fields.nom_champ",
-            "type": "fields",
-            "fieldName": "nom_champ"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.num_parcelle": [
+        "@fields.cult_princip": [
           "value"
         ],
-        "@fields.nom_champ": [
+        "@fields.num_parcelle": [
           "value"
         ]
       }
@@ -84,24 +84,27 @@
         "value": {}
       },
       "style_list": [
-        "width: 80%",
+        "width: 40%",
         "object-fit: contain"
       ],
       "name": "image_5",
       "_nested_name": "image_5"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.hint_superf_geo  </p>",
+      "type": "text",
+      "value": "@global.hint_superf_geo",
       "_translations": {
         "value": {}
       },
-      "name": "html_6",
-      "_nested_name": "html_6",
+      "style_list": [
+        "color: red"
+      ],
+      "name": "text_6",
+      "_nested_name": "text_6",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: red;\"> @global.hint_superf_geo  </p>",
+            "fullExpression": "@global.hint_superf_geo",
             "matchedExpression": "@global.hint_superf_geo",
             "type": "global",
             "fieldName": "hint_superf_geo"
@@ -135,6 +138,195 @@
       "_dynamicDependencies": {
         "@fields.superficie_parcelle": [
           "value"
+        ]
+      }
+    },
+    {
+      "type": "data_items",
+      "value": "@data.Parcelles",
+      "condition": false,
+      "rows": [
+        {
+          "type": "text",
+          "value": "parcelle: @item.numero_parcelle",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_1_@item.id",
+          "_nested_name": "data_items_8.text_1_@item.id",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "parcelle: @item.numero_parcelle",
+                "matchedExpression": "@item.numero_parcelle",
+                "type": "item",
+                "fieldName": "numero_parcelle"
+              }
+            ],
+            "name": [
+              {
+                "fullExpression": "text_1_@item.id",
+                "matchedExpression": "@item.id",
+                "type": "item",
+                "fieldName": "id"
+              }
+            ],
+            "_nested_name": [
+              {
+                "fullExpression": "data_items_8.text_1_@item.id",
+                "matchedExpression": "@item.id",
+                "type": "item",
+                "fieldName": "id"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@item.numero_parcelle": [
+              "value"
+            ],
+            "@item.id": [
+              "name",
+              "_nested_name"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "value": "@item.trace_superficie",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_2_@item.id",
+          "_nested_name": "data_items_8.text_2_@item.id",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@item.trace_superficie",
+                "matchedExpression": "@item.trace_superficie",
+                "type": "item",
+                "fieldName": "trace_superficie"
+              }
+            ],
+            "name": [
+              {
+                "fullExpression": "text_2_@item.id",
+                "matchedExpression": "@item.id",
+                "type": "item",
+                "fieldName": "id"
+              }
+            ],
+            "_nested_name": [
+              {
+                "fullExpression": "data_items_8.text_2_@item.id",
+                "matchedExpression": "@item.id",
+                "type": "item",
+                "fieldName": "id"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@item.trace_superficie": [
+              "value"
+            ],
+            "@item.id": [
+              "name",
+              "_nested_name"
+            ]
+          }
+        }
+      ],
+      "name": "data_items_8",
+      "_nested_name": "data_items_8",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@data.Parcelles",
+            "matchedExpression": "@data.Parcelles",
+            "type": "data",
+            "fieldName": "Parcelles"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@data.Parcelles": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "Mali_lon",
+      "value": "-5.54",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "Mali_lon"
+    },
+    {
+      "name": "Mali_lat",
+      "value": "12.55",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "Mali_lat"
+    },
+    {
+      "name": "zoom",
+      "value": 15,
+      "type": "set_variable",
+      "_nested_name": "zoom"
+    },
+    {
+      "type": "map",
+      "name": "test_map",
+      "parameter_list": {
+        "<span>data_list": "test_map_data",
+        "<br/>geometry_field_name": "trace_superficie",
+        "<br/>center_lon": "@local.Mali_lon",
+        "<br/>center_lat": "@local.Mali_lat",
+        "<br/>zoom": "@local.zoom",
+        "<br/></span><span><b>editable": "false",
+        "</b></span>": "true"
+      },
+      "_nested_name": "test_map",
+      "_dynamicFields": {
+        "parameter_list": {
+          "<br/>center_lon": [
+            {
+              "fullExpression": "@local.Mali_lon",
+              "matchedExpression": "@local.Mali_lon",
+              "type": "local",
+              "fieldName": "Mali_lon"
+            }
+          ],
+          "<br/>center_lat": [
+            {
+              "fullExpression": "@local.Mali_lat",
+              "matchedExpression": "@local.Mali_lat",
+              "type": "local",
+              "fieldName": "Mali_lat"
+            }
+          ],
+          "<br/>zoom": [
+            {
+              "fullExpression": "@local.zoom",
+              "matchedExpression": "@local.zoom",
+              "type": "local",
+              "fieldName": "zoom"
+            }
+          ]
+        }
+      },
+      "_dynamicDependencies": {
+        "@local.Mali_lon": [
+          "parameter_list.<br/>center_lon"
+        ],
+        "@local.Mali_lat": [
+          "parameter_list.<br/>center_lat"
+        ],
+        "@local.zoom": [
+          "parameter_list.<br/>zoom"
         ]
       }
     },
@@ -188,7 +380,7 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "display_group_9.page15_button_back"
+          "_nested_name": "display_group_15.page15_button_back"
         },
         {
           "type": "button",
@@ -231,7 +423,7 @@
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "display_group_9.page15_button_continue",
+          "_nested_name": "display_group_15.page15_button_continue",
           "_dynamicFields": {
             "action_list": {
               "0": {
@@ -328,8 +520,8 @@
           }
         }
       ],
-      "name": "display_group_9",
-      "_nested_name": "display_group_9"
+      "name": "display_group_15",
+      "_nested_name": "display_group_15"
     }
   ],
   "_source": {

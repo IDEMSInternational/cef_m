@@ -235,36 +235,41 @@
               }
             },
             {
-              "type": "html",
-              "value": "<span style=\"font-size: 16px; font-weight: bold; color: #1e3656;\">Culture principale : @item.name</span>",
+              "type": "text",
+              "value": "@global.cult_princ",
               "_translations": {
                 "value": {}
               },
-              "name": "html_2",
-              "_nested_name": "data_items_6.display_group_1_@item.id.html_2",
+              "style_list": [
+                "font-size: 16px",
+                "font-weight: bold",
+                "color: #1e3656"
+              ],
+              "name": "text_2",
+              "_nested_name": "data_items_6.display_group_1_@item.id.text_2",
               "_dynamicFields": {
                 "value": [
                   {
-                    "fullExpression": "<span style=\"font-size: 16px; font-weight: bold; color: #1e3656;\">Culture principale : @item.name</span>",
-                    "matchedExpression": "@item.name",
-                    "type": "item",
-                    "fieldName": "name"
+                    "fullExpression": "@global.cult_princ",
+                    "matchedExpression": "@global.cult_princ",
+                    "type": "global",
+                    "fieldName": "cult_princ"
                   }
                 ],
                 "_nested_name": [
                   {
-                    "fullExpression": "data_items_6.display_group_1_@item.id.html_2",
-                    "matchedExpression": "@item.id.html_2",
+                    "fullExpression": "data_items_6.display_group_1_@item.id.text_2",
+                    "matchedExpression": "@item.id.text_2",
                     "type": "item",
                     "fieldName": "id"
                   }
                 ]
               },
               "_dynamicDependencies": {
-                "@item.name": [
+                "@global.cult_princ": [
                   "value"
                 ],
-                "@item.id.html_2": [
+                "@item.id.text_2": [
                   "_nested_name"
                 ]
               }
@@ -342,13 +347,32 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "html",
-          "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Nombre d'arbres présents dans la parcelle :</label>",
+          "type": "text",
+          "value": "@global.note_nbre_arbre",
           "_translations": {
             "value": {}
           },
-          "name": "html_1",
-          "_nested_name": "display_group_8.html_1"
+          "style_list": [
+            "color: #1e3656",
+            "font-weight: bold"
+          ],
+          "name": "text_1",
+          "_nested_name": "display_group_8.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.note_nbre_arbre",
+                "matchedExpression": "@global.note_nbre_arbre",
+                "type": "global",
+                "fieldName": "note_nbre_arbre"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.note_nbre_arbre": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",
@@ -433,15 +457,27 @@
       }
     },
     {
-      "type": "html",
+      "type": "text",
       "name": "html_text",
-      "value": "<span style=\"color: red; font-size: 13px;\">La réponse est obligatoire !</span>",
+      "value": "@global.warring_message",
       "_translations": {
         "value": {}
       },
       "condition": "@fields.attempt_submit_p10 && !@fields.nombre_arbre",
+      "style_list": [
+        "color: red",
+        "font-size: 13px"
+      ],
       "_nested_name": "html_text",
       "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.warring_message",
+            "matchedExpression": "@global.warring_message",
+            "type": "global",
+            "fieldName": "warring_message"
+          }
+        ],
         "condition": [
           {
             "fullExpression": "@fields.attempt_submit_p10 && !@fields.nombre_arbre",
@@ -458,6 +494,9 @@
         ]
       },
       "_dynamicDependencies": {
+        "@global.warring_message": [
+          "value"
+        ],
         "@fields.attempt_submit_p10": [
           "condition"
         ],
@@ -467,15 +506,27 @@
       }
     },
     {
-      "type": "html",
+      "type": "text",
       "name": "html_text",
-      "value": "<span style=\"color: red; font-size: 13px;\">Veuillez entrer un nombre entier positif ou 0 !</span>",
+      "value": "@global.message_positifValue",
       "_translations": {
         "value": {}
       },
       "condition": "!!@fields.nombre_arbre && !@local.valid_nbre_arbre",
+      "style_list": [
+        "color: red",
+        "font-size: 13px"
+      ],
       "_nested_name": "html_text",
       "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.message_positifValue",
+            "matchedExpression": "@global.message_positifValue",
+            "type": "global",
+            "fieldName": "message_positifValue"
+          }
+        ],
         "condition": [
           {
             "fullExpression": "!!@fields.nombre_arbre && !@local.valid_nbre_arbre",
@@ -492,6 +543,9 @@
         ]
       },
       "_dynamicDependencies": {
+        "@global.message_positifValue": [
+          "value"
+        ],
         "!@fields.nombre_arbre": [
           "condition"
         ],
@@ -609,13 +663,32 @@
       ],
       "rows": [
         {
-          "type": "html",
-          "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Écrivez le(s) nom(s) de(s) l'arbre(s) :</label>",
+          "type": "text",
+          "value": "Ecrivez le(s) nom(s) des arbres se trouvant dans la parcelle N⁰@fields.num_parcelle",
           "_translations": {
             "value": {}
           },
-          "name": "html_1",
-          "_nested_name": "display_group_17.html_1"
+          "style_list": [
+            "color: #1e3656",
+            "font-weight: bold"
+          ],
+          "name": "text_1",
+          "_nested_name": "display_group_17.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "Ecrivez le(s) nom(s) des arbres se trouvant dans la parcelle N⁰@fields.num_parcelle",
+                "matchedExpression": "@fields.num_parcelle",
+                "type": "fields",
+                "fieldName": "num_parcelle"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@fields.num_parcelle": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",
@@ -700,16 +773,28 @@
       }
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: red; font-size: 13px;\">Veuillez préciser le nom de l'arbre !</span>",
+      "type": "text",
+      "value": "@global.warning_arbre",
       "_translations": {
         "value": {}
       },
       "condition": "@fields.attempt_submit_p10 && @fields.nombre_arbre > 0 && !@fields.nom_arbre",
       "exclude_from_translation": true,
-      "name": "html_20",
-      "_nested_name": "html_20",
+      "style_list": [
+        "color: red",
+        "font-size: 13px"
+      ],
+      "name": "text_20",
+      "_nested_name": "text_20",
       "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.warning_arbre",
+            "matchedExpression": "@global.warning_arbre",
+            "type": "global",
+            "fieldName": "warning_arbre"
+          }
+        ],
         "condition": [
           {
             "fullExpression": "@fields.attempt_submit_p10 && @fields.nombre_arbre > 0 && !@fields.nom_arbre",
@@ -732,6 +817,9 @@
         ]
       },
       "_dynamicDependencies": {
+        "@global.warning_arbre": [
+          "value"
+        ],
         "@fields.attempt_submit_p10": [
           "condition"
         ],

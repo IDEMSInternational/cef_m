@@ -122,23 +122,29 @@
       ],
       "rows": [
         {
-          "type": "html",
-          "value": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>",
+          "type": "text",
+          "value": "CULTURE @local.v_current_human / @field.total_cultures_selected",
           "_translations": {
             "value": {}
           },
-          "name": "html_1",
-          "_nested_name": "header.html_1",
+          "style_list": [
+            "color: white",
+            "font-weight: bold",
+            "font-size: 14px",
+            "text-transform: uppercase"
+          ],
+          "name": "text_1",
+          "_nested_name": "header.text_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>",
+                "fullExpression": "CULTURE @local.v_current_human / @field.total_cultures_selected",
                 "matchedExpression": "@local.v_current_human",
                 "type": "local",
                 "fieldName": "v_current_human"
               },
               {
-                "fullExpression": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>",
+                "fullExpression": "CULTURE @local.v_current_human / @field.total_cultures_selected",
                 "matchedExpression": "@field.total_cultures_selected",
                 "type": "field",
                 "fieldName": "total_cultures_selected"
@@ -217,20 +223,26 @@
         },
         {
           "type": "text",
-          "value": "<h3 style='color: black; margin: 10px 0;'>Culture : <span style='color: #e3a730;'>@field.active_culture_name</span></h3>",
+          "value": "Culture : @field.active_culture_name",
           "_translations": {
             "value": {}
           },
           "style_list": [
             "font-weight: bold",
-            "font-size: 18px"
+            "font-size: 18px",
+            "color: #e3a730",
+            "margin-top: 10px",
+            "text-align: center",
+            "color: #e3a730",
+            "margin-top: 10px",
+            "text-align: center"
           ],
           "name": "text_2",
           "_nested_name": "display_group_7.text_2",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "<h3 style='color: black; margin: 10px 0;'>Culture : <span style='color: #e3a730;'>@field.active_culture_name</span></h3>",
+                "fullExpression": "Culture : @field.active_culture_name",
                 "matchedExpression": "@field.active_culture_name",
                 "type": "field",
                 "fieldName": "active_culture_name"
@@ -270,39 +282,49 @@
           "_nested_name": "sup_details.aud_prod"
         },
         {
-          "type": "html",
-          "value": "<span style=\"color: red;\">*</span> Superficie totale (ha) <br>",
+          "type": "text",
+          "value": "@global.sup_tot",
           "_translations": {
             "value": {}
           },
           "style_list": [
             "font-weight: bold"
           ],
-          "name": "html_2",
-          "_nested_name": "sup_details.html_2"
+          "name": "text_2",
+          "_nested_name": "sup_details.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.sup_tot",
+                "matchedExpression": "@global.sup_tot",
+                "type": "global",
+                "fieldName": "sup_tot"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.sup_tot": [
+              "value"
+            ]
+          }
         },
         {
           "type": "text",
-          "value": "*Superficie cumulée de toutes les parcelles de @field.active_culture_name* <br> <span style=\"font-size: 12px; color: gray;\">*@field.active_culture_name  *</span>",
+          "value": "Superficie cumulée de toutes les parcelles de @field.active_culture_name",
           "_translations": {
             "value": {}
           },
           "style_list": [
-            "font-size: 14px",
-            "color: gray"
+            "font-size: 12px",
+            "color: gray",
+            "font-style: italic"
           ],
           "name": "text_3",
           "_nested_name": "sup_details.text_3",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "*Superficie cumulée de toutes les parcelles de @field.active_culture_name* <br> <span style=\"font-size: 12px; color: gray;\">*@field.active_culture_name  *</span>",
-                "matchedExpression": "@field.active_culture_name",
-                "type": "field",
-                "fieldName": "active_culture_name"
-              },
-              {
-                "fullExpression": "*Superficie cumulée de toutes les parcelles de @field.active_culture_name* <br> <span style=\"font-size: 12px; color: gray;\">*@field.active_culture_name  *</span>",
+                "fullExpression": "Superficie cumulée de toutes les parcelles de @field.active_culture_name",
                 "matchedExpression": "@field.active_culture_name",
                 "type": "field",
                 "fieldName": "active_culture_name"
@@ -311,7 +333,6 @@
           },
           "_dynamicDependencies": {
             "@field.active_culture_name": [
-              "value",
               "value"
             ]
           }
@@ -372,7 +393,7 @@
     },
     {
       "type": "text",
-      "value": "La valeur doit être supérieure à 0. Si erreur, retournez décocher la culture.",
+      "value": "@global.error_superficie",
       "_translations": {
         "value": {}
       },
@@ -384,6 +405,14 @@
       "name": "text_12",
       "_nested_name": "text_12",
       "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.error_superficie",
+            "matchedExpression": "@global.error_superficie",
+            "type": "global",
+            "fieldName": "error_superficie"
+          }
+        ],
         "condition": [
           {
             "fullExpression": "@local.v_sup_err",
@@ -394,6 +423,9 @@
         ]
       },
       "_dynamicDependencies": {
+        "@global.error_superficie": [
+          "value"
+        ],
         "@local.v_sup_err": [
           "condition"
         ]

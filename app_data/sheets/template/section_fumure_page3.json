@@ -8,12 +8,27 @@
       "rows": [
         {
           "type": "title",
-          "value": "RECOMMENDATIONS DES PRODUCTEURS:",
+          "value": "@global.recommendation_producteurs_title",
           "_translations": {
             "value": {}
           },
           "name": "title_1",
-          "_nested_name": "display_group_2.title_1"
+          "_nested_name": "display_group_2.title_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.recommendation_producteurs_title",
+                "matchedExpression": "@global.recommendation_producteurs_title",
+                "type": "global",
+                "fieldName": "recommendation_producteurs_title"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.recommendation_producteurs_title": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",

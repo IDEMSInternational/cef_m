@@ -53,10 +53,6 @@
     },
     {
       "type": "display_group",
-      "style_list": [
-        "display: block",
-        "width: 100%"
-      ],
       "rows": [
         {
           "type": "subtitle",
@@ -133,7 +129,7 @@
       ],
       "parameter_list": {
         "number_input": "true",
-        "placeholder": "Nombre hectares possédés"
+        "placeholder": "@global.texte_placeholder"
       },
       "_nested_name": "superficie_possede_upa",
       "_dynamicFields": {
@@ -144,11 +140,24 @@
             "type": "fields",
             "fieldName": "superficie_possede_upa"
           }
-        ]
+        ],
+        "parameter_list": {
+          "placeholder": [
+            {
+              "fullExpression": "@global.texte_placeholder",
+              "matchedExpression": "@global.texte_placeholder",
+              "type": "global",
+              "fieldName": "texte_placeholder"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@fields.superficie_possede_upa": [
           "value"
+        ],
+        "@global.texte_placeholder": [
+          "parameter_list.placeholder"
         ]
       }
     },
@@ -304,10 +313,6 @@
     },
     {
       "type": "display_group",
-      "style_list": [
-        "display: block",
-        "width: 100%"
-      ],
       "rows": [
         {
           "type": "subtitle",
@@ -384,7 +389,7 @@
       ],
       "parameter_list": {
         "number_input": "true",
-        "placeholder": "Nombre hectares cultivés"
+        "placeholder": "@global.texte_placeholder"
       },
       "_nested_name": "superficie_cultive_upa",
       "_dynamicFields": {
@@ -395,11 +400,24 @@
             "type": "fields",
             "fieldName": "superficie_cultive_upa"
           }
-        ]
+        ],
+        "parameter_list": {
+          "placeholder": [
+            {
+              "fullExpression": "@global.texte_placeholder",
+              "matchedExpression": "@global.texte_placeholder",
+              "type": "global",
+              "fieldName": "texte_placeholder"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@fields.superficie_cultive_upa": [
           "value"
+        ],
+        "@global.texte_placeholder": [
+          "parameter_list.placeholder"
         ]
       }
     },
@@ -521,8 +539,7 @@
       },
       "condition": "!@local.v_cult",
       "style_list": [
-        "color: red",
-        "font-size: 12px"
+        "@global.reponse_style"
       ],
       "name": "text_17",
       "_nested_name": "text_17",
@@ -542,7 +559,17 @@
             "type": "local",
             "fieldName": "v_cult"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.valeur_positive": [
@@ -550,6 +577,9 @@
         ],
         "!@local.v_cult": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
@@ -561,8 +591,7 @@
       },
       "condition": "@local.v_poss && @local.v_cult && Number(@local.superficie_cultive_upa) > Number(@local.superficie_possede_upa)",
       "style_list": [
-        "color: red",
-        "font-weight: bold"
+        "@global.reponse_style"
       ],
       "name": "text_18",
       "_nested_name": "text_18",
@@ -600,7 +629,17 @@
             "type": "local",
             "fieldName": "superficie_possede_upa"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.erreur_surface": [
@@ -617,6 +656,9 @@
         ],
         "@local.superficie_possede_upa": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },

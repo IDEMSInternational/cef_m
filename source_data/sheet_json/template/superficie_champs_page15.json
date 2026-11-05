@@ -5,7 +5,7 @@
   "rows": [
     {
       "type": "title",
-      "value": "**Mesure de superficie de la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**"
+      "value": "Mesurez à l'aide du GPS la superficie de @fields.cult_princip dans la parcelle N⁰@fields.num_parcelle"
     },
     {
       "type": "begin_display_group"
@@ -25,16 +25,50 @@
     {
       "type": "image",
       "value": "images/superf_geoloca.jpg",
-      "style_list": "width: 80%; object-fit: contain;\n\n\n"
+      "style_list": "width: 40%; object-fit: contain;\n\n\n"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.hint_superf_geo  </p>"
+      "type": "text",
+      "value": "@global.hint_superf_geo",
+      "style_list": "color: red;"
     },
     {
       "type": "text_box",
       "name": "superficie_geo",
       "value": "@fields.superficie_parcelle"
+    },
+    {
+      "type": "begin_data_items",
+      "value": "@data.Parcelles",
+      "condition": false
+    },
+    {
+      "type": "text",
+      "value": "parcelle: @item.numero_parcelle"
+    },
+    {
+      "type": "text",
+      "value": "@item.trace_superficie"
+    },
+    {
+      "type": "end_data_items"
+    },
+    {
+      "name": "Mali_lon",
+      "value": "-5.54"
+    },
+    {
+      "name": "Mali_lat",
+      "value": "12.55"
+    },
+    {
+      "name": "zoom",
+      "value": 15
+    },
+    {
+      "type": "map",
+      "name": "test_map",
+      "parameter_list": "<span>data_list: test_map_data;<br/>geometry_field_name:trace_superficie; <br/>center_lon: @local.Mali_lon;<br/>center_lat: @local.Mali_lat;<br/>zoom: @local.zoom;<br/></span><span><b>editable: false;</b></span>"
     },
     {
       "name": "completed_enabled",

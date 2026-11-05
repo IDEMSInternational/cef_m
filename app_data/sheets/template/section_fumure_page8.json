@@ -6,11 +6,26 @@
     {
       "type": "title",
       "name": "page_title",
-      "value": "SUPERFICIE FERTILISEE AVEC LA FUMURE ORGANIQUE",
+      "value": "@global.superficie_fertilisee_fumure",
       "_translations": {
         "value": {}
       },
-      "_nested_name": "page_title"
+      "_nested_name": "page_title",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.superficie_fertilisee_fumure",
+            "matchedExpression": "@global.superficie_fertilisee_fumure",
+            "type": "global",
+            "fieldName": "superficie_fertilisee_fumure"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.superficie_fertilisee_fumure": [
+          "value"
+        ]
+      }
     },
     {
       "name": "attempt_submit",
@@ -40,7 +55,7 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "text",
+          "type": "subtitle",
           "value": "@global.note_quantite_total_fumure_organique",
           "_translations": {
             "value": {}
@@ -48,8 +63,8 @@
           "style_list": [
             "font-size:20px"
           ],
-          "name": "text_1",
-          "_nested_name": "display_group_4.text_1",
+          "name": "subtitle_1",
+          "_nested_name": "display_group_4.subtitle_1",
           "_dynamicFields": {
             "value": [
               {
@@ -127,13 +142,13 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "text",
+          "type": "subtitle",
           "value": "@global.superficie_exploitation_label",
           "_translations": {
             "value": {}
           },
-          "name": "text_1",
-          "_nested_name": "display_group_8.text_1",
+          "name": "subtitle_1",
+          "_nested_name": "display_group_8.subtitle_1",
           "_dynamicFields": {
             "value": [
               {
@@ -275,7 +290,8 @@
         }
       ],
       "parameter_list": {
-        "number_input": "true"
+        "number_input": "true",
+        "placeholder": "@global.texte_placeholder"
       },
       "_nested_name": "superficie_exploitation",
       "_dynamicFields": {
@@ -286,11 +302,24 @@
             "type": "fields",
             "fieldName": "superficie_exploitation"
           }
-        ]
+        ],
+        "parameter_list": {
+          "placeholder": [
+            {
+              "fullExpression": "@global.texte_placeholder",
+              "matchedExpression": "@global.texte_placeholder",
+              "type": "global",
+              "fieldName": "texte_placeholder"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@fields.superficie_exploitation": [
           "value"
+        ],
+        "@global.texte_placeholder": [
+          "parameter_list.placeholder"
         ]
       }
     },
@@ -349,7 +378,7 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "text",
+          "type": "subtitle",
           "name": "protion_fertilisable_label",
           "value": "@global.portion_fertilisable_label",
           "_translations": {
@@ -448,7 +477,8 @@
         }
       ],
       "parameter_list": {
-        "number_input": "true"
+        "number_input": "true",
+        "placeholder": "@global.texte_placeholder"
       },
       "_nested_name": "portion_fertilisable",
       "_dynamicFields": {
@@ -459,11 +489,24 @@
             "type": "fields",
             "fieldName": "portion_fertilisable"
           }
-        ]
+        ],
+        "parameter_list": {
+          "placeholder": [
+            {
+              "fullExpression": "@global.texte_placeholder",
+              "matchedExpression": "@global.texte_placeholder",
+              "type": "global",
+              "fieldName": "texte_placeholder"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@fields.portion_fertilisable": [
           "value"
+        ],
+        "@global.texte_placeholder": [
+          "parameter_list.placeholder"
         ]
       }
     },
@@ -569,8 +612,7 @@
     },
     {
       "type": "text",
-      "name": "error_portion_too_big",
-      "value": "La réponse doit être inférieure ou égale à la superficie totale (@fields.superficie_exploitation ha)",
+      "value": "@global.error_portion_too_big",
       "_translations": {
         "value": {}
       },
@@ -581,14 +623,15 @@
         "background: #fff5f5",
         "padding: 5px"
       ],
-      "_nested_name": "error_portion_too_big",
+      "name": "text_22",
+      "_nested_name": "text_22",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "La réponse doit être inférieure ou égale à la superficie totale (@fields.superficie_exploitation ha)",
-            "matchedExpression": "@fields.superficie_exploitation",
-            "type": "fields",
-            "fieldName": "superficie_exploitation"
+            "fullExpression": "@global.error_portion_too_big",
+            "matchedExpression": "@global.error_portion_too_big",
+            "type": "global",
+            "fieldName": "error_portion_too_big"
           }
         ],
         "condition": [
@@ -607,11 +650,13 @@
         ]
       },
       "_dynamicDependencies": {
-        "@fields.superficie_exploitation": [
-          "value",
-          "condition"
+        "@global.error_portion_too_big": [
+          "value"
         ],
         "@fields.portion_fertilisable": [
+          "condition"
+        ],
+        "@fields.superficie_exploitation": [
           "condition"
         ]
       }
@@ -651,7 +696,6 @@
     },
     {
       "type": "display_group",
-      "name": "dg_footer",
       "value": "",
       "parameter_list": {
         "sticky": "bottom"
@@ -677,7 +721,7 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "dg_footer.page_8_button_back"
+          "_nested_name": "display_group_24.page_8_button_back"
         },
         {
           "type": "button",
@@ -701,7 +745,7 @@
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "dg_footer.btn_attempt_submit",
+          "_nested_name": "display_group_24.btn_attempt_submit",
           "_dynamicFields": {
             "value": [
               {
@@ -753,7 +797,7 @@
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "dg_footer.page_8_button_continue",
+          "_nested_name": "display_group_24.page_8_button_continue",
           "_dynamicFields": {
             "value": [
               {
@@ -795,7 +839,8 @@
           }
         }
       ],
-      "_nested_name": "dg_footer"
+      "name": "display_group_24",
+      "_nested_name": "display_group_24"
     }
   ],
   "_source": {

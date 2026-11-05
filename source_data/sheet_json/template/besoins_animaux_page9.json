@@ -5,29 +5,33 @@
   "rows": [
     {
       "type": "title",
-      "value": "**SOURCES ET DÉPENSE DE SON**"
+      "value": "@global.source_depense_son"
+    },
+    {
+      "name": "attempt_submit",
+      "value": "@fields.attempt_submit"
     },
     {
       "type": "text",
       "value": "@global.qtite_son_prod"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: black;\"> @global.hint_qtite_son_prod</p>"
+      "type": "text",
+      "value": "@global.hint_qtite_son_prod"
     },
     {
       "type": "text_box",
       "name": "concentre_produit",
       "value": "@fields.concentre_produit",
       "action_list": "changed | set_field: concentre_produit : this.value;",
-      "parameter_list": "number_input: true;\nplaceholder: Donnez la quantité de son de céréales;",
+      "parameter_list": "number_input: true; placeholder: @global.texte_placeholder;",
       "exclude_from_translation": true
     },
     {
-      "type": "html",
-      "name": "html_text",
-      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
-      "condition": "!@local.concentre_produit "
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@local.concentre_produit && @fields.attempt_submit",
+      "style_list": "@global.reponse_style"
     },
     {
       "name": "valid_concentre_produit",
@@ -38,7 +42,7 @@
       "value": "@global.validite_nombre",
       "condition": "!@local.valid_concentre_produit",
       "exclude_from_translation": true,
-      "style_list": "color: #FF0000;\nfont-size: 14px"
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "text",
@@ -56,23 +60,30 @@
       "condition": "@fields.concentre_produit"
     },
     {
-      "type": "html",
-      "name": "note_achat_son",
-      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n Quantité de son à achéter: <strong> @fields.achat_son_quantite sacs\n</strong> </div>",
-      "condition": "@fields.concentre_produit"
+      "type": "begin_display_group",
+      "condition": "@fields.quantite_son",
+      "style_list": "background-color: #f0f4f8; border-left-style: solid; border-left-color: #0056b3; border-radius: 5px;"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: black;\"> @global.hint_qtite_son_achete </p>",
-      "condition": "@fields.concentre_produit"
+      "type": "text",
+      "value": "@global.note_achat_son_label"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "value": "@global.hint_qtite_son_achete",
+      "condition": "@fields.concentre_produit",
+      "style_list": "@global.hint_style"
     },
     {
       "type": "text",
       "value": "@global.prix_sac_son"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: black;\">*1 drm=5 FCFA*</p>"
+      "type": "text",
+      "value": "@global.drm_cfa_hint"
     },
     {
       "type": "image",
@@ -84,14 +95,13 @@
       "name": "prix_sac_son",
       "value": "@fields.prix_sac_son",
       "action_list": "changed | set_field: prix_sac_son : this.value;",
-      "parameter_list": "number_input: true;\nplaceholder: Donnez le prix d'un sac de son de céréales;",
+      "parameter_list": "number_input: true; placeholder: @global.texte_placeholder;",
       "exclude_from_translation": true
     },
     {
-      "type": "html",
-      "name": "html_text",
-      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
-      "condition": "!@fields.prix_sac_son "
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@fields.prix_sac_son && @fields.attempt_submit"
     },
     {
       "name": "valid_prix_sac_son",
@@ -110,8 +120,8 @@
       "condition": "@fields.prix_sac_son "
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: black;\">*1 drm=5 FCFA*</p>",
+      "type": "text",
+      "value": "@global.drm_cfa_hint",
       "condition": "@fields.prix_sac_son "
     },
     {
@@ -127,15 +137,22 @@
       "condition": "@fields.prix_sac_son "
     },
     {
-      "type": "text",
-      "value": "@global.montant_son",
-      "condition": "@fields.prix_sac_son ",
-      "style_list": "background-color: #f0f4f8 ;border-left-width: 4px; border-left-style: solid; border-left-color: #0056b3;"
+      "type": "begin_display_group",
+      "style_list": "background-color: #f0f4f8; border-left-style: solid; border-left-color: #0056b3; border-radius: 5px;"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: black;\">@global.hint_montant_son</p>",
+      "type": "text",
+      "value": "@global.montant_son",
       "condition": "@fields.prix_sac_son "
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "value": "global.hint_montant_son",
+      "condition": "@fields.prix_sac_son ",
+      "style_list": "@global.hint_style"
     },
     {
       "name": "completed_enabled",
@@ -155,10 +172,19 @@
     },
     {
       "type": "button",
+      "name": "btn_attempt_submit",
+      "value": "@global.btn_continue",
+      "action_list": "click | set_field: attempt_submit: true;",
+      "condition": "!@local.completed_enabled",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "button",
       "name": "page11_button_continue",
-      "value": "Continuer",
+      "value": "@global.btn_continue",
       "action_list": "click | emit: completed;",
       "parameter_list": "disabled: !@local.completed_enabled",
+      "condition": "@local.completed_enabled",
       "style_list": "flex: 1"
     },
     {

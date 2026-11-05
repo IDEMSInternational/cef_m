@@ -197,23 +197,29 @@
       ],
       "rows": [
         {
-          "type": "html",
-          "value": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>",
+          "type": "text",
+          "value": "CULTURE @local.v_current_human / @field.total_cultures_selected",
           "_translations": {
             "value": {}
           },
-          "name": "html_1",
-          "_nested_name": "header.html_1",
+          "style_list": [
+            "color: white",
+            "font-weight: bold",
+            "font-size: 14px",
+            "text-transform: uppercase"
+          ],
+          "name": "text_1",
+          "_nested_name": "header.text_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>",
+                "fullExpression": "CULTURE @local.v_current_human / @field.total_cultures_selected",
                 "matchedExpression": "@local.v_current_human",
                 "type": "local",
                 "fieldName": "v_current_human"
               },
               {
-                "fullExpression": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>",
+                "fullExpression": "CULTURE @local.v_current_human / @field.total_cultures_selected",
                 "matchedExpression": "@field.total_cultures_selected",
                 "type": "field",
                 "fieldName": "total_cultures_selected"
@@ -292,20 +298,23 @@
         },
         {
           "type": "text",
-          "value": "<h3 style='color: black; margin: 10px 0;'>Culture : <span style='color: #e3a730;'>@field.active_culture_name</span></h3>",
+          "value": "Culture : @field.active_culture_name",
           "_translations": {
             "value": {}
           },
           "style_list": [
             "font-weight: bold",
-            "font-size: 18px"
+            "font-size: 18px",
+            "color: #e3a730",
+            "margin-top: 10px",
+            "text-align: center"
           ],
           "name": "text_2",
           "_nested_name": "display_group_9.text_2",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "<h3 style='color: black; margin: 10px 0;'>Culture : <span style='color: #e3a730;'>@field.active_culture_name</span></h3>",
+                "fullExpression": "Culture : @field.active_culture_name",
                 "matchedExpression": "@field.active_culture_name",
                 "type": "field",
                 "fieldName": "active_culture_name"
@@ -323,13 +332,34 @@
       "_nested_name": "display_group_9"
     },
     {
-      "type": "html",
-      "value": "<div style=\"color: #e67e22; font-weight: bold; font-size: 14px; margin-bottom: 10px;\"> SEMIS</div>",
+      "type": "text",
+      "value": "@global.lbl_section_title_9",
       "_translations": {
         "value": {}
       },
-      "name": "html_11",
-      "_nested_name": "html_11"
+      "style_list": [
+        "color: #e67e22",
+        "font-weight: bold",
+        "font-size: 14px",
+        "margin-bottom: 10px"
+      ],
+      "name": "text_11",
+      "_nested_name": "text_11",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.lbl_section_title_9",
+            "matchedExpression": "@global.lbl_section_title_9",
+            "type": "global",
+            "fieldName": "lbl_section_title_9"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.lbl_section_title_9": [
+          "value"
+        ]
+      }
     },
     {
       "type": "display_group",
@@ -354,20 +384,38 @@
           "_nested_name": "grp_quantite_semence.aud_pnt_fr"
         },
         {
-          "type": "html",
-          "value": "<span style=\"color: red;\">*</span> Quantité de semence achetée (kg)",
+          "type": "text",
+          "value": "@global.lbl_semence_label",
           "_translations": {
             "value": {}
           },
           "style_list": [
-            "font-weight: bold"
+            "font-weight: bold",
+            "font-size: 14px",
+            "color: #333333",
+            "flex: 1"
           ],
-          "name": "html_2",
-          "_nested_name": "grp_quantite_semence.html_2"
+          "name": "text_2",
+          "_nested_name": "grp_quantite_semence.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.lbl_semence_label",
+                "matchedExpression": "@global.lbl_semence_label",
+                "type": "global",
+                "fieldName": "lbl_semence_label"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.lbl_semence_label": [
+              "value"
+            ]
+          }
         },
         {
           "type": "text",
-          "value": "*La quantité de semence achetée de l'ensemble des parcelles*",
+          "value": "@global.info_semence",
           "_translations": {
             "value": {}
           },
@@ -376,7 +424,22 @@
             "color: gray"
           ],
           "name": "text_3",
-          "_nested_name": "grp_quantite_semence.text_3"
+          "_nested_name": "grp_quantite_semence.text_3",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.info_semence",
+                "matchedExpression": "@global.info_semence",
+                "type": "global",
+                "fieldName": "info_semence"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.info_semence": [
+              "value"
+            ]
+          }
         },
         {
           "type": "image",
@@ -435,7 +498,7 @@
     },
     {
       "type": "text",
-      "value": "Mettez une valeur positive<span style=\"font-size:11px;\"></span>",
+      "value": "@global.error_positive_value",
       "_translations": {
         "value": {}
       },
@@ -447,6 +510,14 @@
       "name": "text_15",
       "_nested_name": "text_15",
       "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.error_positive_value",
+            "matchedExpression": "@global.error_positive_value",
+            "type": "global",
+            "fieldName": "error_positive_value"
+          }
+        ],
         "condition": [
           {
             "fullExpression": "@local.v_sem_err",
@@ -457,6 +528,9 @@
         ]
       },
       "_dynamicDependencies": {
+        "@global.error_positive_value": [
+          "value"
+        ],
         "@local.v_sem_err": [
           "condition"
         ]
@@ -486,20 +560,38 @@
           "_nested_name": "cout_labour_zero.aud_chaux_z_fr"
         },
         {
-          "type": "html",
-          "value": "Coût semence (Dram) <span style=\"font-size: 14px; color: #555;\"></span>",
+          "type": "text",
+          "value": "@global.lbl_cout_s_label",
           "_translations": {
             "value": {}
           },
           "style_list": [
-            "font-weight: bold"
+            "font-weight: bold",
+            "font-size: 14px",
+            "color: #333333",
+            "flex: 1"
           ],
-          "name": "html_2",
-          "_nested_name": "cout_labour_zero.html_2"
+          "name": "text_2",
+          "_nested_name": "cout_labour_zero.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.lbl_cout_s_label",
+                "matchedExpression": "@global.lbl_cout_s_label",
+                "type": "global",
+                "fieldName": "lbl_cout_s_label"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.lbl_cout_s_label": [
+              "value"
+            ]
+          }
         },
         {
           "type": "text",
-          "value": "*Rappel : 1 dram = 5 FCFA. Mettez \"0\" si aucune semence achetée*",
+          "value": "@global.hint_price",
           "_translations": {
             "value": {}
           },
@@ -508,7 +600,22 @@
             "color: gray"
           ],
           "name": "text_3",
-          "_nested_name": "cout_labour_zero.text_3"
+          "_nested_name": "cout_labour_zero.text_3",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.hint_price",
+                "matchedExpression": "@global.hint_price",
+                "type": "global",
+                "fieldName": "hint_price"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.hint_price": [
+              "value"
+            ]
+          }
         },
         {
           "type": "image",
@@ -534,7 +641,7 @@
         },
         {
           "type": "text",
-          "value": "Coût bloqué à 0 car aucune semence achetée",
+          "value": "@global.error_semence_val",
           "_translations": {
             "value": {}
           },
@@ -543,7 +650,22 @@
             "color: #999"
           ],
           "name": "text_6",
-          "_nested_name": "cout_labour_zero.text_6"
+          "_nested_name": "cout_labour_zero.text_6",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.error_semence_val",
+                "matchedExpression": "@global.error_semence_val",
+                "type": "global",
+                "fieldName": "error_semence_val"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.error_semence_val": [
+              "value"
+            ]
+          }
         }
       ],
       "_nested_name": "cout_labour_zero",
@@ -596,20 +718,38 @@
           "_nested_name": "cout_semence_nonzero.aud_sem_nz_fr"
         },
         {
-          "type": "html",
-          "value": "<span style=\"color: red;\">*</span> Coût semence (Dram) <br>",
+          "type": "text",
+          "value": "@global.lbl_cout_s_label",
           "_translations": {
             "value": {}
           },
           "style_list": [
-            "font-weight: bold"
+            "font-weight: bold",
+            "font-size: 14px",
+            "color: #333333",
+            "flex: 1"
           ],
-          "name": "html_2",
-          "_nested_name": "cout_semence_nonzero.html_2"
+          "name": "text_2",
+          "_nested_name": "cout_semence_nonzero.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.lbl_cout_s_label",
+                "matchedExpression": "@global.lbl_cout_s_label",
+                "type": "global",
+                "fieldName": "lbl_cout_s_label"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.lbl_cout_s_label": [
+              "value"
+            ]
+          }
         },
         {
           "type": "text",
-          "value": "*Rappel : 1 dram = 5 FCFA*",
+          "value": "@global.hint_price",
           "_translations": {
             "value": {}
           },
@@ -618,7 +758,22 @@
             "color: gray"
           ],
           "name": "text_3",
-          "_nested_name": "cout_semence_nonzero.text_3"
+          "_nested_name": "cout_semence_nonzero.text_3",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.hint_price",
+                "matchedExpression": "@global.hint_price",
+                "type": "global",
+                "fieldName": "hint_price"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.hint_price": [
+              "value"
+            ]
+          }
         },
         {
           "type": "image",
@@ -674,7 +829,7 @@
         },
         {
           "type": "text",
-          "value": "Mettez une valeur positive.<br>",
+          "value": "@global.error_positive_value",
           "_translations": {
             "value": {}
           },
@@ -686,6 +841,14 @@
           "name": "text_6",
           "_nested_name": "cout_semence_nonzero.text_6",
           "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.error_positive_value",
+                "matchedExpression": "@global.error_positive_value",
+                "type": "global",
+                "fieldName": "error_positive_value"
+              }
+            ],
             "condition": [
               {
                 "fullExpression": "@local.v_cout_sem_err",
@@ -696,6 +859,9 @@
             ]
           },
           "_dynamicDependencies": {
+            "@global.error_positive_value": [
+              "value"
+            ],
             "@local.v_cout_sem_err": [
               "condition"
             ]

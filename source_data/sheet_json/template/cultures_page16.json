@@ -4,8 +4,8 @@
   "status": "released",
   "rows": [
     {
-      "type": "text",
-      "value": "**Besoins en engrais des cultures prevues : @fields.culture_list_all**"
+      "type": "title",
+      "value": "@global.besoin_engrais_cult_prev"
     },
     {
       "name": "besoins_prevue_npk_coton_14_18_18",
@@ -29,15 +29,15 @@
     },
     {
       "type": "text",
-      "value": "Besoins prévisionnels en complexe coton 14-18-18:  **@local.besoins_prevue_npk_coton_14_18_18 sacs**"
+      "value": "@global.besoin_prev_npk14"
     },
     {
       "type": "begin_display_group"
     },
     {
       "type": "text",
-      "value": "*1 sac= 50kg*",
-      "style_list": "color: gray; font-size: 16px;"
+      "value": "@global.sac_kg_hint",
+      "style_list": "@global.hint_style"
     },
     {
       "type": "image",
@@ -49,15 +49,35 @@
     },
     {
       "type": "text",
-      "value": "Besoins prévisionnels en complexe céréales 15-15-15: **@local.besoins_prevue_npk_cereale_15_15_15 sac**"
+      "value": "@global.besoin_prev_npk15"
     },
     {
       "type": "begin_display_group"
     },
     {
       "type": "text",
-      "value": "*1 sac= 50kg*",
-      "style_list": "color: gray; font-size: 16px;"
+      "value": "@global.sac_kg_hint",
+      "style_list": "@global.hint_style"
+    },
+    {
+      "type": "image",
+      "value": "@global.sac_kg_hint",
+      "style_list": "width:100px; height:100px; object-fit:contain; flex-shrink:0;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "value": "@global.besoin_prev_npk17"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "@global.sac_kg_hint",
+      "style_list": "@global.hint_style"
     },
     {
       "type": "image",
@@ -69,15 +89,15 @@
     },
     {
       "type": "text",
-      "value": "Besoins prévisionnels en complexe céréales 17-17-17: **@local.besoins_prevue_npk_cereale_17_17_17 sac**"
+      "value": "@global.besoin_prev_dap"
     },
     {
       "type": "begin_display_group"
     },
     {
       "type": "text",
-      "value": "*1 sac= 50kg*",
-      "style_list": "color: gray; font-size: 16px;"
+      "value": "@global.sac_kg_hint",
+      "style_list": "@global.hint_style"
     },
     {
       "type": "image",
@@ -89,35 +109,15 @@
     },
     {
       "type": "text",
-      "value": "Besoins prévisionnels en DAP: **@local.besoins_prevue_dap sac**"
+      "value": "@global.besoin_prev_uree"
     },
     {
       "type": "begin_display_group"
     },
     {
       "type": "text",
-      "value": "*1 sac= 50kg*",
-      "style_list": "color: gray; font-size: 16px;"
-    },
-    {
-      "type": "image",
-      "value": "images/sac.jpg",
-      "style_list": "width:100px; height:100px; object-fit:contain; flex-shrink:0;"
-    },
-    {
-      "type": "end_display_group"
-    },
-    {
-      "type": "text",
-      "value": "Besoins prévisionnels en urée: **@local.besoins_prevus_uree sac**"
-    },
-    {
-      "type": "begin_display_group"
-    },
-    {
-      "type": "text",
-      "value": "*1 sac= 50kg*",
-      "style_list": "color: gray; font-size: 16px;"
+      "value": "@global.sac_kg_hint",
+      "style_list": "@global.hint_style"
     },
     {
       "type": "image",

@@ -14,21 +14,51 @@
     },
     {
       "type": "text",
-      "value": "Les informations collectées à travers les formulaires et les évaluations de performances pour votre UPA sont accessibles à la plateforme web: https://chemins-iae.stats4sd.org/login",
+      "value": "@global.hint_end_form",
       "_translations": {
         "value": {}
       },
       "name": "text_3",
-      "_nested_name": "text_3"
+      "_nested_name": "text_3",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.hint_end_form",
+            "matchedExpression": "@global.hint_end_form",
+            "type": "global",
+            "fieldName": "hint_end_form"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.hint_end_form": [
+          "value"
+        ]
+      }
     },
     {
       "type": "text",
-      "value": "MERCI !!!",
+      "value": "@global.hint_end_thx",
       "_translations": {
         "value": {}
       },
       "name": "text_4",
-      "_nested_name": "text_4"
+      "_nested_name": "text_4",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.hint_end_thx",
+            "matchedExpression": "@global.hint_end_thx",
+            "type": "global",
+            "fieldName": "hint_end_thx"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.hint_end_thx": [
+          "value"
+        ]
+      }
     },
     {
       "type": "display_group",

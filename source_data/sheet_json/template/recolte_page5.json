@@ -9,26 +9,16 @@
     },
     {
       "type": "begin_display_group",
-      "name": "header_top",
+      "name": "header",
       "style_list": "background: #00adcc; padding: 15px; border-radius: 0 0 15px 15px; margin-bottom: 20px;"
     },
     {
-      "type": "html",
-      "value": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>"
+      "type": "text",
+      "value": "CULTURE @local.v_current_human / @field.total_cultures_selected",
+      "style_list": "color: white; font-weight: bold; font-size: 14px; text-transform: uppercase;"
     },
     {
       "type": "end_display_group"
-    },
-    {
-      "type": "title",
-      "value": "BILAN & OBSERVATIONS"
-    },
-    {
-      "type": "audio",
-      "name": "aud_obs",
-      "parameter_list": "variant: button_only;\nsrc: audio/recolte/canal_obser_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "exclude_from_translation": true,
-      "style_list": "float: right;"
     },
     {
       "type": "begin_display_group",
@@ -41,137 +31,163 @@
     },
     {
       "type": "text",
-      "value": "<h3 style='color: black; margin: 10px 0;'>Culture : <span style='color: #e3a730;'>@field.active_culture_name</span></h3>",
-      "style_list": "font-weight: bold; font-size: 18px;"
+      "value": "Culture : @field.active_culture_name",
+      "style_list": "font-weight: bold; font-size: 18px; color: #e3a730; margin-top: 10px; text-align: center;"
     },
     {
       "type": "end_display_group"
     },
     {
-      "name": "v_total_recolte_culture",
-      "value": "@calc((Number(@field.final_cout_prestation) || 0) + (Number(@field.final_cout_battage) || 0) + (Number(@field.final_cout_autre_recolte) || 0))"
+      "type": "text",
+      "value": "@global.sec_autre_title",
+      "style_list": "color: #e67e22; font-weight: bold; margin-bottom: 10px;"
     },
     {
-      "name": "v_total_recolte_culture_fcfa",
-      "value": "@calc(@local.v_total_recolte_culture * 5)"
+      "type": "begin_display_group",
+      "name": "grp_autre_cout_recolte",
+      "style_list": "display: block; width: 100%"
     },
     {
-      "type": "html",
-      "value": "<div style=\"color: black; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;\">Bilan Récolte : @field.active_culture_name</div>"
+      "type": "audio",
+      "name": "note_autre_cout_recolte",
+      "parameter_list": "variant: button_only;\nsrc: audio/postSemi/on_autre_cout_recolte_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "float: right;"
     },
     {
-      "type": "html",
-      "value": "<div style=\"font-size: 28px; font-weight: bold; color: #e3a730; margin-top: 10px;\">@local.v_total_recolte_culture <span style=\"font-size: 16px;\">Dram</span></div>"
+      "type": "text",
+      "value": "@global.lbl_autre_Q",
+      "style_list": "font-weight: bold; font-size: 16px; color: #333; margin-bottom: 5px;"
     },
     {
-      "type": "html",
-      "value": "<div style=\"color: #e3a730; font-size: 12px; margin-top: 5px;\">≈ @local.v_total_recolte_culture_fcfa FCFA</div>"
-    },
-    {
-      "type": "html",
-      "value": "<h3 style=\"color: #e3a730; font-size: 16px;\">Une observation sur cette récolte ?</h3>"
+      "type": "text",
+      "value": "@global.lbl_autre_hint"
     },
     {
       "type": "radio_button_grid",
-      "name": "canal_observation",
-      "value": "@field.canal_observation",
-      "action_list": "changed | set_field: canal_observation : this.value;",
-      "parameter_list": "answer_list: @data.group_observation;\nvariant: flex;\nitem_width: 60px;\ngrid_gap: 8px;"
+      "name": "no_autre_cout_recolte",
+      "value": "@field.no_autre_cout_recolte",
+      "action_list": "changed | set_field: no_autre_cout_recolte : this.value;",
+      "parameter_list": "answer_list: @data.oui_non;\nvariant: flex;\nstyle: secondary;\nitem_width: 60px;\ngrid_gap: 8px;"
+    },
+    {
+      "type": "end_display_group"
     },
     {
       "type": "begin_display_group",
-      "name": "obs_audio",
-      "condition": "@field.canal_observation == 'par_vocal'",
+      "name": "group_nom_autre",
+      "parameter_list": "style: column",
+      "condition": "@field.no_autre_cout_recolte == 'oui'",
       "style_list": "display: block; width: 100%"
     },
     {
-      "type": "audio",
-      "parameter_list": "variant: button_only;\nsrc: audio/recolte/Ob_audio_recoltes_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "exclude_from_translation": true,
-      "style_list": "float: right;"
+      "type": "begin_display_group"
     },
     {
       "type": "text",
-      "value": "Enregistrez votre témoignage vocal ci-dessus."
+      "value": "@global.lbl_nom_autre",
+      "style_list": "font-weight: bold; font-size: 16px; color: #333; margin-bottom: 5px;"
     },
     {
-      "action_list": "changed | set_field: @calc('obs_audio_' + @item.name) : this.value;"
+      "type": "audio",
+      "name": "note_autre_cout_recolte2",
+      "parameter_list": "variant: button_only;\nsrc: audio/postSemi/nom_autre_cout_recolte_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "float: right;"
     },
     {
       "type": "end_display_group"
     },
     {
-      "type": "begin_display_group",
-      "name": "obs_photo",
-      "condition": "@field.canal_observation == 'par_photo'",
-      "style_list": "display: block; width: 100%"
+      "type": "image",
+      "value": "images/ecrire.jpg",
+      "style_list": "width: 100px; height: 100px;"
     },
     {
-      "type": "audio",
-      "parameter_list": "variant: button_only;\nsrc: audio/recolte/Ob_photo_recoltes_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "exclude_from_translation": true,
-      "style_list": "float: right;"
+      "type": "text_box",
+      "name": "nom_autre_cout_recolte",
+      "value": "@field.nom_autre_cout_recolte",
+      "action_list": "changed | set_field: nom_autre_cout_recolte : this.value;",
+      "parameter_list": "placeholder: Nom des coûts...;"
     },
     {
       "type": "text",
-      "value": "Prenez une photo d'un point précis du champ."
-    },
-    {
-      "action_list": "changed | set_field: @calc('obs_photo_' + @item.name) : this.value;"
+      "value": "@global.lbl_oblig\n",
+      "condition": "@calc(@field.no_autre_cout_recolte == 'oui' && (@field.nom_autre_cout_recolte == '' || @field.nom_autre_cout_recolte == null))",
+      "style_list": "color: red; font-size: 12px;"
     },
     {
       "type": "end_display_group"
     },
     {
+      "name": "v_montant_autre_err",
+      "value": "@calc(!/^\\d+(\\.\\d+)?$/.test(@field.autre_cout_recolte) || Number(@field.autre_cout_recolte) < 0)"
+    },
+    {
       "type": "begin_display_group",
-      "name": "obs_video",
-      "condition": "@field.canal_observation == 'par_video'",
+      "parameter_list": "style: column",
+      "condition": "@field.no_autre_cout_recolte == 'oui'",
       "style_list": "display: block; width: 100%"
     },
     {
-      "type": "audio",
-      "parameter_list": "variant: button_only;\nsrc: audio/recolte/Ob_video_recoltes_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "exclude_from_translation": true,
-      "style_list": "float: right;"
+      "type": "begin_display_group"
     },
     {
       "type": "text",
-      "value": "Filmez l'état général de la culture."
-    },
-    {
-      "type": "end_display_group"
-    },
-    {
-      "type": "begin_display_group",
-      "name": "obs_text",
-      "condition": "@field.canal_observation == 'par_text'",
-      "style_list": "display: block; width: 100%"
+      "value": "@global.autre_cout_recolte"
     },
     {
       "type": "audio",
-      "parameter_list": "variant: button_only;\nsrc: audio/recolte/Ob_ecrit_recoltes_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "name": "note_autre_cout_recolte1",
+      "parameter_list": "variant: button_only;\nsrc: audio/postSemi/autre_cout_recolte_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
       "exclude_from_translation": true,
       "style_list": "float: right;"
     },
     {
-      "type": "text_area",
-      "parameter_list": "placeholder: Saisissez vos remarques...;multiline: true;",
-      "style_list": "font-size: 12px; font-style: italic;"
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "value": "@global.info_cout_name",
+      "style_list": "font-style: italic; color: #666; font-size: 12px;"
+    },
+    {
+      "type": "text",
+      "value": "@global.hint_price",
+      "style_list": "font-size: 14px; color: gray;"
+    },
+    {
+      "type": "image",
+      "value": "images/cfa.jpg",
+      "style_list": "width: 100px; height: 100px;"
+    },
+    {
+      "type": "text_box",
+      "name": "autre_cout_recolte",
+      "value": "@field.autre_cout_recolte",
+      "action_list": "changed | set_field: autre_cout_recolte: this.value;",
+      "parameter_list": "number_input: true; placeholder: Montant en Dram...;"
+    },
+    {
+      "type": "text",
+      "value": "@global.error_positive_value",
+      "condition": "@calc(@field.no_autre_cout_recolte == 'oui' && @local.v_montant_autre_err)",
+      "style_list": "color: red; font-size: 12px;"
     },
     {
       "type": "end_display_group"
     },
     {
-      "name": "v_page7_valid",
-      "value": "@calc(@field.canal_observation !== undefined && @field.canal_observation !== '' && @field.canal_observation !== null)"
+      "name": "v_autre_cout_ok",
+      "value": "@calc(@field.no_autre_cout_recolte == 'non' || (@field.no_autre_cout_recolte == 'oui' && @field.nom_autre_cout_recolte != '' && @field.nom_autre_cout_recolte != null && !@local.v_montant_autre_err))"
     },
     {
-      "name": "v_new_idx",
-      "value": "@calc(Number(@field.current_culture_index) + 1)"
+      "name": "v_valeur_autre_cout",
+      "value": "@calc(@field.no_autre_cout_recolte == 'oui' ? Number(@field.autre_cout_recolte) : 0)"
     },
     {
-      "name": "v_new_total",
-      "value": "@calc((Number(@field.grand_total_recolte) || 0) + Number(@local.v_total_recolte_culture))"
+      "name": "completed_enabled",
+      "value": "@local.v_autre_cout_ok"
     },
     {
       "type": "begin_display_group",
@@ -189,18 +205,8 @@
       "type": "button",
       "name": "button_completed",
       "value": "@global.btn_continue",
-      "action_list": "click | add_data | _list_id: recolte_summary_list, \nculture: @field.active_culture_name, \nsuperficie: @field.sup_prestation, \ncout_prestation: @field.final_cout_prestation, \nproduction_kg: @field.production, \ncout_battage: @field.final_cout_battage, \nresidus_charretee: @field.production_residu_culture, \nfanes_botte: @field.nombre_botte, \nobservation_canal: @field.canal_observation, \ncout_total_culture: @local.v_total_recolte_culture;\n\nclick | set_field: grand_total_recolte : @local.v_new_total;\nclick | set_data | _list_id: recolte_settings_pages, _index: 1, completed: false;\nclick | set_data | _list_id: recolte_settings_pages, _index: 2, completed: false;\nclick | set_data | _list_id: recolte_settings_pages, _index: 3, completed: false;\nclick | set_data | _list_id: recolte_settings_pages, _index: 4, completed: false;\n\nclick | set_field: sup_prestation :;\nclick | set_field: cout_recolte_val :;\nclick | set_field: production :;\nclick | set_field: cout_total_battage_nonzero :;\nclick | set_field: production_residu_culture :;\nclick | set_field: nombre_botte :;\nclick | set_field: canal_observation :;\nclick | set_field: obs_text_recolte :;\nclick | set_field: no_autre_cout_recolte :;\nclick | set_field: nom_autre_cout_recolte :;\nclick | set_field: autre_cout_recolte :;\nclick | set_field: final_cout_autre_recolte :;\nclick | set_field: current_culture_index : @local.v_new_idx;\nclick | set_field: active_culture_name : @calc(@field.selected_cultures_list.split(',')[@local.v_new_idx]);\n\nclick | emit: force_reprocess;\n",
-      "parameter_list": "style: navigation;\ndisabled: !@local.v_page7_valid;",
-      "condition": "@calc(Number(@field.current_culture_index) < Number(@field.total_cultures_selected) - 1)",
-      "style_list": "flex: 1"
-    },
-    {
-      "type": "button",
-      "name": "button_completed",
-      "value": "Terminer",
-      "action_list": "click | set_field: total_recolte_culture : @local.v_total_recolte_culture;\nclick | set_field: grand_total_recolte : @local.v_new_total;\nclick | set_field: current_culture_index : 0;\nclick | set_field: active_culture_name : @calc(@field.selected_cultures_list.split(',')[0]);\nclick | emit: completed;",
-      "parameter_list": "disabled: !@local.v_page7_valid;",
-      "condition": "@calc(Number(@field.current_culture_index) >= Number(@field.total_cultures_selected) - 1)",
+      "action_list": "click | set_field: final_cout_autre_recolte : @local.v_valeur_autre_cout;\nclick | emit: completed",
+      "parameter_list": "disabled: !@local.completed_enabled",
       "style_list": "flex: 1"
     },
     {

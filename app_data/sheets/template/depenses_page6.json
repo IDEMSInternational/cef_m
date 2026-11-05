@@ -257,9 +257,9 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "text",
+          "type": "subtitle",
           "name": "nombre_enfants_note",
-          "value": "**Donnez le nombre d'enfants de l'UPA inscrit au @fields.niveau_text**",
+          "value": "@global.nbre_enfant_niveau_scolaire",
           "_translations": {
             "value": {}
           },
@@ -267,15 +267,15 @@
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "**Donnez le nombre d'enfants de l'UPA inscrit au @fields.niveau_text**",
-                "matchedExpression": "@fields.niveau_text",
-                "type": "fields",
-                "fieldName": "niveau_text"
+                "fullExpression": "@global.nbre_enfant_niveau_scolaire",
+                "matchedExpression": "@global.nbre_enfant_niveau_scolaire",
+                "type": "global",
+                "fieldName": "nbre_enfant_niveau_scolaire"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@fields.niveau_text": [
+            "@global.nbre_enfant_niveau_scolaire": [
               "value"
             ]
           }
@@ -317,7 +317,7 @@
       ],
       "parameter_list": {
         "number_input": "true",
-        "placeholder": "Entrez le nombre d'enfants"
+        "placeholder": "@global.texte_placeholder"
       },
       "_nested_name": "nombre_enfants",
       "_dynamicFields": {
@@ -328,11 +328,24 @@
             "type": "fields",
             "fieldName": "nombre_enfants"
           }
-        ]
+        ],
+        "parameter_list": {
+          "placeholder": [
+            {
+              "fullExpression": "@global.texte_placeholder",
+              "matchedExpression": "@global.texte_placeholder",
+              "type": "global",
+              "fieldName": "texte_placeholder"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@fields.nombre_enfants": [
           "value"
+        ],
+        "@global.texte_placeholder": [
+          "parameter_list.placeholder"
         ]
       }
     },
@@ -401,10 +414,7 @@
       },
       "condition": "!@fields.nombre_enfants && @fields.attempt_submit",
       "style_list": [
-        "color: red",
-        "font-size: 16px",
-        "background: #fff5f5",
-        "padding: 5px"
+        "@global.reponse_style"
       ],
       "_nested_name": "error_nombre_enfants",
       "_dynamicFields": {
@@ -429,7 +439,17 @@
             "type": "fields",
             "fieldName": "attempt_submit"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.error_required_answer": [
@@ -440,6 +460,9 @@
         ],
         "@fields.attempt_submit": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
@@ -451,8 +474,7 @@
       },
       "condition": "!@local.valid_nombre_enfants",
       "style_list": [
-        "color: #FF0000",
-        "font-size: 14px"
+        "@global.reponse_style"
       ],
       "name": "text_11",
       "_nested_name": "text_11",
@@ -472,7 +494,17 @@
             "type": "local",
             "fieldName": "valid_nombre_enfants"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.validite_nombre": [
@@ -480,6 +512,9 @@
         ],
         "!@local.valid_nombre_enfants": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
@@ -487,25 +522,25 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "text",
-          "name": "frais_annuel_scolarite_note",
-          "value": "**Donnez le frais annuel de scolarité d'un enfant au @fields.niveau_text en drm**",
+          "type": "subtitle",
+          "value": "@global.frais_annuel_scolarite_note",
           "_translations": {
             "value": {}
           },
-          "_nested_name": "display_group_12.frais_annuel_scolarite_note",
+          "name": "subtitle_1",
+          "_nested_name": "display_group_12.subtitle_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "**Donnez le frais annuel de scolarité d'un enfant au @fields.niveau_text en drm**",
-                "matchedExpression": "@fields.niveau_text",
-                "type": "fields",
-                "fieldName": "niveau_text"
+                "fullExpression": "@global.frais_annuel_scolarite_note",
+                "matchedExpression": "@global.frais_annuel_scolarite_note",
+                "type": "global",
+                "fieldName": "frais_annuel_scolarite_note"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@fields.niveau_text": [
+            "@global.frais_annuel_scolarite_note": [
               "value"
             ]
           }
@@ -590,7 +625,7 @@
       ],
       "parameter_list": {
         "number_input": "true",
-        "placeholder": "Entrez le  frais annuel scolarite"
+        "placeholder": "@global.texte_placeholder"
       },
       "_nested_name": "frais_scolarite",
       "_dynamicFields": {
@@ -601,11 +636,24 @@
             "type": "fields",
             "fieldName": "frais_scolarite"
           }
-        ]
+        ],
+        "parameter_list": {
+          "placeholder": [
+            {
+              "fullExpression": "@global.texte_placeholder",
+              "matchedExpression": "@global.texte_placeholder",
+              "type": "global",
+              "fieldName": "texte_placeholder"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@fields.frais_scolarite": [
           "value"
+        ],
+        "@global.texte_placeholder": [
+          "parameter_list.placeholder"
         ]
       }
     },
@@ -666,10 +714,7 @@
       },
       "condition": "!@fields.frais_scolarite && @fields.attempt_submit",
       "style_list": [
-        "color: red",
-        "font-size: 16px",
-        "background: #fff5f5",
-        "padding: 5px"
+        "@global.reponse_style"
       ],
       "name": "text_18",
       "_nested_name": "text_18",
@@ -695,7 +740,17 @@
             "type": "fields",
             "fieldName": "attempt_submit"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.error_required_answer": [
@@ -706,6 +761,9 @@
         ],
         "@fields.attempt_submit": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
@@ -717,8 +775,7 @@
       },
       "condition": "!@local.valid_frais_scolarite",
       "style_list": [
-        "color: #FF0000",
-        "font-size: 14px"
+        "@global.reponse_style"
       ],
       "name": "text_19",
       "_nested_name": "text_19",
@@ -738,7 +795,17 @@
             "type": "local",
             "fieldName": "valid_frais_scolarite"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.validite_nombre": [
@@ -746,6 +813,9 @@
         ],
         "!@local.valid_frais_scolarite": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
@@ -753,25 +823,25 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "text",
-          "name": "frais_fourniture_note",
-          "value": "**Donnez le frais annuel de fourniture scolaire d'un enfant au @fields.niveau_text en drm**",
+          "type": "subtitle",
+          "value": "@global.frais_fourniture_note",
           "_translations": {
             "value": {}
           },
-          "_nested_name": "display_group_20.frais_fourniture_note",
+          "name": "subtitle_1",
+          "_nested_name": "display_group_20.subtitle_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "**Donnez le frais annuel de fourniture scolaire d'un enfant au @fields.niveau_text en drm**",
-                "matchedExpression": "@fields.niveau_text",
-                "type": "fields",
-                "fieldName": "niveau_text"
+                "fullExpression": "@global.frais_fourniture_note",
+                "matchedExpression": "@global.frais_fourniture_note",
+                "type": "global",
+                "fieldName": "frais_fourniture_note"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@fields.niveau_text": [
+            "@global.frais_fourniture_note": [
               "value"
             ]
           }
@@ -801,8 +871,7 @@
         "value": {}
       },
       "style_list": [
-        "color: gray",
-        "font-size: 16px"
+        "@global.hint_style"
       ],
       "_nested_name": "hint_price",
       "_dynamicFields": {
@@ -813,22 +882,66 @@
             "type": "global",
             "fieldName": "hint_price"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.hint_style",
+              "matchedExpression": "@global.hint_style",
+              "type": "global",
+              "fieldName": "hint_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.hint_price": [
           "value"
+        ],
+        "@global.hint_style": [
+          "style_list.0"
         ]
       }
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: black;\"> Il s'agit des frais de fournitures scolaires (sac, ardoise, crayon, bic, livres, la craie, etc.) d'un enfant  </p>",
+      "type": "text",
+      "value": "@global.frais_fourniture_hint",
       "_translations": {
         "value": {}
       },
-      "name": "html_23",
-      "_nested_name": "html_23"
+      "style_list": [
+        "@global.hint_style"
+      ],
+      "name": "text_23",
+      "_nested_name": "text_23",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.frais_fourniture_hint",
+            "matchedExpression": "@global.frais_fourniture_hint",
+            "type": "global",
+            "fieldName": "frais_fourniture_hint"
+          }
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.hint_style",
+              "matchedExpression": "@global.hint_style",
+              "type": "global",
+              "fieldName": "hint_style"
+            }
+          ]
+        }
+      },
+      "_dynamicDependencies": {
+        "@global.frais_fourniture_hint": [
+          "value"
+        ],
+        "@global.hint_style": [
+          "style_list.0"
+        ]
+      }
     },
     {
       "type": "image",
@@ -865,7 +978,7 @@
       ],
       "parameter_list": {
         "number_input": "true",
-        "placeholder": "Entrez le frais des fournitures"
+        "placeholder": "@global.texte_placeholder"
       },
       "_nested_name": "frais_fourniture",
       "_dynamicFields": {
@@ -876,11 +989,24 @@
             "type": "fields",
             "fieldName": "frais_fourniture"
           }
-        ]
+        ],
+        "parameter_list": {
+          "placeholder": [
+            {
+              "fullExpression": "@global.texte_placeholder",
+              "matchedExpression": "@global.texte_placeholder",
+              "type": "global",
+              "fieldName": "texte_placeholder"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@fields.frais_fourniture": [
           "value"
+        ],
+        "@global.texte_placeholder": [
+          "parameter_list.placeholder"
         ]
       }
     },
@@ -941,10 +1067,7 @@
       },
       "condition": "!@fields.frais_fourniture && @fields.attempt_submit",
       "style_list": [
-        "color: red",
-        "font-size: 16px",
-        "background: #fff5f5",
-        "padding: 5px"
+        "@global.reponse_style"
       ],
       "name": "text_27",
       "_nested_name": "text_27",
@@ -970,7 +1093,17 @@
             "type": "fields",
             "fieldName": "attempt_submit"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.error_required_answer": [
@@ -981,6 +1114,9 @@
         ],
         "@fields.attempt_submit": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
@@ -992,8 +1128,7 @@
       },
       "condition": "!@local.valid_frais_fourniture",
       "style_list": [
-        "color: #FF0000",
-        "font-size: 14px"
+        "@global.reponse_style"
       ],
       "name": "text_28",
       "_nested_name": "text_28",
@@ -1013,7 +1148,17 @@
             "type": "local",
             "fieldName": "valid_frais_fourniture"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.validite_nombre": [
@@ -1021,6 +1166,9 @@
         ],
         "!@local.valid_frais_fourniture": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
@@ -1028,25 +1176,25 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "text",
-          "name": "frais_deplacement_note",
-          "value": "**Donnez les frais quotidiens de déplacement aller-retour entre la maison et l'école d'un enfant du @fields.niveau_text en drm**",
+          "type": "subtitle",
+          "value": "@global.frais_deplacement_note",
           "_translations": {
             "value": {}
           },
-          "_nested_name": "display_group_29.frais_deplacement_note",
+          "name": "subtitle_1",
+          "_nested_name": "display_group_29.subtitle_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "**Donnez les frais quotidiens de déplacement aller-retour entre la maison et l'école d'un enfant du @fields.niveau_text en drm**",
-                "matchedExpression": "@fields.niveau_text",
-                "type": "fields",
-                "fieldName": "niveau_text"
+                "fullExpression": "@global.frais_deplacement_note",
+                "matchedExpression": "@global.frais_deplacement_note",
+                "type": "global",
+                "fieldName": "frais_deplacement_note"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@fields.niveau_text": [
+            "@global.frais_deplacement_note": [
               "value"
             ]
           }
@@ -1131,7 +1279,7 @@
       ],
       "parameter_list": {
         "number_input": "true",
-        "placeholder": "Entrez le frais de deplacement"
+        "placeholder": "@global.texte_placeholder"
       },
       "_nested_name": "frais_deplacement",
       "_dynamicFields": {
@@ -1142,11 +1290,24 @@
             "type": "fields",
             "fieldName": "frais_deplacement"
           }
-        ]
+        ],
+        "parameter_list": {
+          "placeholder": [
+            {
+              "fullExpression": "@global.texte_placeholder",
+              "matchedExpression": "@global.texte_placeholder",
+              "type": "global",
+              "fieldName": "texte_placeholder"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@fields.frais_deplacement": [
           "value"
+        ],
+        "@global.texte_placeholder": [
+          "parameter_list.placeholder"
         ]
       }
     },
@@ -1207,10 +1368,7 @@
       },
       "condition": "!@fields.frais_deplacement && @fields.attempt_submit",
       "style_list": [
-        "color: red",
-        "font-size: 16px",
-        "background: #fff5f5",
-        "padding: 5px"
+        "@global.reponse_style"
       ],
       "name": "text_35",
       "_nested_name": "text_35",
@@ -1236,7 +1394,17 @@
             "type": "fields",
             "fieldName": "attempt_submit"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.error_required_answer": [
@@ -1247,6 +1415,9 @@
         ],
         "@fields.attempt_submit": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
@@ -1258,8 +1429,7 @@
       },
       "condition": "!@local.valid_frais_deplacement",
       "style_list": [
-        "color: #FF0000",
-        "font-size: 14px"
+        "@global.reponse_style"
       ],
       "name": "text_36",
       "_nested_name": "text_36",
@@ -1279,7 +1449,17 @@
             "type": "local",
             "fieldName": "valid_frais_deplacement"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.validite_nombre": [
@@ -1287,6 +1467,9 @@
         ],
         "!@local.valid_frais_deplacement": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
@@ -1294,25 +1477,25 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "text",
-          "name": "frais_recreation_note",
-          "value": "**Donnez le frais quotidien de récreation d'un enfant au @fields.niveau_text en drm**",
+          "type": "subtitle",
+          "value": "@global.frais_recreation_note",
           "_translations": {
             "value": {}
           },
-          "_nested_name": "display_group_37.frais_recreation_note",
+          "name": "subtitle_1",
+          "_nested_name": "display_group_37.subtitle_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "**Donnez le frais quotidien de récreation d'un enfant au @fields.niveau_text en drm**",
-                "matchedExpression": "@fields.niveau_text",
-                "type": "fields",
-                "fieldName": "niveau_text"
+                "fullExpression": "@global.frais_recreation_note",
+                "matchedExpression": "@global.frais_recreation_note",
+                "type": "global",
+                "fieldName": "frais_recreation_note"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@fields.niveau_text": [
+            "@global.frais_recreation_note": [
               "value"
             ]
           }
@@ -1397,7 +1580,7 @@
       ],
       "parameter_list": {
         "number_input": "true",
-        "placeholder": "Entrez le frais de recreation"
+        "placeholder": "@global.texte_placeholder"
       },
       "_nested_name": "frais_recreation",
       "_dynamicFields": {
@@ -1408,11 +1591,24 @@
             "type": "fields",
             "fieldName": "frais_recreation"
           }
-        ]
+        ],
+        "parameter_list": {
+          "placeholder": [
+            {
+              "fullExpression": "@global.texte_placeholder",
+              "matchedExpression": "@global.texte_placeholder",
+              "type": "global",
+              "fieldName": "texte_placeholder"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@fields.frais_recreation": [
           "value"
+        ],
+        "@global.texte_placeholder": [
+          "parameter_list.placeholder"
         ]
       }
     },
@@ -1473,10 +1669,7 @@
       },
       "condition": "!@fields.frais_recreation && @fields.attempt_submit",
       "style_list": [
-        "color: red",
-        "font-size: 16px",
-        "background: #fff5f5",
-        "padding: 5px"
+        "@global.reponse_style"
       ],
       "name": "text_43",
       "_nested_name": "text_43",
@@ -1502,7 +1695,17 @@
             "type": "fields",
             "fieldName": "attempt_submit"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.error_required_answer": [
@@ -1513,6 +1716,9 @@
         ],
         "@fields.attempt_submit": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
@@ -1524,8 +1730,7 @@
       },
       "condition": "!@local.valid_frais_recreation",
       "style_list": [
-        "color: #FF0000",
-        "font-size: 14px"
+        "@global.reponse_style"
       ],
       "name": "text_44",
       "_nested_name": "text_44",
@@ -1545,7 +1750,17 @@
             "type": "local",
             "fieldName": "valid_frais_recreation"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.validite_nombre": [
@@ -1553,6 +1768,9 @@
         ],
         "!@local.valid_frais_recreation": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
@@ -1648,7 +1866,7 @@
         {
           "type": "button",
           "name": "page_6_btn_attempt_submit",
-          "value": "continuer",
+          "value": "@global.btn_continue",
           "_translations": {
             "value": {}
           },
@@ -1669,6 +1887,14 @@
           ],
           "_nested_name": "display_group_46.page_6_btn_attempt_submit",
           "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.btn_continue",
+                "matchedExpression": "@global.btn_continue",
+                "type": "global",
+                "fieldName": "btn_continue"
+              }
+            ],
             "condition": [
               {
                 "fullExpression": "!@local.completed_enabled",
@@ -1679,6 +1905,9 @@
             ]
           },
           "_dynamicDependencies": {
+            "@global.btn_continue": [
+              "value"
+            ],
             "!@local.completed_enabled": [
               "condition"
             ]

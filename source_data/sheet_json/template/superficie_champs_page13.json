@@ -9,11 +9,23 @@
     },
     {
       "name": "association_current ",
-      "value": "@calc(@fields.association_oui_non || @fields['association_parcelle_N' + @fields.num_parcelle] || '')"
+      "value": "@calc(String(@fields.association_oui_non || '').trim())"
+    },
+    {
+      "name": "raw_cult_asso",
+      "value": "@calc(String(@fields.cult_asso_selected || @fields.cult_asso || '').trim())"
+    },
+    {
+      "name": "autre1_val",
+      "value": "@calc(String(@fields.autre_cult_asso1 || '').trim())"
+    },
+    {
+      "name": "autre2_val",
+      "value": "@calc(String(@fields.autre_cult_asso2 || '').trim())"
     },
     {
       "name": "cult_asso_display",
-      "value": "@calc(@fields['cult_asso_selected_parcelle_N' + @fields.num_parcelle] || @fields.cult_asso_selected || @fields.cult_asso || '')"
+      "value": "@calc(@local.raw_cult_asso === 'autre_culture1' ? @local.autre1_val : @local.raw_cult_asso === 'autre_culture2' ? @local.autre2_val : @local.raw_cult_asso)"
     },
     {
       "name": "valid_prod_cult1",
@@ -29,15 +41,16 @@
     },
     {
       "type": "title",
-      "value": "**Production de la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**"
+      "value": "PRODUCTION DE LA PARCELLE"
     },
     {
       "type": "begin_display_group",
       "style_list": "margin-bottom: 15px;"
     },
     {
-      "type": "html",
-      "value": "<label style=\"color: #1e3656; font-weight: bold;\">L'information sur la quantité récoltée est-elle disponible ?</label>"
+      "type": "text",
+      "value": "@global.note_info_quant",
+      "style_list": "color: #1e3656; font-weight: bold;"
     },
     {
       "type": "audio",
@@ -69,8 +82,9 @@
       "style_list": "margin: 15px 0; padding: 12px; background: #fff3cd;"
     },
     {
-      "type": "html",
-      "value": "<p style=\"margin: 0; color: #856404; font-size: 13px; line-height: 1.4;\">VEUILLEZ CONTINUER. Cependant, vous devez revenir renseigner la quantité récoltée dès que l'information est disponible.</p>"
+      "type": "text",
+      "value": "@global.hint_prod_no",
+      "style_list": "margin: 0; color: #856404; font-size: 13px; line-height: 1.4;"
     },
     {
       "type": "end_display_group"
@@ -84,8 +98,9 @@
       "type": "begin_display_group"
     },
     {
-      "type": "html",
-      "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Production de @local.cult_princip_display (en kg) :</label>"
+      "type": "text",
+      "value": "@global.hint_prod_name",
+      "style_list": "color: #1e3656; font-weight: bold;"
     },
     {
       "type": "audio",
@@ -107,9 +122,10 @@
       "parameter_list": "placeholder: Mettez 0 si aucune production;"
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: red; font-size: 13px;\">Veuillez entrer une quantité valide (nombre positif ou 0) !</span>",
-      "condition": "@fields.attempt_submit_p14 && !@local.valid_prod_cult1"
+      "type": "text",
+      "value": "@global.message_quant",
+      "condition": "@fields.attempt_submit_p14 && !@local.valid_prod_cult1",
+      "style_list": "color: red; font-size: 13px;"
     },
     {
       "type": "end_display_group"
@@ -123,8 +139,9 @@
       "type": "begin_display_group"
     },
     {
-      "type": "html",
-      "value": "<span style=\"font-size: 20px; color: #1e3656; font-weight: bold;\">Production de la culture associée @field.cult_asso_selected(en kg)</span>"
+      "type": "text",
+      "value": "@global.hint_prod_asso",
+      "style_list": "font-size: 20px; color: #1e3656; font-weight: bold;"
     },
     {
       "type": "audio",
@@ -147,9 +164,10 @@
       "parameter_list": "placeholder: Mettez 0 si aucune production;"
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: red; font-size: 13px;\">Veuillez entrer une quantité valide (nombre positif ou 0) !</span>",
-      "condition": "@fields.attempt_submit_p14 && !@local.valid_prod_cult2"
+      "type": "text",
+      "value": "@global.message_quant",
+      "condition": "@fields.attempt_submit_p14 && !@local.valid_prod_cult2",
+      "style_list": "color: red; font-size: 13px;"
     },
     {
       "type": "end_display_group"

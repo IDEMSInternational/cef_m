@@ -5,11 +5,12 @@
   "rows": [
     {
       "type": "title",
-      "value": "SUPERFICIES DES CEREALES A CULTIVIER"
+      "value": "@global.superficies_cereale_cultives"
     },
     {
       "type": "text",
-      "value": "Les supperficies prévisionnelles sont calculées en fonction du rendement moyen des céréales (maïs, mil, sorgho et riz) de votre UPA"
+      "value": "@global.superficies_cereale_hint",
+      "style_list": "font-size: 16px; "
     },
     {
       "type": "image",
@@ -40,12 +41,12 @@
       "type": "begin_display_group"
     },
     {
-      "type": "text",
-      "value": "**Superficie à cultiver pour le Maïs**"
+      "type": "subtitle",
+      "value": "@global.surperficie_mais_title"
     },
     {
       "type": "audio",
-      "name": "audio_7_1",
+      "name": "audio_5_1",
       "parameter_list": "variant: button_only;\nsrc: audio/alimentationHumaine/sup_mais_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
       "style_list": "float : right;"
     },
@@ -58,22 +59,24 @@
       "style_list": "width:150px; height:150px;"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: black;\"> Rendement moyen: @fields.rend_moyen_mais sac de 100kg/ha </p>",
-      "style_list": "font-size: 12px; "
+      "type": "text",
+      "value": "@global.rend_mais",
+      "style_list": "font-size: 16px; "
     },
     {
       "type": "begin_display_group",
       "parameter_list": "style:column",
-      "style_list": "background: #DEB887; padding: 15px; text-align: center;"
+      "style_list": "background: #DEB887; padding: 5px; text-align: center; border-radius: 10px;"
     },
     {
-      "type": "html",
-      "value": "<div style=\"color: #000000; font-size: 18px; font-weight: bold; text-transform: uppercase;\">La superficie pour @fields.sac_mais sacs de maïs est:</div>"
+      "type": "text",
+      "value": "@global.superficie_cultive_mil",
+      "style_list": "color: #000000; font-size: 18px; font-weight: bold; text-transform: uppercase;"
     },
     {
-      "type": "html",
-      "value": "<div style=\"color: white; font-size: 24px; font-weight: bold;\">@local.superficie_mais ha</div>"
+      "type": "text",
+      "value": "@local.superficie_mais ha",
+      "style_list": "color: white; font-size: 24px; font-weight: bold;"
     },
     {
       "type": "end_display_group"
@@ -82,12 +85,12 @@
       "type": "begin_display_group"
     },
     {
-      "type": "text",
-      "value": "**Superficie à cultiver pour le Mil**"
+      "type": "subtitle",
+      "value": "@global.superficie_mil_title"
     },
     {
       "type": "audio",
-      "name": "audio_7_2",
+      "name": "audio_5_2",
       "parameter_list": "variant: button_only;\nsrc: audio/alimentationHumaine/sup_mil_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
       "style_list": "float : right;"
     },
@@ -100,22 +103,24 @@
       "style_list": "width:150px; height:150px;"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: black;\"> Rendement moyen: @fields.rend_moyen_mil sac de 100kg/ha </p>",
-      "style_list": "font-size: 15px; "
+      "type": "text",
+      "value": "@global.rend_mil",
+      "style_list": "font-size: 16px; "
     },
     {
       "type": "begin_display_group",
       "parameter_list": "style:column",
-      "style_list": "background: #DEB887; padding: 15px; text-align: center;"
+      "style_list": "background: #DEB887; padding: 5px; text-align: center; border-radius: 10px;"
     },
     {
-      "type": "html",
-      "value": "<div style=\"color: #000000; font-size: 18px; font-weight: bold; text-transform: uppercase;\">La superficie pour @fields.sac_mil sacs de mil est:</div>"
+      "type": "text",
+      "value": "@global.superficie_cultive_mil",
+      "style_list": "color: #000000; font-size: 18px; font-weight: bold; text-transform: uppercase;"
     },
     {
-      "type": "html",
-      "value": "<div style=\"color: white; font-size: 24px; font-weight: bold;\">@local.superficie_mil ha</div>"
+      "type": "text",
+      "value": "@local.superficie_mil ha",
+      "style_list": "color: white; font-size: 24px; font-weight: bold;"
     },
     {
       "type": "end_display_group"
@@ -124,12 +129,12 @@
       "type": "begin_display_group"
     },
     {
-      "type": "text",
-      "value": "**Superficie à cultiver pour le Sorgho**"
+      "type": "subtitle",
+      "value": "@global.superficie_sorgho_title"
     },
     {
       "type": "audio",
-      "name": "audio_7_3",
+      "name": "audio_5_3",
       "parameter_list": "variant: button_only;\nsrc: audio/alimentationHumaine/sup_sorgho_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
       "style_list": "float : right;"
     },
@@ -142,22 +147,24 @@
       "style_list": "width:150px; height:150px;"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: black;\"> Rendement moyen: @fields.rend_moyen_sorgho sac de 100kg/ha </p>",
-      "style_list": "font-size: 15px; "
+      "type": "text",
+      "value": "@global.rend_sorgho",
+      "style_list": "font-size: 16px; "
     },
     {
       "type": "begin_display_group",
       "parameter_list": "style:column",
-      "style_list": "background: #DEB887; padding: 15px; text-align: center;"
+      "style_list": "background: #DEB887; padding: 5px; text-align: center; border-radius: 10px;"
     },
     {
-      "type": "html",
-      "value": "<div style=\"color: #000000; font-size: 18px; font-weight: bold; text-transform: uppercase;\">La superficie pour @fields.sac_sorgho sacs de sorgho est:</div>"
+      "type": "text",
+      "value": "@global.superficie_cultive_sorgho",
+      "style_list": "color: #000000; font-size: 18px; font-weight: bold; text-transform: uppercase;"
     },
     {
-      "type": "html",
-      "value": "<div style=\"color: white; font-size: 24px; font-weight: bold;\">@local.superficie_sorgho ha</div>"
+      "type": "text",
+      "value": "@local.superficie_sorgho ha",
+      "style_list": "color: white; font-size: 24px; font-weight: bold;"
     },
     {
       "type": "end_display_group"
@@ -166,12 +173,12 @@
       "type": "begin_display_group"
     },
     {
-      "type": "text",
-      "value": "**Superficie à cultiver pour le Riz**"
+      "type": "subtitle",
+      "value": "@global.superficie_riz_title"
     },
     {
       "type": "audio",
-      "name": "audio_7_4",
+      "name": "audio_5_4",
       "parameter_list": "variant: button_only;\nsrc: audio/alimentationHumaine/sup_riz_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
       "style_list": "float : right;"
     },
@@ -184,22 +191,24 @@
       "style_list": "width:150px; height:150px;"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: black;\"> Rendement moyen: @fields.rend_moyen_riz sac de 100kg/ha </p>",
-      "style_list": "font-size: 15px; "
+      "type": "text",
+      "value": "@global.rend_riz",
+      "style_list": "font-size: 16px; "
     },
     {
       "type": "begin_display_group",
       "parameter_list": "style:column",
-      "style_list": "background: #DEB887; padding: 15px; text-align: center;"
+      "style_list": "background: #DEB887; padding: 5px; text-align: center; border-radius: 10px;"
     },
     {
-      "type": "html",
-      "value": "<div style=\"color: #000000; font-size: 18px; font-weight: bold; text-transform: uppercase;\">La superficie pour @fields.sac_riz sacs de riz est:</div>"
+      "type": "text",
+      "value": "@global.superficie_cultive_riz",
+      "style_list": "color: #000000; font-size: 18px; font-weight: bold; text-transform: uppercase;"
     },
     {
-      "type": "html",
-      "value": "<div style=\"color: white; font-size: 24px; font-weight: bold;\">@local.superficie_riz ha</div>"
+      "type": "text",
+      "value": "@local.superficie_riz ha",
+      "style_list": "color: white; font-size: 24px; font-weight: bold;"
     },
     {
       "type": "end_display_group"
@@ -208,8 +217,8 @@
       "type": "begin_display_group"
     },
     {
-      "type": "text",
-      "value": "**Superficie totale de maïs, mil, sorgho et riz**"
+      "type": "subtitle",
+      "value": "@global.superficie_tot_title"
     },
     {
       "type": "audio",
@@ -228,15 +237,17 @@
     {
       "type": "begin_display_group",
       "parameter_list": "style:column",
-      "style_list": "background: #006400; padding: 15px; text-align: center;"
+      "style_list": "background: #006400; padding: 5px; text-align: center; border-radius: 10px;"
     },
     {
-      "type": "html",
-      "value": "<div style=\"color: #000000; font-size: 18px; font-weight: bold; text-transform: uppercase;\">La superficie cumulée de maïs, mil, sorgho et riz est:</div>"
+      "type": "text",
+      "value": "@global.superficie_cumul_total",
+      "style_list": "color: #000000; font-size: 18px; font-weight: bold; text-transform: uppercase;"
     },
     {
-      "type": "html",
-      "value": "<div style=\"color: white; font-size: 24px; font-weight: bold;\">@local.superficie_totale ha</div>"
+      "type": "text",
+      "value": "@local.superficie_totale ha",
+      "style_list": "color: white; font-size: 24px; font-weight: bold;"
     },
     {
       "type": "end_display_group"

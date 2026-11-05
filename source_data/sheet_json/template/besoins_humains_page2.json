@@ -5,7 +5,7 @@
   "rows": [
     {
       "type": "title",
-      "value": "PREVISIONS DES PERSONNES A NOURRIR"
+      "value": "@global.prevision_title"
     },
     {
       "name": "attempt_submit",
@@ -15,12 +15,12 @@
       "type": "begin_display_group"
     },
     {
-      "type": "html",
-      "value": "Donnez le nombre de personnes à nourrir dans votre UPA à partir des récoltes de la saision hivernale prochaine:<span style=\"color: red;\">*</span>"
+      "type": "subtitle",
+      "value": "@global.perssonne_nourrir_label"
     },
     {
       "type": "audio",
-      "name": "audio_4_1",
+      "name": "audio_2_1",
       "parameter_list": "variant: button_only;\nsrc: audio/alimentationHumaine/nombre_nourris_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
       "style_list": "float : right;"
     },
@@ -34,14 +34,15 @@
     },
     {
       "type": "html",
-      "value": "<p style=\"color: #666; font-size: 13px; line-height: 1.5;\">Il s'agit du nombre de personnes (adultes et enfants) dont l'alimentation sera assurée sur 12 mois, à partir des récoltés en octobre de cette année.</p>"
+      "value": "@global.perssonne_nourrir_hint",
+      "style_list": "@global.hint_style"
     },
     {
       "type": "text_box",
       "name": "personnes_nourrir",
       "value": "@fields.personnes_nourrir",
       "action_list": "changed | set_field: personnes_nourrir : this.value;",
-      "parameter_list": "placeholder: Nombre de personnes;input_type: number;",
+      "parameter_list": "number_input: true; placeholder:@global.texte_placeholder;",
       "style_list": "margin-top: 10px;"
     },
     {
@@ -49,17 +50,18 @@
       "value": "@calc(Number(@fields.personnes_nourrir || 0) * 3)"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@fields.personnes_nourrir && @fields.attempt_submit"
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@fields.personnes_nourrir && @fields.attempt_submit",
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "begin_display_group",
       "condition": "@fields.personnes_nourrir > 0"
     },
     {
-      "type": "text",
-      "value": "**PREVISIONS**"
+      "type": "subtitle",
+      "value": "@global.prevision_label"
     },
     {
       "type": "audio",
@@ -72,18 +74,35 @@
     },
     {
       "type": "begin_display_group",
-      "name": "prevision",
       "condition": "@fields.personnes_nourrir > 0",
-      "style_list": "background: #1e3656; padding: 15px; border-radius: 12px; color: white;"
+      "style_list": "border-radius: 12px; color: white;"
     },
     {
       "type": "image",
       "value": "images/besoin_upa.jpg",
-      "style_list": "width:180px; height:180px;"
+      "style_list": "width:190px; height:190px;"
     },
     {
-      "type": "html",
-      "value": "<div style=\"overflow: hidden;\">\n    <div style=\"text-transform: uppercase; font-size: 15px; color: #4f8ff1; font-weight: bold; margin-bottom: 2px;\"> @fields.personnes_nourrir personnes à nourrir à partir des récoltes prochaines,l'UPA doit prévoire :</div>\n    <div style=\"font-size: 22px; font-weight: bold; margin-bottom: 4px;\">\n        @local.besoin_cereale_exploitation <span style=\"font-size: 14px; font-weight: normal;\">sacs de céréales</span>\n    </div>\n    <p style=\"font-size: 11px; color: #cbd5e0; line-height: 1.2; margin: 0;\">\n        Ces sacs de céréales couvrent généralement les besoins alimentaires (prévus ou non) des <b>@field.personnes_nourrir membres</b> / 12 mois.\n    </p>\n</div>\n<div style=\"clear: both;\"></div>"
+      "type": "begin_display_group",
+      "parameter_list": "style: column"
+    },
+    {
+      "type": "text",
+      "value": "@global.prevision_label_hint1",
+      "style_list": "text-transform: uppercase; font-size: 15px; font-weight: bold; margin-bottom: 2px;"
+    },
+    {
+      "type": "text",
+      "value": "@global.prevision_label_hint2",
+      "style_list": "font-size: 22px; font-weight: bold; margin-bottom: 4px;"
+    },
+    {
+      "type": "text",
+      "value": "@global.prevision_label_hint3",
+      "style_list": "font-size: 11px; color: gray; line-height: 1.2; margin: 0;"
+    },
+    {
+      "type": "end_display_group"
     },
     {
       "type": "end_display_group"
@@ -107,7 +126,7 @@
     {
       "type": "button",
       "name": "button_continue_attempt_submit",
-      "value": "Continuer",
+      "value": "@global.btn_continue",
       "action_list": "click | set_field: attempt_submit: true;\n",
       "condition": "!@local.completed_enabled",
       "style_list": "flex: 1"

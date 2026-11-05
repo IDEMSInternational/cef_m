@@ -6,30 +6,57 @@
     {
       "type": "title",
       "name": "page_title",
-      "value": "INFO SUPPLEMENTAIRE SUR LES CARACTERISTIQUES DE L'UPA",
+      "value": "@global.info_sup_upa",
       "_translations": {
         "value": {}
       },
-      "_nested_name": "page_title"
+      "_nested_name": "page_title",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.info_sup_upa",
+            "matchedExpression": "@global.info_sup_upa",
+            "type": "global",
+            "fieldName": "info_sup_upa"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.info_sup_upa": [
+          "value"
+        ]
+      }
     },
     {
       "type": "display_group",
       "rows": [
         {
-          "type": "html",
-          "name": "type_canal_info_label",
-          "value": "<span style=\"color: red;\">*</span> Sélectionnez le canal pour donner l'information supplémentaire",
+          "type": "subtitle",
+          "value": "@global.type_canal_info_label",
           "_translations": {
             "value": {}
           },
-          "style_list": [
-            "font-size:20px"
-          ],
-          "_nested_name": "display_group_3.type_canal_info_label"
+          "name": "subtitle_1",
+          "_nested_name": "display_group_3.subtitle_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.type_canal_info_label",
+                "matchedExpression": "@global.type_canal_info_label",
+                "type": "global",
+                "fieldName": "type_canal_info_label"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.type_canal_info_label": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",
-          "name": "audio_16_1",
+          "name": "audio_18_1",
           "parameter_list": {
             "variant": "button_only",
             "src": "audio/Enrolement/canal_obser_fr.mp3",
@@ -38,7 +65,7 @@
           "style_list": [
             "float: right"
           ],
-          "_nested_name": "display_group_3.audio_16_1"
+          "_nested_name": "display_group_3.audio_18_1"
         }
       ],
       "name": "display_group_3",
@@ -53,8 +80,7 @@
       },
       "condition": "!@fields.type_canal_info",
       "style_list": [
-        "color: red",
-        "font-size: 16px"
+        "@global.reponse_style"
       ],
       "_nested_name": "error_type_canal_info",
       "_dynamicFields": {
@@ -73,7 +99,17 @@
             "type": "fields",
             "fieldName": "type_canal_info"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.reponse_obligatoire": [
@@ -81,6 +117,9 @@
         ],
         "!@fields.type_canal_info": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
@@ -144,16 +183,31 @@
       "rows": [
         {
           "type": "text",
-          "name": "info_text_label",
-          "value": "Entrez par écrit l'information supplémentaire.",
+          "value": "@global.info_text_label",
           "_translations": {
             "value": {}
           },
-          "_nested_name": "display_group_7.info_text_label"
+          "name": "text_1",
+          "_nested_name": "display_group_7.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.info_text_label",
+                "matchedExpression": "@global.info_text_label",
+                "type": "global",
+                "fieldName": "info_text_label"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.info_text_label": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",
-          "name": "audio_16_2",
+          "name": "audio_18_2",
           "parameter_list": {
             "variant": "button_only",
             "src": "audio/Enrolement/oberv_ecrit_fr.mp3",
@@ -162,7 +216,7 @@
           "style_list": [
             "float: right"
           ],
-          "_nested_name": "display_group_7.audio_16_2"
+          "_nested_name": "display_group_7.audio_18_2"
         }
       ],
       "name": "display_group_7",
@@ -239,16 +293,31 @@
       "rows": [
         {
           "type": "text",
-          "name": "info_video_label",
-          "value": "Enregistrez par vidéo l'information supplémentaire.",
+          "value": "@global.info_video_label",
           "_translations": {
             "value": {}
           },
-          "_nested_name": "display_group_10.info_video_label"
+          "name": "text_1",
+          "_nested_name": "display_group_10.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.info_video_label",
+                "matchedExpression": "@global.info_video_label",
+                "type": "global",
+                "fieldName": "info_video_label"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.info_video_label": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",
-          "name": "audio_16_3",
+          "name": "audio_18_3",
           "parameter_list": {
             "variant": "button_only",
             "src": "audio/Enrolement/oberv_vid_fr.mp3",
@@ -257,7 +326,7 @@
           "style_list": [
             "float: right"
           ],
-          "_nested_name": "display_group_10.audio_16_3"
+          "_nested_name": "display_group_10.audio_18_3"
         }
       ],
       "name": "display_group_10",
@@ -280,7 +349,7 @@
     },
     {
       "type": "button",
-      "value": "Prendre une video",
+      "value": "@global.prendre_video",
       "_translations": {
         "value": {}
       },
@@ -291,6 +360,14 @@
       "name": "button_12",
       "_nested_name": "button_12",
       "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.prendre_video",
+            "matchedExpression": "@global.prendre_video",
+            "type": "global",
+            "fieldName": "prendre_video"
+          }
+        ],
         "condition": [
           {
             "fullExpression": "@fields.type_canal_info == \"par_video\"",
@@ -301,6 +378,9 @@
         ]
       },
       "_dynamicDependencies": {
+        "@global.prendre_video": [
+          "value"
+        ],
         "@fields.type_canal_info": [
           "condition"
         ]
@@ -312,16 +392,31 @@
       "rows": [
         {
           "type": "text",
-          "name": "info_audio_label",
-          "value": "Enregistrez par vocal l'information supplémentaire.",
+          "value": "@global.info_audio_label",
           "_translations": {
             "value": {}
           },
-          "_nested_name": "display_group_13.info_audio_label"
+          "name": "text_1",
+          "_nested_name": "display_group_13.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.info_audio_label",
+                "matchedExpression": "@global.info_audio_label",
+                "type": "global",
+                "fieldName": "info_audio_label"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.info_audio_label": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",
-          "name": "audio_16_4",
+          "name": "audio_18_4",
           "parameter_list": {
             "variant": "button_only",
             "src": "audio/Enrolement/oberv_audio_fr.mp3",
@@ -330,7 +425,7 @@
           "style_list": [
             "float: right"
           ],
-          "_nested_name": "display_group_13.audio_16_4"
+          "_nested_name": "display_group_13.audio_18_4"
         }
       ],
       "name": "display_group_13",
@@ -353,14 +448,22 @@
     },
     {
       "type": "text",
-      "name": "info_audio",
-      "value": "We would need a audio recorder here",
+      "value": "@global.info_audio_need",
       "_translations": {
         "value": {}
       },
       "condition": "@fields.type_canal_info == \"par_vocal\"",
-      "_nested_name": "info_audio",
+      "name": "text_15",
+      "_nested_name": "text_15",
       "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.info_audio_need",
+            "matchedExpression": "@global.info_audio_need",
+            "type": "global",
+            "fieldName": "info_audio_need"
+          }
+        ],
         "condition": [
           {
             "fullExpression": "@fields.type_canal_info == \"par_vocal\"",
@@ -371,6 +474,9 @@
         ]
       },
       "_dynamicDependencies": {
+        "@global.info_audio_need": [
+          "value"
+        ],
         "@fields.type_canal_info": [
           "condition"
         ]
@@ -382,16 +488,12 @@
       "rows": [
         {
           "type": "text",
-          "name": "info_image_label",
-          "value": "Enregistrez par image l'information supplémentaire.",
-          "_translations": {
-            "value": {}
-          },
-          "_nested_name": "display_group_16.info_image_label"
+          "name": "text_1",
+          "_nested_name": "display_group_16.text_1"
         },
         {
           "type": "audio",
-          "name": "audio_16_5",
+          "name": "audio_18_5",
           "parameter_list": {
             "variant": "button_only",
             "src": "audio/Enrolement/oberv_phot_fr.mp3",
@@ -400,7 +502,7 @@
           "style_list": [
             "float: right"
           ],
-          "_nested_name": "display_group_16.audio_16_5"
+          "_nested_name": "display_group_16.audio_18_5"
         }
       ],
       "name": "display_group_16",
@@ -423,7 +525,7 @@
     },
     {
       "type": "button",
-      "value": "Prendre une photo",
+      "value": "@global.prendre_photo",
       "_translations": {
         "value": {}
       },
@@ -434,6 +536,14 @@
       "name": "button_18",
       "_nested_name": "button_18",
       "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.prendre_photo",
+            "matchedExpression": "@global.prendre_photo",
+            "type": "global",
+            "fieldName": "prendre_photo"
+          }
+        ],
         "condition": [
           {
             "fullExpression": "@fields.type_canal_info == \"par_photo\"",
@@ -444,6 +554,9 @@
         ]
       },
       "_dynamicDependencies": {
+        "@global.prendre_photo": [
+          "value"
+        ],
         "@fields.type_canal_info": [
           "condition"
         ]
@@ -486,7 +599,7 @@
       "rows": [
         {
           "type": "round_button",
-          "name": "page_16_button_back",
+          "name": "page_18_button_back",
           "action_list": [
             {
               "trigger": "click",
@@ -501,11 +614,11 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "dg_footer.page_16_button_back"
+          "_nested_name": "dg_footer.page_18_button_back"
         },
         {
           "type": "button",
-          "name": "page_16_button_continue",
+          "name": "page_18_button_continue",
           "value": "@global.btn_continue",
           "_translations": {
             "value": {}
@@ -523,7 +636,7 @@
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "dg_footer.page_16_button_continue",
+          "_nested_name": "dg_footer.page_18_button_continue",
           "_dynamicFields": {
             "value": [
               {

@@ -5,7 +5,7 @@
   "rows": [
     {
       "name": "valid_npk_coton",
-      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@fields.quantite_npk_coton) && Number(@fields.quantite_npk_coton) >= 0)",
+      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(String(@fields.quantite_npk_coton_14_18_18 || '')) && Number(@fields.quantite_npk_coton_14_18_18) >= 0)",
       "_translations": {
         "value": {}
       },
@@ -14,71 +14,111 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@fields.quantite_npk_coton) && Number(@fields.quantite_npk_coton) >= 0)",
-            "matchedExpression": "@fields.quantite_npk_coton",
+            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(String(@fields.quantite_npk_coton_14_18_18 || '')) && Number(@fields.quantite_npk_coton_14_18_18) >= 0)",
+            "matchedExpression": "@fields.quantite_npk_coton_14_18_18",
             "type": "fields",
-            "fieldName": "quantite_npk_coton"
+            "fieldName": "quantite_npk_coton_14_18_18"
           },
           {
-            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@fields.quantite_npk_coton) && Number(@fields.quantite_npk_coton) >= 0)",
-            "matchedExpression": "@fields.quantite_npk_coton",
+            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(String(@fields.quantite_npk_coton_14_18_18 || '')) && Number(@fields.quantite_npk_coton_14_18_18) >= 0)",
+            "matchedExpression": "@fields.quantite_npk_coton_14_18_18",
             "type": "fields",
-            "fieldName": "quantite_npk_coton"
+            "fieldName": "quantite_npk_coton_14_18_18"
           },
           {
-            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@fields.quantite_npk_coton) && Number(@fields.quantite_npk_coton) >= 0)",
-            "matchedExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@fields.quantite_npk_coton) && Number(@fields.quantite_npk_coton) >= 0)",
+            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(String(@fields.quantite_npk_coton_14_18_18 || '')) && Number(@fields.quantite_npk_coton_14_18_18) >= 0)",
+            "matchedExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(String(@fields.quantite_npk_coton_14_18_18 || '')) && Number(@fields.quantite_npk_coton_14_18_18) >= 0)",
             "type": "calc",
-            "fieldName": "/^\\d+(\\.\\d+)?$/.test(@fields.quantite_npk_coton) && Number(@fields.quantite_npk_coton) >= 0"
+            "fieldName": "/^\\d+(\\.\\d+)?$/.test(String(@fields.quantite_npk_coton_14_18_18 || '')) && Number(@fields.quantite_npk_coton_14_18_18) >= 0"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.quantite_npk_coton": [
+        "@fields.quantite_npk_coton_14_18_18": [
           "value",
           "value"
         ],
-        "@calc(/^\\d+(\\.\\d+)?$/.test(@fields.quantite_npk_coton) && Number(@fields.quantite_npk_coton) >= 0)": [
+        "@calc(/^\\d+(\\.\\d+)?$/.test(String(@fields.quantite_npk_coton_14_18_18 || '')) && Number(@fields.quantite_npk_coton_14_18_18) >= 0)": [
           "value"
         ]
       }
     },
     {
-      "name": "valid_npk_cereale",
-      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@fields.quantite_npk_cereale) && Number(@fields.quantite_npk_cereale) >= 0)",
+      "name": "valid_npk_cereale_15",
+      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@fields.quantite_npk_cereale_15_15_15) && Number(@fields.quantite_npk_cereale_15_15_15) >= 0)",
       "_translations": {
         "value": {}
       },
       "type": "set_variable",
-      "_nested_name": "valid_npk_cereale",
+      "_nested_name": "valid_npk_cereale_15",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@fields.quantite_npk_cereale) && Number(@fields.quantite_npk_cereale) >= 0)",
-            "matchedExpression": "@fields.quantite_npk_cereale",
+            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@fields.quantite_npk_cereale_15_15_15) && Number(@fields.quantite_npk_cereale_15_15_15) >= 0)",
+            "matchedExpression": "@fields.quantite_npk_cereale_15_15_15",
             "type": "fields",
-            "fieldName": "quantite_npk_cereale"
+            "fieldName": "quantite_npk_cereale_15_15_15"
           },
           {
-            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@fields.quantite_npk_cereale) && Number(@fields.quantite_npk_cereale) >= 0)",
-            "matchedExpression": "@fields.quantite_npk_cereale",
+            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@fields.quantite_npk_cereale_15_15_15) && Number(@fields.quantite_npk_cereale_15_15_15) >= 0)",
+            "matchedExpression": "@fields.quantite_npk_cereale_15_15_15",
             "type": "fields",
-            "fieldName": "quantite_npk_cereale"
+            "fieldName": "quantite_npk_cereale_15_15_15"
           },
           {
-            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@fields.quantite_npk_cereale) && Number(@fields.quantite_npk_cereale) >= 0)",
-            "matchedExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@fields.quantite_npk_cereale) && Number(@fields.quantite_npk_cereale) >= 0)",
+            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@fields.quantite_npk_cereale_15_15_15) && Number(@fields.quantite_npk_cereale_15_15_15) >= 0)",
+            "matchedExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@fields.quantite_npk_cereale_15_15_15) && Number(@fields.quantite_npk_cereale_15_15_15) >= 0)",
             "type": "calc",
-            "fieldName": "/^\\d+(\\.\\d+)?$/.test(@fields.quantite_npk_cereale) && Number(@fields.quantite_npk_cereale) >= 0"
+            "fieldName": "/^\\d+(\\.\\d+)?$/.test(@fields.quantite_npk_cereale_15_15_15) && Number(@fields.quantite_npk_cereale_15_15_15) >= 0"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.quantite_npk_cereale": [
+        "@fields.quantite_npk_cereale_15_15_15": [
           "value",
           "value"
         ],
-        "@calc(/^\\d+(\\.\\d+)?$/.test(@fields.quantite_npk_cereale) && Number(@fields.quantite_npk_cereale) >= 0)": [
+        "@calc(/^\\d+(\\.\\d+)?$/.test(@fields.quantite_npk_cereale_15_15_15) && Number(@fields.quantite_npk_cereale_15_15_15) >= 0)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "valid_npk_cereale_17",
+      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@fields.quantite_npk_cereale_17_17_17) && Number(@fields.quantite_npk_cereale_17_17_17) >= 0)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "valid_npk_cereale_17",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@fields.quantite_npk_cereale_17_17_17) && Number(@fields.quantite_npk_cereale_17_17_17) >= 0)",
+            "matchedExpression": "@fields.quantite_npk_cereale_17_17_17",
+            "type": "fields",
+            "fieldName": "quantite_npk_cereale_17_17_17"
+          },
+          {
+            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@fields.quantite_npk_cereale_17_17_17) && Number(@fields.quantite_npk_cereale_17_17_17) >= 0)",
+            "matchedExpression": "@fields.quantite_npk_cereale_17_17_17",
+            "type": "fields",
+            "fieldName": "quantite_npk_cereale_17_17_17"
+          },
+          {
+            "fullExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@fields.quantite_npk_cereale_17_17_17) && Number(@fields.quantite_npk_cereale_17_17_17) >= 0)",
+            "matchedExpression": "@calc(/^\\d+(\\.\\d+)?$/.test(@fields.quantite_npk_cereale_17_17_17) && Number(@fields.quantite_npk_cereale_17_17_17) >= 0)",
+            "type": "calc",
+            "fieldName": "/^\\d+(\\.\\d+)?$/.test(@fields.quantite_npk_cereale_17_17_17) && Number(@fields.quantite_npk_cereale_17_17_17) >= 0"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.quantite_npk_cereale_17_17_17": [
+          "value",
+          "value"
+        ],
+        "@calc(/^\\d+(\\.\\d+)?$/.test(@fields.quantite_npk_cereale_17_17_17) && Number(@fields.quantite_npk_cereale_17_17_17) >= 0)": [
           "value"
         ]
       }
@@ -248,7 +288,7 @@
     },
     {
       "name": "completed_enabled",
-      "value": "@calc(!!@fields.on_fertilisant_info && (@fields.on_fertilisant_info === 'non' || (@fields.on_fertilisant_info === 'oui' && (@fields.culture === 'coton' ? @local.valid_npk_coton : @local.valid_npk_cereale) && @local.valid_uree && (@fields.culture !== 'riz' || @local.valid_dap) && @local.valid_autre_engrais)))",
+      "value": "@calc(!!@fields.on_fertilisant_info && (@fields.on_fertilisant_info === 'non' || (@fields.on_fertilisant_info === 'oui' && (@fields.culture === 'coton' ? @local.valid_npk_coton : (@local.valid_npk_cereale_15 && @local.valid_npk_cereale_17)) && @local.valid_uree && (@fields.culture !== 'riz' || @local.valid_dap) && @local.valid_autre_engrais)))",
       "_translations": {
         "value": {}
       },
@@ -257,70 +297,76 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc(!!@fields.on_fertilisant_info && (@fields.on_fertilisant_info === 'non' || (@fields.on_fertilisant_info === 'oui' && (@fields.culture === 'coton' ? @local.valid_npk_coton : @local.valid_npk_cereale) && @local.valid_uree && (@fields.culture !== 'riz' || @local.valid_dap) && @local.valid_autre_engrais)))",
+            "fullExpression": "@calc(!!@fields.on_fertilisant_info && (@fields.on_fertilisant_info === 'non' || (@fields.on_fertilisant_info === 'oui' && (@fields.culture === 'coton' ? @local.valid_npk_coton : (@local.valid_npk_cereale_15 && @local.valid_npk_cereale_17)) && @local.valid_uree && (@fields.culture !== 'riz' || @local.valid_dap) && @local.valid_autre_engrais)))",
             "matchedExpression": "!@fields.on_fertilisant_info",
             "type": "fields",
             "fieldName": "on_fertilisant_info"
           },
           {
-            "fullExpression": "@calc(!!@fields.on_fertilisant_info && (@fields.on_fertilisant_info === 'non' || (@fields.on_fertilisant_info === 'oui' && (@fields.culture === 'coton' ? @local.valid_npk_coton : @local.valid_npk_cereale) && @local.valid_uree && (@fields.culture !== 'riz' || @local.valid_dap) && @local.valid_autre_engrais)))",
+            "fullExpression": "@calc(!!@fields.on_fertilisant_info && (@fields.on_fertilisant_info === 'non' || (@fields.on_fertilisant_info === 'oui' && (@fields.culture === 'coton' ? @local.valid_npk_coton : (@local.valid_npk_cereale_15 && @local.valid_npk_cereale_17)) && @local.valid_uree && (@fields.culture !== 'riz' || @local.valid_dap) && @local.valid_autre_engrais)))",
             "matchedExpression": "@fields.on_fertilisant_info",
             "type": "fields",
             "fieldName": "on_fertilisant_info"
           },
           {
-            "fullExpression": "@calc(!!@fields.on_fertilisant_info && (@fields.on_fertilisant_info === 'non' || (@fields.on_fertilisant_info === 'oui' && (@fields.culture === 'coton' ? @local.valid_npk_coton : @local.valid_npk_cereale) && @local.valid_uree && (@fields.culture !== 'riz' || @local.valid_dap) && @local.valid_autre_engrais)))",
+            "fullExpression": "@calc(!!@fields.on_fertilisant_info && (@fields.on_fertilisant_info === 'non' || (@fields.on_fertilisant_info === 'oui' && (@fields.culture === 'coton' ? @local.valid_npk_coton : (@local.valid_npk_cereale_15 && @local.valid_npk_cereale_17)) && @local.valid_uree && (@fields.culture !== 'riz' || @local.valid_dap) && @local.valid_autre_engrais)))",
             "matchedExpression": "@fields.on_fertilisant_info",
             "type": "fields",
             "fieldName": "on_fertilisant_info"
           },
           {
-            "fullExpression": "@calc(!!@fields.on_fertilisant_info && (@fields.on_fertilisant_info === 'non' || (@fields.on_fertilisant_info === 'oui' && (@fields.culture === 'coton' ? @local.valid_npk_coton : @local.valid_npk_cereale) && @local.valid_uree && (@fields.culture !== 'riz' || @local.valid_dap) && @local.valid_autre_engrais)))",
+            "fullExpression": "@calc(!!@fields.on_fertilisant_info && (@fields.on_fertilisant_info === 'non' || (@fields.on_fertilisant_info === 'oui' && (@fields.culture === 'coton' ? @local.valid_npk_coton : (@local.valid_npk_cereale_15 && @local.valid_npk_cereale_17)) && @local.valid_uree && (@fields.culture !== 'riz' || @local.valid_dap) && @local.valid_autre_engrais)))",
             "matchedExpression": "@fields.culture",
             "type": "fields",
             "fieldName": "culture"
           },
           {
-            "fullExpression": "@calc(!!@fields.on_fertilisant_info && (@fields.on_fertilisant_info === 'non' || (@fields.on_fertilisant_info === 'oui' && (@fields.culture === 'coton' ? @local.valid_npk_coton : @local.valid_npk_cereale) && @local.valid_uree && (@fields.culture !== 'riz' || @local.valid_dap) && @local.valid_autre_engrais)))",
+            "fullExpression": "@calc(!!@fields.on_fertilisant_info && (@fields.on_fertilisant_info === 'non' || (@fields.on_fertilisant_info === 'oui' && (@fields.culture === 'coton' ? @local.valid_npk_coton : (@local.valid_npk_cereale_15 && @local.valid_npk_cereale_17)) && @local.valid_uree && (@fields.culture !== 'riz' || @local.valid_dap) && @local.valid_autre_engrais)))",
             "matchedExpression": "@local.valid_npk_coton",
             "type": "local",
             "fieldName": "valid_npk_coton"
           },
           {
-            "fullExpression": "@calc(!!@fields.on_fertilisant_info && (@fields.on_fertilisant_info === 'non' || (@fields.on_fertilisant_info === 'oui' && (@fields.culture === 'coton' ? @local.valid_npk_coton : @local.valid_npk_cereale) && @local.valid_uree && (@fields.culture !== 'riz' || @local.valid_dap) && @local.valid_autre_engrais)))",
-            "matchedExpression": "@local.valid_npk_cereale",
+            "fullExpression": "@calc(!!@fields.on_fertilisant_info && (@fields.on_fertilisant_info === 'non' || (@fields.on_fertilisant_info === 'oui' && (@fields.culture === 'coton' ? @local.valid_npk_coton : (@local.valid_npk_cereale_15 && @local.valid_npk_cereale_17)) && @local.valid_uree && (@fields.culture !== 'riz' || @local.valid_dap) && @local.valid_autre_engrais)))",
+            "matchedExpression": "@local.valid_npk_cereale_15",
             "type": "local",
-            "fieldName": "valid_npk_cereale"
+            "fieldName": "valid_npk_cereale_15"
           },
           {
-            "fullExpression": "@calc(!!@fields.on_fertilisant_info && (@fields.on_fertilisant_info === 'non' || (@fields.on_fertilisant_info === 'oui' && (@fields.culture === 'coton' ? @local.valid_npk_coton : @local.valid_npk_cereale) && @local.valid_uree && (@fields.culture !== 'riz' || @local.valid_dap) && @local.valid_autre_engrais)))",
+            "fullExpression": "@calc(!!@fields.on_fertilisant_info && (@fields.on_fertilisant_info === 'non' || (@fields.on_fertilisant_info === 'oui' && (@fields.culture === 'coton' ? @local.valid_npk_coton : (@local.valid_npk_cereale_15 && @local.valid_npk_cereale_17)) && @local.valid_uree && (@fields.culture !== 'riz' || @local.valid_dap) && @local.valid_autre_engrais)))",
+            "matchedExpression": "@local.valid_npk_cereale_17",
+            "type": "local",
+            "fieldName": "valid_npk_cereale_17"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.on_fertilisant_info && (@fields.on_fertilisant_info === 'non' || (@fields.on_fertilisant_info === 'oui' && (@fields.culture === 'coton' ? @local.valid_npk_coton : (@local.valid_npk_cereale_15 && @local.valid_npk_cereale_17)) && @local.valid_uree && (@fields.culture !== 'riz' || @local.valid_dap) && @local.valid_autre_engrais)))",
             "matchedExpression": "@local.valid_uree",
             "type": "local",
             "fieldName": "valid_uree"
           },
           {
-            "fullExpression": "@calc(!!@fields.on_fertilisant_info && (@fields.on_fertilisant_info === 'non' || (@fields.on_fertilisant_info === 'oui' && (@fields.culture === 'coton' ? @local.valid_npk_coton : @local.valid_npk_cereale) && @local.valid_uree && (@fields.culture !== 'riz' || @local.valid_dap) && @local.valid_autre_engrais)))",
+            "fullExpression": "@calc(!!@fields.on_fertilisant_info && (@fields.on_fertilisant_info === 'non' || (@fields.on_fertilisant_info === 'oui' && (@fields.culture === 'coton' ? @local.valid_npk_coton : (@local.valid_npk_cereale_15 && @local.valid_npk_cereale_17)) && @local.valid_uree && (@fields.culture !== 'riz' || @local.valid_dap) && @local.valid_autre_engrais)))",
             "matchedExpression": "@fields.culture",
             "type": "fields",
             "fieldName": "culture"
           },
           {
-            "fullExpression": "@calc(!!@fields.on_fertilisant_info && (@fields.on_fertilisant_info === 'non' || (@fields.on_fertilisant_info === 'oui' && (@fields.culture === 'coton' ? @local.valid_npk_coton : @local.valid_npk_cereale) && @local.valid_uree && (@fields.culture !== 'riz' || @local.valid_dap) && @local.valid_autre_engrais)))",
+            "fullExpression": "@calc(!!@fields.on_fertilisant_info && (@fields.on_fertilisant_info === 'non' || (@fields.on_fertilisant_info === 'oui' && (@fields.culture === 'coton' ? @local.valid_npk_coton : (@local.valid_npk_cereale_15 && @local.valid_npk_cereale_17)) && @local.valid_uree && (@fields.culture !== 'riz' || @local.valid_dap) && @local.valid_autre_engrais)))",
             "matchedExpression": "@local.valid_dap",
             "type": "local",
             "fieldName": "valid_dap"
           },
           {
-            "fullExpression": "@calc(!!@fields.on_fertilisant_info && (@fields.on_fertilisant_info === 'non' || (@fields.on_fertilisant_info === 'oui' && (@fields.culture === 'coton' ? @local.valid_npk_coton : @local.valid_npk_cereale) && @local.valid_uree && (@fields.culture !== 'riz' || @local.valid_dap) && @local.valid_autre_engrais)))",
+            "fullExpression": "@calc(!!@fields.on_fertilisant_info && (@fields.on_fertilisant_info === 'non' || (@fields.on_fertilisant_info === 'oui' && (@fields.culture === 'coton' ? @local.valid_npk_coton : (@local.valid_npk_cereale_15 && @local.valid_npk_cereale_17)) && @local.valid_uree && (@fields.culture !== 'riz' || @local.valid_dap) && @local.valid_autre_engrais)))",
             "matchedExpression": "@local.valid_autre_engrais",
             "type": "local",
             "fieldName": "valid_autre_engrais"
           },
           {
-            "fullExpression": "@calc(!!@fields.on_fertilisant_info && (@fields.on_fertilisant_info === 'non' || (@fields.on_fertilisant_info === 'oui' && (@fields.culture === 'coton' ? @local.valid_npk_coton : @local.valid_npk_cereale) && @local.valid_uree && (@fields.culture !== 'riz' || @local.valid_dap) && @local.valid_autre_engrais)))",
-            "matchedExpression": "@calc(!!@fields.on_fertilisant_info && (@fields.on_fertilisant_info === 'non' || (@fields.on_fertilisant_info === 'oui' && (@fields.culture === 'coton' ? @local.valid_npk_coton : @local.valid_npk_cereale) && @local.valid_uree && (@fields.culture !== 'riz' || @local.valid_dap) && @local.valid_autre_engrais)))",
+            "fullExpression": "@calc(!!@fields.on_fertilisant_info && (@fields.on_fertilisant_info === 'non' || (@fields.on_fertilisant_info === 'oui' && (@fields.culture === 'coton' ? @local.valid_npk_coton : (@local.valid_npk_cereale_15 && @local.valid_npk_cereale_17)) && @local.valid_uree && (@fields.culture !== 'riz' || @local.valid_dap) && @local.valid_autre_engrais)))",
+            "matchedExpression": "@calc(!!@fields.on_fertilisant_info && (@fields.on_fertilisant_info === 'non' || (@fields.on_fertilisant_info === 'oui' && (@fields.culture === 'coton' ? @local.valid_npk_coton : (@local.valid_npk_cereale_15 && @local.valid_npk_cereale_17)) && @local.valid_uree && (@fields.culture !== 'riz' || @local.valid_dap) && @local.valid_autre_engrais)))",
             "type": "calc",
-            "fieldName": "!!@fields.on_fertilisant_info && (@fields.on_fertilisant_info === 'non' || (@fields.on_fertilisant_info === 'oui' && (@fields.culture === 'coton' ? @local.valid_npk_coton : @local.valid_npk_cereale) && @local.valid_uree && (@fields.culture !== 'riz' || @local.valid_dap) && @local.valid_autre_engrais))"
+            "fieldName": "!!@fields.on_fertilisant_info && (@fields.on_fertilisant_info === 'non' || (@fields.on_fertilisant_info === 'oui' && (@fields.culture === 'coton' ? @local.valid_npk_coton : (@local.valid_npk_cereale_15 && @local.valid_npk_cereale_17)) && @local.valid_uree && (@fields.culture !== 'riz' || @local.valid_dap) && @local.valid_autre_engrais))"
           }
         ]
       },
@@ -339,7 +385,10 @@
         "@local.valid_npk_coton": [
           "value"
         ],
-        "@local.valid_npk_cereale": [
+        "@local.valid_npk_cereale_15": [
+          "value"
+        ],
+        "@local.valid_npk_cereale_17": [
           "value"
         ],
         "@local.valid_uree": [
@@ -351,29 +400,29 @@
         "@local.valid_autre_engrais": [
           "value"
         ],
-        "@calc(!!@fields.on_fertilisant_info && (@fields.on_fertilisant_info === 'non' || (@fields.on_fertilisant_info === 'oui' && (@fields.culture === 'coton' ? @local.valid_npk_coton : @local.valid_npk_cereale) && @local.valid_uree && (@fields.culture !== 'riz' || @local.valid_dap) && @local.valid_autre_engrais)))": [
+        "@calc(!!@fields.on_fertilisant_info && (@fields.on_fertilisant_info === 'non' || (@fields.on_fertilisant_info === 'oui' && (@fields.culture === 'coton' ? @local.valid_npk_coton : (@local.valid_npk_cereale_15 && @local.valid_npk_cereale_17)) && @local.valid_uree && (@fields.culture !== 'riz' || @local.valid_dap) && @local.valid_autre_engrais)))": [
           "value"
         ]
       }
     },
     {
       "type": "title",
-      "value": "**Quantité d'engrais minéraux dans la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**",
+      "value": "**QUANTITE D'ENGRAIS MINERAUX DANS LA PARCELLE N⁰@fields.num_parcelle DE @fields.nom_champ**",
       "_translations": {
         "value": {}
       },
-      "name": "title_8",
-      "_nested_name": "title_8",
+      "name": "title_9",
+      "_nested_name": "title_9",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "**Quantité d'engrais minéraux dans la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**",
+            "fullExpression": "**QUANTITE D'ENGRAIS MINERAUX DANS LA PARCELLE N⁰@fields.num_parcelle DE @fields.nom_champ**",
             "matchedExpression": "@fields.num_parcelle",
             "type": "fields",
             "fieldName": "num_parcelle"
           },
           {
-            "fullExpression": "**Quantité d'engrais minéraux dans la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**",
+            "fullExpression": "**QUANTITE D'ENGRAIS MINERAUX DANS LA PARCELLE N⁰@fields.num_parcelle DE @fields.nom_champ**",
             "matchedExpression": "@fields.nom_champ",
             "type": "fields",
             "fieldName": "nom_champ"
@@ -393,13 +442,32 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "html",
-          "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> L'information sur les engrais minéraux est-elle disponible ?</label>",
+          "type": "text",
+          "value": "@global.autre_engrais_oui_non",
           "_translations": {
             "value": {}
           },
-          "name": "html_1",
-          "_nested_name": "display_group_9.html_1"
+          "style_list": [
+            "color: #1e3656",
+            "font-weight: bold"
+          ],
+          "name": "text_1",
+          "_nested_name": "display_group_10.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.autre_engrais_oui_non",
+                "matchedExpression": "@global.autre_engrais_oui_non",
+                "type": "global",
+                "fieldName": "autre_engrais_oui_non"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.autre_engrais_oui_non": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",
@@ -409,11 +477,11 @@
             "src": "audio/Superficie/on_info_engrais_fr.mp3",
             "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
-          "_nested_name": "display_group_9.audio_13_1"
+          "_nested_name": "display_group_10.audio_13_1"
         }
       ],
-      "name": "display_group_9",
-      "_nested_name": "display_group_9"
+      "name": "display_group_10",
+      "_nested_name": "display_group_10"
     },
     {
       "type": "radio_list",
@@ -478,15 +546,27 @@
       }
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: red; font-size: 17px;\">La sélection est obligatoire !</span>",
+      "type": "text",
+      "value": "@global.select_warring",
       "_translations": {
         "value": {}
       },
       "condition": "@fields.attempt_submit_p13 && !@fields.on_fertilisant_info",
-      "name": "html_13",
-      "_nested_name": "html_13",
+      "style_list": [
+        "color: red",
+        "font-size: 13px"
+      ],
+      "name": "text_14",
+      "_nested_name": "text_14",
       "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.select_warring",
+            "matchedExpression": "@global.select_warring",
+            "type": "global",
+            "fieldName": "select_warring"
+          }
+        ],
         "condition": [
           {
             "fullExpression": "@fields.attempt_submit_p13 && !@fields.on_fertilisant_info",
@@ -503,6 +583,9 @@
         ]
       },
       "_dynamicDependencies": {
+        "@global.select_warring": [
+          "value"
+        ],
         "@fields.attempt_submit_p13": [
           "condition"
         ],
@@ -521,17 +604,39 @@
       ],
       "rows": [
         {
-          "type": "html",
-          "value": "<p style=\"margin: 0; color: #856404; font-size: 17px; line-height: 1.4; font-weight: 500;\">VEUILLEZ CONTINUER. Cependant, vous devez revenir renseigner les quantités des engrais minéraux dès que l'information sera disponible.</p>",
+          "type": "text",
+          "value": "@global.autre_engrais_non",
           "_translations": {
             "value": {}
           },
-          "name": "html_1",
-          "_nested_name": "display_group_14.html_1"
+          "style_list": [
+            "margin: 0",
+            "color: #856404",
+            "font-size: 17px",
+            "line-height: 1.4",
+            "font-weight: 500"
+          ],
+          "name": "text_1",
+          "_nested_name": "display_group_15.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.autre_engrais_non",
+                "matchedExpression": "@global.autre_engrais_non",
+                "type": "global",
+                "fieldName": "autre_engrais_non"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.autre_engrais_non": [
+              "value"
+            ]
+          }
         }
       ],
-      "name": "display_group_14",
-      "_nested_name": "display_group_14",
+      "name": "display_group_15",
+      "_nested_name": "display_group_15",
       "_dynamicFields": {
         "condition": [
           {
@@ -562,13 +667,33 @@
           ],
           "rows": [
             {
-              "type": "html",
-              "value": "<span style=\"font-size: 17px; color: #1e3656; font-weight: bold;\">Complexe Coton 14-18-18 (sacs de 50kg)</span>",
+              "type": "text",
+              "value": "@global.hint_coton_engrais",
               "_translations": {
                 "value": {}
               },
-              "name": "html_1",
-              "_nested_name": "display_group_16.display_group_1.html_1"
+              "style_list": [
+                "font-size: 17px",
+                "color: #1e3656",
+                "font-weight: bold"
+              ],
+              "name": "text_1",
+              "_nested_name": "display_group_17.display_group_1.text_1",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "@global.hint_coton_engrais",
+                    "matchedExpression": "@global.hint_coton_engrais",
+                    "type": "global",
+                    "fieldName": "hint_coton_engrais"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@global.hint_coton_engrais": [
+                  "value"
+                ]
+              }
             },
             {
               "type": "audio",
@@ -578,11 +703,11 @@
                 "src": "audio/Superficie/qte_npk_coton_fr.mp3",
                 "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
               },
-              "_nested_name": "display_group_16.display_group_1.audio_13_2"
+              "_nested_name": "display_group_17.display_group_1.audio_13_2"
             }
           ],
           "name": "display_group_1",
-          "_nested_name": "display_group_16.display_group_1"
+          "_nested_name": "display_group_17.display_group_1"
         },
         {
           "type": "image",
@@ -595,11 +720,11 @@
             "object-fit: contain"
           ],
           "name": "image_2",
-          "_nested_name": "display_group_16.image_2"
+          "_nested_name": "display_group_17.image_2"
         }
       ],
-      "name": "display_group_16",
-      "_nested_name": "display_group_16",
+      "name": "display_group_17",
+      "_nested_name": "display_group_17",
       "_dynamicFields": {
         "condition": [
           {
@@ -627,8 +752,8 @@
     },
     {
       "type": "text_box",
-      "name": "quantite_npk_coton",
-      "value": "@fields.quantite_npk_coton",
+      "name": "quantite_npk_coton_14_18_18",
+      "value": "@fields.quantite_npk_coton_14_18_18",
       "_translations": {
         "value": {}
       },
@@ -637,24 +762,24 @@
           "trigger": "changed",
           "action_id": "set_field",
           "args": [
-            "quantite_npk_coton",
+            "quantite_npk_coton_14_18_18",
             "this.value"
           ],
-          "_raw": "changed | set_field: quantite_npk_coton: this.value"
+          "_raw": "changed | set_field: quantite_npk_coton_14_18_18: this.value"
         }
       ],
       "parameter_list": {
         "placeholder": "Mettez 0 si aucun apport"
       },
       "condition": "@fields.on_fertilisant_info == 'oui' && @fields.culture == 'coton'",
-      "_nested_name": "quantite_npk_coton",
+      "_nested_name": "quantite_npk_coton_14_18_18",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@fields.quantite_npk_coton",
-            "matchedExpression": "@fields.quantite_npk_coton",
+            "fullExpression": "@fields.quantite_npk_coton_14_18_18",
+            "matchedExpression": "@fields.quantite_npk_coton_14_18_18",
             "type": "fields",
-            "fieldName": "quantite_npk_coton"
+            "fieldName": "quantite_npk_coton_14_18_18"
           }
         ],
         "condition": [
@@ -673,7 +798,7 @@
         ]
       },
       "_dynamicDependencies": {
-        "@fields.quantite_npk_coton": [
+        "@fields.quantite_npk_coton_14_18_18": [
           "value"
         ],
         "@fields.on_fertilisant_info": [
@@ -685,15 +810,27 @@
       }
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: red; font-size: 17px;\">Veuillez entrer une quantité valide (nombre positif ou 0) !</span>",
+      "type": "text",
+      "value": "@global.message_quant",
       "_translations": {
         "value": {}
       },
       "condition": "@fields.attempt_submit_p13 && !@local.valid_npk_coton",
-      "name": "html_19",
-      "_nested_name": "html_19",
+      "style_list": [
+        "color: red",
+        "font-size: 13px"
+      ],
+      "name": "text_20",
+      "_nested_name": "text_20",
       "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.message_quant",
+            "matchedExpression": "@global.message_quant",
+            "type": "global",
+            "fieldName": "message_quant"
+          }
+        ],
         "condition": [
           {
             "fullExpression": "@fields.attempt_submit_p13 && !@local.valid_npk_coton",
@@ -710,6 +847,9 @@
         ]
       },
       "_dynamicDependencies": {
+        "@global.message_quant": [
+          "value"
+        ],
         "@fields.attempt_submit_p13": [
           "condition"
         ],
@@ -732,13 +872,33 @@
           "type": "display_group",
           "rows": [
             {
-              "type": "html",
-              "value": "<span style=\"color: red;\">*</span><span style=\"font-size: 17px; color: #1e3656; font-weight: bold;\">Complexe Céréale NPK (sacs de 50kg)</span>",
+              "type": "text",
+              "value": "@global.hint_cereale_engrais",
               "_translations": {
                 "value": {}
               },
-              "name": "html_1",
-              "_nested_name": "display_group_20.display_group_1.html_1"
+              "style_list": [
+                "font-size: 17px",
+                "color: #1e3656",
+                "font-weight: bold"
+              ],
+              "name": "text_1",
+              "_nested_name": "display_group_21.display_group_1.text_1",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "@global.hint_cereale_engrais",
+                    "matchedExpression": "@global.hint_cereale_engrais",
+                    "type": "global",
+                    "fieldName": "hint_cereale_engrais"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@global.hint_cereale_engrais": [
+                  "value"
+                ]
+              }
             },
             {
               "type": "audio",
@@ -748,11 +908,11 @@
                 "src": "audio/Superficie/qte_npk_15_fr.mp3",
                 "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
               },
-              "_nested_name": "display_group_20.display_group_1.audio_13_2"
+              "_nested_name": "display_group_21.display_group_1.audio_13_2"
             }
           ],
           "name": "display_group_1",
-          "_nested_name": "display_group_20.display_group_1"
+          "_nested_name": "display_group_21.display_group_1"
         },
         {
           "type": "image",
@@ -765,11 +925,11 @@
             "object-fit: contain"
           ],
           "name": "image_2",
-          "_nested_name": "display_group_20.image_2"
+          "_nested_name": "display_group_21.image_2"
         }
       ],
-      "name": "display_group_20",
-      "_nested_name": "display_group_20",
+      "name": "display_group_21",
+      "_nested_name": "display_group_21",
       "_dynamicFields": {
         "condition": [
           {
@@ -797,8 +957,8 @@
     },
     {
       "type": "text_box",
-      "name": "quantite_npk_cereale",
-      "value": "@fields.quantite_npk_cereale",
+      "name": "quantite_npk_cereale_15_15_15",
+      "value": "@fields.quantite_npk_cereale_15_15_15",
       "_translations": {
         "value": {}
       },
@@ -807,24 +967,24 @@
           "trigger": "changed",
           "action_id": "set_field",
           "args": [
-            "quantite_npk_cereale",
+            "quantite_npk_cereale_15_15_15",
             "this.value"
           ],
-          "_raw": "changed | set_field: quantite_npk_cereale: this.value"
+          "_raw": "changed | set_field: quantite_npk_cereale_15_15_15: this.value"
         }
       ],
       "parameter_list": {
         "placeholder": "Mettez 0 si aucun apport"
       },
       "condition": "@fields.on_fertilisant_info == 'oui' && @fields.culture != 'coton'",
-      "_nested_name": "quantite_npk_cereale",
+      "_nested_name": "quantite_npk_cereale_15_15_15",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@fields.quantite_npk_cereale",
-            "matchedExpression": "@fields.quantite_npk_cereale",
+            "fullExpression": "@fields.quantite_npk_cereale_15_15_15",
+            "matchedExpression": "@fields.quantite_npk_cereale_15_15_15",
             "type": "fields",
-            "fieldName": "quantite_npk_cereale"
+            "fieldName": "quantite_npk_cereale_15_15_15"
           }
         ],
         "condition": [
@@ -843,7 +1003,7 @@
         ]
       },
       "_dynamicDependencies": {
-        "@fields.quantite_npk_cereale": [
+        "@fields.quantite_npk_cereale_15_15_15": [
           "value"
         ],
         "@fields.on_fertilisant_info": [
@@ -855,35 +1015,255 @@
       }
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: red; font-size: 17px;\">Veuillez entrer une quantité valide (nombre positif ou 0) !</span>",
+      "type": "text",
+      "value": "@global.message_quant",
       "_translations": {
         "value": {}
       },
-      "condition": "@fields.attempt_submit_p13 && !@local.valid_npk_cerealeTRUE",
-      "name": "html_23",
-      "_nested_name": "html_23",
+      "condition": "@fields.attempt_submit_p13 && !@local.valid_npk_cereale_15",
+      "style_list": [
+        "color: red",
+        "font-size: 13px"
+      ],
+      "name": "text_24",
+      "_nested_name": "text_24",
       "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.message_quant",
+            "matchedExpression": "@global.message_quant",
+            "type": "global",
+            "fieldName": "message_quant"
+          }
+        ],
         "condition": [
           {
-            "fullExpression": "@fields.attempt_submit_p13 && !@local.valid_npk_cerealeTRUE",
+            "fullExpression": "@fields.attempt_submit_p13 && !@local.valid_npk_cereale_15",
             "matchedExpression": "@fields.attempt_submit_p13",
             "type": "fields",
             "fieldName": "attempt_submit_p13"
           },
           {
-            "fullExpression": "@fields.attempt_submit_p13 && !@local.valid_npk_cerealeTRUE",
-            "matchedExpression": "!@local.valid_npk_cerealeTRUE",
+            "fullExpression": "@fields.attempt_submit_p13 && !@local.valid_npk_cereale_15",
+            "matchedExpression": "!@local.valid_npk_cereale_15",
             "type": "local",
-            "fieldName": "valid_npk_cerealeTRUE"
+            "fieldName": "valid_npk_cereale_15"
           }
         ]
       },
       "_dynamicDependencies": {
+        "@global.message_quant": [
+          "value"
+        ],
         "@fields.attempt_submit_p13": [
           "condition"
         ],
-        "!@local.valid_npk_cerealeTRUE": [
+        "!@local.valid_npk_cereale_15": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "condition": "@fields.on_fertilisant_info == 'oui' && @fields.culture != 'coton'",
+      "style_list": [
+        "display: block",
+        "width: 100%",
+        "margin-top: 10px",
+        "padding: 10px"
+      ],
+      "rows": [
+        {
+          "type": "display_group",
+          "rows": [
+            {
+              "type": "text",
+              "value": "@global.hint_cereale_engrais_17",
+              "_translations": {
+                "value": {}
+              },
+              "style_list": [
+                "font-size: 17px",
+                "color: #1e3656",
+                "font-weight: bold"
+              ],
+              "name": "text_1",
+              "_nested_name": "display_group_25.display_group_1.text_1",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "@global.hint_cereale_engrais_17",
+                    "matchedExpression": "@global.hint_cereale_engrais_17",
+                    "type": "global",
+                    "fieldName": "hint_cereale_engrais_17"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@global.hint_cereale_engrais_17": [
+                  "value"
+                ]
+              }
+            },
+            {
+              "type": "audio",
+              "name": "audio_13_2",
+              "parameter_list": {
+                "variant": "button_only",
+                "src": "audio/Superficie/qte_npk_17_fr.mp3",
+                "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+              },
+              "_nested_name": "display_group_25.display_group_1.audio_13_2"
+            }
+          ],
+          "name": "display_group_1",
+          "_nested_name": "display_group_25.display_group_1"
+        },
+        {
+          "type": "image",
+          "value": "images/sac.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width: 50%",
+            "object-fit: contain"
+          ],
+          "name": "image_2",
+          "_nested_name": "display_group_25.image_2"
+        }
+      ],
+      "name": "display_group_25",
+      "_nested_name": "display_group_25",
+      "_dynamicFields": {
+        "condition": [
+          {
+            "fullExpression": "@fields.on_fertilisant_info == 'oui' && @fields.culture != 'coton'",
+            "matchedExpression": "@fields.on_fertilisant_info",
+            "type": "fields",
+            "fieldName": "on_fertilisant_info"
+          },
+          {
+            "fullExpression": "@fields.on_fertilisant_info == 'oui' && @fields.culture != 'coton'",
+            "matchedExpression": "@fields.culture",
+            "type": "fields",
+            "fieldName": "culture"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.on_fertilisant_info": [
+          "condition"
+        ],
+        "@fields.culture": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "text_box",
+      "name": "quantite_npk_cereale_17_17_17",
+      "value": "@fields.quantite_npk_cereale_17_17_17",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "quantite_npk_cereale_17_17_17",
+            "this.value"
+          ],
+          "_raw": "changed | set_field: quantite_npk_cereale_17_17_17: this.value"
+        }
+      ],
+      "parameter_list": {
+        "placeholder": "Mettez 0 si aucun apport"
+      },
+      "condition": "@fields.on_fertilisant_info == 'oui' && @fields.culture != 'coton'",
+      "_nested_name": "quantite_npk_cereale_17_17_17",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.quantite_npk_cereale_17_17_17",
+            "matchedExpression": "@fields.quantite_npk_cereale_17_17_17",
+            "type": "fields",
+            "fieldName": "quantite_npk_cereale_17_17_17"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "@fields.on_fertilisant_info == 'oui' && @fields.culture != 'coton'",
+            "matchedExpression": "@fields.on_fertilisant_info",
+            "type": "fields",
+            "fieldName": "on_fertilisant_info"
+          },
+          {
+            "fullExpression": "@fields.on_fertilisant_info == 'oui' && @fields.culture != 'coton'",
+            "matchedExpression": "@fields.culture",
+            "type": "fields",
+            "fieldName": "culture"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.quantite_npk_cereale_17_17_17": [
+          "value"
+        ],
+        "@fields.on_fertilisant_info": [
+          "condition"
+        ],
+        "@fields.culture": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "@global.message_quant",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@fields.attempt_submit_p13 && !@local.valid_npk_cereale_17",
+      "style_list": [
+        "color: red",
+        "font-size: 13px"
+      ],
+      "name": "text_28",
+      "_nested_name": "text_28",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.message_quant",
+            "matchedExpression": "@global.message_quant",
+            "type": "global",
+            "fieldName": "message_quant"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "@fields.attempt_submit_p13 && !@local.valid_npk_cereale_17",
+            "matchedExpression": "@fields.attempt_submit_p13",
+            "type": "fields",
+            "fieldName": "attempt_submit_p13"
+          },
+          {
+            "fullExpression": "@fields.attempt_submit_p13 && !@local.valid_npk_cereale_17",
+            "matchedExpression": "!@local.valid_npk_cereale_17",
+            "type": "local",
+            "fieldName": "valid_npk_cereale_17"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.message_quant": [
+          "value"
+        ],
+        "@fields.attempt_submit_p13": [
+          "condition"
+        ],
+        "!@local.valid_npk_cereale_17": [
           "condition"
         ]
       }
@@ -902,13 +1282,33 @@
           "type": "display_group",
           "rows": [
             {
-              "type": "html",
-              "value": "<span style=\"color: red;\">*</span><span style=\"font-size: 17px; color: #1e3656; font-weight: bold;\">Urée (sacs de 50kg)</span>",
+              "type": "text",
+              "value": "@global.hint_uree_engrais",
               "_translations": {
                 "value": {}
               },
-              "name": "html_1",
-              "_nested_name": "display_group_24.display_group_1.html_1"
+              "style_list": [
+                "font-size: 17px",
+                "color: #1e3656",
+                "font-weight: bold"
+              ],
+              "name": "text_1",
+              "_nested_name": "display_group_29.display_group_1.text_1",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "@global.hint_uree_engrais",
+                    "matchedExpression": "@global.hint_uree_engrais",
+                    "type": "global",
+                    "fieldName": "hint_uree_engrais"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@global.hint_uree_engrais": [
+                  "value"
+                ]
+              }
             },
             {
               "type": "audio",
@@ -918,11 +1318,11 @@
                 "src": "audio/Superficie/qte_uree_fr.mp3",
                 "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
               },
-              "_nested_name": "display_group_24.display_group_1.audio_13_2"
+              "_nested_name": "display_group_29.display_group_1.audio_13_2"
             }
           ],
           "name": "display_group_1",
-          "_nested_name": "display_group_24.display_group_1"
+          "_nested_name": "display_group_29.display_group_1"
         },
         {
           "type": "image",
@@ -935,11 +1335,11 @@
             "object-fit: contain"
           ],
           "name": "image_2",
-          "_nested_name": "display_group_24.image_2"
+          "_nested_name": "display_group_29.image_2"
         }
       ],
-      "name": "display_group_24",
-      "_nested_name": "display_group_24",
+      "name": "display_group_29",
+      "_nested_name": "display_group_29",
       "_dynamicFields": {
         "condition": [
           {
@@ -1007,15 +1407,27 @@
       }
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: red; font-size: 17px;\">Veuillez entrer une quantité valide (nombre positif ou 0) !</span>",
+      "type": "text",
+      "value": "@global.message_quant",
       "_translations": {
         "value": {}
       },
       "condition": "@fields.attempt_submit_p13 && !@local.valid_uree",
-      "name": "html_27",
-      "_nested_name": "html_27",
+      "style_list": [
+        "color: red",
+        "font-size: 13px"
+      ],
+      "name": "text_32",
+      "_nested_name": "text_32",
       "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.message_quant",
+            "matchedExpression": "@global.message_quant",
+            "type": "global",
+            "fieldName": "message_quant"
+          }
+        ],
         "condition": [
           {
             "fullExpression": "@fields.attempt_submit_p13 && !@local.valid_uree",
@@ -1032,6 +1444,9 @@
         ]
       },
       "_dynamicDependencies": {
+        "@global.message_quant": [
+          "value"
+        ],
         "@fields.attempt_submit_p13": [
           "condition"
         ],
@@ -1055,13 +1470,33 @@
           "style_list": [],
           "rows": [
             {
-              "type": "html",
-              "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> DAP (sacs de 50kg) :</label>",
+              "type": "text",
+              "value": "@global.hint_dap_engrais",
               "_translations": {
                 "value": {}
               },
-              "name": "html_1",
-              "_nested_name": "display_group_28.display_group_1.html_1"
+              "style_list": [
+                "font-size: 17px",
+                "color: #1e3656",
+                "font-weight: bold"
+              ],
+              "name": "text_1",
+              "_nested_name": "display_group_33.display_group_1.text_1",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "@global.hint_dap_engrais",
+                    "matchedExpression": "@global.hint_dap_engrais",
+                    "type": "global",
+                    "fieldName": "hint_dap_engrais"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@global.hint_dap_engrais": [
+                  "value"
+                ]
+              }
             },
             {
               "type": "audio",
@@ -1071,11 +1506,11 @@
                 "src": "audio/Superficie/qte_dap_fr.mp3",
                 "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
               },
-              "_nested_name": "display_group_28.display_group_1.audio_13_2"
+              "_nested_name": "display_group_33.display_group_1.audio_13_2"
             }
           ],
           "name": "display_group_1",
-          "_nested_name": "display_group_28.display_group_1"
+          "_nested_name": "display_group_33.display_group_1"
         },
         {
           "type": "image",
@@ -1088,11 +1523,11 @@
             "object-fit: contain"
           ],
           "name": "image_2",
-          "_nested_name": "display_group_28.image_2"
+          "_nested_name": "display_group_33.image_2"
         }
       ],
-      "name": "display_group_28",
-      "_nested_name": "display_group_28",
+      "name": "display_group_33",
+      "_nested_name": "display_group_33",
       "_dynamicFields": {
         "condition": [
           {
@@ -1178,40 +1613,51 @@
       }
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: red; font-size: 12px;\">Veuillez entrer une quantité valide (nombre positif ou 0) !</span>",
+      "type": "text",
+      "value": "@global.message_quant",
       "_translations": {
         "value": {}
       },
+      "condition": "@fields.attempt_submit_p13 && !@local.valid_dap",
       "style_list": [
-        "@fields.attempt_submit_p13 && !@local.valid_dap"
+        "color: red",
+        "font-size: 13px"
       ],
-      "name": "html_31",
-      "_nested_name": "html_31",
+      "name": "text_36",
+      "_nested_name": "text_36",
       "_dynamicFields": {
-        "style_list": {
-          "0": [
-            {
-              "fullExpression": "@fields.attempt_submit_p13 && !@local.valid_dap",
-              "matchedExpression": "@fields.attempt_submit_p13",
-              "type": "fields",
-              "fieldName": "attempt_submit_p13"
-            },
-            {
-              "fullExpression": "@fields.attempt_submit_p13 && !@local.valid_dap",
-              "matchedExpression": "!@local.valid_dap",
-              "type": "local",
-              "fieldName": "valid_dap"
-            }
-          ]
-        }
+        "value": [
+          {
+            "fullExpression": "@global.message_quant",
+            "matchedExpression": "@global.message_quant",
+            "type": "global",
+            "fieldName": "message_quant"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "@fields.attempt_submit_p13 && !@local.valid_dap",
+            "matchedExpression": "@fields.attempt_submit_p13",
+            "type": "fields",
+            "fieldName": "attempt_submit_p13"
+          },
+          {
+            "fullExpression": "@fields.attempt_submit_p13 && !@local.valid_dap",
+            "matchedExpression": "!@local.valid_dap",
+            "type": "local",
+            "fieldName": "valid_dap"
+          }
+        ]
       },
       "_dynamicDependencies": {
+        "@global.message_quant": [
+          "value"
+        ],
         "@fields.attempt_submit_p13": [
-          "style_list.0"
+          "condition"
         ],
         "!@local.valid_dap": [
-          "style_list.0"
+          "condition"
         ]
       }
     },
@@ -1226,13 +1672,33 @@
       ],
       "rows": [
         {
-          "type": "html",
-          "value": "<span style=\"color: red;\">*</span><label style=\"color: #1e3656; font-size: 17px;font-weight: bold;\">Un autre type d'engrais a-t-il été apporté ?</label>",
+          "type": "text",
+          "value": "@global.hint_other_engrais",
           "_translations": {
             "value": {}
           },
-          "name": "html_1",
-          "_nested_name": "display_group_32.html_1"
+          "style_list": [
+            "font-size: 17px",
+            "color: #1e3656",
+            "font-weight: bold"
+          ],
+          "name": "text_1",
+          "_nested_name": "display_group_37.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.hint_other_engrais",
+                "matchedExpression": "@global.hint_other_engrais",
+                "type": "global",
+                "fieldName": "hint_other_engrais"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.hint_other_engrais": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",
@@ -1242,7 +1708,7 @@
             "src": "audio/Superficie/autre_engrais_fr.mp3",
             "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
-          "_nested_name": "display_group_32.audio_13_2"
+          "_nested_name": "display_group_37.audio_13_2"
         },
         {
           "type": "display_group",
@@ -1278,7 +1744,7 @@
                 "grid_gap": "10px",
                 "style": "secondary"
               },
-              "_nested_name": "display_group_32.display_group_3.autre_engrais_mineral",
+              "_nested_name": "display_group_37.display_group_3.autre_engrais_mineral",
               "_dynamicFields": {
                 "value": [
                   {
@@ -1310,18 +1776,30 @@
             }
           ],
           "name": "display_group_3",
-          "_nested_name": "display_group_32.display_group_3"
+          "_nested_name": "display_group_37.display_group_3"
         },
         {
-          "type": "html",
-          "value": "<span style=\"color: red; font-size: 17px;\">La sélection est obligatoire !</span>",
+          "type": "text",
+          "value": "@global.select_warring",
           "_translations": {
             "value": {}
           },
           "condition": "@fields.attempt_submit_p13 && !@fields.autre_engrais_mineral",
-          "name": "html_4",
-          "_nested_name": "display_group_32.html_4",
+          "style_list": [
+            "color: red",
+            "font-size: 13px"
+          ],
+          "name": "text_4",
+          "_nested_name": "display_group_37.text_4",
           "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.select_warring",
+                "matchedExpression": "@global.select_warring",
+                "type": "global",
+                "fieldName": "select_warring"
+              }
+            ],
             "condition": [
               {
                 "fullExpression": "@fields.attempt_submit_p13 && !@fields.autre_engrais_mineral",
@@ -1338,6 +1816,9 @@
             ]
           },
           "_dynamicDependencies": {
+            "@global.select_warring": [
+              "value"
+            ],
             "@fields.attempt_submit_p13": [
               "condition"
             ],
@@ -1347,8 +1828,8 @@
           }
         }
       ],
-      "name": "display_group_32",
-      "_nested_name": "display_group_32",
+      "name": "display_group_37",
+      "_nested_name": "display_group_37",
       "_dynamicFields": {
         "condition": [
           {
@@ -1376,13 +1857,33 @@
       ],
       "rows": [
         {
-          "type": "html",
-          "value": "<label style=\"color: #1e3656;font-size: 17px ;font-weight: bold;\"><span style=\"color: red;\">*</span> Nom de l'autre engrais :</label>",
+          "type": "text",
+          "value": "@global.name_other_engrais",
           "_translations": {
             "value": {}
           },
-          "name": "html_1",
-          "_nested_name": "display_group_34.html_1"
+          "style_list": [
+            "color: #1e3656",
+            "font-size: 17px",
+            "font-weight: bold"
+          ],
+          "name": "text_1",
+          "_nested_name": "display_group_39.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.name_other_engrais",
+                "matchedExpression": "@global.name_other_engrais",
+                "type": "global",
+                "fieldName": "name_other_engrais"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.name_other_engrais": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",
@@ -1392,11 +1893,11 @@
             "src": "audio/Superficie/nom_autre_engrais_fr.mp3",
             "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
-          "_nested_name": "display_group_34.audio_13_2"
+          "_nested_name": "display_group_39.audio_13_2"
         }
       ],
-      "name": "display_group_34",
-      "_nested_name": "display_group_34",
+      "name": "display_group_39",
+      "_nested_name": "display_group_39",
       "_dynamicFields": {
         "condition": [
           {
@@ -1492,13 +1993,33 @@
       ],
       "rows": [
         {
-          "type": "html",
-          "value": "<label style=\"color: #1e3656; font-weight: bold;font-size: 17px;margin-top: 12px; display: block;\"><span style=\"color: red;\">*</span> Quantité apportée (sacs de 50kg) :</label>",
+          "type": "text",
+          "value": "@global.qtite_sac",
           "_translations": {
             "value": {}
           },
-          "name": "html_1",
-          "_nested_name": "display_group_37.html_1"
+          "style_list": [
+            "color: #1e3656",
+            "font-size: 17px",
+            "font-weight: bold"
+          ],
+          "name": "text_1",
+          "_nested_name": "display_group_42.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.qtite_sac",
+                "matchedExpression": "@global.qtite_sac",
+                "type": "global",
+                "fieldName": "qtite_sac"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.qtite_sac": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",
@@ -1508,11 +2029,11 @@
             "src": "audio/Superficie/qte_autre_engrais_fr.mp3",
             "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
-          "_nested_name": "display_group_37.audio_13_2"
+          "_nested_name": "display_group_42.audio_13_2"
         }
       ],
-      "name": "display_group_37",
-      "_nested_name": "display_group_37",
+      "name": "display_group_42",
+      "_nested_name": "display_group_42",
       "_dynamicFields": {
         "condition": [
           {
@@ -1598,15 +2119,27 @@
       }
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: red; font-size: 12px;\">Veuillez entrer une quantité valide (nombre positif ou 0) !</span>",
+      "type": "text",
+      "value": "@global.message_quant",
       "_translations": {
         "value": {}
       },
       "condition": "@fields.attempt_submit_p13 && (!@fields.quantite_autre_engrais || !/^\\d+(\\.\\d+)?$/.test(@fields.quantite_autre_engrais))",
-      "name": "html_40",
-      "_nested_name": "html_40",
+      "style_list": [
+        "color: red",
+        "font-size: 13px"
+      ],
+      "name": "text_45",
+      "_nested_name": "text_45",
       "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.message_quant",
+            "matchedExpression": "@global.message_quant",
+            "type": "global",
+            "fieldName": "message_quant"
+          }
+        ],
         "condition": [
           {
             "fullExpression": "@fields.attempt_submit_p13 && (!@fields.quantite_autre_engrais || !/^\\d+(\\.\\d+)?$/.test(@fields.quantite_autre_engrais))",
@@ -1629,6 +2162,9 @@
         ]
       },
       "_dynamicDependencies": {
+        "@global.message_quant": [
+          "value"
+        ],
         "@fields.attempt_submit_p13": [
           "condition"
         ],
@@ -1665,7 +2201,7 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "display_group_41.page13_button_back"
+          "_nested_name": "display_group_46.page13_button_back"
         },
         {
           "type": "button",
@@ -1689,18 +2225,18 @@
               "action_id": "set_field",
               "args": [
                 "@calc('qte_npk_coton_parcelle_N' + @fields.num_parcelle)",
-                "@fields.quantite_npk_coton"
+                "@fields.quantite_npk_coton_14_18_18"
               ],
-              "_raw": "click | set_field: @calc('qte_npk_coton_parcelle_N' + @fields.num_parcelle) : @fields.quantite_npk_coton"
+              "_raw": "click | set_field: @calc('qte_npk_coton_parcelle_N' + @fields.num_parcelle) : @fields.quantite_npk_coton_14_18_18"
             },
             {
               "trigger": "click",
               "action_id": "set_field",
               "args": [
                 "@calc('qte_npk_cereale_parcelle_N' + @fields.num_parcelle)",
-                "@fields.quantite_npk_cereale"
+                "@fields.quantite_npk_cereale_15_15_15"
               ],
-              "_raw": "click | set_field: @calc('qte_npk_cereale_parcelle_N' + @fields.num_parcelle) : @fields.quantite_npk_cereale"
+              "_raw": "click | set_field: @calc('qte_npk_cereale_parcelle_N' + @fields.num_parcelle) : @fields.quantite_npk_cereale_15_15_15"
             },
             {
               "trigger": "click",
@@ -1754,7 +2290,7 @@
                 "attempt_submit_p13",
                 false
               ],
-              "_raw": "click | set_field: attempt_submit_p13: false"
+              "_raw": "click | set_field: attempt_submit_p13 : false"
             },
             {
               "trigger": "click",
@@ -1771,7 +2307,7 @@
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "display_group_41.page13_button_continue",
+          "_nested_name": "display_group_46.page13_button_continue",
           "_dynamicFields": {
             "action_list": {
               "0": {
@@ -1832,25 +2368,25 @@
                   ],
                   "1": [
                     {
-                      "fullExpression": "@fields.quantite_npk_coton",
-                      "matchedExpression": "@fields.quantite_npk_coton",
+                      "fullExpression": "@fields.quantite_npk_coton_14_18_18",
+                      "matchedExpression": "@fields.quantite_npk_coton_14_18_18",
                       "type": "fields",
-                      "fieldName": "quantite_npk_coton"
+                      "fieldName": "quantite_npk_coton_14_18_18"
                     }
                   ]
                 },
                 "_raw": [
                   {
-                    "fullExpression": "click | set_field: @calc('qte_npk_coton_parcelle_N' + @fields.num_parcelle) : @fields.quantite_npk_coton",
+                    "fullExpression": "click | set_field: @calc('qte_npk_coton_parcelle_N' + @fields.num_parcelle) : @fields.quantite_npk_coton_14_18_18",
                     "matchedExpression": "@fields.num_parcelle",
                     "type": "fields",
                     "fieldName": "num_parcelle"
                   },
                   {
-                    "fullExpression": "click | set_field: @calc('qte_npk_coton_parcelle_N' + @fields.num_parcelle) : @fields.quantite_npk_coton",
-                    "matchedExpression": "@fields.quantite_npk_coton",
+                    "fullExpression": "click | set_field: @calc('qte_npk_coton_parcelle_N' + @fields.num_parcelle) : @fields.quantite_npk_coton_14_18_18",
+                    "matchedExpression": "@fields.quantite_npk_coton_14_18_18",
                     "type": "fields",
-                    "fieldName": "quantite_npk_coton"
+                    "fieldName": "quantite_npk_coton_14_18_18"
                   }
                 ]
               },
@@ -1872,25 +2408,25 @@
                   ],
                   "1": [
                     {
-                      "fullExpression": "@fields.quantite_npk_cereale",
-                      "matchedExpression": "@fields.quantite_npk_cereale",
+                      "fullExpression": "@fields.quantite_npk_cereale_15_15_15",
+                      "matchedExpression": "@fields.quantite_npk_cereale_15_15_15",
                       "type": "fields",
-                      "fieldName": "quantite_npk_cereale"
+                      "fieldName": "quantite_npk_cereale_15_15_15"
                     }
                   ]
                 },
                 "_raw": [
                   {
-                    "fullExpression": "click | set_field: @calc('qte_npk_cereale_parcelle_N' + @fields.num_parcelle) : @fields.quantite_npk_cereale",
+                    "fullExpression": "click | set_field: @calc('qte_npk_cereale_parcelle_N' + @fields.num_parcelle) : @fields.quantite_npk_cereale_15_15_15",
                     "matchedExpression": "@fields.num_parcelle",
                     "type": "fields",
                     "fieldName": "num_parcelle"
                   },
                   {
-                    "fullExpression": "click | set_field: @calc('qte_npk_cereale_parcelle_N' + @fields.num_parcelle) : @fields.quantite_npk_cereale",
-                    "matchedExpression": "@fields.quantite_npk_cereale",
+                    "fullExpression": "click | set_field: @calc('qte_npk_cereale_parcelle_N' + @fields.num_parcelle) : @fields.quantite_npk_cereale_15_15_15",
+                    "matchedExpression": "@fields.quantite_npk_cereale_15_15_15",
                     "type": "fields",
-                    "fieldName": "quantite_npk_cereale"
+                    "fieldName": "quantite_npk_cereale_15_15_15"
                   }
                 ]
               },
@@ -2135,14 +2671,14 @@
             "@calc('qte_npk_coton_parcelle_N' + @fields.num_parcelle)": [
               "action_list.1.args.0"
             ],
-            "@fields.quantite_npk_coton": [
+            "@fields.quantite_npk_coton_14_18_18": [
               "action_list.1.args.1",
               "action_list.1._raw"
             ],
             "@calc('qte_npk_cereale_parcelle_N' + @fields.num_parcelle)": [
               "action_list.2.args.0"
             ],
-            "@fields.quantite_npk_cereale": [
+            "@fields.quantite_npk_cereale_15_15_15": [
               "action_list.2.args.1",
               "action_list.2._raw"
             ],
@@ -2187,8 +2723,8 @@
           }
         }
       ],
-      "name": "display_group_41",
-      "_nested_name": "display_group_41"
+      "name": "display_group_46",
+      "_nested_name": "display_group_46"
     }
   ],
   "_source": {

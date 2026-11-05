@@ -52,38 +52,31 @@
       }
     },
     {
-      "type": "display_group",
-      "rows": [
-        {
-          "type": "html",
-          "name": "invest_maison_label",
-          "value": "<span style=\"color: red;\">*</span> @global.invest_maison_label",
-          "_translations": {
-            "value": {}
-          },
-          "style_list": [
-            "font-size:20px"
-          ],
-          "_nested_name": "display_group_4.invest_maison_label",
-          "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "<span style=\"color: red;\">*</span> @global.invest_maison_label",
-                "matchedExpression": "@global.invest_maison_label",
-                "type": "global",
-                "fieldName": "invest_maison_label"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@global.invest_maison_label": [
-              "value"
-            ]
-          }
-        }
+      "type": "subtitle",
+      "name": "invest_maison_label",
+      "value": "@global.invest_maison_label",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "font-size:20px"
       ],
-      "name": "display_group_4",
-      "_nested_name": "display_group_4"
+      "_nested_name": "invest_maison_label",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.invest_maison_label",
+            "matchedExpression": "@global.invest_maison_label",
+            "type": "global",
+            "fieldName": "invest_maison_label"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.invest_maison_label": [
+          "value"
+        ]
+      }
     },
     {
       "type": "image",
@@ -97,8 +90,8 @@
         "object-fit:contain",
         "flex-shrink:0"
       ],
-      "name": "image_6",
-      "_nested_name": "image_6"
+      "name": "image_5",
+      "_nested_name": "image_5"
     },
     {
       "type": "text",
@@ -110,8 +103,8 @@
         "color: gray",
         "font-size: 16px"
       ],
-      "name": "text_7",
-      "_nested_name": "text_7",
+      "name": "text_6",
+      "_nested_name": "text_6",
       "_dynamicFields": {
         "value": [
           {
@@ -147,7 +140,8 @@
         }
       ],
       "parameter_list": {
-        "number_input": "true"
+        "number_input": "true",
+        "placeholder": "@global.texte_placeholder"
       },
       "_nested_name": "invest_maison",
       "_dynamicFields": {
@@ -158,11 +152,24 @@
             "type": "fields",
             "fieldName": "invest_maison"
           }
-        ]
+        ],
+        "parameter_list": {
+          "placeholder": [
+            {
+              "fullExpression": "@global.texte_placeholder",
+              "matchedExpression": "@global.texte_placeholder",
+              "type": "global",
+              "fieldName": "texte_placeholder"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@fields.invest_maison": [
           "value"
+        ],
+        "@global.texte_placeholder": [
+          "parameter_list.placeholder"
         ]
       }
     },
@@ -268,38 +275,31 @@
       }
     },
     {
-      "type": "display_group",
-      "rows": [
-        {
-          "type": "html",
-          "name": "invest_mariage_label",
-          "value": "<span style=\"color: red;\">*</span> @global.invest_mariage_label",
-          "_translations": {
-            "value": {}
-          },
-          "style_list": [
-            "font-size:20px"
-          ],
-          "_nested_name": "display_group_11.invest_mariage_label",
-          "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "<span style=\"color: red;\">*</span> @global.invest_mariage_label",
-                "matchedExpression": "@global.invest_mariage_label",
-                "type": "global",
-                "fieldName": "invest_mariage_label"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@global.invest_mariage_label": [
-              "value"
-            ]
-          }
-        }
+      "type": "subtitle",
+      "name": "invest_mariage_label",
+      "value": "@global.invest_mariage_label",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "font-size:20px"
       ],
-      "name": "display_group_11",
-      "_nested_name": "display_group_11"
+      "_nested_name": "invest_mariage_label",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.invest_mariage_label",
+            "matchedExpression": "@global.invest_mariage_label",
+            "type": "global",
+            "fieldName": "invest_mariage_label"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.invest_mariage_label": [
+          "value"
+        ]
+      }
     },
     {
       "type": "image",
@@ -313,8 +313,8 @@
         "object-fit:contain",
         "flex-shrink:0"
       ],
-      "name": "image_13",
-      "_nested_name": "image_13"
+      "name": "image_11",
+      "_nested_name": "image_11"
     },
     {
       "type": "text",
@@ -326,8 +326,8 @@
         "color: gray",
         "font-size: 16px"
       ],
-      "name": "text_14",
-      "_nested_name": "text_14",
+      "name": "text_12",
+      "_nested_name": "text_12",
       "_dynamicFields": {
         "value": [
           {
@@ -363,7 +363,8 @@
         }
       ],
       "parameter_list": {
-        "number_input": "true"
+        "number_input": "true",
+        "placeholder": "@global.texte_placeholder"
       },
       "_nested_name": "invest_mariage",
       "_dynamicFields": {
@@ -374,11 +375,24 @@
             "type": "fields",
             "fieldName": "invest_mariage"
           }
-        ]
+        ],
+        "parameter_list": {
+          "placeholder": [
+            {
+              "fullExpression": "@global.texte_placeholder",
+              "matchedExpression": "@global.texte_placeholder",
+              "type": "global",
+              "fieldName": "texte_placeholder"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@fields.invest_mariage": [
           "value"
+        ],
+        "@global.texte_placeholder": [
+          "parameter_list.placeholder"
         ]
       }
     },
@@ -484,38 +498,31 @@
       }
     },
     {
-      "type": "display_group",
-      "rows": [
-        {
-          "type": "html",
-          "name": "invest_equipment_label",
-          "value": "<span style=\"color: red;\">*</span> @global.invest_equipment_label",
-          "_translations": {
-            "value": {}
-          },
-          "style_list": [
-            "font-size:20px"
-          ],
-          "_nested_name": "display_group_18.invest_equipment_label",
-          "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "<span style=\"color: red;\">*</span> @global.invest_equipment_label",
-                "matchedExpression": "@global.invest_equipment_label",
-                "type": "global",
-                "fieldName": "invest_equipment_label"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@global.invest_equipment_label": [
-              "value"
-            ]
-          }
-        }
+      "type": "subtitle",
+      "name": "invest_equipment_label",
+      "value": "@global.invest_equipment_label",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "font-size:20px"
       ],
-      "name": "display_group_18",
-      "_nested_name": "display_group_18"
+      "_nested_name": "invest_equipment_label",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.invest_equipment_label",
+            "matchedExpression": "@global.invest_equipment_label",
+            "type": "global",
+            "fieldName": "invest_equipment_label"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.invest_equipment_label": [
+          "value"
+        ]
+      }
     },
     {
       "type": "image",
@@ -529,8 +536,8 @@
         "object-fit:contain",
         "flex-shrink:0"
       ],
-      "name": "image_20",
-      "_nested_name": "image_20"
+      "name": "image_17",
+      "_nested_name": "image_17"
     },
     {
       "type": "text",
@@ -542,8 +549,8 @@
         "color: gray",
         "font-size: 16px"
       ],
-      "name": "text_21",
-      "_nested_name": "text_21",
+      "name": "text_18",
+      "_nested_name": "text_18",
       "_dynamicFields": {
         "value": [
           {
@@ -570,8 +577,8 @@
         "color: gray",
         "font-size: 16px"
       ],
-      "name": "text_22",
-      "_nested_name": "text_22",
+      "name": "text_19",
+      "_nested_name": "text_19",
       "_dynamicFields": {
         "value": [
           {
@@ -607,7 +614,8 @@
         }
       ],
       "parameter_list": {
-        "number_input": "true"
+        "number_input": "true",
+        "placeholder": "@global.texte_placeholder"
       },
       "_nested_name": "invest_equipment",
       "_dynamicFields": {
@@ -618,11 +626,24 @@
             "type": "fields",
             "fieldName": "invest_equipment"
           }
-        ]
+        ],
+        "parameter_list": {
+          "placeholder": [
+            {
+              "fullExpression": "@global.texte_placeholder",
+              "matchedExpression": "@global.texte_placeholder",
+              "type": "global",
+              "fieldName": "texte_placeholder"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@fields.invest_equipment": [
           "value"
+        ],
+        "@global.texte_placeholder": [
+          "parameter_list.placeholder"
         ]
       }
     },
@@ -689,8 +710,8 @@
         "padding: 5px",
         "margin-top:10px"
       ],
-      "name": "text_25",
-      "_nested_name": "text_25",
+      "name": "text_22",
+      "_nested_name": "text_22",
       "_dynamicFields": {
         "value": [
           {

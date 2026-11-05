@@ -7,25 +7,25 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "text",
-          "value": "**Comptes prévisionnels des cultures : @fields.culture_list_all**",
+          "type": "subtitle",
+          "value": "@global.compte_prev_culture",
           "_translations": {
             "value": {}
           },
-          "name": "text_1",
-          "_nested_name": "display_group_2.text_1",
+          "name": "subtitle_1",
+          "_nested_name": "display_group_2.subtitle_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "**Comptes prévisionnels des cultures : @fields.culture_list_all**",
-                "matchedExpression": "@fields.culture_list_all",
-                "type": "fields",
-                "fieldName": "culture_list_all"
+                "fullExpression": "@global.compte_prev_culture",
+                "matchedExpression": "@global.compte_prev_culture",
+                "type": "global",
+                "fieldName": "compte_prev_culture"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@fields.culture_list_all": [
+            "@global.compte_prev_culture": [
               "value"
             ]
           }
@@ -49,7 +49,7 @@
     },
     {
       "type": "text",
-      "value": "**Les coûts totaux prévisionnels des cultures: @fields.couts_globaux_prevus_cultures drm, soit @fields.couts_globaux_prevus_cultures_fcfa FCFA**",
+      "value": "@global.cout_globaux_prev",
       "_translations": {
         "value": {}
       },
@@ -69,24 +69,15 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "**Les coûts totaux prévisionnels des cultures: @fields.couts_globaux_prevus_cultures drm, soit @fields.couts_globaux_prevus_cultures_fcfa FCFA**",
-            "matchedExpression": "@fields.couts_globaux_prevus_cultures",
-            "type": "fields",
-            "fieldName": "couts_globaux_prevus_cultures"
-          },
-          {
-            "fullExpression": "**Les coûts totaux prévisionnels des cultures: @fields.couts_globaux_prevus_cultures drm, soit @fields.couts_globaux_prevus_cultures_fcfa FCFA**",
-            "matchedExpression": "@fields.couts_globaux_prevus_cultures_fcfa",
-            "type": "fields",
-            "fieldName": "couts_globaux_prevus_cultures_fcfa"
+            "fullExpression": "@global.cout_globaux_prev",
+            "matchedExpression": "@global.cout_globaux_prev",
+            "type": "global",
+            "fieldName": "cout_globaux_prev"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.couts_globaux_prevus_cultures": [
-          "value"
-        ],
-        "@fields.couts_globaux_prevus_cultures_fcfa": [
+        "@global.cout_globaux_prev": [
           "value"
         ]
       }
@@ -111,16 +102,43 @@
         },
         {
           "type": "text",
-          "value": "*1 drm=5 FCFA*",
+          "value": "@global.drm_cfa_hint",
           "_translations": {
             "value": {}
           },
           "style_list": [
-            "color: gray",
-            "font-size: 16px"
+            "@global.hint_style"
           ],
           "name": "text_2",
-          "_nested_name": "display_group_5.text_2"
+          "_nested_name": "display_group_5.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.drm_cfa_hint",
+                "matchedExpression": "@global.drm_cfa_hint",
+                "type": "global",
+                "fieldName": "drm_cfa_hint"
+              }
+            ],
+            "style_list": {
+              "0": [
+                {
+                  "fullExpression": "@global.hint_style",
+                  "matchedExpression": "@global.hint_style",
+                  "type": "global",
+                  "fieldName": "hint_style"
+                }
+              ]
+            }
+          },
+          "_dynamicDependencies": {
+            "@global.drm_cfa_hint": [
+              "value"
+            ],
+            "@global.hint_style": [
+              "style_list.0"
+            ]
+          }
         }
       ],
       "name": "display_group_5",
@@ -128,7 +146,7 @@
     },
     {
       "type": "text",
-      "value": "La superficie totale à labourer par prestation: **@fields.total_superficie_prevue_labour ha**",
+      "value": "@global.superficie_total_prestation",
       "_translations": {
         "value": {}
       },
@@ -148,15 +166,15 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "La superficie totale à labourer par prestation: **@fields.total_superficie_prevue_labour ha**",
-            "matchedExpression": "@fields.total_superficie_prevue_labour",
-            "type": "fields",
-            "fieldName": "total_superficie_prevue_labour"
+            "fullExpression": "@global.superficie_total_prestation",
+            "matchedExpression": "@global.superficie_total_prestation",
+            "type": "global",
+            "fieldName": "superficie_total_prestation"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.total_superficie_prevue_labour": [
+        "@global.superficie_total_prestation": [
           "value"
         ]
       }
@@ -181,16 +199,43 @@
         },
         {
           "type": "text",
-          "value": "*1 drm=5 FCFA*",
+          "value": "@global.drm_cfa_hint",
           "_translations": {
             "value": {}
           },
           "style_list": [
-            "color: gray",
-            "font-size: 16px"
+            "@global.hint_style"
           ],
           "name": "text_2",
-          "_nested_name": "display_group_8.text_2"
+          "_nested_name": "display_group_8.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.drm_cfa_hint",
+                "matchedExpression": "@global.drm_cfa_hint",
+                "type": "global",
+                "fieldName": "drm_cfa_hint"
+              }
+            ],
+            "style_list": {
+              "0": [
+                {
+                  "fullExpression": "@global.hint_style",
+                  "matchedExpression": "@global.hint_style",
+                  "type": "global",
+                  "fieldName": "hint_style"
+                }
+              ]
+            }
+          },
+          "_dynamicDependencies": {
+            "@global.drm_cfa_hint": [
+              "value"
+            ],
+            "@global.hint_style": [
+              "style_list.0"
+            ]
+          }
         }
       ],
       "name": "display_group_8",
@@ -254,7 +299,7 @@
   ],
   "_source": {
     "name": "cef_m sheets",
-    "path": "template/Planification/Cultures_form_sheets.xlsx",
+    "path": "template/Planification/cultures_form_sheets.xlsx",
     "url": "https://docs.google.com/spreadsheets/d/1BAP12cPkFZaHtm0Xozys0kLOqnVOi1h2UUBMoZbmKQI"
   }
 }

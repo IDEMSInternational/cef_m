@@ -5,7 +5,7 @@
   "rows": [
     {
       "type": "title",
-      "value": "VARIÉTÉ DE LA CULTURE"
+      "value": "VARIETE UTILISEE DANS LA PARCELLE N° @fields.num_parcelle de *@fields.nom_champ*"
     },
     {
       "name": "attempt_submit_p8",
@@ -32,8 +32,9 @@
       "style_list": "display: block; width: 100%;"
     },
     {
-      "type": "html",
-      "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Sélectionnez la variété cultivée (@fields.cult_princip) :</label>"
+      "type": "text",
+      "value": "@global.title_page7",
+      "style_list": "color: #1e3656; font-weight: bold;"
     },
     {
       "type": "audio",
@@ -52,9 +53,10 @@
       "parameter_list": "answer_list: @data.type_variete; \nvariant: flex; item_width: 110px; grid_gap: 10px; style: secondary;"
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: red; font-size: 13px;\">La réponse est obligatoire ! </span>",
-      "condition": "@fields.attempt_submit_p8 && !@fields.variete_semence"
+      "type": "text",
+      "value": "@global.warning_message",
+      "condition": "@fields.attempt_submit_p8 && !@fields.variete_semence",
+      "style_list": "color: red; font-size: 13px;"
     },
     {
       "type": "begin_display_group",
@@ -62,8 +64,9 @@
       "style_list": "display: block; width: 100%;"
     },
     {
-      "type": "html",
-      "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Écrivez le nom de la variété :</label>"
+      "type": "text",
+      "value": "@global.n_variete",
+      "style_list": "color: #1e3656; font-weight: bold;"
     },
     {
       "type": "audio",
@@ -82,17 +85,19 @@
       "type": "end_display_group"
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: red; font-size: 13px;\">Veuillez préciser le nom !</span>",
-      "condition": "@fields.attempt_submit_p8 && @local.is_autre_variete && !@fields.nom_autre_variete"
+      "type": "text",
+      "value": "@global.error_n_variete",
+      "condition": "@fields.attempt_submit_p8 && @local.is_autre_variete && !@fields.nom_autre_variete",
+      "style_list": "color: red; font-size: 13px;"
     },
     {
       "type": "begin_display_group",
       "style_list": "display: block; width: 100%; margin-top: 15px;"
     },
     {
-      "type": "html",
-      "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Sélectionnez le type de la variété <b>@local.variete_semence</b> :</label>"
+      "type": "text",
+      "value": "@global.type_n_variete",
+      "style_list": "color: #1e3656; font-weight: bold;"
     },
     {
       "type": "audio",
@@ -111,9 +116,10 @@
       "parameter_list": "answer_list: @data.type_variete; variant: flex; item_width: 120px; grid_gap: 10px;"
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: red; font-size: 13px;\">Sélection obligatoire ! </span>",
-      "condition": "@fields.attempt_submit_p8 && !@fields.type_variete_culture"
+      "type": "text",
+      "value": "@global.select_warring",
+      "condition": "@fields.attempt_submit_p8 && !@fields.type_variete_culture",
+      "style_list": "color: red; font-size: 13px;"
     },
     {
       "type": "begin_display_group",
@@ -125,8 +131,9 @@
       "type": "begin_display_group"
     },
     {
-      "type": "html",
-      "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Sélectionnez la source de la variété <b>@local.nom_variete</b> :</label>"
+      "type": "text",
+      "value": "@global.select_source",
+      "style_list": "color: #1e3656; font-weight: bold"
     },
     {
       "type": "audio",
@@ -145,9 +152,10 @@
       "parameter_list": "answer_list: @data.source_semence; variant: list;"
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: red; font-size: 13px;\">Sélection obligatoire !</span>",
-      "condition": "@fields.attempt_submit_p8 && !@fields.source_semence_culture"
+      "type": "text",
+      "value": "@global.select_warring",
+      "condition": "@fields.attempt_submit_p8 && !@fields.source_semence_culture",
+      "style_list": "color: red; font-size: 13px;"
     },
     {
       "type": "end_display_group"
@@ -158,8 +166,8 @@
       "style_list": "display: block; width: 100%;"
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: red;\">*</span> Écrivez le nom \"autre source\" de la semence :"
+      "type": "text",
+      "value": "@global.other_source"
     },
     {
       "type": "audio",
@@ -177,9 +185,10 @@
       "condition": "@fields.source_semence_culture == 'semence_autre_source'"
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: red; font-size: 13px;\">La réponse est obligatoire !</span>",
-      "condition": "@fields.attempt_submit_p8 && @fields.source_semence_culture == 'semence_autre_source' && !@fields.autre_source_semence_culture"
+      "type": "text",
+      "value": "@global.warning_message ",
+      "condition": "@fields.attempt_submit_p8 && @fields.source_semence_culture == 'semence_autre_source' && !@fields.autre_source_semence_culture",
+      "style_list": "color: red; font-size: 13px;"
     },
     {
       "type": "begin_display_group",

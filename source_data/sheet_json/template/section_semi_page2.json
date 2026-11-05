@@ -13,8 +13,9 @@
       "style_list": "display: flex; flex-direction: row; align-items: center; justify-content: flex-start; width: 100%; margin-top: 15px; gap: 10px;"
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: #d71920; font-weight: bold; margin-right: 4px;\">*</span><span style=\"color: #333333; font-weight: 600; font-size: 18px;\">1. Sélectionnez vos culture(s) principales</span>"
+      "type": "text",
+      "value": "@global.primary_crops_label",
+      "style_list": "font-weight: 600; font-size: 18px; color: #333333; flex: 1;"
     },
     {
       "type": "audio",
@@ -28,7 +29,7 @@
     },
     {
       "type": "text",
-      "value": "*Les cultures principales sont des cultures dominantes faites par l'UPA sur des grandes superficies avec plus d'investissement en main d'oeuvre et intrants*",
+      "value": "@global.primary_crops_hint",
       "style_list": "font-style: italic; color: #666666; font-size: 13px; margin-bottom: 15px;"
     },
     {
@@ -72,8 +73,9 @@
       "type": "begin_display_group"
     },
     {
-      "type": "html",
-      "value": "<br><span style=\"color: red;\">*</span>Ecrivez le nom de l'autre culture primaire 1\n"
+      "type": "text",
+      "value": "@global.sc_name_1_label",
+      "style_list": "font-size: 14px; font-weight: 600; color: #333333; flex: 1;"
     },
     {
       "type": "audio",
@@ -86,7 +88,7 @@
     },
     {
       "type": "text",
-      "value": "*Il s'agit d'une culture qui n'existe pas dans la liste des cultures ci-dessus*",
+      "value": "@global.primay_crops_sc",
       "style_list": "font-size: 12px; color: #718096; font-style: italic;"
     },
     {
@@ -103,13 +105,13 @@
     },
     {
       "type": "text",
-      "value": "*La réponse est obligatoire, aucune valeur n'a été donnée!*",
+      "value": "@global.error_required_answer",
       "condition": "@calc(@field.cul_autre_1 && (@field.autre_culture_primaire_1 == '' || @field.autre_culture_primaire_1 == null))",
       "style_list": "color: #d71920; font-size: 12px; font-weight: bold; margin-top: 4px;"
     },
     {
       "type": "text",
-      "value": "*Cette culture existe déjà dans la liste standard !*",
+      "value": "@global.list_crops_exist\n",
       "condition": "@calc(@field.cul_autre_1 && !!@field.autre_culture_primaire_1 && ['mais','mil','sorgho','coton','arachide','fourrage'].includes(@field.autre_culture_primaire_1.toLowerCase().trim()))",
       "style_list": "color: #d71920; font-size: 12px; font-weight: bold; margin-top: 4px;"
     },
@@ -127,8 +129,9 @@
       "type": "begin_display_group"
     },
     {
-      "type": "html",
-      "value": "<br><span style=\"color: red;\">*</span>Ecrivez le nom de l'autre culture primaire 2"
+      "type": "text",
+      "value": "@global.sc_name_2_label",
+      "style_list": "font-size: 14px; font-weight: 600; color: #333333; flex: 1;"
     },
     {
       "type": "audio",
@@ -141,7 +144,7 @@
     },
     {
       "type": "text",
-      "value": "*Il s'agit d'une culture qui n'existe pas dans la liste des cultures ci-dessus*",
+      "value": "@global.primay_crops_sc",
       "style_list": "font-size: 12px; color: #718096; font-style: italic;"
     },
     {
@@ -158,13 +161,13 @@
     },
     {
       "type": "text",
-      "value": "*La réponse est obligatoire, aucune valeur n'a été donnée!*",
+      "value": "@global.error_required_answer",
       "condition": "@calc(@field.cul_autre_2 && @local.v_autre_1_clean_ok && (@field.autre_culture_primaire_2 == '' || @field.autre_culture_primaire_2 == null))",
       "style_list": "color: #d71920; font-size: 12px; font-weight: bold; margin-top: 4px;"
     },
     {
       "type": "text",
-      "value": "*Cette culture existe déjà dans la liste standard ou est identique à la première !*",
+      "value": "@global.list_crops_exist_primary",
       "condition": "@calc(@field.cul_autre_2 && !!@field.autre_culture_primaire_2 && (['mais','mil','sorgho','coton','arachide','fourrage'].includes(@field.autre_culture_primaire_2.toLowerCase().trim()) || (!!@field.autre_culture_primaire_1 && @field.autre_culture_primaire_1.toLowerCase().trim() == @field.autre_culture_primaire_2.toLowerCase().trim())))",
       "style_list": "color: #d71920; font-size: 12px; font-weight: bold; margin-top: 4px;"
     },
@@ -174,7 +177,7 @@
     {
       "type": "text",
       "name": "error_select",
-      "value": "*Veuillez sélectionner au moins une culture pour continuer*!",
+      "value": "@global.error_required_answer",
       "condition": "!@local.completed_enabled",
       "style_list": "color: #d71920; background: #fff5f5; padding: 12px; font-size: 13px; margin-top: 15px; text-align: center; font-weight: 600;"
     },
@@ -216,6 +219,7 @@
       "value": "Continuer",
       "action_list": "click | set_field: selected_cultures_list : @local.v_list_prim.join(',');\nclick | set_field: total_cultures_selected : @local.v_list_prim.length;\nclick | emit: completed",
       "parameter_list": "disabled: !@local.completed_enabled",
+      "condition": "@local.v_list_prim.length > 0",
       "style_list": "flex: 1"
     },
     {

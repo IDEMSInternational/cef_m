@@ -32,7 +32,9 @@
       "name": "hint_price",
       "value": "1 drm = 5 FCFA",
       "_translations": {
-        "value": {}
+        "value": {
+          "ml_bm": true
+        }
       }
     },
     {
@@ -54,7 +56,7 @@
     {
       "type": "declare_global_constant",
       "name": "depenses_condiments",
-      "value": "**DEPENSES DE CONDIMENTS DE L'ANNEE PROCHAINE DE L'UPA**",
+      "value": "DEPENSES DE CONDIMENTS DE L'ANNEE PROCHAINE DE L'UPA",
       "_translations": {
         "value": {}
       }
@@ -94,7 +96,7 @@
     {
       "type": "declare_global_constant",
       "name": "depense_sante",
-      "value": "**DEPENSES DE SANTE DE L'ANNEE PROCHAINE DE L'UPA**",
+      "value": "DEPENSES DE SANTE DE L'ANNEE PROCHAINE DE L'UPA",
       "_translations": {
         "value": {}
       }
@@ -165,11 +167,222 @@
     },
     {
       "type": "declare_global_constant",
+      "name": "depense_upa_title",
+      "value": "DEPENSES DE L'UPA",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "montant_prev_condiment",
+      "value": "Montant prévisionnel des dépenses annuelles de condiments",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "montant_prev_sante",
+      "value": "Montant prévisionnel des dépenses annuelles de santé humaine",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "approche_estim_title",
+      "value": "Approche d'estimation des dépenses annuelles previsionnelles de l'éducation de l'UPA",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "enfant_scolarise",
+      "value": "Indiquez s'il y a des enfants de 7 à 25 ans de votre UPA qui sont scolarisés",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "niveau_scolaire_enfant",
+      "value": "Selectionnez les niveaux scolaires de fréquentation des enfants de 7 à 25 ans de votre UPA",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "nbre_enfant_niveau_scolaire",
+      "value": "Donnez le nombre d'enfants de l'UPA inscrit au @fields.niveau_text",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "frais_annuel_scolarite_note",
+      "value": "Donnez le frais annuel de scolarité d'un enfant au @fields.niveau_text en drm",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "frais_fourniture_note",
+      "value": "Donnez le frais annuel de fourniture scolaire d'un enfant au @fields.niveau_text en drm",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "frais_fourniture_hint",
+      "value": "Il s'agit des frais de fournitures scolaires (sac, ardoise, crayon, bic, livres, la craie, etc.) d'un enfant",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "frais_deplacement_note",
+      "value": "Donnez les frais quotidiens de déplacement aller-retour entre la maison et l'école d'un enfant du @fields.niveau_text en drm",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "frais_recreation_note",
+      "value": "Donnez le frais quotidien de récreation d'un enfant au @fields.niveau_text en drm",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "note_frais_education_enfants",
+      "value": "**Frais annuels des @fields.nombre_enfants enfants du @fields.niveau_text de l'UPA sont: **",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "frais_annuel_recre",
+      "value": "Les frais annuels de récréation sont calculés en multipliant les frais journaliers par 160 jours (5 jours par semaine pendant 8 mois)",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "frais_annuel_deplacement_hint",
+      "value": "Les frais annuels de déplacement sont calculés en multipliant les frais journaliers par 160 jours (5 jours par semaine pendant 8 mois)",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "scolarite_annuelle",
+      "value": "Scolarité annuelle",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "fourniture_scolaire",
+      "value": "Fourniture scolaire",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "transport_scolaire",
+      "value": "Transport scolaire",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "frais_recreation",
+      "value": "Frais récréation",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "frais_totaux_annuel_enfants",
+      "value": "**Frais totaux annuels des @fields.nombre_enfants enfants du @fields.niveau_text de l'UPA**",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
       "name": "montant_previsionnel_note",
       "value": "MONTANT PREVISIONNEL DE L'EDUCATION DES ENFANTS",
       "_translations": {
         "value": {}
       }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "frais_totaux_annuel_hint",
+      "value": "Frais totaux annuels de(s) enfants du @fields.select_niveau_scolaire",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "frais_totaux_niveau",
+      "value": "Frais totaux sont : @fields.totaux_frais_education drm",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "frais_totaux_niveau_enfants",
+      "value": "Frais totaux annuels sont :",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant"
+    },
+    {
+      "type": "declare_global_constant"
+    },
+    {
+      "type": "declare_global_constant"
+    },
+    {
+      "type": "declare_global_constant"
+    },
+    {
+      "type": "declare_global_constant"
+    },
+    {
+      "type": "declare_global_constant"
+    },
+    {
+      "type": "declare_global_constant"
+    },
+    {
+      "type": "declare_global_constant"
+    },
+    {
+      "type": "declare_global_constant"
     },
     {
       "type": "declare_global_constant",
@@ -293,7 +506,7 @@
     },
     {
       "type": "declare_global_constant",
-      "name": "autre_invest_yesno_note",
+      "name": "autre_invest_yesno_title",
       "value": "Indiquez s'il y a une autre investissement de l'UPA à prendre en compte",
       "_translations": {
         "value": {}
@@ -334,7 +547,7 @@
     {
       "type": "declare_global_constant",
       "name": "total_depenses_recurrentes",
-      "value": "Totaux des dépenses récurrentes de l'année (drm)",
+      "value": "Totaux des dépenses previsionnels récurrentes de l'année (drm)",
       "_translations": {
         "value": {}
       }
@@ -342,7 +555,7 @@
     {
       "type": "declare_global_constant",
       "name": "total_depenses_investissements",
-      "value": "Totaux des dépenses d'investissement de l'année (drm)",
+      "value": "Totaux des dépenses previsionnels d'investissement de l'année (drm)",
       "_translations": {
         "value": {}
       }
@@ -350,7 +563,7 @@
     {
       "type": "declare_global_constant",
       "name": "depenes_total_upa",
-      "value": "Dépenses totales de l'UPA de l'année (drm)",
+      "value": "Dépenses totales previsionnels de l'UPA de l'année (drm)",
       "_translations": {
         "value": {}
       }
@@ -358,14 +571,14 @@
     {
       "type": "declare_global_constant",
       "name": "error_required_answer",
-      "value": "La reponse est obligatoire, aucune valeur n'a été donnée!",
+      "value": "La reponse est obligatoire!",
       "_translations": {
         "value": {}
       }
     },
     {
       "type": "declare_global_constant",
-      "name": "observ_page_title",
+      "name": "depense_observ_page_title",
       "value": "OBSERVATIONS SUR LA PREVISION DES DEPENSES ET INVESTISSEMENTS DE L'UPA",
       "_translations": {
         "value": {}
@@ -439,6 +652,14 @@
       "type": "declare_global_constant",
       "name": "note_fin",
       "value": "Les autres formulaires de planification qui completent ce formulaire sont:\n\n- **l'alimentation humaine de l'UPA**;\n- **l'alimentation animale de l'UPA**;\n- **Fumure organique de l'UPA**.\n---\n\n**MERCI**",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "fin_form",
+      "value": "FIN DU FORMULAIRE",
       "_translations": {
         "value": {}
       }

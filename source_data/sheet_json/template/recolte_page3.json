@@ -8,44 +8,41 @@
       "value": "@calc(Number(@field.current_culture_index) + 1)"
     },
     {
+      "name": "v_needs_battage",
+      "value": "@calc(['mais', 'mil', 'sorgho', 'riz', 'fonio', 'sésame'].includes((@field.active_culture_name || '').toLowerCase().trim()))"
+    },
+    {
+      "name": "v_prod_fmt",
+      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.production))"
+    },
+    {
+      "name": "v_prod_err",
+      "value": "@calc(!@local.v_prod_fmt || Number(@field.production) < 0)"
+    },
+    {
+      "name": "v_batt_fmt",
+      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.cout_total_battage_nonzero))"
+    },
+    {
+      "name": "v_batt_err",
+      "value": "@calc(!@local.v_batt_fmt || Number(@field.cout_total_battage_nonzero) < 0)"
+    },
+    {
       "type": "begin_display_group",
       "name": "header",
       "style_list": "background: #00adcc; padding: 15px; border-radius: 0 0 15px 15px; margin-bottom: 20px;"
     },
     {
-      "type": "html",
-      "value": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>"
+      "type": "text",
+      "value": "CULTURE @local.v_current_human / @field.total_cultures_selected",
+      "style_list": "color: white; font-weight: bold; font-size: 14px; text-transform: uppercase;"
     },
     {
       "type": "end_display_group"
     },
     {
-      "name": "v_has_file",
-      "value": "@calc(['coton', 'mais', 'mil', 'sorgho', 'arachide', 'fourrage'].includes(@local.v_crop_clean))"
-    },
-    {
-      "name": "v_crop_clean",
-      "value": "@calc((@field.active_culture_name || '').toLowerCase().trim())"
-    },
-    {
-      "name": "v_res_fmt",
-      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.production_residu_culture))"
-    },
-    {
-      "name": "v_res_err",
-      "value": "@calc(!@local.v_res_fmt || Number(@field.production_residu_culture) < 0)"
-    },
-    {
-      "name": "v_fane_fmt",
-      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@field.nombre_botte))"
-    },
-    {
-      "name": "v_fane_err",
-      "value": "@calc(!@local.v_fane_fmt || Number(@field.nombre_botte) < 0)"
-    },
-    {
-      "type": "html",
-      "value": "<div style=\"color: black; font-weight: bold; font-size: 14px;\">VALORISATION DES RÉSIDUS</div>"
+      "type": "title",
+      "value": "2.PRODUCTION"
     },
     {
       "type": "begin_display_group",
@@ -54,50 +51,93 @@
     {
       "type": "image",
       "value": "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@field.active_culture_name || '').toLowerCase().trim()) ? 'images/' + @field.active_culture_name + '.jpg' : 'images/autre.jpeg')",
-      "style_list": "width: 100px; height: 100px;"
+      "style_list": "width: 60%; object-fit: contain;"
     },
     {
       "type": "text",
-      "value": "<h3 style='color: black; margin: 10px 0;'>Culture : <span style='color: #e3a730;'>@field.active_culture_name</span></h3>",
-      "style_list": "font-weight: bold; font-size: 18px;"
+      "value": "Culture : @field.active_culture_name",
+      "style_list": "font-weight: bold; font-size: 18px; color: #e3a730; margin-top: 10px; text-align: center;"
     },
     {
       "type": "end_display_group"
     },
     {
       "type": "begin_display_group",
-      "name": "grp_residus",
-      "condition": "@calc(@local.v_crop_clean == 'coton' || @local.v_crop_clean == 'mais' || @local.v_crop_clean == 'mil' || @local.v_crop_clean == 'sorgho')",
-      "style_list": "display: block; width: 100%"
+      "name": "prod",
+      "style_list": "display: block; width: 100%;"
     },
     {
       "type": "audio",
-      "name": "aud_residu",
-      "parameter_list": "variant: button_only;\nsrc: audio/recolte/production_residu_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "name": "aud_prod",
+      "parameter_list": "variant: button_only;\nsrc: audio/recolte/production_graine_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
       "exclude_from_translation": true,
       "style_list": "float: right;"
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: red;\">*</span>Collecte de résidus (charretée)",
-      "style_list": "font-weight: bold;"
+      "type": "text",
+      "value": "@global.lbl_prod",
+      "style_list": "font-weight: bold; font-size: 16px; color: #333; margin-bottom: 5px;"
     },
     {
       "type": "image",
-      "value": "images/charrette.jpg",
+      "value": "images/kg.jpg",
+      "style_list": "width: 100px; height: 100px;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text_box",
+      "name": "production",
+      "value": "@field.production",
+      "action_list": "changed | set_field: production : this.value;",
+      "parameter_list": "number_input: true;placeholder: Entrez le poids en kg;"
+    },
+    {
+      "type": "text",
+      "value": "@global.error_positive_value",
+      "condition": "@local.v_prod_err",
+      "style_list": "font-size: 12px; color: red;"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "battage",
+      "condition": "@calc(@local.v_needs_battage && Number(@field.production) > 0)",
+      "style_list": "display: block; width: 100%;"
+    },
+    {
+      "type": "audio",
+      "name": "aud_batt",
+      "parameter_list": "variant: button_only;\nsrc: audio/recolte/cout_battage_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "float: right;"
+    },
+    {
+      "type": "text",
+      "value": "@global.lbl_batt",
+      "style_list": "font-weight: bold; font-size: 14px; color: #333;"
+    },
+    {
+      "type": "text",
+      "value": "@global.hint_price",
+      "style_list": "font-size: 14px; color: gray;"
+    },
+    {
+      "type": "image",
+      "value": "images/cfa.jpg",
       "style_list": "width: 100px; height: 100px;"
     },
     {
       "type": "text_box",
-      "name": "production_residu_culture",
-      "value": "@field.production_residu_culture",
-      "action_list": "changed | set_field: production_residu_culture : this.value;",
-      "parameter_list": "number_input: true;    placeholder: Nombre de charretées;"
+      "name": "cout_total_battage_nonzero",
+      "value": "@field.cout_total_battage_nonzero",
+      "action_list": "changed | set_field: cout_total_battage_nonzero: this.value;",
+      "parameter_list": "number_input: true;placeholder: Montant en Dram;"
     },
     {
       "type": "text",
-      "value": "Mettez un nombre positif valide",
-      "condition": "@local.v_res_err",
+      "value": "La valeur doit être positive",
+      "condition": "@local.v_batt_err",
       "style_list": "font-size: 12px; color: red;"
     },
     {
@@ -105,46 +145,57 @@
     },
     {
       "type": "begin_display_group",
-      "name": "grp_fanes",
-      "condition": "@calc(@local.v_crop_clean == 'arachide' || @local.v_crop_clean == 'fourrage')",
-      "style_list": "display: block; width: 100%"
+      "name": "battage_zero",
+      "condition": "@calc(@local.v_needs_battage && Number(@field.production || 0) === 0)",
+      "style_list": "display: block; width: 100%;"
     },
     {
       "type": "audio",
-      "name": "aud_residu",
-      "parameter_list": "variant: button_only;\nsrc: audio/recolte/production_fane_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "name": "aud_batt_zero",
+      "parameter_list": "variant: button_only;\nsrc: audio/recolte/cout_battage_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
       "exclude_from_translation": true,
       "style_list": "float: right;"
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: red;\">*</span>Production de fânes (botte)",
-      "style_list": "font-weight: bold;"
-    },
-    {
-      "type": "image",
-      "value": "images/botte.jpg",
-      "style_list": "width: 100px; height: 100px;"
-    },
-    {
-      "type": "text_box ",
-      "name": "nombre_botte",
-      "value": "@field.nombre_botte",
-      "action_list": "changed | set_field: nombre_botte : this.value;",
-      "parameter_list": "number_input: true;    placeholder: Nombre de bottes;"
+      "type": "text",
+      "value": "@global.lbl_batt",
+      "style_list": "font-weight: bold; font-size: 14px; color: #333;"
     },
     {
       "type": "text",
-      "value": "Mettez un nombre positif valide",
-      "condition": "@local.v_fane_err",
-      "style_list": "font-size: 12px; color: red;"
+      "value": "@global.hint_price",
+      "style_list": "font-size: 14px; color: gray;"
+    },
+    {
+      "type": "image",
+      "value": "images/cfa.jpg",
+      "style_list": "width: 100px; height: 100px;"
+    },
+    {
+      "type": "text_box",
+      "value": 0,
+      "parameter_list": "disabled: true;"
+    },
+    {
+      "type": "text",
+      "name": "cout_total_battage_zero",
+      "value": "Coût bloqué à 0 car aucune récolte obtenue",
+      "style_list": "font-size: 12px; color: #999;"
     },
     {
       "type": "end_display_group"
     },
     {
-      "name": "v_page6_valid",
-      "value": "@calc((['coton', 'mais', 'mil', 'sorgho'].includes(@local.v_crop_clean) ? (@local.v_res_fmt && Number(@field.production_residu_culture) >= 0) : true) && (['arachide', 'fourrage'].includes(@local.v_crop_clean) ? (@local.v_fane_fmt && Number(@field.nombre_botte) >= 0) : true))"
+      "name": "v_val_nonzero",
+      "value": "@calc(Number(@field.cout_total_battage_nonzero) || 0)"
+    },
+    {
+      "name": "v_final_b",
+      "value": "@calc(@field.production == 0 ? 0 : @local.v_val_nonzero)"
+    },
+    {
+      "name": "v_page5_valid",
+      "value": "@calc(@local.v_prod_fmt && Number(@field.production) >= 0 && (!@local.v_needs_battage || Number(@field.production) == 0 || (@local.v_batt_fmt && Number(@field.cout_total_battage_nonzero) >= 0)))"
     },
     {
       "type": "begin_display_group",
@@ -162,8 +213,8 @@
       "type": "button",
       "name": "button_completed",
       "value": "@global.btn_continue",
-      "action_list": "click | emit: completed;",
-      "parameter_list": "disabled: !@local.v_page6_valid",
+      "action_list": "click | set_field: final_cout_battage : @local.v_final_b;\nclick | emit: completed;",
+      "parameter_list": "disabled: !@local.v_page5_valid",
       "style_list": "flex: 1"
     },
     {

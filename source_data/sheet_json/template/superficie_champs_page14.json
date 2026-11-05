@@ -5,7 +5,7 @@
   "rows": [
     {
       "type": "title",
-      "value": "**Superficie de la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**"
+      "value": "**SUPERFICIE DE LA PARCELLE N⁰@fields.num_parcelle DE @fields.nom_champ**"
     },
     {
       "type": "begin_display_group"
@@ -40,10 +40,11 @@
       "exclude_from_translation": true
     },
     {
-      "type": "html",
+      "type": "text",
       "name": "html_text",
-      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
-      "condition": "!@local.superficie_parcelle "
+      "value": "@global.warning_message",
+      "condition": "!@local.superficie_parcelle ",
+      "style_list": "color: red;"
     },
     {
       "name": "valid_superficie_parcelle",

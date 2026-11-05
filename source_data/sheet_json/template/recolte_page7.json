@@ -1,0 +1,125 @@
+{
+  "flow_type": "template",
+  "flow_name": "recolte_page7",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "value": "BILAN GLOBAL DE LA RECOLTE"
+    },
+    {
+      "name": "montant",
+      "value": "@calc(Number(@field.grand_total_recolte || 0))"
+    },
+    {
+      "name": "montant_cfa",
+      "value": "@calc(@local.montant * 5)"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "final_grp",
+      "style_list": "background: #00adcc; padding: 25px; margin-bottom: 20px; text-align: center;"
+    },
+    {
+      "type": "text",
+      "value": "@global.inv_rec",
+      "style_list": "color: black; text-transform: uppercase; font-size: 12px; letter-spacing: 2px;"
+    },
+    {
+      "type": "text",
+      "value": "@local.montant Dram",
+      "style_list": "font-size: 36px; font-weight: bold; color: white; margin: 10px 0;"
+    },
+    {
+      "type": "text",
+      "value": "≈ @local.montant_cfa FCFA",
+      "style_list": "background: rgba(255,255,255,0.1); padding: 8px 15px; display: inline-block; color: white; font-weight: bold;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "cultures_list",
+      "style_list": "padding: 20px;"
+    },
+    {
+      "type": "text ",
+      "value": "@global.lbl_cultures_title",
+      "style_list": "color: #e3a730; border-bottom: 1px solid #eee; padding-bottom: 10px;"
+    },
+    {
+      "type": "text ",
+      "value": "@field.selected_cultures_list",
+      "style_list": "color: #666; font-style: italic; margin-top: 5px;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "style_list": "margin: 20px; padding: 20px; background: #FFF9F2; border-radius: 15px; border: 1px dashed #FFCC80;"
+    },
+    {
+      "type": "text",
+      "value": "@global.lbl_avis_title",
+      "style_list": "color: #E65100; font-weight: bold;"
+    },
+    {
+      "type": "text",
+      "value": "@global.lbl_avis",
+      "style_list": "font-size: 13px; color: #6D4C4;"
+    },
+    {
+      "type": "image",
+      "value": "images/vocal.jpg",
+      "style_list": "width: 50px; float: left; margin-right: 10px;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "style_list": "text-align: center;"
+    },
+    {
+      "type": "text",
+      "value": "@global.lbl_remerc",
+      "style_list": "font-size: 18px; color: #e3a730; font-weight: bold;"
+    },
+    {
+      "type": "text",
+      "value": "@global.info_consulter",
+      "style_list": "font-size: 14px; color: #666; margin-top: 10px;"
+    },
+    {
+      "type": "text",
+      "value": "https://chemins-iae.stats4sd.org",
+      "style_list": "color:#4f8ff1 ; text-decoration: underline; font-weight: bold;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "dg_footer",
+      "parameter_list": "sticky: bottom;",
+      "style_list": "padding: 12px 24px;"
+    },
+    {
+      "type": "round_button",
+      "name": "button_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+    },
+    {
+      "type": "button",
+      "name": "button_completed",
+      "value": "@global.btn_continue",
+      "action_list": "click | go_to: suivi_anl;",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "end_display_group"
+    }
+  ]
+}

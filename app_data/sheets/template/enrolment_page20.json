@@ -6,11 +6,50 @@
     {
       "type": "title",
       "name": "note_merci",
-      "value": "MERCI POUR VOTRE COLLABORATION",
+      "value": "@global.merci_fin",
       "_translations": {
         "value": {}
       },
-      "_nested_name": "note_merci"
+      "_nested_name": "note_merci",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.merci_fin",
+            "matchedExpression": "@global.merci_fin",
+            "type": "global",
+            "fieldName": "merci_fin"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.merci_fin": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "@global.formulaire_continue",
+      "_translations": {
+        "value": {}
+      },
+      "name": "text_3",
+      "_nested_name": "text_3",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.formulaire_continue",
+            "matchedExpression": "@global.formulaire_continue",
+            "type": "global",
+            "fieldName": "formulaire_continue"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.formulaire_continue": [
+          "value"
+        ]
+      }
     },
     {
       "type": "display_group",
@@ -25,7 +64,7 @@
       "rows": [
         {
           "type": "round_button",
-          "name": "page_19_button_back",
+          "name": "page_20_button_back",
           "action_list": [
             {
               "trigger": "click",
@@ -40,41 +79,41 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "dg_footer.page_19_button_back"
+          "_nested_name": "dg_footer.page_20_button_back"
         },
         {
           "type": "button",
-          "name": "page_19_button_continue",
-          "value": "@global.btn_continue",
+          "name": "page_20_button_continue",
+          "value": "@global.bouton_fin",
           "_translations": {
             "value": {}
           },
           "action_list": [
             {
               "trigger": "click",
-              "action_id": "emit",
+              "action_id": "go_to",
               "args": [
-                "completed"
+                "planification_anl"
               ],
-              "_raw": "click | emit: completed"
+              "_raw": "click | go_to: planification_anl"
             }
           ],
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "dg_footer.page_19_button_continue",
+          "_nested_name": "dg_footer.page_20_button_continue",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "@global.btn_continue",
-                "matchedExpression": "@global.btn_continue",
+                "fullExpression": "@global.bouton_fin",
+                "matchedExpression": "@global.bouton_fin",
                 "type": "global",
-                "fieldName": "btn_continue"
+                "fieldName": "bouton_fin"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@global.btn_continue": [
+            "@global.bouton_fin": [
               "value"
             ]
           }

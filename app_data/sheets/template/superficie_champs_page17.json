@@ -31,28 +31,28 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "html",
-          "value": "<p style=\"color: black;\"> Séléctionnez le canal à utiliser pour faire votre observation sur la parcelle N⁰@fields.num_parcelle</p>",
+          "type": "text",
+          "value": "@global.hint_canal",
           "_translations": {
             "value": {}
           },
           "style_list": [
             "font-size:20px"
           ],
-          "name": "html_1",
-          "_nested_name": "display_group_3.html_1",
+          "name": "text_1",
+          "_nested_name": "display_group_3.text_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "<p style=\"color: black;\"> Séléctionnez le canal à utiliser pour faire votre observation sur la parcelle N⁰@fields.num_parcelle</p>",
-                "matchedExpression": "@fields.num_parcelle",
-                "type": "fields",
-                "fieldName": "num_parcelle"
+                "fullExpression": "@global.hint_canal",
+                "matchedExpression": "@global.hint_canal",
+                "type": "global",
+                "fieldName": "hint_canal"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@fields.num_parcelle": [
+            "@global.hint_canal": [
               "value"
             ]
           }
@@ -129,18 +129,21 @@
       }
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "type": "text",
+      "value": "@global.warning_message",
       "_translations": {
         "value": {}
       },
       "condition": "!@fields.type_observation",
-      "name": "html_6",
-      "_nested_name": "html_6",
+      "style_list": [
+        "color: red"
+      ],
+      "name": "text_6",
+      "_nested_name": "text_6",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: red;\"> @global.warning_message </p>",
+            "fullExpression": "@global.warning_message",
             "matchedExpression": "@global.warning_message",
             "type": "global",
             "fieldName": "warning_message"
@@ -170,12 +173,27 @@
       "rows": [
         {
           "type": "text",
-          "value": "Entrez par écrit l'information supplémentaire.",
+          "value": "@global.canal_ecrit",
           "_translations": {
             "value": {}
           },
           "name": "text_1",
-          "_nested_name": "display_group_7.text_1"
+          "_nested_name": "display_group_7.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.canal_ecrit",
+                "matchedExpression": "@global.canal_ecrit",
+                "type": "global",
+                "fieldName": "canal_ecrit"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.canal_ecrit": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",
@@ -266,11 +284,26 @@
         {
           "type": "text",
           "name": "info_video_label",
-          "value": "Enregistrez par vidéo l'information supplémentaire.",
+          "value": "@global.canal_video",
           "_translations": {
             "value": {}
           },
-          "_nested_name": "display_group_10.info_video_label"
+          "_nested_name": "display_group_10.info_video_label",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.canal_video",
+                "matchedExpression": "@global.canal_video",
+                "type": "global",
+                "fieldName": "canal_video"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.canal_video": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",
@@ -307,13 +340,21 @@
     {
       "type": "text",
       "name": "info_video",
-      "value": "We would need a video recorder here",
+      "value": "@global.need_record_vi",
       "_translations": {
         "value": {}
       },
       "condition": "@fields.type_observation == \"par_video\"",
       "_nested_name": "info_video",
       "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.need_record_vi",
+            "matchedExpression": "@global.need_record_vi",
+            "type": "global",
+            "fieldName": "need_record_vi"
+          }
+        ],
         "condition": [
           {
             "fullExpression": "@fields.type_observation == \"par_video\"",
@@ -324,6 +365,9 @@
         ]
       },
       "_dynamicDependencies": {
+        "@global.need_record_vi": [
+          "value"
+        ],
         "@fields.type_observation": [
           "condition"
         ]
@@ -336,11 +380,26 @@
         {
           "type": "text",
           "name": "info_audio_label",
-          "value": "Enregistrez par vocal l'information supplémentaire.",
+          "value": "@global.canal_vocal",
           "_translations": {
             "value": {}
           },
-          "_nested_name": "display_group_13.info_audio_label"
+          "_nested_name": "display_group_13.info_audio_label",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.canal_vocal",
+                "matchedExpression": "@global.canal_vocal",
+                "type": "global",
+                "fieldName": "canal_vocal"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.canal_vocal": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",
@@ -377,13 +436,21 @@
     {
       "type": "text",
       "name": "info_audio",
-      "value": "We would need a audio recorder here",
+      "value": "@global.need_record_aud",
       "_translations": {
         "value": {}
       },
       "condition": "@fields.type_observation == \"par_vocal\"",
       "_nested_name": "info_audio",
       "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.need_record_aud",
+            "matchedExpression": "@global.need_record_aud",
+            "type": "global",
+            "fieldName": "need_record_aud"
+          }
+        ],
         "condition": [
           {
             "fullExpression": "@fields.type_observation == \"par_vocal\"",
@@ -394,6 +461,9 @@
         ]
       },
       "_dynamicDependencies": {
+        "@global.need_record_aud": [
+          "value"
+        ],
         "@fields.type_observation": [
           "condition"
         ]
@@ -406,11 +476,26 @@
         {
           "type": "text",
           "name": "info_image_label",
-          "value": "Enregistrez par image l'information supplémentaire.",
+          "value": "@global.canal_img",
           "_translations": {
             "value": {}
           },
-          "_nested_name": "display_group_16.info_image_label"
+          "_nested_name": "display_group_16.info_image_label",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.canal_img",
+                "matchedExpression": "@global.canal_img",
+                "type": "global",
+                "fieldName": "canal_img"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.canal_img": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",
@@ -447,13 +532,21 @@
     {
       "type": "text",
       "name": "info_image",
-      "value": "We would need a camera here",
+      "value": "@global.need_record_img",
       "_translations": {
         "value": {}
       },
       "condition": "@fields.type_observation == \"par_photo\"",
       "_nested_name": "info_image",
       "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.need_record_img",
+            "matchedExpression": "@global.need_record_img",
+            "type": "global",
+            "fieldName": "need_record_img"
+          }
+        ],
         "condition": [
           {
             "fullExpression": "@fields.type_observation == \"par_photo\"",
@@ -464,6 +557,9 @@
         ]
       },
       "_dynamicDependencies": {
+        "@global.need_record_img": [
+          "value"
+        ],
         "@fields.type_observation": [
           "condition"
         ]

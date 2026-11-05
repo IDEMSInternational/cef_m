@@ -2,6 +2,13 @@
   "flow_type": "template",
   "flow_name": "cout_productions",
   "status": "released",
+  "parameter_list": {
+    "app_config": {
+      "APP_FOOTER_DEFAULTS": {
+        "template": "footer"
+      }
+    }
+  },
   "rows": [
     {
       "name": "selected_year",
@@ -16,123 +23,16 @@
       "value": "@calc(String(@local.selected_year || '').trim() !== '')"
     },
     {
-      "name": "semis_row",
-      "value": "@calc(Object.values(@data.semis || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.year || '') === String(@local.selected_year)) || {})\t\t\t\t\t\t\t\t\t\t\t\t"
-    },
-    {
-      "name": "post_semis_row",
-      "value": "@calc(Object.values(@data.post_semis || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.year || '') === String(@local.selected_year)) || {})"
-    },
-    {
-      "name": "recolte_row",
-      "value": "@calc(Object.values(@data.recolte || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.year || '') === String(@local.selected_year)) || {})"
-    },
-    {
-      "name": "selected_semis_id",
-      "value": "@calc(@local.semis_row.id || '')"
-    },
-    {
-      "name": "selected_post_semis_id",
-      "value": "@calc(@local.post_semis_row.id || '')"
-    },
-    {
-      "name": "selected_recolte_id",
-      "value": "@calc(@local.recolte_row.id || '')"
-    },
-    {
-      "name": "cout_total_semis",
-      "value": "@calc(Number(String(@local.semis_row.cout_total || 0).replace(',', '.')))"
-    },
-    {
-      "name": "cout_total_post_semis",
-      "value": "@calc(Number(String(@local.post_semis_row.cout_total || 0).replace(',', '.')))"
-    },
-    {
-      "name": "cout_total_recolte",
-      "value": "@calc(Number(String(@local.recolte_row.cout_total || 0).replace(',', '.')))"
-    },
-    {
       "name": "musaka_mume",
-      "value": "@calc(@local.cout_total_semis + @local.cout_total_post_semis + @local.cout_total_recolte)"
+      "value": "@calc(Object.values(@data.couts_cultures || {}).filter(item => String(item.upa_code || '').trim() === String(@fields.upa_code || '').trim() && String(item.year || '').trim() === String(@local.selected_year || '').trim()).reduce((sum, item) => sum + Number(item.cout_total || 0), 0))"
     },
     {
       "name": "has_couts",
       "value": "@calc(@local.musaka_mume > 0)"
     },
     {
-      "name": "culture_items",
-      "value": "@calc(Object.values([].concat(Object.values(@data.semis_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.semis_id || '').trim() === String(@local.selected_semis_id || '').trim()), Object.values(@data.post_semis_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim()), Object.values(@data.recolte_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.recolte_id || '').trim() === String(@local.selected_recolte_id || '').trim())).reduce((acc, x) => { const key = String(x.culture_id || '').toLowerCase().trim(); if (key && !acc[key]) acc[key] = { culture_id: key }; return acc; }, {})))"
-    },
-    {
-      "name": "cout_semis_totals",
-      "value": "@calc(Object.values(@data.semis_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.semis_id || '').trim() === String(@local.selected_semis_id || '').trim()).reduce((acc, x) => { const n = v => Number(String(v || 0).replace(',', '.')) || 0; const key = String(x.culture_id || '').toLowerCase().trim(); const detail = n(x.cout_transport) + n(x.cout_chaux_agricole) + n(x.cout_pnt_png) + n(x.cout_superficie_labouree) + n(x.cout_semence_achetee) + n(x.cout_herbicide_prelevee); if (key) acc[key] = (acc[key] || 0) + (n(x.cout) || detail); return acc; }, {}))\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t"
-    },
-    {
-      "name": "cout_post_semis_totals",
-      "value": "@calc(Object.values(@data.post_semis_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim()).reduce((acc, x) => { const n = v => Number(String(v || 0).replace(',', '.')) || 0; const key = String(x.culture_id || '').toLowerCase().trim(); const detail = n(x.cout_sarclage) + n(x.cout_desherbage) + n(x.cout_npk) + n(x.cout_uree) + n(x.cout_herbicide) + n(x.cout_buttage) + n(x.cout_insecticide); if (key) acc[key] = (acc[key] || 0) + (n(x.cout) || detail); return acc; }, {}))"
-    },
-    {
-      "name": "cout_recolte_totals",
-      "value": "@calc(Object.values(@data.recolte_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.recolte_id || '').trim() === String(@local.selected_recolte_id || '').trim()).reduce((acc, x) => { const n = v => Number(String(v || 0).replace(',', '.')) || 0; const key = String(x.culture_id || '').toLowerCase().trim(); const detail = n(x.cout_total_prestation_recolte) + n(x.cout_total_battage); if (key) acc[key] = (acc[key] || 0) + (n(x.cout) || detail); return acc; }, {}))"
-    },
-    {
-      "name": "cout_totals",
-      "value": "@calc([@local.cout_semis_totals || {}, @local.cout_post_semis_totals || {}, @local.cout_recolte_totals || {}].reduce((acc, obj) => { Object.keys(obj || {}).forEach(key => acc[key] = (acc[key] || 0) + Number(obj[key] || 0)); return acc; }, {}))"
-    },
-    {
-      "name": "cout_coton",
-      "value": "@calc(Number((@local.cout_totals || {})['coton'] || 0))"
-    },
-    {
-      "name": "cout_mais",
-      "value": "@calc(Number((@local.cout_totals || {})['mais'] || 0))"
-    },
-    {
-      "name": "cout_mil",
-      "value": "@calc(Number((@local.cout_totals || {})['mil'] || 0))"
-    },
-    {
-      "name": "cout_sorgho",
-      "value": "@calc(Number((@local.cout_totals || {})['sorgho'] || 0))"
-    },
-    {
-      "name": "cout_arachide",
-      "value": "@calc(Number((@local.cout_totals || {})['arachide'] || 0))"
-    },
-    {
-      "name": "cout_fourrage",
-      "value": "@calc(Number((@local.cout_totals || {})['fourrage'] || 0))"
-    },
-    {
-      "name": "cout_riz",
-      "value": "@calc(Number((@local.cout_totals || {})['rice'] || 0))"
-    },
-    {
-      "name": "cout_wouandzou",
-      "value": "@calc(Number((@local.cout_totals || {})['wouandzou'] || 0))"
-    },
-    {
-      "name": "cout_bissap",
-      "value": "@calc(Number((@local.cout_totals || {})['bissap'] || 0))"
-    },
-    {
-      "name": "cout_soja",
-      "value": "@calc(Number((@local.cout_totals || {})['soja'] || 0))"
-    },
-    {
-      "name": "cout_fonio",
-      "value": "@calc(Number((@local.cout_totals || {})['fonio'] || 0))"
-    },
-    {
-      "name": "cout_sesame",
-      "value": "@calc(Number((@local.cout_totals || {})['sesame'] || 0))"
-    },
-    {
-      "name": "cout_sô_den_kêta",
-      "value": "@calc(Number((@local.cout_totals || {})['sô_den_kêta'] || 0))"
-    },
-    {
       "type": "begin_template",
+      "name": "entete",
       "value": "evaluation_page_entete"
     },
     {
@@ -143,7 +43,8 @@
       "type": "end_template"
     },
     {
-      "type": "begin_display_group"
+      "type": "begin_display_group",
+      "name": "card1"
     },
     {
       "type": "end_display_group"
@@ -154,6 +55,7 @@
     },
     {
       "type": "begin_display_group",
+      "name": "card2",
       "style_list": "display: flex; align-items: center; gap: 10px; justify-content: center; margin-bottom: 20px;"
     },
     {
@@ -169,6 +71,7 @@
     },
     {
       "type": "begin_display_group",
+      "name": "card3",
       "condition": "@local.aff_data && @local.has_couts",
       "style_list": "display: flex; justify-content: space-around; align-items: center; padding: 22px 20px; margin-bottom: 22px; border-bottom: 1px solid #e5e7eb;"
     },
@@ -187,41 +90,40 @@
     },
     {
       "type": "begin_display_group",
+      "name": "card4",
       "condition": "@local.aff_data && @local.has_couts\n",
       "style_list": "display: flex; flex-direction: column; width: 100%; padding: 0 16px;"
     },
     {
       "type": "begin_data_items",
-      "value": "@data.cultures",
+      "name": "item_@item.id",
+      "value": "@data.couts_cultures",
+      "parameter_list": "filter: String(@item.upa_code || '').trim() === String(@fields.upa_code || '').trim() && String(@item.year || '').trim() === String(@local.selected_year || '').trim() && Number(@item.cout_total) > 0",
       "style_list": "display: flex; flex-direction: column; gap: 16px; width: 100%;"
     },
     {
       "type": "begin_display_group",
       "name": "card",
-      "condition": "Number((@local.cout_totals || {})[@item.id] || 0) > 0",
       "style_list": "display: flex; flex-direction: column; align-items: center; justify-content: center; background: #fbfbf9; padding: 20px 16px; width: 100%;"
     },
     {
-      "name": "cout_item",
-      "value": "@calc(Number((@local.cout_totals || {})[@item.id] || 0))"
-    },
-    {
       "type": "image",
-      "value": "@item.image",
+      "value": "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap','soja'].includes((@item.culture_id || '').toLowerCase().trim()) ? 'images/' + @item.culture_id + '.jpg' : 'images/autre.jpeg')",
       "style_list": "width: 60px; height: 60px; object-fit: contain; margin-bottom: 10px;"
     },
     {
       "type": "text",
-      "value": "@item.title",
+      "value": "@item.culture_id",
       "style_list": "font-weight:900; font-size:16px; color:#001b44; text-transform:capitalize; line-height:1.5;"
     },
     {
       "type": "text",
-      "value": "@local.cout_item drm"
+      "value": "@calc(Number(@item.cout_total || 0).toLocaleString() + ' drm')"
     },
     {
       "type": "begin_display_group",
-      "action_list": "click | set_field: selected_cout_culture: @item.id;\nclick | set_field: selected_cout_culture_label:@item.label;\nclick | go_to: cout_productions_detail;"
+      "name": "card5",
+      "action_list": "click | set_field: selected_cout_culture: @item.culture_id;\nclick | set_field: selected_cout_culture_label: @item.culture_id;\nclick | go_to: cout_productions_detail;"
     },
     {
       "type": "image",
@@ -256,6 +158,7 @@
     },
     {
       "type": "begin_display_group",
+      "name": "card6",
       "condition": "@local.choix_annee ",
       "style_list": "padding: 22px 16px; margin: 10px 12px; background: #ffffff;text-align: center;"
     },
@@ -266,11 +169,6 @@
     },
     {
       "type": "end_display_group"
-    },
-    {
-      "type": "navigation_bar",
-      "parameter_list": "button_list: @data.footer;\n",
-      "style_list": "position: fixed; bottom: 0; left: 0; box-sizing: border-box; "
     }
   ]
 }

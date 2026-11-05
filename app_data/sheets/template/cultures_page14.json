@@ -929,7 +929,7 @@
     },
     {
       "type": "title",
-      "value": "Cultures prevues : **@local.culture_list_all**",
+      "value": "@global.list_cult_prevue",
       "_translations": {
         "value": {}
       },
@@ -938,22 +938,22 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "Cultures prevues : **@local.culture_list_all**",
-            "matchedExpression": "@local.culture_list_all",
-            "type": "local",
-            "fieldName": "culture_list_all"
+            "fullExpression": "@global.list_cult_prevue",
+            "matchedExpression": "@global.list_cult_prevue",
+            "type": "global",
+            "fieldName": "list_cult_prevue"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@local.culture_list_all": [
+        "@global.list_cult_prevue": [
           "value"
         ]
       }
     },
     {
       "type": "text",
-      "value": "La superficie totale des cultures prévues: **@local.total_superficie_prevue ha**",
+      "value": "@global.superficie_totale_prev",
       "_translations": {
         "value": {}
       },
@@ -962,15 +962,15 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "La superficie totale des cultures prévues: **@local.total_superficie_prevue ha**",
-            "matchedExpression": "@local.total_superficie_prevue",
-            "type": "local",
-            "fieldName": "total_superficie_prevue"
+            "fullExpression": "@global.superficie_totale_prev",
+            "matchedExpression": "@global.superficie_totale_prev",
+            "type": "global",
+            "fieldName": "superficie_totale_prev"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@local.total_superficie_prevue": [
+        "@global.superficie_totale_prev": [
           "value"
         ]
       }
@@ -992,7 +992,7 @@
     },
     {
       "type": "text",
-      "value": "La superficie totale à labourer par prestation: **@local.total_superficie_prevue_labour ha**",
+      "value": "@global.superficie_total_labour_prestation",
       "_translations": {
         "value": {}
       },
@@ -1001,15 +1001,15 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "La superficie totale à labourer par prestation: **@local.total_superficie_prevue_labour ha**",
-            "matchedExpression": "@local.total_superficie_prevue_labour",
-            "type": "local",
-            "fieldName": "total_superficie_prevue_labour"
+            "fullExpression": "@global.superficie_total_labour_prestation",
+            "matchedExpression": "@global.superficie_total_labour_prestation",
+            "type": "global",
+            "fieldName": "superficie_total_labour_prestation"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@local.total_superficie_prevue_labour": [
+        "@global.superficie_total_labour_prestation": [
           "value"
         ]
       }
@@ -1324,7 +1324,7 @@
   ],
   "_source": {
     "name": "cef_m sheets",
-    "path": "template/Planification/Cultures_form_sheets.xlsx",
+    "path": "template/Planification/cultures_form_sheets.xlsx",
     "url": "https://docs.google.com/spreadsheets/d/1BAP12cPkFZaHtm0Xozys0kLOqnVOi1h2UUBMoZbmKQI"
   }
 }

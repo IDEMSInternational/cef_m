@@ -5,12 +5,27 @@
   "rows": [
     {
       "type": "title",
-      "value": "**REGIMES ALIMENTAIRES**",
+      "value": "@global.regime_alimentaire_title",
       "_translations": {
         "value": {}
       },
       "name": "title_2",
-      "_nested_name": "title_2"
+      "_nested_name": "title_2",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.regime_alimentaire_title",
+            "matchedExpression": "@global.regime_alimentaire_title",
+            "type": "global",
+            "fieldName": "regime_alimentaire_title"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.regime_alimentaire_title": [
+          "value"
+        ]
+      }
     },
     {
       "type": "data_items",
@@ -465,7 +480,7 @@
       "rows": [
         {
           "type": "round_button",
-          "name": "page5_button_back",
+          "name": "page3_button_back",
           "action_list": [
             {
               "trigger": "click",
@@ -480,12 +495,12 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "display_group_5.page5_button_back"
+          "_nested_name": "display_group_5.page3_button_back"
         },
         {
           "type": "button",
-          "name": "page5_button_continue",
-          "value": "Continuer",
+          "name": "page3_button_continue",
+          "value": "@global.btn_continue",
           "_translations": {
             "value": {}
           },
@@ -502,7 +517,22 @@
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "display_group_5.page5_button_continue"
+          "_nested_name": "display_group_5.page3_button_continue",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.btn_continue",
+                "matchedExpression": "@global.btn_continue",
+                "type": "global",
+                "fieldName": "btn_continue"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.btn_continue": [
+              "value"
+            ]
+          }
         }
       ],
       "name": "display_group_5",

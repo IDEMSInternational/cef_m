@@ -5,7 +5,7 @@
   "rows": [
     {
       "type": "title",
-      "value": "DATE ET QUANTITÉ DE SEMIS"
+      "value": "SEMENCE CULTIVEE DANS LA PARCELLE N⁰@fields.num_parcelle de @fields.nom_champ"
     },
     {
       "name": "attempt_submit_p9",
@@ -20,15 +20,17 @@
       "value": "@calc(!!@fields.date_semence && !!@fields.quantite_semence && @local.valid_qte)"
     },
     {
-      "type": "html",
-      "value": "<h1 style=\"color: #1e3656; margin: 0; font-size: 15px; text-transform: uppercase;\">Semis de @fields.cult_princip dans la parcelle N⁰@fields.num_parcelle</h1>"
+      "type": "text",
+      "value": "@global.note_date_semis",
+      "style_list": "color: #1e3656; margin: 0; font-size: 15px; text-transform: uppercase;"
     },
     {
       "type": "begin_display_group"
     },
     {
-      "type": "html",
-      "value": "<label font-weight: bold;\"><span style=\"color: red;\">*</span> Date de semis de <b>@fields.cult_princip</b> </label>"
+      "type": "text",
+      "value": "@global.date_semis",
+      "style_list": "font-weight: bold;"
     },
     {
       "type": "audio",
@@ -50,7 +52,7 @@
     {
       "type": "image",
       "value": "@item.image",
-      "style_list": "width: 40%; object-fit: contain;\n"
+      "style_list": "width: 20%; object-fit: contain;\n"
     },
     {
       "type": "end_display_group"
@@ -66,17 +68,19 @@
       "parameter_list": "type: date"
     },
     {
-      "type": "html",
+      "type": "text",
       "name": "html_text",
-      "value": "<span style=\"color: red; font-size: 13px;\">La date est obligatoire ! </span>",
-      "condition": "@fields.attempt_submit_p9 && !@fields.date_semence"
+      "value": "@global.date_warring",
+      "condition": "@fields.attempt_submit_p9 && !@fields.date_semence",
+      "style_list": "color: red; font-size: 13px;"
     },
     {
       "type": "begin_display_group"
     },
     {
-      "type": "html",
-      "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Quantité de semence de @fields.cult_princip (en kg) </label"
+      "type": "text",
+      "value": "@global.note_qtite_semence",
+      "style_list": "color: #1e3656; font-weight: bold;"
     },
     {
       "type": "audio",
@@ -92,8 +96,9 @@
       "style_list": "width:30%;object-fit:contain;"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: #555; font-size: 14px;\">@global.semence_kg</p>"
+      "type": "text",
+      "value": "@global.semence_kg",
+      "style_list": "color: #555; font-size: 14px;"
     },
     {
       "type": "text_box",
@@ -113,15 +118,17 @@
       "exclude_from_translation": true
     },
     {
-      "type": "html",
+      "type": "text",
       "name": "html_text",
-      "value": "<span style=\"color: red; font-size: 13px;\">La quantité est obligatoire !</span>",
-      "condition": "@fields.attempt_submit_p9 && !@fields.quantite_semence"
+      "value": "@global.quant_warring\n",
+      "condition": "@fields.attempt_submit_p9 && !@fields.quantite_semence",
+      "style_list": "color: red; font-size: 13px;"
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: red; font-size: 13px;\">Veuillez saisir un nombre valide (>= 0) !</span>",
-      "condition": "!!@fields.quantite_semence && !@local.valid_qte"
+      "type": "text",
+      "value": "@global.validite_nombre",
+      "condition": "!!@fields.quantite_semence && !@local.valid_qte",
+      "style_list": "color: red; font-size: 13px;"
     },
     {
       "type": "begin_display_group",

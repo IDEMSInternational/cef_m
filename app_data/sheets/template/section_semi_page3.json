@@ -26,13 +26,34 @@
       ],
       "rows": [
         {
-          "type": "html",
-          "value": "<span style=\"color: #d71920; font-weight: bold; margin-right: 4px;\">*</span><span style=\"color: #333333; font-weight: 600; font-size: 18px;\">2. Sélectionnez les cultures secondaires</span>",
+          "type": "text",
+          "value": "@global.secondary_crops_label",
           "_translations": {
             "value": {}
           },
-          "name": "html_1",
-          "_nested_name": "cult_sec.html_1"
+          "style_list": [
+            "font-weight: 600",
+            "font-size: 18px",
+            "color: #333333",
+            "flex: 1"
+          ],
+          "name": "text_1",
+          "_nested_name": "cult_sec.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.secondary_crops_label",
+                "matchedExpression": "@global.secondary_crops_label",
+                "type": "global",
+                "fieldName": "secondary_crops_label"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.secondary_crops_label": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",
@@ -53,7 +74,7 @@
     },
     {
       "type": "text",
-      "value": "*Les cultures secondaires sont des cultures faites par l'UPA de manière complémentaire avec moins d'investissement*",
+      "value": "@global.secondary_crops_hint",
       "_translations": {
         "value": {}
       },
@@ -64,7 +85,22 @@
         "margin-bottom: 15px"
       ],
       "name": "text_5",
-      "_nested_name": "text_5"
+      "_nested_name": "text_5",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.secondary_crops_hint",
+            "matchedExpression": "@global.secondary_crops_hint",
+            "type": "global",
+            "fieldName": "secondary_crops_hint"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.secondary_crops_hint": [
+          "value"
+        ]
+      }
     },
     {
       "type": "data_items",
@@ -410,13 +446,34 @@
       ],
       "rows": [
         {
-          "type": "html",
-          "value": "<br><span style=\"color: red;\">*</span>Ecrivez le nom de l'autre culture secondaire 1",
+          "type": "text",
+          "value": "@global.sc_name_1_label",
           "_translations": {
             "value": {}
           },
-          "name": "html_1",
-          "_nested_name": "autre_sec_1.html_1"
+          "style_list": [
+            "font-size: 14px",
+            "font-weight: 600",
+            "color: #333333",
+            "flex: 1"
+          ],
+          "name": "text_1",
+          "_nested_name": "autre_sec_1.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.sc_name_1_label",
+                "matchedExpression": "@global.sc_name_1_label",
+                "type": "global",
+                "fieldName": "sc_name_1_label"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.sc_name_1_label": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",
@@ -434,7 +491,7 @@
         },
         {
           "type": "text",
-          "value": "*Il s'agit d'une culture qui n'existe pas dans la liste des cultures secondaires ci-dessus*",
+          "value": "@global.sc_name_other_hint",
           "_translations": {
             "value": {}
           },
@@ -443,7 +500,22 @@
             "color: gray"
           ],
           "name": "text_3",
-          "_nested_name": "autre_sec_1.text_3"
+          "_nested_name": "autre_sec_1.text_3",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.sc_name_other_hint",
+                "matchedExpression": "@global.sc_name_other_hint",
+                "type": "global",
+                "fieldName": "sc_name_other_hint"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.sc_name_other_hint": [
+              "value"
+            ]
+          }
         },
         {
           "type": "image",
@@ -516,7 +588,7 @@
     },
     {
       "type": "text",
-      "value": "*Culture déjà utilisée ou invalide !*",
+      "value": "@global.error_culture",
       "_translations": {
         "value": {}
       },
@@ -530,6 +602,14 @@
       "name": "text_11",
       "_nested_name": "text_11",
       "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.error_culture",
+            "matchedExpression": "@global.error_culture",
+            "type": "global",
+            "fieldName": "error_culture"
+          }
+        ],
         "condition": [
           {
             "fullExpression": "@calc(@field.sec_autre_1 && !!@field.secondary_crop_1 && @local.v_forbidden.includes(@field.secondary_crop_1.toLowerCase().trim()))",
@@ -564,6 +644,9 @@
         ]
       },
       "_dynamicDependencies": {
+        "@global.error_culture": [
+          "value"
+        ],
         "@field.sec_autre_1": [
           "condition"
         ],
@@ -608,17 +691,38 @@
           "_nested_name": "autre_sec_2.audio_1"
         },
         {
-          "type": "html",
-          "value": "<br><span style=\"color: red;\">*</span>Ecrivez le nom de l'autre culture secondaire 2",
+          "type": "text",
+          "value": "@global.sc_name_2_label",
           "_translations": {
             "value": {}
           },
-          "name": "html_2",
-          "_nested_name": "autre_sec_2.html_2"
+          "style_list": [
+            "font-size: 14px",
+            "font-weight: 600",
+            "color: #333333",
+            "flex: 1"
+          ],
+          "name": "text_2",
+          "_nested_name": "autre_sec_2.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.sc_name_2_label",
+                "matchedExpression": "@global.sc_name_2_label",
+                "type": "global",
+                "fieldName": "sc_name_2_label"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.sc_name_2_label": [
+              "value"
+            ]
+          }
         },
         {
           "type": "text",
-          "value": "*Il s'agit d'une culture qui n'existe pas dans la liste des cultures secondaires ci-dessus*",
+          "value": "@global.second_crops_sc",
           "_translations": {
             "value": {}
           },
@@ -628,7 +732,22 @@
             "font-style: italic"
           ],
           "name": "text_3",
-          "_nested_name": "autre_sec_2.text_3"
+          "_nested_name": "autre_sec_2.text_3",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.second_crops_sc",
+                "matchedExpression": "@global.second_crops_sc",
+                "type": "global",
+                "fieldName": "second_crops_sc"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.second_crops_sc": [
+              "value"
+            ]
+          }
         },
         {
           "type": "image",
@@ -728,7 +847,7 @@
     },
     {
       "type": "text",
-      "value": "*Culture déjà utilisée ou invalide !*",
+      "value": "@global.error_culture",
       "_translations": {
         "value": {}
       },
@@ -742,6 +861,14 @@
       "name": "text_14",
       "_nested_name": "text_14",
       "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.error_culture",
+            "matchedExpression": "@global.error_culture",
+            "type": "global",
+            "fieldName": "error_culture"
+          }
+        ],
         "condition": [
           {
             "fullExpression": "@calc(@field.sec_autre_2 && !!@field.secondary_crop_2 && (@local.v_forbidden.includes(@field.secondary_crop_2.toLowerCase().trim()) || @field.secondary_crop_1.toLowerCase().trim() == @field.secondary_crop_2.toLowerCase().trim()))",
@@ -788,6 +915,9 @@
         ]
       },
       "_dynamicDependencies": {
+        "@global.error_culture": [
+          "value"
+        ],
         "@field.sec_autre_2": [
           "condition"
         ],
@@ -924,12 +1054,12 @@
       }
     },
     {
-      "type": "text",
       "name": "v_list_sec",
       "value": "@calc([@field.sec_fonio?'fonio':null,@field.sec_rice?'riz':null,@field.sec_sesame?'sésame':null,@field.sec_wouandzou?'wouandzou':null,@field.sec_patate_douce?'patate':null,@field.sec_bissap?'bissap':null,@field.sec_autre_1?@field.secondary_crop_1:null,@field.sec_autre_2?@field.secondary_crop_2:null].filter(v=>v!==null))",
       "_translations": {
         "value": {}
       },
+      "type": "set_variable",
       "_nested_name": "v_list_sec",
       "_dynamicFields": {
         "value": [

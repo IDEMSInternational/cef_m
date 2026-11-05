@@ -9,14 +9,14 @@
     },
     {
       "type": "text",
-      "value": "**Superficie de @fields.cult_princip dans la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**"
+      "value": "@global.note_superf_geo"
     },
     {
       "type": "begin_display_group"
     },
     {
       "type": "text",
-      "value": "La superficie estimée (ha) était :"
+      "value": "@global.superficie_rappel"
     },
     {
       "type": "text",
@@ -31,7 +31,7 @@
     },
     {
       "type": "text",
-      "value": "La superficie mesurée (ha) est :"
+      "value": "@global.superficie_tracee"
     },
     {
       "type": "text",
@@ -51,7 +51,7 @@
     },
     {
       "type": "text",
-      "value": "La différence entre la superficie donnée et la superficie mésurée (ha) est :"
+      "value": "@global.superficie_difference"
     },
     {
       "type": "text_box",
@@ -62,19 +62,22 @@
       "type": "end_display_group"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: green;\"> Bonne estimation de la superficie, Bravo! </p>",
-      "condition": "@local.superficie_diff < 0.1 || @local.superficie_diff > -0.1"
+      "type": "text",
+      "value": "@global.superficie_score_bien",
+      "condition": "@local.superficie_diff < 0.1 || @local.superficie_diff > -0.1",
+      "style_list": "color: green;"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> Superficie sur-estimée ! </p>",
-      "condition": "@local.superficie_diff > 0.1 "
+      "type": "text",
+      "value": "@global.superficie_score_grand",
+      "condition": "@local.superficie_diff > 0.1 ",
+      "style_list": "color: red;"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> Superficie sous-estimée !</p>",
-      "condition": "@local.superficie_diff < -0.1"
+      "type": "text",
+      "value": "@global.superficie_score_petit",
+      "condition": "@local.superficie_diff < -0.1",
+      "style_list": "color: red;"
     },
     {
       "type": "begin_display_group",

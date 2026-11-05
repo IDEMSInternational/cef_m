@@ -17,19 +17,20 @@
     },
     {
       "type": "begin_display_group",
-      "name": "header_top",
+      "name": "header",
       "style_list": "background: #00adcc; padding: 15px; border-radius: 0 0 15px 15px; margin-bottom: 20px;"
     },
     {
-      "type": "html",
-      "value": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>"
+      "type": "text",
+      "value": "CULTURE @local.v_current_human / @field.total_cultures_selected",
+      "style_list": "color: white; font-weight: bold; font-size: 14px; text-transform: uppercase;"
     },
     {
       "type": "end_display_group"
     },
     {
       "type": "title",
-      "value": "BILAN & OBSERVATIONS"
+      "value": "OBSERVATIONS PERIODE DE POST-SEMIS"
     },
     {
       "type": "begin_display_group",
@@ -38,23 +39,25 @@
     {
       "type": "image",
       "value": "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@field.active_culture_name || '').toLowerCase().trim()) ? 'images/' + @field.active_culture_name + '.jpg' : 'images/autre.jpeg')",
-      "style_list": "width: 100px; height: 100px;"
+      "style_list": "width: 60%; object-fit: contain;"
     },
     {
       "type": "text",
-      "value": "<h3 style='color: black; margin: 10px 0;'>Culture : <span style='color: #e3a730;'>@field.active_culture_name</span></h3>",
-      "style_list": "font-weight: bold; font-size: 18px;"
+      "value": "Culture : @field.active_culture_name",
+      "style_list": "font-weight: bold; font-size: 18px; color: #e3a730; margin-top: 10px; text-align: center;"
     },
     {
       "type": "end_display_group"
     },
     {
-      "type": "html",
-      "value": "<br><h3 style=\"color: #E65100; margin:0;\">TOTAL INVESTI : @local.v_tot_cult Dram</h3>"
+      "type": "text",
+      "value": "@global.tot_inv : @local.v_tot_cult Dram",
+      "style_list": "color: #E65100; font-weight: bold; font-size: 18px; text-align: center; margin-bottom: 5px;"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: #757575; font-size: 14px;\">Équivalent : <b>@local.v_tot_fcfa FCFA</b><br><small><i>(Base : 1 dram = 5 FCFA)</i></small></p>"
+      "type": "text",
+      "value": "@global.equi: @local.v_tot_fcfa FCFA @global.base",
+      "style_list": "color: #757575; font-size: 14px; text-align: center; font-style: italic; margin-bottom: 15px;"
     },
     {
       "type": "begin_display_group",
@@ -71,8 +74,9 @@
       "type": "end_display_group"
     },
     {
-      "type": "html",
-      "value": "<br><b style=\"color: #455A64\">COMMENT SOUHAITEZ-VOUS FAIRE VOTRE CONSTAT ?</b>"
+      "type": "text",
+      "value": "@global.lbl_constat_title",
+      "style_list": "color: #455A64; font-weight: bold; margin-bottom: 10px;"
     },
     {
       "type": "radio_button_grid",
@@ -95,7 +99,7 @@
     },
     {
       "type": "text",
-      "value": "Enregistrez votre témoignage vocal ci-dessus."
+      "value": "@global.txt_obs_v"
     },
     {
       "type": "end_display_group"
@@ -114,7 +118,7 @@
     },
     {
       "type": "text",
-      "value": "Prenez une photo d'un point précis du champ."
+      "value": "@global.txt_obs_p"
     },
     {
       "type": "end_display_group"
@@ -133,7 +137,7 @@
     },
     {
       "type": "text",
-      "value": "Filmez l'état général de la culture."
+      "value": "@global.txt_obs_vi"
     },
     {
       "type": "end_display_group"

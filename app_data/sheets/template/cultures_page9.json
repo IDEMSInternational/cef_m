@@ -182,16 +182,31 @@
     },
     {
       "type": "title",
-      "value": "COÛTS PREVISIONNELS DES AUTRES INTRANTS",
+      "value": "@global.cout_prev_intrants",
       "_translations": {
         "value": {}
       },
       "name": "title_5",
-      "_nested_name": "title_5"
+      "_nested_name": "title_5",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.cout_prev_intrants",
+            "matchedExpression": "@global.cout_prev_intrants",
+            "type": "global",
+            "fieldName": "cout_prev_intrants"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.cout_prev_intrants": [
+          "value"
+        ]
+      }
     },
     {
       "type": "text",
-      "value": "**Les prévisions pour @fields.superficie_ha_prevue ha de @fields.culture_label sont:**",
+      "value": "@global.cout_prev_label",
       "_translations": {
         "value": {}
       },
@@ -200,24 +215,15 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "**Les prévisions pour @fields.superficie_ha_prevue ha de @fields.culture_label sont:**",
-            "matchedExpression": "@fields.superficie_ha_prevue",
-            "type": "fields",
-            "fieldName": "superficie_ha_prevue"
-          },
-          {
-            "fullExpression": "**Les prévisions pour @fields.superficie_ha_prevue ha de @fields.culture_label sont:**",
-            "matchedExpression": "@fields.culture_label",
-            "type": "fields",
-            "fieldName": "culture_label"
+            "fullExpression": "@global.cout_prev_label",
+            "matchedExpression": "@global.cout_prev_label",
+            "type": "global",
+            "fieldName": "cout_prev_label"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.superficie_ha_prevue": [
-          "value"
-        ],
-        "@fields.culture_label": [
+        "@global.cout_prev_label": [
           "value"
         ]
       }
@@ -226,13 +232,28 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "text",
-          "value": "**Coût total herbicide pré-levé (drm)**",
+          "type": "subtitle",
+          "value": "@global.cout_herb",
           "_translations": {
             "value": {}
           },
-          "name": "text_1",
-          "_nested_name": "display_group_7.text_1"
+          "name": "subtitle_1",
+          "_nested_name": "display_group_7.subtitle_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.cout_herb",
+                "matchedExpression": "@global.cout_herb",
+                "type": "global",
+                "fieldName": "cout_herb"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.cout_herb": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",
@@ -268,16 +289,43 @@
     },
     {
       "type": "text",
-      "value": "Si non usage prevue, mettez zero\n*1 drm=5 FCFA*",
+      "value": "@global.cout_prev_hint",
       "_translations": {
         "value": {}
       },
       "style_list": [
-        "color: gray",
-        "font-size: 16px"
+        "@global.hint_style"
       ],
       "name": "text_10",
-      "_nested_name": "text_10"
+      "_nested_name": "text_10",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.cout_prev_hint",
+            "matchedExpression": "@global.cout_prev_hint",
+            "type": "global",
+            "fieldName": "cout_prev_hint"
+          }
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.hint_style",
+              "matchedExpression": "@global.hint_style",
+              "type": "global",
+              "fieldName": "hint_style"
+            }
+          ]
+        }
+      },
+      "_dynamicDependencies": {
+        "@global.cout_prev_hint": [
+          "value"
+        ],
+        "@global.hint_style": [
+          "style_list.0"
+        ]
+      }
     },
     {
       "type": "text_box",
@@ -299,7 +347,7 @@
       ],
       "parameter_list": {
         "number_input": "true",
-        "placeholder": "Écrivez le nombre"
+        "placeholder": "@global.texte_placeholder"
       },
       "_nested_name": "cout_prevu_herbicide_prelevee",
       "_dynamicFields": {
@@ -310,11 +358,24 @@
             "type": "fields",
             "fieldName": "cout_prevu_herbicide_prelevee"
           }
-        ]
+        ],
+        "parameter_list": {
+          "placeholder": [
+            {
+              "fullExpression": "@global.texte_placeholder",
+              "matchedExpression": "@global.texte_placeholder",
+              "type": "global",
+              "fieldName": "texte_placeholder"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@fields.cout_prevu_herbicide_prelevee": [
           "value"
+        ],
+        "@global.texte_placeholder": [
+          "parameter_list.placeholder"
         ]
       }
     },
@@ -369,26 +430,23 @@
     },
     {
       "type": "text",
-      "value": "@global.error_required_answer",
+      "value": "@global.reponse_obligatoire",
       "_translations": {
         "value": {}
       },
       "condition": "@fields.attempt_submit && !@local.valid_cout_prevu_herbicide_prelevee",
       "style_list": [
-        "color: red",
-        "font-size: 16px",
-        "background: #fff5f5",
-        "padding: 5px"
+        "@global.reponse_style"
       ],
       "name": "text_13",
       "_nested_name": "text_13",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@global.error_required_answer",
-            "matchedExpression": "@global.error_required_answer",
+            "fullExpression": "@global.reponse_obligatoire",
+            "matchedExpression": "@global.reponse_obligatoire",
             "type": "global",
-            "fieldName": "error_required_answer"
+            "fieldName": "reponse_obligatoire"
           }
         ],
         "condition": [
@@ -404,10 +462,20 @@
             "type": "local",
             "fieldName": "valid_cout_prevu_herbicide_prelevee"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
-        "@global.error_required_answer": [
+        "@global.reponse_obligatoire": [
           "value"
         ],
         "@fields.attempt_submit": [
@@ -415,6 +483,9 @@
         ],
         "!@local.valid_cout_prevu_herbicide_prelevee": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
@@ -422,13 +493,28 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "text",
-          "value": "**Coût total prestation sarclage (drm)**",
+          "type": "subtitle",
+          "value": "@global.cout_prestation_sarclage",
           "_translations": {
             "value": {}
           },
-          "name": "text_1",
-          "_nested_name": "display_group_14.text_1"
+          "name": "subtitle_1",
+          "_nested_name": "display_group_14.subtitle_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.cout_prestation_sarclage",
+                "matchedExpression": "@global.cout_prestation_sarclage",
+                "type": "global",
+                "fieldName": "cout_prestation_sarclage"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.cout_prestation_sarclage": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",
@@ -464,16 +550,43 @@
     },
     {
       "type": "text",
-      "value": "Si non usage prevue, mettez zero\n*1 drm=5 FCFA*",
+      "value": "@global.cout_prev_hint",
       "_translations": {
         "value": {}
       },
       "style_list": [
-        "color: gray",
-        "font-size: 16px"
+        "@global.hint_style"
       ],
       "name": "text_17",
-      "_nested_name": "text_17"
+      "_nested_name": "text_17",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.cout_prev_hint",
+            "matchedExpression": "@global.cout_prev_hint",
+            "type": "global",
+            "fieldName": "cout_prev_hint"
+          }
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.hint_style",
+              "matchedExpression": "@global.hint_style",
+              "type": "global",
+              "fieldName": "hint_style"
+            }
+          ]
+        }
+      },
+      "_dynamicDependencies": {
+        "@global.cout_prev_hint": [
+          "value"
+        ],
+        "@global.hint_style": [
+          "style_list.0"
+        ]
+      }
     },
     {
       "type": "text_box",
@@ -495,7 +608,7 @@
       ],
       "parameter_list": {
         "number_input": "true",
-        "placeholder": "Écrivez le nombre"
+        "placeholder": "@global.texte_placeholder"
       },
       "_nested_name": "cout_prevu_sarclage",
       "_dynamicFields": {
@@ -506,11 +619,24 @@
             "type": "fields",
             "fieldName": "cout_prevu_sarclage"
           }
-        ]
+        ],
+        "parameter_list": {
+          "placeholder": [
+            {
+              "fullExpression": "@global.texte_placeholder",
+              "matchedExpression": "@global.texte_placeholder",
+              "type": "global",
+              "fieldName": "texte_placeholder"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@fields.cout_prevu_sarclage": [
           "value"
+        ],
+        "@global.texte_placeholder": [
+          "parameter_list.placeholder"
         ]
       }
     },
@@ -565,26 +691,23 @@
     },
     {
       "type": "text",
-      "value": "@global.error_required_answer",
+      "value": "@global.reponse_obligatoire",
       "_translations": {
         "value": {}
       },
       "condition": "@fields.attempt_submit && !@local.valid_cout_prevu_sarclage",
       "style_list": [
-        "color: red",
-        "font-size: 16px",
-        "background: #fff5f5",
-        "padding: 5px"
+        "@global.reponse_style"
       ],
       "name": "text_20",
       "_nested_name": "text_20",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@global.error_required_answer",
-            "matchedExpression": "@global.error_required_answer",
+            "fullExpression": "@global.reponse_obligatoire",
+            "matchedExpression": "@global.reponse_obligatoire",
             "type": "global",
-            "fieldName": "error_required_answer"
+            "fieldName": "reponse_obligatoire"
           }
         ],
         "condition": [
@@ -600,10 +723,20 @@
             "type": "local",
             "fieldName": "valid_cout_prevu_sarclage"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
-        "@global.error_required_answer": [
+        "@global.reponse_obligatoire": [
           "value"
         ],
         "@fields.attempt_submit": [
@@ -611,6 +744,9 @@
         ],
         "!@local.valid_cout_prevu_sarclage": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
@@ -618,13 +754,28 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "text",
-          "value": "**Coût total prestation de désherbage (drm)**",
+          "type": "subtitle",
+          "value": "@global.cout_prestation_deherb",
           "_translations": {
             "value": {}
           },
-          "name": "text_1",
-          "_nested_name": "display_group_21.text_1"
+          "name": "subtitle_1",
+          "_nested_name": "display_group_21.subtitle_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.cout_prestation_deherb",
+                "matchedExpression": "@global.cout_prestation_deherb",
+                "type": "global",
+                "fieldName": "cout_prestation_deherb"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.cout_prestation_deherb": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",
@@ -660,16 +811,43 @@
     },
     {
       "type": "text",
-      "value": "Si non usage prevue, mettez zero\n*1 drm=5 FCFA*",
+      "value": "@global.cout_prev_hint",
       "_translations": {
         "value": {}
       },
       "style_list": [
-        "color: gray",
-        "font-size: 16px"
+        "@global.hint_style"
       ],
       "name": "text_24",
-      "_nested_name": "text_24"
+      "_nested_name": "text_24",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.cout_prev_hint",
+            "matchedExpression": "@global.cout_prev_hint",
+            "type": "global",
+            "fieldName": "cout_prev_hint"
+          }
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.hint_style",
+              "matchedExpression": "@global.hint_style",
+              "type": "global",
+              "fieldName": "hint_style"
+            }
+          ]
+        }
+      },
+      "_dynamicDependencies": {
+        "@global.cout_prev_hint": [
+          "value"
+        ],
+        "@global.hint_style": [
+          "style_list.0"
+        ]
+      }
     },
     {
       "type": "text_box",
@@ -691,7 +869,7 @@
       ],
       "parameter_list": {
         "number_input": "true",
-        "placeholder": "Écrivez le nombre"
+        "placeholder": "@global.texte_placeholder"
       },
       "_nested_name": "cout_prevu_desherbage",
       "_dynamicFields": {
@@ -702,11 +880,24 @@
             "type": "fields",
             "fieldName": "cout_prevu_desherbage"
           }
-        ]
+        ],
+        "parameter_list": {
+          "placeholder": [
+            {
+              "fullExpression": "@global.texte_placeholder",
+              "matchedExpression": "@global.texte_placeholder",
+              "type": "global",
+              "fieldName": "texte_placeholder"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@fields.cout_prevu_desherbage": [
           "value"
+        ],
+        "@global.texte_placeholder": [
+          "parameter_list.placeholder"
         ]
       }
     },
@@ -761,26 +952,23 @@
     },
     {
       "type": "text",
-      "value": "@global.error_required_answer",
+      "value": "@global.reponse_obligatoire",
       "_translations": {
         "value": {}
       },
       "condition": "@fields.attempt_submit && !@local.valid_cout_prevu_desherbage",
       "style_list": [
-        "color: red",
-        "font-size: 16px",
-        "background: #fff5f5",
-        "padding: 5px"
+        "@global.reponse_style"
       ],
       "name": "text_27",
       "_nested_name": "text_27",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@global.error_required_answer",
-            "matchedExpression": "@global.error_required_answer",
+            "fullExpression": "@global.reponse_obligatoire",
+            "matchedExpression": "@global.reponse_obligatoire",
             "type": "global",
-            "fieldName": "error_required_answer"
+            "fieldName": "reponse_obligatoire"
           }
         ],
         "condition": [
@@ -796,10 +984,20 @@
             "type": "local",
             "fieldName": "valid_cout_prevu_desherbage"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
-        "@global.error_required_answer": [
+        "@global.reponse_obligatoire": [
           "value"
         ],
         "@fields.attempt_submit": [
@@ -807,6 +1005,9 @@
         ],
         "!@local.valid_cout_prevu_desherbage": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
@@ -814,13 +1015,28 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "text",
-          "value": "**Coût total herbicide post-levée (drm)**",
+          "type": "subtitle",
+          "value": "@global.cout_prestation_herbicide",
           "_translations": {
             "value": {}
           },
-          "name": "text_1",
-          "_nested_name": "display_group_28.text_1"
+          "name": "subtitle_1",
+          "_nested_name": "display_group_28.subtitle_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.cout_prestation_herbicide",
+                "matchedExpression": "@global.cout_prestation_herbicide",
+                "type": "global",
+                "fieldName": "cout_prestation_herbicide"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.cout_prestation_herbicide": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",
@@ -856,16 +1072,43 @@
     },
     {
       "type": "text",
-      "value": "Si non usage prevue, mettez zero\n*1 drm=5 FCFA*",
+      "value": "@global.cout_prev_hint",
       "_translations": {
         "value": {}
       },
       "style_list": [
-        "color: gray",
-        "font-size: 16px"
+        "@global.hint_style"
       ],
       "name": "text_31",
-      "_nested_name": "text_31"
+      "_nested_name": "text_31",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.cout_prev_hint",
+            "matchedExpression": "@global.cout_prev_hint",
+            "type": "global",
+            "fieldName": "cout_prev_hint"
+          }
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.hint_style",
+              "matchedExpression": "@global.hint_style",
+              "type": "global",
+              "fieldName": "hint_style"
+            }
+          ]
+        }
+      },
+      "_dynamicDependencies": {
+        "@global.cout_prev_hint": [
+          "value"
+        ],
+        "@global.hint_style": [
+          "style_list.0"
+        ]
+      }
     },
     {
       "type": "text_box",
@@ -887,7 +1130,7 @@
       ],
       "parameter_list": {
         "number_input": "true",
-        "placeholder": "Écrivez le nombre"
+        "placeholder": "@global.texte_placeholder"
       },
       "_nested_name": "cout_prevu_herbicide",
       "_dynamicFields": {
@@ -898,11 +1141,24 @@
             "type": "fields",
             "fieldName": "cout_prevu_herbicide"
           }
-        ]
+        ],
+        "parameter_list": {
+          "placeholder": [
+            {
+              "fullExpression": "@global.texte_placeholder",
+              "matchedExpression": "@global.texte_placeholder",
+              "type": "global",
+              "fieldName": "texte_placeholder"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@fields.cout_prevu_herbicide": [
           "value"
+        ],
+        "@global.texte_placeholder": [
+          "parameter_list.placeholder"
         ]
       }
     },
@@ -957,26 +1213,23 @@
     },
     {
       "type": "text",
-      "value": "@global.error_required_answer",
+      "value": "@global.reponse_obligatoire",
       "_translations": {
         "value": {}
       },
       "condition": "@fields.attempt_submit && !@local.valid_cout_prevu_herbicide",
       "style_list": [
-        "color: red",
-        "font-size: 16px",
-        "background: #fff5f5",
-        "padding: 5px"
+        "@global.reponse_style"
       ],
       "name": "text_34",
       "_nested_name": "text_34",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@global.error_required_answer",
-            "matchedExpression": "@global.error_required_answer",
+            "fullExpression": "@global.reponse_obligatoire",
+            "matchedExpression": "@global.reponse_obligatoire",
             "type": "global",
-            "fieldName": "error_required_answer"
+            "fieldName": "reponse_obligatoire"
           }
         ],
         "condition": [
@@ -992,10 +1245,20 @@
             "type": "local",
             "fieldName": "valid_cout_prevu_herbicide"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
-        "@global.error_required_answer": [
+        "@global.reponse_obligatoire": [
           "value"
         ],
         "@fields.attempt_submit": [
@@ -1003,6 +1266,9 @@
         ],
         "!@local.valid_cout_prevu_herbicide": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
@@ -1010,13 +1276,28 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "text",
-          "value": "**Coût total de prestation de buttage (drm)**",
+          "type": "subtitle",
+          "value": "@global.cout_prestation_buttage",
           "_translations": {
             "value": {}
           },
-          "name": "text_1",
-          "_nested_name": "display_group_35.text_1"
+          "name": "subtitle_1",
+          "_nested_name": "display_group_35.subtitle_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.cout_prestation_buttage",
+                "matchedExpression": "@global.cout_prestation_buttage",
+                "type": "global",
+                "fieldName": "cout_prestation_buttage"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.cout_prestation_buttage": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",
@@ -1052,16 +1333,43 @@
     },
     {
       "type": "text",
-      "value": "Si non usage prevue, mettez zero\n*1 drm=5 FCFA*",
+      "value": "@global.cout_prev_hint",
       "_translations": {
         "value": {}
       },
       "style_list": [
-        "color: gray",
-        "font-size: 16px"
+        "@global.hint_style"
       ],
       "name": "text_38",
-      "_nested_name": "text_38"
+      "_nested_name": "text_38",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.cout_prev_hint",
+            "matchedExpression": "@global.cout_prev_hint",
+            "type": "global",
+            "fieldName": "cout_prev_hint"
+          }
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.hint_style",
+              "matchedExpression": "@global.hint_style",
+              "type": "global",
+              "fieldName": "hint_style"
+            }
+          ]
+        }
+      },
+      "_dynamicDependencies": {
+        "@global.cout_prev_hint": [
+          "value"
+        ],
+        "@global.hint_style": [
+          "style_list.0"
+        ]
+      }
     },
     {
       "type": "text_box",
@@ -1083,7 +1391,7 @@
       ],
       "parameter_list": {
         "number_input": "true",
-        "placeholder": "Écrivez le nombre"
+        "placeholder": "@global.texte_placeholder"
       },
       "_nested_name": "cout_prevu_buttage",
       "_dynamicFields": {
@@ -1094,11 +1402,24 @@
             "type": "fields",
             "fieldName": "cout_prevu_buttage"
           }
-        ]
+        ],
+        "parameter_list": {
+          "placeholder": [
+            {
+              "fullExpression": "@global.texte_placeholder",
+              "matchedExpression": "@global.texte_placeholder",
+              "type": "global",
+              "fieldName": "texte_placeholder"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@fields.cout_prevu_buttage": [
           "value"
+        ],
+        "@global.texte_placeholder": [
+          "parameter_list.placeholder"
         ]
       }
     },
@@ -1153,26 +1474,23 @@
     },
     {
       "type": "text",
-      "value": "@global.error_required_answer",
+      "value": "@global.reponse_obligatoire",
       "_translations": {
         "value": {}
       },
       "condition": "@fields.attempt_submit && !@local.valid_cout_prevu_buttage",
       "style_list": [
-        "color: red",
-        "font-size: 16px",
-        "background: #fff5f5",
-        "padding: 5px"
+        "@global.reponse_style"
       ],
       "name": "text_41",
       "_nested_name": "text_41",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@global.error_required_answer",
-            "matchedExpression": "@global.error_required_answer",
+            "fullExpression": "@global.reponse_obligatoire",
+            "matchedExpression": "@global.reponse_obligatoire",
             "type": "global",
-            "fieldName": "error_required_answer"
+            "fieldName": "reponse_obligatoire"
           }
         ],
         "condition": [
@@ -1188,10 +1506,20 @@
             "type": "local",
             "fieldName": "valid_cout_prevu_buttage"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
-        "@global.error_required_answer": [
+        "@global.reponse_obligatoire": [
           "value"
         ],
         "@fields.attempt_submit": [
@@ -1199,6 +1527,9 @@
         ],
         "!@local.valid_cout_prevu_buttage": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
@@ -1206,13 +1537,28 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "text",
-          "value": "**Coût total insecticide (drm)**",
+          "type": "subtitle",
+          "value": "@global.cout_insecticide",
           "_translations": {
             "value": {}
           },
-          "name": "text_1",
-          "_nested_name": "display_group_42.text_1"
+          "name": "subtitle_1",
+          "_nested_name": "display_group_42.subtitle_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.cout_insecticide",
+                "matchedExpression": "@global.cout_insecticide",
+                "type": "global",
+                "fieldName": "cout_insecticide"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.cout_insecticide": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",
@@ -1248,16 +1594,43 @@
     },
     {
       "type": "text",
-      "value": "Si non usage prevue, mettez zero\n*1 drm=5 FCFA*",
+      "value": "@global.cout_prev_hint",
       "_translations": {
         "value": {}
       },
       "style_list": [
-        "color: gray",
-        "font-size: 16px"
+        "@global.hint_style"
       ],
       "name": "text_45",
-      "_nested_name": "text_45"
+      "_nested_name": "text_45",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.cout_prev_hint",
+            "matchedExpression": "@global.cout_prev_hint",
+            "type": "global",
+            "fieldName": "cout_prev_hint"
+          }
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.hint_style",
+              "matchedExpression": "@global.hint_style",
+              "type": "global",
+              "fieldName": "hint_style"
+            }
+          ]
+        }
+      },
+      "_dynamicDependencies": {
+        "@global.cout_prev_hint": [
+          "value"
+        ],
+        "@global.hint_style": [
+          "style_list.0"
+        ]
+      }
     },
     {
       "type": "text_box",
@@ -1279,7 +1652,7 @@
       ],
       "parameter_list": {
         "number_input": "true",
-        "placeholder": "Écrivez le nombre"
+        "placeholder": "@global.texte_placeholder"
       },
       "_nested_name": "cout_prevu_insecticide",
       "_dynamicFields": {
@@ -1290,11 +1663,24 @@
             "type": "fields",
             "fieldName": "cout_prevu_insecticide"
           }
-        ]
+        ],
+        "parameter_list": {
+          "placeholder": [
+            {
+              "fullExpression": "@global.texte_placeholder",
+              "matchedExpression": "@global.texte_placeholder",
+              "type": "global",
+              "fieldName": "texte_placeholder"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@fields.cout_prevu_insecticide": [
           "value"
+        ],
+        "@global.texte_placeholder": [
+          "parameter_list.placeholder"
         ]
       }
     },
@@ -1349,26 +1735,23 @@
     },
     {
       "type": "text",
-      "value": "@global.error_required_answer",
+      "value": "@global.reponse_obligatoire",
       "_translations": {
         "value": {}
       },
       "condition": "@fields.attempt_submit && !@local.valid_cout_prevu_insecticide",
       "style_list": [
-        "color: red",
-        "font-size: 16px",
-        "background: #fff5f5",
-        "padding: 5px"
+        "@global.reponse_style"
       ],
       "name": "text_48",
       "_nested_name": "text_48",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@global.error_required_answer",
-            "matchedExpression": "@global.error_required_answer",
+            "fullExpression": "@global.reponse_obligatoire",
+            "matchedExpression": "@global.reponse_obligatoire",
             "type": "global",
-            "fieldName": "error_required_answer"
+            "fieldName": "reponse_obligatoire"
           }
         ],
         "condition": [
@@ -1384,10 +1767,20 @@
             "type": "local",
             "fieldName": "valid_cout_prevu_insecticide"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
-        "@global.error_required_answer": [
+        "@global.reponse_obligatoire": [
           "value"
         ],
         "@fields.attempt_submit": [
@@ -1395,6 +1788,9 @@
         ],
         "!@local.valid_cout_prevu_insecticide": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
@@ -1778,7 +2174,7 @@
   ],
   "_source": {
     "name": "cef_m sheets",
-    "path": "template/Planification/Cultures_form_sheets.xlsx",
+    "path": "template/Planification/cultures_form_sheets.xlsx",
     "url": "https://docs.google.com/spreadsheets/d/1BAP12cPkFZaHtm0Xozys0kLOqnVOi1h2UUBMoZbmKQI"
   }
 }

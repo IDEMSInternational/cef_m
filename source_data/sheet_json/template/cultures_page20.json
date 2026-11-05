@@ -5,20 +5,19 @@
   "rows": [
     {
       "type": "title",
-      "value": "OBSERVATION PLANIFICATION"
+      "name": "page_title",
+      "value": "@global.info_sup_upa"
     },
     {
       "type": "begin_display_group"
     },
     {
-      "type": "html",
-      "name": "type_canal_observ_label",
-      "value": "<span style=\"color: red;\">*</span> Séléctionnez le canal à utiliser pour faire votre observation",
-      "style_list": "font-size:20px;"
+      "type": "subtitle",
+      "value": "@global.type_canal_info_label"
     },
     {
       "type": "audio",
-      "name": "audio_20_1",
+      "name": "audio_18_1",
       "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/canal_obser_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
       "style_list": "float: right;"
     },
@@ -26,10 +25,17 @@
       "type": "end_display_group"
     },
     {
+      "type": "text",
+      "name": "error_type_canal_info",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@fields.type_canal_info",
+      "style_list": "@global.reponse_style"
+    },
+    {
       "type": "radio_button_grid",
-      "name": "type_canal_observ",
-      "value": "@fields.type_canal_observ",
-      "action_list": "changed | set_field : type_canal_observ: this.value;",
+      "name": "type_canal_info",
+      "value": "@fields.type_canal_info",
+      "action_list": "changed | set_field : type_canal_info: this.value;",
       "parameter_list": "answer_list: @data.group_observation; \nvariant: flex;\nitem_width: 60px;\ngrid_gap: 8px;"
     },
     {
@@ -39,21 +45,33 @@
       "style_list": "color: red; font-size: 16px;"
     },
     {
-      "type": "html ",
-      "value": "<div style=\"background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; padding: 16px; border-radius: 12px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 16px;\">\n  <span style=\"font-size: 14px; opacity: 0.9; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 6px;\">\n  Les cultures prévues:\n  </span>\n  <span style=\"font-size: 28px; font-weight: bold; color: #ffffff;\">\n    @fields.culture_list_all\n  </span>\n</div>"
-    },
-    {
       "type": "begin_display_group",
-      "condition": "@fields.type_canal_observ == \"par_text\""
+      "style_list": "background: #fdf6f0; color: #a44c20; border: 1px solid #f5decb; border-radius: 12px;18px; margin: 12px 0px; box-shadow: 0 4px 6px rgba(164, 76, 32, 0.02); font-size: 20px; font-weight: 500;"
     },
     {
       "type": "text",
-      "name": "info_text_label",
+      "value": "@global.culture_prevues",
+      "style_list": "font-size: 18px; font-weight: bold;"
+    },
+    {
+      "type": "text",
+      "value": "@fields.culture_list_all\n",
+      "style_list": "font-size: 18px; font-weight: bold; "
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@fields.type_canal_info == \"par_text\""
+    },
+    {
+      "type": "text",
       "value": "@global.info_text_label"
     },
     {
       "type": "audio",
-      "name": "audio_20_2",
+      "name": "audio_18_2",
       "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/oberv_ecrit_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
       "style_list": "float: right;"
     },
@@ -65,21 +83,20 @@
       "name": "info_text",
       "value": "@fields.info_text",
       "action_list": "changed | set_field : info_text: this.value;",
-      "parameter_list": "placeholder: Info par écrit ",
-      "condition": "@fields.type_canal_observ == \"par_text\""
+      "parameter_list": "placeholder: @global.texte_placeholder;",
+      "condition": "@fields.type_canal_info == \"par_text\""
     },
     {
       "type": "begin_display_group",
-      "condition": "@fields.type_canal_observ == \"par_video\""
+      "condition": "@fields.type_canal_info == \"par_video\""
     },
     {
       "type": "text",
-      "name": "info_video_label",
       "value": "@global.info_video_label"
     },
     {
       "type": "audio",
-      "name": "audio_20_3",
+      "name": "audio_18_3",
       "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/oberv_vid_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
       "style_list": "float: right;"
     },
@@ -87,23 +104,22 @@
       "type": "end_display_group"
     },
     {
-      "type": "text",
-      "name": "info_video",
-      "value": "We would need a video recorder here",
-      "condition": "@fields.type_canal_observ == \"par_video\""
+      "type": "button",
+      "value": "@global.prendre_video",
+      "parameter_list": "icon: images/icons/screen-recorder-svgrepo-com.svg",
+      "condition": "@fields.type_canal_info == \"par_video\""
     },
     {
       "type": "begin_display_group",
-      "condition": "@fields.type_canal_observ == \"par_vocal\""
+      "condition": "@fields.type_canal_info == \"par_vocal\""
     },
     {
       "type": "text",
-      "name": "info_audio_label",
       "value": "@global.info_audio_label"
     },
     {
       "type": "audio",
-      "name": "audio_20_4",
+      "name": "audio_18_4",
       "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/oberv_audio_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
       "style_list": "float: right;"
     },
@@ -112,22 +128,19 @@
     },
     {
       "type": "text",
-      "name": "info_audio",
-      "value": "We would need a audio recorder here",
-      "condition": "@fields.type_canal_observ == \"par_vocal\""
+      "value": "@global.info_audio_need",
+      "condition": "@fields.type_canal_info == \"par_vocal\""
     },
     {
       "type": "begin_display_group",
-      "condition": "@fields.type_canal_observ == \"par_photo\""
+      "condition": "@fields.type_canal_info == \"par_photo\""
     },
     {
-      "type": "text",
-      "name": "info_image_label",
-      "value": "@global.info_image_label"
+      "type": "text"
     },
     {
       "type": "audio",
-      "name": "audio_20_5",
+      "name": "audio_18_5",
       "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/oberv_phot_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
       "style_list": "float: right;"
     },
@@ -135,32 +148,33 @@
       "type": "end_display_group"
     },
     {
-      "type": "text",
-      "name": "info_image",
-      "value": "We would need a camera here",
-      "condition": "@fields.type_canal_observ == \"par_photo\""
+      "type": "button",
+      "value": "@global.prendre_photo",
+      "parameter_list": "icon: images/icons/photo-svgrepo-com.svg",
+      "condition": "@fields.type_canal_info == \"par_photo\""
     },
     {
       "name": "completed_enabled",
-      "value": "!!@local.type_canal_observ"
+      "value": "!!@local.type_canal_info"
     },
     {
       "type": "begin_display_group",
+      "name": "dg_footer",
       "value": " ",
       "parameter_list": "sticky: bottom;",
       "style_list": "padding: 12px 24px;"
     },
     {
       "type": "round_button",
-      "name": "page_20_button_back",
-      "action_list": "click | emit: uncompleted;",
+      "name": "page_18_button_back",
+      "action_list": "click | emit: uncompleted",
       "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
     },
     {
       "type": "button",
-      "name": "page_20_button_continue",
+      "name": "page_18_button_continue",
       "value": "@global.btn_continue",
-      "action_list": "click | emit: completed;",
+      "action_list": "click | emit: completed",
       "style_list": "flex: 1"
     },
     {

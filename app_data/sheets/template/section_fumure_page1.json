@@ -9,11 +9,26 @@
         {
           "type": "title",
           "name": "page_title",
-          "value": "NOTE",
+          "value": "@global.note_fumure_org",
           "_translations": {
             "value": {}
           },
-          "_nested_name": "display_group_2.page_title"
+          "_nested_name": "display_group_2.page_title",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.note_fumure_org",
+                "matchedExpression": "@global.note_fumure_org",
+                "type": "global",
+                "fieldName": "note_fumure_org"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.note_fumure_org": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",

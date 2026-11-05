@@ -66,6 +66,412 @@
       "_translations": {
         "value": {}
       }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "planification_title",
+      "value": "**PLANIFICATION**",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "planification_hint1",
+      "value": "\"Dans le contexte du sahel, où les populations rurales cultivent et consomment principales les céreales (mil, sorgho, maïs et riz). Il est important de connaitre le besoin annuel en denrées alimentaires de l'UPA avant la saison de production et d'allouer assez de superficies à la production des céréales. \nCe formulaire a pour but d'aider votre UPA à connaitre ses besoins en céréales et d'allouer assez de superficie à la production de céréales au cours de la saison hivernale pour satisfaire les besoins.\"",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "note_approche_besoin",
+      "value": "**NOTE APPROCHE BESOIN**",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "planification_hint_2",
+      "value": "Pour bien planifier les besoins alimentaires de l’UPA, on conseille de prévoir trois(3) sacs de céréales par personne pour une année.",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "planification_hint_3",
+      "value": "Cette quantité peut couvrir l’alimentation d’une personne pendant les douze mois, avec une petite réserve en cas d’imprévu. Pour connaître le besoin total, on multiplie donc trois sacs par le nombre de personnes qui seront nourries avec les récoltes de la prochaine campagne agricole. Ensuite, cette quantité totale est partagée entre les quatre céréales selon les habitudes alimentaires de l’UPA. Enfin, on calcule la superficie à cultiver pour chaque céréale à partir du rendement moyen obtenu habituellement dans l’UPA.",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "prevision_title",
+      "value": "**PREVISIONS DES PERSONNES A NOURRIR**",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "perssonne_nourrir_label",
+      "value": "Donnez le nombre de personnes à nourrir dans votre UPA à partir des récoltes de la saision hivernale prochaine:",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "perssonne_nourrir_hint",
+      "value": "Il s'agit du nombre de personnes (adultes et enfants) dont l'alimentation sera assurée sur 12 mois, à partir des récoltés en octobre de cette année.",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "prevision_label",
+      "value": "**PREVISIONS**",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "prevision_label_hint1",
+      "value": "Avec @fields.personnes_nourrir personnes à nourrir à partir des récoltes prochaines,l'UPA doit prévoire :",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "prevision_label_hint2",
+      "value": "@local.besoin_cereale_exploitation sacs de céréales",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "prevision_label_hint3",
+      "value": "\"Ces sacs de céréales couvrent généralement les besoins alimentaires (prévus ou non) des **@fields.personnes_nourrir membres**/ 12 mois.\n\"",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "repartition_besoin_cereale",
+      "value": "REPARTITION DES BESOINS EN CEREALES",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "repartition_besoin_cereale_hint",
+      "value": "Répartition de la quantité totale de céréales nécéssaires (@fields.besoin_cereale_exploitation sacs) entre le maïs, mil, sorgho et riz en fonction de l'importance de chacune dans la consommation de votre UPA.",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "repartition_besoin_cereale_attention",
+      "value": "Attention: le cumul des sacs des quatre types de céréales doit être égal aux besoins de céréales de l'exploitation de @fields.besoin_cereale_exploitation sacs",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "nbre_sac_mais",
+      "value": "Donnez le nombre de sacs de maïs à prévoir",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "nbre_sac_mil",
+      "value": "Donnez le nombre de sacs de mil à prévoir",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "nbre_sac_sorgho",
+      "value": "Donnez le nombre de sacs de sorgho à prévoir",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "nbre_sac_riz",
+      "value": "Donnez le nombre de sacs de riz à prévoir",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "message_cumul_sac",
+      "value": "Le cumul de la repartition des besoins entre les quatre céréales est: **@local.sac_cereales sacs**",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "msg_cumul_ok",
+      "value": "CORRECT:  le cumul (@local.sac_cereales sacs) est égale au bésoin de l'UPA (@fields.besoin_cereale_exploitation sacs)",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "msg_cumul_sup",
+      "value": "SUPERIEUR: le cumul (@local.sac_cereales sacs)  est supérieur au bésoin de l'UPA (@fields.besoin_cereale_exploitation sacs)",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "msg_cumul_sup_hint",
+      "value": "Diminuez le nombre de @local.sac_cereales_diff sac (s)",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "msg_cumul_inf",
+      "value": "INFERIEUR: le cumul @local.sac_cereales sacs)  est inférieur au bésoin de l'UPA (@fields.besoin_cereale_exploitation sacs)",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "msg_cumul_inf_hint",
+      "value": "Augmentez le nombre de @local.sac_cereales_diff sac (s)",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "rendement_moyen_upa",
+      "value": "RENDEMENTS MOYENS DE VOTRE UPA",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "rendement_moyen_mais",
+      "value": "Donnez le rendement moyen du maïs de votre exploitation (sac de 100 kg/ha)",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "rendement_moyen_mil",
+      "value": "Donnez le rendement moyen du mil de votre exploitation (sac de 100 kg/ha)",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "rendement_moyen_sorgho",
+      "value": "Donnez le rendement moyen du sorgho de votre exploitation (sac de 100kg/ha)",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "rendement_moyen_riz",
+      "value": "Donnez le rendement moyen du riz de votre exploitation (sac de 100kg/ha)",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "superficies_cereale_cultives",
+      "value": "SUPERFICIES DES CEREALES A CULTIVIER",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "superficies_cereale_hint",
+      "value": "Les supperficies prévisionnelles sont calculées en fonction du rendement moyen des céréales (maïs, mil, sorgho et riz) de votre UPA.",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "surperficie_mais_title",
+      "value": "Superficie à cultiver pour le Maïs",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "rend_mais",
+      "value": "Rendement moyen: @fields.rend_moyen_mais sac de 100kg/ha",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "superficie_cultive_mil",
+      "value": "La superficie pour @fields.sac_mais sacs de maïs est:",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "superficie_mil_title",
+      "value": "Superficie à cultiver pour le Mil",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "rend_mil",
+      "value": "Rendement moyen: @fields.rend_moyen_mil sac de 100kg/ha",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "superficie_cultive_mil",
+      "value": "La superficie pour @fields.sac_mil sacs de mil est:",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "superficie_sorgho_title",
+      "value": "Superficie à cultiver pour le Sorgho",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "rend_sorgho",
+      "value": "Rendement moyen: @fields.rend_moyen_sorgho sac de 100kg/ha",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "superficie_cultive_sorgho",
+      "value": "La superficie pour @fields.sac_sorgho sacs de sorgho est:",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "superficie_riz_title",
+      "value": "Superficie à cultiver pour le Riz",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "rend_riz",
+      "value": "Rendement moyen: @fields.rend_moyen_riz sac de 100kg/ha",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "superficie_cultive_riz",
+      "value": "La superficie pour @fields.sac_riz sacs de riz est:",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "superficie_tot_title",
+      "value": "Superficie totale de maïs, mil, sorgho et riz",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "superficie_cumul_total",
+      "value": "La superficie cumulée de maïs, mil, sorgho et riz est:",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "obverv_besoin_humains",
+      "value": "OBSERVATIONS SUR LA PREVISION DE L'ALIMENTATION HUMAINE DE L'UPA",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "apreciation_observation_form",
+      "value": "APRECIATIONS ET OBSERVATIONS SUR LE FORMULAIRE",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "partage_apreciation",
+      "value": "Partagez vos appréciations, observations ou suggestions d'amélioration sur le formulaire par audio",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "besoin_humain_fin",
+      "value": "Les autres formulaires de planification qui complètent ce formulaire sont:\n-***Alimentation animale***;\n-***Depenses de l'UPA***;\n-***Fumure organique***.\n======= MERCI========",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant"
+    },
+    {
+      "type": "declare_global_constant"
     }
   ],
   "_source": {

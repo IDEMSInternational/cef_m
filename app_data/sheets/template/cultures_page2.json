@@ -31,13 +31,28 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "title",
-          "value": "Séléctionnez les cultures prevues par votre UPA pour la saison prochaine",
+          "type": "subtitle",
+          "value": "@global.cult_prevues",
           "_translations": {
             "value": {}
           },
-          "name": "title_1",
-          "_nested_name": "display_group_3.title_1"
+          "name": "subtitle_1",
+          "_nested_name": "display_group_3.subtitle_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.cult_prevues",
+                "matchedExpression": "@global.cult_prevues",
+                "type": "global",
+                "fieldName": "cult_prevues"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.cult_prevues": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",
@@ -63,8 +78,7 @@
         "value": {}
       },
       "style_list": [
-        "color: gray",
-        "font-size: 16px"
+        "@global.hint_style"
       ],
       "name": "text_5",
       "_nested_name": "text_5",
@@ -76,11 +90,24 @@
             "type": "global",
             "fieldName": "note_cult_hint"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.hint_style",
+              "matchedExpression": "@global.hint_style",
+              "type": "global",
+              "fieldName": "hint_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.note_cult_hint": [
           "value"
+        ],
+        "@global.hint_style": [
+          "style_list.0"
         ]
       }
     },
@@ -352,13 +379,28 @@
           "type": "display_group",
           "rows": [
             {
-              "type": "text",
-              "value": "**Écrivez le nom de l'autre culture 1**",
+              "type": "subtitle",
+              "value": "@global.autre_cult_label",
               "_translations": {
                 "value": {}
               },
-              "name": "text_1",
-              "_nested_name": "display_group_8.display_group_1.text_1"
+              "name": "subtitle_1",
+              "_nested_name": "display_group_8.display_group_1.subtitle_1",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "@global.autre_cult_label",
+                    "matchedExpression": "@global.autre_cult_label",
+                    "type": "global",
+                    "fieldName": "autre_cult_label"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@global.autre_cult_label": [
+                  "value"
+                ]
+              }
             },
             {
               "type": "audio",
@@ -380,17 +422,43 @@
         },
         {
           "type": "text",
-          "value": "*Il s'agit d'une culture prevue qui n'existe pas dans la list des cultures ci-dessus*",
+          "value": "@global.autre_cult_hint",
           "_translations": {
             "value": {}
           },
           "style_list": [
-            "font-size: 12px",
-            "color: #718096",
-            "font-style: italic"
+            "@global.hint_style"
           ],
           "name": "text_2",
-          "_nested_name": "display_group_8.text_2"
+          "_nested_name": "display_group_8.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.autre_cult_hint",
+                "matchedExpression": "@global.autre_cult_hint",
+                "type": "global",
+                "fieldName": "autre_cult_hint"
+              }
+            ],
+            "style_list": {
+              "0": [
+                {
+                  "fullExpression": "@global.hint_style",
+                  "matchedExpression": "@global.hint_style",
+                  "type": "global",
+                  "fieldName": "hint_style"
+                }
+              ]
+            }
+          },
+          "_dynamicDependencies": {
+            "@global.autre_cult_hint": [
+              "value"
+            ],
+            "@global.hint_style": [
+              "style_list.0"
+            ]
+          }
         },
         {
           "type": "image",
@@ -424,7 +492,7 @@
             }
           ],
           "parameter_list": {
-            "placeholder": "Ecrivez le nom de la culture"
+            "placeholder": "@global.texte_placeholder"
           },
           "_nested_name": "display_group_8.nom_culture_1",
           "_dynamicFields": {
@@ -435,30 +503,48 @@
                 "type": "fields",
                 "fieldName": "nom_culture_1"
               }
-            ]
+            ],
+            "parameter_list": {
+              "placeholder": [
+                {
+                  "fullExpression": "@global.texte_placeholder",
+                  "matchedExpression": "@global.texte_placeholder",
+                  "type": "global",
+                  "fieldName": "texte_placeholder"
+                }
+              ]
+            }
           },
           "_dynamicDependencies": {
             "@fields.nom_culture_1": [
               "value"
+            ],
+            "@global.texte_placeholder": [
+              "parameter_list.placeholder"
             ]
           }
         },
         {
           "type": "text",
-          "value": "*La réponse est obligatoire, aucune valeur n'a été donnée!*",
+          "value": "@global.reponse_obligatoire",
           "_translations": {
             "value": {}
           },
           "condition": "@calc(@fields.culture_autre_cult_1 && (@fields.nom_culture_1 == '' || @fields.nom_culture_1 == null))",
           "style_list": [
-            "color: #d71920",
-            "font-size: 12px",
-            "font-weight: bold",
-            "margin-top: 4px"
+            "@global.reponse_style"
           ],
           "name": "text_5",
           "_nested_name": "display_group_8.text_5",
           "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.reponse_obligatoire",
+                "matchedExpression": "@global.reponse_obligatoire",
+                "type": "global",
+                "fieldName": "reponse_obligatoire"
+              }
+            ],
             "condition": [
               {
                 "fullExpression": "@calc(@fields.culture_autre_cult_1 && (@fields.nom_culture_1 == '' || @fields.nom_culture_1 == null))",
@@ -484,9 +570,22 @@
                 "type": "calc",
                 "fieldName": "@fields.culture_autre_cult_1 && (@fields.nom_culture_1 == '' || @fields.nom_culture_1 == null)"
               }
-            ]
+            ],
+            "style_list": {
+              "0": [
+                {
+                  "fullExpression": "@global.reponse_style",
+                  "matchedExpression": "@global.reponse_style",
+                  "type": "global",
+                  "fieldName": "reponse_style"
+                }
+              ]
+            }
           },
           "_dynamicDependencies": {
+            "@global.reponse_obligatoire": [
+              "value"
+            ],
             "@fields.culture_autre_cult_1": [
               "condition"
             ],
@@ -496,25 +595,33 @@
             ],
             "@calc(@fields.culture_autre_cult_1 && (@fields.nom_culture_1 == '' || @fields.nom_culture_1 == null))": [
               "condition"
+            ],
+            "@global.reponse_style": [
+              "style_list.0"
             ]
           }
         },
         {
           "type": "text",
-          "value": "*Cette culture existe déjà dans la liste standard !*",
+          "value": "@global.culture_existant",
           "_translations": {
             "value": {}
           },
           "condition": "@calc(@fields.culture_autre_cult_1 && !!@fields.nom_culture_1 && ['mais','mil','sorgho','coton','arachide','fourrage', 'niebe','soja','fonio','riz','sesame','wouandzou','patate_douce','bissap'].includes(@fields.nom_culture_1.toLowerCase().trim()))",
           "style_list": [
-            "color: #d71920",
-            "font-size: 12px",
-            "font-weight: bold",
-            "margin-top: 4px"
+            "@global.reponse_style"
           ],
           "name": "text_6",
           "_nested_name": "display_group_8.text_6",
           "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.culture_existant",
+                "matchedExpression": "@global.culture_existant",
+                "type": "global",
+                "fieldName": "culture_existant"
+              }
+            ],
             "condition": [
               {
                 "fullExpression": "@calc(@fields.culture_autre_cult_1 && !!@fields.nom_culture_1 && ['mais','mil','sorgho','coton','arachide','fourrage', 'niebe','soja','fonio','riz','sesame','wouandzou','patate_douce','bissap'].includes(@fields.nom_culture_1.toLowerCase().trim()))",
@@ -540,9 +647,22 @@
                 "type": "calc",
                 "fieldName": "@fields.culture_autre_cult_1 && !!@fields.nom_culture_1 && ['mais','mil','sorgho','coton','arachide','fourrage', 'niebe','soja','fonio','riz','sesame','wouandzou','patate_douce','bissap'].includes(@fields.nom_culture_1.toLowerCase().trim())"
               }
-            ]
+            ],
+            "style_list": {
+              "0": [
+                {
+                  "fullExpression": "@global.reponse_style",
+                  "matchedExpression": "@global.reponse_style",
+                  "type": "global",
+                  "fieldName": "reponse_style"
+                }
+              ]
+            }
           },
           "_dynamicDependencies": {
+            "@global.culture_existant": [
+              "value"
+            ],
             "@fields.culture_autre_cult_1": [
               "condition"
             ],
@@ -554,6 +674,9 @@
             ],
             "@calc(@fields.culture_autre_cult_1 && !!@fields.nom_culture_1 && ['mais','mil','sorgho','coton','arachide','fourrage', 'niebe','soja','fonio','riz','sesame','wouandzou','patate_douce','bissap'].includes(@fields.nom_culture_1.toLowerCase().trim()))": [
               "condition"
+            ],
+            "@global.reponse_style": [
+              "style_list.0"
             ]
           }
         }
@@ -587,13 +710,28 @@
           "type": "display_group",
           "rows": [
             {
-              "type": "text",
-              "value": "**Écrivez le nom de l'autre culture 2**",
+              "type": "subtitle",
+              "value": "@global.autre_cult_label2",
               "_translations": {
                 "value": {}
               },
-              "name": "text_1",
-              "_nested_name": "display_group_10.display_group_1.text_1"
+              "name": "subtitle_1",
+              "_nested_name": "display_group_10.display_group_1.subtitle_1",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "@global.autre_cult_label2",
+                    "matchedExpression": "@global.autre_cult_label2",
+                    "type": "global",
+                    "fieldName": "autre_cult_label2"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@global.autre_cult_label2": [
+                  "value"
+                ]
+              }
             },
             {
               "type": "audio",
@@ -615,17 +753,43 @@
         },
         {
           "type": "text",
-          "value": "*Il s'agit d'une culture prevue qui n'existe pas dans la liste des cultures ci-dessus*",
+          "value": "@global.autre_cult_hint",
           "_translations": {
             "value": {}
           },
           "style_list": [
-            "font-size: 12px",
-            "color: #718096",
-            "font-style: italic"
+            "@global.hint_style"
           ],
           "name": "text_2",
-          "_nested_name": "display_group_10.text_2"
+          "_nested_name": "display_group_10.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.autre_cult_hint",
+                "matchedExpression": "@global.autre_cult_hint",
+                "type": "global",
+                "fieldName": "autre_cult_hint"
+              }
+            ],
+            "style_list": {
+              "0": [
+                {
+                  "fullExpression": "@global.hint_style",
+                  "matchedExpression": "@global.hint_style",
+                  "type": "global",
+                  "fieldName": "hint_style"
+                }
+              ]
+            }
+          },
+          "_dynamicDependencies": {
+            "@global.autre_cult_hint": [
+              "value"
+            ],
+            "@global.hint_style": [
+              "style_list.0"
+            ]
+          }
         },
         {
           "type": "image",
@@ -659,7 +823,7 @@
             }
           ],
           "parameter_list": {
-            "placeholder": "Ecrivez le nom de la culture"
+            "placeholder": "@global.texte_placeholder"
           },
           "_nested_name": "display_group_10.nom_culture_2",
           "_dynamicFields": {
@@ -670,30 +834,48 @@
                 "type": "fields",
                 "fieldName": "nom_culture_2"
               }
-            ]
+            ],
+            "parameter_list": {
+              "placeholder": [
+                {
+                  "fullExpression": "@global.texte_placeholder",
+                  "matchedExpression": "@global.texte_placeholder",
+                  "type": "global",
+                  "fieldName": "texte_placeholder"
+                }
+              ]
+            }
           },
           "_dynamicDependencies": {
             "@fields.nom_culture_2": [
               "value"
+            ],
+            "@global.texte_placeholder": [
+              "parameter_list.placeholder"
             ]
           }
         },
         {
           "type": "text",
-          "value": "*La réponse est obligatoire, aucune valeur n'a été donnée!*",
+          "value": "@global.reponse_obligatoire",
           "_translations": {
             "value": {}
           },
           "condition": "@calc(@fields.culture_autre_cult_2 && (@fields.nom_culture_2 == '' || @fields.nom_culture_2 == null))",
           "style_list": [
-            "color: #d71920",
-            "font-size: 12px",
-            "font-weight: bold",
-            "margin-top: 4px"
+            "@global.reponse_style"
           ],
           "name": "text_5",
           "_nested_name": "display_group_10.text_5",
           "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.reponse_obligatoire",
+                "matchedExpression": "@global.reponse_obligatoire",
+                "type": "global",
+                "fieldName": "reponse_obligatoire"
+              }
+            ],
             "condition": [
               {
                 "fullExpression": "@calc(@fields.culture_autre_cult_2 && (@fields.nom_culture_2 == '' || @fields.nom_culture_2 == null))",
@@ -719,9 +901,22 @@
                 "type": "calc",
                 "fieldName": "@fields.culture_autre_cult_2 && (@fields.nom_culture_2 == '' || @fields.nom_culture_2 == null)"
               }
-            ]
+            ],
+            "style_list": {
+              "0": [
+                {
+                  "fullExpression": "@global.reponse_style",
+                  "matchedExpression": "@global.reponse_style",
+                  "type": "global",
+                  "fieldName": "reponse_style"
+                }
+              ]
+            }
           },
           "_dynamicDependencies": {
+            "@global.reponse_obligatoire": [
+              "value"
+            ],
             "@fields.culture_autre_cult_2": [
               "condition"
             ],
@@ -731,25 +926,33 @@
             ],
             "@calc(@fields.culture_autre_cult_2 && (@fields.nom_culture_2 == '' || @fields.nom_culture_2 == null))": [
               "condition"
+            ],
+            "@global.reponse_style": [
+              "style_list.0"
             ]
           }
         },
         {
           "type": "text",
-          "value": "*Cette culture existe déjà dans la liste standard !*",
+          "value": "@global.culture_existant",
           "_translations": {
             "value": {}
           },
           "condition": "@calc(@fields.culture_autre_cult_2 && !!@fields.nom_culture_2 && ['mais','mil','sorgho','coton','arachide','fourrage', 'niebe','soja','fonio','riz','sesame','wouandzou','patate_douce','bissap'].includes(@fields.nom_culture_2.toLowerCase().trim()))",
           "style_list": [
-            "color: #d71920",
-            "font-size: 12px",
-            "font-weight: bold",
-            "margin-top: 4px"
+            "@global.reponse_style"
           ],
           "name": "text_6",
           "_nested_name": "display_group_10.text_6",
           "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.culture_existant",
+                "matchedExpression": "@global.culture_existant",
+                "type": "global",
+                "fieldName": "culture_existant"
+              }
+            ],
             "condition": [
               {
                 "fullExpression": "@calc(@fields.culture_autre_cult_2 && !!@fields.nom_culture_2 && ['mais','mil','sorgho','coton','arachide','fourrage', 'niebe','soja','fonio','riz','sesame','wouandzou','patate_douce','bissap'].includes(@fields.nom_culture_2.toLowerCase().trim()))",
@@ -775,9 +978,22 @@
                 "type": "calc",
                 "fieldName": "@fields.culture_autre_cult_2 && !!@fields.nom_culture_2 && ['mais','mil','sorgho','coton','arachide','fourrage', 'niebe','soja','fonio','riz','sesame','wouandzou','patate_douce','bissap'].includes(@fields.nom_culture_2.toLowerCase().trim())"
               }
-            ]
+            ],
+            "style_list": {
+              "0": [
+                {
+                  "fullExpression": "@global.reponse_style",
+                  "matchedExpression": "@global.reponse_style",
+                  "type": "global",
+                  "fieldName": "reponse_style"
+                }
+              ]
+            }
           },
           "_dynamicDependencies": {
+            "@global.culture_existant": [
+              "value"
+            ],
             "@fields.culture_autre_cult_2": [
               "condition"
             ],
@@ -789,6 +1005,9 @@
             ],
             "@calc(@fields.culture_autre_cult_2 && !!@fields.nom_culture_2 && ['mais','mil','sorgho','coton','arachide','fourrage', 'niebe','soja','fonio','riz','sesame','wouandzou','patate_douce','bissap'].includes(@fields.nom_culture_2.toLowerCase().trim()))": [
               "condition"
+            ],
+            "@global.reponse_style": [
+              "style_list.0"
             ]
           }
         }
@@ -1561,8 +1780,7 @@
     },
     {
       "type": "text",
-      "name": "error_select",
-      "value": "*Veuillez sélectionner au moins une culture pour continuer*!",
+      "value": "@global.error_select",
       "_translations": {
         "value": {}
       },
@@ -1576,8 +1794,17 @@
         "text-align: center",
         "font-weight: 600"
       ],
-      "_nested_name": "error_select",
+      "name": "text_18",
+      "_nested_name": "text_18",
       "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.error_select",
+            "matchedExpression": "@global.error_select",
+            "type": "global",
+            "fieldName": "error_select"
+          }
+        ],
         "condition": [
           {
             "fullExpression": "!@local.valid_cult_select",
@@ -1588,6 +1815,9 @@
         ]
       },
       "_dynamicDependencies": {
+        "@global.error_select": [
+          "value"
+        ],
         "!@local.valid_cult_select": [
           "condition"
         ]
@@ -1624,7 +1854,7 @@
         },
         {
           "type": "button",
-          "name": "page_3_btn_attempt_submit",
+          "name": "page_2_btn_attempt_submit",
           "value": "Continuer",
           "_translations": {
             "value": {}
@@ -1644,7 +1874,7 @@
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "display_group_19.page_3_btn_attempt_submit",
+          "_nested_name": "display_group_19.page_2_btn_attempt_submit",
           "_dynamicFields": {
             "condition": [
               {
@@ -1865,7 +2095,7 @@
   ],
   "_source": {
     "name": "cef_m sheets",
-    "path": "template/Planification/Cultures_form_sheets.xlsx",
+    "path": "template/Planification/cultures_form_sheets.xlsx",
     "url": "https://docs.google.com/spreadsheets/d/1BAP12cPkFZaHtm0Xozys0kLOqnVOi1h2UUBMoZbmKQI"
   }
 }
