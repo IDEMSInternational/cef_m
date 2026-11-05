@@ -8,16 +8,31 @@
       "rows": [
         {
           "type": "text",
-          "value": "**PLANIFICATION**",
+          "value": "@global.planification_title",
           "_translations": {
             "value": {}
           },
           "name": "text_1",
-          "_nested_name": "display_group_2.text_1"
+          "_nested_name": "display_group_2.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.planification_title",
+                "matchedExpression": "@global.planification_title",
+                "type": "global",
+                "fieldName": "planification_title"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.planification_title": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",
-          "name": "audio_3_1",
+          "name": "audio_1_1",
           "parameter_list": {
             "variant": "button_only",
             "src": "audio/alimentationHumaine/besoins_annuels_fr.mp3",
@@ -26,7 +41,7 @@
           "style_list": [
             "float : right"
           ],
-          "_nested_name": "display_group_2.audio_3_1"
+          "_nested_name": "display_group_2.audio_1_1"
         }
       ],
       "name": "display_group_2",
@@ -34,7 +49,7 @@
     },
     {
       "type": "text",
-      "value": "Dans le contexte du sahel, où les populations rurales cultivent et consomment principales les céreales (mil, sorgho, maïs et riz). Il est important de connaitre le besoin annuel en denrées alimentaires de l'UPA avant la saison de production et d'allouer assez de superficies à la production des céréales. \nCe formulaire a pour but d'aider votre UPA à connaitre ses besoins en céréales et d'allouer assez de superficie à la production de céréales au cours de la saison hivernale pour satisfaire les besoins.",
+      "value": "@global.planification_hint",
       "_translations": {
         "value": {}
       },
@@ -42,23 +57,53 @@
         "font-size: 16px"
       ],
       "name": "text_4",
-      "_nested_name": "text_4"
+      "_nested_name": "text_4",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.planification_hint",
+            "matchedExpression": "@global.planification_hint",
+            "type": "global",
+            "fieldName": "planification_hint"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.planification_hint": [
+          "value"
+        ]
+      }
     },
     {
       "type": "display_group",
       "rows": [
         {
-          "type": "text",
-          "value": "**NOTE APPROCHE BESOIN**",
+          "type": "subtitle",
+          "value": "@global.note_approche_besoin",
           "_translations": {
             "value": {}
           },
-          "name": "text_1",
-          "_nested_name": "display_group_5.text_1"
+          "name": "subtitle_1",
+          "_nested_name": "display_group_5.subtitle_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.note_approche_besoin",
+                "matchedExpression": "@global.note_approche_besoin",
+                "type": "global",
+                "fieldName": "note_approche_besoin"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.note_approche_besoin": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",
-          "name": "audio_3_2",
+          "name": "audio_1_2",
           "parameter_list": {
             "variant": "button_only",
             "src": "audio/alimentationHumaine/besoins_cereales_fr.mp3",
@@ -67,20 +112,78 @@
           "style_list": [
             "float : right"
           ],
-          "_nested_name": "display_group_5.audio_3_2"
+          "_nested_name": "display_group_5.audio_1_2"
         }
       ],
       "name": "display_group_5",
       "_nested_name": "display_group_5"
     },
     {
-      "type": "html",
-      "value": "<br><br>\n    <div style=\"background: #e3f2fd; padding: 15px; border-radius: 10px; border-left: 5px solid #4f8ff1; font-weight: bold;\">\n        Pour bien planifier les besoins alimentaires de l’UPA, on conseille de prévoir trois sacs de céréales par personne pour une année.\n    </div>\n    <br>\n    Cette quantité peut couvrir l’alimentation d’une personne pendant les douze mois, avec une petite réserve en cas d’imprévu. Pour connaître le besoin total, on multiplie donc trois sacs par le nombre de personnes qui seront nourries avec les récoltes de la prochaine campagne agricole. Ensuite, cette quantité totale est partagée entre les quatre céréales selon les habitudes alimentaires de l’UPA. Enfin, on calcule la superficie à cultiver pour chaque céréale à partir du rendement moyen obtenu habituellement dans l’UPA.\n</div>",
+      "type": "display_group",
+      "style_list": [
+        "background: #e3f2fd",
+        "border-radius: 10px",
+        "border-left: 5px solid #4f8ff1"
+      ],
+      "rows": [
+        {
+          "type": "text",
+          "value": "@global.planification_hint_2",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-weight: bold",
+            "font-size: 16px"
+          ],
+          "name": "text_1",
+          "_nested_name": "display_group_7.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.planification_hint_2",
+                "matchedExpression": "@global.planification_hint_2",
+                "type": "global",
+                "fieldName": "planification_hint_2"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.planification_hint_2": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_7",
+      "_nested_name": "display_group_7"
+    },
+    {
+      "type": "text",
+      "value": "@global.planification_hint_3",
       "_translations": {
         "value": {}
       },
-      "name": "html_7",
-      "_nested_name": "html_7"
+      "style_list": [
+        "font-size: 16px"
+      ],
+      "name": "text_9",
+      "_nested_name": "text_9",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.planification_hint_3",
+            "matchedExpression": "@global.planification_hint_3",
+            "type": "global",
+            "fieldName": "planification_hint_3"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.planification_hint_3": [
+          "value"
+        ]
+      }
     },
     {
       "type": "image",
@@ -92,8 +195,8 @@
         "width:180px",
         "height:180px"
       ],
-      "name": "image_8",
-      "_nested_name": "image_8"
+      "name": "image_10",
+      "_nested_name": "image_10"
     },
     {
       "type": "display_group",
@@ -107,7 +210,7 @@
       "rows": [
         {
           "type": "round_button",
-          "name": "page3_button_back",
+          "name": "page1_button_back",
           "action_list": [
             {
               "trigger": "click",
@@ -131,11 +234,11 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "dg_footer.page3_button_back"
+          "_nested_name": "dg_footer.page1_button_back"
         },
         {
           "type": "button",
-          "name": "page3_button_completed",
+          "name": "page1_button_completed",
           "value": "@global.btn_continue",
           "_translations": {
             "value": {}
@@ -153,7 +256,7 @@
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "dg_footer.page3_button_completed",
+          "_nested_name": "dg_footer.page1_button_completed",
           "_dynamicFields": {
             "value": [
               {

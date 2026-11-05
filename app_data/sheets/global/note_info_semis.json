@@ -70,7 +70,7 @@
     {
       "type": "declare_global_constant",
       "name": "primary_crops_label",
-      "value": "Sélectionnez vos culture(s) principale(s).",
+      "value": "1. Sélectionnez vos culture(s) principales *",
       "_translations": {
         "value": {}
       }
@@ -78,7 +78,7 @@
     {
       "type": "declare_global_constant",
       "name": "primary_crops_hint",
-      "value": "Les cultures principales sont des cultures dominantes cultivées annuellement par la majorité écrasante des UPA sur des grandes superficies",
+      "value": "*Les cultures principales sont des cultures dominantes faites par l'UPA sur des grandes superficies avec plus d'investissement en main d'oeuvre et intrants*",
       "_translations": {
         "value": {}
       }
@@ -86,7 +86,7 @@
     {
       "type": "declare_global_constant",
       "name": "secondary_crops_label",
-      "value": "Séléctionnez les cultures secondaires",
+      "value": "2. Sélectionnez les cultures secondaires *",
       "_translations": {
         "value": {}
       }
@@ -94,7 +94,7 @@
     {
       "type": "declare_global_constant",
       "name": "secondary_crops_hint",
-      "value": "Les cultures secondaires sont des cultures faites par quelques UPA de manière complementaire sur des petites superficies.",
+      "value": "*Les cultures secondaires sont des cultures faites par l'UPA de manière complémentaire avec moins d'investissement*",
       "_translations": {
         "value": {}
       }
@@ -102,7 +102,7 @@
     {
       "type": "declare_global_constant",
       "name": "sc_name_1_label",
-      "value": "Ecrivez le nom de l'autre culture secondaire 1",
+      "value": "Ecrivez le nom de l'autre culture secondaire 1 *",
       "_translations": {
         "value": {}
       }
@@ -110,7 +110,7 @@
     {
       "type": "declare_global_constant",
       "name": "sc_name_2_label",
-      "value": "Ecrivez le nom de l'autre culture secondaire 2",
+      "value": "Ecrivez le nom de l'autre culture secondaire 2 *",
       "_translations": {
         "value": {}
       }
@@ -118,7 +118,7 @@
     {
       "type": "declare_global_constant",
       "name": "sc_name_other_hint",
-      "value": "Il s'agit d'une culture qui n'existe pas dans la list des cultures secondaires ci-dessus",
+      "value": "*Il s'agit d'une culture qui n'existe pas dans la liste des cultures secondaires ci-dessus*",
       "_translations": {
         "value": {}
       }
@@ -126,7 +126,7 @@
     {
       "type": "declare_global_constant",
       "name": "error_required_answer",
-      "value": "La reponse est obligatoire, aucune valeur n'a été donnée!",
+      "value": "*La réponse est obligatoire, aucune valeur n'a été donnée!*",
       "_translations": {
         "value": {}
       }
@@ -134,7 +134,7 @@
     {
       "type": "declare_global_constant",
       "name": "error_superficie",
-      "value": "Mettez une valeure positive. Si vous avez séléctionné la culture par erreure, retournez sur la page d'accueil pour décocher votre séléction.",
+      "value": "La valeur doit être supérieure à 0. Si erreur, retournez décocher la culture.",
       "_translations": {
         "value": {}
       }
@@ -142,7 +142,7 @@
     {
       "type": "declare_global_constant",
       "name": "hint_price",
-      "value": "1 drm=5 FCFA",
+      "value": "*Rappel : 1 dram = 5 FCFA*",
       "_translations": {
         "value": {}
       }
@@ -151,6 +151,454 @@
       "type": "declare_global_constant",
       "name": "error_positive_value",
       "value": "Mettez une valeure positive",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "primay_crops_sc",
+      "value": "*Il s'agit d'une culture qui n'existe pas dans la liste des cultures ci-dessus*",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "second_crops_sc",
+      "value": "*Il s'agit d'une culture qui n'existe pas dans la liste des cultures secondaires ci-dessus*",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "list_crops_exist",
+      "value": "*Cette culture existe déjà dans la liste standard !*",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "list_crops_exist_primary",
+      "value": "*Cette culture existe déjà dans la liste standard ou est identique à la première !*",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "error_culture",
+      "value": "*Culture déjà utilisée ou invalide !*",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "error_fumure",
+      "value": "*Mettez 0 si aucune fumure organique*",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "error_fumure_val",
+      "value": "Coût bloqué à 0 car aucune fumure organique apportée",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "error_chaux",
+      "value": "*Mettez 0 si aucune chaux*",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "error_chaux_val",
+      "value": "Coût bloqué à 0 car aucune chaux apportée",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "error_PNT",
+      "value": "*Mettez 0 si aucun PNT*",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "error_PNT_val",
+      "value": "Coût bloqué à 0 car aucun PNT/PNG apporté",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "error_sup",
+      "value": "*Mettez 0 si aucune superficie*",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "error_lab_val",
+      "value": "Coût bloqué à 0 car aucun labour par prestation",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "info_semence",
+      "value": "*La quantité de semence achetée de l'ensemble des parcelles*",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "error_semence_val",
+      "value": "Coût bloqué à 0 car aucune semence achetée",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "error_herb",
+      "value": "*Mettez 0 si aucun herbicide pré-levé*",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "error_herb_val",
+      "value": "Coût bloqué à 0 car aucun herbicide pré-levé utilisé",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "info_other_count",
+      "value": "*Ces coûts couvrent des services ou intrants non pris en compte.*",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "info_count",
+      "value": "S'il y a plusieurs éléments, donnez le coût agrégé de l'ensemble",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "obs_ecrit",
+      "value": "Entrez par écrit l'observation faite.",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "obs_video",
+      "value": "Enregistrez par vidéo l'observation faite",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "error_vid_obs",
+      "value": "We would need a video recorder here",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "obs_voc",
+      "value": "Enregistrez par vocal l'observation faite.",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "error_voc_obs",
+      "value": "We would need a audio recorder here",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "obs_img",
+      "value": "Enregistrez par image l'observation faite.",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "error_img_obs",
+      "value": "We would need a camera here",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "sup_tot",
+      "value": "Superficie totale (ha) *",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "lbl_section_title",
+      "value": "APPORT FUMURE ORGANIQUE",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "lbl_fumure_label",
+      "value": "Quantité de fumure organique (charretée) *",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "lbl_trans_z_label",
+      "value": "Coût transport de fumure organique (Dram)",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "lbl_section_title_6",
+      "value": "APPORT CHAUX AGRICOLE",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "lbl_chaux_label",
+      "value": "Quantité chaux (sac) *",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "lbl_cout_c_label",
+      "value": "Coût chaux (Dram)",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "lbl_section_title_7",
+      "value": "APPORT PNT/PNG",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "lbl_pnt_label",
+      "value": "Quantité PNT/PNG (sac) *",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "lbl_pnt_z_label",
+      "value": "Coût PNT/PNG (Dram)",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "lbl_section_title_8",
+      "value": "LABOUR PAR PRESTATION",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "lbl_labour_label",
+      "value": "Superficie labourée par prestation (ha) *",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "lbl_lab_z_label",
+      "value": "Coût labour par prestation (Dram)",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "lbl_section_title_9",
+      "value": "SEMIS",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "lbl_semence_label",
+      "value": "Quantité de semence achetée (kg) *",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "lbl_cout_s_label",
+      "value": "Coût semence (Dram)",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "lbl_section_title_10",
+      "value": "HERBICIDAGE PRE-LEVEE",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "lbl_herbi_label",
+      "value": "Quantité herbicide pré-levé (flacon) *",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "lbl_cout_z_label",
+      "value": "Coût herbicide pré-levé (Dram)",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "lbl_section_title_11",
+      "value": "AUTRE COÛT AU SEMIS",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "lbl_exist_label",
+      "value": "Indiquez s'il y a d'autre(s) coût(s) non renseigné(s) *",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "other_count",
+      "value": "Y a-t-il d'autres coûts liés aux semis ?",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "lbl_section_title_12",
+      "value": "BILAN DES COÛTS AU SEMIS",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "lbl_obs_question",
+      "value": "Comment souhaitez-vous enregistrer vos observations de semis ?",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "label_total",
+      "value": "Total Investi (Toutes Cultures)",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "title_cultures",
+      "value": "Cultures enregistrées",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "title_avis",
+      "value": "VOTRE AVIS SUR LE FORMULAIRE",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "desc_avis",
+      "value": "Partagez vos suggestions ou difficultés rencontrées",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "header_title",
+      "value": "INVESTISSEMENT TOTAL UPA",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "autre_cout_semis",
+      "value": "Donnez le montant du coût pour @field.nom_autre_cout_semis",
       "_translations": {
         "value": {}
       }

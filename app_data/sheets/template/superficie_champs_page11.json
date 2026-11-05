@@ -301,7 +301,7 @@
     },
     {
       "type": "title",
-      "value": "**Quantité de fertilisant dans la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**",
+      "value": "**QUANTITE DE FERTILISANT DANS LA PARCELLE N⁰@fields.num_parcelle DE @fields.nom_champ**",
       "_translations": {
         "value": {}
       },
@@ -310,13 +310,13 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "**Quantité de fertilisant dans la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**",
+            "fullExpression": "**QUANTITE DE FERTILISANT DANS LA PARCELLE N⁰@fields.num_parcelle DE @fields.nom_champ**",
             "matchedExpression": "@fields.num_parcelle",
             "type": "fields",
             "fieldName": "num_parcelle"
           },
           {
-            "fullExpression": "**Quantité de fertilisant dans la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**",
+            "fullExpression": "**QUANTITE DE FERTILISANT DANS LA PARCELLE N⁰@fields.num_parcelle DE @fields.nom_champ**",
             "matchedExpression": "@fields.nom_champ",
             "type": "fields",
             "fieldName": "nom_champ"
@@ -342,13 +342,32 @@
       ],
       "rows": [
         {
-          "type": "html",
-          "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Quantité de fumure organique (charretée) :</label>",
+          "type": "text",
+          "value": "@global.note_qtite_fumure",
           "_translations": {
             "value": {}
           },
-          "name": "html_1",
-          "_nested_name": "display_group_8.html_1"
+          "style_list": [
+            "color: #1e3656",
+            "font-weight: bold"
+          ],
+          "name": "text_1",
+          "_nested_name": "display_group_8.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.note_qtite_fumure",
+                "matchedExpression": "@global.note_qtite_fumure",
+                "type": "global",
+                "fieldName": "note_qtite_fumure"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.note_qtite_fumure": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",
@@ -364,13 +383,33 @@
           "_nested_name": "display_group_8.audio_12_1"
         },
         {
-          "type": "html",
-          "value": "<p style=\"color: #718096; font-size: 12px; margin-top: 2px;\">(Mettez 0 si aucune fumure organique n'a été apportée)</p>",
+          "type": "text",
+          "value": "@global.note_no_fumure",
           "_translations": {
             "value": {}
           },
-          "name": "html_3",
-          "_nested_name": "display_group_8.html_3"
+          "style_list": [
+            "color: #718096",
+            "font-size: 12px",
+            "margin-top: 2px"
+          ],
+          "name": "text_3",
+          "_nested_name": "display_group_8.text_3",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.note_no_fumure",
+                "matchedExpression": "@global.note_no_fumure",
+                "type": "global",
+                "fieldName": "note_no_fumure"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.note_no_fumure": [
+              "value"
+            ]
+          }
         }
       ],
       "name": "display_group_8",
@@ -444,19 +483,23 @@
       }
     },
     {
-      "type": "html",
+      "type": "text",
       "name": "valid_quantite_fumure_organique",
-      "value": "<span style=\"color: red; font-size: 13px;\">@global.warning_message </span>",
+      "value": "@global.warning_message",
       "_translations": {
         "value": {}
       },
       "condition": "!@fields.quantite_fumure_organique",
       "exclude_from_translation": true,
+      "style_list": [
+        "color: red",
+        "font-size: 13px"
+      ],
       "_nested_name": "valid_quantite_fumure_organique",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<span style=\"color: red; font-size: 13px;\">@global.warning_message </span>",
+            "fullExpression": "@global.warning_message",
             "matchedExpression": "@global.warning_message",
             "type": "global",
             "fieldName": "warning_message"
@@ -481,20 +524,28 @@
       }
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: red; font-size: 13px;\">Veuillez entrer un nombre entier positif ou 0 !</span>",
+      "type": "text",
+      "value": "@global.message_positifValue",
       "_translations": {
         "value": {}
       },
       "condition": "!@fields.attempt_submit_p12 && !!@fields.quantite_fumure_organique && !@local.valid_quantite_fumure_organique",
       "exclude_from_translation": true,
       "style_list": [
-        "color: #FF0000",
-        "font-size: 14px"
+        "color: red",
+        "font-size: 13px"
       ],
-      "name": "html_14",
-      "_nested_name": "html_14",
+      "name": "text_14",
+      "_nested_name": "text_14",
       "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.message_positifValue",
+            "matchedExpression": "@global.message_positifValue",
+            "type": "global",
+            "fieldName": "message_positifValue"
+          }
+        ],
         "condition": [
           {
             "fullExpression": "!@fields.attempt_submit_p12 && !!@fields.quantite_fumure_organique && !@local.valid_quantite_fumure_organique",
@@ -517,6 +568,9 @@
         ]
       },
       "_dynamicDependencies": {
+        "@global.message_positifValue": [
+          "value"
+        ],
         "!@fields.attempt_submit_p12": [
           "condition"
         ],
@@ -540,13 +594,32 @@
       ],
       "rows": [
         {
-          "type": "html",
-          "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Sélectionnez le/les type(s) de fumure organique appliqué(s) :</label>",
+          "type": "text",
+          "value": "@global.note_type_fumure",
           "_translations": {
             "value": {}
           },
-          "name": "html_1",
-          "_nested_name": "display_group_15.html_1"
+          "style_list": [
+            "color: #1e3656",
+            "font-weight: bold"
+          ],
+          "name": "text_1",
+          "_nested_name": "display_group_15.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.note_type_fumure",
+                "matchedExpression": "@global.note_type_fumure",
+                "type": "global",
+                "fieldName": "note_type_fumure"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.note_type_fumure": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",
@@ -782,19 +855,27 @@
       }
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: red; font-size: 13px;\">Veuillez cocher au moins un type de fumure !",
+      "type": "text",
+      "value": "@global.select_fumure",
       "_translations": {
         "value": {}
       },
       "condition": "@fields.attempt_submit_p12 && Number(@fields.quantite_fumure_organique) > 0 && !@local.valid_type_fumure",
       "style_list": [
         "color: red",
-        "font-size: 16px"
+        "font-size: 13px"
       ],
-      "name": "html_19",
-      "_nested_name": "html_19",
+      "name": "text_19",
+      "_nested_name": "text_19",
       "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.select_fumure",
+            "matchedExpression": "@global.select_fumure",
+            "type": "global",
+            "fieldName": "select_fumure"
+          }
+        ],
         "condition": [
           {
             "fullExpression": "@fields.attempt_submit_p12 && Number(@fields.quantite_fumure_organique) > 0 && !@local.valid_type_fumure",
@@ -817,6 +898,9 @@
         ]
       },
       "_dynamicDependencies": {
+        "@global.select_fumure": [
+          "value"
+        ],
         "@fields.attempt_submit_p12": [
           "condition"
         ],
@@ -833,13 +917,32 @@
       "condition": "@fields.autre_fumier == true && Number(@fields.quantite_fumure_organique) > 0",
       "rows": [
         {
-          "type": "html",
-          "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Écrivez le nom du type de fumure organique :</label>",
+          "type": "text",
+          "value": "@global.name_fumure",
           "_translations": {
             "value": {}
           },
-          "name": "html_1",
-          "_nested_name": "display_group_20.html_1"
+          "style_list": [
+            "color: #1e3656",
+            "font-weight: bold"
+          ],
+          "name": "text_1",
+          "_nested_name": "display_group_20.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.name_fumure",
+                "matchedExpression": "@global.name_fumure",
+                "type": "global",
+                "fieldName": "name_fumure"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.name_fumure": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",
@@ -944,15 +1047,27 @@
       }
     },
     {
-      "type": "html",
+      "type": "text",
       "name": "html_text",
-      "value": "<span style=\"color: red; font-size: 13px;\">Veuillez préciser le nom de la fumure !</span>",
+      "value": "@global.warring_name_fumure",
       "_translations": {
         "value": {}
       },
       "condition": "@fields.attempt_submit_p12 && Number(@fields.quantite_fumure_organique) > 0 && @fields.autre_fumier == true && !@fields.autre_fumier_texte",
+      "style_list": [
+        "color: red",
+        "font-size: 13px"
+      ],
       "_nested_name": "html_text",
       "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.warring_name_fumure",
+            "matchedExpression": "@global.warring_name_fumure",
+            "type": "global",
+            "fieldName": "warring_name_fumure"
+          }
+        ],
         "condition": [
           {
             "fullExpression": "@fields.attempt_submit_p12 && Number(@fields.quantite_fumure_organique) > 0 && @fields.autre_fumier == true && !@fields.autre_fumier_texte",
@@ -981,6 +1096,9 @@
         ]
       },
       "_dynamicDependencies": {
+        "@global.warring_name_fumure": [
+          "value"
+        ],
         "@fields.attempt_submit_p12": [
           "condition"
         ],

@@ -16,8 +16,9 @@
       "value": "@calc(Number(@local.v_grand_total || 0) * 5)"
     },
     {
-      "type": "html",
-      "value": "<h2 style=\"color: #1B5E20; text-align: center; margin: 0;\">INVESTISSEMENT TOTAL UPA</h2>"
+      "type": "text",
+      "value": "@global.header_title",
+      "style_list": "color: #1B5E20; font-weight: bold; font-size: 20px; text-align: center; margin-bottom: 10px;"
     },
     {
       "type": "audio",
@@ -28,20 +29,48 @@
     {
       "type": "image",
       "value": "images/cfa_tot.jpg",
-      "style_list": "width: 100px; height: 100px;"
+      "style_list": "width: 40%; object-fit: contain; display: block; margin: 10px auto;"
     },
     {
-      "type": "html",
-      "value": "<div style=\"background: #FFF3E0; padding: 20px; border-radius: 15px; text-align: center; border: 2px solid #E65100;\">\n  <span style=\"font-size: 16px; color: #6D4C41; text-transform: uppercase;\">Total Investi (Toutes Cultures)</span>\n  <h1 style=\"color: #E65100; margin: 10px 0;\">@local.v_grand_total Dram</h1>\n  \n  <div style=\"background: #E8F5E9; padding: 10px; border-radius: 10px;\">\n    <span style=\"color: #2E7D32; font-weight: bold; font-size: 20px;\">\n      @local.v_grand_total_fcfa FCFA\n    </span>\n  </div>\n</div>"
+      "type": "begin_display_group",
+      "name": "card_investissement",
+      "style_list": "background: #FFF3E0; padding: 20px; border-radius: 15px; text-align: center; margin-bottom: 20px;"
+    },
+    {
+      "type": "text",
+      "value": "@global.lbl_total_label",
+      "style_list": "color: #6D4C41; font-size: 14px; font-weight: bold; text-transform: uppercase; margin-bottom: 5px;"
+    },
+    {
+      "type": "text",
+      "value": "@local.v_grand_total Dram",
+      "style_list": "color: #E65100; font-size: 28px; font-weight: bold; margin-bottom: 15px;"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "subcard_fcfa",
+      "style_list": "background: #E8F5E9; padding: 10px; border-radius: 10px;"
+    },
+    {
+      "type": "text",
+      "value": "@local.v_grand_total_fcfa FCFA",
+      "style_list": "color: #2E7D32; font-weight: bold; font-size: 20px; text-align: center;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "end_display_group"
     },
     {
       "type": "begin_display_group",
       "name": "cultures_list",
-      "style_list": "padding: 20px;"
+      "style_list": "padding: 15px 0; border-top: 1px solid #eee; border-bottom: 1px solid #eee; margin-bottom: 15px;"
     },
     {
-      "type": "html",
-      "value": "<h4 style=\"color: #e3a730; border-bottom: 1px solid #eee; padding-bottom: 10px;\">Cultures enregistrées</h4>"
+      "type": "text ",
+      "value": "@global.lbl_cultures_title",
+      "style_list": "color: #e3a730; font-weight: bold; font-size: 14px; margin-bottom: 8px;"
     },
     {
       "type": "text ",
@@ -52,17 +81,19 @@
       "type": "end_display_group"
     },
     {
-      "type": "html",
-      "value": "<br><b style=\"color: #455A64\">VOTRE AVIS SUR LE FORMULAIRE </b>"
+      "type": "text",
+      "value": "@global.lbl_avis_title",
+      "style_list": "color: #455A64; font-weight: bold; font-size: 14px; margin-bottom: 4px;"
     },
     {
-      "type": "html",
-      "value": "<p style=\"font-size: 12px; color: gray;\">Partagez vos suggestions ou difficultés rencontrées.</p>"
+      "type": "text",
+      "value": "@global.lbl_avis_desc",
+      "style_list": "color: gray; font-size: 12px; margin-bottom: 10px;"
     },
     {
       "type": "begin_display_group",
       "name": "feedback_card",
-      "style_list": "display: block; width: 100%; border: 1px dashed #9E9E9E; border-radius: 10px; padding: 10px;"
+      "style_list": "display: block; width: 100%; border-radius: 10px; padding: 10px;"
     },
     {
       "type": "image",
@@ -73,21 +104,19 @@
       "type": "end_display_group"
     },
     {
-      "type": "html",
-      "value": "<br>"
-    },
-    {
       "type": "begin_display_group",
       "name": "final_note",
-      "style_list": "display: flex; flex-direction: column; align-items: center; text-align: center; background: white; padding: 20px; border-radius: 12px;"
+      "style_list": "display: flex; flex-direction: column; align-items: center; text-align: center; background: white; padding: 20px; border-radius: 12px; margin-bottom: 20px;"
     },
     {
-      "type": "html",
-      "value": "<h3 style=\"color: #D84315;\"> FIN DU FORMULAIRE</h3>"
+      "type": "text",
+      "value": "@global.lbl_fin_title",
+      "style_list": "color: #D84315; font-weight: bold; font-size: 18px; margin-bottom: 10px"
     },
     {
-      "type": "html",
-      "value": "<p>Merci pour votre rigueur !<br>L'étape suivante sera le formulaire de <b>RÉCOLTE</b>.</p>"
+      "type": "text",
+      "value": "@global.lbl_fin_desc",
+      "style_list": "color: #333; font-size: 14px; line-height: 1.4;"
     },
     {
       "type": "end_display_group"

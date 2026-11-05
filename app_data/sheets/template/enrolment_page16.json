@@ -6,11 +6,26 @@
     {
       "type": "title",
       "name": "page_title",
-      "value": "VOLAILLES DE L'UPA",
+      "value": "@global.volaille_upa",
       "_translations": {
         "value": {}
       },
-      "_nested_name": "page_title"
+      "_nested_name": "page_title",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.volaille_upa",
+            "matchedExpression": "@global.volaille_upa",
+            "type": "global",
+            "fieldName": "volaille_upa"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.volaille_upa": [
+          "value"
+        ]
+      }
     },
     {
       "name": "attempt_submit",
@@ -40,20 +55,17 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "html",
+          "type": "subtitle",
           "name": "nombre_poules_label",
-          "value": "@global.nb_poulets<span style=\"color: red;\">*</span>",
+          "value": "@global.nb_poulets",
           "_translations": {
             "value": {}
           },
-          "style_list": [
-            "font-size:20px"
-          ],
           "_nested_name": "display_group_4.nombre_poules_label",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "@global.nb_poulets<span style=\"color: red;\">*</span>",
+                "fullExpression": "@global.nb_poulets",
                 "matchedExpression": "@global.nb_poulets",
                 "type": "global",
                 "fieldName": "nb_poulets"
@@ -118,7 +130,7 @@
       ],
       "parameter_list": {
         "number_input": "true",
-        "placeholder": "Entrez le nombre"
+        "placeholder": "@global.texte_placeholder"
       },
       "_nested_name": "nombre_poules",
       "_dynamicFields": {
@@ -129,11 +141,24 @@
             "type": "fields",
             "fieldName": "nombre_poules"
           }
-        ]
+        ],
+        "parameter_list": {
+          "placeholder": [
+            {
+              "fullExpression": "@global.texte_placeholder",
+              "matchedExpression": "@global.texte_placeholder",
+              "type": "global",
+              "fieldName": "texte_placeholder"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@fields.nombre_poules": [
           "value"
+        ],
+        "@global.texte_placeholder": [
+          "parameter_list.placeholder"
         ]
       }
     },
@@ -202,8 +227,7 @@
       "condition": "!@local.valid_nombre_poules && @fields.attempt_submit",
       "exclude_from_translation": true,
       "style_list": [
-        "color: #FF0000",
-        "font-size: 12px"
+        "@global.reponse_style"
       ],
       "name": "text_9",
       "_nested_name": "text_9",
@@ -229,7 +253,17 @@
             "type": "fields",
             "fieldName": "attempt_submit"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.error_number_min_0": [
@@ -240,6 +274,9 @@
         ],
         "@fields.attempt_submit": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
@@ -247,20 +284,17 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "html",
+          "type": "subtitle",
           "name": "nombre_pintades_label",
-          "value": "@global.nb_pintades<span style=\"color: red;\">*</span>",
+          "value": "@global.nb_pintades",
           "_translations": {
             "value": {}
           },
-          "style_list": [
-            "font-size:20px"
-          ],
           "_nested_name": "display_group_10.nombre_pintades_label",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "@global.nb_pintades<span style=\"color: red;\">*</span>",
+                "fullExpression": "@global.nb_pintades",
                 "matchedExpression": "@global.nb_pintades",
                 "type": "global",
                 "fieldName": "nb_pintades"
@@ -325,7 +359,7 @@
       ],
       "parameter_list": {
         "number_input": "true",
-        "placeholder": "Entrez le nombre"
+        "placeholder": "@global.texte_placeholder"
       },
       "_nested_name": "nombre_pintades",
       "_dynamicFields": {
@@ -336,11 +370,24 @@
             "type": "fields",
             "fieldName": "nombre_pintades"
           }
-        ]
+        ],
+        "parameter_list": {
+          "placeholder": [
+            {
+              "fullExpression": "@global.texte_placeholder",
+              "matchedExpression": "@global.texte_placeholder",
+              "type": "global",
+              "fieldName": "texte_placeholder"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@fields.nombre_pintades": [
           "value"
+        ],
+        "@global.texte_placeholder": [
+          "parameter_list.placeholder"
         ]
       }
     },
@@ -409,8 +456,7 @@
       "condition": "!@local.valid_nombre_pintades && @fields.attempt_submit",
       "exclude_from_translation": true,
       "style_list": [
-        "color: #FF0000",
-        "font-size: 12px"
+        "@global.reponse_style"
       ],
       "name": "text_15",
       "_nested_name": "text_15",
@@ -436,7 +482,17 @@
             "type": "fields",
             "fieldName": "attempt_submit"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.error_number_min_0": [
@@ -447,6 +503,9 @@
         ],
         "@fields.attempt_submit": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
@@ -454,9 +513,9 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "html",
+          "type": "subtitle",
           "name": "nombre_lapins_label",
-          "value": "@global.nb_lapins<span style=\"color: red;\">*</span>",
+          "value": "@global.nb_lapins",
           "_translations": {
             "value": {}
           },
@@ -467,7 +526,7 @@
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "@global.nb_lapins<span style=\"color: red;\">*</span>",
+                "fullExpression": "@global.nb_lapins",
                 "matchedExpression": "@global.nb_lapins",
                 "type": "global",
                 "fieldName": "nb_lapins"
@@ -532,7 +591,7 @@
       ],
       "parameter_list": {
         "number_input": "true",
-        "placeholder": "Entrez le nombre"
+        "placeholder": "@global.texte_placeholder"
       },
       "_nested_name": "nombre_lapins",
       "_dynamicFields": {
@@ -543,11 +602,24 @@
             "type": "fields",
             "fieldName": "nombre_lapins"
           }
-        ]
+        ],
+        "parameter_list": {
+          "placeholder": [
+            {
+              "fullExpression": "@global.texte_placeholder",
+              "matchedExpression": "@global.texte_placeholder",
+              "type": "global",
+              "fieldName": "texte_placeholder"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@fields.nombre_lapins": [
           "value"
+        ],
+        "@global.texte_placeholder": [
+          "parameter_list.placeholder"
         ]
       }
     },
@@ -616,8 +688,7 @@
       "condition": "!@local.valid_nombre_lapins && @fields.attempt_submit",
       "exclude_from_translation": true,
       "style_list": [
-        "color: #FF0000",
-        "font-size: 12px"
+        "@global.reponse_style"
       ],
       "name": "text_21",
       "_nested_name": "text_21",
@@ -643,7 +714,17 @@
             "type": "fields",
             "fieldName": "attempt_submit"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.error_number_min_0": [
@@ -654,6 +735,9 @@
         ],
         "@fields.attempt_submit": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
@@ -661,9 +745,9 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "html",
+          "type": "subtitle",
           "name": "nombre_canards_label",
-          "value": "@global.nb_canards<span style=\"color: red;\">*</span>",
+          "value": "@global.nb_canards",
           "_translations": {
             "value": {}
           },
@@ -674,7 +758,7 @@
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "@global.nb_canards<span style=\"color: red;\">*</span>",
+                "fullExpression": "@global.nb_canards",
                 "matchedExpression": "@global.nb_canards",
                 "type": "global",
                 "fieldName": "nb_canards"
@@ -739,7 +823,7 @@
       ],
       "parameter_list": {
         "number_input": "true",
-        "placeholder": "Entrez le nombre"
+        "placeholder": "@global.texte_placeholder"
       },
       "_nested_name": "nombre_canards",
       "_dynamicFields": {
@@ -750,11 +834,24 @@
             "type": "fields",
             "fieldName": "nombre_canards"
           }
-        ]
+        ],
+        "parameter_list": {
+          "placeholder": [
+            {
+              "fullExpression": "@global.texte_placeholder",
+              "matchedExpression": "@global.texte_placeholder",
+              "type": "global",
+              "fieldName": "texte_placeholder"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@fields.nombre_canards": [
           "value"
+        ],
+        "@global.texte_placeholder": [
+          "parameter_list.placeholder"
         ]
       }
     },
@@ -823,8 +920,7 @@
       "condition": "!@local.valid_nombre_canards && @fields.attempt_submit",
       "exclude_from_translation": true,
       "style_list": [
-        "color: #FF0000",
-        "font-size: 12px"
+        "@global.reponse_style"
       ],
       "name": "text_27",
       "_nested_name": "text_27",
@@ -850,7 +946,17 @@
             "type": "fields",
             "fieldName": "attempt_submit"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.error_number_min_0": [
@@ -861,6 +967,9 @@
         ],
         "@fields.attempt_submit": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
@@ -868,20 +977,17 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "html",
+          "type": "subtitle",
           "name": "nombre_pigeons_label",
-          "value": "@global.nb_pigeons<span style=\"color: red;\">*</span>",
+          "value": "@global.nb_pigeons",
           "_translations": {
             "value": {}
           },
-          "style_list": [
-            "font-size:20px"
-          ],
           "_nested_name": "display_group_28.nombre_pigeons_label",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "@global.nb_pigeons<span style=\"color: red;\">*</span>",
+                "fullExpression": "@global.nb_pigeons",
                 "matchedExpression": "@global.nb_pigeons",
                 "type": "global",
                 "fieldName": "nb_pigeons"
@@ -946,7 +1052,7 @@
       ],
       "parameter_list": {
         "number_input": "true",
-        "placeholder": "Entrez le nombre"
+        "placeholder": "@global.texte_placeholder"
       },
       "_nested_name": "nombre_pigeons",
       "_dynamicFields": {
@@ -957,11 +1063,24 @@
             "type": "fields",
             "fieldName": "nombre_pigeons"
           }
-        ]
+        ],
+        "parameter_list": {
+          "placeholder": [
+            {
+              "fullExpression": "@global.texte_placeholder",
+              "matchedExpression": "@global.texte_placeholder",
+              "type": "global",
+              "fieldName": "texte_placeholder"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@fields.nombre_pigeons": [
           "value"
+        ],
+        "@global.texte_placeholder": [
+          "parameter_list.placeholder"
         ]
       }
     },
@@ -1030,8 +1149,7 @@
       "condition": "!@local.valid_nombre_pigeons && @fields.attempt_submit",
       "exclude_from_translation": true,
       "style_list": [
-        "color: #FF0000",
-        "font-size: 12px"
+        "@global.reponse_style"
       ],
       "name": "text_33",
       "_nested_name": "text_33",
@@ -1057,7 +1175,17 @@
             "type": "fields",
             "fieldName": "attempt_submit"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.error_number_min_0": [
@@ -1068,6 +1196,9 @@
         ],
         "@fields.attempt_submit": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
@@ -1075,7 +1206,7 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "text",
+          "type": "subtitle",
           "name": "autre_animal_label",
           "value": "@global.autre_volaille",
           "_translations": {
@@ -1172,7 +1303,7 @@
       "condition": "!!@local.autre_animal",
       "rows": [
         {
-          "type": "text",
+          "type": "subtitle",
           "name": "nombre_autre_animal_label",
           "value": "@global.nombre_autre_volaille",
           "_translations": {
@@ -1250,7 +1381,7 @@
       ],
       "parameter_list": {
         "number_input": "true",
-        "placeholder": "Entrez le nombre"
+        "placeholder": "@global.texte_placeholder"
       },
       "condition": "!!@local.autre_animal",
       "_nested_name": "nombre_autre_animal",
@@ -1263,6 +1394,16 @@
             "fieldName": "nombre_autre_animal"
           }
         ],
+        "parameter_list": {
+          "placeholder": [
+            {
+              "fullExpression": "@global.texte_placeholder",
+              "matchedExpression": "@global.texte_placeholder",
+              "type": "global",
+              "fieldName": "texte_placeholder"
+            }
+          ]
+        },
         "condition": [
           {
             "fullExpression": "!!@local.autre_animal",
@@ -1275,6 +1416,9 @@
       "_dynamicDependencies": {
         "@fields.nombre_autre_animal": [
           "value"
+        ],
+        "@global.texte_placeholder": [
+          "parameter_list.placeholder"
         ],
         "!@local.autre_animal": [
           "condition"
@@ -1346,8 +1490,7 @@
       "condition": "!@local.valid_nombre_autre_animal && @fields.attempt_submit",
       "exclude_from_translation": true,
       "style_list": [
-        "color: #FF0000",
-        "font-size: 12px"
+        "@global.reponse_style"
       ],
       "name": "text_42",
       "_nested_name": "text_42",
@@ -1373,7 +1516,17 @@
             "type": "fields",
             "fieldName": "attempt_submit"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.error_number_min_0": [
@@ -1384,6 +1537,9 @@
         ],
         "@fields.attempt_submit": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
@@ -1460,7 +1616,7 @@
       "rows": [
         {
           "type": "round_button",
-          "name": "page_14_button_back",
+          "name": "page_16_button_back",
           "action_list": [
             {
               "trigger": "click",
@@ -1475,7 +1631,7 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "dg_footer.page_14_button_back"
+          "_nested_name": "dg_footer.page_16_button_back"
         },
         {
           "type": "button",
@@ -1529,7 +1685,7 @@
         },
         {
           "type": "button",
-          "name": "page_14_button_continue",
+          "name": "page_16_button_continue",
           "value": "@global.btn_continue",
           "_translations": {
             "value": {}
@@ -1560,7 +1716,7 @@
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "dg_footer.page_14_button_continue",
+          "_nested_name": "dg_footer.page_16_button_continue",
           "_dynamicFields": {
             "value": [
               {

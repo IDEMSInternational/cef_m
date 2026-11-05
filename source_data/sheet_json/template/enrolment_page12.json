@@ -5,20 +5,18 @@
   "rows": [
     {
       "type": "title",
-      "value": "EQUIPEMENT DE L'UPA"
+      "value": "@global.equipement_upa"
     },
     {
       "name": "attempt_submit",
       "value": "@fields.attempt_submit"
     },
     {
-      "type": "begin_display_group",
-      "style_list": "display: block; width: 100%"
+      "type": "begin_display_group"
     },
     {
-      "type": "html",
-      "value": "@global.nb_charrues<span style=\"color: red;\">*</span>",
-      "style_list": "font-size:20px;"
+      "type": "subtitle",
+      "value": "@global.nb_charrues"
     },
     {
       "type": "audio",
@@ -39,7 +37,7 @@
       "type": "text_box",
       "value": "@fields.nombre_charrues",
       "action_list": "changed | set_field : nombre_charrues: this.value;",
-      "parameter_list": "number_input: true; placeholder:Ecrivez le nombre ;",
+      "parameter_list": "number_input: true; placeholder: @global.texte_placeholder;",
       "exclude_from_translation": true
     },
     {
@@ -47,24 +45,23 @@
       "value": "@calc((/^\\d+$/.test(@fields.nombre_charrues) && @fields.nombre_charrues >=0 ) || @fields.nombre_charrues == ' ' || !!@fields.nombre_charrues )"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@fields.nombre_charrues && @fields.attempt_submit "
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@fields.nombre_charrues && @fields.attempt_submit ",
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "text",
       "value": "@global.error_number_min_0",
       "condition": "!@local.valid_nombre_charrues && @fields.attempt_submit ",
-      "style_list": "color: red; font-size: 12px;"
+      "style_list": "@global.reponse_style"
     },
     {
-      "type": "begin_display_group",
-      "style_list": "display: block; width: 100%"
+      "type": "begin_display_group"
     },
     {
-      "type": "html",
-      "value": "@global.nb_multiculteurs<span style=\"color: red;\">*</span>",
-      "style_list": "font-size:20px;"
+      "type": "subtitle",
+      "value": "@global.nb_multiculteurs"
     },
     {
       "type": "audio",
@@ -85,7 +82,7 @@
       "type": "text_box",
       "value": "@fields.nombre_multiculteurs",
       "action_list": "changed | set_field : nombre_multiculteurs: this.value;",
-      "parameter_list": "number_input: true; placeholder:Ecrivez le nombre ;",
+      "parameter_list": "number_input: true; placeholder: @global.texte_placeholder;",
       "exclude_from_translation": true
     },
     {
@@ -93,24 +90,23 @@
       "value": "@calc((/^\\d+$/.test(@fields.nombre_multiculteurs) && @fields.nombre_multiculteurs >=0 ) || @fields.nombre_multiculteurs == ' ' || !!@fields.nombre_multiculteurs )"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@fields.nombre_multiculteurs && @fields.attempt_submit "
+      "type": "text",
+      "value": " @global.reponse_obligatoire ",
+      "condition": "!@fields.nombre_multiculteurs && @fields.attempt_submit ",
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "text",
       "value": "@global.error_number_min_0",
       "condition": "!@local.valid_nombre_multiculteurs && @fields.attempt_submit ",
-      "style_list": "color: red; font-size: 12px;"
+      "style_list": "@global.reponse_style"
     },
     {
-      "type": "begin_display_group",
-      "style_list": "display: block; width: 100%"
+      "type": "begin_display_group"
     },
     {
-      "type": "html",
-      "value": "@global.nb_charrettes<span style=\"color: red;\">*</span>",
-      "style_list": "font-size:20px;"
+      "type": "subtitle",
+      "value": "@global.nb_charrettes"
     },
     {
       "type": "audio",
@@ -131,7 +127,7 @@
       "type": "text_box",
       "value": "@fields.nombre_charrettes\n",
       "action_list": "changed | set_field : nombre_charrettes: this.value;",
-      "parameter_list": "number_input: true; placeholder:Ecrivez le nombre ;",
+      "parameter_list": "number_input: true; placeholder: @global.texte_placeholder;",
       "exclude_from_translation": true
     },
     {
@@ -139,24 +135,23 @@
       "value": "@calc((/^\\d+$/.test(@fields.nombre_charrettes) && @fields.nombre_charrettes >=0 ) || @fields.nombre_charrettes == ' ' || !!@fields.nombre_charrettes )"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@fields.nombre_charrettes && @fields.attempt_submit "
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@fields.nombre_charrettes && @fields.attempt_submit ",
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "text",
       "value": "@global.error_number_min_0",
       "condition": "!@local.valid_nombre_charrettes && @fields.attempt_submit ",
-      "style_list": "color: red; font-size: 12px;"
+      "style_list": "@global.reponse_style"
     },
     {
-      "type": "begin_display_group",
-      "style_list": "display: block; width: 100%"
+      "type": "begin_display_group"
     },
     {
-      "type": "html",
-      "value": "@global.nb_semoirs<span style=\"color: red;\">*</span>",
-      "style_list": "font-size:20px;"
+      "type": "subtitle",
+      "value": "@global.nb_semoirs"
     },
     {
       "type": "audio",
@@ -177,7 +172,7 @@
       "type": "text_box",
       "value": "@fields.nombre_semoir",
       "action_list": "changed | set_field : nombre_semoir: this.value;",
-      "parameter_list": "number_input: true; placeholder:Nombre de semoirs;",
+      "parameter_list": "number_input: true; placeholder: @global.texte_placeholder;",
       "exclude_from_translation": true
     },
     {
@@ -185,25 +180,24 @@
       "value": "@calc((/^\\d+$/.test(@fields.nombre_semoir) && @fields.nombre_semoir >=0 ) || @fields.nombre_semoir == ' ' || !!@fields.nombre_semoir )"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@fields.nombre_semoir && @fields.attempt_submit "
+      "type": "text",
+      "value": "@global.reponse_obligatoire ",
+      "condition": "!@fields.nombre_semoir && @fields.attempt_submit ",
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "text",
       "value": "@global.error_number_min_0",
       "condition": "!@local.valid_nombre_semoir && @fields.attempt_submit ",
-      "style_list": "color: red; font-size: 12px;"
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "begin_display_group"
     },
     {
-      "type": "html",
-      "value": "@global.nb_appareils<p style=\"color: red;\">*</p> ",
-      "parameter_list": "style: contextual;",
-      "exclude_from_translation": true,
-      "style_list": "font-size:20px;"
+      "type": "subtitle",
+      "value": "@global.nb_appareils",
+      "exclude_from_translation": true
     },
     {
       "type": "audio",
@@ -226,7 +220,7 @@
       "type": "text_box",
       "value": "@fields.nombre_pompe_traitement",
       "action_list": "changed | set_field : nombre_pompe_traitement: this.value;",
-      "parameter_list": "number_input: true;\nplaceholder: Entrez le nombre;",
+      "parameter_list": "number_input: true;\nplaceholder: @global.texte_placeholder;",
       "exclude_from_translation": true
     },
     {
@@ -238,26 +232,25 @@
       "type": "end_display_group"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@fields.nombre_pompe_traitement && @fields.attempt_submit"
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@fields.nombre_pompe_traitement && @fields.attempt_submit",
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "text",
       "value": "@global.error_number_min_0",
       "condition": "!@local.valid_nombre_pompe_traitement && @fields.attempt_submit ",
       "exclude_from_translation": true,
-      "style_list": "color: red; font-size: 12px;"
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "begin_display_group"
     },
     {
-      "type": "html",
-      "value": "@global.nb_pulverisateur_herse<span style=\"color: red;\">*</span> ",
-      "parameter_list": "style: contextual;",
-      "exclude_from_translation": true,
-      "style_list": "font-size:20px;"
+      "type": "subtitle",
+      "value": "@global.nb_pulverisateur_herse",
+      "exclude_from_translation": true
     },
     {
       "type": "audio",
@@ -280,7 +273,7 @@
       "type": "text_box",
       "value": "@field.nombre_pulverisateurs",
       "action_list": "changed | set_field : nombre_pulverisateurs: this.value;",
-      "parameter_list": "number_input: true;\nplaceholder: Entrez le nombre;",
+      "parameter_list": "number_input: true;\nplaceholder: @global.texte_placeholder;",
       "exclude_from_translation": true
     },
     {
@@ -292,26 +285,25 @@
       "type": "end_display_group"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@fields.nombre_pulverisateurs && @fields.attempt_submit"
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@fields.nombre_pulverisateurs && @fields.attempt_submit",
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "text",
       "value": "@global.error_number_min_0",
       "condition": "!@local.valid_nombre_pulverisateurs && @fields.attempt_submit ",
       "exclude_from_translation": true,
-      "style_list": "color: red; font-size: 12px;"
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "begin_display_group"
     },
     {
-      "type": "html",
-      "value": "@global.nb_corps_butteurs<span style=\"color: red;\">*</span> ",
-      "parameter_list": "style: contextual;",
-      "exclude_from_translation": true,
-      "style_list": "font-size:20px;"
+      "type": "subtitle",
+      "value": "@global.nb_corps_butteurs",
+      "exclude_from_translation": true
     },
     {
       "type": "audio",
@@ -334,7 +326,7 @@
       "type": "text_box",
       "value": "@fields.nombre_corps_buteur",
       "action_list": "changed | set_field : nombre_corps_buteur: this.value;",
-      "parameter_list": "number_input: true;\nplaceholder: Entrez le nombre;",
+      "parameter_list": "number_input: true;\nplaceholder: @global.texte_placeholder;",
       "exclude_from_translation": true
     },
     {
@@ -346,16 +338,17 @@
       "type": "end_display_group"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@fields.nombre_corps_buteur && @fields.attempt_submit"
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@fields.nombre_corps_buteur && @fields.attempt_submit",
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "text",
       "value": "@global.error_number_min_0",
       "condition": "!@local.valid_nombre_corps_buteur && @fields.attempt_submit ",
       "exclude_from_translation": true,
-      "style_list": "color: red; font-size: 12px;"
+      "style_list": "@global.reponse_style"
     },
     {
       "name": "completed_enabled",

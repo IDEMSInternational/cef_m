@@ -12,8 +12,8 @@
       "type": "begin_display_group"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: black;\"> Séléctionnez le canal à utiliser pour faire votre observation sur la parcelle N⁰@fields.num_parcelle</p>",
+      "type": "text",
+      "value": "@global.hint_canal",
       "style_list": "font-size:20px;"
     },
     {
@@ -33,9 +33,10 @@
       "parameter_list": "answer_list: @data.group_observation; \nvariant: flex;\nitem_width: 60px;\ngrid_gap: 8px;"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
-      "condition": "!@fields.type_observation"
+      "type": "text",
+      "value": "@global.warning_message",
+      "condition": "!@fields.type_observation",
+      "style_list": "color: red;"
     },
     {
       "type": "begin_display_group",
@@ -43,7 +44,7 @@
     },
     {
       "type": "text",
-      "value": "Entrez par écrit l'information supplémentaire."
+      "value": "@global.canal_ecrit"
     },
     {
       "type": "audio",
@@ -68,7 +69,7 @@
     {
       "type": "text",
       "name": "info_video_label",
-      "value": "Enregistrez par vidéo l'information supplémentaire."
+      "value": "@global.canal_video"
     },
     {
       "type": "audio",
@@ -82,7 +83,7 @@
     {
       "type": "text",
       "name": "info_video",
-      "value": "We would need a video recorder here",
+      "value": "@global.need_record_vi",
       "condition": "@fields.type_observation == \"par_video\""
     },
     {
@@ -92,7 +93,7 @@
     {
       "type": "text",
       "name": "info_audio_label",
-      "value": "Enregistrez par vocal l'information supplémentaire."
+      "value": "@global.canal_vocal"
     },
     {
       "type": "audio",
@@ -106,7 +107,7 @@
     {
       "type": "text",
       "name": "info_audio",
-      "value": "We would need a audio recorder here",
+      "value": "@global.need_record_aud",
       "condition": "@fields.type_observation == \"par_vocal\""
     },
     {
@@ -116,7 +117,7 @@
     {
       "type": "text",
       "name": "info_image_label",
-      "value": "Enregistrez par image l'information supplémentaire."
+      "value": "@global.canal_img"
     },
     {
       "type": "audio",
@@ -130,7 +131,7 @@
     {
       "type": "text",
       "name": "info_image",
-      "value": "We would need a camera here",
+      "value": "@global.need_record_img",
       "condition": "@fields.type_observation == \"par_photo\""
     },
     {

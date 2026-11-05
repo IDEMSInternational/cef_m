@@ -5,7 +5,7 @@
   "rows": [
     {
       "type": "title",
-      "value": "**Culture précédente dans la parcelle N⁰@fields.num_parcelle lors de la saison passée du champ @fields.nom_champ** "
+      "value": "**Sélectionnez le nom de la culture précédente dans la parcelle N⁰ @fields.num_parcelle lors de la saison passée** "
     },
     {
       "type": "begin_display_group"
@@ -31,10 +31,11 @@
       "parameter_list": "answer_list: @data.cult_princip;\nitem_width: 80px;\ngrid_width: 150%;\ngrid_gap: 10px;\nvariant: circle-icon;"
     },
     {
-      "type": "html",
+      "type": "text",
       "name": "html_text",
-      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
-      "condition": "!@fields.culture_prev"
+      "value": "@global.warning_message",
+      "condition": "!@fields.culture_prev",
+      "style_list": "color: red;"
     },
     {
       "type": "begin_display_group",

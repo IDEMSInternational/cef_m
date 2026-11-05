@@ -6,11 +6,26 @@
     {
       "type": "title",
       "name": "page_title",
-      "value": "TYPOLOGIE DE L'UPA",
+      "value": "@global.typologie_upa",
       "_translations": {
         "value": {}
       },
-      "_nested_name": "page_title"
+      "_nested_name": "page_title",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.typologie_upa",
+            "matchedExpression": "@global.typologie_upa",
+            "type": "global",
+            "fieldName": "typologie_upa"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.typologie_upa": [
+          "value"
+        ]
+      }
     },
     {
       "name": "TLU",
@@ -706,16 +721,31 @@
       "rows": [
         {
           "type": "text",
-          "name": "type_ge_gtb",
-          "value": "L'UPA appartient au type A",
+          "value": "@global.type_ge_gtb",
           "_translations": {
             "value": {}
           },
-          "_nested_name": "display_group_15.type_ge_gtb"
+          "name": "text_1",
+          "_nested_name": "display_group_15.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.type_ge_gtb",
+                "matchedExpression": "@global.type_ge_gtb",
+                "type": "global",
+                "fieldName": "type_ge_gtb"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.type_ge_gtb": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",
-          "name": "audio_15_1",
+          "name": "audio_17_1",
           "parameter_list": {
             "variant": "button_only",
             "src": "audio/Enrolement/type_ge_gtb_fr.mp3",
@@ -724,7 +754,7 @@
           "style_list": [
             "float: right"
           ],
-          "_nested_name": "display_group_15.audio_15_1"
+          "_nested_name": "display_group_15.audio_17_1"
         }
       ],
       "name": "display_group_15",
@@ -747,8 +777,7 @@
     },
     {
       "type": "text",
-      "name": "type_ge_gtb_hint",
-      "value": "Grande Exploitation avec un Grand Troupeau Bovin",
+      "value": "@global.type_ge_gtb_hint",
       "_translations": {
         "value": {}
       },
@@ -757,8 +786,17 @@
         "color: gray",
         "font-size: 16px"
       ],
-      "_nested_name": "type_ge_gtb_hint",
+      "name": "text_17",
+      "_nested_name": "text_17",
       "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.type_ge_gtb_hint",
+            "matchedExpression": "@global.type_ge_gtb_hint",
+            "type": "global",
+            "fieldName": "type_ge_gtb_hint"
+          }
+        ],
         "condition": [
           {
             "fullExpression": "@local.type == \"HRE-LH\"",
@@ -769,6 +807,9 @@
         ]
       },
       "_dynamicDependencies": {
+        "@global.type_ge_gtb_hint": [
+          "value"
+        ],
         "@local.type": [
           "condition"
         ]
@@ -805,16 +846,31 @@
       "rows": [
         {
           "type": "text",
-          "name": "type_ge",
-          "value": "L'UPA appartient au type B",
+          "value": "@global.type_ge",
           "_translations": {
             "value": {}
           },
-          "_nested_name": "display_group_19.type_ge"
+          "name": "text_1",
+          "_nested_name": "display_group_19.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.type_ge",
+                "matchedExpression": "@global.type_ge",
+                "type": "global",
+                "fieldName": "type_ge"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.type_ge": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",
-          "name": "audio_15_2",
+          "name": "audio_17_2",
           "parameter_list": {
             "variant": "button_only",
             "src": "audio/Enrolement/type_ge_fr.mp3",
@@ -823,7 +879,7 @@
           "style_list": [
             "float: right"
           ],
-          "_nested_name": "display_group_19.audio_15_2"
+          "_nested_name": "display_group_19.audio_17_2"
         }
       ],
       "name": "display_group_19",
@@ -846,8 +902,7 @@
     },
     {
       "type": "text",
-      "name": "type_ge_hint",
-      "value": "Grande Exploitation",
+      "value": "@global.type_ge_hint",
       "_translations": {
         "value": {}
       },
@@ -856,8 +911,17 @@
         "color: gray",
         "font-size: 16px"
       ],
-      "_nested_name": "type_ge_hint",
+      "name": "text_21",
+      "_nested_name": "text_21",
       "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.type_ge_hint",
+            "matchedExpression": "@global.type_ge_hint",
+            "type": "global",
+            "fieldName": "type_ge_hint"
+          }
+        ],
         "condition": [
           {
             "fullExpression": "@local.type == \"HRE\"",
@@ -868,6 +932,9 @@
         ]
       },
       "_dynamicDependencies": {
+        "@global.type_ge_hint": [
+          "value"
+        ],
         "@local.type": [
           "condition"
         ]
@@ -904,16 +971,31 @@
       "rows": [
         {
           "type": "text",
-          "name": "type_me",
-          "value": "L'UPA appartient au type C",
+          "value": "@global.type_me",
           "_translations": {
             "value": {}
           },
-          "_nested_name": "display_group_23.type_me"
+          "name": "text_1",
+          "_nested_name": "display_group_23.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.type_me",
+                "matchedExpression": "@global.type_me",
+                "type": "global",
+                "fieldName": "type_me"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.type_me": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",
-          "name": "audio_15_3",
+          "name": "audio_17_3",
           "parameter_list": {
             "variant": "button_only",
             "src": "audio/Enrolement/type_me_fr.mp3",
@@ -922,7 +1004,7 @@
           "style_list": [
             "float: right"
           ],
-          "_nested_name": "display_group_23.audio_15_3"
+          "_nested_name": "display_group_23.audio_17_3"
         }
       ],
       "name": "display_group_23",
@@ -945,8 +1027,7 @@
     },
     {
       "type": "text",
-      "name": "type_me_hint",
-      "value": "Moyenne Exploitation",
+      "value": "@global.type_me_hint",
       "_translations": {
         "value": {}
       },
@@ -955,8 +1036,17 @@
         "color: gray",
         "font-size: 16px"
       ],
-      "_nested_name": "type_me_hint",
+      "name": "text_25",
+      "_nested_name": "text_25",
       "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.type_me_hint",
+            "matchedExpression": "@global.type_me_hint",
+            "type": "global",
+            "fieldName": "type_me_hint"
+          }
+        ],
         "condition": [
           {
             "fullExpression": "@local.type == \"MRE\"",
@@ -967,6 +1057,9 @@
         ]
       },
       "_dynamicDependencies": {
+        "@global.type_me_hint": [
+          "value"
+        ],
         "@local.type": [
           "condition"
         ]
@@ -1003,16 +1096,31 @@
       "rows": [
         {
           "type": "text",
-          "name": "type_pe",
-          "value": "L'UPA appartient au type D",
+          "value": "@global.type_pe",
           "_translations": {
             "value": {}
           },
-          "_nested_name": "display_group_27.type_pe"
+          "name": "text_1",
+          "_nested_name": "display_group_27.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.type_pe",
+                "matchedExpression": "@global.type_pe",
+                "type": "global",
+                "fieldName": "type_pe"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.type_pe": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",
-          "name": "audio_15_4",
+          "name": "audio_17_4",
           "parameter_list": {
             "variant": "button_only",
             "src": "audio/Enrolement/type_pe_fr.mp3",
@@ -1021,7 +1129,7 @@
           "style_list": [
             "float: right"
           ],
-          "_nested_name": "display_group_27.audio_15_4"
+          "_nested_name": "display_group_27.audio_17_4"
         }
       ],
       "name": "display_group_27",
@@ -1044,8 +1152,7 @@
     },
     {
       "type": "text",
-      "name": "type_pe_hint",
-      "value": "Petite Exploitation",
+      "value": "@global.type_pe_hint",
       "_translations": {
         "value": {}
       },
@@ -1054,8 +1161,17 @@
         "color: gray",
         "font-size: 16px"
       ],
-      "_nested_name": "type_pe_hint",
+      "name": "text_29",
+      "_nested_name": "text_29",
       "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.type_pe_hint",
+            "matchedExpression": "@global.type_pe_hint",
+            "type": "global",
+            "fieldName": "type_pe_hint"
+          }
+        ],
         "condition": [
           {
             "fullExpression": "@local.type == \"LRE\"",
@@ -1066,6 +1182,9 @@
         ]
       },
       "_dynamicDependencies": {
+        "@global.type_pe_hint": [
+          "value"
+        ],
         "@local.type": [
           "condition"
         ]
@@ -1102,20 +1221,20 @@
       "rows": [
         {
           "type": "text",
-          "name": "note_ratio_membre_terre",
-          "value": "Ratio membres-terre cultivée: @local.ratio_membre_terre",
+          "value": "@global.note_ratio_membre_terre",
           "_translations": {
             "value": {}
           },
           "condition": "!!@local.ratio_membre_terre",
-          "_nested_name": "display_group_31.note_ratio_membre_terre",
+          "name": "text_1",
+          "_nested_name": "display_group_31.text_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "Ratio membres-terre cultivée: @local.ratio_membre_terre",
-                "matchedExpression": "@local.ratio_membre_terre",
-                "type": "local",
-                "fieldName": "ratio_membre_terre"
+                "fullExpression": "@global.note_ratio_membre_terre",
+                "matchedExpression": "@global.note_ratio_membre_terre",
+                "type": "global",
+                "fieldName": "note_ratio_membre_terre"
               }
             ],
             "condition": [
@@ -1128,7 +1247,7 @@
             ]
           },
           "_dynamicDependencies": {
-            "@local.ratio_membre_terre": [
+            "@global.note_ratio_membre_terre": [
               "value"
             ],
             "!@local.ratio_membre_terre": [
@@ -1138,7 +1257,7 @@
         },
         {
           "type": "audio",
-          "name": "audio_15_4",
+          "name": "audio_17_4",
           "parameter_list": {
             "variant": "button_only",
             "src": "audio/Enrolement/ratio_mbre_ter_fr.mp3",
@@ -1147,7 +1266,7 @@
           "style_list": [
             "float: right"
           ],
-          "_nested_name": "display_group_31.audio_15_4"
+          "_nested_name": "display_group_31.audio_17_4"
         }
       ],
       "name": "display_group_31",
@@ -1199,20 +1318,20 @@
       "rows": [
         {
           "type": "text",
-          "name": "note_ratio_actif_terre",
-          "value": "Ratio actifs-terre cultivée: @local.ratio_actif_terre",
+          "value": "@global.note_ratio_actif_terre",
           "_translations": {
             "value": {}
           },
           "condition": "!!@local.ratio_actif_terre",
-          "_nested_name": "display_group_34.note_ratio_actif_terre",
+          "name": "text_1",
+          "_nested_name": "display_group_34.text_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "Ratio actifs-terre cultivée: @local.ratio_actif_terre",
-                "matchedExpression": "@local.ratio_actif_terre",
-                "type": "local",
-                "fieldName": "ratio_actif_terre"
+                "fullExpression": "@global.note_ratio_actif_terre",
+                "matchedExpression": "@global.note_ratio_actif_terre",
+                "type": "global",
+                "fieldName": "note_ratio_actif_terre"
               }
             ],
             "condition": [
@@ -1225,7 +1344,7 @@
             ]
           },
           "_dynamicDependencies": {
-            "@local.ratio_actif_terre": [
+            "@global.note_ratio_actif_terre": [
               "value"
             ],
             "!@local.ratio_actif_terre": [
@@ -1235,7 +1354,7 @@
         },
         {
           "type": "audio",
-          "name": "audio_15_4",
+          "name": "audio_17_4",
           "parameter_list": {
             "variant": "button_only",
             "src": "audio/Enrolement/ratio_actif_ter_fr.mp3",
@@ -1244,7 +1363,7 @@
           "style_list": [
             "float: right"
           ],
-          "_nested_name": "display_group_34.audio_15_4"
+          "_nested_name": "display_group_34.audio_17_4"
         }
       ],
       "name": "display_group_34",
@@ -1296,20 +1415,20 @@
       "rows": [
         {
           "type": "text",
-          "name": "note_ratio_boeuflabour_terre",
-          "value": "Ratio boeufs labour-terre cultivée: @local.ratio_boeuflabour_terre",
+          "value": "@global.note_ratio_boeuflabour_terre",
           "_translations": {
             "value": {}
           },
           "condition": "!!@local.ratio_boeuflabour_terre",
-          "_nested_name": "display_group_37.note_ratio_boeuflabour_terre",
+          "name": "text_1",
+          "_nested_name": "display_group_37.text_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "Ratio boeufs labour-terre cultivée: @local.ratio_boeuflabour_terre",
-                "matchedExpression": "@local.ratio_boeuflabour_terre",
-                "type": "local",
-                "fieldName": "ratio_boeuflabour_terre"
+                "fullExpression": "@global.note_ratio_boeuflabour_terre",
+                "matchedExpression": "@global.note_ratio_boeuflabour_terre",
+                "type": "global",
+                "fieldName": "note_ratio_boeuflabour_terre"
               }
             ],
             "condition": [
@@ -1322,7 +1441,7 @@
             ]
           },
           "_dynamicDependencies": {
-            "@local.ratio_boeuflabour_terre": [
+            "@global.note_ratio_boeuflabour_terre": [
               "value"
             ],
             "!@local.ratio_boeuflabour_terre": [
@@ -1332,7 +1451,7 @@
         },
         {
           "type": "audio",
-          "name": "audio_15_4",
+          "name": "audio_17_4",
           "parameter_list": {
             "variant": "button_only",
             "src": "audio/Enrolement/ratio_bl_ter_fr.mp3",
@@ -1341,7 +1460,7 @@
           "style_list": [
             "float: right"
           ],
-          "_nested_name": "display_group_37.audio_15_4"
+          "_nested_name": "display_group_37.audio_17_4"
         }
       ],
       "name": "display_group_37",
@@ -1375,7 +1494,7 @@
       "rows": [
         {
           "type": "round_button",
-          "name": "page_15_button_back",
+          "name": "page_17_button_back",
           "action_list": [
             {
               "trigger": "click",
@@ -1390,11 +1509,11 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "dg_footer.page_15_button_back"
+          "_nested_name": "dg_footer.page_17_button_back"
         },
         {
           "type": "button",
-          "name": "page_15_button_continue",
+          "name": "page_17_button_continue",
           "value": "@global.btn_continue",
           "_translations": {
             "value": {}
@@ -1412,7 +1531,7 @@
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "dg_footer.page_15_button_continue",
+          "_nested_name": "dg_footer.page_17_button_continue",
           "_dynamicFields": {
             "value": [
               {

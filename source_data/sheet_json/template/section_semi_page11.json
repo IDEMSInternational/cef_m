@@ -29,8 +29,9 @@
       "style_list": "background: #00adcc; padding: 15px; border-radius: 0 0 15px 15px; margin-bottom: 20px;"
     },
     {
-      "type": "html",
-      "value": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>"
+      "type": "text",
+      "value": "CULTURE @local.v_current_human / @field.total_cultures_selected",
+      "style_list": "color: white; font-weight: bold; font-size: 14px; text-transform: uppercase;"
     },
     {
       "type": "end_display_group"
@@ -46,15 +47,16 @@
     },
     {
       "type": "text",
-      "value": "<h3 style='color: black; margin: 10px 0;'>Culture : <span style='color: #e3a730;'>@field.active_culture_name</span></h3>",
-      "style_list": "font-weight: bold; font-size: 18px;"
+      "value": "Culture : @field.active_culture_name",
+      "style_list": "font-weight: bold; font-size: 18px; color: #e3a730; margin-top: 10px; text-align: center;"
     },
     {
       "type": "end_display_group"
     },
     {
-      "type": "html",
-      "value": "<br><b style=\"color: #e67e22\">AUTRE COÛT AU SEMIS</b>"
+      "type": "text",
+      "value": "@global.lbl_section_title_11",
+      "style_list": "color: #e67e22; font-weight: bold; font-size: 14px; margin-bottom: 10px;"
     },
     {
       "type": "begin_display_group",
@@ -69,12 +71,8 @@
       "style_list": "float: right;"
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: red;\">*</span>Ecrivez le nom(s) d'autre(s) coût(s)"
-    },
-    {
       "type": "text",
-      "value": "*Ces coûts couvrent des services ou intrants non pris en compte.*"
+      "value": "@global.info_other_count"
     },
     {
       "type": "radio_button_grid",
@@ -96,8 +94,9 @@
       "type": "begin_display_group"
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: red;\">*</span> Indiquez s'il y a d'autre(s) coût(s) à la récolte non renseignés"
+      "type": "text",
+      "value": "@global.lbl_exist_label",
+      "style_list": "font-weight: bold; font-size: 14px; color: #333333; flex: 1;"
     },
     {
       "type": "audio",
@@ -123,7 +122,7 @@
     },
     {
       "type": "text",
-      "value": "*La réponse est obligatoire !*",
+      "value": "@global.error_required_answer",
       "condition": "@calc(@field.no_autre_cout_semis == 'oui' && (@field.nom_autre_cout_semis == ' ' || @field.nom_autre_cout_semis == null))",
       "style_list": "color: red; font-size: 12px;"
     },
@@ -137,14 +136,16 @@
     {
       "type": "begin_display_group",
       "parameter_list": "style: colum",
-      "condition": "@field.no_autre_cout_semis == 'oui' && @fields.nom_autre_cout_semis"
+      "condition": "@field.no_autre_cout_semis == 'oui' && @fields.nom_autre_cout_semis",
+      "style_list": "display: block; width: 100%"
     },
     {
       "type": "begin_display_group"
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: red;\">*</span>Donnez le montant du coût pour <span style=\"color: #e67e22\"> @field.nom_autre_cout_semis</span>"
+      "type": "text",
+      "value": "@global.autre_cout_semis\n",
+      "style_list": "font-weight: bold; font-size: 14px; color: #333333; flex: 1;"
     },
     {
       "type": "audio",
@@ -158,12 +159,12 @@
     },
     {
       "type": "text",
-      "value": "S'il y a plusieurs éléments, donnez le coût agrégé de l'ensemble",
+      "value": "@global.info_count",
       "style_list": "font-style: italic; color: #666; font-size: 12px;"
     },
     {
       "type": "text",
-      "value": "*Rappel : 1 dram = 5 FCFA*",
+      "value": "@global.hint_price",
       "style_list": "font-size: 14px; color: gray;"
     },
     {
@@ -180,7 +181,7 @@
     },
     {
       "type": "text",
-      "value": "*Mettez une valeur positive*",
+      "value": "@global.error_positive_value",
       "condition": "@calc(@field.no_autre_cout_semis == 'oui' && @local.v_montant_autre_err)",
       "style_list": "color: red; font-size: 12px;"
     },

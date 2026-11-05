@@ -29,9 +29,10 @@
       "style_list": "width: 60%; object-fit: contain;"
     },
     {
-      "type": "html",
+      "type": "text",
       "name": "html_text",
-      "value": "<p style=\"color: black;\"> @global.note_nom_champ </p>"
+      "value": "@global.note_nom_champ",
+      "style_list": "color: black;"
     },
     {
       "type": "begin_display_group"
@@ -64,9 +65,10 @@
       "style_list": "color: #FF0000;\nfont-size: 14px"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
-      "condition": "!@local.nom_champ"
+      "type": "text",
+      "value": "@global.warning_message",
+      "condition": "!@local.nom_champ",
+      "exclude_from_translation_1": "color: red;"
     },
     {
       "type": "text",
@@ -101,9 +103,10 @@
       "parameter_list": "answer_list: @data.type_sol; \nstyle: secondary;\nitem_width: 40px;\ngrid_gap: 5px;"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
-      "condition": "!@local.type_sol"
+      "type": "text",
+      "value": "@global.warning_message",
+      "condition": "!@local.type_sol",
+      "style_list": "color: red;"
     },
     {
       "type": "begin_display_group"
@@ -142,9 +145,10 @@
       "type": "end_radio_list"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
-      "condition": "!@local.pente_sol"
+      "type": "text",
+      "value": "@global.warning_message",
+      "condition": "!@local.pente_sol",
+      "style_list": "color: red;"
     },
     {
       "type": "begin_display_group"
@@ -206,9 +210,10 @@
       "style_list": "color: #FF0000;\nfont-size: 14px"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
-      "condition": "!@local.nb_parcelles"
+      "type": "text",
+      "value": "@global.warning_message",
+      "condition": "!@local.nb_parcelles",
+      "style_list": "color: red;"
     },
     {
       "name": "completed_enabled",

@@ -2,6 +2,13 @@
   "flow_type": "template",
   "flow_name": "cout_productions",
   "status": "released",
+  "parameter_list": {
+    "app_config": {
+      "APP_FOOTER_DEFAULTS": {
+        "template": "footer"
+      }
+    }
+  },
   "rows": [
     {
       "name": "selected_year",
@@ -103,359 +110,8 @@
       }
     },
     {
-      "name": "semis_row",
-      "value": "@calc(Object.values(@data.semis || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.year || '') === String(@local.selected_year)) || {})",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "semis_row",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc(Object.values(@data.semis || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.year || '') === String(@local.selected_year)) || {})",
-            "matchedExpression": "@data.semis",
-            "type": "data",
-            "fieldName": "semis"
-          },
-          {
-            "fullExpression": "@calc(Object.values(@data.semis || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.year || '') === String(@local.selected_year)) || {})",
-            "matchedExpression": "@fields.upa_code",
-            "type": "fields",
-            "fieldName": "upa_code"
-          },
-          {
-            "fullExpression": "@calc(Object.values(@data.semis || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.year || '') === String(@local.selected_year)) || {})",
-            "matchedExpression": "@local.selected_year",
-            "type": "local",
-            "fieldName": "selected_year"
-          },
-          {
-            "fullExpression": "@calc(Object.values(@data.semis || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.year || '') === String(@local.selected_year)) || {})",
-            "matchedExpression": "@calc(Object.values(@data.semis || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.year || '') === String(@local.selected_year)) || {})",
-            "type": "calc",
-            "fieldName": "Object.values(@data.semis || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.year || '') === String(@local.selected_year)) || {}"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@data.semis": [
-          "value"
-        ],
-        "@fields.upa_code": [
-          "value"
-        ],
-        "@local.selected_year": [
-          "value"
-        ],
-        "@calc(Object.values(@data.semis || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.year || '') === String(@local.selected_year)) || {})": [
-          "value"
-        ]
-      }
-    },
-    {
-      "name": "post_semis_row",
-      "value": "@calc(Object.values(@data.post_semis || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.year || '') === String(@local.selected_year)) || {})",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "post_semis_row",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc(Object.values(@data.post_semis || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.year || '') === String(@local.selected_year)) || {})",
-            "matchedExpression": "@data.post_semis",
-            "type": "data",
-            "fieldName": "post_semis"
-          },
-          {
-            "fullExpression": "@calc(Object.values(@data.post_semis || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.year || '') === String(@local.selected_year)) || {})",
-            "matchedExpression": "@fields.upa_code",
-            "type": "fields",
-            "fieldName": "upa_code"
-          },
-          {
-            "fullExpression": "@calc(Object.values(@data.post_semis || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.year || '') === String(@local.selected_year)) || {})",
-            "matchedExpression": "@local.selected_year",
-            "type": "local",
-            "fieldName": "selected_year"
-          },
-          {
-            "fullExpression": "@calc(Object.values(@data.post_semis || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.year || '') === String(@local.selected_year)) || {})",
-            "matchedExpression": "@calc(Object.values(@data.post_semis || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.year || '') === String(@local.selected_year)) || {})",
-            "type": "calc",
-            "fieldName": "Object.values(@data.post_semis || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.year || '') === String(@local.selected_year)) || {}"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@data.post_semis": [
-          "value"
-        ],
-        "@fields.upa_code": [
-          "value"
-        ],
-        "@local.selected_year": [
-          "value"
-        ],
-        "@calc(Object.values(@data.post_semis || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.year || '') === String(@local.selected_year)) || {})": [
-          "value"
-        ]
-      }
-    },
-    {
-      "name": "recolte_row",
-      "value": "@calc(Object.values(@data.recolte || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.year || '') === String(@local.selected_year)) || {})",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "recolte_row",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc(Object.values(@data.recolte || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.year || '') === String(@local.selected_year)) || {})",
-            "matchedExpression": "@data.recolte",
-            "type": "data",
-            "fieldName": "recolte"
-          },
-          {
-            "fullExpression": "@calc(Object.values(@data.recolte || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.year || '') === String(@local.selected_year)) || {})",
-            "matchedExpression": "@fields.upa_code",
-            "type": "fields",
-            "fieldName": "upa_code"
-          },
-          {
-            "fullExpression": "@calc(Object.values(@data.recolte || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.year || '') === String(@local.selected_year)) || {})",
-            "matchedExpression": "@local.selected_year",
-            "type": "local",
-            "fieldName": "selected_year"
-          },
-          {
-            "fullExpression": "@calc(Object.values(@data.recolte || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.year || '') === String(@local.selected_year)) || {})",
-            "matchedExpression": "@calc(Object.values(@data.recolte || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.year || '') === String(@local.selected_year)) || {})",
-            "type": "calc",
-            "fieldName": "Object.values(@data.recolte || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.year || '') === String(@local.selected_year)) || {}"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@data.recolte": [
-          "value"
-        ],
-        "@fields.upa_code": [
-          "value"
-        ],
-        "@local.selected_year": [
-          "value"
-        ],
-        "@calc(Object.values(@data.recolte || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.year || '') === String(@local.selected_year)) || {})": [
-          "value"
-        ]
-      }
-    },
-    {
-      "name": "selected_semis_id",
-      "value": "@calc(@local.semis_row.id || '')",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "selected_semis_id",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc(@local.semis_row.id || '')",
-            "matchedExpression": "@local.semis_row.id",
-            "type": "local",
-            "fieldName": "semis_row"
-          },
-          {
-            "fullExpression": "@calc(@local.semis_row.id || '')",
-            "matchedExpression": "@calc(@local.semis_row.id || '')",
-            "type": "calc",
-            "fieldName": "@local.semis_row.id || ''"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@local.semis_row.id": [
-          "value"
-        ],
-        "@calc(@local.semis_row.id || '')": [
-          "value"
-        ]
-      }
-    },
-    {
-      "name": "selected_post_semis_id",
-      "value": "@calc(@local.post_semis_row.id || '')",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "selected_post_semis_id",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc(@local.post_semis_row.id || '')",
-            "matchedExpression": "@local.post_semis_row.id",
-            "type": "local",
-            "fieldName": "post_semis_row"
-          },
-          {
-            "fullExpression": "@calc(@local.post_semis_row.id || '')",
-            "matchedExpression": "@calc(@local.post_semis_row.id || '')",
-            "type": "calc",
-            "fieldName": "@local.post_semis_row.id || ''"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@local.post_semis_row.id": [
-          "value"
-        ],
-        "@calc(@local.post_semis_row.id || '')": [
-          "value"
-        ]
-      }
-    },
-    {
-      "name": "selected_recolte_id",
-      "value": "@calc(@local.recolte_row.id || '')",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "selected_recolte_id",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc(@local.recolte_row.id || '')",
-            "matchedExpression": "@local.recolte_row.id",
-            "type": "local",
-            "fieldName": "recolte_row"
-          },
-          {
-            "fullExpression": "@calc(@local.recolte_row.id || '')",
-            "matchedExpression": "@calc(@local.recolte_row.id || '')",
-            "type": "calc",
-            "fieldName": "@local.recolte_row.id || ''"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@local.recolte_row.id": [
-          "value"
-        ],
-        "@calc(@local.recolte_row.id || '')": [
-          "value"
-        ]
-      }
-    },
-    {
-      "name": "cout_total_semis",
-      "value": "@calc(Number(String(@local.semis_row.cout_total || 0).replace(',', '.')))",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "cout_total_semis",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc(Number(String(@local.semis_row.cout_total || 0).replace(',', '.')))",
-            "matchedExpression": "@local.semis_row.cout_total",
-            "type": "local",
-            "fieldName": "semis_row"
-          },
-          {
-            "fullExpression": "@calc(Number(String(@local.semis_row.cout_total || 0).replace(',', '.')))",
-            "matchedExpression": "@calc(Number(String(@local.semis_row.cout_total || 0).replace(',', '.')))",
-            "type": "calc",
-            "fieldName": "Number(String(@local.semis_row.cout_total || 0).replace(',', '.'))"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@local.semis_row.cout_total": [
-          "value"
-        ],
-        "@calc(Number(String(@local.semis_row.cout_total || 0).replace(',', '.')))": [
-          "value"
-        ]
-      }
-    },
-    {
-      "name": "cout_total_post_semis",
-      "value": "@calc(Number(String(@local.post_semis_row.cout_total || 0).replace(',', '.')))",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "cout_total_post_semis",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc(Number(String(@local.post_semis_row.cout_total || 0).replace(',', '.')))",
-            "matchedExpression": "@local.post_semis_row.cout_total",
-            "type": "local",
-            "fieldName": "post_semis_row"
-          },
-          {
-            "fullExpression": "@calc(Number(String(@local.post_semis_row.cout_total || 0).replace(',', '.')))",
-            "matchedExpression": "@calc(Number(String(@local.post_semis_row.cout_total || 0).replace(',', '.')))",
-            "type": "calc",
-            "fieldName": "Number(String(@local.post_semis_row.cout_total || 0).replace(',', '.'))"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@local.post_semis_row.cout_total": [
-          "value"
-        ],
-        "@calc(Number(String(@local.post_semis_row.cout_total || 0).replace(',', '.')))": [
-          "value"
-        ]
-      }
-    },
-    {
-      "name": "cout_total_recolte",
-      "value": "@calc(Number(String(@local.recolte_row.cout_total || 0).replace(',', '.')))",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "cout_total_recolte",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc(Number(String(@local.recolte_row.cout_total || 0).replace(',', '.')))",
-            "matchedExpression": "@local.recolte_row.cout_total",
-            "type": "local",
-            "fieldName": "recolte_row"
-          },
-          {
-            "fullExpression": "@calc(Number(String(@local.recolte_row.cout_total || 0).replace(',', '.')))",
-            "matchedExpression": "@calc(Number(String(@local.recolte_row.cout_total || 0).replace(',', '.')))",
-            "type": "calc",
-            "fieldName": "Number(String(@local.recolte_row.cout_total || 0).replace(',', '.'))"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@local.recolte_row.cout_total": [
-          "value"
-        ],
-        "@calc(Number(String(@local.recolte_row.cout_total || 0).replace(',', '.')))": [
-          "value"
-        ]
-      }
-    },
-    {
       "name": "musaka_mume",
-      "value": "@calc(@local.cout_total_semis + @local.cout_total_post_semis + @local.cout_total_recolte)",
+      "value": "@calc(Object.values(@data.couts_cultures || {}).filter(item => String(item.upa_code || '').trim() === String(@fields.upa_code || '').trim() && String(item.year || '').trim() === String(@local.selected_year || '').trim()).reduce((sum, item) => sum + Number(item.cout_total || 0), 0))",
       "_translations": {
         "value": {}
       },
@@ -464,42 +120,42 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc(@local.cout_total_semis + @local.cout_total_post_semis + @local.cout_total_recolte)",
-            "matchedExpression": "@local.cout_total_semis",
-            "type": "local",
-            "fieldName": "cout_total_semis"
+            "fullExpression": "@calc(Object.values(@data.couts_cultures || {}).filter(item => String(item.upa_code || '').trim() === String(@fields.upa_code || '').trim() && String(item.year || '').trim() === String(@local.selected_year || '').trim()).reduce((sum, item) => sum + Number(item.cout_total || 0), 0))",
+            "matchedExpression": "@data.couts_cultures",
+            "type": "data",
+            "fieldName": "couts_cultures"
           },
           {
-            "fullExpression": "@calc(@local.cout_total_semis + @local.cout_total_post_semis + @local.cout_total_recolte)",
-            "matchedExpression": "@local.cout_total_post_semis",
-            "type": "local",
-            "fieldName": "cout_total_post_semis"
+            "fullExpression": "@calc(Object.values(@data.couts_cultures || {}).filter(item => String(item.upa_code || '').trim() === String(@fields.upa_code || '').trim() && String(item.year || '').trim() === String(@local.selected_year || '').trim()).reduce((sum, item) => sum + Number(item.cout_total || 0), 0))",
+            "matchedExpression": "@fields.upa_code",
+            "type": "fields",
+            "fieldName": "upa_code"
           },
           {
-            "fullExpression": "@calc(@local.cout_total_semis + @local.cout_total_post_semis + @local.cout_total_recolte)",
-            "matchedExpression": "@local.cout_total_recolte",
+            "fullExpression": "@calc(Object.values(@data.couts_cultures || {}).filter(item => String(item.upa_code || '').trim() === String(@fields.upa_code || '').trim() && String(item.year || '').trim() === String(@local.selected_year || '').trim()).reduce((sum, item) => sum + Number(item.cout_total || 0), 0))",
+            "matchedExpression": "@local.selected_year",
             "type": "local",
-            "fieldName": "cout_total_recolte"
+            "fieldName": "selected_year"
           },
           {
-            "fullExpression": "@calc(@local.cout_total_semis + @local.cout_total_post_semis + @local.cout_total_recolte)",
-            "matchedExpression": "@calc(@local.cout_total_semis + @local.cout_total_post_semis + @local.cout_total_recolte)",
+            "fullExpression": "@calc(Object.values(@data.couts_cultures || {}).filter(item => String(item.upa_code || '').trim() === String(@fields.upa_code || '').trim() && String(item.year || '').trim() === String(@local.selected_year || '').trim()).reduce((sum, item) => sum + Number(item.cout_total || 0), 0))",
+            "matchedExpression": "@calc(Object.values(@data.couts_cultures || {}).filter(item => String(item.upa_code || '').trim() === String(@fields.upa_code || '').trim() && String(item.year || '').trim() === String(@local.selected_year || '').trim()).reduce((sum, item) => sum + Number(item.cout_total || 0), 0))",
             "type": "calc",
-            "fieldName": "@local.cout_total_semis + @local.cout_total_post_semis + @local.cout_total_recolte"
+            "fieldName": "Object.values(@data.couts_cultures || {}).filter(item => String(item.upa_code || '').trim() === String(@fields.upa_code || '').trim() && String(item.year || '').trim() === String(@local.selected_year || '').trim()).reduce((sum, item) => sum + Number(item.cout_total || 0), 0)"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@local.cout_total_semis": [
+        "@data.couts_cultures": [
           "value"
         ],
-        "@local.cout_total_post_semis": [
+        "@fields.upa_code": [
           "value"
         ],
-        "@local.cout_total_recolte": [
+        "@local.selected_year": [
           "value"
         ],
-        "@calc(@local.cout_total_semis + @local.cout_total_post_semis + @local.cout_total_recolte)": [
+        "@calc(Object.values(@data.couts_cultures || {}).filter(item => String(item.upa_code || '').trim() === String(@fields.upa_code || '').trim() && String(item.year || '').trim() === String(@local.selected_year || '').trim()).reduce((sum, item) => sum + Number(item.cout_total || 0), 0))": [
           "value"
         ]
       }
@@ -538,741 +194,8 @@
       }
     },
     {
-      "name": "culture_items",
-      "value": "@calc(Object.values([].concat(Object.values(@data.semis_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.semis_id || '').trim() === String(@local.selected_semis_id || '').trim()), Object.values(@data.post_semis_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim()), Object.values(@data.recolte_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.recolte_id || '').trim() === String(@local.selected_recolte_id || '').trim())).reduce((acc, x) => { const key = String(x.culture_id || '').toLowerCase().trim(); if (key && !acc[key]) acc[key] = { culture_id: key }; return acc; }, {})))",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "culture_items",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc(Object.values([].concat(Object.values(@data.semis_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.semis_id || '').trim() === String(@local.selected_semis_id || '').trim()), Object.values(@data.post_semis_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim()), Object.values(@data.recolte_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.recolte_id || '').trim() === String(@local.selected_recolte_id || '').trim())).reduce((acc, x) => { const key = String(x.culture_id || '').toLowerCase().trim(); if (key && !acc[key]) acc[key] = { culture_id: key }; return acc; }, {})))",
-            "matchedExpression": "@data.semis_culture",
-            "type": "data",
-            "fieldName": "semis_culture"
-          },
-          {
-            "fullExpression": "@calc(Object.values([].concat(Object.values(@data.semis_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.semis_id || '').trim() === String(@local.selected_semis_id || '').trim()), Object.values(@data.post_semis_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim()), Object.values(@data.recolte_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.recolte_id || '').trim() === String(@local.selected_recolte_id || '').trim())).reduce((acc, x) => { const key = String(x.culture_id || '').toLowerCase().trim(); if (key && !acc[key]) acc[key] = { culture_id: key }; return acc; }, {})))",
-            "matchedExpression": "@fields.upa_code",
-            "type": "fields",
-            "fieldName": "upa_code"
-          },
-          {
-            "fullExpression": "@calc(Object.values([].concat(Object.values(@data.semis_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.semis_id || '').trim() === String(@local.selected_semis_id || '').trim()), Object.values(@data.post_semis_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim()), Object.values(@data.recolte_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.recolte_id || '').trim() === String(@local.selected_recolte_id || '').trim())).reduce((acc, x) => { const key = String(x.culture_id || '').toLowerCase().trim(); if (key && !acc[key]) acc[key] = { culture_id: key }; return acc; }, {})))",
-            "matchedExpression": "@local.selected_semis_id",
-            "type": "local",
-            "fieldName": "selected_semis_id"
-          },
-          {
-            "fullExpression": "@calc(Object.values([].concat(Object.values(@data.semis_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.semis_id || '').trim() === String(@local.selected_semis_id || '').trim()), Object.values(@data.post_semis_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim()), Object.values(@data.recolte_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.recolte_id || '').trim() === String(@local.selected_recolte_id || '').trim())).reduce((acc, x) => { const key = String(x.culture_id || '').toLowerCase().trim(); if (key && !acc[key]) acc[key] = { culture_id: key }; return acc; }, {})))",
-            "matchedExpression": "@data.post_semis_culture",
-            "type": "data",
-            "fieldName": "post_semis_culture"
-          },
-          {
-            "fullExpression": "@calc(Object.values([].concat(Object.values(@data.semis_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.semis_id || '').trim() === String(@local.selected_semis_id || '').trim()), Object.values(@data.post_semis_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim()), Object.values(@data.recolte_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.recolte_id || '').trim() === String(@local.selected_recolte_id || '').trim())).reduce((acc, x) => { const key = String(x.culture_id || '').toLowerCase().trim(); if (key && !acc[key]) acc[key] = { culture_id: key }; return acc; }, {})))",
-            "matchedExpression": "@fields.upa_code",
-            "type": "fields",
-            "fieldName": "upa_code"
-          },
-          {
-            "fullExpression": "@calc(Object.values([].concat(Object.values(@data.semis_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.semis_id || '').trim() === String(@local.selected_semis_id || '').trim()), Object.values(@data.post_semis_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim()), Object.values(@data.recolte_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.recolte_id || '').trim() === String(@local.selected_recolte_id || '').trim())).reduce((acc, x) => { const key = String(x.culture_id || '').toLowerCase().trim(); if (key && !acc[key]) acc[key] = { culture_id: key }; return acc; }, {})))",
-            "matchedExpression": "@local.selected_post_semis_id",
-            "type": "local",
-            "fieldName": "selected_post_semis_id"
-          },
-          {
-            "fullExpression": "@calc(Object.values([].concat(Object.values(@data.semis_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.semis_id || '').trim() === String(@local.selected_semis_id || '').trim()), Object.values(@data.post_semis_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim()), Object.values(@data.recolte_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.recolte_id || '').trim() === String(@local.selected_recolte_id || '').trim())).reduce((acc, x) => { const key = String(x.culture_id || '').toLowerCase().trim(); if (key && !acc[key]) acc[key] = { culture_id: key }; return acc; }, {})))",
-            "matchedExpression": "@data.recolte_culture",
-            "type": "data",
-            "fieldName": "recolte_culture"
-          },
-          {
-            "fullExpression": "@calc(Object.values([].concat(Object.values(@data.semis_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.semis_id || '').trim() === String(@local.selected_semis_id || '').trim()), Object.values(@data.post_semis_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim()), Object.values(@data.recolte_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.recolte_id || '').trim() === String(@local.selected_recolte_id || '').trim())).reduce((acc, x) => { const key = String(x.culture_id || '').toLowerCase().trim(); if (key && !acc[key]) acc[key] = { culture_id: key }; return acc; }, {})))",
-            "matchedExpression": "@fields.upa_code",
-            "type": "fields",
-            "fieldName": "upa_code"
-          },
-          {
-            "fullExpression": "@calc(Object.values([].concat(Object.values(@data.semis_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.semis_id || '').trim() === String(@local.selected_semis_id || '').trim()), Object.values(@data.post_semis_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim()), Object.values(@data.recolte_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.recolte_id || '').trim() === String(@local.selected_recolte_id || '').trim())).reduce((acc, x) => { const key = String(x.culture_id || '').toLowerCase().trim(); if (key && !acc[key]) acc[key] = { culture_id: key }; return acc; }, {})))",
-            "matchedExpression": "@local.selected_recolte_id",
-            "type": "local",
-            "fieldName": "selected_recolte_id"
-          },
-          {
-            "fullExpression": "@calc(Object.values([].concat(Object.values(@data.semis_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.semis_id || '').trim() === String(@local.selected_semis_id || '').trim()), Object.values(@data.post_semis_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim()), Object.values(@data.recolte_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.recolte_id || '').trim() === String(@local.selected_recolte_id || '').trim())).reduce((acc, x) => { const key = String(x.culture_id || '').toLowerCase().trim(); if (key && !acc[key]) acc[key] = { culture_id: key }; return acc; }, {})))",
-            "matchedExpression": "@calc(Object.values([].concat(Object.values(@data.semis_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.semis_id || '').trim() === String(@local.selected_semis_id || '').trim()), Object.values(@data.post_semis_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim()), Object.values(@data.recolte_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.recolte_id || '').trim() === String(@local.selected_recolte_id || '').trim())).reduce((acc, x) => { const key = String(x.culture_id || '').toLowerCase().trim(); if (key && !acc[key]) acc[key] = { culture_id: key }; return acc; }, {})))",
-            "type": "calc",
-            "fieldName": "Object.values([].concat(Object.values(@data.semis_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.semis_id || '').trim() === String(@local.selected_semis_id || '').trim()), Object.values(@data.post_semis_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim()), Object.values(@data.recolte_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.recolte_id || '').trim() === String(@local.selected_recolte_id || '').trim())).reduce((acc, x) => { const key = String(x.culture_id || '').toLowerCase().trim(); if (key && !acc[key]) acc[key] = { culture_id: key }; return acc; }, {}))"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@data.semis_culture": [
-          "value"
-        ],
-        "@fields.upa_code": [
-          "value",
-          "value",
-          "value"
-        ],
-        "@local.selected_semis_id": [
-          "value"
-        ],
-        "@data.post_semis_culture": [
-          "value"
-        ],
-        "@local.selected_post_semis_id": [
-          "value"
-        ],
-        "@data.recolte_culture": [
-          "value"
-        ],
-        "@local.selected_recolte_id": [
-          "value"
-        ],
-        "@calc(Object.values([].concat(Object.values(@data.semis_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.semis_id || '').trim() === String(@local.selected_semis_id || '').trim()), Object.values(@data.post_semis_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim()), Object.values(@data.recolte_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.recolte_id || '').trim() === String(@local.selected_recolte_id || '').trim())).reduce((acc, x) => { const key = String(x.culture_id || '').toLowerCase().trim(); if (key && !acc[key]) acc[key] = { culture_id: key }; return acc; }, {})))": [
-          "value"
-        ]
-      }
-    },
-    {
-      "name": "cout_semis_totals",
-      "value": "@calc(Object.values(@data.semis_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.semis_id || '').trim() === String(@local.selected_semis_id || '').trim()).reduce((acc, x) => { const n = v => Number(String(v || 0).replace(',', '.')) || 0; const key = String(x.culture_id || '').toLowerCase().trim(); const detail = n(x.cout_transport) + n(x.cout_chaux_agricole) + n(x.cout_pnt_png) + n(x.cout_superficie_labouree) + n(x.cout_semence_achetee) + n(x.cout_herbicide_prelevee); if (key) acc[key] = (acc[key] || 0) + (n(x.cout) || detail); return acc; }, {}))",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "cout_semis_totals",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc(Object.values(@data.semis_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.semis_id || '').trim() === String(@local.selected_semis_id || '').trim()).reduce((acc, x) => { const n = v => Number(String(v || 0).replace(',', '.')) || 0; const key = String(x.culture_id || '').toLowerCase().trim(); const detail = n(x.cout_transport) + n(x.cout_chaux_agricole) + n(x.cout_pnt_png) + n(x.cout_superficie_labouree) + n(x.cout_semence_achetee) + n(x.cout_herbicide_prelevee); if (key) acc[key] = (acc[key] || 0) + (n(x.cout) || detail); return acc; }, {}))",
-            "matchedExpression": "@data.semis_culture",
-            "type": "data",
-            "fieldName": "semis_culture"
-          },
-          {
-            "fullExpression": "@calc(Object.values(@data.semis_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.semis_id || '').trim() === String(@local.selected_semis_id || '').trim()).reduce((acc, x) => { const n = v => Number(String(v || 0).replace(',', '.')) || 0; const key = String(x.culture_id || '').toLowerCase().trim(); const detail = n(x.cout_transport) + n(x.cout_chaux_agricole) + n(x.cout_pnt_png) + n(x.cout_superficie_labouree) + n(x.cout_semence_achetee) + n(x.cout_herbicide_prelevee); if (key) acc[key] = (acc[key] || 0) + (n(x.cout) || detail); return acc; }, {}))",
-            "matchedExpression": "@fields.upa_code",
-            "type": "fields",
-            "fieldName": "upa_code"
-          },
-          {
-            "fullExpression": "@calc(Object.values(@data.semis_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.semis_id || '').trim() === String(@local.selected_semis_id || '').trim()).reduce((acc, x) => { const n = v => Number(String(v || 0).replace(',', '.')) || 0; const key = String(x.culture_id || '').toLowerCase().trim(); const detail = n(x.cout_transport) + n(x.cout_chaux_agricole) + n(x.cout_pnt_png) + n(x.cout_superficie_labouree) + n(x.cout_semence_achetee) + n(x.cout_herbicide_prelevee); if (key) acc[key] = (acc[key] || 0) + (n(x.cout) || detail); return acc; }, {}))",
-            "matchedExpression": "@local.selected_semis_id",
-            "type": "local",
-            "fieldName": "selected_semis_id"
-          },
-          {
-            "fullExpression": "@calc(Object.values(@data.semis_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.semis_id || '').trim() === String(@local.selected_semis_id || '').trim()).reduce((acc, x) => { const n = v => Number(String(v || 0).replace(',', '.')) || 0; const key = String(x.culture_id || '').toLowerCase().trim(); const detail = n(x.cout_transport) + n(x.cout_chaux_agricole) + n(x.cout_pnt_png) + n(x.cout_superficie_labouree) + n(x.cout_semence_achetee) + n(x.cout_herbicide_prelevee); if (key) acc[key] = (acc[key] || 0) + (n(x.cout) || detail); return acc; }, {}))",
-            "matchedExpression": "@calc(Object.values(@data.semis_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.semis_id || '').trim() === String(@local.selected_semis_id || '').trim()).reduce((acc, x) => { const n = v => Number(String(v || 0).replace(',', '.')) || 0; const key = String(x.culture_id || '').toLowerCase().trim(); const detail = n(x.cout_transport) + n(x.cout_chaux_agricole) + n(x.cout_pnt_png) + n(x.cout_superficie_labouree) + n(x.cout_semence_achetee) + n(x.cout_herbicide_prelevee); if (key) acc[key] = (acc[key] || 0) + (n(x.cout) || detail); return acc; }, {}))",
-            "type": "calc",
-            "fieldName": "Object.values(@data.semis_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.semis_id || '').trim() === String(@local.selected_semis_id || '').trim()).reduce((acc, x) => { const n = v => Number(String(v || 0).replace(',', '.')) || 0; const key = String(x.culture_id || '').toLowerCase().trim(); const detail = n(x.cout_transport) + n(x.cout_chaux_agricole) + n(x.cout_pnt_png) + n(x.cout_superficie_labouree) + n(x.cout_semence_achetee) + n(x.cout_herbicide_prelevee); if (key) acc[key] = (acc[key] || 0) + (n(x.cout) || detail); return acc; }, {})"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@data.semis_culture": [
-          "value"
-        ],
-        "@fields.upa_code": [
-          "value"
-        ],
-        "@local.selected_semis_id": [
-          "value"
-        ],
-        "@calc(Object.values(@data.semis_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.semis_id || '').trim() === String(@local.selected_semis_id || '').trim()).reduce((acc, x) => { const n = v => Number(String(v || 0).replace(',', '.')) || 0; const key = String(x.culture_id || '').toLowerCase().trim(); const detail = n(x.cout_transport) + n(x.cout_chaux_agricole) + n(x.cout_pnt_png) + n(x.cout_superficie_labouree) + n(x.cout_semence_achetee) + n(x.cout_herbicide_prelevee); if (key) acc[key] = (acc[key] || 0) + (n(x.cout) || detail); return acc; }, {}))": [
-          "value"
-        ]
-      }
-    },
-    {
-      "name": "cout_post_semis_totals",
-      "value": "@calc(Object.values(@data.post_semis_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim()).reduce((acc, x) => { const n = v => Number(String(v || 0).replace(',', '.')) || 0; const key = String(x.culture_id || '').toLowerCase().trim(); const detail = n(x.cout_sarclage) + n(x.cout_desherbage) + n(x.cout_npk) + n(x.cout_uree) + n(x.cout_herbicide) + n(x.cout_buttage) + n(x.cout_insecticide); if (key) acc[key] = (acc[key] || 0) + (n(x.cout) || detail); return acc; }, {}))",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "cout_post_semis_totals",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc(Object.values(@data.post_semis_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim()).reduce((acc, x) => { const n = v => Number(String(v || 0).replace(',', '.')) || 0; const key = String(x.culture_id || '').toLowerCase().trim(); const detail = n(x.cout_sarclage) + n(x.cout_desherbage) + n(x.cout_npk) + n(x.cout_uree) + n(x.cout_herbicide) + n(x.cout_buttage) + n(x.cout_insecticide); if (key) acc[key] = (acc[key] || 0) + (n(x.cout) || detail); return acc; }, {}))",
-            "matchedExpression": "@data.post_semis_culture",
-            "type": "data",
-            "fieldName": "post_semis_culture"
-          },
-          {
-            "fullExpression": "@calc(Object.values(@data.post_semis_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim()).reduce((acc, x) => { const n = v => Number(String(v || 0).replace(',', '.')) || 0; const key = String(x.culture_id || '').toLowerCase().trim(); const detail = n(x.cout_sarclage) + n(x.cout_desherbage) + n(x.cout_npk) + n(x.cout_uree) + n(x.cout_herbicide) + n(x.cout_buttage) + n(x.cout_insecticide); if (key) acc[key] = (acc[key] || 0) + (n(x.cout) || detail); return acc; }, {}))",
-            "matchedExpression": "@fields.upa_code",
-            "type": "fields",
-            "fieldName": "upa_code"
-          },
-          {
-            "fullExpression": "@calc(Object.values(@data.post_semis_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim()).reduce((acc, x) => { const n = v => Number(String(v || 0).replace(',', '.')) || 0; const key = String(x.culture_id || '').toLowerCase().trim(); const detail = n(x.cout_sarclage) + n(x.cout_desherbage) + n(x.cout_npk) + n(x.cout_uree) + n(x.cout_herbicide) + n(x.cout_buttage) + n(x.cout_insecticide); if (key) acc[key] = (acc[key] || 0) + (n(x.cout) || detail); return acc; }, {}))",
-            "matchedExpression": "@local.selected_post_semis_id",
-            "type": "local",
-            "fieldName": "selected_post_semis_id"
-          },
-          {
-            "fullExpression": "@calc(Object.values(@data.post_semis_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim()).reduce((acc, x) => { const n = v => Number(String(v || 0).replace(',', '.')) || 0; const key = String(x.culture_id || '').toLowerCase().trim(); const detail = n(x.cout_sarclage) + n(x.cout_desherbage) + n(x.cout_npk) + n(x.cout_uree) + n(x.cout_herbicide) + n(x.cout_buttage) + n(x.cout_insecticide); if (key) acc[key] = (acc[key] || 0) + (n(x.cout) || detail); return acc; }, {}))",
-            "matchedExpression": "@calc(Object.values(@data.post_semis_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim()).reduce((acc, x) => { const n = v => Number(String(v || 0).replace(',', '.')) || 0; const key = String(x.culture_id || '').toLowerCase().trim(); const detail = n(x.cout_sarclage) + n(x.cout_desherbage) + n(x.cout_npk) + n(x.cout_uree) + n(x.cout_herbicide) + n(x.cout_buttage) + n(x.cout_insecticide); if (key) acc[key] = (acc[key] || 0) + (n(x.cout) || detail); return acc; }, {}))",
-            "type": "calc",
-            "fieldName": "Object.values(@data.post_semis_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim()).reduce((acc, x) => { const n = v => Number(String(v || 0).replace(',', '.')) || 0; const key = String(x.culture_id || '').toLowerCase().trim(); const detail = n(x.cout_sarclage) + n(x.cout_desherbage) + n(x.cout_npk) + n(x.cout_uree) + n(x.cout_herbicide) + n(x.cout_buttage) + n(x.cout_insecticide); if (key) acc[key] = (acc[key] || 0) + (n(x.cout) || detail); return acc; }, {})"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@data.post_semis_culture": [
-          "value"
-        ],
-        "@fields.upa_code": [
-          "value"
-        ],
-        "@local.selected_post_semis_id": [
-          "value"
-        ],
-        "@calc(Object.values(@data.post_semis_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.post_semis_id || '').trim() === String(@local.selected_post_semis_id || '').trim()).reduce((acc, x) => { const n = v => Number(String(v || 0).replace(',', '.')) || 0; const key = String(x.culture_id || '').toLowerCase().trim(); const detail = n(x.cout_sarclage) + n(x.cout_desherbage) + n(x.cout_npk) + n(x.cout_uree) + n(x.cout_herbicide) + n(x.cout_buttage) + n(x.cout_insecticide); if (key) acc[key] = (acc[key] || 0) + (n(x.cout) || detail); return acc; }, {}))": [
-          "value"
-        ]
-      }
-    },
-    {
-      "name": "cout_recolte_totals",
-      "value": "@calc(Object.values(@data.recolte_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.recolte_id || '').trim() === String(@local.selected_recolte_id || '').trim()).reduce((acc, x) => { const n = v => Number(String(v || 0).replace(',', '.')) || 0; const key = String(x.culture_id || '').toLowerCase().trim(); const detail = n(x.cout_total_prestation_recolte) + n(x.cout_total_battage); if (key) acc[key] = (acc[key] || 0) + (n(x.cout) || detail); return acc; }, {}))",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "cout_recolte_totals",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc(Object.values(@data.recolte_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.recolte_id || '').trim() === String(@local.selected_recolte_id || '').trim()).reduce((acc, x) => { const n = v => Number(String(v || 0).replace(',', '.')) || 0; const key = String(x.culture_id || '').toLowerCase().trim(); const detail = n(x.cout_total_prestation_recolte) + n(x.cout_total_battage); if (key) acc[key] = (acc[key] || 0) + (n(x.cout) || detail); return acc; }, {}))",
-            "matchedExpression": "@data.recolte_culture",
-            "type": "data",
-            "fieldName": "recolte_culture"
-          },
-          {
-            "fullExpression": "@calc(Object.values(@data.recolte_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.recolte_id || '').trim() === String(@local.selected_recolte_id || '').trim()).reduce((acc, x) => { const n = v => Number(String(v || 0).replace(',', '.')) || 0; const key = String(x.culture_id || '').toLowerCase().trim(); const detail = n(x.cout_total_prestation_recolte) + n(x.cout_total_battage); if (key) acc[key] = (acc[key] || 0) + (n(x.cout) || detail); return acc; }, {}))",
-            "matchedExpression": "@fields.upa_code",
-            "type": "fields",
-            "fieldName": "upa_code"
-          },
-          {
-            "fullExpression": "@calc(Object.values(@data.recolte_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.recolte_id || '').trim() === String(@local.selected_recolte_id || '').trim()).reduce((acc, x) => { const n = v => Number(String(v || 0).replace(',', '.')) || 0; const key = String(x.culture_id || '').toLowerCase().trim(); const detail = n(x.cout_total_prestation_recolte) + n(x.cout_total_battage); if (key) acc[key] = (acc[key] || 0) + (n(x.cout) || detail); return acc; }, {}))",
-            "matchedExpression": "@local.selected_recolte_id",
-            "type": "local",
-            "fieldName": "selected_recolte_id"
-          },
-          {
-            "fullExpression": "@calc(Object.values(@data.recolte_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.recolte_id || '').trim() === String(@local.selected_recolte_id || '').trim()).reduce((acc, x) => { const n = v => Number(String(v || 0).replace(',', '.')) || 0; const key = String(x.culture_id || '').toLowerCase().trim(); const detail = n(x.cout_total_prestation_recolte) + n(x.cout_total_battage); if (key) acc[key] = (acc[key] || 0) + (n(x.cout) || detail); return acc; }, {}))",
-            "matchedExpression": "@calc(Object.values(@data.recolte_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.recolte_id || '').trim() === String(@local.selected_recolte_id || '').trim()).reduce((acc, x) => { const n = v => Number(String(v || 0).replace(',', '.')) || 0; const key = String(x.culture_id || '').toLowerCase().trim(); const detail = n(x.cout_total_prestation_recolte) + n(x.cout_total_battage); if (key) acc[key] = (acc[key] || 0) + (n(x.cout) || detail); return acc; }, {}))",
-            "type": "calc",
-            "fieldName": "Object.values(@data.recolte_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.recolte_id || '').trim() === String(@local.selected_recolte_id || '').trim()).reduce((acc, x) => { const n = v => Number(String(v || 0).replace(',', '.')) || 0; const key = String(x.culture_id || '').toLowerCase().trim(); const detail = n(x.cout_total_prestation_recolte) + n(x.cout_total_battage); if (key) acc[key] = (acc[key] || 0) + (n(x.cout) || detail); return acc; }, {})"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@data.recolte_culture": [
-          "value"
-        ],
-        "@fields.upa_code": [
-          "value"
-        ],
-        "@local.selected_recolte_id": [
-          "value"
-        ],
-        "@calc(Object.values(@data.recolte_culture || {}).filter(x => String(x.upa_code || '') === String(@fields.upa_code) && String(x.recolte_id || '').trim() === String(@local.selected_recolte_id || '').trim()).reduce((acc, x) => { const n = v => Number(String(v || 0).replace(',', '.')) || 0; const key = String(x.culture_id || '').toLowerCase().trim(); const detail = n(x.cout_total_prestation_recolte) + n(x.cout_total_battage); if (key) acc[key] = (acc[key] || 0) + (n(x.cout) || detail); return acc; }, {}))": [
-          "value"
-        ]
-      }
-    },
-    {
-      "name": "cout_totals",
-      "value": "@calc([@local.cout_semis_totals || {}, @local.cout_post_semis_totals || {}, @local.cout_recolte_totals || {}].reduce((acc, obj) => { Object.keys(obj || {}).forEach(key => acc[key] = (acc[key] || 0) + Number(obj[key] || 0)); return acc; }, {}))",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "cout_totals",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc([@local.cout_semis_totals || {}, @local.cout_post_semis_totals || {}, @local.cout_recolte_totals || {}].reduce((acc, obj) => { Object.keys(obj || {}).forEach(key => acc[key] = (acc[key] || 0) + Number(obj[key] || 0)); return acc; }, {}))",
-            "matchedExpression": "@local.cout_semis_totals",
-            "type": "local",
-            "fieldName": "cout_semis_totals"
-          },
-          {
-            "fullExpression": "@calc([@local.cout_semis_totals || {}, @local.cout_post_semis_totals || {}, @local.cout_recolte_totals || {}].reduce((acc, obj) => { Object.keys(obj || {}).forEach(key => acc[key] = (acc[key] || 0) + Number(obj[key] || 0)); return acc; }, {}))",
-            "matchedExpression": "@local.cout_post_semis_totals",
-            "type": "local",
-            "fieldName": "cout_post_semis_totals"
-          },
-          {
-            "fullExpression": "@calc([@local.cout_semis_totals || {}, @local.cout_post_semis_totals || {}, @local.cout_recolte_totals || {}].reduce((acc, obj) => { Object.keys(obj || {}).forEach(key => acc[key] = (acc[key] || 0) + Number(obj[key] || 0)); return acc; }, {}))",
-            "matchedExpression": "@local.cout_recolte_totals",
-            "type": "local",
-            "fieldName": "cout_recolte_totals"
-          },
-          {
-            "fullExpression": "@calc([@local.cout_semis_totals || {}, @local.cout_post_semis_totals || {}, @local.cout_recolte_totals || {}].reduce((acc, obj) => { Object.keys(obj || {}).forEach(key => acc[key] = (acc[key] || 0) + Number(obj[key] || 0)); return acc; }, {}))",
-            "matchedExpression": "@calc([@local.cout_semis_totals || {}, @local.cout_post_semis_totals || {}, @local.cout_recolte_totals || {}].reduce((acc, obj) => { Object.keys(obj || {}).forEach(key => acc[key] = (acc[key] || 0) + Number(obj[key] || 0)); return acc; }, {}))",
-            "type": "calc",
-            "fieldName": "[@local.cout_semis_totals || {}, @local.cout_post_semis_totals || {}, @local.cout_recolte_totals || {}].reduce((acc, obj) => { Object.keys(obj || {}).forEach(key => acc[key] = (acc[key] || 0) + Number(obj[key] || 0)); return acc; }, {})"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@local.cout_semis_totals": [
-          "value"
-        ],
-        "@local.cout_post_semis_totals": [
-          "value"
-        ],
-        "@local.cout_recolte_totals": [
-          "value"
-        ],
-        "@calc([@local.cout_semis_totals || {}, @local.cout_post_semis_totals || {}, @local.cout_recolte_totals || {}].reduce((acc, obj) => { Object.keys(obj || {}).forEach(key => acc[key] = (acc[key] || 0) + Number(obj[key] || 0)); return acc; }, {}))": [
-          "value"
-        ]
-      }
-    },
-    {
-      "name": "cout_coton",
-      "value": "@calc(Number((@local.cout_totals || {})['coton'] || 0))",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "cout_coton",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc(Number((@local.cout_totals || {})['coton'] || 0))",
-            "matchedExpression": "@local.cout_totals",
-            "type": "local",
-            "fieldName": "cout_totals"
-          },
-          {
-            "fullExpression": "@calc(Number((@local.cout_totals || {})['coton'] || 0))",
-            "matchedExpression": "@calc(Number((@local.cout_totals || {})['coton'] || 0))",
-            "type": "calc",
-            "fieldName": "Number((@local.cout_totals || {})['coton'] || 0)"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@local.cout_totals": [
-          "value"
-        ],
-        "@calc(Number((@local.cout_totals || {})['coton'] || 0))": [
-          "value"
-        ]
-      }
-    },
-    {
-      "name": "cout_mais",
-      "value": "@calc(Number((@local.cout_totals || {})['mais'] || 0))",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "cout_mais",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc(Number((@local.cout_totals || {})['mais'] || 0))",
-            "matchedExpression": "@local.cout_totals",
-            "type": "local",
-            "fieldName": "cout_totals"
-          },
-          {
-            "fullExpression": "@calc(Number((@local.cout_totals || {})['mais'] || 0))",
-            "matchedExpression": "@calc(Number((@local.cout_totals || {})['mais'] || 0))",
-            "type": "calc",
-            "fieldName": "Number((@local.cout_totals || {})['mais'] || 0)"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@local.cout_totals": [
-          "value"
-        ],
-        "@calc(Number((@local.cout_totals || {})['mais'] || 0))": [
-          "value"
-        ]
-      }
-    },
-    {
-      "name": "cout_mil",
-      "value": "@calc(Number((@local.cout_totals || {})['mil'] || 0))",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "cout_mil",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc(Number((@local.cout_totals || {})['mil'] || 0))",
-            "matchedExpression": "@local.cout_totals",
-            "type": "local",
-            "fieldName": "cout_totals"
-          },
-          {
-            "fullExpression": "@calc(Number((@local.cout_totals || {})['mil'] || 0))",
-            "matchedExpression": "@calc(Number((@local.cout_totals || {})['mil'] || 0))",
-            "type": "calc",
-            "fieldName": "Number((@local.cout_totals || {})['mil'] || 0)"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@local.cout_totals": [
-          "value"
-        ],
-        "@calc(Number((@local.cout_totals || {})['mil'] || 0))": [
-          "value"
-        ]
-      }
-    },
-    {
-      "name": "cout_sorgho",
-      "value": "@calc(Number((@local.cout_totals || {})['sorgho'] || 0))",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "cout_sorgho",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc(Number((@local.cout_totals || {})['sorgho'] || 0))",
-            "matchedExpression": "@local.cout_totals",
-            "type": "local",
-            "fieldName": "cout_totals"
-          },
-          {
-            "fullExpression": "@calc(Number((@local.cout_totals || {})['sorgho'] || 0))",
-            "matchedExpression": "@calc(Number((@local.cout_totals || {})['sorgho'] || 0))",
-            "type": "calc",
-            "fieldName": "Number((@local.cout_totals || {})['sorgho'] || 0)"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@local.cout_totals": [
-          "value"
-        ],
-        "@calc(Number((@local.cout_totals || {})['sorgho'] || 0))": [
-          "value"
-        ]
-      }
-    },
-    {
-      "name": "cout_arachide",
-      "value": "@calc(Number((@local.cout_totals || {})['arachide'] || 0))",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "cout_arachide",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc(Number((@local.cout_totals || {})['arachide'] || 0))",
-            "matchedExpression": "@local.cout_totals",
-            "type": "local",
-            "fieldName": "cout_totals"
-          },
-          {
-            "fullExpression": "@calc(Number((@local.cout_totals || {})['arachide'] || 0))",
-            "matchedExpression": "@calc(Number((@local.cout_totals || {})['arachide'] || 0))",
-            "type": "calc",
-            "fieldName": "Number((@local.cout_totals || {})['arachide'] || 0)"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@local.cout_totals": [
-          "value"
-        ],
-        "@calc(Number((@local.cout_totals || {})['arachide'] || 0))": [
-          "value"
-        ]
-      }
-    },
-    {
-      "name": "cout_fourrage",
-      "value": "@calc(Number((@local.cout_totals || {})['fourrage'] || 0))",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "cout_fourrage",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc(Number((@local.cout_totals || {})['fourrage'] || 0))",
-            "matchedExpression": "@local.cout_totals",
-            "type": "local",
-            "fieldName": "cout_totals"
-          },
-          {
-            "fullExpression": "@calc(Number((@local.cout_totals || {})['fourrage'] || 0))",
-            "matchedExpression": "@calc(Number((@local.cout_totals || {})['fourrage'] || 0))",
-            "type": "calc",
-            "fieldName": "Number((@local.cout_totals || {})['fourrage'] || 0)"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@local.cout_totals": [
-          "value"
-        ],
-        "@calc(Number((@local.cout_totals || {})['fourrage'] || 0))": [
-          "value"
-        ]
-      }
-    },
-    {
-      "name": "cout_riz",
-      "value": "@calc(Number((@local.cout_totals || {})['rice'] || 0))",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "cout_riz",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc(Number((@local.cout_totals || {})['rice'] || 0))",
-            "matchedExpression": "@local.cout_totals",
-            "type": "local",
-            "fieldName": "cout_totals"
-          },
-          {
-            "fullExpression": "@calc(Number((@local.cout_totals || {})['rice'] || 0))",
-            "matchedExpression": "@calc(Number((@local.cout_totals || {})['rice'] || 0))",
-            "type": "calc",
-            "fieldName": "Number((@local.cout_totals || {})['rice'] || 0)"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@local.cout_totals": [
-          "value"
-        ],
-        "@calc(Number((@local.cout_totals || {})['rice'] || 0))": [
-          "value"
-        ]
-      }
-    },
-    {
-      "name": "cout_wouandzou",
-      "value": "@calc(Number((@local.cout_totals || {})['wouandzou'] || 0))",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "cout_wouandzou",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc(Number((@local.cout_totals || {})['wouandzou'] || 0))",
-            "matchedExpression": "@local.cout_totals",
-            "type": "local",
-            "fieldName": "cout_totals"
-          },
-          {
-            "fullExpression": "@calc(Number((@local.cout_totals || {})['wouandzou'] || 0))",
-            "matchedExpression": "@calc(Number((@local.cout_totals || {})['wouandzou'] || 0))",
-            "type": "calc",
-            "fieldName": "Number((@local.cout_totals || {})['wouandzou'] || 0)"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@local.cout_totals": [
-          "value"
-        ],
-        "@calc(Number((@local.cout_totals || {})['wouandzou'] || 0))": [
-          "value"
-        ]
-      }
-    },
-    {
-      "name": "cout_bissap",
-      "value": "@calc(Number((@local.cout_totals || {})['bissap'] || 0))",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "cout_bissap",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc(Number((@local.cout_totals || {})['bissap'] || 0))",
-            "matchedExpression": "@local.cout_totals",
-            "type": "local",
-            "fieldName": "cout_totals"
-          },
-          {
-            "fullExpression": "@calc(Number((@local.cout_totals || {})['bissap'] || 0))",
-            "matchedExpression": "@calc(Number((@local.cout_totals || {})['bissap'] || 0))",
-            "type": "calc",
-            "fieldName": "Number((@local.cout_totals || {})['bissap'] || 0)"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@local.cout_totals": [
-          "value"
-        ],
-        "@calc(Number((@local.cout_totals || {})['bissap'] || 0))": [
-          "value"
-        ]
-      }
-    },
-    {
-      "name": "cout_soja",
-      "value": "@calc(Number((@local.cout_totals || {})['soja'] || 0))",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "cout_soja",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc(Number((@local.cout_totals || {})['soja'] || 0))",
-            "matchedExpression": "@local.cout_totals",
-            "type": "local",
-            "fieldName": "cout_totals"
-          },
-          {
-            "fullExpression": "@calc(Number((@local.cout_totals || {})['soja'] || 0))",
-            "matchedExpression": "@calc(Number((@local.cout_totals || {})['soja'] || 0))",
-            "type": "calc",
-            "fieldName": "Number((@local.cout_totals || {})['soja'] || 0)"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@local.cout_totals": [
-          "value"
-        ],
-        "@calc(Number((@local.cout_totals || {})['soja'] || 0))": [
-          "value"
-        ]
-      }
-    },
-    {
-      "name": "cout_fonio",
-      "value": "@calc(Number((@local.cout_totals || {})['fonio'] || 0))",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "cout_fonio",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc(Number((@local.cout_totals || {})['fonio'] || 0))",
-            "matchedExpression": "@local.cout_totals",
-            "type": "local",
-            "fieldName": "cout_totals"
-          },
-          {
-            "fullExpression": "@calc(Number((@local.cout_totals || {})['fonio'] || 0))",
-            "matchedExpression": "@calc(Number((@local.cout_totals || {})['fonio'] || 0))",
-            "type": "calc",
-            "fieldName": "Number((@local.cout_totals || {})['fonio'] || 0)"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@local.cout_totals": [
-          "value"
-        ],
-        "@calc(Number((@local.cout_totals || {})['fonio'] || 0))": [
-          "value"
-        ]
-      }
-    },
-    {
-      "name": "cout_sesame",
-      "value": "@calc(Number((@local.cout_totals || {})['sesame'] || 0))",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "cout_sesame",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc(Number((@local.cout_totals || {})['sesame'] || 0))",
-            "matchedExpression": "@local.cout_totals",
-            "type": "local",
-            "fieldName": "cout_totals"
-          },
-          {
-            "fullExpression": "@calc(Number((@local.cout_totals || {})['sesame'] || 0))",
-            "matchedExpression": "@calc(Number((@local.cout_totals || {})['sesame'] || 0))",
-            "type": "calc",
-            "fieldName": "Number((@local.cout_totals || {})['sesame'] || 0)"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@local.cout_totals": [
-          "value"
-        ],
-        "@calc(Number((@local.cout_totals || {})['sesame'] || 0))": [
-          "value"
-        ]
-      }
-    },
-    {
-      "name": "cout_sô_den_kêta",
-      "value": "@calc(Number((@local.cout_totals || {})['sô_den_kêta'] || 0))",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "cout_sô_den_kêta",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc(Number((@local.cout_totals || {})['sô_den_kêta'] || 0))",
-            "matchedExpression": "@local.cout_totals",
-            "type": "local",
-            "fieldName": "cout_totals"
-          },
-          {
-            "fullExpression": "@calc(Number((@local.cout_totals || {})['sô_den_kêta'] || 0))",
-            "matchedExpression": "@calc(Number((@local.cout_totals || {})['sô_den_kêta'] || 0))",
-            "type": "calc",
-            "fieldName": "Number((@local.cout_totals || {})['sô_den_kêta'] || 0)"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@local.cout_totals": [
-          "value"
-        ],
-        "@calc(Number((@local.cout_totals || {})['sô_den_kêta'] || 0))": [
-          "value"
-        ]
-      }
-    },
-    {
       "type": "template",
+      "name": "entete",
       "value": "evaluation_page_entete",
       "rows": [
         {
@@ -1282,17 +205,16 @@
             "value": {}
           },
           "type": "set_variable",
-          "_nested_name": "evaluation_page_entete.page_id"
+          "_nested_name": "entete.page_id"
         }
       ],
-      "name": "evaluation_page_entete",
-      "_nested_name": "evaluation_page_entete"
+      "_nested_name": "entete"
     },
     {
       "type": "display_group",
+      "name": "card1",
       "rows": [],
-      "name": "display_group_36",
-      "_nested_name": "display_group_36"
+      "_nested_name": "card1"
     },
     {
       "type": "text",
@@ -1300,8 +222,8 @@
       "_translations": {
         "value": {}
       },
-      "name": "text_38",
-      "_nested_name": "text_38",
+      "name": "text_11",
+      "_nested_name": "text_11",
       "_dynamicFields": {
         "value": [
           {
@@ -1320,6 +242,7 @@
     },
     {
       "type": "display_group",
+      "name": "card2",
       "style_list": [
         "display: flex",
         "align-items: center",
@@ -1355,7 +278,7 @@
             "flex: 1",
             "max-width: 300px"
           ],
-          "_nested_name": "display_group_39.selected_cout_year",
+          "_nested_name": "card2.selected_cout_year",
           "_dynamicFields": {
             "value": [
               {
@@ -1386,11 +309,11 @@
           }
         }
       ],
-      "name": "display_group_39",
-      "_nested_name": "display_group_39"
+      "_nested_name": "card2"
     },
     {
       "type": "display_group",
+      "name": "card3",
       "condition": "@local.aff_data && @local.has_couts",
       "style_list": [
         "display: flex",
@@ -1413,7 +336,7 @@
             "font-size:16px"
           ],
           "name": "text_1",
-          "_nested_name": "display_group_41.text_1",
+          "_nested_name": "card3.text_1",
           "_dynamicFields": {
             "value": [
               {
@@ -1442,7 +365,7 @@
             "font-size:16px"
           ],
           "name": "text_2",
-          "_nested_name": "display_group_41.text_2",
+          "_nested_name": "card3.text_2",
           "_dynamicFields": {
             "value": [
               {
@@ -1460,8 +383,7 @@
           }
         }
       ],
-      "name": "display_group_41",
-      "_nested_name": "display_group_41",
+      "_nested_name": "card3",
       "_dynamicFields": {
         "condition": [
           {
@@ -1489,6 +411,7 @@
     },
     {
       "type": "display_group",
+      "name": "card4",
       "condition": "@local.aff_data && @local.has_couts",
       "style_list": [
         "display: flex",
@@ -1499,7 +422,11 @@
       "rows": [
         {
           "type": "data_items",
-          "value": "@data.cultures",
+          "name": "item_@item.id",
+          "value": "@data.couts_cultures",
+          "parameter_list": {
+            "filter": "String(@item.upa_code || '').trim() === String(@fields.upa_code || '').trim() && String(@item.year || '').trim() === String(@local.selected_year || '').trim() && Number(@item.cout_total) > 0"
+          },
           "style_list": [
             "display: flex",
             "flex-direction: column",
@@ -1510,7 +437,6 @@
             {
               "type": "display_group",
               "name": "card",
-              "condition": "Number((@local.cout_totals || {})[@item.id] || 0) > 0",
               "style_list": [
                 "display: flex",
                 "flex-direction: column",
@@ -1522,50 +448,8 @@
               ],
               "rows": [
                 {
-                  "name": "cout_item",
-                  "value": "@calc(Number((@local.cout_totals || {})[@item.id] || 0))",
-                  "_translations": {
-                    "value": {}
-                  },
-                  "type": "set_variable",
-                  "_nested_name": "display_group_43.data_items_1.card.cout_item",
-                  "_dynamicFields": {
-                    "value": [
-                      {
-                        "fullExpression": "@calc(Number((@local.cout_totals || {})[@item.id] || 0))",
-                        "matchedExpression": "@local.cout_totals",
-                        "type": "local",
-                        "fieldName": "cout_totals"
-                      },
-                      {
-                        "fullExpression": "@calc(Number((@local.cout_totals || {})[@item.id] || 0))",
-                        "matchedExpression": "@item.id",
-                        "type": "item",
-                        "fieldName": "id"
-                      },
-                      {
-                        "fullExpression": "@calc(Number((@local.cout_totals || {})[@item.id] || 0))",
-                        "matchedExpression": "@calc(Number((@local.cout_totals || {})[@item.id] || 0))",
-                        "type": "calc",
-                        "fieldName": "Number((@local.cout_totals || {})[@item.id] || 0)"
-                      }
-                    ]
-                  },
-                  "_dynamicDependencies": {
-                    "@local.cout_totals": [
-                      "value"
-                    ],
-                    "@item.id": [
-                      "value"
-                    ],
-                    "@calc(Number((@local.cout_totals || {})[@item.id] || 0))": [
-                      "value"
-                    ]
-                  }
-                },
-                {
                   "type": "image",
-                  "value": "@item.image",
+                  "value": "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap','soja'].includes((@item.culture_id || '').toLowerCase().trim()) ? 'images/' + @item.culture_id + '.jpg' : 'images/autre.jpeg')",
                   "_translations": {
                     "value": {}
                   },
@@ -1575,27 +459,54 @@
                     "object-fit: contain",
                     "margin-bottom: 10px"
                   ],
-                  "name": "image_2",
-                  "_nested_name": "display_group_43.data_items_1.card.image_2",
+                  "name": "image_1",
+                  "_nested_name": "card4.item_@item.id.card.image_1",
                   "_dynamicFields": {
                     "value": [
                       {
-                        "fullExpression": "@item.image",
-                        "matchedExpression": "@item.image",
+                        "fullExpression": "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap','soja'].includes((@item.culture_id || '').toLowerCase().trim()) ? 'images/' + @item.culture_id + '.jpg' : 'images/autre.jpeg')",
+                        "matchedExpression": "@item.culture_id",
                         "type": "item",
-                        "fieldName": "image"
+                        "fieldName": "culture_id"
+                      },
+                      {
+                        "fullExpression": "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap','soja'].includes((@item.culture_id || '').toLowerCase().trim()) ? 'images/' + @item.culture_id + '.jpg' : 'images/autre.jpeg')",
+                        "matchedExpression": "@item.culture_id",
+                        "type": "item",
+                        "fieldName": "culture_id"
+                      },
+                      {
+                        "fullExpression": "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap','soja'].includes((@item.culture_id || '').toLowerCase().trim()) ? 'images/' + @item.culture_id + '.jpg' : 'images/autre.jpeg')",
+                        "matchedExpression": "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap','soja'].includes((@item.culture_id || '').toLowerCase().trim()) ? 'images/' + @item.culture_id + '.jpg' : 'images/autre.jpeg')",
+                        "type": "calc",
+                        "fieldName": "['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap','soja'].includes((@item.culture_id || '').toLowerCase().trim()) ? 'images/' + @item.culture_id + '.jpg' : 'images/autre.jpeg'"
+                      }
+                    ],
+                    "_nested_name": [
+                      {
+                        "fullExpression": "card4.item_@item.id.card.image_1",
+                        "matchedExpression": "@item.id.card.image_1",
+                        "type": "item",
+                        "fieldName": "id"
                       }
                     ]
                   },
                   "_dynamicDependencies": {
-                    "@item.image": [
+                    "@item.culture_id": [
+                      "value",
                       "value"
+                    ],
+                    "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap','soja'].includes((@item.culture_id || '').toLowerCase().trim()) ? 'images/' + @item.culture_id + '.jpg' : 'images/autre.jpeg')": [
+                      "value"
+                    ],
+                    "@item.id.card.image_1": [
+                      "_nested_name"
                     ]
                   }
                 },
                 {
                   "type": "text",
-                  "value": "@item.title",
+                  "value": "@item.culture_id",
                   "_translations": {
                     "value": {}
                   },
@@ -1606,68 +517,100 @@
                     "text-transform:capitalize",
                     "line-height:1.5"
                   ],
-                  "name": "text_3",
-                  "_nested_name": "display_group_43.data_items_1.card.text_3",
+                  "name": "text_2",
+                  "_nested_name": "card4.item_@item.id.card.text_2",
                   "_dynamicFields": {
                     "value": [
                       {
-                        "fullExpression": "@item.title",
-                        "matchedExpression": "@item.title",
+                        "fullExpression": "@item.culture_id",
+                        "matchedExpression": "@item.culture_id",
                         "type": "item",
-                        "fieldName": "title"
+                        "fieldName": "culture_id"
+                      }
+                    ],
+                    "_nested_name": [
+                      {
+                        "fullExpression": "card4.item_@item.id.card.text_2",
+                        "matchedExpression": "@item.id.card.text_2",
+                        "type": "item",
+                        "fieldName": "id"
                       }
                     ]
                   },
                   "_dynamicDependencies": {
-                    "@item.title": [
+                    "@item.culture_id": [
                       "value"
+                    ],
+                    "@item.id.card.text_2": [
+                      "_nested_name"
                     ]
                   }
                 },
                 {
                   "type": "text",
-                  "value": "@local.cout_item drm",
+                  "value": "@calc(Number(@item.cout_total || 0).toLocaleString() + ' drm')",
                   "_translations": {
                     "value": {}
                   },
-                  "name": "text_4",
-                  "_nested_name": "display_group_43.data_items_1.card.text_4",
+                  "name": "text_3",
+                  "_nested_name": "card4.item_@item.id.card.text_3",
                   "_dynamicFields": {
                     "value": [
                       {
-                        "fullExpression": "@local.cout_item drm",
-                        "matchedExpression": "@local.cout_item",
-                        "type": "local",
-                        "fieldName": "cout_item"
+                        "fullExpression": "@calc(Number(@item.cout_total || 0).toLocaleString() + ' drm')",
+                        "matchedExpression": "@item.cout_total",
+                        "type": "item",
+                        "fieldName": "cout_total"
+                      },
+                      {
+                        "fullExpression": "@calc(Number(@item.cout_total || 0).toLocaleString() + ' drm')",
+                        "matchedExpression": "@calc(Number(@item.cout_total || 0).toLocaleString() + ' drm')",
+                        "type": "calc",
+                        "fieldName": "Number(@item.cout_total || 0).toLocaleString() + ' drm'"
+                      }
+                    ],
+                    "_nested_name": [
+                      {
+                        "fullExpression": "card4.item_@item.id.card.text_3",
+                        "matchedExpression": "@item.id.card.text_3",
+                        "type": "item",
+                        "fieldName": "id"
                       }
                     ]
                   },
                   "_dynamicDependencies": {
-                    "@local.cout_item": [
+                    "@item.cout_total": [
                       "value"
+                    ],
+                    "@calc(Number(@item.cout_total || 0).toLocaleString() + ' drm')": [
+                      "value"
+                    ],
+                    "@item.id.card.text_3": [
+                      "_nested_name"
                     ]
                   }
                 },
                 {
                   "type": "display_group",
+                  "name": "card5",
                   "action_list": [
                     {
                       "trigger": "click",
                       "action_id": "set_field",
                       "args": [
                         "selected_cout_culture",
-                        "@item.id"
+                        "@item.culture_id"
                       ],
-                      "_raw": "click | set_field: selected_cout_culture: @item.id"
+                      "_raw": "click | set_field: selected_cout_culture: @item.culture_id"
                     },
                     {
                       "trigger": "click",
                       "action_id": "set_field",
                       "args": [
                         "selected_cout_culture_label",
-                        "@item.label"
+                        "@item.culture_id"
                       ],
-                      "_raw": "click | set_field: selected_cout_culture_label:@item.label"
+                      "_raw": "click | set_field: selected_cout_culture_label: @item.culture_id"
                     },
                     {
                       "trigger": "click",
@@ -1691,30 +634,44 @@
                         "object-fit: contain"
                       ],
                       "name": "image_1",
-                      "_nested_name": "display_group_43.data_items_1.card.display_group_5.image_1"
+                      "_nested_name": "card4.item_@item.id.card.card5.image_1",
+                      "_dynamicFields": {
+                        "_nested_name": [
+                          {
+                            "fullExpression": "card4.item_@item.id.card.card5.image_1",
+                            "matchedExpression": "@item.id.card.card5.image_1",
+                            "type": "item",
+                            "fieldName": "id"
+                          }
+                        ]
+                      },
+                      "_dynamicDependencies": {
+                        "@item.id.card.card5.image_1": [
+                          "_nested_name"
+                        ]
+                      }
                     }
                   ],
-                  "name": "display_group_5",
-                  "_nested_name": "display_group_43.data_items_1.card.display_group_5",
+                  "_nested_name": "card4.item_@item.id.card.card5",
                   "_dynamicFields": {
                     "action_list": {
                       "0": {
                         "args": {
                           "1": [
                             {
-                              "fullExpression": "@item.id",
-                              "matchedExpression": "@item.id",
+                              "fullExpression": "@item.culture_id",
+                              "matchedExpression": "@item.culture_id",
                               "type": "item",
-                              "fieldName": "id"
+                              "fieldName": "culture_id"
                             }
                           ]
                         },
                         "_raw": [
                           {
-                            "fullExpression": "click | set_field: selected_cout_culture: @item.id",
-                            "matchedExpression": "@item.id",
+                            "fullExpression": "click | set_field: selected_cout_culture: @item.culture_id",
+                            "matchedExpression": "@item.culture_id",
                             "type": "item",
-                            "fieldName": "id"
+                            "fieldName": "culture_id"
                           }
                         ]
                       },
@@ -1722,84 +679,151 @@
                         "args": {
                           "1": [
                             {
-                              "fullExpression": "@item.label",
-                              "matchedExpression": "@item.label",
+                              "fullExpression": "@item.culture_id",
+                              "matchedExpression": "@item.culture_id",
                               "type": "item",
-                              "fieldName": "label"
+                              "fieldName": "culture_id"
                             }
                           ]
                         },
                         "_raw": [
                           {
-                            "fullExpression": "click | set_field: selected_cout_culture_label:@item.label",
-                            "matchedExpression": "@item.label",
+                            "fullExpression": "click | set_field: selected_cout_culture_label: @item.culture_id",
+                            "matchedExpression": "@item.culture_id",
                             "type": "item",
-                            "fieldName": "label"
+                            "fieldName": "culture_id"
                           }
                         ]
                       }
-                    }
+                    },
+                    "_nested_name": [
+                      {
+                        "fullExpression": "card4.item_@item.id.card.card5",
+                        "matchedExpression": "@item.id.card.card5",
+                        "type": "item",
+                        "fieldName": "id"
+                      }
+                    ]
                   },
                   "_dynamicDependencies": {
-                    "@item.id": [
+                    "@item.culture_id": [
                       "action_list.0.args.1",
-                      "action_list.0._raw"
-                    ],
-                    "@item.label": [
+                      "action_list.0._raw",
                       "action_list.1.args.1",
                       "action_list.1._raw"
+                    ],
+                    "@item.id.card.card5": [
+                      "_nested_name"
                     ]
                   }
                 }
               ],
-              "_nested_name": "display_group_43.data_items_1.card",
+              "_nested_name": "card4.item_@item.id.card",
               "_dynamicFields": {
-                "condition": [
+                "_nested_name": [
                   {
-                    "fullExpression": "Number((@local.cout_totals || {})[@item.id] || 0) > 0",
-                    "matchedExpression": "@local.cout_totals",
-                    "type": "local",
-                    "fieldName": "cout_totals"
-                  },
-                  {
-                    "fullExpression": "Number((@local.cout_totals || {})[@item.id] || 0) > 0",
-                    "matchedExpression": "@item.id",
+                    "fullExpression": "card4.item_@item.id.card",
+                    "matchedExpression": "@item.id.card",
                     "type": "item",
                     "fieldName": "id"
                   }
                 ]
               },
               "_dynamicDependencies": {
-                "@local.cout_totals": [
-                  "condition"
-                ],
-                "@item.id": [
-                  "condition"
+                "@item.id.card": [
+                  "_nested_name"
                 ]
               }
             }
           ],
-          "name": "data_items_1",
-          "_nested_name": "display_group_43.data_items_1",
+          "_nested_name": "card4.item_@item.id",
           "_dynamicFields": {
+            "name": [
+              {
+                "fullExpression": "item_@item.id",
+                "matchedExpression": "@item.id",
+                "type": "item",
+                "fieldName": "id"
+              }
+            ],
             "value": [
               {
-                "fullExpression": "@data.cultures",
-                "matchedExpression": "@data.cultures",
+                "fullExpression": "@data.couts_cultures",
+                "matchedExpression": "@data.couts_cultures",
                 "type": "data",
-                "fieldName": "cultures"
+                "fieldName": "couts_cultures"
+              }
+            ],
+            "parameter_list": {
+              "filter": [
+                {
+                  "fullExpression": "String(@item.upa_code || '').trim() === String(@fields.upa_code || '').trim() && String(@item.year || '').trim() === String(@local.selected_year || '').trim() && Number(@item.cout_total) > 0",
+                  "matchedExpression": "@item.upa_code",
+                  "type": "item",
+                  "fieldName": "upa_code"
+                },
+                {
+                  "fullExpression": "String(@item.upa_code || '').trim() === String(@fields.upa_code || '').trim() && String(@item.year || '').trim() === String(@local.selected_year || '').trim() && Number(@item.cout_total) > 0",
+                  "matchedExpression": "@fields.upa_code",
+                  "type": "fields",
+                  "fieldName": "upa_code"
+                },
+                {
+                  "fullExpression": "String(@item.upa_code || '').trim() === String(@fields.upa_code || '').trim() && String(@item.year || '').trim() === String(@local.selected_year || '').trim() && Number(@item.cout_total) > 0",
+                  "matchedExpression": "@item.year",
+                  "type": "item",
+                  "fieldName": "year"
+                },
+                {
+                  "fullExpression": "String(@item.upa_code || '').trim() === String(@fields.upa_code || '').trim() && String(@item.year || '').trim() === String(@local.selected_year || '').trim() && Number(@item.cout_total) > 0",
+                  "matchedExpression": "@local.selected_year",
+                  "type": "local",
+                  "fieldName": "selected_year"
+                },
+                {
+                  "fullExpression": "String(@item.upa_code || '').trim() === String(@fields.upa_code || '').trim() && String(@item.year || '').trim() === String(@local.selected_year || '').trim() && Number(@item.cout_total) > 0",
+                  "matchedExpression": "@item.cout_total",
+                  "type": "item",
+                  "fieldName": "cout_total"
+                }
+              ]
+            },
+            "_nested_name": [
+              {
+                "fullExpression": "card4.item_@item.id",
+                "matchedExpression": "@item.id",
+                "type": "item",
+                "fieldName": "id"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@data.cultures": [
+            "@item.id": [
+              "name",
+              "_nested_name"
+            ],
+            "@data.couts_cultures": [
               "value"
+            ],
+            "@item.upa_code": [
+              "parameter_list.filter"
+            ],
+            "@fields.upa_code": [
+              "parameter_list.filter"
+            ],
+            "@item.year": [
+              "parameter_list.filter"
+            ],
+            "@local.selected_year": [
+              "parameter_list.filter"
+            ],
+            "@item.cout_total": [
+              "parameter_list.filter"
             ]
           }
         }
       ],
-      "name": "display_group_43",
-      "_nested_name": "display_group_43",
+      "_nested_name": "card4",
       "_dynamicFields": {
         "condition": [
           {
@@ -1894,6 +918,7 @@
     },
     {
       "type": "display_group",
+      "name": "card6",
       "condition": "@local.choix_annee",
       "style_list": [
         "padding: 22px 16px",
@@ -1914,7 +939,7 @@
             "font-size: 15px"
           ],
           "name": "text_1",
-          "_nested_name": "display_group_47.text_1",
+          "_nested_name": "card6.text_1",
           "_dynamicFields": {
             "value": [
               {
@@ -1932,8 +957,7 @@
           }
         }
       ],
-      "name": "display_group_47",
-      "_nested_name": "display_group_47",
+      "_nested_name": "card6",
       "_dynamicFields": {
         "condition": [
           {
@@ -1947,37 +971,6 @@
       "_dynamicDependencies": {
         "@local.choix_annee": [
           "condition"
-        ]
-      }
-    },
-    {
-      "type": "navigation_bar",
-      "parameter_list": {
-        "button_list": "@data.footer"
-      },
-      "style_list": [
-        "position: fixed",
-        "bottom: 0",
-        "left: 0",
-        "box-sizing: border-box"
-      ],
-      "name": "navigation_bar_49",
-      "_nested_name": "navigation_bar_49",
-      "_dynamicFields": {
-        "parameter_list": {
-          "button_list": [
-            {
-              "fullExpression": "@data.footer",
-              "matchedExpression": "@data.footer",
-              "type": "data",
-              "fieldName": "footer"
-            }
-          ]
-        }
-      },
-      "_dynamicDependencies": {
-        "@data.footer": [
-          "parameter_list.button_list"
         ]
       }
     }

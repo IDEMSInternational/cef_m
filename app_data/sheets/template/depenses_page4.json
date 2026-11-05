@@ -8,12 +8,27 @@
       "rows": [
         {
           "type": "title",
-          "value": "Approche d'estimation des dépenses annuelles previsionnelles de l'éducation de l'UPA",
+          "value": "@global.approche_estim_title",
           "_translations": {
             "value": {}
           },
           "name": "title_1",
-          "_nested_name": "display_group_2.title_1"
+          "_nested_name": "display_group_2.title_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.approche_estim_title",
+                "matchedExpression": "@global.approche_estim_title",
+                "type": "global",
+                "fieldName": "approche_estim_title"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.approche_estim_title": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",
@@ -104,7 +119,7 @@
         {
           "type": "button",
           "name": "page_4_btn_continue",
-          "value": "Continuer",
+          "value": "@global.btn_continue",
           "_translations": {
             "value": {}
           },
@@ -121,7 +136,22 @@
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "dg_footer.page_4_btn_continue"
+          "_nested_name": "dg_footer.page_4_btn_continue",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.btn_continue",
+                "matchedExpression": "@global.btn_continue",
+                "type": "global",
+                "fieldName": "btn_continue"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.btn_continue": [
+              "value"
+            ]
+          }
         }
       ],
       "_nested_name": "dg_footer"

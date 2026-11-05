@@ -5,11 +5,14 @@
   "rows": [
     {
       "type": "title",
-      "value": " MEMBRES DE L'UPA"
+      "value": "@global.membre_upa"
     },
     {
-      "type": "begin_display_group",
-      "style_list": "display: block; width: 100%"
+      "type": "begin_display_group"
+    },
+    {
+      "type": "subtitle",
+      "value": "@global.nb_personnes_upa"
     },
     {
       "type": "audio",
@@ -17,10 +20,6 @@
       "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/membre_upa_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
       "exclude_from_translation": true,
       "style_list": "float:right;"
-    },
-    {
-      "type": "html",
-      "value": "@global.nb_personnes_upa<span style=\"color: red;\">*</span>"
     },
     {
       "type": "end_display_group"
@@ -31,21 +30,22 @@
       "style_list": "width:100px; height:100px; "
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: black;\">@global.nb_personnes_upa_hint</p>"
+      "type": "text",
+      "value": "@global.nb_personnes_upa_hint",
+      "style_list": "@global.hint_style"
     },
     {
       "type": "text_box",
       "name": "upa_membres",
       "value": "@fields.upa_membres",
-      "parameter_list": "number_input: true; placeholder: Entrez le nombre total de membres;",
+      "parameter_list": "number_input: true; placeholder: @global.texte_placeholder;",
       "condition": "!!@field.upa_membres",
       "exclude_from_translation": true
     },
     {
       "type": "text_box",
       "name": "upa_membres",
-      "parameter_list": "number_input: true; placeholder: Entrez le nombre total de membres;",
+      "parameter_list": "number_input: true; placeholder: @global.texte_placeholder;",
       "condition": "!@field.upa_membres",
       "exclude_from_translation": true
     },
@@ -55,20 +55,24 @@
       "exclude_from_translation": true
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@local.upa_membres && @fields.attempt_submit "
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@local.upa_membres && @fields.attempt_submit ",
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "text",
-      "value": "<p style=\"color: red;\">@global.error_number_min_0 </p>",
+      "value": "@global.error_number_min_0",
       "condition": "!@local.v_upa",
       "exclude_from_translation": true,
-      "style_list": "color: red; font-size: 12px;"
+      "style_list": "@global.reponse_style"
     },
     {
-      "type": "begin_display_group",
-      "style_list": "display: block; width: 100%"
+      "type": "begin_display_group"
+    },
+    {
+      "type": "subtitle",
+      "value": "@global.nb_personnes_actifs"
     },
     {
       "type": "audio",
@@ -76,10 +80,6 @@
       "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/actifs_upa_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
       "exclude_from_translation": true,
       "style_list": "float:right;"
-    },
-    {
-      "type": "html",
-      "value": "@global.nb_personnes_actifs <span style=\"color: red;\">*</span>"
     },
     {
       "type": "end_display_group\n"
@@ -90,39 +90,44 @@
       "style_list": "width:100px; height:100px; "
     },
     {
+      "type": "text",
+      "value": "@global.nb_personnes_actifs_hint",
+      "style_list": "@global.hint_style"
+    },
+    {
       "type": "text_box",
       "name": "upa_actifs",
       "value": "@fields.upa_actifs",
-      "parameter_list": "number_input: true;\nplaceholder: Entrez le nombre de travailleurs;\n",
+      "parameter_list": "number_input: true;\nplaceholder: @global.texte_placeholder;\n",
       "condition": "!!@field.upa_actifs",
       "exclude_from_translation": true
     },
     {
       "type": "text_box",
       "name": "upa_actifs",
-      "parameter_list": "number_input: true;\nplaceholder: Entrez le nombre de travailleurs;\n",
+      "parameter_list": "number_input: true;\nplaceholder:  @global.texte_placeholder;\n",
       "condition": "!@field.upa_actifs",
       "exclude_from_translation": true
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: black;\">@global.nb_personnes_actifs_hint</p>"
-    },
-    {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@local.upa_actifs && @fields.attempt_submit "
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@local.upa_actifs && @fields.attempt_submit ",
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "text",
       "value": "@global.erreur_membres",
       "condition": "@calc(Number(@local.upa_actifs) >= Number(@local.upa_membres))",
       "exclude_from_translation": true,
-      "style_list": "color: red; font-size: 12px;"
+      "style_list": "@global.reponse_style"
     },
     {
-      "type": "begin_display_group",
-      "style_list": "display: block; width: 100%"
+      "type": "begin_display_group"
+    },
+    {
+      "type": "subtitle",
+      "value": "@global.nb_enfants"
     },
     {
       "type": "audio",
@@ -130,10 +135,6 @@
       "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/enfants_upa_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
       "exclude_from_translation": true,
       "style_list": "float:right;"
-    },
-    {
-      "type": "html",
-      "value": "@global.nb_enfants<span style=\"color: red;\">*</span>"
     },
     {
       "type": "end_display_group\n"
@@ -147,14 +148,14 @@
       "type": "text_box",
       "name": "nombre_enfants",
       "value": "@fields.nombre_enfants",
-      "parameter_list": "number_input: true ; placeholder: Nombre enfants moins de 8 ans;",
+      "parameter_list": "number_input: true ; placeholder:  @global.texte_placeholder;",
       "condition": "!!@field.nombre_enfants",
       "exclude_from_translation": true
     },
     {
       "type": "text_box",
       "name": "nombre_enfants",
-      "parameter_list": "number_input: true;placeholder: Nombre enfants moins de 8 ans;",
+      "parameter_list": "number_input: true;placeholder:  @global.texte_placeholder;",
       "condition": "!@field.nombre_enfants",
       "exclude_from_translation": true
     },
@@ -168,16 +169,20 @@
       "value": "@global.error_number_min_0",
       "condition": "!@local.v_enf",
       "exclude_from_translation": true,
-      "style_list": "color: red; font-size: 12px;"
+      "style_list": "@global.reponse_style"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@local.nombre_enfants && @fields.attempt_submit "
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@local.nombre_enfants && @fields.attempt_submit ",
+      "style_list": "@global.reponse_style"
     },
     {
-      "type": "begin_display_group",
-      "style_list": "display: block; width: 100%"
+      "type": "begin_display_group"
+    },
+    {
+      "type": "subtitle",
+      "value": "@global.nb_adolescents"
     },
     {
       "type": "audio",
@@ -185,10 +190,6 @@
       "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/adolescents_upa_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
       "exclude_from_translation": true,
       "style_list": "float:right;"
-    },
-    {
-      "type": "text",
-      "value": "@global.nb_adolescents<span style=\"color: red;\">*</span>"
     },
     {
       "type": "end_display_group\n"
@@ -202,14 +203,14 @@
       "type": "text_box",
       "name": "nombre_adolescents",
       "value": "@fields.nombre_adolescents",
-      "parameter_list": "number_input: true; placeholder: Nombre ados entre 8 et 15 ans;",
+      "parameter_list": "number_input: true; placeholder: @global.texte_placeholder;",
       "condition": "!!@field.nombre_adolescents",
       "exclude_from_translation": true
     },
     {
       "type": "text_box",
       "name": "nombre_adolescents",
-      "parameter_list": "number_input: true; placeholder: Nombre ados entre 8 et 15 ans;",
+      "parameter_list": "number_input: true; placeholder: @global.texte_placeholder;",
       "condition": "!@field.nombre_adolescents",
       "exclude_from_translation": true
     },
@@ -219,20 +220,24 @@
       "exclude_from_translation": true
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@local.nombre_adolescents && @fields.attempt_submit "
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@local.nombre_adolescents && @fields.attempt_submit ",
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "text",
       "value": "@global.error_number_min_0",
       "condition": "!@local.v_ado",
       "exclude_from_translation": true,
-      "style_list": "color: red; font-size: 12px;"
+      "style_list": "@global.reponse_style"
     },
     {
-      "type": "begin_display_group",
-      "style_list": "display: block; width: 100%"
+      "type": "begin_display_group"
+    },
+    {
+      "type": "subtitle",
+      "value": "@global.nb_femmes"
     },
     {
       "type": "audio",
@@ -240,10 +245,6 @@
       "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/femmes_upa_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
       "exclude_from_translation": true,
       "style_list": "float:right;"
-    },
-    {
-      "type": "text",
-      "value": "@global.nb_femmes<span style=\"color: red;\">*</span>"
     },
     {
       "type": "end_display_group\n"
@@ -257,14 +258,14 @@
       "type": "text_box",
       "name": "nombre_femmes",
       "value": "@fields.nombre_femmes",
-      "parameter_list": "number_input: true;  placeholder: Nombre femmes entre 16 et 60 ans;",
+      "parameter_list": "number_input: true;  placeholder: @global.texte_placeholder;",
       "condition": "!!@field.nombre_femmes",
       "exclude_from_translation": true
     },
     {
       "type": "text_box",
       "name": "nombre_femmes",
-      "parameter_list": "number_input: true; placeholder: Nombre femmes entre 16 et 60 ans;",
+      "parameter_list": "number_input: true; placeholder: @global.texte_placeholder;",
       "condition": "!@field.nombre_femmes",
       "exclude_from_translation": true
     },
@@ -274,19 +275,23 @@
       "exclude_from_translation": true
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@local.nombre_femmes && @fields.attempt_submit "
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@local.nombre_femmes && @fields.attempt_submit ",
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "text",
       "value": "@global.error_number_min_0",
       "condition": "!@local.v_fem",
-      "style_list": "color: red; font-size: 12px;"
+      "style_list": "@global.reponse_style"
     },
     {
-      "type": "begin_display_group",
-      "style_list": "display: block; width: 100%"
+      "type": "begin_display_group"
+    },
+    {
+      "type": "subtitle",
+      "value": "@global.nb_hommes"
     },
     {
       "type": "audio",
@@ -294,10 +299,6 @@
       "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/hommes_upa_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
       "exclude_from_translation": true,
       "style_list": "float:right;"
-    },
-    {
-      "type": "html",
-      "value": "@global.nb_hommes<span style=\"color: red;\">*</span>"
     },
     {
       "type": "end_display_group\n"
@@ -311,36 +312,40 @@
       "type": "text_box",
       "name": "nombre_hommes",
       "value": "@fields.nombre_hommes",
-      "parameter_list": "number_input: true; placeholder: Nombre hommes entre 16 et 60 ans;",
+      "parameter_list": "number_input: true; placeholder: @global.texte_placeholder;",
       "condition": "!!@field.nombre_hommes",
       "exclude_from_translation": true
     },
     {
       "type": "text_box",
       "name": "nombre_hommes",
-      "parameter_list": "number_input: true; placeholder: Nombre hommes entre 16 et 60 ans;",
+      "parameter_list": "number_input: true; placeholder: @global.texte_placeholder;",
       "condition": "!@field.nombre_hommes",
       "exclude_from_translation": true
     },
     {
       "name": "v_hom",
-      "value": "@calc((/^\\d+$/.test(@local.nombre_hommes) && Number(@local.nombre_hommes) >= 0 && Number(@local.nombre_hommes) <= 25) || !@local.nombre_hommes)",
+      "value": "@calc((/^\\d+$/.test(@local.nombre_hommes) && Number(@local.nombre_hommes) >= 0) || !@local.nombre_hommes)",
       "exclude_from_translation": true
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@local.nombre_hommes && @fields.attempt_submit "
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@local.nombre_hommes && @fields.attempt_submit ",
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "text",
       "value": "@global.error_number_min_0",
       "condition": "!@local.v_hom",
-      "style_list": "color: red; font-size: 12px;"
+      "style_list": "@global.reponse_style"
     },
     {
-      "type": "begin_display_group",
-      "style_list": "display: block; width: 100%"
+      "type": "begin_display_group"
+    },
+    {
+      "type": "subtitle",
+      "value": "@global.nb_femmes_agees"
     },
     {
       "type": "audio",
@@ -348,10 +353,6 @@
       "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/vieille_upa_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
       "exclude_from_translation": true,
       "style_list": "float:right;"
-    },
-    {
-      "type": "html",
-      "value": "@global.nb_femmes_agees<span style=\"color: red;\">*</span>"
     },
     {
       "type": "end_display_group"
@@ -365,36 +366,40 @@
       "type": "text_box",
       "name": "nombre_femmes_agees",
       "value": "@fields.nombre_femmes_agees",
-      "parameter_list": "number_input: true; placeholder: Nombre femmes âgées plus de 60 ans;",
+      "parameter_list": "number_input: true; placeholder: @global.texte_placeholder;",
       "condition": "!!@field.nombre_femmes_agees",
       "exclude_from_translation": true
     },
     {
       "type": "text_box",
       "name": "nombre_femmes_agees",
-      "parameter_list": "number_input: true; placeholder: Nombre femmes âgées plus de 60 ans;",
+      "parameter_list": "number_input: true; placeholder: @global.texte_placeholder;",
       "condition": "!@field.nombre_femmes_agees",
       "exclude_from_translation": true
     },
     {
       "name": "v_f_age",
-      "value": "@calc((/^\\d+$/.test(@local.nombre_femmes_agees) && Number(@local.nombre_femmes_agees) >= 0 && Number(@local.nombre_femmes_agees) <= 20) || !@local.nombre_femmes_agees)",
+      "value": "@calc((/^\\d+$/.test(@local.nombre_femmes_agees) && Number(@local.nombre_femmes_agees) >= 0 )|| !@local.nombre_femmes_agees)",
       "exclude_from_translation": true
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@local.nombre_femmes_agees && @fields.attempt_submit "
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@local.nombre_femmes_agees && @fields.attempt_submit ",
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "text",
       "value": "@global.error_number_min_0",
       "condition": "!@local.v_f_age",
-      "style_list": "color: red; font-size: 12px;"
+      "style_list": "@global.reponse_style"
     },
     {
-      "type": "begin_display_group",
-      "style_list": "display: block; width: 100%"
+      "type": "begin_display_group"
+    },
+    {
+      "type": "subtitle",
+      "value": "@global.nb_hommes_agees"
     },
     {
       "type": "audio",
@@ -402,10 +407,6 @@
       "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/vieux_upa_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
       "exclude_from_translation": true,
       "style_list": "float:right;"
-    },
-    {
-      "type": "html",
-      "value": "@global.nb_hommes_agees<span style=\"color: red;\">*</span>"
     },
     {
       "type": "end_display_group"
@@ -419,32 +420,33 @@
       "type": "text_box",
       "name": "nombre_hommes_ages",
       "value": "@fields.nombre_hommes_ages\n",
-      "parameter_list": "number_input: true; placeholder: Nombre hommes âgés plus de 60 ans;",
+      "parameter_list": "number_input: true; placeholder: @global.texte_placeholder;",
       "condition": "!!@field.nombre_hommes_ages",
       "exclude_from_translation": true
     },
     {
       "type": "text_box",
       "name": "nombre_hommes_ages",
-      "parameter_list": "number_input: true; placeholder: Nombre hommes âgés plus de 60 ans;",
+      "parameter_list": "number_input: true; placeholder: @global.texte_placeholder;",
       "condition": "!@field.nombre_hommes_ages",
       "exclude_from_translation": true
     },
     {
       "name": "v_h_age",
-      "value": "@calc((/^\\d+$/.test(@local.nombre_hommes_ages) && Number(@local.nombre_hommes_ages) >= 0 && Number(@local.nombre_hommes_ages) <= 25)  || !@local.nombre_hommes_ages)",
+      "value": "@calc((/^\\d+$/.test(@local.nombre_hommes_ages) && Number(@local.nombre_hommes_ages) >= 0)  || !@local.nombre_hommes_ages)",
       "exclude_from_translation": true
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@local.nombre_hommes_ages && @fields.attempt_submit "
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@local.nombre_hommes_ages && @fields.attempt_submit ",
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "text",
       "value": "@global.error_number_min_0",
       "condition": "!@local.v_h_age",
-      "style_list": "color: red; font-size: 12px;"
+      "style_list": "@global.reponse_style"
     },
     {
       "name": "check_total",

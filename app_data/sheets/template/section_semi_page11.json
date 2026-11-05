@@ -213,23 +213,29 @@
       ],
       "rows": [
         {
-          "type": "html",
-          "value": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>",
+          "type": "text",
+          "value": "CULTURE @local.v_current_human / @field.total_cultures_selected",
           "_translations": {
             "value": {}
           },
-          "name": "html_1",
-          "_nested_name": "header_top.html_1",
+          "style_list": [
+            "color: white",
+            "font-weight: bold",
+            "font-size: 14px",
+            "text-transform: uppercase"
+          ],
+          "name": "text_1",
+          "_nested_name": "header_top.text_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>",
+                "fullExpression": "CULTURE @local.v_current_human / @field.total_cultures_selected",
                 "matchedExpression": "@local.v_current_human",
                 "type": "local",
                 "fieldName": "v_current_human"
               },
               {
-                "fullExpression": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>",
+                "fullExpression": "CULTURE @local.v_current_human / @field.total_cultures_selected",
                 "matchedExpression": "@field.total_cultures_selected",
                 "type": "field",
                 "fieldName": "total_cultures_selected"
@@ -308,20 +314,23 @@
         },
         {
           "type": "text",
-          "value": "<h3 style='color: black; margin: 10px 0;'>Culture : <span style='color: #e3a730;'>@field.active_culture_name</span></h3>",
+          "value": "Culture : @field.active_culture_name",
           "_translations": {
             "value": {}
           },
           "style_list": [
             "font-weight: bold",
-            "font-size: 18px"
+            "font-size: 18px",
+            "color: #e3a730",
+            "margin-top: 10px",
+            "text-align: center"
           ],
           "name": "text_2",
           "_nested_name": "display_group_9.text_2",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "<h3 style='color: black; margin: 10px 0;'>Culture : <span style='color: #e3a730;'>@field.active_culture_name</span></h3>",
+                "fullExpression": "Culture : @field.active_culture_name",
                 "matchedExpression": "@field.active_culture_name",
                 "type": "field",
                 "fieldName": "active_culture_name"
@@ -339,13 +348,34 @@
       "_nested_name": "display_group_9"
     },
     {
-      "type": "html",
-      "value": "<br><b style=\"color: #e67e22\">AUTRE COÛT AU SEMIS</b>",
+      "type": "text",
+      "value": "@global.lbl_section_title_11",
       "_translations": {
         "value": {}
       },
-      "name": "html_11",
-      "_nested_name": "html_11"
+      "style_list": [
+        "color: #e67e22",
+        "font-weight: bold",
+        "font-size: 14px",
+        "margin-bottom: 10px"
+      ],
+      "name": "text_11",
+      "_nested_name": "text_11",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.lbl_section_title_11",
+            "matchedExpression": "@global.lbl_section_title_11",
+            "type": "global",
+            "fieldName": "lbl_section_title_11"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.lbl_section_title_11": [
+          "value"
+        ]
+      }
     },
     {
       "type": "display_group",
@@ -370,22 +400,28 @@
           "_nested_name": "grp_question_existence.aud_exist_fr"
         },
         {
-          "type": "html",
-          "value": "<span style=\"color: red;\">*</span>Ecrivez le nom(s) d'autre(s) coût(s)",
-          "_translations": {
-            "value": {}
-          },
-          "name": "html_2",
-          "_nested_name": "grp_question_existence.html_2"
-        },
-        {
           "type": "text",
-          "value": "*Ces coûts couvrent des services ou intrants non pris en compte.*",
+          "value": "@global.info_other_count",
           "_translations": {
             "value": {}
           },
-          "name": "text_3",
-          "_nested_name": "grp_question_existence.text_3"
+          "name": "text_2",
+          "_nested_name": "grp_question_existence.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.info_other_count",
+                "matchedExpression": "@global.info_other_count",
+                "type": "global",
+                "fieldName": "info_other_count"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.info_other_count": [
+              "value"
+            ]
+          }
         },
         {
           "type": "radio_button_grid",
@@ -460,13 +496,34 @@
           "type": "display_group",
           "rows": [
             {
-              "type": "html",
-              "value": "<span style=\"color: red;\">*</span> Indiquez s'il y a d'autre(s) coût(s) à la récolte non renseignés",
+              "type": "text",
+              "value": "@global.lbl_exist_label",
               "_translations": {
                 "value": {}
               },
-              "name": "html_1",
-              "_nested_name": "display_group_14.display_group_1.html_1"
+              "style_list": [
+                "font-weight: bold",
+                "font-size: 14px",
+                "color: #333333",
+                "flex: 1"
+              ],
+              "name": "text_1",
+              "_nested_name": "display_group_14.display_group_1.text_1",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "@global.lbl_exist_label",
+                    "matchedExpression": "@global.lbl_exist_label",
+                    "type": "global",
+                    "fieldName": "lbl_exist_label"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@global.lbl_exist_label": [
+                  "value"
+                ]
+              }
             },
             {
               "type": "audio",
@@ -539,7 +596,7 @@
         },
         {
           "type": "text",
-          "value": "*La réponse est obligatoire !*",
+          "value": "@global.error_required_answer",
           "_translations": {
             "value": {}
           },
@@ -551,6 +608,14 @@
           "name": "text_4",
           "_nested_name": "display_group_14.text_4",
           "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.error_required_answer",
+                "matchedExpression": "@global.error_required_answer",
+                "type": "global",
+                "fieldName": "error_required_answer"
+              }
+            ],
             "condition": [
               {
                 "fullExpression": "@calc(@field.no_autre_cout_semis == 'oui' && (@field.nom_autre_cout_semis == ' ' || @field.nom_autre_cout_semis == null))",
@@ -579,6 +644,9 @@
             ]
           },
           "_dynamicDependencies": {
+            "@global.error_required_answer": [
+              "value"
+            ],
             "@field.no_autre_cout_semis": [
               "condition"
             ],
@@ -656,30 +724,40 @@
         "style": "colum"
       },
       "condition": "@field.no_autre_cout_semis == 'oui' && @fields.nom_autre_cout_semis",
+      "style_list": [
+        "display: block",
+        "width: 100%"
+      ],
       "rows": [
         {
           "type": "display_group",
           "rows": [
             {
-              "type": "html",
-              "value": "<span style=\"color: red;\">*</span>Donnez le montant du coût pour <span style=\"color: #e67e22\"> @field.nom_autre_cout_semis</span>",
+              "type": "text",
+              "value": "@global.autre_cout_semis",
               "_translations": {
                 "value": {}
               },
-              "name": "html_1",
-              "_nested_name": "display_group_17.display_group_1.html_1",
+              "style_list": [
+                "font-weight: bold",
+                "font-size: 14px",
+                "color: #333333",
+                "flex: 1"
+              ],
+              "name": "text_1",
+              "_nested_name": "display_group_17.display_group_1.text_1",
               "_dynamicFields": {
                 "value": [
                   {
-                    "fullExpression": "<span style=\"color: red;\">*</span>Donnez le montant du coût pour <span style=\"color: #e67e22\"> @field.nom_autre_cout_semis</span>",
-                    "matchedExpression": "@field.nom_autre_cout_semis",
-                    "type": "field",
-                    "fieldName": "nom_autre_cout_semis"
+                    "fullExpression": "@global.autre_cout_semis",
+                    "matchedExpression": "@global.autre_cout_semis",
+                    "type": "global",
+                    "fieldName": "autre_cout_semis"
                   }
                 ]
               },
               "_dynamicDependencies": {
-                "@field.nom_autre_cout_semis": [
+                "@global.autre_cout_semis": [
                   "value"
                 ]
               }
@@ -704,7 +782,7 @@
         },
         {
           "type": "text",
-          "value": "S'il y a plusieurs éléments, donnez le coût agrégé de l'ensemble",
+          "value": "@global.info_count",
           "_translations": {
             "value": {}
           },
@@ -714,11 +792,26 @@
             "font-size: 12px"
           ],
           "name": "text_2",
-          "_nested_name": "display_group_17.text_2"
+          "_nested_name": "display_group_17.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.info_count",
+                "matchedExpression": "@global.info_count",
+                "type": "global",
+                "fieldName": "info_count"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.info_count": [
+              "value"
+            ]
+          }
         },
         {
           "type": "text",
-          "value": "*Rappel : 1 dram = 5 FCFA*",
+          "value": "@global.hint_price",
           "_translations": {
             "value": {}
           },
@@ -727,7 +820,22 @@
             "color: gray"
           ],
           "name": "text_3",
-          "_nested_name": "display_group_17.text_3"
+          "_nested_name": "display_group_17.text_3",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.hint_price",
+                "matchedExpression": "@global.hint_price",
+                "type": "global",
+                "fieldName": "hint_price"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.hint_price": [
+              "value"
+            ]
+          }
         },
         {
           "type": "image",
@@ -783,7 +891,7 @@
         },
         {
           "type": "text",
-          "value": "*Mettez une valeur positive*",
+          "value": "@global.error_positive_value",
           "_translations": {
             "value": {}
           },
@@ -795,6 +903,14 @@
           "name": "text_6",
           "_nested_name": "display_group_17.text_6",
           "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.error_positive_value",
+                "matchedExpression": "@global.error_positive_value",
+                "type": "global",
+                "fieldName": "error_positive_value"
+              }
+            ],
             "condition": [
               {
                 "fullExpression": "@calc(@field.no_autre_cout_semis == 'oui' && @local.v_montant_autre_err)",
@@ -817,6 +933,9 @@
             ]
           },
           "_dynamicDependencies": {
+            "@global.error_positive_value": [
+              "value"
+            ],
             "@field.no_autre_cout_semis": [
               "condition"
             ],

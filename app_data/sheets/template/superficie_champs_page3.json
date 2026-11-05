@@ -94,13 +94,31 @@
       "_nested_name": "image_5"
     },
     {
-      "type": "html",
+      "type": "text",
       "name": "html_text",
-      "value": "<p style=\"color: black;\"> Sélectionner un niveau en dessous !</p>",
+      "value": "@global.select_nd",
       "_translations": {
         "value": {}
       },
-      "_nested_name": "html_text"
+      "style_list": [
+        "color: black"
+      ],
+      "_nested_name": "html_text",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.select_nd",
+            "matchedExpression": "@global.select_nd",
+            "type": "global",
+            "fieldName": "select_nd"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.select_nd": [
+          "value"
+        ]
+      }
     },
     {
       "type": "radio_button_grid",
@@ -157,18 +175,21 @@
       }
     },
     {
-      "type": "html",
+      "type": "text",
       "name": "html_text",
-      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "value": "@global.warning_message",
       "_translations": {
         "value": {}
       },
       "condition": "!@local.fertilite_sol",
+      "style_list": [
+        "color: red"
+      ],
       "_nested_name": "html_text",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: red;\"> @global.warning_message </p>",
+            "fullExpression": "@global.warning_message",
             "matchedExpression": "@global.warning_message",
             "type": "global",
             "fieldName": "warning_message"

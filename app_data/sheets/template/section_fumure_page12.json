@@ -6,11 +6,26 @@
     {
       "type": "title",
       "name": "page_title",
-      "value": "FIN DU FORMULAIRE",
+      "value": "@global.fin_form",
       "_translations": {
         "value": {}
       },
-      "_nested_name": "page_title"
+      "_nested_name": "page_title",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.fin_form",
+            "matchedExpression": "@global.fin_form",
+            "type": "global",
+            "fieldName": "fin_form"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.fin_form": [
+          "value"
+        ]
+      }
     },
     {
       "type": "text",
@@ -69,7 +84,7 @@
         {
           "type": "button",
           "name": "page_12_button_continue",
-          "value": "@global.btn_continue",
+          "value": "@global.bouton_fin",
           "_translations": {
             "value": {}
           },
@@ -98,15 +113,15 @@
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "@global.btn_continue",
-                "matchedExpression": "@global.btn_continue",
+                "fullExpression": "@global.bouton_fin",
+                "matchedExpression": "@global.bouton_fin",
                 "type": "global",
-                "fieldName": "btn_continue"
+                "fieldName": "bouton_fin"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@global.btn_continue": [
+            "@global.bouton_fin": [
               "value"
             ]
           }

@@ -5,11 +5,33 @@
   "rows": [
     {
       "type": "title",
-      "value": "**FIN DU FORMULAIRE**"
+      "value": "@global.fin_formulaire"
     },
     {
       "type": "text",
-      "value": "Les autres formulaires de planification qui complètent ce formulaire sont:\n-***Alimentation humaine***;\n-***Alimentation animale***;\n-***Depenses***;\n-***Fumure organique***.\n======= MERCI========"
+      "value": "@global.fin_culture_upa"
+    },
+    {
+      "type": "begin_display_group",
+      "value": " ",
+      "parameter_list": "sticky: bottom;",
+      "style_list": "padding: 12px 24px;"
+    },
+    {
+      "type": "round_button",
+      "name": "page_22_button_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+    },
+    {
+      "type": "button",
+      "name": "page_22_button_continue",
+      "value": "@global.bouton_fin",
+      "action_list": "click | go_to: planification_anl;",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "end_display_group"
     }
   ]
 }

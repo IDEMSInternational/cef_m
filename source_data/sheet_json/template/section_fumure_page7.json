@@ -6,7 +6,7 @@
     {
       "type": "title",
       "name": "page_title",
-      "value": "PRODUCTION ANNUELLE DE LA FUMURE ORGANIQUE DE L'UPA"
+      "value": "@global.production_annuel_fumure"
     },
     {
       "name": "attempt_submit",
@@ -16,7 +16,7 @@
       "type": "begin_display_group"
     },
     {
-      "type": "text",
+      "type": "subtitle",
       "value": "@global.quantite_compost_produite_note"
     },
     {
@@ -42,7 +42,7 @@
       "name": "quantite_compost",
       "value": "@fields.quantite_compost",
       "action_list": "changed | set_field: quantite_compost: this.value;",
-      "parameter_list": "number_input: true;\nplaceholder: Entrez la quantité;"
+      "parameter_list": "number_input: true; placeholder:@global.texte_placeholder;"
     },
     {
       "name": "valid_quantite_compost",
@@ -58,7 +58,7 @@
       "type": "begin_display_group"
     },
     {
-      "type": "text",
+      "type": "subtitle",
       "value": "@global.quantite_fumier_produite_note"
     },
     {
@@ -84,7 +84,7 @@
       "name": "quantite_fumier",
       "value": "@fields.quantite_fumier",
       "action_list": "changed | set_field: quantite_fumier: this.value;",
-      "parameter_list": "number_input: true;\nplaceholder: Entrez la quantité;"
+      "parameter_list": "number_input: true; placeholder:@global.texte_placeholder;"
     },
     {
       "name": "valid_quantite_fumier",
@@ -100,7 +100,7 @@
       "type": "begin_display_group"
     },
     {
-      "type": "text",
+      "type": "subtitle",
       "value": "@global.quantite_ordures_menageres_produite_note"
     },
     {
@@ -126,7 +126,7 @@
       "name": "quantite_ordures_menageres",
       "value": "@fields.quantite_ordures_menageres",
       "action_list": "changed | set_field: quantite_ordures_menageres: this.value;",
-      "parameter_list": "number_input: true;\nplaceholder: Entrez la quantité;"
+      "parameter_list": "number_input: true; placeholder:@global.texte_placeholder;"
     },
     {
       "name": "valid_quantite_ordures_menageres",
@@ -142,7 +142,7 @@
       "type": "begin_display_group"
     },
     {
-      "type": "text",
+      "type": "subtitle",
       "value": "@global.fumure_organique_autre_note"
     },
     {
@@ -170,9 +170,10 @@
       "type": "end_radio_list"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire",
-      "condition": "!@fields.fumure_organique_autre && @fields.attempt_submit"
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@fields.fumure_organique_autre && @fields.attempt_submit",
+      "style_list": "@global.hint_style"
     },
     {
       "type": "begin_display_group",
@@ -183,7 +184,7 @@
       "type": "begin_display_group"
     },
     {
-      "type": "text",
+      "type": "subtitle",
       "value": "@global.nom_autre_fumure_note"
     },
     {
@@ -204,13 +205,13 @@
       "name": "nom_fumure_organique_autre",
       "value": "@fields.nom_fumure_organique_autre",
       "action_list": "changed | set_field: nom_fumure_organique_autre: this.value;",
-      "parameter_list": "number_input: true;\nplaceholder: Entrez le nom;"
+      "parameter_list": "placeholder:@global.texte_placeholder;"
     },
     {
       "type": "begin_display_group"
     },
     {
-      "type": "text",
+      "type": "subtitle",
       "value": "@global.quantite_fumure_organique_autre_note"
     },
     {
@@ -236,7 +237,7 @@
       "name": "quantite_fumure_organique_autre",
       "value": "@fields.quantite_fumure_organique_autre",
       "action_list": "changed | set_field: quantite_fumure_organique_autre: this.value;",
-      "parameter_list": "number_input: true;\nplaceholder: Entrez la quantité;"
+      "parameter_list": "number_input: true; placeholder:@global.texte_placeholder;"
     },
     {
       "name": "valid_quantite_fumure_organique_autre",

@@ -5,12 +5,27 @@
   "rows": [
     {
       "type": "title",
-      "value": "STABULATION",
+      "value": "@global.stabulation_title",
       "_translations": {
         "value": {}
       },
       "name": "title_2",
-      "_nested_name": "title_2"
+      "_nested_name": "title_2",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.stabulation_title",
+            "matchedExpression": "@global.stabulation_title",
+            "type": "global",
+            "fieldName": "stabulation_title"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.stabulation_title": [
+          "value"
+        ]
+      }
     },
     {
       "type": "data_items",
@@ -135,13 +150,21 @@
         },
         {
           "type": "text",
-          "value": "**Les quantités des aliments ci-dessous pour ce regime sont calculées en fonction du nombre d’animaux**",
+          "value": "@global.stabulation_title_hint",
           "_translations": {
             "value": {}
           },
           "name": "text_2_@item.id",
           "_nested_name": "data_items_3.text_2_@item.id",
           "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.stabulation_title_hint",
+                "matchedExpression": "@global.stabulation_title_hint",
+                "type": "global",
+                "fieldName": "stabulation_title_hint"
+              }
+            ],
             "name": [
               {
                 "fullExpression": "text_2_@item.id",
@@ -160,6 +183,9 @@
             ]
           },
           "_dynamicDependencies": {
+            "@global.stabulation_title_hint": [
+              "value"
+            ],
             "@item.id": [
               "name",
               "_nested_name"
@@ -335,12 +361,27 @@
     },
     {
       "type": "text",
-      "value": "Concentrés= tourteau de coton ou son de céréales\n*1 sac de tourteau = 40 kg,\n*1 sac de son= 50 kg",
+      "value": "@global.concentre_son_tourteau_hint",
       "_translations": {
         "value": {}
       },
       "name": "text_8",
-      "_nested_name": "text_8"
+      "_nested_name": "text_8",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.concentre_son_tourteau_hint",
+            "matchedExpression": "@global.concentre_son_tourteau_hint",
+            "type": "global",
+            "fieldName": "concentre_son_tourteau_hint"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.concentre_son_tourteau_hint": [
+          "value"
+        ]
+      }
     },
     {
       "type": "image",
@@ -358,37 +399,65 @@
       "_nested_name": "image_9"
     },
     {
-      "type": "html",
-      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de concentrés :</strong> @local.stabulation_con sac\n</div>",
+      "type": "display_group",
+      "style_list": [
+        "background-color: #f0f4f8",
+        "border-left-style: solid",
+        "border-left-color: #0056b3",
+        "border-radius: 5px"
+      ],
+      "rows": [
+        {
+          "type": "text",
+          "value": "@global.concentre_son_tourteau_stabulation",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_1",
+          "_nested_name": "display_group_10.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.concentre_son_tourteau_stabulation",
+                "matchedExpression": "@global.concentre_son_tourteau_stabulation",
+                "type": "global",
+                "fieldName": "concentre_son_tourteau_stabulation"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.concentre_son_tourteau_stabulation": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_10",
+      "_nested_name": "display_group_10"
+    },
+    {
+      "type": "text",
+      "value": "@global.residus_cereale_paille_hint",
       "_translations": {
         "value": {}
       },
-      "name": "html_10",
-      "_nested_name": "html_10",
+      "name": "text_12",
+      "_nested_name": "text_12",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de concentrés :</strong> @local.stabulation_con sac\n</div>",
-            "matchedExpression": "@local.stabulation_con",
-            "type": "local",
-            "fieldName": "stabulation_con"
+            "fullExpression": "@global.residus_cereale_paille_hint",
+            "matchedExpression": "@global.residus_cereale_paille_hint",
+            "type": "global",
+            "fieldName": "residus_cereale_paille_hint"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@local.stabulation_con": [
+        "@global.residus_cereale_paille_hint": [
           "value"
         ]
       }
-    },
-    {
-      "type": "text",
-      "value": "Résidus de céréales= paille de céréales (maïs, sorgho ou mil)\n* 1 charrétée= 100 kg",
-      "_translations": {
-        "value": {}
-      },
-      "name": "text_11",
-      "_nested_name": "text_11"
     },
     {
       "type": "image",
@@ -402,41 +471,69 @@
         "object-fit:contain",
         "flex-shrink:0"
       ],
-      "name": "image_12",
-      "_nested_name": "image_12"
+      "name": "image_13",
+      "_nested_name": "image_13"
     },
     {
-      "type": "html",
-      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de résidus de céréales: </strong> @local.stabulation_resid charrétée</div>",
+      "type": "display_group",
+      "style_list": [
+        "background-color: #f0f4f8",
+        "border-left-style: solid",
+        "border-left-color: #0056b3",
+        "border-radius: 5px"
+      ],
+      "rows": [
+        {
+          "type": "text",
+          "value": "@global.residus_cereale_paille_stabulation",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_1",
+          "_nested_name": "display_group_14.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.residus_cereale_paille_stabulation",
+                "matchedExpression": "@global.residus_cereale_paille_stabulation",
+                "type": "global",
+                "fieldName": "residus_cereale_paille_stabulation"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.residus_cereale_paille_stabulation": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_14",
+      "_nested_name": "display_group_14"
+    },
+    {
+      "type": "text",
+      "value": "@global.fane_cereale_hint",
       "_translations": {
         "value": {}
       },
-      "name": "html_13",
-      "_nested_name": "html_13",
+      "name": "text_16",
+      "_nested_name": "text_16",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de résidus de céréales: </strong> @local.stabulation_resid charrétée</div>",
-            "matchedExpression": "@local.stabulation_resid",
-            "type": "local",
-            "fieldName": "stabulation_resid"
+            "fullExpression": "@global.fane_cereale_hint",
+            "matchedExpression": "@global.fane_cereale_hint",
+            "type": "global",
+            "fieldName": "fane_cereale_hint"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@local.stabulation_resid": [
+        "@global.fane_cereale_hint": [
           "value"
         ]
       }
-    },
-    {
-      "type": "text",
-      "value": "Fânes=foins,\nFânes de niébé, de mucuna, d'arachide, de soja,\nFoins de Brachiaria, de panicum\n*1 botte de fâne= 1,5 kg",
-      "_translations": {
-        "value": {}
-      },
-      "name": "text_14",
-      "_nested_name": "text_14"
     },
     {
       "type": "image",
@@ -448,32 +545,45 @@
         "width:120px",
         "height:120px"
       ],
-      "name": "image_15",
-      "_nested_name": "image_15"
+      "name": "image_17",
+      "_nested_name": "image_17"
     },
     {
-      "type": "html",
-      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de fânes: </strong> @local.stabulation_fane botte</div>",
-      "_translations": {
-        "value": {}
-      },
-      "name": "html_16",
-      "_nested_name": "html_16",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de fânes: </strong> @local.stabulation_fane botte</div>",
-            "matchedExpression": "@local.stabulation_fane",
-            "type": "local",
-            "fieldName": "stabulation_fane"
+      "type": "display_group",
+      "style_list": [
+        "background-color: #f0f4f8",
+        "border-left-style: solid",
+        "border-left-color: #0056b3",
+        "border-radius: 5px"
+      ],
+      "rows": [
+        {
+          "type": "text",
+          "value": "@global.fane_cereale_stabulation",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_1",
+          "_nested_name": "display_group_18.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.fane_cereale_stabulation",
+                "matchedExpression": "@global.fane_cereale_stabulation",
+                "type": "global",
+                "fieldName": "fane_cereale_stabulation"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.fane_cereale_stabulation": [
+              "value"
+            ]
           }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@local.stabulation_fane": [
-          "value"
-        ]
-      }
+        }
+      ],
+      "name": "display_group_18",
+      "_nested_name": "display_group_18"
     },
     {
       "type": "set_field",

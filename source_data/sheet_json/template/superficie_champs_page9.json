@@ -33,8 +33,9 @@
       "style_list": "width: 80%; object-fit: contain;\n"
     },
     {
-      "type": "html",
-      "value": "<span style=\"font-size: 16px; font-weight: bold; color: #1e3656;\">Culture principale : @item.name</span>"
+      "type": "text",
+      "value": "@global.cult_princ",
+      "style_list": "font-size: 16px; font-weight: bold; color: #1e3656;"
     },
     {
       "type": "end_display_group"
@@ -46,8 +47,9 @@
       "type": "begin_display_group"
     },
     {
-      "type": "html",
-      "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Nombre d'arbres présents dans la parcelle :</label>"
+      "type": "text",
+      "value": "@global.note_nbre_arbre",
+      "style_list": "color: #1e3656; font-weight: bold;"
     },
     {
       "type": "audio",
@@ -79,16 +81,18 @@
       "exclude_from_translation": true
     },
     {
-      "type": "html",
+      "type": "text",
       "name": "html_text",
-      "value": "<span style=\"color: red; font-size: 13px;\">La réponse est obligatoire !</span>",
-      "condition": "@fields.attempt_submit_p10 && !@fields.nombre_arbre"
+      "value": "@global.warring_message",
+      "condition": "@fields.attempt_submit_p10 && !@fields.nombre_arbre",
+      "style_list": "color: red; font-size: 13px;"
     },
     {
-      "type": "html",
+      "type": "text",
       "name": "html_text",
-      "value": "<span style=\"color: red; font-size: 13px;\">Veuillez entrer un nombre entier positif ou 0 !</span>",
-      "condition": "!!@fields.nombre_arbre && !@local.valid_nbre_arbre"
+      "value": "@global.message_positifValue",
+      "condition": "!!@fields.nombre_arbre && !@local.valid_nbre_arbre",
+      "style_list": "color: red; font-size: 13px;"
     },
     {
       "name": "valid_nombre_arbre",
@@ -108,8 +112,9 @@
       "style_list": "display: block; width: 100%; margin-top: 15px; padding: 12px;"
     },
     {
-      "type": "html",
-      "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Écrivez le(s) nom(s) de(s) l'arbre(s) :</label>"
+      "type": "text",
+      "value": "Ecrivez le(s) nom(s) des arbres se trouvant dans la parcelle N⁰@fields.num_parcelle",
+      "style_list": "color: #1e3656; font-weight: bold;"
     },
     {
       "type": "audio",
@@ -129,10 +134,11 @@
       "condition": "@fields.nombre_arbre > 0"
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: red; font-size: 13px;\">Veuillez préciser le nom de l'arbre !</span>",
+      "type": "text",
+      "value": "@global.warning_arbre",
       "condition": "@fields.attempt_submit_p10 && @fields.nombre_arbre > 0 && !@fields.nom_arbre",
-      "exclude_from_translation": true
+      "exclude_from_translation": true,
+      "style_list": "color: red; font-size: 13px;"
     },
     {
       "type": "begin_display_group",

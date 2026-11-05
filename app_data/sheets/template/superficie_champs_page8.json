@@ -5,12 +5,36 @@
   "rows": [
     {
       "type": "title",
-      "value": "DATE ET QUANTITÉ DE SEMIS",
+      "value": "SEMENCE CULTIVEE DANS LA PARCELLE N⁰@fields.num_parcelle de @fields.nom_champ",
       "_translations": {
         "value": {}
       },
       "name": "title_2",
-      "_nested_name": "title_2"
+      "_nested_name": "title_2",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "SEMENCE CULTIVEE DANS LA PARCELLE N⁰@fields.num_parcelle de @fields.nom_champ",
+            "matchedExpression": "@fields.num_parcelle",
+            "type": "fields",
+            "fieldName": "num_parcelle"
+          },
+          {
+            "fullExpression": "SEMENCE CULTIVEE DANS LA PARCELLE N⁰@fields.num_parcelle de @fields.nom_champ",
+            "matchedExpression": "@fields.nom_champ",
+            "type": "fields",
+            "fieldName": "nom_champ"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.num_parcelle": [
+          "value"
+        ],
+        "@fields.nom_champ": [
+          "value"
+        ]
+      }
     },
     {
       "name": "attempt_submit_p9",
@@ -128,34 +152,31 @@
       }
     },
     {
-      "type": "html",
-      "value": "<h1 style=\"color: #1e3656; margin: 0; font-size: 15px; text-transform: uppercase;\">Semis de @fields.cult_princip dans la parcelle N⁰@fields.num_parcelle</h1>",
+      "type": "text",
+      "value": "@global.note_date_semis",
       "_translations": {
         "value": {}
       },
-      "name": "html_6",
-      "_nested_name": "html_6",
+      "style_list": [
+        "color: #1e3656",
+        "margin: 0",
+        "font-size: 15px",
+        "text-transform: uppercase"
+      ],
+      "name": "text_6",
+      "_nested_name": "text_6",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<h1 style=\"color: #1e3656; margin: 0; font-size: 15px; text-transform: uppercase;\">Semis de @fields.cult_princip dans la parcelle N⁰@fields.num_parcelle</h1>",
-            "matchedExpression": "@fields.cult_princip",
-            "type": "fields",
-            "fieldName": "cult_princip"
-          },
-          {
-            "fullExpression": "<h1 style=\"color: #1e3656; margin: 0; font-size: 15px; text-transform: uppercase;\">Semis de @fields.cult_princip dans la parcelle N⁰@fields.num_parcelle</h1>",
-            "matchedExpression": "@fields.num_parcelle",
-            "type": "fields",
-            "fieldName": "num_parcelle"
+            "fullExpression": "@global.note_date_semis",
+            "matchedExpression": "@global.note_date_semis",
+            "type": "global",
+            "fieldName": "note_date_semis"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.cult_princip": [
-          "value"
-        ],
-        "@fields.num_parcelle": [
+        "@global.note_date_semis": [
           "value"
         ]
       }
@@ -164,25 +185,28 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "html",
-          "value": "<label font-weight: bold;\"><span style=\"color: red;\">*</span> Date de semis de <b>@fields.cult_princip</b> </label>",
+          "type": "text",
+          "value": "@global.date_semis",
           "_translations": {
             "value": {}
           },
-          "name": "html_1",
-          "_nested_name": "display_group_7.html_1",
+          "style_list": [
+            "font-weight: bold"
+          ],
+          "name": "text_1",
+          "_nested_name": "display_group_7.text_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "<label font-weight: bold;\"><span style=\"color: red;\">*</span> Date de semis de <b>@fields.cult_princip</b> </label>",
-                "matchedExpression": "@fields.cult_princip",
-                "type": "fields",
-                "fieldName": "cult_princip"
+                "fullExpression": "@global.date_semis",
+                "matchedExpression": "@global.date_semis",
+                "type": "global",
+                "fieldName": "date_semis"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@fields.cult_princip": [
+            "@global.date_semis": [
               "value"
             ]
           }
@@ -221,7 +245,7 @@
                 "value": {}
               },
               "style_list": [
-                "width: 40%",
+                "width: 20%",
                 "object-fit: contain"
               ],
               "name": "image_1",
@@ -361,15 +385,27 @@
       }
     },
     {
-      "type": "html",
+      "type": "text",
       "name": "html_text",
-      "value": "<span style=\"color: red; font-size: 13px;\">La date est obligatoire ! </span>",
+      "value": "@global.date_warring",
       "_translations": {
         "value": {}
       },
       "condition": "@fields.attempt_submit_p9 && !@fields.date_semence",
+      "style_list": [
+        "color: red",
+        "font-size: 13px"
+      ],
       "_nested_name": "html_text",
       "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.date_warring",
+            "matchedExpression": "@global.date_warring",
+            "type": "global",
+            "fieldName": "date_warring"
+          }
+        ],
         "condition": [
           {
             "fullExpression": "@fields.attempt_submit_p9 && !@fields.date_semence",
@@ -386,6 +422,9 @@
         ]
       },
       "_dynamicDependencies": {
+        "@global.date_warring": [
+          "value"
+        ],
         "@fields.attempt_submit_p9": [
           "condition"
         ],
@@ -398,25 +437,29 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "html",
-          "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Quantité de semence de @fields.cult_princip (en kg) </label",
+          "type": "text",
+          "value": "@global.note_qtite_semence",
           "_translations": {
             "value": {}
           },
-          "name": "html_1",
-          "_nested_name": "display_group_13.html_1",
+          "style_list": [
+            "color: #1e3656",
+            "font-weight: bold"
+          ],
+          "name": "text_1",
+          "_nested_name": "display_group_13.text_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Quantité de semence de @fields.cult_princip (en kg) </label",
-                "matchedExpression": "@fields.cult_princip",
-                "type": "fields",
-                "fieldName": "cult_princip"
+                "fullExpression": "@global.note_qtite_semence",
+                "matchedExpression": "@global.note_qtite_semence",
+                "type": "global",
+                "fieldName": "note_qtite_semence"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@fields.cult_princip": [
+            "@global.note_qtite_semence": [
               "value"
             ]
           }
@@ -449,17 +492,21 @@
       "_nested_name": "image_15"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: #555; font-size: 14px;\">@global.semence_kg</p>",
+      "type": "text",
+      "value": "@global.semence_kg",
       "_translations": {
         "value": {}
       },
-      "name": "html_16",
-      "_nested_name": "html_16",
+      "style_list": [
+        "color: #555",
+        "font-size: 14px"
+      ],
+      "name": "text_16",
+      "_nested_name": "text_16",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: #555; font-size: 14px;\">@global.semence_kg</p>",
+            "fullExpression": "@global.semence_kg",
             "matchedExpression": "@global.semence_kg",
             "type": "global",
             "fieldName": "semence_kg"
@@ -561,15 +608,27 @@
       }
     },
     {
-      "type": "html",
+      "type": "text",
       "name": "html_text",
-      "value": "<span style=\"color: red; font-size: 13px;\">La quantité est obligatoire !</span>",
+      "value": "@global.quant_warring",
       "_translations": {
         "value": {}
       },
       "condition": "@fields.attempt_submit_p9 && !@fields.quantite_semence",
+      "style_list": [
+        "color: red",
+        "font-size: 13px"
+      ],
       "_nested_name": "html_text",
       "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.quant_warring",
+            "matchedExpression": "@global.quant_warring",
+            "type": "global",
+            "fieldName": "quant_warring"
+          }
+        ],
         "condition": [
           {
             "fullExpression": "@fields.attempt_submit_p9 && !@fields.quantite_semence",
@@ -586,6 +645,9 @@
         ]
       },
       "_dynamicDependencies": {
+        "@global.quant_warring": [
+          "value"
+        ],
         "@fields.attempt_submit_p9": [
           "condition"
         ],
@@ -595,15 +657,27 @@
       }
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: red; font-size: 13px;\">Veuillez saisir un nombre valide (>= 0) !</span>",
+      "type": "text",
+      "value": "@global.validite_nombre",
       "_translations": {
         "value": {}
       },
       "condition": "!!@fields.quantite_semence && !@local.valid_qte",
-      "name": "html_20",
-      "_nested_name": "html_20",
+      "style_list": [
+        "color: red",
+        "font-size: 13px"
+      ],
+      "name": "text_20",
+      "_nested_name": "text_20",
       "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.validite_nombre",
+            "matchedExpression": "@global.validite_nombre",
+            "type": "global",
+            "fieldName": "validite_nombre"
+          }
+        ],
         "condition": [
           {
             "fullExpression": "!!@fields.quantite_semence && !@local.valid_qte",
@@ -620,6 +694,9 @@
         ]
       },
       "_dynamicDependencies": {
+        "@global.validite_nombre": [
+          "value"
+        ],
         "!@fields.quantite_semence": [
           "condition"
         ],

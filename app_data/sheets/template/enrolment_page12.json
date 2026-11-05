@@ -5,12 +5,27 @@
   "rows": [
     {
       "type": "title",
-      "value": "EQUIPEMENT DE L'UPA",
+      "value": "@global.equipement_upa",
       "_translations": {
         "value": {}
       },
       "name": "title_2",
-      "_nested_name": "title_2"
+      "_nested_name": "title_2",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.equipement_upa",
+            "matchedExpression": "@global.equipement_upa",
+            "type": "global",
+            "fieldName": "equipement_upa"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.equipement_upa": [
+          "value"
+        ]
+      }
     },
     {
       "name": "attempt_submit",
@@ -38,26 +53,19 @@
     },
     {
       "type": "display_group",
-      "style_list": [
-        "display: block",
-        "width: 100%"
-      ],
       "rows": [
         {
-          "type": "html",
-          "value": "@global.nb_charrues<span style=\"color: red;\">*</span>",
+          "type": "subtitle",
+          "value": "@global.nb_charrues",
           "_translations": {
             "value": {}
           },
-          "style_list": [
-            "font-size:20px"
-          ],
-          "name": "html_1",
-          "_nested_name": "display_group_4.html_1",
+          "name": "subtitle_1",
+          "_nested_name": "display_group_4.subtitle_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "@global.nb_charrues<span style=\"color: red;\">*</span>",
+                "fullExpression": "@global.nb_charrues",
                 "matchedExpression": "@global.nb_charrues",
                 "type": "global",
                 "fieldName": "nb_charrues"
@@ -120,7 +128,7 @@
       ],
       "parameter_list": {
         "number_input": "true",
-        "placeholder": "Ecrivez le nombre"
+        "placeholder": "@global.texte_placeholder"
       },
       "exclude_from_translation": true,
       "name": "text_box_7",
@@ -133,11 +141,24 @@
             "type": "fields",
             "fieldName": "nombre_charrues"
           }
-        ]
+        ],
+        "parameter_list": {
+          "placeholder": [
+            {
+              "fullExpression": "@global.texte_placeholder",
+              "matchedExpression": "@global.texte_placeholder",
+              "type": "global",
+              "fieldName": "texte_placeholder"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@fields.nombre_charrues": [
           "value"
+        ],
+        "@global.texte_placeholder": [
+          "parameter_list.placeholder"
         ]
       }
     },
@@ -198,18 +219,21 @@
       }
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
       "_translations": {
         "value": {}
       },
       "condition": "!@fields.nombre_charrues && @fields.attempt_submit",
-      "name": "html_9",
-      "_nested_name": "html_9",
+      "style_list": [
+        "@global.reponse_style"
+      ],
+      "name": "text_9",
+      "_nested_name": "text_9",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+            "fullExpression": "@global.reponse_obligatoire",
             "matchedExpression": "@global.reponse_obligatoire",
             "type": "global",
             "fieldName": "reponse_obligatoire"
@@ -228,7 +252,17 @@
             "type": "fields",
             "fieldName": "attempt_submit"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.reponse_obligatoire": [
@@ -239,6 +273,9 @@
         ],
         "@fields.attempt_submit": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
@@ -250,8 +287,7 @@
       },
       "condition": "!@local.valid_nombre_charrues && @fields.attempt_submit",
       "style_list": [
-        "color: red",
-        "font-size: 12px"
+        "@global.reponse_style"
       ],
       "name": "text_10",
       "_nested_name": "text_10",
@@ -277,7 +313,17 @@
             "type": "fields",
             "fieldName": "attempt_submit"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.error_number_min_0": [
@@ -288,31 +334,27 @@
         ],
         "@fields.attempt_submit": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
     {
       "type": "display_group",
-      "style_list": [
-        "display: block",
-        "width: 100%"
-      ],
       "rows": [
         {
-          "type": "html",
-          "value": "@global.nb_multiculteurs<span style=\"color: red;\">*</span>",
+          "type": "subtitle",
+          "value": "@global.nb_multiculteurs",
           "_translations": {
             "value": {}
           },
-          "style_list": [
-            "font-size:20px"
-          ],
-          "name": "html_1",
-          "_nested_name": "display_group_11.html_1",
+          "name": "subtitle_1",
+          "_nested_name": "display_group_11.subtitle_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "@global.nb_multiculteurs<span style=\"color: red;\">*</span>",
+                "fullExpression": "@global.nb_multiculteurs",
                 "matchedExpression": "@global.nb_multiculteurs",
                 "type": "global",
                 "fieldName": "nb_multiculteurs"
@@ -375,7 +417,7 @@
       ],
       "parameter_list": {
         "number_input": "true",
-        "placeholder": "Ecrivez le nombre"
+        "placeholder": "@global.texte_placeholder"
       },
       "exclude_from_translation": true,
       "name": "text_box_14",
@@ -388,11 +430,24 @@
             "type": "fields",
             "fieldName": "nombre_multiculteurs"
           }
-        ]
+        ],
+        "parameter_list": {
+          "placeholder": [
+            {
+              "fullExpression": "@global.texte_placeholder",
+              "matchedExpression": "@global.texte_placeholder",
+              "type": "global",
+              "fieldName": "texte_placeholder"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@fields.nombre_multiculteurs": [
           "value"
+        ],
+        "@global.texte_placeholder": [
+          "parameter_list.placeholder"
         ]
       }
     },
@@ -453,18 +508,21 @@
       }
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
       "_translations": {
         "value": {}
       },
       "condition": "!@fields.nombre_multiculteurs && @fields.attempt_submit",
-      "name": "html_16",
-      "_nested_name": "html_16",
+      "style_list": [
+        "@global.reponse_style"
+      ],
+      "name": "text_16",
+      "_nested_name": "text_16",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+            "fullExpression": "@global.reponse_obligatoire",
             "matchedExpression": "@global.reponse_obligatoire",
             "type": "global",
             "fieldName": "reponse_obligatoire"
@@ -483,7 +541,17 @@
             "type": "fields",
             "fieldName": "attempt_submit"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.reponse_obligatoire": [
@@ -494,6 +562,9 @@
         ],
         "@fields.attempt_submit": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
@@ -505,8 +576,7 @@
       },
       "condition": "!@local.valid_nombre_multiculteurs && @fields.attempt_submit",
       "style_list": [
-        "color: red",
-        "font-size: 12px"
+        "@global.reponse_style"
       ],
       "name": "text_17",
       "_nested_name": "text_17",
@@ -532,7 +602,17 @@
             "type": "fields",
             "fieldName": "attempt_submit"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.error_number_min_0": [
@@ -543,31 +623,27 @@
         ],
         "@fields.attempt_submit": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
     {
       "type": "display_group",
-      "style_list": [
-        "display: block",
-        "width: 100%"
-      ],
       "rows": [
         {
-          "type": "html",
-          "value": "@global.nb_charrettes<span style=\"color: red;\">*</span>",
+          "type": "subtitle",
+          "value": "@global.nb_charrettes",
           "_translations": {
             "value": {}
           },
-          "style_list": [
-            "font-size:20px"
-          ],
-          "name": "html_1",
-          "_nested_name": "display_group_18.html_1",
+          "name": "subtitle_1",
+          "_nested_name": "display_group_18.subtitle_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "@global.nb_charrettes<span style=\"color: red;\">*</span>",
+                "fullExpression": "@global.nb_charrettes",
                 "matchedExpression": "@global.nb_charrettes",
                 "type": "global",
                 "fieldName": "nb_charrettes"
@@ -630,7 +706,7 @@
       ],
       "parameter_list": {
         "number_input": "true",
-        "placeholder": "Ecrivez le nombre"
+        "placeholder": "@global.texte_placeholder"
       },
       "exclude_from_translation": true,
       "name": "text_box_21",
@@ -643,11 +719,24 @@
             "type": "fields",
             "fieldName": "nombre_charrettes"
           }
-        ]
+        ],
+        "parameter_list": {
+          "placeholder": [
+            {
+              "fullExpression": "@global.texte_placeholder",
+              "matchedExpression": "@global.texte_placeholder",
+              "type": "global",
+              "fieldName": "texte_placeholder"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@fields.nombre_charrettes": [
           "value"
+        ],
+        "@global.texte_placeholder": [
+          "parameter_list.placeholder"
         ]
       }
     },
@@ -708,18 +797,21 @@
       }
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
       "_translations": {
         "value": {}
       },
       "condition": "!@fields.nombre_charrettes && @fields.attempt_submit",
-      "name": "html_23",
-      "_nested_name": "html_23",
+      "style_list": [
+        "@global.reponse_style"
+      ],
+      "name": "text_23",
+      "_nested_name": "text_23",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+            "fullExpression": "@global.reponse_obligatoire",
             "matchedExpression": "@global.reponse_obligatoire",
             "type": "global",
             "fieldName": "reponse_obligatoire"
@@ -738,7 +830,17 @@
             "type": "fields",
             "fieldName": "attempt_submit"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.reponse_obligatoire": [
@@ -749,6 +851,9 @@
         ],
         "@fields.attempt_submit": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
@@ -760,8 +865,7 @@
       },
       "condition": "!@local.valid_nombre_charrettes && @fields.attempt_submit",
       "style_list": [
-        "color: red",
-        "font-size: 12px"
+        "@global.reponse_style"
       ],
       "name": "text_24",
       "_nested_name": "text_24",
@@ -787,7 +891,17 @@
             "type": "fields",
             "fieldName": "attempt_submit"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.error_number_min_0": [
@@ -798,31 +912,27 @@
         ],
         "@fields.attempt_submit": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
     {
       "type": "display_group",
-      "style_list": [
-        "display: block",
-        "width: 100%"
-      ],
       "rows": [
         {
-          "type": "html",
-          "value": "@global.nb_semoirs<span style=\"color: red;\">*</span>",
+          "type": "subtitle",
+          "value": "@global.nb_semoirs",
           "_translations": {
             "value": {}
           },
-          "style_list": [
-            "font-size:20px"
-          ],
-          "name": "html_1",
-          "_nested_name": "display_group_25.html_1",
+          "name": "subtitle_1",
+          "_nested_name": "display_group_25.subtitle_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "@global.nb_semoirs<span style=\"color: red;\">*</span>",
+                "fullExpression": "@global.nb_semoirs",
                 "matchedExpression": "@global.nb_semoirs",
                 "type": "global",
                 "fieldName": "nb_semoirs"
@@ -885,7 +995,7 @@
       ],
       "parameter_list": {
         "number_input": "true",
-        "placeholder": "Nombre de semoirs"
+        "placeholder": "@global.texte_placeholder"
       },
       "exclude_from_translation": true,
       "name": "text_box_28",
@@ -898,11 +1008,24 @@
             "type": "fields",
             "fieldName": "nombre_semoir"
           }
-        ]
+        ],
+        "parameter_list": {
+          "placeholder": [
+            {
+              "fullExpression": "@global.texte_placeholder",
+              "matchedExpression": "@global.texte_placeholder",
+              "type": "global",
+              "fieldName": "texte_placeholder"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@fields.nombre_semoir": [
           "value"
+        ],
+        "@global.texte_placeholder": [
+          "parameter_list.placeholder"
         ]
       }
     },
@@ -963,18 +1086,21 @@
       }
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
       "_translations": {
         "value": {}
       },
       "condition": "!@fields.nombre_semoir && @fields.attempt_submit",
-      "name": "html_30",
-      "_nested_name": "html_30",
+      "style_list": [
+        "@global.reponse_style"
+      ],
+      "name": "text_30",
+      "_nested_name": "text_30",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+            "fullExpression": "@global.reponse_obligatoire",
             "matchedExpression": "@global.reponse_obligatoire",
             "type": "global",
             "fieldName": "reponse_obligatoire"
@@ -993,7 +1119,17 @@
             "type": "fields",
             "fieldName": "attempt_submit"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.reponse_obligatoire": [
@@ -1004,6 +1140,9 @@
         ],
         "@fields.attempt_submit": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
@@ -1015,8 +1154,7 @@
       },
       "condition": "!@local.valid_nombre_semoir && @fields.attempt_submit",
       "style_list": [
-        "color: red",
-        "font-size: 12px"
+        "@global.reponse_style"
       ],
       "name": "text_31",
       "_nested_name": "text_31",
@@ -1042,7 +1180,17 @@
             "type": "fields",
             "fieldName": "attempt_submit"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.error_number_min_0": [
@@ -1053,6 +1201,9 @@
         ],
         "@fields.attempt_submit": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
@@ -1060,24 +1211,18 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "html",
-          "value": "@global.nb_appareils<p style=\"color: red;\">*</p>",
+          "type": "subtitle",
+          "value": "@global.nb_appareils",
           "_translations": {
             "value": {}
           },
-          "parameter_list": {
-            "style": "contextual"
-          },
           "exclude_from_translation": true,
-          "style_list": [
-            "font-size:20px"
-          ],
-          "name": "html_1",
-          "_nested_name": "display_group_32.html_1",
+          "name": "subtitle_1",
+          "_nested_name": "display_group_32.subtitle_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "@global.nb_appareils<p style=\"color: red;\">*</p>",
+                "fullExpression": "@global.nb_appareils",
                 "matchedExpression": "@global.nb_appareils",
                 "type": "global",
                 "fieldName": "nb_appareils"
@@ -1198,7 +1343,7 @@
           ],
           "parameter_list": {
             "number_input": "true",
-            "placeholder": "Entrez le nombre"
+            "placeholder": "@global.texte_placeholder"
           },
           "exclude_from_translation": true,
           "name": "text_box_1",
@@ -1211,11 +1356,24 @@
                 "type": "fields",
                 "fieldName": "nombre_pompe_traitement"
               }
-            ]
+            ],
+            "parameter_list": {
+              "placeholder": [
+                {
+                  "fullExpression": "@global.texte_placeholder",
+                  "matchedExpression": "@global.texte_placeholder",
+                  "type": "global",
+                  "fieldName": "texte_placeholder"
+                }
+              ]
+            }
           },
           "_dynamicDependencies": {
             "@fields.nombre_pompe_traitement": [
               "value"
+            ],
+            "@global.texte_placeholder": [
+              "parameter_list.placeholder"
             ]
           }
         }
@@ -1224,18 +1382,21 @@
       "_nested_name": "display_group_35"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
       "_translations": {
         "value": {}
       },
       "condition": "!@fields.nombre_pompe_traitement && @fields.attempt_submit",
-      "name": "html_37",
-      "_nested_name": "html_37",
+      "style_list": [
+        "@global.reponse_style"
+      ],
+      "name": "text_37",
+      "_nested_name": "text_37",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+            "fullExpression": "@global.reponse_obligatoire",
             "matchedExpression": "@global.reponse_obligatoire",
             "type": "global",
             "fieldName": "reponse_obligatoire"
@@ -1254,7 +1415,17 @@
             "type": "fields",
             "fieldName": "attempt_submit"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.reponse_obligatoire": [
@@ -1265,6 +1436,9 @@
         ],
         "@fields.attempt_submit": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
@@ -1277,8 +1451,7 @@
       "condition": "!@local.valid_nombre_pompe_traitement && @fields.attempt_submit",
       "exclude_from_translation": true,
       "style_list": [
-        "color: red",
-        "font-size: 12px"
+        "@global.reponse_style"
       ],
       "name": "text_38",
       "_nested_name": "text_38",
@@ -1304,7 +1477,17 @@
             "type": "fields",
             "fieldName": "attempt_submit"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.error_number_min_0": [
@@ -1315,6 +1498,9 @@
         ],
         "@fields.attempt_submit": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
@@ -1322,24 +1508,18 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "html",
-          "value": "@global.nb_pulverisateur_herse<span style=\"color: red;\">*</span>",
+          "type": "subtitle",
+          "value": "@global.nb_pulverisateur_herse",
           "_translations": {
             "value": {}
           },
-          "parameter_list": {
-            "style": "contextual"
-          },
           "exclude_from_translation": true,
-          "style_list": [
-            "font-size:20px"
-          ],
-          "name": "html_1",
-          "_nested_name": "display_group_39.html_1",
+          "name": "subtitle_1",
+          "_nested_name": "display_group_39.subtitle_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "@global.nb_pulverisateur_herse<span style=\"color: red;\">*</span>",
+                "fullExpression": "@global.nb_pulverisateur_herse",
                 "matchedExpression": "@global.nb_pulverisateur_herse",
                 "type": "global",
                 "fieldName": "nb_pulverisateur_herse"
@@ -1460,7 +1640,7 @@
           ],
           "parameter_list": {
             "number_input": "true",
-            "placeholder": "Entrez le nombre"
+            "placeholder": "@global.texte_placeholder"
           },
           "exclude_from_translation": true,
           "name": "text_box_1",
@@ -1473,11 +1653,24 @@
                 "type": "field",
                 "fieldName": "nombre_pulverisateurs"
               }
-            ]
+            ],
+            "parameter_list": {
+              "placeholder": [
+                {
+                  "fullExpression": "@global.texte_placeholder",
+                  "matchedExpression": "@global.texte_placeholder",
+                  "type": "global",
+                  "fieldName": "texte_placeholder"
+                }
+              ]
+            }
           },
           "_dynamicDependencies": {
             "@field.nombre_pulverisateurs": [
               "value"
+            ],
+            "@global.texte_placeholder": [
+              "parameter_list.placeholder"
             ]
           }
         }
@@ -1486,18 +1679,21 @@
       "_nested_name": "display_group_42"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
       "_translations": {
         "value": {}
       },
       "condition": "!@fields.nombre_pulverisateurs && @fields.attempt_submit",
-      "name": "html_44",
-      "_nested_name": "html_44",
+      "style_list": [
+        "@global.reponse_style"
+      ],
+      "name": "text_44",
+      "_nested_name": "text_44",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+            "fullExpression": "@global.reponse_obligatoire",
             "matchedExpression": "@global.reponse_obligatoire",
             "type": "global",
             "fieldName": "reponse_obligatoire"
@@ -1516,7 +1712,17 @@
             "type": "fields",
             "fieldName": "attempt_submit"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.reponse_obligatoire": [
@@ -1527,6 +1733,9 @@
         ],
         "@fields.attempt_submit": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
@@ -1539,8 +1748,7 @@
       "condition": "!@local.valid_nombre_pulverisateurs && @fields.attempt_submit",
       "exclude_from_translation": true,
       "style_list": [
-        "color: red",
-        "font-size: 12px"
+        "@global.reponse_style"
       ],
       "name": "text_45",
       "_nested_name": "text_45",
@@ -1566,7 +1774,17 @@
             "type": "fields",
             "fieldName": "attempt_submit"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.error_number_min_0": [
@@ -1577,6 +1795,9 @@
         ],
         "@fields.attempt_submit": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
@@ -1584,24 +1805,18 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "html",
-          "value": "@global.nb_corps_butteurs<span style=\"color: red;\">*</span>",
+          "type": "subtitle",
+          "value": "@global.nb_corps_butteurs",
           "_translations": {
             "value": {}
           },
-          "parameter_list": {
-            "style": "contextual"
-          },
           "exclude_from_translation": true,
-          "style_list": [
-            "font-size:20px"
-          ],
-          "name": "html_1",
-          "_nested_name": "display_group_46.html_1",
+          "name": "subtitle_1",
+          "_nested_name": "display_group_46.subtitle_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "@global.nb_corps_butteurs<span style=\"color: red;\">*</span>",
+                "fullExpression": "@global.nb_corps_butteurs",
                 "matchedExpression": "@global.nb_corps_butteurs",
                 "type": "global",
                 "fieldName": "nb_corps_butteurs"
@@ -1722,7 +1937,7 @@
           ],
           "parameter_list": {
             "number_input": "true",
-            "placeholder": "Entrez le nombre"
+            "placeholder": "@global.texte_placeholder"
           },
           "exclude_from_translation": true,
           "name": "text_box_1",
@@ -1735,11 +1950,24 @@
                 "type": "fields",
                 "fieldName": "nombre_corps_buteur"
               }
-            ]
+            ],
+            "parameter_list": {
+              "placeholder": [
+                {
+                  "fullExpression": "@global.texte_placeholder",
+                  "matchedExpression": "@global.texte_placeholder",
+                  "type": "global",
+                  "fieldName": "texte_placeholder"
+                }
+              ]
+            }
           },
           "_dynamicDependencies": {
             "@fields.nombre_corps_buteur": [
               "value"
+            ],
+            "@global.texte_placeholder": [
+              "parameter_list.placeholder"
             ]
           }
         }
@@ -1748,18 +1976,21 @@
       "_nested_name": "display_group_49"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
       "_translations": {
         "value": {}
       },
       "condition": "!@fields.nombre_corps_buteur && @fields.attempt_submit",
-      "name": "html_51",
-      "_nested_name": "html_51",
+      "style_list": [
+        "@global.reponse_style"
+      ],
+      "name": "text_51",
+      "_nested_name": "text_51",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+            "fullExpression": "@global.reponse_obligatoire",
             "matchedExpression": "@global.reponse_obligatoire",
             "type": "global",
             "fieldName": "reponse_obligatoire"
@@ -1778,7 +2009,17 @@
             "type": "fields",
             "fieldName": "attempt_submit"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.reponse_obligatoire": [
@@ -1789,6 +2030,9 @@
         ],
         "@fields.attempt_submit": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
@@ -1801,8 +2045,7 @@
       "condition": "!@local.valid_nombre_corps_buteur && @fields.attempt_submit",
       "exclude_from_translation": true,
       "style_list": [
-        "color: red",
-        "font-size: 12px"
+        "@global.reponse_style"
       ],
       "name": "text_52",
       "_nested_name": "text_52",
@@ -1828,7 +2071,17 @@
             "type": "fields",
             "fieldName": "attempt_submit"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.error_number_min_0": [
@@ -1839,6 +2092,9 @@
         ],
         "@fields.attempt_submit": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },

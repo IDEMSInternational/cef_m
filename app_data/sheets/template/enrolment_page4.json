@@ -56,12 +56,12 @@
       "rows": [
         {
           "type": "subtitle",
-          "name": "region_text",
           "value": "@global.nom_region",
           "_translations": {
             "value": {}
           },
-          "_nested_name": "display_group_4.region_text",
+          "name": "subtitle_1",
+          "_nested_name": "display_group_4.subtitle_1",
           "_dynamicFields": {
             "value": [
               {
@@ -110,7 +110,6 @@
     },
     {
       "type": "radio_list",
-      "name": "region_id",
       "value": "@fields.region_id",
       "action_list": [
         {
@@ -126,28 +125,29 @@
       "rows": [
         {
           "type": "data_items",
-          "value": "@data.region",
+          "value": "@data.region_upa",
           "rows": [],
           "name": "data_items_1",
-          "_nested_name": "region_id.data_items_1",
+          "_nested_name": "radio_list_7.data_items_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "@data.region",
-                "matchedExpression": "@data.region",
+                "fullExpression": "@data.region_upa",
+                "matchedExpression": "@data.region_upa",
                 "type": "data",
-                "fieldName": "region"
+                "fieldName": "region_upa"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@data.region": [
+            "@data.region_upa": [
               "value"
             ]
           }
         }
       ],
-      "_nested_name": "region_id",
+      "name": "radio_list_7",
+      "_nested_name": "radio_list_7",
       "_dynamicFields": {
         "value": [
           {
@@ -231,12 +231,12 @@
       "rows": [
         {
           "type": "subtitle",
-          "name": "cercle_text",
           "value": "@global.nom_cercle",
           "_translations": {
             "value": {}
           },
-          "_nested_name": "display_group_10.cercle_text",
+          "name": "subtitle_1",
+          "_nested_name": "display_group_10.subtitle_1",
           "_dynamicFields": {
             "value": [
               {
@@ -304,73 +304,50 @@
       "rows": [
         {
           "type": "data_items",
-          "value": "@data.cercle_koutiala",
+          "value": "@data.cercle_upa",
           "_translations": {
             "value": {}
           },
-          "condition": "@fields.region_id == 'koutiala'",
+          "parameter_list": {
+            "filter": "@item.id_region == @fields.region_id"
+          },
           "name": "data_items_1",
           "_nested_name": "cercle_id.data_items_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "@data.cercle_koutiala",
-                "matchedExpression": "@data.cercle_koutiala",
+                "fullExpression": "@data.cercle_upa",
+                "matchedExpression": "@data.cercle_upa",
                 "type": "data",
-                "fieldName": "cercle_koutiala"
+                "fieldName": "cercle_upa"
               }
             ],
-            "condition": [
-              {
-                "fullExpression": "@fields.region_id == 'koutiala'",
-                "matchedExpression": "@fields.region_id",
-                "type": "fields",
-                "fieldName": "region_id"
-              }
-            ]
+            "parameter_list": {
+              "filter": [
+                {
+                  "fullExpression": "@item.id_region == @fields.region_id",
+                  "matchedExpression": "@item.id_region",
+                  "type": "item",
+                  "fieldName": "id_region"
+                },
+                {
+                  "fullExpression": "@item.id_region == @fields.region_id",
+                  "matchedExpression": "@fields.region_id",
+                  "type": "fields",
+                  "fieldName": "region_id"
+                }
+              ]
+            }
           },
           "_dynamicDependencies": {
-            "@data.cercle_koutiala": [
+            "@data.cercle_upa": [
               "value"
             ],
-            "@fields.region_id": [
-              "condition"
-            ]
-          }
-        },
-        {
-          "type": "data_items",
-          "value": "@data.cercle_dioila",
-          "_translations": {
-            "value": {}
-          },
-          "condition": "@fields.region_id == 'dioila'",
-          "name": "data_items_2",
-          "_nested_name": "cercle_id.data_items_2",
-          "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "@data.cercle_dioila",
-                "matchedExpression": "@data.cercle_dioila",
-                "type": "data",
-                "fieldName": "cercle_dioila"
-              }
-            ],
-            "condition": [
-              {
-                "fullExpression": "@fields.region_id == 'dioila'",
-                "matchedExpression": "@fields.region_id",
-                "type": "fields",
-                "fieldName": "region_id"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@data.cercle_dioila": [
-              "value"
+            "@item.id_region": [
+              "parameter_list.filter"
             ],
             "@fields.region_id": [
-              "condition"
+              "parameter_list.filter"
             ]
           }
         }
@@ -479,12 +456,12 @@
       "rows": [
         {
           "type": "subtitle",
-          "name": "commune_text",
           "value": "@global.nom_commune",
           "_translations": {
             "value": {}
           },
-          "_nested_name": "display_group_15.commune_text",
+          "name": "subtitle_1",
+          "_nested_name": "display_group_15.subtitle_1",
           "_dynamicFields": {
             "value": [
               {
@@ -552,73 +529,50 @@
       "rows": [
         {
           "type": "data_items",
-          "value": "@data.commune_koutiala",
+          "value": "@data.commune_upa",
           "_translations": {
             "value": {}
           },
-          "condition": "@fields.cercle_id  == 'koutiala'",
+          "parameter_list": {
+            "filter": "@item.id_cercle == @fields.cercle_id"
+          },
           "name": "data_items_1",
           "_nested_name": "commune_id.data_items_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "@data.commune_koutiala",
-                "matchedExpression": "@data.commune_koutiala",
+                "fullExpression": "@data.commune_upa",
+                "matchedExpression": "@data.commune_upa",
                 "type": "data",
-                "fieldName": "commune_koutiala"
+                "fieldName": "commune_upa"
               }
             ],
-            "condition": [
-              {
-                "fullExpression": "@fields.cercle_id  == 'koutiala'",
-                "matchedExpression": "@fields.cercle_id",
-                "type": "fields",
-                "fieldName": "cercle_id"
-              }
-            ]
+            "parameter_list": {
+              "filter": [
+                {
+                  "fullExpression": "@item.id_cercle == @fields.cercle_id",
+                  "matchedExpression": "@item.id_cercle",
+                  "type": "item",
+                  "fieldName": "id_cercle"
+                },
+                {
+                  "fullExpression": "@item.id_cercle == @fields.cercle_id",
+                  "matchedExpression": "@fields.cercle_id",
+                  "type": "fields",
+                  "fieldName": "cercle_id"
+                }
+              ]
+            }
           },
           "_dynamicDependencies": {
-            "@data.commune_koutiala": [
+            "@data.commune_upa": [
               "value"
             ],
-            "@fields.cercle_id": [
-              "condition"
-            ]
-          }
-        },
-        {
-          "type": "data_items",
-          "value": "@data.commune_dioila",
-          "_translations": {
-            "value": {}
-          },
-          "condition": "@fields.cercle_id == 'dioila'",
-          "name": "data_items_2",
-          "_nested_name": "commune_id.data_items_2",
-          "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "@data.commune_dioila",
-                "matchedExpression": "@data.commune_dioila",
-                "type": "data",
-                "fieldName": "commune_dioila"
-              }
-            ],
-            "condition": [
-              {
-                "fullExpression": "@fields.cercle_id == 'dioila'",
-                "matchedExpression": "@fields.cercle_id",
-                "type": "fields",
-                "fieldName": "cercle_id"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@data.commune_dioila": [
-              "value"
+            "@item.id_cercle": [
+              "parameter_list.filter"
             ],
             "@fields.cercle_id": [
-              "condition"
+              "parameter_list.filter"
             ]
           }
         }
@@ -800,181 +754,50 @@
       "rows": [
         {
           "type": "data_items",
-          "value": "@data.village_koutiala",
+          "value": "@data.village_upa",
           "_translations": {
             "value": {}
           },
-          "condition": "@fields.commune_id  == 'koutiala'",
+          "parameter_list": {
+            "filter": "@item.id_commune == @fields.commune_id"
+          },
           "name": "data_items_1",
           "_nested_name": "village_id.data_items_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "@data.village_koutiala",
-                "matchedExpression": "@data.village_koutiala",
+                "fullExpression": "@data.village_upa",
+                "matchedExpression": "@data.village_upa",
                 "type": "data",
-                "fieldName": "village_koutiala"
+                "fieldName": "village_upa"
               }
             ],
-            "condition": [
-              {
-                "fullExpression": "@fields.commune_id  == 'koutiala'",
-                "matchedExpression": "@fields.commune_id",
-                "type": "fields",
-                "fieldName": "commune_id"
-              }
-            ]
+            "parameter_list": {
+              "filter": [
+                {
+                  "fullExpression": "@item.id_commune == @fields.commune_id",
+                  "matchedExpression": "@item.id_commune",
+                  "type": "item",
+                  "fieldName": "id_commune"
+                },
+                {
+                  "fullExpression": "@item.id_commune == @fields.commune_id",
+                  "matchedExpression": "@fields.commune_id",
+                  "type": "fields",
+                  "fieldName": "commune_id"
+                }
+              ]
+            }
           },
           "_dynamicDependencies": {
-            "@data.village_koutiala": [
+            "@data.village_upa": [
               "value"
             ],
-            "@fields.commune_id": [
-              "condition"
-            ]
-          }
-        },
-        {
-          "type": "data_items",
-          "value": "@data.village_molobala",
-          "_translations": {
-            "value": {}
-          },
-          "condition": "@fields.commune_id == 'molobala'",
-          "name": "data_items_2",
-          "_nested_name": "village_id.data_items_2",
-          "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "@data.village_molobala",
-                "matchedExpression": "@data.village_molobala",
-                "type": "data",
-                "fieldName": "village_molobala"
-              }
-            ],
-            "condition": [
-              {
-                "fullExpression": "@fields.commune_id == 'molobala'",
-                "matchedExpression": "@fields.commune_id",
-                "type": "fields",
-                "fieldName": "commune_id"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@data.village_molobala": [
-              "value"
+            "@item.id_commune": [
+              "parameter_list.filter"
             ],
             "@fields.commune_id": [
-              "condition"
-            ]
-          }
-        },
-        {
-          "type": "data_items",
-          "value": "@data.village_sinsina",
-          "_translations": {
-            "value": {}
-          },
-          "condition": "@fields.commune_id == 'sinsina'",
-          "name": "data_items_3",
-          "_nested_name": "village_id.data_items_3",
-          "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "@data.village_sinsina",
-                "matchedExpression": "@data.village_sinsina",
-                "type": "data",
-                "fieldName": "village_sinsina"
-              }
-            ],
-            "condition": [
-              {
-                "fullExpression": "@fields.commune_id == 'sinsina'",
-                "matchedExpression": "@fields.commune_id",
-                "type": "fields",
-                "fieldName": "commune_id"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@data.village_sinsina": [
-              "value"
-            ],
-            "@fields.commune_id": [
-              "condition"
-            ]
-          }
-        },
-        {
-          "type": "data_items",
-          "value": "@data.village_massigui",
-          "_translations": {
-            "value": {}
-          },
-          "condition": "@fields.commune_id == 'massigui'",
-          "name": "data_items_4",
-          "_nested_name": "village_id.data_items_4",
-          "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "@data.village_massigui",
-                "matchedExpression": "@data.village_massigui",
-                "type": "data",
-                "fieldName": "village_massigui"
-              }
-            ],
-            "condition": [
-              {
-                "fullExpression": "@fields.commune_id == 'massigui'",
-                "matchedExpression": "@fields.commune_id",
-                "type": "fields",
-                "fieldName": "commune_id"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@data.village_massigui": [
-              "value"
-            ],
-            "@fields.commune_id": [
-              "condition"
-            ]
-          }
-        },
-        {
-          "type": "data_items",
-          "value": "@data.village_banco",
-          "_translations": {
-            "value": {}
-          },
-          "condition": "@fields.commune_id == 'banco'",
-          "name": "data_items_5",
-          "_nested_name": "village_id.data_items_5",
-          "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "@data.village_banco",
-                "matchedExpression": "@data.village_banco",
-                "type": "data",
-                "fieldName": "village_banco"
-              }
-            ],
-            "condition": [
-              {
-                "fullExpression": "@fields.commune_id == 'banco'",
-                "matchedExpression": "@fields.commune_id",
-                "type": "fields",
-                "fieldName": "commune_id"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@data.village_banco": [
-              "value"
-            ],
-            "@fields.commune_id": [
-              "condition"
+              "parameter_list.filter"
             ]
           }
         }

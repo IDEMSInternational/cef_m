@@ -6,11 +6,26 @@
     {
       "type": "title",
       "name": "page_title",
-      "value": "PRODUCTION ANNUELLE DE LA FUMURE ORGANIQUE DE L'UPA",
+      "value": "@global.production_annuel_fumure",
       "_translations": {
         "value": {}
       },
-      "_nested_name": "page_title"
+      "_nested_name": "page_title",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.production_annuel_fumure",
+            "matchedExpression": "@global.production_annuel_fumure",
+            "type": "global",
+            "fieldName": "production_annuel_fumure"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.production_annuel_fumure": [
+          "value"
+        ]
+      }
     },
     {
       "name": "attempt_submit",
@@ -40,13 +55,13 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "text",
+          "type": "subtitle",
           "value": "@global.quantite_compost_produite_note",
           "_translations": {
             "value": {}
           },
-          "name": "text_1",
-          "_nested_name": "display_group_4.text_1",
+          "name": "subtitle_1",
+          "_nested_name": "display_group_4.subtitle_1",
           "_dynamicFields": {
             "value": [
               {
@@ -140,7 +155,7 @@
       ],
       "parameter_list": {
         "number_input": "true",
-        "placeholder": "Entrez la quantité"
+        "placeholder": "@global.texte_placeholder"
       },
       "_nested_name": "quantite_compost",
       "_dynamicFields": {
@@ -151,11 +166,24 @@
             "type": "fields",
             "fieldName": "quantite_compost"
           }
-        ]
+        ],
+        "parameter_list": {
+          "placeholder": [
+            {
+              "fullExpression": "@global.texte_placeholder",
+              "matchedExpression": "@global.texte_placeholder",
+              "type": "global",
+              "fieldName": "texte_placeholder"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@fields.quantite_compost": [
           "value"
+        ],
+        "@global.texte_placeholder": [
+          "parameter_list.placeholder"
         ]
       }
     },
@@ -263,13 +291,13 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "text",
+          "type": "subtitle",
           "value": "@global.quantite_fumier_produite_note",
           "_translations": {
             "value": {}
           },
-          "name": "text_1",
-          "_nested_name": "display_group_11.text_1",
+          "name": "subtitle_1",
+          "_nested_name": "display_group_11.subtitle_1",
           "_dynamicFields": {
             "value": [
               {
@@ -363,7 +391,7 @@
       ],
       "parameter_list": {
         "number_input": "true",
-        "placeholder": "Entrez la quantité"
+        "placeholder": "@global.texte_placeholder"
       },
       "_nested_name": "quantite_fumier",
       "_dynamicFields": {
@@ -374,11 +402,24 @@
             "type": "fields",
             "fieldName": "quantite_fumier"
           }
-        ]
+        ],
+        "parameter_list": {
+          "placeholder": [
+            {
+              "fullExpression": "@global.texte_placeholder",
+              "matchedExpression": "@global.texte_placeholder",
+              "type": "global",
+              "fieldName": "texte_placeholder"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@fields.quantite_fumier": [
           "value"
+        ],
+        "@global.texte_placeholder": [
+          "parameter_list.placeholder"
         ]
       }
     },
@@ -486,13 +527,13 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "text",
+          "type": "subtitle",
           "value": "@global.quantite_ordures_menageres_produite_note",
           "_translations": {
             "value": {}
           },
-          "name": "text_1",
-          "_nested_name": "display_group_18.text_1",
+          "name": "subtitle_1",
+          "_nested_name": "display_group_18.subtitle_1",
           "_dynamicFields": {
             "value": [
               {
@@ -586,7 +627,7 @@
       ],
       "parameter_list": {
         "number_input": "true",
-        "placeholder": "Entrez la quantité"
+        "placeholder": "@global.texte_placeholder"
       },
       "_nested_name": "quantite_ordures_menageres",
       "_dynamicFields": {
@@ -597,11 +638,24 @@
             "type": "fields",
             "fieldName": "quantite_ordures_menageres"
           }
-        ]
+        ],
+        "parameter_list": {
+          "placeholder": [
+            {
+              "fullExpression": "@global.texte_placeholder",
+              "matchedExpression": "@global.texte_placeholder",
+              "type": "global",
+              "fieldName": "texte_placeholder"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@fields.quantite_ordures_menageres": [
           "value"
+        ],
+        "@global.texte_placeholder": [
+          "parameter_list.placeholder"
         ]
       }
     },
@@ -709,13 +763,13 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "text",
+          "type": "subtitle",
           "value": "@global.fumure_organique_autre_note",
           "_translations": {
             "value": {}
           },
-          "name": "text_1",
-          "_nested_name": "display_group_25.text_1",
+          "name": "subtitle_1",
+          "_nested_name": "display_group_25.subtitle_1",
           "_dynamicFields": {
             "value": [
               {
@@ -803,18 +857,21 @@
       }
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire",
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
       "_translations": {
         "value": {}
       },
       "condition": "!@fields.fumure_organique_autre && @fields.attempt_submit",
-      "name": "html_29",
-      "_nested_name": "html_29",
+      "style_list": [
+        "@global.hint_style"
+      ],
+      "name": "text_29",
+      "_nested_name": "text_29",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: red;\"> @global.reponse_obligatoire",
+            "fullExpression": "@global.reponse_obligatoire",
             "matchedExpression": "@global.reponse_obligatoire",
             "type": "global",
             "fieldName": "reponse_obligatoire"
@@ -833,7 +890,17 @@
             "type": "fields",
             "fieldName": "attempt_submit"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.hint_style",
+              "matchedExpression": "@global.hint_style",
+              "type": "global",
+              "fieldName": "hint_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.reponse_obligatoire": [
@@ -844,6 +911,9 @@
         ],
         "@fields.attempt_submit": [
           "condition"
+        ],
+        "@global.hint_style": [
+          "style_list.0"
         ]
       }
     },
@@ -907,13 +977,13 @@
           "type": "display_group",
           "rows": [
             {
-              "type": "text",
+              "type": "subtitle",
               "value": "@global.nom_autre_fumure_note",
               "_translations": {
                 "value": {}
               },
-              "name": "text_1",
-              "_nested_name": "display_group_30.display_group_1.text_1",
+              "name": "subtitle_1",
+              "_nested_name": "display_group_30.display_group_1.subtitle_1",
               "_dynamicFields": {
                 "value": [
                   {
@@ -978,8 +1048,7 @@
             }
           ],
           "parameter_list": {
-            "number_input": "true",
-            "placeholder": "Entrez le nom"
+            "placeholder": "@global.texte_placeholder"
           },
           "_nested_name": "display_group_30.nom_fumure_organique_autre",
           "_dynamicFields": {
@@ -990,11 +1059,24 @@
                 "type": "fields",
                 "fieldName": "nom_fumure_organique_autre"
               }
-            ]
+            ],
+            "parameter_list": {
+              "placeholder": [
+                {
+                  "fullExpression": "@global.texte_placeholder",
+                  "matchedExpression": "@global.texte_placeholder",
+                  "type": "global",
+                  "fieldName": "texte_placeholder"
+                }
+              ]
+            }
           },
           "_dynamicDependencies": {
             "@fields.nom_fumure_organique_autre": [
               "value"
+            ],
+            "@global.texte_placeholder": [
+              "parameter_list.placeholder"
             ]
           }
         },
@@ -1002,13 +1084,13 @@
           "type": "display_group",
           "rows": [
             {
-              "type": "text",
+              "type": "subtitle",
               "value": "@global.quantite_fumure_organique_autre_note",
               "_translations": {
                 "value": {}
               },
-              "name": "text_1",
-              "_nested_name": "display_group_30.display_group_4.text_1",
+              "name": "subtitle_1",
+              "_nested_name": "display_group_30.display_group_4.subtitle_1",
               "_dynamicFields": {
                 "value": [
                   {
@@ -1102,7 +1184,7 @@
           ],
           "parameter_list": {
             "number_input": "true",
-            "placeholder": "Entrez la quantité"
+            "placeholder": "@global.texte_placeholder"
           },
           "_nested_name": "display_group_30.quantite_fumure_organique_autre",
           "_dynamicFields": {
@@ -1113,11 +1195,24 @@
                 "type": "fields",
                 "fieldName": "quantite_fumure_organique_autre"
               }
-            ]
+            ],
+            "parameter_list": {
+              "placeholder": [
+                {
+                  "fullExpression": "@global.texte_placeholder",
+                  "matchedExpression": "@global.texte_placeholder",
+                  "type": "global",
+                  "fieldName": "texte_placeholder"
+                }
+              ]
+            }
           },
           "_dynamicDependencies": {
             "@fields.quantite_fumure_organique_autre": [
               "value"
+            ],
+            "@global.texte_placeholder": [
+              "parameter_list.placeholder"
             ]
           }
         },

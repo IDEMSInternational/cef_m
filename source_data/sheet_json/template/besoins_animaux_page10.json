@@ -5,10 +5,14 @@
   "rows": [
     {
       "type": "title",
-      "value": "**DEPENSE DE TOURTEAU**"
+      "value": "@global.depense_tourteau_title"
     },
     {
-      "type": "text",
+      "name": "attempt_submit",
+      "value": "@fields.attempt_submit"
+    },
+    {
+      "type": "subtitle",
       "value": "@global.note_qtite_tourteau_achete"
     },
     {
@@ -17,17 +21,23 @@
       "style_list": "width:120px; height:120px; object-fit:contain; flex-shrink:0;"
     },
     {
-      "type": "html",
-      "name": "note_quantite_sac_tourteau",
-      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\nLa quantité de tourteau de coton à acheter: <strong> @fields.quantite_tourteau sacs\n</strong> </div>"
+      "type": "begin_display_group",
+      "style_list": "background-color: #f0f4f8; border-left-style: solid; border-left-color: #0056b3; border-radius: 5px;"
     },
     {
       "type": "text",
+      "value": "@global.note_quantite_sac_tourteau"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "subtitle",
       "value": "@global.note_prix_sac_tourteau"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: black;\">*1 drm=5 FCFA*</p>"
+      "type": "text",
+      "value": "@global.drm_cfa_hint"
     },
     {
       "type": "image",
@@ -39,14 +49,14 @@
       "name": "prix_sac_tourteau",
       "value": "@fields.prix_sac_tourteau",
       "action_list": "changed | set_field: prix_sac_tourteau : this.value;",
-      "parameter_list": "number_input: true;\nplaceholder: Donnez le prix d'un sac de sac tourteau;",
+      "parameter_list": "number_input: true; placeholder: @global.texte_placeholder;",
       "exclude_from_translation": true
     },
     {
-      "type": "html",
-      "name": "html_text",
-      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
-      "condition": "!@fields.prix_sac_tourteau "
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@fields.prix_sac_tourteau && @fields.attempt_submit",
+      "style_list": "@global.hint_style"
     },
     {
       "name": "valid_prix_sac_tourteau",
@@ -60,13 +70,13 @@
       "style_list": "color: #FF0000;\nfont-size: 14px"
     },
     {
-      "type": "text",
+      "type": "subtitle",
       "value": "@global.note_montant_tourteau",
       "condition": "@fields.prix_sac_tourteau "
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: black;\">*1 drm=5 FCFA*</p>",
+      "type": "text",
+      "value": "@global.drm_cfa_hint",
       "condition": "@fields.prix_sac_tourteau "
     },
     {
@@ -82,15 +92,22 @@
       "condition": "@fields.prix_sac_tourteau "
     },
     {
-      "type": "text",
-      "value": "@global.montant_tourteau",
+      "type": "begin_display_group",
       "condition": "@fields.prix_sac_tourteau ",
-      "style_list": "background-color: #f0f4f8 ;border-left-width: 4px; border-left-style: solid; border-left-color: #0056b3;"
+      "style_list": "background-color: #f0f4f8; border-left-style: solid; border-left-color: #0056b3; border-radius: 5px;"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: black;\">@global.hint_montant_tourteau</p>",
-      "condition": "@fields.prix_sac_tourteau "
+      "type": "text",
+      "value": "@global.montant_tourteau"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "value": "@global.hint_montant_tourteau",
+      "condition": "@fields.prix_sac_tourteau ",
+      "style_list": "@global.hint_style"
     },
     {
       "name": "completed_enabled",
@@ -110,10 +127,19 @@
     },
     {
       "type": "button",
+      "name": "btn_attempt_submit",
+      "value": "@global.btn_continue",
+      "action_list": "click | set_field: attempt_submit: true;",
+      "condition": "!@local.completed_enabled",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "button",
       "name": "page12_button_continue",
-      "value": "Continuer",
+      "value": "@global.btn_continue",
       "action_list": "click | emit: completed;",
       "parameter_list": "disabled: !@local.completed_enabled",
+      "condition": "@local.completed_enabled",
       "style_list": "flex: 1"
     },
     {

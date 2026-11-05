@@ -5,7 +5,7 @@
   "rows": [
     {
       "type": "title",
-      "value": "**SOINS VETERINAIRES**"
+      "value": "@global.soins_veto_title"
     },
     {
       "type": "begin_data_items",
@@ -42,12 +42,14 @@
       "value": "@global.prix_unit_veto"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: black;\"> @global.hint_prix_unit_veto</p>"
+      "type": "text",
+      "value": "@global.hint_prix_unit_veto",
+      "style_list": "@global.hint_style"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: black;\">*1 drm=5 FCFA*</p>"
+      "type": "text",
+      "value": "@global.drm_cfa_hint",
+      "style_list": "@global.hint_style"
     },
     {
       "type": "image",
@@ -59,14 +61,14 @@
       "name": "frais_veterinaire_tete",
       "value": "@fields.frais_veterinaire_tete",
       "action_list": "changed | set_field: frais_veterinaire_tete : this.value;",
-      "parameter_list": "number_input: true\nplaceholder: Entrez le prix du soins ;",
+      "parameter_list": "number_input: true; placeholder: @global.texte_placeholder;",
       "exclude_from_translation": true
     },
     {
-      "type": "html",
-      "name": "html_text",
-      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
-      "condition": "!@local.frais_veterinaire_tete "
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@local.frais_veterinaire_tete ",
+      "style_list": "@global.reponse_style"
     },
     {
       "name": "valid_frais_veterinaire_tete",
@@ -76,8 +78,8 @@
       "type": "text",
       "value": "@global.validite_nombre",
       "condition": "!@local.valid_frais_veterinaire_tete",
-      "exclude_from_translation": true,
-      "style_list": "color: #FF0000;\nfont-size: 14px"
+      "style_list": "@global.reponse_style",
+      "exclude_from_translation": true
     },
     {
       "type": "text",
@@ -91,8 +93,8 @@
       "condition": "@fields.frais_veterinaire_tete > 0"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: black;\">*1 drm=5 FCFA*</p>",
+      "type": "text",
+      "value": "@global.drm_cfa_hint",
       "condition": "@fields.frais_veterinaire_tete > 0"
     },
     {
@@ -106,11 +108,17 @@
       "condition": "@fields.frais_veterinaire_tete > 0"
     },
     {
+      "type": "begin_display_group",
+      "style_list": "background-color: #f0f4f8; border-left-style: solid; border-left-color: #0056b3; border-radius: 5px;"
+    },
+    {
       "type": "text",
       "name": "note_totaux",
       "value": "@global.frais_totaux_veto",
-      "condition": "@fields.frais_veterinaire_tete > 0",
-      "style_list": "background-color: #f0f4f8 ;border-left-width: 4px; border-left-style: solid; border-left-color: #0056b3;"
+      "condition": "@fields.frais_veterinaire_tete > 0"
+    },
+    {
+      "type": "end_display_group"
     },
     {
       "type": "text",
@@ -146,14 +154,14 @@
     },
     {
       "type": "round_button",
-      "name": "page8_button_back",
+      "name": "page6_button_back",
       "action_list": "click | emit: uncompleted;",
       "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
     },
     {
       "type": "button",
       "name": "button_next_cat_animaux",
-      "value": "Continuer",
+      "value": "@global.btn_continue",
       "action_list": "click | set_field: frais_veterinaire_tete_@fields.current_cat_animaux: @fields.frais_veterinaire_tete;\nclick | set_field: frais_veterinaire_cat_@fields.current_cat_animaux: @fields.frais_veterinaire_cat;\n\nclick | set_field: type_regime:;\nclick | set_field: nb_animaux:;  \nclick | set_field: frais_veterinaire_tete:;  \nclick | set_field: frais_veterinaire_cat:; \n\nclick | set_field: current_cat_animaux : @local.current_cat_animaux;\n\nclick | set_field: cat_animaux_loop_idx : @local.cat_animaux_loop_idx;\nclick | set_data | _list_id: besoins_animaux_settings_pages, _index: 3, completed: false;\nclick | set_data | _list_id: besoins_animaux_settings_pages, _index: 4, completed: false;\nclick | set_data | _list_id: besoins_animaux_settings_pages, _index: 5, completed: false;\n",
       "parameter_list": "disabled: !@local.completed_enabled",
       "condition": "@local.last_cat_animaux",
@@ -161,8 +169,8 @@
     },
     {
       "type": "button",
-      "name": "page8_button_continue",
-      "value": "Continuer",
+      "name": "page6_button_continue",
+      "value": "@global.btn_continue",
       "action_list": "click | set_field: frais_veterinaire_tete_@fields.current_cat_animaux: @fields.frais_veterinaire_tete;\nclick | set_field: frais_veterinaire_cat_@fields.current_cat_animaux: @fields.frais_veterinaire_cat;\nclick | emit: completed;",
       "parameter_list": "disabled: !@local.completed_enabled",
       "condition": "!@local.last_cat_animaux",

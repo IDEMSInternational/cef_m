@@ -5,12 +5,27 @@
   "rows": [
     {
       "type": "title",
-      "value": "EQUIPEMENT DE L'UPA",
+      "value": "@global.equipement_upa",
       "_translations": {
         "value": {}
       },
       "name": "title_2",
-      "_nested_name": "title_2"
+      "_nested_name": "title_2",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.equipement_upa",
+            "matchedExpression": "@global.equipement_upa",
+            "type": "global",
+            "fieldName": "equipement_upa"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.equipement_upa": [
+          "value"
+        ]
+      }
     },
     {
       "name": "attempt_submit",
@@ -38,37 +53,19 @@
     },
     {
       "type": "display_group",
-      "style_list": [
-        "display: block",
-        "width: 100%"
-      ],
       "rows": [
         {
-          "type": "audio",
-          "name": "audio_13_1",
-          "parameter_list": {
-            "variant": "button_only",
-            "src": "audio/Enrolement/tracteur_fr.mp3",
-            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
-          },
-          "exclude_from_translation": true,
-          "style_list": [
-            "float:right"
-          ],
-          "_nested_name": "display_group_4.audio_13_1"
-        },
-        {
-          "type": "html",
-          "value": "@global.nb_tracteurs<span style=\"color: red;\">*</span>",
+          "type": "subtitle",
+          "value": "@global.nb_tracteurs",
           "_translations": {
             "value": {}
           },
-          "name": "html_2",
-          "_nested_name": "display_group_4.html_2",
+          "name": "subtitle_1",
+          "_nested_name": "display_group_4.subtitle_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "@global.nb_tracteurs<span style=\"color: red;\">*</span>",
+                "fullExpression": "@global.nb_tracteurs",
                 "matchedExpression": "@global.nb_tracteurs",
                 "type": "global",
                 "fieldName": "nb_tracteurs"
@@ -80,6 +77,20 @@
               "value"
             ]
           }
+        },
+        {
+          "type": "audio",
+          "name": "audio_13_1",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/Enrolement/tracteur_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float:right"
+          ],
+          "exclude_from_translation": true,
+          "_nested_name": "display_group_4.audio_13_1"
         }
       ],
       "name": "display_group_4",
@@ -107,7 +118,7 @@
       },
       "parameter_list": {
         "number_input": "true",
-        "placeholder": "Ecrivez le nombre de tracteurs"
+        "placeholder": "@global.texte_placeholder"
       },
       "condition": "!!@field.nombre_tracteur",
       "exclude_from_translation": true,
@@ -121,6 +132,16 @@
             "fieldName": "nombre_tracteur"
           }
         ],
+        "parameter_list": {
+          "placeholder": [
+            {
+              "fullExpression": "@global.texte_placeholder",
+              "matchedExpression": "@global.texte_placeholder",
+              "type": "global",
+              "fieldName": "texte_placeholder"
+            }
+          ]
+        },
         "condition": [
           {
             "fullExpression": "!!@field.nombre_tracteur",
@@ -134,6 +155,9 @@
         "@fields.nombre_tracteur": [
           "value"
         ],
+        "@global.texte_placeholder": [
+          "parameter_list.placeholder"
+        ],
         "!@field.nombre_tracteur": [
           "condition"
         ]
@@ -144,12 +168,22 @@
       "name": "nombre_tracteur",
       "parameter_list": {
         "number_input": "true",
-        "placeholder": "Ecrivez le nombre de tracteurs"
+        "placeholder": "@global.texte_placeholder"
       },
       "condition": "!@field.nombre_tracteur",
       "exclude_from_translation": true,
       "_nested_name": "nombre_tracteur",
       "_dynamicFields": {
+        "parameter_list": {
+          "placeholder": [
+            {
+              "fullExpression": "@global.texte_placeholder",
+              "matchedExpression": "@global.texte_placeholder",
+              "type": "global",
+              "fieldName": "texte_placeholder"
+            }
+          ]
+        },
         "condition": [
           {
             "fullExpression": "!@field.nombre_tracteur",
@@ -160,6 +194,9 @@
         ]
       },
       "_dynamicDependencies": {
+        "@global.texte_placeholder": [
+          "parameter_list.placeholder"
+        ],
         "!@field.nombre_tracteur": [
           "condition"
         ]
@@ -222,18 +259,21 @@
       }
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
       "_translations": {
         "value": {}
       },
       "condition": "!@local.nombre_tracteur && @fields.attempt_submit",
-      "name": "html_10",
-      "_nested_name": "html_10",
+      "style_list": [
+        "@global.reponse_style"
+      ],
+      "name": "text_10",
+      "_nested_name": "text_10",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+            "fullExpression": "@global.reponse_obligatoire",
             "matchedExpression": "@global.reponse_obligatoire",
             "type": "global",
             "fieldName": "reponse_obligatoire"
@@ -252,7 +292,17 @@
             "type": "fields",
             "fieldName": "attempt_submit"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.reponse_obligatoire": [
@@ -263,6 +313,9 @@
         ],
         "@fields.attempt_submit": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
@@ -274,8 +327,7 @@
       },
       "condition": "!@local.valid_nombre_tracteur && @fields.attempt_submit",
       "style_list": [
-        "color: red",
-        "font-size: 12px"
+        "@global.reponse_style"
       ],
       "name": "text_11",
       "_nested_name": "text_11",
@@ -301,7 +353,17 @@
             "type": "fields",
             "fieldName": "attempt_submit"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.error_number_min_0": [
@@ -312,42 +374,27 @@
         ],
         "@fields.attempt_submit": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
     {
       "type": "display_group",
-      "style_list": [
-        "display: block",
-        "width: 100%"
-      ],
       "rows": [
         {
-          "type": "audio",
-          "name": "audio_13_2",
-          "parameter_list": {
-            "variant": "button_only",
-            "src": "audio/Enrolement/motocult_fr.mp3",
-            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
-          },
-          "exclude_from_translation": true,
-          "style_list": [
-            "float:right"
-          ],
-          "_nested_name": "display_group_12.audio_13_2"
-        },
-        {
-          "type": "html",
-          "value": "@global.nb_motoculteurs<span style=\"color: red;\">*</span>",
+          "type": "subtitle",
+          "value": "@global.nb_motoculteurs",
           "_translations": {
             "value": {}
           },
-          "name": "html_2",
-          "_nested_name": "display_group_12.html_2",
+          "name": "subtitle_1",
+          "_nested_name": "display_group_12.subtitle_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "@global.nb_motoculteurs<span style=\"color: red;\">*</span>",
+                "fullExpression": "@global.nb_motoculteurs",
                 "matchedExpression": "@global.nb_motoculteurs",
                 "type": "global",
                 "fieldName": "nb_motoculteurs"
@@ -359,6 +406,20 @@
               "value"
             ]
           }
+        },
+        {
+          "type": "audio",
+          "name": "audio_13_2",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/Enrolement/motocult_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float:right"
+          ],
+          "exclude_from_translation": true,
+          "_nested_name": "display_group_12.audio_13_2"
         }
       ],
       "name": "display_group_12",
@@ -386,7 +447,7 @@
       },
       "parameter_list": {
         "number_input": "true",
-        "placeholder": "Nombre de motoculteurs"
+        "placeholder": "@global.texte_placeholder"
       },
       "condition": "!!@field.nombre_motoculteurs",
       "exclude_from_translation": true,
@@ -400,6 +461,16 @@
             "fieldName": "nombre_motoculteurs"
           }
         ],
+        "parameter_list": {
+          "placeholder": [
+            {
+              "fullExpression": "@global.texte_placeholder",
+              "matchedExpression": "@global.texte_placeholder",
+              "type": "global",
+              "fieldName": "texte_placeholder"
+            }
+          ]
+        },
         "condition": [
           {
             "fullExpression": "!!@field.nombre_motoculteurs",
@@ -413,6 +484,9 @@
         "@fields.nombre_motoculteurs": [
           "value"
         ],
+        "@global.texte_placeholder": [
+          "parameter_list.placeholder"
+        ],
         "!@field.nombre_motoculteurs": [
           "condition"
         ]
@@ -423,12 +497,22 @@
       "name": "nombre_motoculteurs",
       "parameter_list": {
         "number_input": "true",
-        "placeholder": "Nombre de motoculteurs"
+        "placeholder": "@global.texte_placeholder"
       },
       "condition": "!@field.nombre_motoculteurs",
       "exclude_from_translation": true,
       "_nested_name": "nombre_motoculteurs",
       "_dynamicFields": {
+        "parameter_list": {
+          "placeholder": [
+            {
+              "fullExpression": "@global.texte_placeholder",
+              "matchedExpression": "@global.texte_placeholder",
+              "type": "global",
+              "fieldName": "texte_placeholder"
+            }
+          ]
+        },
         "condition": [
           {
             "fullExpression": "!@field.nombre_motoculteurs",
@@ -439,6 +523,9 @@
         ]
       },
       "_dynamicDependencies": {
+        "@global.texte_placeholder": [
+          "parameter_list.placeholder"
+        ],
         "!@field.nombre_motoculteurs": [
           "condition"
         ]
@@ -501,18 +588,21 @@
       }
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
       "_translations": {
         "value": {}
       },
       "condition": "!@local.nombre_motoculteurs && @fields.attempt_submit",
-      "name": "html_18",
-      "_nested_name": "html_18",
+      "style_list": [
+        "@global.reponse_style"
+      ],
+      "name": "text_18",
+      "_nested_name": "text_18",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+            "fullExpression": "@global.reponse_obligatoire",
             "matchedExpression": "@global.reponse_obligatoire",
             "type": "global",
             "fieldName": "reponse_obligatoire"
@@ -531,7 +621,17 @@
             "type": "fields",
             "fieldName": "attempt_submit"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.reponse_obligatoire": [
@@ -542,6 +642,9 @@
         ],
         "@fields.attempt_submit": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
@@ -553,8 +656,7 @@
       },
       "condition": "!@local.valid_nombre_motoculteurs && @fields.attempt_submit",
       "style_list": [
-        "color: red",
-        "font-size: 12px"
+        "@global.reponse_style"
       ],
       "name": "text_19",
       "_nested_name": "text_19",
@@ -580,7 +682,17 @@
             "type": "fields",
             "fieldName": "attempt_submit"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.error_number_min_0": [
@@ -591,42 +703,27 @@
         ],
         "@fields.attempt_submit": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
     {
       "type": "display_group",
-      "style_list": [
-        "display: block",
-        "width: 100%"
-      ],
       "rows": [
         {
-          "type": "audio",
-          "name": "audio_13_3",
-          "parameter_list": {
-            "variant": "button_only",
-            "src": "audio/Enrolement/mototricycle_fr.mp3",
-            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
-          },
-          "exclude_from_translation": true,
-          "style_list": [
-            "float:right"
-          ],
-          "_nested_name": "display_group_20.audio_13_3"
-        },
-        {
-          "type": "html",
-          "value": "@global.nb_moto_tricycles<span style=\"color: red;\">*</span>",
+          "type": "subtitle",
+          "value": "@global.nb_moto_tricycles",
           "_translations": {
             "value": {}
           },
-          "name": "html_2",
-          "_nested_name": "display_group_20.html_2",
+          "name": "subtitle_1",
+          "_nested_name": "display_group_20.subtitle_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "@global.nb_moto_tricycles<span style=\"color: red;\">*</span>",
+                "fullExpression": "@global.nb_moto_tricycles",
                 "matchedExpression": "@global.nb_moto_tricycles",
                 "type": "global",
                 "fieldName": "nb_moto_tricycles"
@@ -638,6 +735,20 @@
               "value"
             ]
           }
+        },
+        {
+          "type": "audio",
+          "name": "audio_13_3",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/Enrolement/mototricycle_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float:right"
+          ],
+          "exclude_from_translation": true,
+          "_nested_name": "display_group_20.audio_13_3"
         }
       ],
       "name": "display_group_20",
@@ -665,7 +776,7 @@
       },
       "parameter_list": {
         "number_input": "true",
-        "placeholder": "Nombre de moto-tricycles"
+        "placeholder": "@global.texte_placeholder"
       },
       "condition": "!!@fields.nombre_mototricycle",
       "exclude_from_translation": true,
@@ -679,6 +790,16 @@
             "fieldName": "nombre_mototricycle"
           }
         ],
+        "parameter_list": {
+          "placeholder": [
+            {
+              "fullExpression": "@global.texte_placeholder",
+              "matchedExpression": "@global.texte_placeholder",
+              "type": "global",
+              "fieldName": "texte_placeholder"
+            }
+          ]
+        },
         "condition": [
           {
             "fullExpression": "!!@fields.nombre_mototricycle",
@@ -692,6 +813,9 @@
         "@fields.nombre_mototricycle": [
           "value"
         ],
+        "@global.texte_placeholder": [
+          "parameter_list.placeholder"
+        ],
         "!@fields.nombre_mototricycle": [
           "condition"
         ]
@@ -702,12 +826,22 @@
       "name": "nombre_mototricycle",
       "parameter_list": {
         "number_input": "true",
-        "placeholder": "Nombre de moto-tricycles"
+        "placeholder": "@global.texte_placeholder"
       },
       "condition": "!@fields.nombre_mototricycle",
       "exclude_from_translation": true,
       "_nested_name": "nombre_mototricycle",
       "_dynamicFields": {
+        "parameter_list": {
+          "placeholder": [
+            {
+              "fullExpression": "@global.texte_placeholder",
+              "matchedExpression": "@global.texte_placeholder",
+              "type": "global",
+              "fieldName": "texte_placeholder"
+            }
+          ]
+        },
         "condition": [
           {
             "fullExpression": "!@fields.nombre_mototricycle",
@@ -718,6 +852,9 @@
         ]
       },
       "_dynamicDependencies": {
+        "@global.texte_placeholder": [
+          "parameter_list.placeholder"
+        ],
         "!@fields.nombre_mototricycle": [
           "condition"
         ]
@@ -780,18 +917,21 @@
       }
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
       "_translations": {
         "value": {}
       },
       "condition": "!@local.nombre_mototricycle && @fields.attempt_submit",
-      "name": "html_26",
-      "_nested_name": "html_26",
+      "style_list": [
+        "@global.reponse_style"
+      ],
+      "name": "text_26",
+      "_nested_name": "text_26",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+            "fullExpression": "@global.reponse_obligatoire",
             "matchedExpression": "@global.reponse_obligatoire",
             "type": "global",
             "fieldName": "reponse_obligatoire"
@@ -810,7 +950,17 @@
             "type": "fields",
             "fieldName": "attempt_submit"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.reponse_obligatoire": [
@@ -821,6 +971,9 @@
         ],
         "@fields.attempt_submit": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
@@ -832,8 +985,7 @@
       },
       "condition": "!@local.valid_nombre_mototricycle && @fields.attempt_submit",
       "style_list": [
-        "color: red",
-        "font-size: 12px"
+        "@global.reponse_style"
       ],
       "name": "text_27",
       "_nested_name": "text_27",
@@ -859,7 +1011,17 @@
             "type": "fields",
             "fieldName": "attempt_submit"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.error_number_min_0": [
@@ -870,42 +1032,27 @@
         ],
         "@fields.attempt_submit": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
     {
       "type": "display_group",
-      "style_list": [
-        "display: block",
-        "width: 100%"
-      ],
       "rows": [
         {
-          "type": "audio",
-          "name": "audio_13_4",
-          "parameter_list": {
-            "variant": "button_only",
-            "src": "audio/Enrolement/batteuse_fr.mp3",
-            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
-          },
-          "exclude_from_translation": true,
-          "style_list": [
-            "float:right"
-          ],
-          "_nested_name": "display_group_28.audio_13_4"
-        },
-        {
-          "type": "html",
-          "value": "@global.nb_batteuses<span style=\"color: red;\">*</span>",
+          "type": "subtitle",
+          "value": "@global.nb_batteuses",
           "_translations": {
             "value": {}
           },
-          "name": "html_2",
-          "_nested_name": "display_group_28.html_2",
+          "name": "subtitle_1",
+          "_nested_name": "display_group_28.subtitle_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "@global.nb_batteuses<span style=\"color: red;\">*</span>",
+                "fullExpression": "@global.nb_batteuses",
                 "matchedExpression": "@global.nb_batteuses",
                 "type": "global",
                 "fieldName": "nb_batteuses"
@@ -917,6 +1064,20 @@
               "value"
             ]
           }
+        },
+        {
+          "type": "audio",
+          "name": "audio_13_4",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/Enrolement/batteuse_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float:right"
+          ],
+          "exclude_from_translation": true,
+          "_nested_name": "display_group_28.audio_13_4"
         }
       ],
       "name": "display_group_28",
@@ -944,7 +1105,7 @@
       },
       "parameter_list": {
         "number_input": "true",
-        "placeholder": "Nombre de batteuses"
+        "placeholder": "@global.texte_placeholder"
       },
       "condition": "!!@fields.nombre_batteuse",
       "exclude_from_translation": true,
@@ -958,6 +1119,16 @@
             "fieldName": "nombre_batteuse"
           }
         ],
+        "parameter_list": {
+          "placeholder": [
+            {
+              "fullExpression": "@global.texte_placeholder",
+              "matchedExpression": "@global.texte_placeholder",
+              "type": "global",
+              "fieldName": "texte_placeholder"
+            }
+          ]
+        },
         "condition": [
           {
             "fullExpression": "!!@fields.nombre_batteuse",
@@ -971,6 +1142,9 @@
         "@fields.nombre_batteuse": [
           "value"
         ],
+        "@global.texte_placeholder": [
+          "parameter_list.placeholder"
+        ],
         "!@fields.nombre_batteuse": [
           "condition"
         ]
@@ -981,12 +1155,22 @@
       "name": "nombre_batteuse",
       "parameter_list": {
         "number_input": "true",
-        "placeholder": "Nombre de batteuses"
+        "placeholder": "@global.texte_placeholder"
       },
       "condition": "!@fields.nombre_batteuse",
       "exclude_from_translation": true,
       "_nested_name": "nombre_batteuse",
       "_dynamicFields": {
+        "parameter_list": {
+          "placeholder": [
+            {
+              "fullExpression": "@global.texte_placeholder",
+              "matchedExpression": "@global.texte_placeholder",
+              "type": "global",
+              "fieldName": "texte_placeholder"
+            }
+          ]
+        },
         "condition": [
           {
             "fullExpression": "!@fields.nombre_batteuse",
@@ -997,6 +1181,9 @@
         ]
       },
       "_dynamicDependencies": {
+        "@global.texte_placeholder": [
+          "parameter_list.placeholder"
+        ],
         "!@fields.nombre_batteuse": [
           "condition"
         ]
@@ -1059,18 +1246,21 @@
       }
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
       "_translations": {
         "value": {}
       },
       "condition": "!@local.nombre_batteuse && @fields.attempt_submit",
-      "name": "html_34",
-      "_nested_name": "html_34",
+      "style_list": [
+        "@global.reponse_style"
+      ],
+      "name": "text_34",
+      "_nested_name": "text_34",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+            "fullExpression": "@global.reponse_obligatoire",
             "matchedExpression": "@global.reponse_obligatoire",
             "type": "global",
             "fieldName": "reponse_obligatoire"
@@ -1089,7 +1279,17 @@
             "type": "fields",
             "fieldName": "attempt_submit"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.reponse_obligatoire": [
@@ -1100,6 +1300,9 @@
         ],
         "@fields.attempt_submit": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
@@ -1111,8 +1314,7 @@
       },
       "condition": "!@local.valid_nombre_batteuse && @fields.attempt_submit",
       "style_list": [
-        "color: red",
-        "font-size: 12px"
+        "@global.reponse_style"
       ],
       "name": "text_35",
       "_nested_name": "text_35",
@@ -1138,7 +1340,17 @@
             "type": "fields",
             "fieldName": "attempt_submit"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.error_number_min_0": [
@@ -1149,42 +1361,27 @@
         ],
         "@fields.attempt_submit": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
     {
       "type": "display_group",
-      "style_list": [
-        "display: block",
-        "width: 100%"
-      ],
       "rows": [
         {
-          "type": "audio",
-          "name": "audio_13_5",
-          "parameter_list": {
-            "variant": "button_only",
-            "src": "audio/Enrolement/decortiqueuse_fr.mp3",
-            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
-          },
-          "exclude_from_translation": true,
-          "style_list": [
-            "float:right"
-          ],
-          "_nested_name": "display_group_36.audio_13_5"
-        },
-        {
-          "type": "html",
-          "value": "@global.nb_decortiqueuses<span style=\"color: red;\">*</span>",
+          "type": "subtitle",
+          "value": "@global.nb_decortiqueuses",
           "_translations": {
             "value": {}
           },
-          "name": "html_2",
-          "_nested_name": "display_group_36.html_2",
+          "name": "subtitle_1",
+          "_nested_name": "display_group_36.subtitle_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "@global.nb_decortiqueuses<span style=\"color: red;\">*</span>",
+                "fullExpression": "@global.nb_decortiqueuses",
                 "matchedExpression": "@global.nb_decortiqueuses",
                 "type": "global",
                 "fieldName": "nb_decortiqueuses"
@@ -1196,6 +1393,20 @@
               "value"
             ]
           }
+        },
+        {
+          "type": "audio",
+          "name": "audio_13_5",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/Enrolement/decortiqueuse_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float:right"
+          ],
+          "exclude_from_translation": true,
+          "_nested_name": "display_group_36.audio_13_5"
         }
       ],
       "name": "display_group_36",
@@ -1223,7 +1434,7 @@
       },
       "parameter_list": {
         "number_input": "true",
-        "placeholder": "Nombre de decortiqueuses"
+        "placeholder": "@global.texte_placeholder"
       },
       "condition": "!!@fields.nombre_decortiqueuse",
       "exclude_from_translation": true,
@@ -1237,6 +1448,16 @@
             "fieldName": "nombre_decortiqueuse"
           }
         ],
+        "parameter_list": {
+          "placeholder": [
+            {
+              "fullExpression": "@global.texte_placeholder",
+              "matchedExpression": "@global.texte_placeholder",
+              "type": "global",
+              "fieldName": "texte_placeholder"
+            }
+          ]
+        },
         "condition": [
           {
             "fullExpression": "!!@fields.nombre_decortiqueuse",
@@ -1250,6 +1471,9 @@
         "@fields.nombre_decortiqueuse": [
           "value"
         ],
+        "@global.texte_placeholder": [
+          "parameter_list.placeholder"
+        ],
         "!@fields.nombre_decortiqueuse": [
           "condition"
         ]
@@ -1260,12 +1484,22 @@
       "name": "nombre_decortiqueuse",
       "parameter_list": {
         "number_input": "true",
-        "placeholder": "Nombre de decortiqueuses"
+        "placeholder": "@global.texte_placeholder"
       },
       "condition": "!@fields.nombre_decortiqueuse",
       "exclude_from_translation": true,
       "_nested_name": "nombre_decortiqueuse",
       "_dynamicFields": {
+        "parameter_list": {
+          "placeholder": [
+            {
+              "fullExpression": "@global.texte_placeholder",
+              "matchedExpression": "@global.texte_placeholder",
+              "type": "global",
+              "fieldName": "texte_placeholder"
+            }
+          ]
+        },
         "condition": [
           {
             "fullExpression": "!@fields.nombre_decortiqueuse",
@@ -1276,6 +1510,9 @@
         ]
       },
       "_dynamicDependencies": {
+        "@global.texte_placeholder": [
+          "parameter_list.placeholder"
+        ],
         "!@fields.nombre_decortiqueuse": [
           "condition"
         ]
@@ -1338,18 +1575,21 @@
       }
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
       "_translations": {
         "value": {}
       },
       "condition": "!@local.nombre_decortiqueuse && @fields.attempt_submit",
-      "name": "html_42",
-      "_nested_name": "html_42",
+      "style_list": [
+        "@global.reponse_style\n@global.reponse_style"
+      ],
+      "name": "text_42",
+      "_nested_name": "text_42",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+            "fullExpression": "@global.reponse_obligatoire",
             "matchedExpression": "@global.reponse_obligatoire",
             "type": "global",
             "fieldName": "reponse_obligatoire"
@@ -1368,7 +1608,23 @@
             "type": "fields",
             "fieldName": "attempt_submit"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style\n@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            },
+            {
+              "fullExpression": "@global.reponse_style\n@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.reponse_obligatoire": [
@@ -1379,6 +1635,10 @@
         ],
         "@fields.attempt_submit": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0",
+          "style_list.0"
         ]
       }
     },
@@ -1435,17 +1695,17 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "html",
-          "value": "@global.oui_non_materiel<span style=\"color: red;\">*</span>",
+          "type": "subtitle",
+          "value": "@global.oui_non_materiel",
           "_translations": {
             "value": {}
           },
-          "name": "html_1",
-          "_nested_name": "display_group_44.html_1",
+          "name": "subtitle_1",
+          "_nested_name": "display_group_44.subtitle_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "@global.oui_non_materiel<span style=\"color: red;\">*</span>",
+                "fullExpression": "@global.oui_non_materiel",
                 "matchedExpression": "@global.oui_non_materiel",
                 "type": "global",
                 "fieldName": "oui_non_materiel"
@@ -1466,10 +1726,10 @@
             "src": "audio/Enrolement/on_autre_mat_fr.mp3",
             "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
-          "exclude_from_translation": true,
           "style_list": [
             "float: right"
           ],
+          "exclude_from_translation": true,
           "_nested_name": "display_group_44.audio_13_6"
         }
       ],
@@ -1477,26 +1737,42 @@
       "_nested_name": "display_group_44"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: black;\"> @global.autre_materiel_hint  </p>",
+      "type": "text",
+      "value": "@global.autre_materiel_hint",
       "_translations": {
         "value": {}
       },
-      "name": "html_46",
-      "_nested_name": "html_46",
+      "style_list": [
+        "@global.hint_style"
+      ],
+      "name": "text_46",
+      "_nested_name": "text_46",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: black;\"> @global.autre_materiel_hint  </p>",
+            "fullExpression": "@global.autre_materiel_hint",
             "matchedExpression": "@global.autre_materiel_hint",
             "type": "global",
             "fieldName": "autre_materiel_hint"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.hint_style",
+              "matchedExpression": "@global.hint_style",
+              "type": "global",
+              "fieldName": "hint_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.autre_materiel_hint": [
           "value"
+        ],
+        "@global.hint_style": [
+          "style_list.0"
         ]
       }
     },
@@ -1557,18 +1833,21 @@
       }
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "type": "text",
+      "value": "@global.reponse_obligatoire </p>",
       "_translations": {
         "value": {}
       },
       "condition": "!@fields.on_autre_materiel && @fields.attempt_submit",
-      "name": "html_49",
-      "_nested_name": "html_49",
+      "style_list": [
+        "@global.reponse_style"
+      ],
+      "name": "text_49",
+      "_nested_name": "text_49",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+            "fullExpression": "@global.reponse_obligatoire </p>",
             "matchedExpression": "@global.reponse_obligatoire",
             "type": "global",
             "fieldName": "reponse_obligatoire"
@@ -1587,7 +1866,17 @@
             "type": "fields",
             "fieldName": "attempt_submit"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.reponse_obligatoire": [
@@ -1598,6 +1887,9 @@
         ],
         "@fields.attempt_submit": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
@@ -1606,24 +1898,21 @@
       "condition": "@fields.on_autre_materiel == 'oui'",
       "rows": [
         {
-          "type": "html",
-          "value": "@global.nom_autre_materiel<span style=\"color: red;\">*</span>",
+          "type": "subtitle",
+          "value": "@global.nom_autre_materiel",
           "_translations": {
             "value": {}
           },
-          "parameter_list": {
-            "style": "contextual"
-          },
-          "exclude_from_translation": true,
           "style_list": [
             "font-size:20px"
           ],
-          "name": "html_1",
-          "_nested_name": "display_group_50.html_1",
+          "exclude_from_translation": true,
+          "name": "subtitle_1",
+          "_nested_name": "display_group_50.subtitle_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "@global.nom_autre_materiel<span style=\"color: red;\">*</span>",
+                "fullExpression": "@global.nom_autre_materiel",
                 "matchedExpression": "@global.nom_autre_materiel",
                 "type": "global",
                 "fieldName": "nom_autre_materiel"
@@ -1644,10 +1933,10 @@
             "src": "audio/Enrolement/autre_mat_fr.mp3",
             "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
-          "exclude_from_translation": true,
           "style_list": [
             "align-self: flex-end"
           ],
+          "exclude_from_translation": true,
           "_nested_name": "display_group_50.autre_mat"
         }
       ],
@@ -1718,7 +2007,7 @@
         }
       ],
       "parameter_list": {
-        "placeholder": "Entrez le nom du matériel"
+        "placeholder": "@global.texte_placeholder"
       },
       "condition": "@fields.on_autre_materiel == 'oui'",
       "exclude_from_translation": true,
@@ -1732,6 +2021,16 @@
             "fieldName": "autre_materiel"
           }
         ],
+        "parameter_list": {
+          "placeholder": [
+            {
+              "fullExpression": "@global.texte_placeholder",
+              "matchedExpression": "@global.texte_placeholder",
+              "type": "global",
+              "fieldName": "texte_placeholder"
+            }
+          ]
+        },
         "condition": [
           {
             "fullExpression": "@fields.on_autre_materiel == 'oui'",
@@ -1745,24 +2044,30 @@
         "@fields.autre_materiel": [
           "value"
         ],
+        "@global.texte_placeholder": [
+          "parameter_list.placeholder"
+        ],
         "@fields.on_autre_materiel": [
           "condition"
         ]
       }
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
       "_translations": {
         "value": {}
       },
       "condition": "!@local.autre_materiel && @fields.on_autre_materiel == 'oui'",
-      "name": "html_54",
-      "_nested_name": "html_54",
+      "style_list": [
+        "@global.reponse_style"
+      ],
+      "name": "text_54",
+      "_nested_name": "text_54",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+            "fullExpression": "@global.reponse_obligatoire",
             "matchedExpression": "@global.reponse_obligatoire",
             "type": "global",
             "fieldName": "reponse_obligatoire"
@@ -1781,7 +2086,17 @@
             "type": "fields",
             "fieldName": "on_autre_materiel"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.reponse_obligatoire": [
@@ -1792,6 +2107,9 @@
         ],
         "@fields.on_autre_materiel": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
@@ -1800,9 +2118,6 @@
       "value": "@global.nb_autre_materiel",
       "_translations": {
         "value": {}
-      },
-      "parameter_list": {
-        "style": "contextual"
       },
       "condition": "@fields.on_autre_materiel == 'oui'",
       "exclude_from_translation": true,
@@ -1855,7 +2170,7 @@
       ],
       "parameter_list": {
         "number_input": "true",
-        "placeholder": "Entrez le nombre"
+        "placeholder": "@global.texte_placeholder"
       },
       "condition": "@fields.on_autre_materiel == 'oui'",
       "exclude_from_translation": true,
@@ -1869,6 +2184,16 @@
             "fieldName": "nombre_autre_materiel"
           }
         ],
+        "parameter_list": {
+          "placeholder": [
+            {
+              "fullExpression": "@global.texte_placeholder",
+              "matchedExpression": "@global.texte_placeholder",
+              "type": "global",
+              "fieldName": "texte_placeholder"
+            }
+          ]
+        },
         "condition": [
           {
             "fullExpression": "@fields.on_autre_materiel == 'oui'",
@@ -1881,6 +2206,9 @@
       "_dynamicDependencies": {
         "@fields.nombre_autre_materiel": [
           "value"
+        ],
+        "@global.texte_placeholder": [
+          "parameter_list.placeholder"
         ],
         "@fields.on_autre_materiel": [
           "condition"
@@ -1951,11 +2279,10 @@
         "value": {}
       },
       "condition": "!@local.valid_nombre_autre_materiel && @fields.on_autre_materiel == 'oui'",
-      "exclude_from_translation": true,
       "style_list": [
-        "color: #FF0000",
-        "font-size: 14px"
+        "@global.reponse_style"
       ],
+      "exclude_from_translation": true,
       "name": "text_58",
       "_nested_name": "text_58",
       "_dynamicFields": {
@@ -1980,7 +2307,17 @@
             "type": "fields",
             "fieldName": "on_autre_materiel"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.error_number_min_0": [
@@ -1991,6 +2328,9 @@
         ],
         "@fields.on_autre_materiel": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },

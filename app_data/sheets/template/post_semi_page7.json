@@ -79,13 +79,35 @@
       }
     },
     {
-      "type": "html",
-      "value": "<h2 style=\"color: #1B5E20; text-align: center; margin: 0;\">INVESTISSEMENT TOTAL UPA</h2>",
+      "type": "text",
+      "value": "@global.header_title",
       "_translations": {
         "value": {}
       },
-      "name": "html_5",
-      "_nested_name": "html_5"
+      "style_list": [
+        "color: #1B5E20",
+        "font-weight: bold",
+        "font-size: 20px",
+        "text-align: center",
+        "margin-bottom: 10px"
+      ],
+      "name": "text_5",
+      "_nested_name": "text_5",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.header_title",
+            "matchedExpression": "@global.header_title",
+            "type": "global",
+            "fieldName": "header_title"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.header_title": [
+          "value"
+        ]
+      }
     },
     {
       "type": "audio",
@@ -108,60 +130,170 @@
         "value": {}
       },
       "style_list": [
-        "width: 100px",
-        "height: 100px"
+        "width: 40%",
+        "object-fit: contain",
+        "display: block",
+        "margin: 10px auto"
       ],
       "name": "image_7",
       "_nested_name": "image_7"
     },
     {
-      "type": "html",
-      "value": "<div style=\"background: #FFF3E0; padding: 20px; border-radius: 15px; text-align: center; border: 2px solid #E65100;\">\n  <span style=\"font-size: 16px; color: #6D4C41; text-transform: uppercase;\">Total Investi (Toutes Cultures)</span>\n  <h1 style=\"color: #E65100; margin: 10px 0;\">@local.v_grand_total Dram</h1>\n  \n  <div style=\"background: #E8F5E9; padding: 10px; border-radius: 10px;\">\n    <span style=\"color: #2E7D32; font-weight: bold; font-size: 20px;\">\n      @local.v_grand_total_fcfa FCFA\n    </span>\n  </div>\n</div>",
-      "_translations": {
-        "value": {}
-      },
-      "name": "html_8",
-      "_nested_name": "html_8",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "<div style=\"background: #FFF3E0; padding: 20px; border-radius: 15px; text-align: center; border: 2px solid #E65100;\">\n  <span style=\"font-size: 16px; color: #6D4C41; text-transform: uppercase;\">Total Investi (Toutes Cultures)</span>\n  <h1 style=\"color: #E65100; margin: 10px 0;\">@local.v_grand_total Dram</h1>\n  \n  <div style=\"background: #E8F5E9; padding: 10px; border-radius: 10px;\">\n    <span style=\"color: #2E7D32; font-weight: bold; font-size: 20px;\">\n      @local.v_grand_total_fcfa FCFA\n    </span>\n  </div>\n</div>",
-            "matchedExpression": "@local.v_grand_total",
-            "type": "local",
-            "fieldName": "v_grand_total"
+      "type": "display_group",
+      "name": "card_investissement",
+      "style_list": [
+        "background: #FFF3E0",
+        "padding: 20px",
+        "border-radius: 15px",
+        "text-align: center",
+        "margin-bottom: 20px"
+      ],
+      "rows": [
+        {
+          "type": "text",
+          "value": "@global.lbl_total_label",
+          "_translations": {
+            "value": {}
           },
-          {
-            "fullExpression": "<div style=\"background: #FFF3E0; padding: 20px; border-radius: 15px; text-align: center; border: 2px solid #E65100;\">\n  <span style=\"font-size: 16px; color: #6D4C41; text-transform: uppercase;\">Total Investi (Toutes Cultures)</span>\n  <h1 style=\"color: #E65100; margin: 10px 0;\">@local.v_grand_total Dram</h1>\n  \n  <div style=\"background: #E8F5E9; padding: 10px; border-radius: 10px;\">\n    <span style=\"color: #2E7D32; font-weight: bold; font-size: 20px;\">\n      @local.v_grand_total_fcfa FCFA\n    </span>\n  </div>\n</div>",
-            "matchedExpression": "@local.v_grand_total_fcfa",
-            "type": "local",
-            "fieldName": "v_grand_total_fcfa"
+          "style_list": [
+            "color: #6D4C41",
+            "font-size: 14px",
+            "font-weight: bold",
+            "text-transform: uppercase",
+            "margin-bottom: 5px"
+          ],
+          "name": "text_1",
+          "_nested_name": "card_investissement.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.lbl_total_label",
+                "matchedExpression": "@global.lbl_total_label",
+                "type": "global",
+                "fieldName": "lbl_total_label"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.lbl_total_label": [
+              "value"
+            ]
           }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@local.v_grand_total": [
-          "value"
-        ],
-        "@local.v_grand_total_fcfa": [
-          "value"
-        ]
-      }
+        },
+        {
+          "type": "text",
+          "value": "@local.v_grand_total Dram",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "color: #E65100",
+            "font-size: 28px",
+            "font-weight: bold",
+            "margin-bottom: 15px"
+          ],
+          "name": "text_2",
+          "_nested_name": "card_investissement.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@local.v_grand_total Dram",
+                "matchedExpression": "@local.v_grand_total",
+                "type": "local",
+                "fieldName": "v_grand_total"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.v_grand_total": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "display_group",
+          "name": "subcard_fcfa",
+          "style_list": [
+            "background: #E8F5E9",
+            "padding: 10px",
+            "border-radius: 10px"
+          ],
+          "rows": [
+            {
+              "type": "text",
+              "value": "@local.v_grand_total_fcfa FCFA",
+              "_translations": {
+                "value": {}
+              },
+              "style_list": [
+                "color: #2E7D32",
+                "font-weight: bold",
+                "font-size: 20px",
+                "text-align: center"
+              ],
+              "name": "text_1",
+              "_nested_name": "card_investissement.subcard_fcfa.text_1",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "@local.v_grand_total_fcfa FCFA",
+                    "matchedExpression": "@local.v_grand_total_fcfa",
+                    "type": "local",
+                    "fieldName": "v_grand_total_fcfa"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@local.v_grand_total_fcfa": [
+                  "value"
+                ]
+              }
+            }
+          ],
+          "_nested_name": "card_investissement.subcard_fcfa"
+        }
+      ],
+      "_nested_name": "card_investissement"
     },
     {
       "type": "display_group",
       "name": "cultures_list",
       "style_list": [
-        "padding: 20px"
+        "padding: 15px 0",
+        "border-top: 1px solid #eee",
+        "border-bottom: 1px solid #eee",
+        "margin-bottom: 15px"
       ],
       "rows": [
         {
-          "type": "html",
-          "value": "<h4 style=\"color: #e3a730; border-bottom: 1px solid #eee; padding-bottom: 10px;\">Cultures enregistrées</h4>",
+          "type": "text",
+          "value": "@global.lbl_cultures_title",
           "_translations": {
             "value": {}
           },
-          "name": "html_1",
-          "_nested_name": "cultures_list.html_1"
+          "style_list": [
+            "color: #e3a730",
+            "font-weight: bold",
+            "font-size: 14px",
+            "margin-bottom: 8px"
+          ],
+          "name": "text_1",
+          "_nested_name": "cultures_list.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.lbl_cultures_title",
+                "matchedExpression": "@global.lbl_cultures_title",
+                "type": "global",
+                "fieldName": "lbl_cultures_title"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.lbl_cultures_title": [
+              "value"
+            ]
+          }
         },
         {
           "type": "text",
@@ -196,22 +328,63 @@
       "_nested_name": "cultures_list"
     },
     {
-      "type": "html",
-      "value": "<br><b style=\"color: #455A64\">VOTRE AVIS SUR LE FORMULAIRE </b>",
+      "type": "text",
+      "value": "@global.lbl_avis_title",
       "_translations": {
         "value": {}
       },
-      "name": "html_11",
-      "_nested_name": "html_11"
+      "style_list": [
+        "color: #455A64",
+        "font-weight: bold",
+        "font-size: 14px",
+        "margin-bottom: 4px"
+      ],
+      "name": "text_12",
+      "_nested_name": "text_12",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.lbl_avis_title",
+            "matchedExpression": "@global.lbl_avis_title",
+            "type": "global",
+            "fieldName": "lbl_avis_title"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.lbl_avis_title": [
+          "value"
+        ]
+      }
     },
     {
-      "type": "html",
-      "value": "<p style=\"font-size: 12px; color: gray;\">Partagez vos suggestions ou difficultés rencontrées.</p>",
+      "type": "text",
+      "value": "@global.lbl_avis_desc",
       "_translations": {
         "value": {}
       },
-      "name": "html_12",
-      "_nested_name": "html_12"
+      "style_list": [
+        "color: gray",
+        "font-size: 12px",
+        "margin-bottom: 10px"
+      ],
+      "name": "text_13",
+      "_nested_name": "text_13",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.lbl_avis_desc",
+            "matchedExpression": "@global.lbl_avis_desc",
+            "type": "global",
+            "fieldName": "lbl_avis_desc"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.lbl_avis_desc": [
+          "value"
+        ]
+      }
     },
     {
       "type": "display_group",
@@ -219,7 +392,6 @@
       "style_list": [
         "display: block",
         "width: 100%",
-        "border: 1px dashed #9E9E9E",
         "border-radius: 10px",
         "padding: 10px"
       ],
@@ -242,15 +414,6 @@
       "_nested_name": "feedback_card"
     },
     {
-      "type": "html",
-      "value": "<br>",
-      "_translations": {
-        "value": {}
-      },
-      "name": "html_15",
-      "_nested_name": "html_15"
-    },
-    {
       "type": "display_group",
       "name": "final_note",
       "style_list": [
@@ -260,26 +423,68 @@
         "text-align: center",
         "background: white",
         "padding: 20px",
-        "border-radius: 12px"
+        "border-radius: 12px",
+        "margin-bottom: 20px"
       ],
       "rows": [
         {
-          "type": "html",
-          "value": "<h3 style=\"color: #D84315;\"> FIN DU FORMULAIRE</h3>",
+          "type": "text",
+          "value": "@global.lbl_fin_title",
           "_translations": {
             "value": {}
           },
-          "name": "html_1",
-          "_nested_name": "final_note.html_1"
+          "style_list": [
+            "color: #D84315",
+            "font-weight: bold",
+            "font-size: 18px",
+            "margin-bottom: 10px"
+          ],
+          "name": "text_1",
+          "_nested_name": "final_note.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.lbl_fin_title",
+                "matchedExpression": "@global.lbl_fin_title",
+                "type": "global",
+                "fieldName": "lbl_fin_title"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.lbl_fin_title": [
+              "value"
+            ]
+          }
         },
         {
-          "type": "html",
-          "value": "<p>Merci pour votre rigueur !<br>L'étape suivante sera le formulaire de <b>RÉCOLTE</b>.</p>",
+          "type": "text",
+          "value": "@global.lbl_fin_desc",
           "_translations": {
             "value": {}
           },
-          "name": "html_2",
-          "_nested_name": "final_note.html_2"
+          "style_list": [
+            "color: #333",
+            "font-size: 14px",
+            "line-height: 1.4"
+          ],
+          "name": "text_2",
+          "_nested_name": "final_note.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.lbl_fin_desc",
+                "matchedExpression": "@global.lbl_fin_desc",
+                "type": "global",
+                "fieldName": "lbl_fin_desc"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.lbl_fin_desc": [
+              "value"
+            ]
+          }
         }
       ],
       "_nested_name": "final_note"

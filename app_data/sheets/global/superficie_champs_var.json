@@ -86,7 +86,7 @@
     {
       "type": "declare_global_constant",
       "name": "note_nom_champ",
-      "value": "Veuillez utiliser uniquement des lettres majuscules.",
+      "value": "Ecrivez le nom de votre champ en lettre majuscule",
       "_translations": {
         "value": {}
       }
@@ -102,7 +102,15 @@
     {
       "type": "declare_global_constant",
       "name": "autre_message",
-      "value": "Vous avez sélectionné \"Autre\", écrivez le nom en dessous !",
+      "value": "Ecrivez le nom \"autre culture précédente\" dans la parcelle N⁰ @fields.num_parcelle",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "autre_message_princip",
+      "value": "Ecrivez le nom \"autre culture\" principale dans la parcelle N⁰ @fields.num_parcelle",
       "_translations": {
         "value": {}
       }
@@ -139,7 +147,7 @@
     {
       "type": "declare_global_constant",
       "name": "culture_preced_hint",
-      "value": "Sélectionnez le nom de la culture précédente",
+      "value": "Sélectionnez le nom de la culture précédente dans la parcelle N⁰ @fields.num_parcelle lors de la saison passée",
       "_translations": {
         "value": {}
       }
@@ -211,7 +219,7 @@
     {
       "type": "declare_global_constant",
       "name": "note_date_semis",
-      "value": "**Sélectionnez la date de semis de @fields.cult_princip dans la parcelle N⁰@fields.num_parcelle**",
+      "value": "Date de semis de @fields.cult_princip dans la parcelle N⁰@fields.num_parcelle",
       "_translations": {
         "value": {}
       }
@@ -251,7 +259,7 @@
     {
       "type": "declare_global_constant",
       "name": "note_cult_asso_oui_non",
-      "value": "Indiquez si d’autre(s) culture(s) sont associées avec @fields.cult_princip dans la parcellle N⁰@fields.num_parcelle",
+      "value": "Indiquez si d’autre (s) culture (s) sont associées avec @fields.cult_princip dans la parcellle N⁰@fields.num_parcelle?",
       "_translations": {
         "value": {}
       }
@@ -291,7 +299,39 @@
     {
       "type": "declare_global_constant",
       "name": "note_type_fumure",
-      "value": "Sélectionnez le(s) type(s) de fumure organique appliqué à la parcelle N⁰@fields.num_parcelle",
+      "value": "Sélectionnez le type de fumure organique appliqué à la parcelle N⁰@fields.num_parcelle",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "note_no_fumure",
+      "value": "(Mettez 0 si aucune fumure organique n'a été apportée)",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "select_fumure",
+      "value": "euillez cocher au moins un type de fumure !",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "name_fumure",
+      "value": "Ecriver le nom \"autre type de fumure organique\"",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "warring_name_fumure",
+      "value": "Veuillez préciser le nom de la fumure !",
       "_translations": {
         "value": {}
       }
@@ -299,7 +339,7 @@
     {
       "type": "declare_global_constant",
       "name": "note_super_cult_princ",
-      "value": "**Superficie de @fields.cult_princip dans la parcelle N⁰@fields.num_parcelle**",
+      "value": "**Superficie de @fields.cult_princip dans la parcelle N⁰@fields.num_parcelle** de @fields.nom_champ",
       "_translations": {
         "value": {}
       }
@@ -307,7 +347,7 @@
     {
       "type": "declare_global_constant",
       "name": "superf_ha",
-      "value": "Donnez votre meilleure estimation de la superficie en Hectares (ha)",
+      "value": "Donnez votre meilleure estimation de la superficie (ha)",
       "_translations": {
         "value": {}
       }
@@ -324,6 +364,14 @@
       "type": "declare_global_constant",
       "name": "qtite_npk",
       "value": "Écrivez le nombre de sacs(50kg) ou 0 si aucun apport de NPK",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "qtite_sac",
+      "value": "Quantité de @fields.nom_autre_engrais (sac 50kg)",
       "_translations": {
         "value": {}
       }
@@ -347,15 +395,79 @@
     {
       "type": "declare_global_constant",
       "name": "autre_engrais_oui_non",
-      "value": "**Indiquez si une autre formule d'engrais est apportée à la culture @fields.cult_princip dans la parcelle N⁰@fields.num_parcelle**",
+      "value": "**Indiquez si l'information des engrais utilisés pour @fields.cult_princip dans la parcelle N⁰@fields.num_parcelle est disponible**",
       "_translations": {
         "value": {}
       }
     },
     {
       "type": "declare_global_constant",
-      "name": "hint_autre_engrais",
-      "value": "Il s'agit d'une autre formule d'engrais différente de NPK et urée en sac de 50kg",
+      "name": "autre_engrais_non",
+      "value": "VEUILLEZ CONTINUER. Cependant, vous devez revenir renseigner les quantités des engrais mineraux utilisés pour ${culture_label} dans la parcelle N⁰@fields.num_parcelle, dès que l'information est disponible",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "hint_coton_engrais",
+      "value": "Quantité complexe coton 14-18-18 (sac 50 kg)",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "hint_cereale_engrais",
+      "value": "Quantité complexe céréale 15-15-15 (sac 50kg)",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "hint_cereale_engrais_17",
+      "value": "Quantité complexe céréale 17-17-17 (sac 50kg)",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "hint_dap_engrais",
+      "value": "Quantité DAP (sac 50kg)",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "hint_uree_engrais",
+      "value": "Quantité urée (sac 50kg)",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "hint_other_engrais",
+      "value": "Indiquez si une autre formule d'engrais est apportée à la culture de @fields.cult_princip dans la parcellle  N⁰@fields.num_parcelle",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "name_other_engrais",
+      "value": "Ecrivez le nom \"autre formule d'engrais\" concerné",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "message_quant",
+      "value": "Veuillez entrer une quantité valide (nombre positif ou 0) !",
       "_translations": {
         "value": {}
       }
@@ -380,6 +492,318 @@
       "type": "declare_global_constant",
       "name": "note_sup_cumul",
       "value": "La superficie cumulée (ha) des parcelles mesurées dans @fields.nom_champ est:",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "title_page6",
+      "value": "Gestion des résidus de la culture précédente",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "question_tige",
+      "value": "Indiquez si les tiges de **@local.v_nom_cult_prev** sont restées et retournées dans le sol de la parcelle N⁰@fields.num_parcelle",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "title_page7",
+      "value": "Sélectionnez la variété cultivée de *@fields.cult_princip*",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "n_variete",
+      "value": "Écrivez le nom de la variété cultivée de **@local.variete_semence**",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "error_n_variete",
+      "value": "Veuillez préciser le nom !",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "type_n_variete",
+      "value": "Sélectionnez le type de la variété @local.variete_semence de *@fields.cult_princip* dans la parcelle N⁰@fields.num_parcelle",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "select_warring",
+      "value": "Sélection obligatoire !",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "select_source",
+      "value": "Sélectionnez la source de la variété @local.nom_variete de *@fields.cult_princip* dans la parcelle N⁰@fields.num_parcelle",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "other_source",
+      "value": "Ecrivez le nom \"autre source\" de la semence de *@fields.cult_princip* dans la parcelle N⁰@fields.num_parcelle",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "date_semis",
+      "value": "Date de semis de @fields.cult_princip",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "date_warring",
+      "value": "La date est obligatoire !",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "quant_warring",
+      "value": "La quantité est obligatoire !",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "cult_princ",
+      "value": "Culture principale : @item.name",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "message_positifValue",
+      "value": "Veuillez entrer un nombre entier positif ou 0 !",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "warning_arbre",
+      "value": "Veuillez préciser le nom de l'arbre !",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "cult_asso1",
+      "value": "Ecrivez le nom \"autre culture associée 1\"",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "cult_asso2",
+      "value": "Ecrivez le nom \"autre culture associée 2\"",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "message_other_cult",
+      "value": "Veuillez préciser le nom de la culture !",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "note_info_quant",
+      "value": "Indiquez si l'information de la quantité récoltée de @fields.cult_princip dans la parcelle N⁰@fields.num_parcelle est disponible",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "hint_prod_no",
+      "value": "VEUILLEZ CONTINUER. Cependant, vous devez revenir renseigner la quantité récoltée de @fields.cult_princip dans la parcelle N⁰@fields.num_parcelle dès que l'information est disponible",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "hint_prod_asso",
+      "value": "Donnez la production de la culture associée @local.cult_asso_display avec @fields.cult_princip dans la parcelle N⁰@fields.num_parcelle (en kg) :",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "hint_prod_name",
+      "value": "Donnez la production de @fields.cult_princip dans la parcelle N⁰@fields.num_parcelle (en kg)",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "hint_canal",
+      "value": "Séléctionnez le canal à utiliser pour faire votre observation sur la parcelle N⁰@fields.num_parcelle",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "canal_ecrit",
+      "value": "Entrez par écrit l'information supplémentaire.",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "canal_video",
+      "value": "Enregistrez par vidéo l'information supplémentaire.",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "need_record_vi",
+      "value": "We would need a video recorder here",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "canal_vocal",
+      "value": "Enregistrez par vocal l'information supplémentaire.",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "need_record_aud",
+      "value": "We would need a audio recorder here",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "canal_img",
+      "value": "Enregistrez par image l'information supplémentaire.",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "need_record_img",
+      "value": "We would need a camera here",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "hint_end_form",
+      "value": "Les informations collectées à travers les formulaires et les évaluations de performances pour votre UPA sont accessibles à la plateforme web: https://chemins-iae.stats4sd.org/login",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "hint_end_thx",
+      "value": "MERCI !!!",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "select_nd",
+      "value": "Sélectionner un niveau en dessous !",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "superficie_difference",
+      "value": "La différence entre la superficie donnée et la superficie mésurée (ha) est :",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "superficie_score_bien",
+      "value": "Bonne estimation de la superficie, Bravo!",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "superficie_score_grand",
+      "value": "Superficie sur-estimée !",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "superficie_score_petit",
+      "value": "Superficie sous-estimée !",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "superficie_rappel",
+      "value": "La superficie estimée (ha) était",
+      "_translations": {
+        "value": {}
+      }
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "superficie_tracee",
+      "value": "La superficie mesurée (ha) est :",
       "_translations": {
         "value": {}
       }

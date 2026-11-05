@@ -5,31 +5,58 @@
   "rows": [
     {
       "type": "title",
-      "value": "OBSERVATION PLANIFICATION",
+      "name": "page_title",
+      "value": "@global.info_sup_upa",
       "_translations": {
         "value": {}
       },
-      "name": "title_2",
-      "_nested_name": "title_2"
+      "_nested_name": "page_title",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.info_sup_upa",
+            "matchedExpression": "@global.info_sup_upa",
+            "type": "global",
+            "fieldName": "info_sup_upa"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.info_sup_upa": [
+          "value"
+        ]
+      }
     },
     {
       "type": "display_group",
       "rows": [
         {
-          "type": "html",
-          "name": "type_canal_observ_label",
-          "value": "<span style=\"color: red;\">*</span> Séléctionnez le canal à utiliser pour faire votre observation",
+          "type": "subtitle",
+          "value": "@global.type_canal_info_label",
           "_translations": {
             "value": {}
           },
-          "style_list": [
-            "font-size:20px"
-          ],
-          "_nested_name": "display_group_3.type_canal_observ_label"
+          "name": "subtitle_1",
+          "_nested_name": "display_group_3.subtitle_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.type_canal_info_label",
+                "matchedExpression": "@global.type_canal_info_label",
+                "type": "global",
+                "fieldName": "type_canal_info_label"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.type_canal_info_label": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",
-          "name": "audio_20_1",
+          "name": "audio_18_1",
           "parameter_list": {
             "variant": "button_only",
             "src": "audio/Enrolement/canal_obser_fr.mp3",
@@ -38,16 +65,68 @@
           "style_list": [
             "float: right"
           ],
-          "_nested_name": "display_group_3.audio_20_1"
+          "_nested_name": "display_group_3.audio_18_1"
         }
       ],
       "name": "display_group_3",
       "_nested_name": "display_group_3"
     },
     {
+      "type": "text",
+      "name": "error_type_canal_info",
+      "value": "@global.reponse_obligatoire",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@fields.type_canal_info",
+      "style_list": [
+        "@global.reponse_style"
+      ],
+      "_nested_name": "error_type_canal_info",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.reponse_obligatoire",
+            "matchedExpression": "@global.reponse_obligatoire",
+            "type": "global",
+            "fieldName": "reponse_obligatoire"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!@fields.type_canal_info",
+            "matchedExpression": "!@fields.type_canal_info",
+            "type": "fields",
+            "fieldName": "type_canal_info"
+          }
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
+      },
+      "_dynamicDependencies": {
+        "@global.reponse_obligatoire": [
+          "value"
+        ],
+        "!@fields.type_canal_info": [
+          "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
+        ]
+      }
+    },
+    {
       "type": "radio_button_grid",
-      "name": "type_canal_observ",
-      "value": "@fields.type_canal_observ",
+      "name": "type_canal_info",
+      "value": "@fields.type_canal_info",
       "_translations": {
         "value": {}
       },
@@ -56,10 +135,10 @@
           "trigger": "changed",
           "action_id": "set_field",
           "args": [
-            "type_canal_observ",
+            "type_canal_info",
             "this.value"
           ],
-          "_raw": "changed | set_field : type_canal_observ: this.value"
+          "_raw": "changed | set_field : type_canal_info: this.value"
         }
       ],
       "parameter_list": {
@@ -68,14 +147,14 @@
         "item_width": "60px",
         "grid_gap": "8px"
       },
-      "_nested_name": "type_canal_observ",
+      "_nested_name": "type_canal_info",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@fields.type_canal_observ",
-            "matchedExpression": "@fields.type_canal_observ",
+            "fullExpression": "@fields.type_canal_info",
+            "matchedExpression": "@fields.type_canal_info",
             "type": "fields",
-            "fieldName": "type_canal_observ"
+            "fieldName": "type_canal_info"
           }
         ],
         "parameter_list": {
@@ -90,7 +169,7 @@
         }
       },
       "_dynamicDependencies": {
-        "@fields.type_canal_observ": [
+        "@fields.type_canal_info": [
           "value"
         ],
         "@data.group_observation": [
@@ -109,8 +188,8 @@
         "color: red",
         "font-size: 16px"
       ],
-      "name": "text_6",
-      "_nested_name": "text_6",
+      "name": "text_7",
+      "_nested_name": "text_7",
       "_dynamicFields": {
         "value": [
           {
@@ -139,41 +218,91 @@
       }
     },
     {
-      "type": "html",
-      "value": "<div style=\"background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; padding: 16px; border-radius: 12px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 16px;\">\n  <span style=\"font-size: 14px; opacity: 0.9; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 6px;\">\n  Les cultures prévues:\n  </span>\n  <span style=\"font-size: 28px; font-weight: bold; color: #ffffff;\">\n    @fields.culture_list_all\n  </span>\n</div>",
-      "_translations": {
-        "value": {}
-      },
-      "name": "html_7",
-      "_nested_name": "html_7",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "<div style=\"background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; padding: 16px; border-radius: 12px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 16px;\">\n  <span style=\"font-size: 14px; opacity: 0.9; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 6px;\">\n  Les cultures prévues:\n  </span>\n  <span style=\"font-size: 28px; font-weight: bold; color: #ffffff;\">\n    @fields.culture_list_all\n  </span>\n</div>",
-            "matchedExpression": "@fields.culture_list_all",
-            "type": "fields",
-            "fieldName": "culture_list_all"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.culture_list_all": [
-          "value"
-        ]
-      }
-    },
-    {
       "type": "display_group",
-      "condition": "@fields.type_canal_observ == \"par_text\"",
+      "style_list": [
+        "background: #fdf6f0",
+        "color: #a44c20",
+        "border: 1px solid #f5decb",
+        "border-radius: 12px",
+        "18px",
+        "margin: 12px 0px",
+        "box-shadow: 0 4px 6px rgba(164, 76, 32, 0.02)",
+        "font-size: 20px",
+        "font-weight: 500"
+      ],
       "rows": [
         {
           "type": "text",
-          "name": "info_text_label",
+          "value": "@global.culture_prevues",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-size: 18px",
+            "font-weight: bold"
+          ],
+          "name": "text_1",
+          "_nested_name": "display_group_8.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.culture_prevues",
+                "matchedExpression": "@global.culture_prevues",
+                "type": "global",
+                "fieldName": "culture_prevues"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.culture_prevues": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "value": "@fields.culture_list_all",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-size: 18px",
+            "font-weight: bold"
+          ],
+          "name": "text_2",
+          "_nested_name": "display_group_8.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@fields.culture_list_all",
+                "matchedExpression": "@fields.culture_list_all",
+                "type": "fields",
+                "fieldName": "culture_list_all"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@fields.culture_list_all": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_8",
+      "_nested_name": "display_group_8"
+    },
+    {
+      "type": "display_group",
+      "condition": "@fields.type_canal_info == \"par_text\"",
+      "rows": [
+        {
+          "type": "text",
           "value": "@global.info_text_label",
           "_translations": {
             "value": {}
           },
-          "_nested_name": "display_group_8.info_text_label",
+          "name": "text_1",
+          "_nested_name": "display_group_10.text_1",
           "_dynamicFields": {
             "value": [
               {
@@ -192,7 +321,7 @@
         },
         {
           "type": "audio",
-          "name": "audio_20_2",
+          "name": "audio_18_2",
           "parameter_list": {
             "variant": "button_only",
             "src": "audio/Enrolement/oberv_ecrit_fr.mp3",
@@ -201,23 +330,23 @@
           "style_list": [
             "float: right"
           ],
-          "_nested_name": "display_group_8.audio_20_2"
+          "_nested_name": "display_group_10.audio_18_2"
         }
       ],
-      "name": "display_group_8",
-      "_nested_name": "display_group_8",
+      "name": "display_group_10",
+      "_nested_name": "display_group_10",
       "_dynamicFields": {
         "condition": [
           {
-            "fullExpression": "@fields.type_canal_observ == \"par_text\"",
-            "matchedExpression": "@fields.type_canal_observ",
+            "fullExpression": "@fields.type_canal_info == \"par_text\"",
+            "matchedExpression": "@fields.type_canal_info",
             "type": "fields",
-            "fieldName": "type_canal_observ"
+            "fieldName": "type_canal_info"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.type_canal_observ": [
+        "@fields.type_canal_info": [
           "condition"
         ]
       }
@@ -241,9 +370,9 @@
         }
       ],
       "parameter_list": {
-        "placeholder": "Info par écrit"
+        "placeholder": "@global.texte_placeholder"
       },
-      "condition": "@fields.type_canal_observ == \"par_text\"",
+      "condition": "@fields.type_canal_info == \"par_text\"",
       "_nested_name": "info_text",
       "_dynamicFields": {
         "value": [
@@ -254,12 +383,22 @@
             "fieldName": "info_text"
           }
         ],
+        "parameter_list": {
+          "placeholder": [
+            {
+              "fullExpression": "@global.texte_placeholder",
+              "matchedExpression": "@global.texte_placeholder",
+              "type": "global",
+              "fieldName": "texte_placeholder"
+            }
+          ]
+        },
         "condition": [
           {
-            "fullExpression": "@fields.type_canal_observ == \"par_text\"",
-            "matchedExpression": "@fields.type_canal_observ",
+            "fullExpression": "@fields.type_canal_info == \"par_text\"",
+            "matchedExpression": "@fields.type_canal_info",
             "type": "fields",
-            "fieldName": "type_canal_observ"
+            "fieldName": "type_canal_info"
           }
         ]
       },
@@ -267,23 +406,26 @@
         "@fields.info_text": [
           "value"
         ],
-        "@fields.type_canal_observ": [
+        "@global.texte_placeholder": [
+          "parameter_list.placeholder"
+        ],
+        "@fields.type_canal_info": [
           "condition"
         ]
       }
     },
     {
       "type": "display_group",
-      "condition": "@fields.type_canal_observ == \"par_video\"",
+      "condition": "@fields.type_canal_info == \"par_video\"",
       "rows": [
         {
           "type": "text",
-          "name": "info_video_label",
           "value": "@global.info_video_label",
           "_translations": {
             "value": {}
           },
-          "_nested_name": "display_group_11.info_video_label",
+          "name": "text_1",
+          "_nested_name": "display_group_13.text_1",
           "_dynamicFields": {
             "value": [
               {
@@ -302,7 +444,7 @@
         },
         {
           "type": "audio",
-          "name": "audio_20_3",
+          "name": "audio_18_3",
           "parameter_list": {
             "variant": "button_only",
             "src": "audio/Enrolement/oberv_vid_fr.mp3",
@@ -311,64 +453,78 @@
           "style_list": [
             "float: right"
           ],
-          "_nested_name": "display_group_11.audio_20_3"
+          "_nested_name": "display_group_13.audio_18_3"
         }
       ],
-      "name": "display_group_11",
-      "_nested_name": "display_group_11",
+      "name": "display_group_13",
+      "_nested_name": "display_group_13",
       "_dynamicFields": {
         "condition": [
           {
-            "fullExpression": "@fields.type_canal_observ == \"par_video\"",
-            "matchedExpression": "@fields.type_canal_observ",
+            "fullExpression": "@fields.type_canal_info == \"par_video\"",
+            "matchedExpression": "@fields.type_canal_info",
             "type": "fields",
-            "fieldName": "type_canal_observ"
+            "fieldName": "type_canal_info"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.type_canal_observ": [
+        "@fields.type_canal_info": [
           "condition"
         ]
       }
     },
     {
-      "type": "text",
-      "name": "info_video",
-      "value": "We would need a video recorder here",
+      "type": "button",
+      "value": "@global.prendre_video",
       "_translations": {
         "value": {}
       },
-      "condition": "@fields.type_canal_observ == \"par_video\"",
-      "_nested_name": "info_video",
+      "parameter_list": {
+        "icon": "images/icons/screen-recorder-svgrepo-com.svg"
+      },
+      "condition": "@fields.type_canal_info == \"par_video\"",
+      "name": "button_15",
+      "_nested_name": "button_15",
       "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.prendre_video",
+            "matchedExpression": "@global.prendre_video",
+            "type": "global",
+            "fieldName": "prendre_video"
+          }
+        ],
         "condition": [
           {
-            "fullExpression": "@fields.type_canal_observ == \"par_video\"",
-            "matchedExpression": "@fields.type_canal_observ",
+            "fullExpression": "@fields.type_canal_info == \"par_video\"",
+            "matchedExpression": "@fields.type_canal_info",
             "type": "fields",
-            "fieldName": "type_canal_observ"
+            "fieldName": "type_canal_info"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.type_canal_observ": [
+        "@global.prendre_video": [
+          "value"
+        ],
+        "@fields.type_canal_info": [
           "condition"
         ]
       }
     },
     {
       "type": "display_group",
-      "condition": "@fields.type_canal_observ == \"par_vocal\"",
+      "condition": "@fields.type_canal_info == \"par_vocal\"",
       "rows": [
         {
           "type": "text",
-          "name": "info_audio_label",
           "value": "@global.info_audio_label",
           "_translations": {
             "value": {}
           },
-          "_nested_name": "display_group_14.info_audio_label",
+          "name": "text_1",
+          "_nested_name": "display_group_16.text_1",
           "_dynamicFields": {
             "value": [
               {
@@ -387,7 +543,7 @@
         },
         {
           "type": "audio",
-          "name": "audio_20_4",
+          "name": "audio_18_4",
           "parameter_list": {
             "variant": "button_only",
             "src": "audio/Enrolement/oberv_audio_fr.mp3",
@@ -396,83 +552,75 @@
           "style_list": [
             "float: right"
           ],
-          "_nested_name": "display_group_14.audio_20_4"
+          "_nested_name": "display_group_16.audio_18_4"
         }
       ],
-      "name": "display_group_14",
-      "_nested_name": "display_group_14",
+      "name": "display_group_16",
+      "_nested_name": "display_group_16",
       "_dynamicFields": {
         "condition": [
           {
-            "fullExpression": "@fields.type_canal_observ == \"par_vocal\"",
-            "matchedExpression": "@fields.type_canal_observ",
+            "fullExpression": "@fields.type_canal_info == \"par_vocal\"",
+            "matchedExpression": "@fields.type_canal_info",
             "type": "fields",
-            "fieldName": "type_canal_observ"
+            "fieldName": "type_canal_info"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.type_canal_observ": [
+        "@fields.type_canal_info": [
           "condition"
         ]
       }
     },
     {
       "type": "text",
-      "name": "info_audio",
-      "value": "We would need a audio recorder here",
+      "value": "@global.info_audio_need",
       "_translations": {
         "value": {}
       },
-      "condition": "@fields.type_canal_observ == \"par_vocal\"",
-      "_nested_name": "info_audio",
+      "condition": "@fields.type_canal_info == \"par_vocal\"",
+      "name": "text_18",
+      "_nested_name": "text_18",
       "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.info_audio_need",
+            "matchedExpression": "@global.info_audio_need",
+            "type": "global",
+            "fieldName": "info_audio_need"
+          }
+        ],
         "condition": [
           {
-            "fullExpression": "@fields.type_canal_observ == \"par_vocal\"",
-            "matchedExpression": "@fields.type_canal_observ",
+            "fullExpression": "@fields.type_canal_info == \"par_vocal\"",
+            "matchedExpression": "@fields.type_canal_info",
             "type": "fields",
-            "fieldName": "type_canal_observ"
+            "fieldName": "type_canal_info"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.type_canal_observ": [
+        "@global.info_audio_need": [
+          "value"
+        ],
+        "@fields.type_canal_info": [
           "condition"
         ]
       }
     },
     {
       "type": "display_group",
-      "condition": "@fields.type_canal_observ == \"par_photo\"",
+      "condition": "@fields.type_canal_info == \"par_photo\"",
       "rows": [
         {
           "type": "text",
-          "name": "info_image_label",
-          "value": "@global.info_image_label",
-          "_translations": {
-            "value": {}
-          },
-          "_nested_name": "display_group_17.info_image_label",
-          "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "@global.info_image_label",
-                "matchedExpression": "@global.info_image_label",
-                "type": "global",
-                "fieldName": "info_image_label"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@global.info_image_label": [
-              "value"
-            ]
-          }
+          "name": "text_1",
+          "_nested_name": "display_group_19.text_1"
         },
         {
           "type": "audio",
-          "name": "audio_20_5",
+          "name": "audio_18_5",
           "parameter_list": {
             "variant": "button_only",
             "src": "audio/Enrolement/oberv_phot_fr.mp3",
@@ -481,55 +629,69 @@
           "style_list": [
             "float: right"
           ],
-          "_nested_name": "display_group_17.audio_20_5"
+          "_nested_name": "display_group_19.audio_18_5"
         }
       ],
-      "name": "display_group_17",
-      "_nested_name": "display_group_17",
+      "name": "display_group_19",
+      "_nested_name": "display_group_19",
       "_dynamicFields": {
         "condition": [
           {
-            "fullExpression": "@fields.type_canal_observ == \"par_photo\"",
-            "matchedExpression": "@fields.type_canal_observ",
+            "fullExpression": "@fields.type_canal_info == \"par_photo\"",
+            "matchedExpression": "@fields.type_canal_info",
             "type": "fields",
-            "fieldName": "type_canal_observ"
+            "fieldName": "type_canal_info"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.type_canal_observ": [
+        "@fields.type_canal_info": [
           "condition"
         ]
       }
     },
     {
-      "type": "text",
-      "name": "info_image",
-      "value": "We would need a camera here",
+      "type": "button",
+      "value": "@global.prendre_photo",
       "_translations": {
         "value": {}
       },
-      "condition": "@fields.type_canal_observ == \"par_photo\"",
-      "_nested_name": "info_image",
+      "parameter_list": {
+        "icon": "images/icons/photo-svgrepo-com.svg"
+      },
+      "condition": "@fields.type_canal_info == \"par_photo\"",
+      "name": "button_21",
+      "_nested_name": "button_21",
       "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.prendre_photo",
+            "matchedExpression": "@global.prendre_photo",
+            "type": "global",
+            "fieldName": "prendre_photo"
+          }
+        ],
         "condition": [
           {
-            "fullExpression": "@fields.type_canal_observ == \"par_photo\"",
-            "matchedExpression": "@fields.type_canal_observ",
+            "fullExpression": "@fields.type_canal_info == \"par_photo\"",
+            "matchedExpression": "@fields.type_canal_info",
             "type": "fields",
-            "fieldName": "type_canal_observ"
+            "fieldName": "type_canal_info"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.type_canal_observ": [
+        "@global.prendre_photo": [
+          "value"
+        ],
+        "@fields.type_canal_info": [
           "condition"
         ]
       }
     },
     {
       "name": "completed_enabled",
-      "value": "!!@local.type_canal_observ",
+      "value": "!!@local.type_canal_info",
       "_translations": {
         "value": {}
       },
@@ -538,21 +700,22 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "!!@local.type_canal_observ",
-            "matchedExpression": "!@local.type_canal_observ",
+            "fullExpression": "!!@local.type_canal_info",
+            "matchedExpression": "!@local.type_canal_info",
             "type": "local",
-            "fieldName": "type_canal_observ"
+            "fieldName": "type_canal_info"
           }
         ]
       },
       "_dynamicDependencies": {
-        "!@local.type_canal_observ": [
+        "!@local.type_canal_info": [
           "value"
         ]
       }
     },
     {
       "type": "display_group",
+      "name": "dg_footer",
       "value": "",
       "parameter_list": {
         "sticky": "bottom"
@@ -563,7 +726,7 @@
       "rows": [
         {
           "type": "round_button",
-          "name": "page_20_button_back",
+          "name": "page_18_button_back",
           "action_list": [
             {
               "trigger": "click",
@@ -578,11 +741,11 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "display_group_21.page_20_button_back"
+          "_nested_name": "dg_footer.page_18_button_back"
         },
         {
           "type": "button",
-          "name": "page_20_button_continue",
+          "name": "page_18_button_continue",
           "value": "@global.btn_continue",
           "_translations": {
             "value": {}
@@ -600,7 +763,7 @@
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "display_group_21.page_20_button_continue",
+          "_nested_name": "dg_footer.page_18_button_continue",
           "_dynamicFields": {
             "value": [
               {
@@ -618,13 +781,12 @@
           }
         }
       ],
-      "name": "display_group_21",
-      "_nested_name": "display_group_21"
+      "_nested_name": "dg_footer"
     }
   ],
   "_source": {
     "name": "cef_m sheets",
-    "path": "template/Planification/Cultures_form_sheets.xlsx",
+    "path": "template/Planification/cultures_form_sheets.xlsx",
     "url": "https://docs.google.com/spreadsheets/d/1BAP12cPkFZaHtm0Xozys0kLOqnVOi1h2UUBMoZbmKQI"
   }
 }

@@ -16,7 +16,6 @@
     },
     {
       "type": "subtitle",
-      "name": "region_text",
       "value": "@global.nom_region"
     },
     {
@@ -35,13 +34,12 @@
     },
     {
       "type": "begin_radio_list",
-      "name": "region_id",
       "value": "@fields.region_id",
       "action_list": "changed | set_field: region_id: this.value;"
     },
     {
       "type": "begin_data_items",
-      "value": "@data.region"
+      "value": "@data.region_upa"
     },
     {
       "type": "end_data_items"
@@ -61,7 +59,6 @@
     },
     {
       "type": "subtitle",
-      "name": "cercle_text",
       "value": "@global.nom_cercle"
     },
     {
@@ -82,13 +79,8 @@
     },
     {
       "type": "data_items",
-      "value": "@data.cercle_koutiala",
-      "condition": "@fields.region_id == 'koutiala'"
-    },
-    {
-      "type": "data_items",
-      "value": "@data.cercle_dioila",
-      "condition": "@fields.region_id == 'dioila'"
+      "value": "@data.cercle_upa",
+      "parameter_list": "filter: @item.id_region == @fields.region_id"
     },
     {
       "type": "end_radio_list"
@@ -105,7 +97,6 @@
     },
     {
       "type": "subtitle",
-      "name": "commune_text",
       "value": "@global.nom_commune"
     },
     {
@@ -126,13 +117,8 @@
     },
     {
       "type": "data_items",
-      "value": "@data.commune_koutiala",
-      "condition": "@fields.cercle_id  == 'koutiala'"
-    },
-    {
-      "type": "data_items",
-      "value": "@data.commune_dioila",
-      "condition": "@fields.cercle_id == 'dioila'"
+      "value": "@data.commune_upa",
+      "parameter_list": "filter: @item.id_cercle == @fields.cercle_id"
     },
     {
       "type": "end_radio_list"
@@ -170,28 +156,8 @@
     },
     {
       "type": "data_items",
-      "value": "@data.village_koutiala",
-      "condition": "@fields.commune_id  == 'koutiala'"
-    },
-    {
-      "type": "data_items",
-      "value": "@data.village_molobala",
-      "condition": "@fields.commune_id == 'molobala'"
-    },
-    {
-      "type": "data_items",
-      "value": "@data.village_sinsina",
-      "condition": "@fields.commune_id == 'sinsina'"
-    },
-    {
-      "type": "data_items",
-      "value": "@data.village_massigui",
-      "condition": "@fields.commune_id == 'massigui'"
-    },
-    {
-      "type": "data_items",
-      "value": "@data.village_banco",
-      "condition": "@fields.commune_id == 'banco'"
+      "value": "@data.village_upa",
+      "parameter_list": "filter: @item.id_commune == @fields.commune_id"
     },
     {
       "type": "end_radio_list"

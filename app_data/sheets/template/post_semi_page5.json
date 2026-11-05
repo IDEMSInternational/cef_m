@@ -38,7 +38,7 @@
     },
     {
       "type": "display_group",
-      "name": "header_top",
+      "name": "header",
       "style_list": [
         "background: #00adcc",
         "padding: 15px",
@@ -47,23 +47,29 @@
       ],
       "rows": [
         {
-          "type": "html",
-          "value": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>",
+          "type": "text",
+          "value": "CULTURE @local.v_current_human / @field.total_cultures_selected",
           "_translations": {
             "value": {}
           },
-          "name": "html_1",
-          "_nested_name": "header_top.html_1",
+          "style_list": [
+            "color: white",
+            "font-weight: bold",
+            "font-size: 14px",
+            "text-transform: uppercase"
+          ],
+          "name": "text_1",
+          "_nested_name": "header.text_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>",
+                "fullExpression": "CULTURE @local.v_current_human / @field.total_cultures_selected",
                 "matchedExpression": "@local.v_current_human",
                 "type": "local",
                 "fieldName": "v_current_human"
               },
               {
-                "fullExpression": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>",
+                "fullExpression": "CULTURE @local.v_current_human / @field.total_cultures_selected",
                 "matchedExpression": "@field.total_cultures_selected",
                 "type": "field",
                 "fieldName": "total_cultures_selected"
@@ -80,7 +86,7 @@
           }
         }
       ],
-      "_nested_name": "header_top"
+      "_nested_name": "header"
     },
     {
       "type": "title",
@@ -112,8 +118,8 @@
             "value": {}
           },
           "style_list": [
-            "width: 100px",
-            "height: 100px"
+            "width: 60%",
+            "object-fit: contain"
           ],
           "name": "image_1",
           "_nested_name": "display_group_6.image_1",
@@ -151,20 +157,23 @@
         },
         {
           "type": "text",
-          "value": "<h3 style='color: black; margin: 10px 0;'>Culture : <span style='color: #e3a730;'>@field.active_culture_name</span></h3>",
+          "value": "Culture : @field.active_culture_name",
           "_translations": {
             "value": {}
           },
           "style_list": [
             "font-weight: bold",
-            "font-size: 18px"
+            "font-size: 18px",
+            "color: #e3a730",
+            "margin-top: 10px",
+            "text-align: center"
           ],
           "name": "text_2",
           "_nested_name": "display_group_6.text_2",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "<h3 style='color: black; margin: 10px 0;'>Culture : <span style='color: #e3a730;'>@field.active_culture_name</span></h3>",
+                "fullExpression": "Culture : @field.active_culture_name",
                 "matchedExpression": "@field.active_culture_name",
                 "type": "field",
                 "fieldName": "active_culture_name"
@@ -182,13 +191,34 @@
       "_nested_name": "display_group_6"
     },
     {
-      "type": "html",
-      "value": "<br><b style=\"color: #e67e22\">4. AUTRES COÛTS AU POST-SEMIS</b>",
+      "type": "text",
+      "value": "@global.sec_autre",
       "_translations": {
         "value": {}
       },
-      "name": "html_8",
-      "_nested_name": "html_8"
+      "style_list": [
+        "color: #e67e22",
+        "font-weight: bold",
+        "margin-top: 15px",
+        "margin-bottom: 5px"
+      ],
+      "name": "text_8",
+      "_nested_name": "text_8",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.sec_autre",
+            "matchedExpression": "@global.sec_autre",
+            "type": "global",
+            "fieldName": "sec_autre"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.sec_autre": [
+          "value"
+        ]
+      }
     },
     {
       "type": "display_group",
@@ -213,22 +243,58 @@
           "_nested_name": "grp_autre_cout_postsemis.note_autre_cout_postsemis"
         },
         {
-          "type": "html",
-          "value": "<span style=\"color: red;\">*</span>Ecrivez le nom(s) d'autre(s) coût(s)",
+          "type": "text",
+          "value": "@global.lbl_autre_Q",
           "_translations": {
             "value": {}
           },
-          "name": "html_2",
-          "_nested_name": "grp_autre_cout_postsemis.html_2"
+          "style_list": [
+            "font-weight: bold",
+            "font-size: 16px",
+            "color: #333",
+            "margin-bottom: 5px"
+          ],
+          "name": "text_2",
+          "_nested_name": "grp_autre_cout_postsemis.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.lbl_autre_Q",
+                "matchedExpression": "@global.lbl_autre_Q",
+                "type": "global",
+                "fieldName": "lbl_autre_Q"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.lbl_autre_Q": [
+              "value"
+            ]
+          }
         },
         {
           "type": "text",
-          "value": "*Ces coûts couvrent des services ou intrants non pris en compte.*",
+          "value": "@global.lbl_autre_hint",
           "_translations": {
             "value": {}
           },
           "name": "text_3",
-          "_nested_name": "grp_autre_cout_postsemis.text_3"
+          "_nested_name": "grp_autre_cout_postsemis.text_3",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.lbl_autre_hint",
+                "matchedExpression": "@global.lbl_autre_hint",
+                "type": "global",
+                "fieldName": "lbl_autre_hint"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.lbl_autre_hint": [
+              "value"
+            ]
+          }
         },
         {
           "type": "radio_button_grid",
@@ -312,13 +378,34 @@
           "_nested_name": "group_nom_autre.note_autre_cout_postsemis"
         },
         {
-          "type": "html",
-          "value": "<span style=\"color: red;\">*</span> Indiquez s'il y a d'autre(s) coût(s) au post semis non renseignés",
+          "type": "text",
+          "value": "@global.lbl_nom_autre",
           "_translations": {
             "value": {}
           },
-          "name": "html_2",
-          "_nested_name": "group_nom_autre.html_2"
+          "style_list": [
+            "font-weight: bold",
+            "font-size: 16px",
+            "color: #333",
+            "margin-bottom: 5px"
+          ],
+          "name": "text_2",
+          "_nested_name": "group_nom_autre.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.lbl_nom_autre",
+                "matchedExpression": "@global.lbl_nom_autre",
+                "type": "global",
+                "fieldName": "lbl_nom_autre"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.lbl_nom_autre": [
+              "value"
+            ]
+          }
         },
         {
           "type": "image",
@@ -391,7 +478,7 @@
     },
     {
       "type": "text",
-      "value": "*La réponse est obligatoire !*",
+      "value": "@global.lbl_oblig",
       "_translations": {
         "value": {}
       },
@@ -403,6 +490,14 @@
       "name": "text_13",
       "_nested_name": "text_13",
       "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.lbl_oblig",
+            "matchedExpression": "@global.lbl_oblig",
+            "type": "global",
+            "fieldName": "lbl_oblig"
+          }
+        ],
         "condition": [
           {
             "fullExpression": "@calc(@field.no_autre_cout_postsemis == 'oui' && (@field.nom_autre_cout_postsemis == '' || @field.nom_autre_cout_postsemis == null))",
@@ -431,6 +526,9 @@
         ]
       },
       "_dynamicDependencies": {
+        "@global.lbl_oblig": [
+          "value"
+        ],
         "@field.no_autre_cout_postsemis": [
           "condition"
         ],
@@ -507,17 +605,23 @@
           "_nested_name": "group_montant_autre.note_autre_cout_postsemis"
         },
         {
-          "type": "html",
-          "value": "<span style=\"color: red;\">*</span>Donnez le montant du coût pour <span style=\"color: #e67e22\"> @field.nom_autre_cout_postsemis</span>",
+          "type": "text",
+          "value": "Donnez le montant du coût pour @field.nom_autre_cout_postsemis",
           "_translations": {
             "value": {}
           },
-          "name": "html_2",
-          "_nested_name": "group_montant_autre.html_2",
+          "style_list": [
+            "font-weight: bold",
+            "font-size: 16px",
+            "color: #333",
+            "margin-bottom: 5px"
+          ],
+          "name": "text_2",
+          "_nested_name": "group_montant_autre.text_2",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "<span style=\"color: red;\">*</span>Donnez le montant du coût pour <span style=\"color: #e67e22\"> @field.nom_autre_cout_postsemis</span>",
+                "fullExpression": "Donnez le montant du coût pour @field.nom_autre_cout_postsemis",
                 "matchedExpression": "@field.nom_autre_cout_postsemis",
                 "type": "field",
                 "fieldName": "nom_autre_cout_postsemis"
@@ -532,7 +636,7 @@
         },
         {
           "type": "text",
-          "value": "S'il y a plusieurs éléments, donnez le coût agrégé de l'ensemble",
+          "value": "@global.info_cout_name",
           "_translations": {
             "value": {}
           },
@@ -542,11 +646,26 @@
             "font-size: 12px"
           ],
           "name": "text_3",
-          "_nested_name": "group_montant_autre.text_3"
+          "_nested_name": "group_montant_autre.text_3",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.info_cout_name",
+                "matchedExpression": "@global.info_cout_name",
+                "type": "global",
+                "fieldName": "info_cout_name"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.info_cout_name": [
+              "value"
+            ]
+          }
         },
         {
           "type": "text",
-          "value": "*Rappel : 1 dram = 5 FCFA*",
+          "value": "@global.hint_price",
           "_translations": {
             "value": {}
           },
@@ -555,7 +674,22 @@
             "color: gray"
           ],
           "name": "text_4",
-          "_nested_name": "group_montant_autre.text_4"
+          "_nested_name": "group_montant_autre.text_4",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.hint_price",
+                "matchedExpression": "@global.hint_price",
+                "type": "global",
+                "fieldName": "hint_price"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.hint_price": [
+              "value"
+            ]
+          }
         },
         {
           "type": "image",

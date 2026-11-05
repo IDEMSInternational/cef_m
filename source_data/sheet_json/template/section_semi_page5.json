@@ -29,8 +29,9 @@
       "style_list": "background: #00adcc; padding: 15px; border-radius: 0 0 15px 15px; margin-bottom: 20px;"
     },
     {
-      "type": "html",
-      "value": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>"
+      "type": "text",
+      "value": "CULTURE @local.v_current_human / @field.total_cultures_selected",
+      "style_list": "color: white; font-weight: bold; font-size: 14px; text-transform: uppercase;"
     },
     {
       "type": "end_display_group"
@@ -46,15 +47,16 @@
     },
     {
       "type": "text",
-      "value": "<h3 style='color: black; margin: 10px 0;'>Culture : <span style='color: #e3a730;'>@field.active_culture_name</span></h3>",
-      "style_list": "font-weight: bold; font-size: 18px;"
+      "value": "Culture : @field.active_culture_name",
+      "style_list": "font-weight: bold; font-size: 18px; color: #e3a730; margin-top: 10px; text-align: center; color: #e3a730; margin-top: 10px; text-align: center;"
     },
     {
       "type": "end_display_group"
     },
     {
-      "type": "html",
-      "value": "<div style=\"color: #e67e22; font-weight: bold; font-size: 14px; margin-bottom: 10px;\">APPORT FUMURE ORGANIQUE</div>"
+      "type": "text",
+      "value": "@global.lbl_section_title",
+      "style_list": "color: #e67e22; font-weight: bold; font-size: 14px; margin-bottom: 10px; display: block;"
     },
     {
       "type": "begin_display_group",
@@ -69,19 +71,19 @@
       "style_list": "float: right;"
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: red;\">*</span> Quantité de fumure organique (charretée)",
-      "style_list": "font-weight: bold;"
+      "type": "text",
+      "value": "@global.lbl_fumure_label",
+      "style_list": "font-weight: bold; font-size: 14px; color: #333333; flex: 1;"
     },
     {
       "type": "text",
-      "value": "*Mettez 0 si aucune fumure organique* <br> <span style=\"font-size: 12px; color: gray;\"></span>",
+      "value": "@global.error_fumure",
       "style_list": "font-size: 14px; color: gray;"
     },
     {
       "type": "image",
       "value": "images/charrette.jpg",
-      "style_list": "width:100px; height:100px;"
+      "style_list": "width: 40%; object-fit: contain;"
     },
     {
       "type": "end_display_group"
@@ -95,9 +97,9 @@
     },
     {
       "type": "text",
-      "value": "Mettez une valeur positive.<br><span style=\"font-size:11px;\"></span>",
+      "value": "@global.error_positive_value",
       "condition": "@local.v_fum_err",
-      "style_list": "font-size: 12px; color: red;"
+      "style_list": "font-size: 12px; color: red; margin-top: 4px;"
     },
     {
       "type": "begin_display_group",
@@ -113,13 +115,13 @@
       "style_list": "float: right;"
     },
     {
-      "type": "html",
-      "value": "Coût transport de fumure organique (Dram) <br> <span style=\"font-size: 14px; color: #555;\"></span>",
-      "style_list": "font-weight: bold;"
+      "type": "text",
+      "value": "@global.lbl_trans_z_label",
+      "style_list": "font-weight: bold; font-size: 14px; color: #333333; flex: 1;"
     },
     {
       "type": "text",
-      "value": "*Rappel : 1 dram = 5 FCFA*",
+      "value": "@global.hint_price",
       "style_list": "font-size: 14px; color: gray;"
     },
     {
@@ -134,7 +136,7 @@
     },
     {
       "type": "text",
-      "value": "Coût bloqué à 0 car aucune fumure organique apportée",
+      "value": "@global.error_fumure_val",
       "style_list": "font-size: 12px; color: #999;"
     },
     {
@@ -154,13 +156,13 @@
       "style_list": "float: right;"
     },
     {
-      "type": "html",
-      "value": "Coût transport de fumure organique (Dram) <br> <span style=\"font-size: 14px; color: #555;\"></span>",
-      "style_list": "font-weight: bold;"
+      "type": "text",
+      "value": "@global.lbl_trans_z_label",
+      "style_list": "font-weight: bold; font-size: 14px; color: #333333; flex: 1;"
     },
     {
       "type": "text",
-      "value": "*Rappel : 1 dram = 5 FCFA*",
+      "value": "@global.hint_price",
       "style_list": "font-size: 14px; color: gray;"
     },
     {
@@ -177,9 +179,9 @@
     },
     {
       "type": "text",
-      "value": "Mettez une valeur positive.<br><span style=\"font-size:11px;\"></span>",
+      "value": "@global.error_positive_value",
       "condition": "@local.v_trans_err",
-      "style_list": "font-size: 12px; color: red;"
+      "style_list": "font-size: 12px; color: red; margin-top: 4px;"
     },
     {
       "type": "end_display_group"

@@ -5,7 +5,7 @@
   "rows": [
     {
       "type": "title",
-      "value": "REPARTITION DES BESOINS EN CEREALES"
+      "value": "@global.repartition_besoin_cereale"
     },
     {
       "name": "attempt_submit",
@@ -14,35 +14,37 @@
     {
       "type": "begin_display_group",
       "name": "recap_besoin",
-      "style_list": "background: #1e3656; padding: 15px; text-align: center;"
+      "style_list": "padding: 15px; text-align: center;"
     },
     {
-      "type": "html",
-      "value": "<div style=\"color: #4f8ff1; font-size: 12px; font-weight: bold; text-transform: uppercase;\">Répartition de la quantité totale de céréales nécessaire entre le maïs, mil, sorgho et riz en fonction de l'importance de chacune dans la consommation de votre UPA.</div>"
+      "type": "text",
+      "value": "@global.repartition_besoin_cereale_hint",
+      "style_list": "font-size: 12px; font-weight: bold; text-transform: uppercase;"
     },
     {
-      "type": "html",
-      "value": "<div style=\"color: white; font-size: 24px; font-weight: bold;\">@fields.besoin_cereale_exploitation sacs</div>"
+      "type": "text",
+      "value": "@fields.besoin_cereale_exploitation sacs",
+      "style_list": "font-size: 24px; font-weight: bold;color: blue;"
     },
     {
       "type": "end_display_group"
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: black;\">Attention: le cumul des sacs des quatre types de céréales doit être égal aux besoins de céréales de l'exploitation de @fields.besoin_cereale_exploitation sacs.</span>"
+      "type": "text",
+      "value": "@global.repartition_besoin_cereale_attention",
+      "style_list": "@global.hint_style"
     },
     {
       "type": "begin_display_group"
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: red;\">*</span><b>Donnez le nombre de sacs de maïs à prévoir</b>"
+      "type": "subtitle",
+      "value": "@global.nbre_sac_mais"
     },
     {
       "type": "audio",
-      "name": "audio_5_1",
-      "parameter_list": "variant: button_only;\nsrc: audio/alimentationHumaine/sac_mais_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
-      "style_list": "float : right;"
+      "name": "audio_3_1",
+      "parameter_list": "variant: button_only;\nsrc: audio/alimentationHumaine/sac_mais_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;"
     },
     {
       "type": "end_display_group"
@@ -57,7 +59,7 @@
       "name": "sac_mais",
       "value": "@fields.sac_mais",
       "action_list": "changed | set_field: sac_mais : this.value;",
-      "parameter_list": "input_type: number;placeholder:Nombre de sac de maïs;",
+      "parameter_list": "number_input: true; placeholder:@global.texte_placeholder;",
       "style_list": "margin: 10px;"
     },
     {
@@ -65,26 +67,27 @@
       "value": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.sac_mais) && Number(@local.sac_mais) < @fields.besoin_cereale_exploitation) || !@local.sac_mais)"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@fields.sac_mais && @fields.attempt_submit"
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@fields.sac_mais && @fields.attempt_submit",
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "text",
       "value": "@global.erreur_sacs",
       "condition": "!@local.valid_sac_mais",
-      "style_list": "color: red; font-size: 12px;"
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "begin_display_group"
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: red;\">*</span><b>Donnez le nombre de sacs de mil à prévoir</b>"
+      "type": "subtitle",
+      "value": "@global.nbre_sac_mil"
     },
     {
       "type": "audio",
-      "name": "audio_5_2",
+      "name": "audio_3_2",
       "parameter_list": "variant: button_only;\nsrc: audio/alimentationHumaine/sac_mil_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
       "style_list": "float : right;"
     },
@@ -101,7 +104,7 @@
       "name": "sac_mil",
       "value": "@field.sac_mil",
       "action_list": "changed | set_field: sac_mil : this.value;",
-      "parameter_list": "input_type: number;placeholder:Nombre de sac de mil;",
+      "parameter_list": "number_input: true; placeholder:@global.texte_placeholder;",
       "style_list": "margin: 10px;"
     },
     {
@@ -109,28 +112,28 @@
       "value": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.sac_mil) && Number(@local.sac_mil) < @fields.besoin_cereale_exploitation) || !@local.sac_mil)"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@fields.sac_mil && @fields.attempt_submit"
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@fields.sac_mil && @fields.attempt_submit",
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "text",
       "value": "@global.erreur_sacs",
       "condition": "!@local.valid_sac_mil",
-      "style_list": "color: red; font-size: 12px;"
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "begin_display_group"
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: red;\">*</span><b>Donnez le nombre de sacs de sorgho à prévoir</b>"
+      "type": "subtitle",
+      "value": "@global.nbre_sac_sorgho"
     },
     {
       "type": "audio",
-      "name": "audio_5_3",
-      "parameter_list": "variant: button_only;\nsrc: audio/alimentationHumaine/sac_sorgho_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
-      "style_list": "float : right;"
+      "name": "audio_3_3",
+      "parameter_list": "variant: button_only;\nsrc: audio/alimentationHumaine/sac_sorgho_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;"
     },
     {
       "type": "end_display_group"
@@ -145,7 +148,7 @@
       "name": "sac_sorgho",
       "value": "@field.sac_sorgho",
       "action_list": "changed | set_field: sac_sorgho : this.value;",
-      "parameter_list": "input_type: number;\nplaceholder:Nombre de sac de sorgho;",
+      "parameter_list": "number_input: true; placeholder:@global.texte_placeholder;",
       "style_list": "margin: 10px;"
     },
     {
@@ -153,26 +156,27 @@
       "value": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.sac_sorgho) && Number(@local.sac_sorgho) < @fields.besoin_cereale_exploitation) || !@local.sac_sorgho)"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@fields.sac_sorgho && @fields.attempt_submit"
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@fields.sac_sorgho && @fields.attempt_submit",
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "text",
       "value": "@global.erreur_sacs",
       "condition": "!@local.valid_sac_sorgho",
-      "style_list": "color: red; font-size: 12px;"
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "begin_display_group"
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: red;\">*</span><b>Donnez le nombre de sacs de riz à prévoir</b>"
+      "type": "subtitle",
+      "value": "@global.nbre_sac_riz"
     },
     {
       "type": "audio",
-      "name": "audio_5_4",
+      "name": "audio_3_4",
       "parameter_list": "variant: button_only;\nsrc: audio/alimentationHumaine/sac_riz_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
       "style_list": "float : right;"
     },
@@ -189,7 +193,7 @@
       "name": "sac_riz",
       "value": "@fields.sac_riz",
       "action_list": "changed | set_field: sac_riz : this.value;",
-      "parameter_list": "input_type: number;\nplaceholder:Nombre de sac de riz;",
+      "parameter_list": "number_input: true; placeholder:@global.texte_placeholder;",
       "style_list": "margin: 10px;"
     },
     {
@@ -197,33 +201,38 @@
       "value": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.sac_riz) && Number(@local.sac_riz) < @fields.besoin_cereale_exploitation) || !@local.sac_riz)"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@fields.sac_riz && @fields.attempt_submit"
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@fields.sac_riz && @fields.attempt_submit",
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "text",
       "value": "@global.erreur_sacs",
       "condition": "!@local.valid_sac_riz",
-      "style_list": "color: red; font-size: 12px;"
+      "style_list": "@global.reponse_style"
     },
     {
-      "name": "v_cumul_sacs",
+      "name": "sac_cereales",
       "value": "@calc(Number(@field.sac_mais || 0) + Number(@field.sac_mil || 0) + Number(@field.sac_sorgho || 0) + Number(@fields.sac_riz || 0))"
     },
     {
-      "name": "v_diff_sacs",
-      "value": "@calc(Math.abs(@local.v_cumul_sacs - @fields.besoin_cereale_exploitation))"
+      "name": "sac_cereales_diff",
+      "value": "@calc(Math.abs(@local.sac_cereales - @fields.besoin_cereale_exploitation))"
+    },
+    {
+      "type": "text",
+      "value": "@global.message_cumul_sac"
     },
     {
       "type": "begin_display_group",
-      "name": "msg_ok",
-      "condition": "@local.v_cumul_sacs == @fields.besoin_cereale_exploitation",
-      "style_list": "background: #e8f5e9; padding: 15px; margin: 15px; text-align: center;"
+      "condition": "@local.sac_cereales == @fields.besoin_cereale_exploitation",
+      "style_list": "background: #e8f5e9; text-align: center; border-radius: 10px;"
     },
     {
-      "type": "html",
-      "value": "<b style=\"color: #2e7d32;\"> COMPTE CORRECT</b><br><span style=\"color: #4caf50;\">Le total de @local.v_cumul_sacs sacs correspond exactement au besoin.</span>\n"
+      "type": "text",
+      "value": "@global.msg_cumul_ok",
+      "style_list": "color: #4caf50; font-weight: bold; font-size: 16px;"
     },
     {
       "type": "end_display_group"
@@ -231,32 +240,45 @@
     {
       "type": "begin_display_group",
       "name": "msg_sup",
-      "condition": "@local.v_cumul_sacs > @field.besoin_cereale_exploitation",
-      "style_list": "background: #ffebee; padding: 15px; margin: 15px; text-align: center;"
+      "parameter_list": "style: column",
+      "condition": "@local.sac_cereales > @field.besoin_cereale_exploitation",
+      "style_list": "background: #ffebee; text-align: center; border-radius: 10px;"
     },
     {
-      "type": "html",
-      "value": "<b style=\"color: #c62828;\"> TOTAL TROP ÉLEVÉ</b><br><span style=\"color: #d32f2f;\">Diminuez le nombre de <b>@local.v_diff_sacs sac(s)</b> </span>"
+      "type": "text",
+      "value": "@global.msg_cumul_sup",
+      "style_list": "color: #c62828; font-weight: bold; font-size: 16px;"
+    },
+    {
+      "type": "text",
+      "value": "@global.msg_cumul_sup_hint",
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "end_display_group"
     },
     {
       "type": "begin_display_group",
-      "name": "msg_inf",
-      "condition": "@local.v_cumul_sacs < @field.besoin_cereale_exploitation && @local.v_cumul_sacs > 0",
-      "style_list": "background: #fff3e0; padding: 15px; margin: 15px; text-align: center;"
+      "parameter_list": "style: column",
+      "condition": "@local.sac_cereales < @field.besoin_cereale_exploitation && @local.sac_cereales > 0",
+      "style_list": "background: #fff3e0;border-radius: 10px; text-align: center;"
     },
     {
-      "type": "html",
-      "value": "<b style=\"color: #ef6c00;\"> TOTAL INSUFFISANT</b><br><span style=\"color: #f57c00;\">Augmentez le nombre de <b>@local.v_diff_sacs sac(s)</b></span>"
+      "type": "text",
+      "value": "@global.msg_cumul_inf",
+      "style_list": "color: #ef6c00; font-weight: bold; font-size: 16px;"
+    },
+    {
+      "type": "text",
+      "value": "@global.msg_cumul_inf_hint",
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "end_display_group"
     },
     {
       "name": "completed_enabled",
-      "value": "@local.v_cumul_sacs == @field.besoin_cereale_exploitation"
+      "value": "@local.sac_cereales == @field.besoin_cereale_exploitation"
     },
     {
       "type": "begin_display_group",
@@ -266,7 +288,7 @@
     },
     {
       "type": "round_button",
-      "name": "page5_button_back",
+      "name": "page3_button_back",
       "action_list": "click | set_field: attempt_submit: false;\nclick | emit: uncompleted",
       "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
     },
@@ -280,7 +302,7 @@
     },
     {
       "type": "button",
-      "name": "page5_button_completed",
+      "name": "page3_button_completed",
       "value": "@global.btn_continue",
       "action_list": "click | set_field: attempt_submit: false;\nclick | emit: completed",
       "parameter_list": "\ndisabled: !@local.completed_enabled\n",

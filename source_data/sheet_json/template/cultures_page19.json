@@ -5,7 +5,7 @@
   "rows": [
     {
       "type": "title",
-      "value": "REPARTITION DES QUANTITES D'ENGRAIS: @fields.culture_list_all"
+      "value": "@global.repartition_qtite_engrais"
     },
     {
       "name": "total_source_npk_coton_14_18_18",
@@ -34,11 +34,11 @@
     },
     {
       "name": "rappel_total_source_npk_coton_14_18_18",
-      "value": "@calc(Math.abs(Number(@fields.besoins_prevue_npk_coton_14_18_18 || 0) - Number(@fields.total_source_npk_coton_14_18_18 || 0)))"
+      "value": "@calc(Math.abs(Number(@fields.besoins_prevue_npk_coton_14_18_18 || 0) - Number(@local.total_source_npk_coton_14_18_18 || 0)))"
     },
     {
       "type": "text",
-      "value": "Complexe coton 14-18-18: Total réparti (@local.total_source_npk_coton_14_18_18 sac) n'est pas égal au total des besoins (@fields.besoins_prevue_npk_coton_14_18_18 sac)\nLa différence (sac) est: **@local.rappel_total_source_npk_coton_14_18_18**",
+      "value": "@global.rappel_npk14",
       "style_list": "background: #fdf6f0; color: #a44c20; border: 1px solid #f5decb; border-radius: 12px; padding: 14px 18px; margin: 12px 0px; box-shadow: 0 4px 6px rgba(164, 76, 32, 0.02); font-size: 20px; font-weight: 500;"
     },
     {
@@ -55,7 +55,7 @@
     },
     {
       "type": "text",
-      "value": "Complexe céréale 15-15-15: Total réparti (@local.total_source_npk_cereal_15_15_15 sac) n'est pas égal au total des besoins (@fields.besoins_prevue_npk_cereale_15_15_15 sac)\nLa différence (sac) est: **@local.rappel_total_source_npk_cereal_15_15_15**",
+      "value": "@global.rappel_npk15",
       "style_list": "background: #fdf6f0; color: #a44c20; border: 1px solid #f5decb; border-radius: 12px; padding: 14px 18px; margin: 12px 0px; box-shadow: 0 4px 6px rgba(164, 76, 32, 0.02); font-size: 20px; font-weight: 500;"
     },
     {
@@ -64,15 +64,15 @@
     {
       "type": "begin_display_group",
       "parameter_list": "style: column",
-      "condition": "besoins_prevue_npk_cereale_17_17_17 != @local.total_source_npk_cereal_17_17_17 && @fields.besoins_prevue_npk_cereale_17_17_17 > 0"
+      "condition": "@fields.besoins_prevue_npk_cereale_17_17_17 != @local.total_source_npk_cereal_17_17_17 && @fields.besoins_prevue_npk_cereale_17_17_17 > 0"
     },
     {
       "name": "rappel_total_source_npk_cereal_17_17_17",
-      "value": "@calc(Math.abs(Number(@fields.besoins_prevue_npk_cereale_17_17_17 || 0) - Number(@fields.total_source_npk_cereal_17_17_17 || 0)))"
+      "value": "@calc(Math.abs(Number(@fields.besoins_prevue_npk_cereale_17_17_17 || 0) - Number(@local.total_source_npk_cereal_17_17_17 || 0)))"
     },
     {
       "type": "text",
-      "value": "Complexe céréale 17-17-17: Total réparti  (@local.total_source_npk_cereal_17_17_17 sac) n'est pas égal au total des besoins (@fields.besoins_prevue_npk_cereale_17_17_17 sac)\nLa différence (sac) est: **@local.rappel_total_source_npk_cereal_17_17_17**",
+      "value": "@global.rappel_npk17",
       "style_list": "background: #fdf6f0; color: #a44c20; border: 1px solid #f5decb; border-radius: 12px; padding: 14px 18px; margin: 12px 0px; box-shadow: 0 4px 6px rgba(164, 76, 32, 0.02); font-size: 20px; font-weight: 500;"
     },
     {
@@ -85,11 +85,11 @@
     },
     {
       "name": "rappel_total_source_dap",
-      "value": "@calc(Math.abs(Number(@fields.besoins_prevue_dap || 0) - Number(@fields.total_source_dap || 0)))"
+      "value": "@calc(Math.abs(Number(@fields.besoins_prevue_dap || 0) - Number(@local.total_source_dap || 0)))"
     },
     {
       "type": "text",
-      "value": "DAP: Total réparti @local.total_source_dap sac) n'est pas égal au total des besoins (@fields.besoins_prevue_dap sac)\nLa différence (sac) est: **@local.rappel_total_source_dap**",
+      "value": "@global.rappel_dap",
       "style_list": "background: #fdf6f0; color: #a44c20; border: 1px solid #f5decb; border-radius: 12px; padding: 14px 18px; margin: 12px 0px; box-shadow: 0 4px 6px rgba(164, 76, 32, 0.02); font-size: 20px; font-weight: 500;"
     },
     {
@@ -102,11 +102,11 @@
     },
     {
       "name": "rappel_total_source_uree",
-      "value": "@calc(Math.abs(Number(@fields.besoins_prevus_uree || 0) - Number(@fields.total_source_uree || 0)))"
+      "value": "@calc(Math.abs(Number(@fields.besoins_prevus_uree || 0) - Number(@local.total_source_uree || 0)))"
     },
     {
       "type": "text",
-      "value": "Urée: Total réparti (@local.total_source_uree sac) n'est pas égal au total des besoins (@fields.besoins_prevus_uree sac)\nLa différence (sac) est: **@local.rappel_total_source_uree**",
+      "value": "@global.rappel_uree",
       "style_list": "background: #fdf6f0; color: #a44c20; border: 1px solid #f5decb; border-radius: 12px; padding: 14px 18px; margin: 12px 0px; box-shadow: 0 4px 6px rgba(164, 76, 32, 0.02); font-size: 20px; font-weight: 500;"
     },
     {
@@ -119,7 +119,7 @@
     },
     {
       "type": "text",
-      "value": "LES BESOINS EN ENGRAIS SONT BIEN REPARTIS ENTRE LES SOURCES D'APPROVISIONNEMENT",
+      "value": "@global.conclusion_rappel",
       "style_list": "background: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; border-radius: 12px; padding: 14px 18px; margin: 12px 0px; box-shadow: 0 4px 6px rgba(22, 101, 52, 0.05); font-size: 20px; font-weight: 500;"
     },
     {

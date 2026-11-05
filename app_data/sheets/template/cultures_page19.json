@@ -5,7 +5,7 @@
   "rows": [
     {
       "type": "title",
-      "value": "REPARTITION DES QUANTITES D'ENGRAIS: @fields.culture_list_all",
+      "value": "@global.repartition_qtite_engrais",
       "_translations": {
         "value": {}
       },
@@ -14,15 +14,15 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "REPARTITION DES QUANTITES D'ENGRAIS: @fields.culture_list_all",
-            "matchedExpression": "@fields.culture_list_all",
-            "type": "fields",
-            "fieldName": "culture_list_all"
+            "fullExpression": "@global.repartition_qtite_engrais",
+            "matchedExpression": "@global.repartition_qtite_engrais",
+            "type": "global",
+            "fieldName": "repartition_qtite_engrais"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.culture_list_all": [
+        "@global.repartition_qtite_engrais": [
           "value"
         ]
       }
@@ -509,7 +509,7 @@
     },
     {
       "name": "rappel_total_source_npk_coton_14_18_18",
-      "value": "@calc(Math.abs(Number(@fields.besoins_prevue_npk_coton_14_18_18 || 0) - Number(@fields.total_source_npk_coton_14_18_18 || 0)))",
+      "value": "@calc(Math.abs(Number(@fields.besoins_prevue_npk_coton_14_18_18 || 0) - Number(@local.total_source_npk_coton_14_18_18 || 0)))",
       "_translations": {
         "value": {}
       },
@@ -518,22 +518,22 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc(Math.abs(Number(@fields.besoins_prevue_npk_coton_14_18_18 || 0) - Number(@fields.total_source_npk_coton_14_18_18 || 0)))",
+            "fullExpression": "@calc(Math.abs(Number(@fields.besoins_prevue_npk_coton_14_18_18 || 0) - Number(@local.total_source_npk_coton_14_18_18 || 0)))",
             "matchedExpression": "@fields.besoins_prevue_npk_coton_14_18_18",
             "type": "fields",
             "fieldName": "besoins_prevue_npk_coton_14_18_18"
           },
           {
-            "fullExpression": "@calc(Math.abs(Number(@fields.besoins_prevue_npk_coton_14_18_18 || 0) - Number(@fields.total_source_npk_coton_14_18_18 || 0)))",
-            "matchedExpression": "@fields.total_source_npk_coton_14_18_18",
-            "type": "fields",
+            "fullExpression": "@calc(Math.abs(Number(@fields.besoins_prevue_npk_coton_14_18_18 || 0) - Number(@local.total_source_npk_coton_14_18_18 || 0)))",
+            "matchedExpression": "@local.total_source_npk_coton_14_18_18",
+            "type": "local",
             "fieldName": "total_source_npk_coton_14_18_18"
           },
           {
-            "fullExpression": "@calc(Math.abs(Number(@fields.besoins_prevue_npk_coton_14_18_18 || 0) - Number(@fields.total_source_npk_coton_14_18_18 || 0)))",
-            "matchedExpression": "@calc(Math.abs(Number(@fields.besoins_prevue_npk_coton_14_18_18 || 0) - Number(@fields.total_source_npk_coton_14_18_18 || 0)))",
+            "fullExpression": "@calc(Math.abs(Number(@fields.besoins_prevue_npk_coton_14_18_18 || 0) - Number(@local.total_source_npk_coton_14_18_18 || 0)))",
+            "matchedExpression": "@calc(Math.abs(Number(@fields.besoins_prevue_npk_coton_14_18_18 || 0) - Number(@local.total_source_npk_coton_14_18_18 || 0)))",
             "type": "calc",
-            "fieldName": "Math.abs(Number(@fields.besoins_prevue_npk_coton_14_18_18 || 0) - Number(@fields.total_source_npk_coton_14_18_18 || 0))"
+            "fieldName": "Math.abs(Number(@fields.besoins_prevue_npk_coton_14_18_18 || 0) - Number(@local.total_source_npk_coton_14_18_18 || 0))"
           }
         ]
       },
@@ -541,10 +541,10 @@
         "@fields.besoins_prevue_npk_coton_14_18_18": [
           "value"
         ],
-        "@fields.total_source_npk_coton_14_18_18": [
+        "@local.total_source_npk_coton_14_18_18": [
           "value"
         ],
-        "@calc(Math.abs(Number(@fields.besoins_prevue_npk_coton_14_18_18 || 0) - Number(@fields.total_source_npk_coton_14_18_18 || 0)))": [
+        "@calc(Math.abs(Number(@fields.besoins_prevue_npk_coton_14_18_18 || 0) - Number(@local.total_source_npk_coton_14_18_18 || 0)))": [
           "value"
         ]
       }
@@ -558,7 +558,7 @@
       "rows": [
         {
           "type": "text",
-          "value": "Complexe coton 14-18-18: Total réparti (@local.total_source_npk_coton_14_18_18 sac) n'est pas égal au total des besoins (@fields.besoins_prevue_npk_coton_14_18_18 sac)\nLa différence (sac) est: **@local.rappel_total_source_npk_coton_14_18_18**",
+          "value": "@global.rappel_npk14",
           "_translations": {
             "value": {}
           },
@@ -578,33 +578,15 @@
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "Complexe coton 14-18-18: Total réparti (@local.total_source_npk_coton_14_18_18 sac) n'est pas égal au total des besoins (@fields.besoins_prevue_npk_coton_14_18_18 sac)\nLa différence (sac) est: **@local.rappel_total_source_npk_coton_14_18_18**",
-                "matchedExpression": "@local.total_source_npk_coton_14_18_18",
-                "type": "local",
-                "fieldName": "total_source_npk_coton_14_18_18"
-              },
-              {
-                "fullExpression": "Complexe coton 14-18-18: Total réparti (@local.total_source_npk_coton_14_18_18 sac) n'est pas égal au total des besoins (@fields.besoins_prevue_npk_coton_14_18_18 sac)\nLa différence (sac) est: **@local.rappel_total_source_npk_coton_14_18_18**",
-                "matchedExpression": "@fields.besoins_prevue_npk_coton_14_18_18",
-                "type": "fields",
-                "fieldName": "besoins_prevue_npk_coton_14_18_18"
-              },
-              {
-                "fullExpression": "Complexe coton 14-18-18: Total réparti (@local.total_source_npk_coton_14_18_18 sac) n'est pas égal au total des besoins (@fields.besoins_prevue_npk_coton_14_18_18 sac)\nLa différence (sac) est: **@local.rappel_total_source_npk_coton_14_18_18**",
-                "matchedExpression": "@local.rappel_total_source_npk_coton_14_18_18",
-                "type": "local",
-                "fieldName": "rappel_total_source_npk_coton_14_18_18"
+                "fullExpression": "@global.rappel_npk14",
+                "matchedExpression": "@global.rappel_npk14",
+                "type": "global",
+                "fieldName": "rappel_npk14"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@local.total_source_npk_coton_14_18_18": [
-              "value"
-            ],
-            "@fields.besoins_prevue_npk_coton_14_18_18": [
-              "value"
-            ],
-            "@local.rappel_total_source_npk_coton_14_18_18": [
+            "@global.rappel_npk14": [
               "value"
             ]
           }
@@ -695,7 +677,7 @@
       "rows": [
         {
           "type": "text",
-          "value": "Complexe céréale 15-15-15: Total réparti (@local.total_source_npk_cereal_15_15_15 sac) n'est pas égal au total des besoins (@fields.besoins_prevue_npk_cereale_15_15_15 sac)\nLa différence (sac) est: **@local.rappel_total_source_npk_cereal_15_15_15**",
+          "value": "@global.rappel_npk15",
           "_translations": {
             "value": {}
           },
@@ -715,33 +697,15 @@
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "Complexe céréale 15-15-15: Total réparti (@local.total_source_npk_cereal_15_15_15 sac) n'est pas égal au total des besoins (@fields.besoins_prevue_npk_cereale_15_15_15 sac)\nLa différence (sac) est: **@local.rappel_total_source_npk_cereal_15_15_15**",
-                "matchedExpression": "@local.total_source_npk_cereal_15_15_15",
-                "type": "local",
-                "fieldName": "total_source_npk_cereal_15_15_15"
-              },
-              {
-                "fullExpression": "Complexe céréale 15-15-15: Total réparti (@local.total_source_npk_cereal_15_15_15 sac) n'est pas égal au total des besoins (@fields.besoins_prevue_npk_cereale_15_15_15 sac)\nLa différence (sac) est: **@local.rappel_total_source_npk_cereal_15_15_15**",
-                "matchedExpression": "@fields.besoins_prevue_npk_cereale_15_15_15",
-                "type": "fields",
-                "fieldName": "besoins_prevue_npk_cereale_15_15_15"
-              },
-              {
-                "fullExpression": "Complexe céréale 15-15-15: Total réparti (@local.total_source_npk_cereal_15_15_15 sac) n'est pas égal au total des besoins (@fields.besoins_prevue_npk_cereale_15_15_15 sac)\nLa différence (sac) est: **@local.rappel_total_source_npk_cereal_15_15_15**",
-                "matchedExpression": "@local.rappel_total_source_npk_cereal_15_15_15",
-                "type": "local",
-                "fieldName": "rappel_total_source_npk_cereal_15_15_15"
+                "fullExpression": "@global.rappel_npk15",
+                "matchedExpression": "@global.rappel_npk15",
+                "type": "global",
+                "fieldName": "rappel_npk15"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@local.total_source_npk_cereal_15_15_15": [
-              "value"
-            ],
-            "@fields.besoins_prevue_npk_cereale_15_15_15": [
-              "value"
-            ],
-            "@local.rappel_total_source_npk_cereal_15_15_15": [
+            "@global.rappel_npk15": [
               "value"
             ]
           }
@@ -783,7 +747,7 @@
     },
     {
       "name": "rappel_total_source_npk_cereal_17_17_17",
-      "value": "@calc(Math.abs(Number(@fields.besoins_prevue_npk_cereale_17_17_17 || 0) - Number(@fields.total_source_npk_cereal_17_17_17 || 0)))",
+      "value": "@calc(Math.abs(Number(@fields.besoins_prevue_npk_cereale_17_17_17 || 0) - Number(@local.total_source_npk_cereal_17_17_17 || 0)))",
       "_translations": {
         "value": {}
       },
@@ -792,22 +756,22 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc(Math.abs(Number(@fields.besoins_prevue_npk_cereale_17_17_17 || 0) - Number(@fields.total_source_npk_cereal_17_17_17 || 0)))",
+            "fullExpression": "@calc(Math.abs(Number(@fields.besoins_prevue_npk_cereale_17_17_17 || 0) - Number(@local.total_source_npk_cereal_17_17_17 || 0)))",
             "matchedExpression": "@fields.besoins_prevue_npk_cereale_17_17_17",
             "type": "fields",
             "fieldName": "besoins_prevue_npk_cereale_17_17_17"
           },
           {
-            "fullExpression": "@calc(Math.abs(Number(@fields.besoins_prevue_npk_cereale_17_17_17 || 0) - Number(@fields.total_source_npk_cereal_17_17_17 || 0)))",
-            "matchedExpression": "@fields.total_source_npk_cereal_17_17_17",
-            "type": "fields",
+            "fullExpression": "@calc(Math.abs(Number(@fields.besoins_prevue_npk_cereale_17_17_17 || 0) - Number(@local.total_source_npk_cereal_17_17_17 || 0)))",
+            "matchedExpression": "@local.total_source_npk_cereal_17_17_17",
+            "type": "local",
             "fieldName": "total_source_npk_cereal_17_17_17"
           },
           {
-            "fullExpression": "@calc(Math.abs(Number(@fields.besoins_prevue_npk_cereale_17_17_17 || 0) - Number(@fields.total_source_npk_cereal_17_17_17 || 0)))",
-            "matchedExpression": "@calc(Math.abs(Number(@fields.besoins_prevue_npk_cereale_17_17_17 || 0) - Number(@fields.total_source_npk_cereal_17_17_17 || 0)))",
+            "fullExpression": "@calc(Math.abs(Number(@fields.besoins_prevue_npk_cereale_17_17_17 || 0) - Number(@local.total_source_npk_cereal_17_17_17 || 0)))",
+            "matchedExpression": "@calc(Math.abs(Number(@fields.besoins_prevue_npk_cereale_17_17_17 || 0) - Number(@local.total_source_npk_cereal_17_17_17 || 0)))",
             "type": "calc",
-            "fieldName": "Math.abs(Number(@fields.besoins_prevue_npk_cereale_17_17_17 || 0) - Number(@fields.total_source_npk_cereal_17_17_17 || 0))"
+            "fieldName": "Math.abs(Number(@fields.besoins_prevue_npk_cereale_17_17_17 || 0) - Number(@local.total_source_npk_cereal_17_17_17 || 0))"
           }
         ]
       },
@@ -815,10 +779,10 @@
         "@fields.besoins_prevue_npk_cereale_17_17_17": [
           "value"
         ],
-        "@fields.total_source_npk_cereal_17_17_17": [
+        "@local.total_source_npk_cereal_17_17_17": [
           "value"
         ],
-        "@calc(Math.abs(Number(@fields.besoins_prevue_npk_cereale_17_17_17 || 0) - Number(@fields.total_source_npk_cereal_17_17_17 || 0)))": [
+        "@calc(Math.abs(Number(@fields.besoins_prevue_npk_cereale_17_17_17 || 0) - Number(@local.total_source_npk_cereal_17_17_17 || 0)))": [
           "value"
         ]
       }
@@ -828,11 +792,11 @@
       "parameter_list": {
         "style": "column"
       },
-      "condition": "besoins_prevue_npk_cereale_17_17_17 != @local.total_source_npk_cereal_17_17_17 && @fields.besoins_prevue_npk_cereale_17_17_17 > 0",
+      "condition": "@fields.besoins_prevue_npk_cereale_17_17_17 != @local.total_source_npk_cereal_17_17_17 && @fields.besoins_prevue_npk_cereale_17_17_17 > 0",
       "rows": [
         {
           "type": "text",
-          "value": "Complexe céréale 17-17-17: Total réparti  (@local.total_source_npk_cereal_17_17_17 sac) n'est pas égal au total des besoins (@fields.besoins_prevue_npk_cereale_17_17_17 sac)\nLa différence (sac) est: **@local.rappel_total_source_npk_cereal_17_17_17**",
+          "value": "@global.rappel_npk17",
           "_translations": {
             "value": {}
           },
@@ -852,33 +816,15 @@
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "Complexe céréale 17-17-17: Total réparti  (@local.total_source_npk_cereal_17_17_17 sac) n'est pas égal au total des besoins (@fields.besoins_prevue_npk_cereale_17_17_17 sac)\nLa différence (sac) est: **@local.rappel_total_source_npk_cereal_17_17_17**",
-                "matchedExpression": "@local.total_source_npk_cereal_17_17_17",
-                "type": "local",
-                "fieldName": "total_source_npk_cereal_17_17_17"
-              },
-              {
-                "fullExpression": "Complexe céréale 17-17-17: Total réparti  (@local.total_source_npk_cereal_17_17_17 sac) n'est pas égal au total des besoins (@fields.besoins_prevue_npk_cereale_17_17_17 sac)\nLa différence (sac) est: **@local.rappel_total_source_npk_cereal_17_17_17**",
-                "matchedExpression": "@fields.besoins_prevue_npk_cereale_17_17_17",
-                "type": "fields",
-                "fieldName": "besoins_prevue_npk_cereale_17_17_17"
-              },
-              {
-                "fullExpression": "Complexe céréale 17-17-17: Total réparti  (@local.total_source_npk_cereal_17_17_17 sac) n'est pas égal au total des besoins (@fields.besoins_prevue_npk_cereale_17_17_17 sac)\nLa différence (sac) est: **@local.rappel_total_source_npk_cereal_17_17_17**",
-                "matchedExpression": "@local.rappel_total_source_npk_cereal_17_17_17",
-                "type": "local",
-                "fieldName": "rappel_total_source_npk_cereal_17_17_17"
+                "fullExpression": "@global.rappel_npk17",
+                "matchedExpression": "@global.rappel_npk17",
+                "type": "global",
+                "fieldName": "rappel_npk17"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@local.total_source_npk_cereal_17_17_17": [
-              "value"
-            ],
-            "@fields.besoins_prevue_npk_cereale_17_17_17": [
-              "value"
-            ],
-            "@local.rappel_total_source_npk_cereal_17_17_17": [
+            "@global.rappel_npk17": [
               "value"
             ]
           }
@@ -889,13 +835,19 @@
       "_dynamicFields": {
         "condition": [
           {
-            "fullExpression": "besoins_prevue_npk_cereale_17_17_17 != @local.total_source_npk_cereal_17_17_17 && @fields.besoins_prevue_npk_cereale_17_17_17 > 0",
+            "fullExpression": "@fields.besoins_prevue_npk_cereale_17_17_17 != @local.total_source_npk_cereal_17_17_17 && @fields.besoins_prevue_npk_cereale_17_17_17 > 0",
+            "matchedExpression": "@fields.besoins_prevue_npk_cereale_17_17_17",
+            "type": "fields",
+            "fieldName": "besoins_prevue_npk_cereale_17_17_17"
+          },
+          {
+            "fullExpression": "@fields.besoins_prevue_npk_cereale_17_17_17 != @local.total_source_npk_cereal_17_17_17 && @fields.besoins_prevue_npk_cereale_17_17_17 > 0",
             "matchedExpression": "@local.total_source_npk_cereal_17_17_17",
             "type": "local",
             "fieldName": "total_source_npk_cereal_17_17_17"
           },
           {
-            "fullExpression": "besoins_prevue_npk_cereale_17_17_17 != @local.total_source_npk_cereal_17_17_17 && @fields.besoins_prevue_npk_cereale_17_17_17 > 0",
+            "fullExpression": "@fields.besoins_prevue_npk_cereale_17_17_17 != @local.total_source_npk_cereal_17_17_17 && @fields.besoins_prevue_npk_cereale_17_17_17 > 0",
             "matchedExpression": "@fields.besoins_prevue_npk_cereale_17_17_17",
             "type": "fields",
             "fieldName": "besoins_prevue_npk_cereale_17_17_17"
@@ -903,17 +855,18 @@
         ]
       },
       "_dynamicDependencies": {
-        "@local.total_source_npk_cereal_17_17_17": [
+        "@fields.besoins_prevue_npk_cereale_17_17_17": [
+          "condition",
           "condition"
         ],
-        "@fields.besoins_prevue_npk_cereale_17_17_17": [
+        "@local.total_source_npk_cereal_17_17_17": [
           "condition"
         ]
       }
     },
     {
       "name": "rappel_total_source_dap",
-      "value": "@calc(Math.abs(Number(@fields.besoins_prevue_dap || 0) - Number(@fields.total_source_dap || 0)))",
+      "value": "@calc(Math.abs(Number(@fields.besoins_prevue_dap || 0) - Number(@local.total_source_dap || 0)))",
       "_translations": {
         "value": {}
       },
@@ -922,22 +875,22 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc(Math.abs(Number(@fields.besoins_prevue_dap || 0) - Number(@fields.total_source_dap || 0)))",
+            "fullExpression": "@calc(Math.abs(Number(@fields.besoins_prevue_dap || 0) - Number(@local.total_source_dap || 0)))",
             "matchedExpression": "@fields.besoins_prevue_dap",
             "type": "fields",
             "fieldName": "besoins_prevue_dap"
           },
           {
-            "fullExpression": "@calc(Math.abs(Number(@fields.besoins_prevue_dap || 0) - Number(@fields.total_source_dap || 0)))",
-            "matchedExpression": "@fields.total_source_dap",
-            "type": "fields",
+            "fullExpression": "@calc(Math.abs(Number(@fields.besoins_prevue_dap || 0) - Number(@local.total_source_dap || 0)))",
+            "matchedExpression": "@local.total_source_dap",
+            "type": "local",
             "fieldName": "total_source_dap"
           },
           {
-            "fullExpression": "@calc(Math.abs(Number(@fields.besoins_prevue_dap || 0) - Number(@fields.total_source_dap || 0)))",
-            "matchedExpression": "@calc(Math.abs(Number(@fields.besoins_prevue_dap || 0) - Number(@fields.total_source_dap || 0)))",
+            "fullExpression": "@calc(Math.abs(Number(@fields.besoins_prevue_dap || 0) - Number(@local.total_source_dap || 0)))",
+            "matchedExpression": "@calc(Math.abs(Number(@fields.besoins_prevue_dap || 0) - Number(@local.total_source_dap || 0)))",
             "type": "calc",
-            "fieldName": "Math.abs(Number(@fields.besoins_prevue_dap || 0) - Number(@fields.total_source_dap || 0))"
+            "fieldName": "Math.abs(Number(@fields.besoins_prevue_dap || 0) - Number(@local.total_source_dap || 0))"
           }
         ]
       },
@@ -945,10 +898,10 @@
         "@fields.besoins_prevue_dap": [
           "value"
         ],
-        "@fields.total_source_dap": [
+        "@local.total_source_dap": [
           "value"
         ],
-        "@calc(Math.abs(Number(@fields.besoins_prevue_dap || 0) - Number(@fields.total_source_dap || 0)))": [
+        "@calc(Math.abs(Number(@fields.besoins_prevue_dap || 0) - Number(@local.total_source_dap || 0)))": [
           "value"
         ]
       }
@@ -962,7 +915,7 @@
       "rows": [
         {
           "type": "text",
-          "value": "DAP: Total réparti @local.total_source_dap sac) n'est pas égal au total des besoins (@fields.besoins_prevue_dap sac)\nLa différence (sac) est: **@local.rappel_total_source_dap**",
+          "value": "@global.rappel_dap",
           "_translations": {
             "value": {}
           },
@@ -982,33 +935,15 @@
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "DAP: Total réparti @local.total_source_dap sac) n'est pas égal au total des besoins (@fields.besoins_prevue_dap sac)\nLa différence (sac) est: **@local.rappel_total_source_dap**",
-                "matchedExpression": "@local.total_source_dap",
-                "type": "local",
-                "fieldName": "total_source_dap"
-              },
-              {
-                "fullExpression": "DAP: Total réparti @local.total_source_dap sac) n'est pas égal au total des besoins (@fields.besoins_prevue_dap sac)\nLa différence (sac) est: **@local.rappel_total_source_dap**",
-                "matchedExpression": "@fields.besoins_prevue_dap",
-                "type": "fields",
-                "fieldName": "besoins_prevue_dap"
-              },
-              {
-                "fullExpression": "DAP: Total réparti @local.total_source_dap sac) n'est pas égal au total des besoins (@fields.besoins_prevue_dap sac)\nLa différence (sac) est: **@local.rappel_total_source_dap**",
-                "matchedExpression": "@local.rappel_total_source_dap",
-                "type": "local",
-                "fieldName": "rappel_total_source_dap"
+                "fullExpression": "@global.rappel_dap",
+                "matchedExpression": "@global.rappel_dap",
+                "type": "global",
+                "fieldName": "rappel_dap"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@local.total_source_dap": [
-              "value"
-            ],
-            "@fields.besoins_prevue_dap": [
-              "value"
-            ],
-            "@local.rappel_total_source_dap": [
+            "@global.rappel_dap": [
               "value"
             ]
           }
@@ -1050,7 +985,7 @@
     },
     {
       "name": "rappel_total_source_uree",
-      "value": "@calc(Math.abs(Number(@fields.besoins_prevus_uree || 0) - Number(@fields.total_source_uree || 0)))",
+      "value": "@calc(Math.abs(Number(@fields.besoins_prevus_uree || 0) - Number(@local.total_source_uree || 0)))",
       "_translations": {
         "value": {}
       },
@@ -1059,22 +994,22 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc(Math.abs(Number(@fields.besoins_prevus_uree || 0) - Number(@fields.total_source_uree || 0)))",
+            "fullExpression": "@calc(Math.abs(Number(@fields.besoins_prevus_uree || 0) - Number(@local.total_source_uree || 0)))",
             "matchedExpression": "@fields.besoins_prevus_uree",
             "type": "fields",
             "fieldName": "besoins_prevus_uree"
           },
           {
-            "fullExpression": "@calc(Math.abs(Number(@fields.besoins_prevus_uree || 0) - Number(@fields.total_source_uree || 0)))",
-            "matchedExpression": "@fields.total_source_uree",
-            "type": "fields",
+            "fullExpression": "@calc(Math.abs(Number(@fields.besoins_prevus_uree || 0) - Number(@local.total_source_uree || 0)))",
+            "matchedExpression": "@local.total_source_uree",
+            "type": "local",
             "fieldName": "total_source_uree"
           },
           {
-            "fullExpression": "@calc(Math.abs(Number(@fields.besoins_prevus_uree || 0) - Number(@fields.total_source_uree || 0)))",
-            "matchedExpression": "@calc(Math.abs(Number(@fields.besoins_prevus_uree || 0) - Number(@fields.total_source_uree || 0)))",
+            "fullExpression": "@calc(Math.abs(Number(@fields.besoins_prevus_uree || 0) - Number(@local.total_source_uree || 0)))",
+            "matchedExpression": "@calc(Math.abs(Number(@fields.besoins_prevus_uree || 0) - Number(@local.total_source_uree || 0)))",
             "type": "calc",
-            "fieldName": "Math.abs(Number(@fields.besoins_prevus_uree || 0) - Number(@fields.total_source_uree || 0))"
+            "fieldName": "Math.abs(Number(@fields.besoins_prevus_uree || 0) - Number(@local.total_source_uree || 0))"
           }
         ]
       },
@@ -1082,10 +1017,10 @@
         "@fields.besoins_prevus_uree": [
           "value"
         ],
-        "@fields.total_source_uree": [
+        "@local.total_source_uree": [
           "value"
         ],
-        "@calc(Math.abs(Number(@fields.besoins_prevus_uree || 0) - Number(@fields.total_source_uree || 0)))": [
+        "@calc(Math.abs(Number(@fields.besoins_prevus_uree || 0) - Number(@local.total_source_uree || 0)))": [
           "value"
         ]
       }
@@ -1099,7 +1034,7 @@
       "rows": [
         {
           "type": "text",
-          "value": "Urée: Total réparti (@local.total_source_uree sac) n'est pas égal au total des besoins (@fields.besoins_prevus_uree sac)\nLa différence (sac) est: **@local.rappel_total_source_uree**",
+          "value": "@global.rappel_uree",
           "_translations": {
             "value": {}
           },
@@ -1119,33 +1054,15 @@
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "Urée: Total réparti (@local.total_source_uree sac) n'est pas égal au total des besoins (@fields.besoins_prevus_uree sac)\nLa différence (sac) est: **@local.rappel_total_source_uree**",
-                "matchedExpression": "@local.total_source_uree",
-                "type": "local",
-                "fieldName": "total_source_uree"
-              },
-              {
-                "fullExpression": "Urée: Total réparti (@local.total_source_uree sac) n'est pas égal au total des besoins (@fields.besoins_prevus_uree sac)\nLa différence (sac) est: **@local.rappel_total_source_uree**",
-                "matchedExpression": "@fields.besoins_prevus_uree",
-                "type": "fields",
-                "fieldName": "besoins_prevus_uree"
-              },
-              {
-                "fullExpression": "Urée: Total réparti (@local.total_source_uree sac) n'est pas égal au total des besoins (@fields.besoins_prevus_uree sac)\nLa différence (sac) est: **@local.rappel_total_source_uree**",
-                "matchedExpression": "@local.rappel_total_source_uree",
-                "type": "local",
-                "fieldName": "rappel_total_source_uree"
+                "fullExpression": "@global.rappel_uree",
+                "matchedExpression": "@global.rappel_uree",
+                "type": "global",
+                "fieldName": "rappel_uree"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@local.total_source_uree": [
-              "value"
-            ],
-            "@fields.besoins_prevus_uree": [
-              "value"
-            ],
-            "@local.rappel_total_source_uree": [
+            "@global.rappel_uree": [
               "value"
             ]
           }
@@ -1194,7 +1111,7 @@
       "rows": [
         {
           "type": "text",
-          "value": "LES BESOINS EN ENGRAIS SONT BIEN REPARTIS ENTRE LES SOURCES D'APPROVISIONNEMENT",
+          "value": "@global.conclusion_rappel",
           "_translations": {
             "value": {}
           },
@@ -1210,7 +1127,22 @@
             "font-weight: 500"
           ],
           "name": "text_1",
-          "_nested_name": "display_group_18.text_1"
+          "_nested_name": "display_group_18.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.conclusion_rappel",
+                "matchedExpression": "@global.conclusion_rappel",
+                "type": "global",
+                "fieldName": "conclusion_rappel"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.conclusion_rappel": [
+              "value"
+            ]
+          }
         }
       ],
       "name": "display_group_18",
@@ -1370,7 +1302,7 @@
   ],
   "_source": {
     "name": "cef_m sheets",
-    "path": "template/Planification/Cultures_form_sheets.xlsx",
+    "path": "template/Planification/cultures_form_sheets.xlsx",
     "url": "https://docs.google.com/spreadsheets/d/1BAP12cPkFZaHtm0Xozys0kLOqnVOi1h2UUBMoZbmKQI"
   }
 }

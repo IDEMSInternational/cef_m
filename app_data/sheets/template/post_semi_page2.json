@@ -47,23 +47,29 @@
       ],
       "rows": [
         {
-          "type": "html",
-          "value": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>",
+          "type": "text",
+          "value": "CULTURE @local.v_current_human / @field.total_cultures_selected",
           "_translations": {
             "value": {}
           },
-          "name": "html_1",
-          "_nested_name": "header.html_1",
+          "style_list": [
+            "color: white",
+            "font-weight: bold",
+            "font-size: 14px",
+            "text-transform: uppercase"
+          ],
+          "name": "text_1",
+          "_nested_name": "header.text_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>",
+                "fullExpression": "CULTURE @local.v_current_human / @field.total_cultures_selected",
                 "matchedExpression": "@local.v_current_human",
                 "type": "local",
                 "fieldName": "v_current_human"
               },
               {
-                "fullExpression": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>",
+                "fullExpression": "CULTURE @local.v_current_human / @field.total_cultures_selected",
                 "matchedExpression": "@field.total_cultures_selected",
                 "type": "field",
                 "fieldName": "total_cultures_selected"
@@ -84,16 +90,30 @@
     },
     {
       "type": "title",
-      "value": "DÉTAILS DE LA CULTURE : ENTRETIEN",
+      "value": "@global.title_page",
       "_translations": {
         "value": {}
       },
       "name": "title_5",
-      "_nested_name": "title_5"
+      "_nested_name": "title_5",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.title_page",
+            "matchedExpression": "@global.title_page",
+            "type": "global",
+            "fieldName": "title_page"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.title_page": [
+          "value"
+        ]
+      }
     },
     {
       "type": "display_group",
-      "name": "header_culture",
       "style_list": [
         "width: 100%",
         "display: flex",
@@ -113,11 +133,11 @@
             "value": {}
           },
           "style_list": [
-            "width: 100px",
-            "height: 100px"
+            "width: 60%",
+            "object-fit: contain"
           ],
           "name": "image_1",
-          "_nested_name": "header_culture.image_1",
+          "_nested_name": "display_group_6.image_1",
           "_dynamicFields": {
             "value": [
               {
@@ -152,20 +172,23 @@
         },
         {
           "type": "text",
-          "value": "<h3 style='color: black; margin: 10px 0;'>Culture : <span style='color: #e3a730;'>@field.active_culture_name</span></h3>",
+          "value": "Culture : @field.active_culture_name",
           "_translations": {
             "value": {}
           },
           "style_list": [
             "font-weight: bold",
-            "font-size: 18px"
+            "font-size: 18px",
+            "color: #e3a730",
+            "margin-top: 10px",
+            "text-align: center"
           ],
           "name": "text_2",
-          "_nested_name": "header_culture.text_2",
+          "_nested_name": "display_group_6.text_2",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "<h3 style='color: black; margin: 10px 0;'>Culture : <span style='color: #e3a730;'>@field.active_culture_name</span></h3>",
+                "fullExpression": "Culture : @field.active_culture_name",
                 "matchedExpression": "@field.active_culture_name",
                 "type": "field",
                 "fieldName": "active_culture_name"
@@ -179,7 +202,8 @@
           }
         }
       ],
-      "_nested_name": "header_culture"
+      "name": "display_group_6",
+      "_nested_name": "display_group_6"
     },
     {
       "name": "sarclage_pos",
@@ -262,13 +286,34 @@
       }
     },
     {
-      "type": "html",
-      "value": "<br><b style=\"color: #e67e22\">1. SARCLAGE</b>",
+      "type": "text",
+      "value": "@global.sec_sarclage",
       "_translations": {
         "value": {}
       },
-      "name": "html_10",
-      "_nested_name": "html_10"
+      "style_list": [
+        "color: #e67e22",
+        "font-weight: bold",
+        "margin-top: 15px",
+        "margin-bottom: 5px"
+      ],
+      "name": "text_10",
+      "_nested_name": "text_10",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.sec_sarclage",
+            "matchedExpression": "@global.sec_sarclage",
+            "type": "global",
+            "fieldName": "sec_sarclage"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.sec_sarclage": [
+          "value"
+        ]
+      }
     },
     {
       "type": "display_group",
@@ -293,13 +338,33 @@
           "_nested_name": "sarclage_group.sarclage_note"
         },
         {
-          "type": "html",
-          "value": "Superficie sarclée par prestation (Ha)<span style=\"color: red;\">*</span>",
+          "type": "text",
+          "value": "@global.lbl_sarclage",
           "_translations": {
             "value": {}
           },
-          "name": "html_2",
-          "_nested_name": "sarclage_group.html_2"
+          "style_list": [
+            "font-weight: bold",
+            "font-size: 16px",
+            "color: #333"
+          ],
+          "name": "text_2",
+          "_nested_name": "sarclage_group.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.lbl_sarclage",
+                "matchedExpression": "@global.lbl_sarclage",
+                "type": "global",
+                "fieldName": "lbl_sarclage"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.lbl_sarclage": [
+              "value"
+            ]
+          }
         },
         {
           "type": "image",
@@ -359,7 +424,7 @@
     {
       "type": "text",
       "name": "err_sup1",
-      "value": "*Mettez une valeur positive*",
+      "value": "@global.error_positive_value",
       "_translations": {
         "value": {}
       },
@@ -370,6 +435,14 @@
       ],
       "_nested_name": "err_sup1",
       "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.error_positive_value",
+            "matchedExpression": "@global.error_positive_value",
+            "type": "global",
+            "fieldName": "error_positive_value"
+          }
+        ],
         "condition": [
           {
             "fullExpression": "@local.sarclage_neg",
@@ -380,6 +453,9 @@
         ]
       },
       "_dynamicDependencies": {
+        "@global.error_positive_value": [
+          "value"
+        ],
         "@local.sarclage_neg": [
           "condition"
         ]
@@ -409,17 +485,37 @@
           "_nested_name": "sarclage_card_cout.audio_1"
         },
         {
-          "type": "html",
-          "value": "Coût total payé (Dram)<span style=\"color: red;\">*</span>",
+          "type": "text",
+          "value": "@global.lbl_sarc_c_nz",
           "_translations": {
             "value": {}
           },
-          "name": "html_2",
-          "_nested_name": "sarclage_card_cout.html_2"
+          "style_list": [
+            "font-weight: bold",
+            "font-size: 16px",
+            "color: #333"
+          ],
+          "name": "text_2",
+          "_nested_name": "sarclage_card_cout.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.lbl_sarc_c_nz",
+                "matchedExpression": "@global.lbl_sarc_c_nz",
+                "type": "global",
+                "fieldName": "lbl_sarc_c_nz"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.lbl_sarc_c_nz": [
+              "value"
+            ]
+          }
         },
         {
           "type": "text",
-          "value": "*Rappel : 1 dram = 5 FCFA*",
+          "value": "@global.hint_price",
           "_translations": {
             "value": {}
           },
@@ -428,7 +524,22 @@
             "color: gray"
           ],
           "name": "text_3",
-          "_nested_name": "sarclage_card_cout.text_3"
+          "_nested_name": "sarclage_card_cout.text_3",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.hint_price",
+                "matchedExpression": "@global.hint_price",
+                "type": "global",
+                "fieldName": "hint_price"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.hint_price": [
+              "value"
+            ]
+          }
         },
         {
           "type": "image",
@@ -524,17 +635,37 @@
           "_nested_name": "sarclage_card_cout_zero.audio_1"
         },
         {
-          "type": "html",
-          "value": "Coût total payé (Dram)<span style=\"color: red;\">*</span>",
+          "type": "text",
+          "value": "@global.lbl_sarc_c_nz",
           "_translations": {
             "value": {}
           },
-          "name": "html_2",
-          "_nested_name": "sarclage_card_cout_zero.html_2"
+          "style_list": [
+            "font-weight: bold",
+            "font-size: 16px",
+            "color: #333"
+          ],
+          "name": "text_2",
+          "_nested_name": "sarclage_card_cout_zero.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.lbl_sarc_c_nz",
+                "matchedExpression": "@global.lbl_sarc_c_nz",
+                "type": "global",
+                "fieldName": "lbl_sarc_c_nz"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.lbl_sarc_c_nz": [
+              "value"
+            ]
+          }
         },
         {
           "type": "text",
-          "value": "*Rappel : 1 dram = 5 FCFA*",
+          "value": "@global.hint_price",
           "_translations": {
             "value": {}
           },
@@ -543,7 +674,22 @@
             "color: gray"
           ],
           "name": "text_3",
-          "_nested_name": "sarclage_card_cout_zero.text_3"
+          "_nested_name": "sarclage_card_cout_zero.text_3",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.hint_price",
+                "matchedExpression": "@global.hint_price",
+                "type": "global",
+                "fieldName": "hint_price"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.hint_price": [
+              "value"
+            ]
+          }
         },
         {
           "type": "image",
@@ -666,13 +812,34 @@
       }
     },
     {
-      "type": "html",
-      "value": "<br><b style=\"color: #e67e22\">2. DÉSHERBAGE</b>",
+      "type": "text",
+      "value": "@global.sec_desherbage",
       "_translations": {
         "value": {}
       },
-      "name": "html_20",
-      "_nested_name": "html_20"
+      "style_list": [
+        "color: #e67e22",
+        "font-weight: bold",
+        "margin-top: 20px",
+        "margin-bottom: 5px"
+      ],
+      "name": "text_20",
+      "_nested_name": "text_20",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.sec_desherbage",
+            "matchedExpression": "@global.sec_desherbage",
+            "type": "global",
+            "fieldName": "sec_desherbage"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.sec_desherbage": [
+          "value"
+        ]
+      }
     },
     {
       "type": "display_group",
@@ -697,13 +864,33 @@
           "_nested_name": "desherbage_group.desherbage_note"
         },
         {
-          "type": "html",
-          "value": "Superficie désherbée par prestation (Ha)<span style=\"color: red;\">*</span>",
+          "type": "text",
+          "value": "@global.lbl_desherbage",
           "_translations": {
             "value": {}
           },
-          "name": "html_2",
-          "_nested_name": "desherbage_group.html_2"
+          "style_list": [
+            "font-weight: bold",
+            "font-size: 16px",
+            "color: #333"
+          ],
+          "name": "text_2",
+          "_nested_name": "desherbage_group.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.lbl_desherbage",
+                "matchedExpression": "@global.lbl_desherbage",
+                "type": "global",
+                "fieldName": "lbl_desherbage"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.lbl_desherbage": [
+              "value"
+            ]
+          }
         },
         {
           "type": "image",
@@ -763,7 +950,7 @@
     {
       "type": "text",
       "name": "err1",
-      "value": "*Mettez une valeur positive*",
+      "value": "@global.error_positive_value",
       "_translations": {
         "value": {}
       },
@@ -774,6 +961,14 @@
       ],
       "_nested_name": "err1",
       "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.error_positive_value",
+            "matchedExpression": "@global.error_positive_value",
+            "type": "global",
+            "fieldName": "error_positive_value"
+          }
+        ],
         "condition": [
           {
             "fullExpression": "@local.desherbage_neg",
@@ -784,6 +979,9 @@
         ]
       },
       "_dynamicDependencies": {
+        "@global.error_positive_value": [
+          "value"
+        ],
         "@local.desherbage_neg": [
           "condition"
         ]
@@ -813,17 +1011,37 @@
           "_nested_name": "desherbage_card_cout.aud_desh"
         },
         {
-          "type": "html",
-          "value": "Coût total payé (Dram)<span style=\"color: red;\">*</span>",
+          "type": "text",
+          "value": "@global.lbl_desh_c_nz",
           "_translations": {
             "value": {}
           },
-          "name": "html_2",
-          "_nested_name": "desherbage_card_cout.html_2"
+          "style_list": [
+            "font-weight: bold",
+            "font-size: 16px",
+            "color: #333"
+          ],
+          "name": "text_2",
+          "_nested_name": "desherbage_card_cout.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.lbl_desh_c_nz",
+                "matchedExpression": "@global.lbl_desh_c_nz",
+                "type": "global",
+                "fieldName": "lbl_desh_c_nz"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.lbl_desh_c_nz": [
+              "value"
+            ]
+          }
         },
         {
           "type": "text",
-          "value": "*Rappel : 1 dram = 5 FCFA*",
+          "value": "@global.hint_price",
           "_translations": {
             "value": {}
           },
@@ -832,7 +1050,22 @@
             "color: gray"
           ],
           "name": "text_3",
-          "_nested_name": "desherbage_card_cout.text_3"
+          "_nested_name": "desherbage_card_cout.text_3",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.hint_price",
+                "matchedExpression": "@global.hint_price",
+                "type": "global",
+                "fieldName": "hint_price"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.hint_price": [
+              "value"
+            ]
+          }
         },
         {
           "type": "image",
@@ -928,17 +1161,37 @@
           "_nested_name": "desherbage_card_cout_zero.aud_desh_zero"
         },
         {
-          "type": "html",
-          "value": "Coût total payé (Dram)<span style=\"color: red;\">*</span>",
+          "type": "text",
+          "value": "@global.lbl_desh_c_nz",
           "_translations": {
             "value": {}
           },
-          "name": "html_2",
-          "_nested_name": "desherbage_card_cout_zero.html_2"
+          "style_list": [
+            "font-weight: bold",
+            "font-size: 16px",
+            "color: #333"
+          ],
+          "name": "text_2",
+          "_nested_name": "desherbage_card_cout_zero.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.lbl_desh_c_nz",
+                "matchedExpression": "@global.lbl_desh_c_nz",
+                "type": "global",
+                "fieldName": "lbl_desh_c_nz"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.lbl_desh_c_nz": [
+              "value"
+            ]
+          }
         },
         {
           "type": "text",
-          "value": "*Rappel : 1 dram = 5 FCFA*",
+          "value": "@global.hint_price",
           "_translations": {
             "value": {}
           },
@@ -947,7 +1200,22 @@
             "color: gray"
           ],
           "name": "text_3",
-          "_nested_name": "desherbage_card_cout_zero.text_3"
+          "_nested_name": "desherbage_card_cout_zero.text_3",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.hint_price",
+                "matchedExpression": "@global.hint_price",
+                "type": "global",
+                "fieldName": "hint_price"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.hint_price": [
+              "value"
+            ]
+          }
         },
         {
           "type": "image",
@@ -1070,13 +1338,34 @@
       }
     },
     {
-      "type": "html",
-      "value": "<br><b style=\"color: #e67e22\">3. BUTTAGE</b>",
+      "type": "text",
+      "value": "@global.sec_buttage",
       "_translations": {
         "value": {}
       },
-      "name": "html_30",
-      "_nested_name": "html_30"
+      "style_list": [
+        "color: #e67e22",
+        "font-weight: bold",
+        "margin-top: 20px",
+        "margin-bottom: 5px"
+      ],
+      "name": "text_30",
+      "_nested_name": "text_30",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.sec_buttage",
+            "matchedExpression": "@global.sec_buttage",
+            "type": "global",
+            "fieldName": "sec_buttage"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.sec_buttage": [
+          "value"
+        ]
+      }
     },
     {
       "type": "display_group",
@@ -1101,13 +1390,33 @@
           "_nested_name": "buttage_card.buttage_note"
         },
         {
-          "type": "html",
-          "value": "Superficie buttée par prestation (Ha)<span style=\"color: red;\">*</span>",
+          "type": "text",
+          "value": "@global.lbl_buttage",
           "_translations": {
             "value": {}
           },
-          "name": "html_2",
-          "_nested_name": "buttage_card.html_2"
+          "style_list": [
+            "font-weight: bold",
+            "font-size: 16px",
+            "color: #333"
+          ],
+          "name": "text_2",
+          "_nested_name": "buttage_card.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.lbl_buttage",
+                "matchedExpression": "@global.lbl_buttage",
+                "type": "global",
+                "fieldName": "lbl_buttage"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.lbl_buttage": [
+              "value"
+            ]
+          }
         },
         {
           "type": "image",
@@ -1166,7 +1475,7 @@
     },
     {
       "type": "text",
-      "value": "*Mettez une valeur positive*",
+      "value": "@global.error_positive_value",
       "_translations": {
         "value": {}
       },
@@ -1178,6 +1487,14 @@
       "name": "text_33",
       "_nested_name": "text_33",
       "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.error_positive_value",
+            "matchedExpression": "@global.error_positive_value",
+            "type": "global",
+            "fieldName": "error_positive_value"
+          }
+        ],
         "condition": [
           {
             "fullExpression": "@local.buttage_neg",
@@ -1188,6 +1505,9 @@
         ]
       },
       "_dynamicDependencies": {
+        "@global.error_positive_value": [
+          "value"
+        ],
         "@local.buttage_neg": [
           "condition"
         ]
@@ -1217,17 +1537,37 @@
           "_nested_name": "buttage_card3.audio_1"
         },
         {
-          "type": "html",
-          "value": "Coût total payé (Dram)<span style=\"color: red;\">*</span>",
+          "type": "text",
+          "value": "@global.lbl_buttage_c_nz",
           "_translations": {
             "value": {}
           },
-          "name": "html_2",
-          "_nested_name": "buttage_card3.html_2"
+          "style_list": [
+            "font-weight: bold",
+            "font-size: 16px",
+            "color: #333"
+          ],
+          "name": "text_2",
+          "_nested_name": "buttage_card3.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.lbl_buttage_c_nz",
+                "matchedExpression": "@global.lbl_buttage_c_nz",
+                "type": "global",
+                "fieldName": "lbl_buttage_c_nz"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.lbl_buttage_c_nz": [
+              "value"
+            ]
+          }
         },
         {
           "type": "text",
-          "value": "*Rappel : 1 dram = 5 FCFA*",
+          "value": "@global.hint_price",
           "_translations": {
             "value": {}
           },
@@ -1236,7 +1576,22 @@
             "color: gray"
           ],
           "name": "text_3",
-          "_nested_name": "buttage_card3.text_3"
+          "_nested_name": "buttage_card3.text_3",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.hint_price",
+                "matchedExpression": "@global.hint_price",
+                "type": "global",
+                "fieldName": "hint_price"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.hint_price": [
+              "value"
+            ]
+          }
         },
         {
           "type": "image",
@@ -1332,17 +1687,37 @@
           "_nested_name": "buttage_card3_zero.audio_1"
         },
         {
-          "type": "html",
-          "value": "Coût total payé (Dram)<span style=\"color: red;\">*</span>",
+          "type": "text",
+          "value": "@global.lbl_buttage_c_nz",
           "_translations": {
             "value": {}
           },
-          "name": "html_2",
-          "_nested_name": "buttage_card3_zero.html_2"
+          "style_list": [
+            "font-weight: bold",
+            "font-size: 16px",
+            "color: #333"
+          ],
+          "name": "text_2",
+          "_nested_name": "buttage_card3_zero.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.lbl_buttage_c_nz",
+                "matchedExpression": "@global.lbl_buttage_c_nz",
+                "type": "global",
+                "fieldName": "lbl_buttage_c_nz"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.lbl_buttage_c_nz": [
+              "value"
+            ]
+          }
         },
         {
           "type": "text",
-          "value": "*Rappel : 1 dram = 5 FCFA*",
+          "value": "@global.hint_price",
           "_translations": {
             "value": {}
           },
@@ -1351,7 +1726,22 @@
             "color: gray"
           ],
           "name": "text_3",
-          "_nested_name": "buttage_card3_zero.text_3"
+          "_nested_name": "buttage_card3_zero.text_3",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.hint_price",
+                "matchedExpression": "@global.hint_price",
+                "type": "global",
+                "fieldName": "hint_price"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.hint_price": [
+              "value"
+            ]
+          }
         },
         {
           "type": "image",

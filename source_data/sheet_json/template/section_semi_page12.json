@@ -37,8 +37,9 @@
       "style_list": "background: #00adcc; padding: 15px; border-radius: 0 0 15px 15px; margin-bottom: 20px;"
     },
     {
-      "type": "html",
-      "value": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>"
+      "type": "text",
+      "value": "CULTURE @local.v_current_human / @field.total_cultures_selected",
+      "style_list": "color: white; font-weight: bold; font-size: 14px; text-transform: uppercase;"
     },
     {
       "type": "end_display_group"
@@ -58,8 +59,8 @@
     },
     {
       "type": "text",
-      "value": "<h3 style='color: black; margin: 10px 0;'>Culture : <span style='color: #e3a730;'>@field.active_culture_name</span></h3>",
-      "style_list": "font-weight: bold; font-size: 18px;"
+      "value": "Culture : @field.active_culture_name",
+      "style_list": "font-weight: bold; font-size: 18px; color: #e3a730; margin-top: 10px; text-align: center;"
     },
     {
       "type": "end_display_group"
@@ -76,8 +77,8 @@
       "style_list": "float: right;"
     },
     {
-      "type": "html",
-      "value": "<h3 style=\"color: #1e3656; margin: 0 0 10px 0; text-align: center;\">BILAN DES COÛTS AU SEMIS</h3>"
+      "type": "text",
+      "value": "@global.lbl_section_title_12\n"
     },
     {
       "type": "text",
@@ -85,8 +86,14 @@
       "style_list": "font-weight: bold; font-size: 16px; color: #e3a730; margin-bottom: 10px;"
     },
     {
-      "type": "html",
-      "value": "<div style=\"font-size: 22px; font-weight: bold; color: #1e3656;\">@local.v_total_drm Drm</div><div style=\"font-size: 16px; color: #4f8ff1; font-weight: bold;\">(@local.v_total_cfa FCFA)</div>"
+      "type": "text",
+      "value": "@local.v_total_cfa FCFA",
+      "style_list": "font-size: 22px; font-weight: bold; color: #1e3656; text-align: center; margin-top: 4px;"
+    },
+    {
+      "type": "text",
+      "value": "(@local.v_total_drm Dram)",
+      "style_list": "font-size: 16px; font-weight: bold; color: #4f8ff1; text-align: center; margin-top: 2px;"
     },
     {
       "type": "end_display_group"
@@ -102,9 +109,9 @@
       "style_list": "float: right;"
     },
     {
-      "type": "html",
-      "value": "Comment souhaitez-vous enregistrer vos observations de semis ?",
-      "style_list": "font-weight: bold;"
+      "type": "text",
+      "value": "@global.lbl_obs_question",
+      "style_list": "font-weight: bold; font-size: 14px; color: #333333; flex: 1;"
     },
     {
       "type": "end_display_group"
@@ -123,7 +130,7 @@
     {
       "type": "text",
       "name": "info_text_label",
-      "value": "Entrez par écrit l'observation faite."
+      "value": "@global.obs_ecrit"
     },
     {
       "type": "audio",
@@ -149,7 +156,7 @@
     {
       "type": "text",
       "name": "info_video_label",
-      "value": "Enregistrez par vidéo l'observation faite"
+      "value": "@global.obs_video"
     },
     {
       "type": "audio",
@@ -163,7 +170,7 @@
     {
       "type": "text",
       "name": "info_video",
-      "value": "We would need a video recorder here",
+      "value": "@global.error_vid_obs",
       "condition": "@field.type_observation == \"par_video\""
     },
     {
@@ -173,7 +180,7 @@
     {
       "type": "text",
       "name": "info_audio_label",
-      "value": "Enregistrez par vocal l'observation faite."
+      "value": "@global.obs_voc"
     },
     {
       "type": "audio",
@@ -187,7 +194,7 @@
     {
       "type": "text",
       "name": "info_audio",
-      "value": "We would need a audio recorder here",
+      "value": "@global.error_voc_obs",
       "condition": "@field.type_observation == \"par_vocal\""
     },
     {
@@ -197,7 +204,7 @@
     {
       "type": "text",
       "name": "info_image_label",
-      "value": "Enregistrez par image l'observation faite."
+      "value": "@global.obs_img"
     },
     {
       "type": "audio",
@@ -211,7 +218,7 @@
     {
       "type": "text",
       "name": "info_image",
-      "value": "We would need a camera here",
+      "value": "@global.error_img_obs",
       "condition": "@field.type_observation == \"par_photo\""
     },
     {

@@ -5,111 +5,272 @@
   "rows": [
     {
       "type": "title",
-      "value": "**Culture principale dans la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**",
+      "value": "GESTION DES RÉSIDUS DE CULTURE",
       "_translations": {
         "value": {}
       },
-      "condition": "@fields.nom_champ",
       "name": "title_2",
-      "_nested_name": "title_2",
+      "_nested_name": "title_2"
+    },
+    {
+      "name": "attempt_submit",
+      "value": "@fields.attempt_submit",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "attempt_submit",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "**Culture principale dans la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**",
-            "matchedExpression": "@fields.num_parcelle",
+            "fullExpression": "@fields.attempt_submit",
+            "matchedExpression": "@fields.attempt_submit",
             "type": "fields",
-            "fieldName": "num_parcelle"
-          },
-          {
-            "fullExpression": "**Culture principale dans la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**",
-            "matchedExpression": "@fields.nom_champ",
-            "type": "fields",
-            "fieldName": "nom_champ"
-          }
-        ],
-        "condition": [
-          {
-            "fullExpression": "@fields.nom_champ",
-            "matchedExpression": "@fields.nom_champ",
-            "type": "fields",
-            "fieldName": "nom_champ"
+            "fieldName": "attempt_submit"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.num_parcelle": [
+        "@fields.attempt_submit": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "v_nom_cult_prev",
+      "value": "@calc(@fields.culture_prev == '999' ? @fields.autre_culture_prev : @fields.culture_prev)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "v_nom_cult_prev",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(@fields.culture_prev == '999' ? @fields.autre_culture_prev : @fields.culture_prev)",
+            "matchedExpression": "@fields.culture_prev",
+            "type": "fields",
+            "fieldName": "culture_prev"
+          },
+          {
+            "fullExpression": "@calc(@fields.culture_prev == '999' ? @fields.autre_culture_prev : @fields.culture_prev)",
+            "matchedExpression": "@fields.autre_culture_prev",
+            "type": "fields",
+            "fieldName": "autre_culture_prev"
+          },
+          {
+            "fullExpression": "@calc(@fields.culture_prev == '999' ? @fields.autre_culture_prev : @fields.culture_prev)",
+            "matchedExpression": "@fields.culture_prev",
+            "type": "fields",
+            "fieldName": "culture_prev"
+          },
+          {
+            "fullExpression": "@calc(@fields.culture_prev == '999' ? @fields.autre_culture_prev : @fields.culture_prev)",
+            "matchedExpression": "@calc(@fields.culture_prev == '999' ? @fields.autre_culture_prev : @fields.culture_prev)",
+            "type": "calc",
+            "fieldName": "@fields.culture_prev == '999' ? @fields.autre_culture_prev : @fields.culture_prev"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.culture_prev": [
+          "value",
           "value"
         ],
-        "@fields.nom_champ": [
-          "value",
-          "condition"
+        "@fields.autre_culture_prev": [
+          "value"
+        ],
+        "@calc(@fields.culture_prev == '999' ? @fields.autre_culture_prev : @fields.culture_prev)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "valid_tige",
+      "value": "@calc(!!@fields.tige_laisse_champ && @fields.tige_laisse_champ !== \"\")",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "valid_tige",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(!!@fields.tige_laisse_champ && @fields.tige_laisse_champ !== \"\")",
+            "matchedExpression": "!@fields.tige_laisse_champ",
+            "type": "fields",
+            "fieldName": "tige_laisse_champ"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.tige_laisse_champ && @fields.tige_laisse_champ !== \"\")",
+            "matchedExpression": "@fields.tige_laisse_champ",
+            "type": "fields",
+            "fieldName": "tige_laisse_champ"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.tige_laisse_champ && @fields.tige_laisse_champ !== \"\")",
+            "matchedExpression": "@calc(!!@fields.tige_laisse_champ && @fields.tige_laisse_champ !== \"\")",
+            "type": "calc",
+            "fieldName": "!!@fields.tige_laisse_champ && @fields.tige_laisse_champ !== \"\""
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "!@fields.tige_laisse_champ": [
+          "value"
+        ],
+        "@fields.tige_laisse_champ": [
+          "value"
+        ],
+        "@calc(!!@fields.tige_laisse_champ && @fields.tige_laisse_champ !== \"\")": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "completed_enabled",
+      "value": "@local.valid_tige",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "completed_enabled",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@local.valid_tige",
+            "matchedExpression": "@local.valid_tige",
+            "type": "local",
+            "fieldName": "valid_tige"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.valid_tige": [
+          "value"
         ]
       }
     },
     {
       "type": "display_group",
-      "condition": "@fields.nom_champ",
+      "name": "grp_header",
       "rows": [
         {
           "type": "text",
-          "value": "@global.select_cult_princip",
+          "value": "@global.title_page6",
           "_translations": {
             "value": {}
           },
+          "style_list": [
+            "color: #1e3656",
+            "margin: 0",
+            "font-size: 16px",
+            "text-transform: uppercase"
+          ],
           "name": "text_1",
-          "_nested_name": "display_group_3.text_1",
+          "_nested_name": "grp_header.text_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "@global.select_cult_princip",
-                "matchedExpression": "@global.select_cult_princip",
+                "fullExpression": "@global.title_page6",
+                "matchedExpression": "@global.title_page6",
                 "type": "global",
-                "fieldName": "select_cult_princip"
+                "fieldName": "title_page6"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@global.select_cult_princip": [
+            "@global.title_page6": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "grp_header"
+    },
+    {
+      "type": "display_group",
+      "name": "grp_question",
+      "rows": [
+        {
+          "type": "text",
+          "value": "@global.question_tige",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_1",
+          "_nested_name": "grp_question.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.question_tige",
+                "matchedExpression": "@global.question_tige",
+                "type": "global",
+                "fieldName": "question_tige"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.question_tige": [
               "value"
             ]
           }
         },
         {
           "type": "audio",
-          "name": "audio_7_1",
           "parameter_list": {
             "variant": "button_only",
-            "src": "audio/Superficie/cult_prin_fr.mp3",
+            "src": "audio/Superficie/tige_laisse_champ_fr.mp3",
             "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
           "style_list": [
-            "float : right"
+            "float: right"
           ],
-          "_nested_name": "display_group_3.audio_7_1"
+          "name": "audio_2",
+          "_nested_name": "grp_question.audio_2"
         }
       ],
-      "name": "display_group_3",
-      "_nested_name": "display_group_3",
-      "_dynamicFields": {
-        "condition": [
-          {
-            "fullExpression": "@fields.nom_champ",
-            "matchedExpression": "@fields.nom_champ",
-            "type": "fields",
-            "fieldName": "nom_champ"
+      "_nested_name": "grp_question"
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "image",
+          "value": "images/@local.v_nom_cult_prev.jpg",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "width: 20%",
+            "object-fit: contain"
+          ],
+          "name": "image_1",
+          "_nested_name": "display_group_11.image_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "images/@local.v_nom_cult_prev.jpg",
+                "matchedExpression": "@local.v_nom_cult_prev.jpg",
+                "type": "local",
+                "fieldName": "v_nom_cult_prev"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.v_nom_cult_prev.jpg": [
+              "value"
+            ]
           }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.nom_champ": [
-          "condition"
-        ]
-      }
+        }
+      ],
+      "name": "display_group_11",
+      "_nested_name": "display_group_11"
     },
     {
       "type": "radio_button_grid",
-      "name": "cult_princip",
-      "value": "@fields.cult_princip",
+      "name": "tige_laisse_champ",
+      "value": "@fields.tige_laisse_champ",
       "_translations": {
         "value": {}
       },
@@ -118,62 +279,68 @@
           "trigger": "changed",
           "action_id": "set_field",
           "args": [
-            "cult_princip",
+            "tige_laisse_champ",
             "this.value"
           ],
-          "_raw": "changed | set_field: cult_princip: this.value"
+          "_raw": "changed | set_field: tige_laisse_champ: this.value"
         }
       ],
       "parameter_list": {
-        "answer_list": "@data.cult_princip",
-        "item_width": "80px",
-        "grid_width": "150%",
-        "grid_gap": "10px",
-        "variant": "circle-icon"
+        "answer_list": "@data.yes_no",
+        "variant": "flex",
+        "item_width": "100px",
+        "grid_gap": "15px",
+        "style": "secondary"
       },
-      "_nested_name": "cult_princip",
+      "_nested_name": "tige_laisse_champ",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@fields.cult_princip",
-            "matchedExpression": "@fields.cult_princip",
+            "fullExpression": "@fields.tige_laisse_champ",
+            "matchedExpression": "@fields.tige_laisse_champ",
             "type": "fields",
-            "fieldName": "cult_princip"
+            "fieldName": "tige_laisse_champ"
           }
         ],
         "parameter_list": {
           "answer_list": [
             {
-              "fullExpression": "@data.cult_princip",
-              "matchedExpression": "@data.cult_princip",
+              "fullExpression": "@data.yes_no",
+              "matchedExpression": "@data.yes_no",
               "type": "data",
-              "fieldName": "cult_princip"
+              "fieldName": "yes_no"
             }
           ]
         }
       },
       "_dynamicDependencies": {
-        "@fields.cult_princip": [
+        "@fields.tige_laisse_champ": [
           "value"
         ],
-        "@data.cult_princip": [
+        "@data.yes_no": [
           "parameter_list.answer_list"
         ]
       }
     },
     {
-      "type": "html",
-      "name": "html_text",
-      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "type": "text",
+      "value": "@global.warning_message",
       "_translations": {
         "value": {}
       },
-      "condition": "!@fields.cult_princip",
-      "_nested_name": "html_text",
+      "condition": "@fields.attempt_submit && !@local.valid_tige",
+      "style_list": [
+        "width:100px",
+        "height:100px",
+        "color: red",
+        "font-weight: bold"
+      ],
+      "name": "text_14",
+      "_nested_name": "text_14",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: red;\"> @global.warning_message </p>",
+            "fullExpression": "@global.warning_message",
             "matchedExpression": "@global.warning_message",
             "type": "global",
             "fieldName": "warning_message"
@@ -181,10 +348,16 @@
         ],
         "condition": [
           {
-            "fullExpression": "!@fields.cult_princip",
-            "matchedExpression": "!@fields.cult_princip",
+            "fullExpression": "@fields.attempt_submit && !@local.valid_tige",
+            "matchedExpression": "@fields.attempt_submit",
             "type": "fields",
-            "fieldName": "cult_princip"
+            "fieldName": "attempt_submit"
+          },
+          {
+            "fullExpression": "@fields.attempt_submit && !@local.valid_tige",
+            "matchedExpression": "!@local.valid_tige",
+            "type": "local",
+            "fieldName": "valid_tige"
           }
         ]
       },
@@ -192,159 +365,26 @@
         "@global.warning_message": [
           "value"
         ],
-        "!@fields.cult_princip": [
+        "@fields.attempt_submit": [
+          "condition"
+        ],
+        "!@local.valid_tige": [
           "condition"
         ]
       }
     },
     {
       "type": "display_group",
-      "condition": "@fields.cult_princip == 'autre'",
-      "rows": [
-        {
-          "type": "text",
-          "value": "@global.autre_message",
-          "_translations": {
-            "value": {}
-          },
-          "name": "text_1",
-          "_nested_name": "display_group_7.text_1",
-          "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "@global.autre_message",
-                "matchedExpression": "@global.autre_message",
-                "type": "global",
-                "fieldName": "autre_message"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@global.autre_message": [
-              "value"
-            ]
-          }
-        },
-        {
-          "type": "audio",
-          "name": "audio_7_2",
-          "parameter_list": {
-            "variant": "button_only",
-            "src": "audio/Superficie/autre_cult_nom1_fr.mp3",
-            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
-          },
-          "style_list": [
-            "float : right"
-          ],
-          "_nested_name": "display_group_7.audio_7_2"
-        }
-      ],
-      "name": "display_group_7",
-      "_nested_name": "display_group_7",
-      "_dynamicFields": {
-        "condition": [
-          {
-            "fullExpression": "@fields.cult_princip == 'autre'",
-            "matchedExpression": "@fields.cult_princip",
-            "type": "fields",
-            "fieldName": "cult_princip"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.cult_princip": [
-          "condition"
-        ]
-      }
-    },
-    {
-      "type": "text_box",
-      "name": "autre_cult_princip",
-      "value": "@fields.autre_cult_princip",
-      "_translations": {
-        "value": {}
-      },
-      "action_list": [
-        {
-          "trigger": "changed",
-          "action_id": "set_field",
-          "args": [
-            "autre_cult_princip",
-            "this.value"
-          ],
-          "_raw": "changed | set_field: autre_cult_princip: this.value"
-        }
-      ],
-      "parameter_list": {
-        "max_length": "30",
-        "placeholder": "Entrez le nom de la culture"
-      },
-      "condition": "@fields.cult_princip == 'autre'",
-      "exclude_from_translation_1": true,
-      "_nested_name": "autre_cult_princip",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@fields.autre_cult_princip",
-            "matchedExpression": "@fields.autre_cult_princip",
-            "type": "fields",
-            "fieldName": "autre_cult_princip"
-          }
-        ],
-        "condition": [
-          {
-            "fullExpression": "@fields.cult_princip == 'autre'",
-            "matchedExpression": "@fields.cult_princip",
-            "type": "fields",
-            "fieldName": "cult_princip"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.autre_cult_princip": [
-          "value"
-        ],
-        "@fields.cult_princip": [
-          "condition"
-        ]
-      }
-    },
-    {
-      "name": "completed_enabled",
-      "value": "@fields.cult_princip",
-      "_translations": {
-        "value": {}
-      },
-      "exclude_from_translation": true,
-      "type": "set_variable",
-      "_nested_name": "completed_enabled",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@fields.cult_princip",
-            "matchedExpression": "@fields.cult_princip",
-            "type": "fields",
-            "fieldName": "cult_princip"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.cult_princip": [
-          "value"
-        ]
-      }
-    },
-    {
-      "type": "display_group",
-      "value": "",
       "parameter_list": {
         "sticky": "bottom"
       },
-      "exclude_from_translation": "padding: 12px 24px;",
+      "style_list": [
+        "padding: 12px 24px"
+      ],
       "rows": [
         {
           "type": "round_button",
-          "name": "page7_button_back",
+          "name": "page5_button_back",
           "action_list": [
             {
               "trigger": "click",
@@ -359,11 +399,11 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "display_group_11.page7_button_back"
+          "_nested_name": "display_group_15.page5_button_back"
         },
         {
           "type": "button",
-          "name": "page7_button_continue_condition",
+          "name": "page5_button_continue",
           "value": "Continuer",
           "_translations": {
             "value": {}
@@ -373,19 +413,19 @@
               "trigger": "click",
               "action_id": "set_field",
               "args": [
-                "cult_princip",
-                "@fields.autre_cult_princip"
+                "@calc('tige_laisse_champ_parcelle_N' + @fields.numero_parcelle)",
+                "@fields.tige_laisse_champ"
               ],
-              "_raw": "click | set_field: cult_princip: @fields.autre_cult_princip"
+              "_raw": "click | set_field: @calc('tige_laisse_champ_parcelle_N' + @fields.numero_parcelle) : @fields.tige_laisse_champ"
             },
             {
               "trigger": "click",
               "action_id": "set_field",
               "args": [
-                "@calc('cult_princip_parcelle_N' + @fields.num_parcelle)",
-                "@fields.cult_princip"
+                "attempt_submit",
+                false
               ],
-              "_raw": "click | set_field: @calc('cult_princip_parcelle_N' + @fields.num_parcelle) : @fields.cult_princip"
+              "_raw": "click | set_field: attempt_submit: false"
             },
             {
               "trigger": "click",
@@ -399,70 +439,49 @@
           "parameter_list": {
             "disabled": "!@local.completed_enabled"
           },
-          "condition": "@fields.cult_princip == 'autre'",
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "display_group_11.page7_button_continue_condition",
+          "_nested_name": "display_group_15.page5_button_continue",
           "_dynamicFields": {
             "action_list": {
               "0": {
                 "args": {
-                  "1": [
-                    {
-                      "fullExpression": "@fields.autre_cult_princip",
-                      "matchedExpression": "@fields.autre_cult_princip",
-                      "type": "fields",
-                      "fieldName": "autre_cult_princip"
-                    }
-                  ]
-                },
-                "_raw": [
-                  {
-                    "fullExpression": "click | set_field: cult_princip: @fields.autre_cult_princip",
-                    "matchedExpression": "@fields.autre_cult_princip",
-                    "type": "fields",
-                    "fieldName": "autre_cult_princip"
-                  }
-                ]
-              },
-              "1": {
-                "args": {
                   "0": [
                     {
-                      "fullExpression": "@calc('cult_princip_parcelle_N' + @fields.num_parcelle)",
-                      "matchedExpression": "@fields.num_parcelle",
+                      "fullExpression": "@calc('tige_laisse_champ_parcelle_N' + @fields.numero_parcelle)",
+                      "matchedExpression": "@fields.numero_parcelle",
                       "type": "fields",
-                      "fieldName": "num_parcelle"
+                      "fieldName": "numero_parcelle"
                     },
                     {
-                      "fullExpression": "@calc('cult_princip_parcelle_N' + @fields.num_parcelle)",
-                      "matchedExpression": "@calc('cult_princip_parcelle_N' + @fields.num_parcelle)",
+                      "fullExpression": "@calc('tige_laisse_champ_parcelle_N' + @fields.numero_parcelle)",
+                      "matchedExpression": "@calc('tige_laisse_champ_parcelle_N' + @fields.numero_parcelle)",
                       "type": "calc",
-                      "fieldName": "'cult_princip_parcelle_N' + @fields.num_parcelle"
+                      "fieldName": "'tige_laisse_champ_parcelle_N' + @fields.numero_parcelle"
                     }
                   ],
                   "1": [
                     {
-                      "fullExpression": "@fields.cult_princip",
-                      "matchedExpression": "@fields.cult_princip",
+                      "fullExpression": "@fields.tige_laisse_champ",
+                      "matchedExpression": "@fields.tige_laisse_champ",
                       "type": "fields",
-                      "fieldName": "cult_princip"
+                      "fieldName": "tige_laisse_champ"
                     }
                   ]
                 },
                 "_raw": [
                   {
-                    "fullExpression": "click | set_field: @calc('cult_princip_parcelle_N' + @fields.num_parcelle) : @fields.cult_princip",
-                    "matchedExpression": "@fields.num_parcelle",
+                    "fullExpression": "click | set_field: @calc('tige_laisse_champ_parcelle_N' + @fields.numero_parcelle) : @fields.tige_laisse_champ",
+                    "matchedExpression": "@fields.numero_parcelle",
                     "type": "fields",
-                    "fieldName": "num_parcelle"
+                    "fieldName": "numero_parcelle"
                   },
                   {
-                    "fullExpression": "click | set_field: @calc('cult_princip_parcelle_N' + @fields.num_parcelle) : @fields.cult_princip",
-                    "matchedExpression": "@fields.cult_princip",
+                    "fullExpression": "click | set_field: @calc('tige_laisse_champ_parcelle_N' + @fields.numero_parcelle) : @fields.tige_laisse_champ",
+                    "matchedExpression": "@fields.tige_laisse_champ",
                     "type": "fields",
-                    "fieldName": "cult_princip"
+                    "fieldName": "tige_laisse_champ"
                   }
                 ]
               }
@@ -476,204 +495,19 @@
                   "fieldName": "completed_enabled"
                 }
               ]
-            },
-            "condition": [
-              {
-                "fullExpression": "@fields.cult_princip == 'autre'",
-                "matchedExpression": "@fields.cult_princip",
-                "type": "fields",
-                "fieldName": "cult_princip"
-              }
-            ]
+            }
           },
           "_dynamicDependencies": {
-            "@fields.autre_cult_princip": [
-              "action_list.0.args.1",
+            "@fields.numero_parcelle": [
+              "action_list.0.args.0",
               "action_list.0._raw"
             ],
-            "@fields.num_parcelle": [
-              "action_list.1.args.0",
-              "action_list.1._raw"
-            ],
-            "@calc('cult_princip_parcelle_N' + @fields.num_parcelle)": [
-              "action_list.1.args.0"
-            ],
-            "@fields.cult_princip": [
-              "action_list.1.args.1",
-              "action_list.1._raw",
-              "condition"
-            ],
-            "!@local.completed_enabled": [
-              "parameter_list.disabled"
-            ]
-          }
-        },
-        {
-          "type": "button",
-          "name": "page7_button_continue",
-          "value": "Continuer",
-          "_translations": {
-            "value": {}
-          },
-          "action_list": [
-            {
-              "trigger": "click",
-              "action_id": "set_field",
-              "args": [
-                "@calc('cult_princip_parcelle_N' + @fields.num_parcelle)",
-                "@fields.cult_princip"
-              ],
-              "_raw": "click | set_field: @calc('cult_princip_parcelle_N' + @fields.num_parcelle) : @fields.cult_princip"
-            },
-            {
-              "trigger": "click",
-              "action_id": "set_field",
-              "args": [
-                "@calc('autre_cult_princip_parcelle_N' + @fields.num_parcelle)",
-                "@fields.autre_cult_princip"
-              ],
-              "_raw": "click | set_field: @calc('autre_cult_princip_parcelle_N' + @fields.num_parcelle) : @fields.autre_cult_princip"
-            },
-            {
-              "trigger": "click",
-              "action_id": "emit",
-              "args": [
-                "completed"
-              ],
-              "_raw": "click | emit: completed"
-            }
-          ],
-          "parameter_list": {
-            "disabled": "!@local.completed_enabled"
-          },
-          "condition": "@fields.cult_princip != 'autre'",
-          "style_list": [
-            "flex: 1"
-          ],
-          "_nested_name": "display_group_11.page7_button_continue",
-          "_dynamicFields": {
-            "action_list": {
-              "0": {
-                "args": {
-                  "0": [
-                    {
-                      "fullExpression": "@calc('cult_princip_parcelle_N' + @fields.num_parcelle)",
-                      "matchedExpression": "@fields.num_parcelle",
-                      "type": "fields",
-                      "fieldName": "num_parcelle"
-                    },
-                    {
-                      "fullExpression": "@calc('cult_princip_parcelle_N' + @fields.num_parcelle)",
-                      "matchedExpression": "@calc('cult_princip_parcelle_N' + @fields.num_parcelle)",
-                      "type": "calc",
-                      "fieldName": "'cult_princip_parcelle_N' + @fields.num_parcelle"
-                    }
-                  ],
-                  "1": [
-                    {
-                      "fullExpression": "@fields.cult_princip",
-                      "matchedExpression": "@fields.cult_princip",
-                      "type": "fields",
-                      "fieldName": "cult_princip"
-                    }
-                  ]
-                },
-                "_raw": [
-                  {
-                    "fullExpression": "click | set_field: @calc('cult_princip_parcelle_N' + @fields.num_parcelle) : @fields.cult_princip",
-                    "matchedExpression": "@fields.num_parcelle",
-                    "type": "fields",
-                    "fieldName": "num_parcelle"
-                  },
-                  {
-                    "fullExpression": "click | set_field: @calc('cult_princip_parcelle_N' + @fields.num_parcelle) : @fields.cult_princip",
-                    "matchedExpression": "@fields.cult_princip",
-                    "type": "fields",
-                    "fieldName": "cult_princip"
-                  }
-                ]
-              },
-              "1": {
-                "args": {
-                  "0": [
-                    {
-                      "fullExpression": "@calc('autre_cult_princip_parcelle_N' + @fields.num_parcelle)",
-                      "matchedExpression": "@fields.num_parcelle",
-                      "type": "fields",
-                      "fieldName": "num_parcelle"
-                    },
-                    {
-                      "fullExpression": "@calc('autre_cult_princip_parcelle_N' + @fields.num_parcelle)",
-                      "matchedExpression": "@calc('autre_cult_princip_parcelle_N' + @fields.num_parcelle)",
-                      "type": "calc",
-                      "fieldName": "'autre_cult_princip_parcelle_N' + @fields.num_parcelle"
-                    }
-                  ],
-                  "1": [
-                    {
-                      "fullExpression": "@fields.autre_cult_princip",
-                      "matchedExpression": "@fields.autre_cult_princip",
-                      "type": "fields",
-                      "fieldName": "autre_cult_princip"
-                    }
-                  ]
-                },
-                "_raw": [
-                  {
-                    "fullExpression": "click | set_field: @calc('autre_cult_princip_parcelle_N' + @fields.num_parcelle) : @fields.autre_cult_princip",
-                    "matchedExpression": "@fields.num_parcelle",
-                    "type": "fields",
-                    "fieldName": "num_parcelle"
-                  },
-                  {
-                    "fullExpression": "click | set_field: @calc('autre_cult_princip_parcelle_N' + @fields.num_parcelle) : @fields.autre_cult_princip",
-                    "matchedExpression": "@fields.autre_cult_princip",
-                    "type": "fields",
-                    "fieldName": "autre_cult_princip"
-                  }
-                ]
-              }
-            },
-            "parameter_list": {
-              "disabled": [
-                {
-                  "fullExpression": "!@local.completed_enabled",
-                  "matchedExpression": "!@local.completed_enabled",
-                  "type": "local",
-                  "fieldName": "completed_enabled"
-                }
-              ]
-            },
-            "condition": [
-              {
-                "fullExpression": "@fields.cult_princip != 'autre'",
-                "matchedExpression": "@fields.cult_princip",
-                "type": "fields",
-                "fieldName": "cult_princip"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@fields.num_parcelle": [
-              "action_list.0.args.0",
-              "action_list.0._raw",
-              "action_list.1.args.0",
-              "action_list.1._raw"
-            ],
-            "@calc('cult_princip_parcelle_N' + @fields.num_parcelle)": [
+            "@calc('tige_laisse_champ_parcelle_N' + @fields.numero_parcelle)": [
               "action_list.0.args.0"
             ],
-            "@fields.cult_princip": [
+            "@fields.tige_laisse_champ": [
               "action_list.0.args.1",
-              "action_list.0._raw",
-              "condition"
-            ],
-            "@calc('autre_cult_princip_parcelle_N' + @fields.num_parcelle)": [
-              "action_list.1.args.0"
-            ],
-            "@fields.autre_cult_princip": [
-              "action_list.1.args.1",
-              "action_list.1._raw"
+              "action_list.0._raw"
             ],
             "!@local.completed_enabled": [
               "parameter_list.disabled"
@@ -681,8 +515,8 @@
           }
         }
       ],
-      "name": "display_group_11",
-      "_nested_name": "display_group_11"
+      "name": "display_group_15",
+      "_nested_name": "display_group_15"
     }
   ],
   "_source": {

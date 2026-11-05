@@ -2,6 +2,13 @@
   "flow_type": "template",
   "flow_name": "observation",
   "status": "released",
+  "parameter_list": {
+    "app_config": {
+      "APP_FOOTER_DEFAULTS": {
+        "template": "footer"
+      }
+    }
+  },
   "rows": [
     {
       "name": "selected_year",
@@ -21,7 +28,7 @@
     },
     {
       "name": "has_observations",
-      "value": "@calc(Object.values(@data.semis_culture || {}).some(item => String(item.upa_code || '').trim() === String(@fields.upa_code || '').trim() && String(item.semis_id || '').trim() === String(@local.selected_semis_id || '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte)))"
+      "value": "@calc(Object.values(@data.observations_cultures || {}).some(item => String(item.upa_code || '').trim() === String(@fields.upa_code || '').trim() && String(item.year || '').trim() === String(@local.selected_year || '').trim() && String(item.phase || '').trim() === 'semis'))"
     },
     {
       "type": "begin_template",
@@ -71,8 +78,8 @@
     },
     {
       "type": "begin_data_items",
-      "value": "@data.semis_culture",
-      "parameter_list": "filter: (@item.id && String(@item.upa_code || '').trim() === String(@fields.upa_code || '').trim() && String(@item.semis_id || '').trim() === String(@local.selected_semis_id || '').trim() && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte))",
+      "value": "@data.observations_cultures",
+      "parameter_list": "filter: String(@item.upa_code || '').trim() === String(@fields.upa_code || '').trim() && String(@item.year || '').trim() === String(@local.selected_year || '').trim() && String(@item.phase || '').trim() === 'semis' && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte)",
       "style_list": "display: flex; flex-direction: column; gap: 16px; width: 100%;"
     },
     {

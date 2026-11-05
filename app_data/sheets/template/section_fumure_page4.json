@@ -9,11 +9,26 @@
         {
           "type": "title",
           "name": "page_title",
-          "value": "ROTATION ET FERTILITÉ DU SOL",
+          "value": "@global.rotation_fertilite_title",
           "_translations": {
             "value": {}
           },
-          "_nested_name": "display_group_2.page_title"
+          "_nested_name": "display_group_2.page_title",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.rotation_fertilite_title",
+                "matchedExpression": "@global.rotation_fertilite_title",
+                "type": "global",
+                "fieldName": "rotation_fertilite_title"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.rotation_fertilite_title": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",

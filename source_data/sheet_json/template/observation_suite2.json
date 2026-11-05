@@ -2,6 +2,13 @@
   "flow_type": "template",
   "flow_name": "observation_suite2",
   "status": "released",
+  "parameter_list": {
+    "app_config": {
+      "APP_FOOTER_DEFAULTS": {
+        "template": "footer"
+      }
+    }
+  },
   "rows": [
     {
       "name": "selected_year",
@@ -16,20 +23,8 @@
       "value": "@calc(String(@local.selected_year || '').trim() !== '')"
     },
     {
-      "name": "selected_semis_id",
-      "value": "@calc(((Object.values(@data.semis || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.year || '') === String(@local.selected_year)) || {}).id || ''))"
-    },
-    {
-      "name": "selected_post_semis_id",
-      "value": "@calc(((Object.values(@data.post_semis || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.year || '') === String(@local.selected_year)) || {}).id || ''))"
-    },
-    {
-      "name": "selected_recolte_id",
-      "value": "@calc(((Object.values(@data.recolte || {}).find(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.year || '') === String(@local.selected_year)) || {}).id || ''))"
-    },
-    {
       "name": "has_obs_recolte",
-      "value": "@calc(Object.values(@data.recolte_culture || {}).some(item => String(item.upa_code || '') === String(@fields.upa_code) && String(item.recolte_id || '').trim() === String(@local.selected_recolte_id || '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte)))"
+      "value": "@calc(Object.values(@data.observations_cultures || {}).some(item => String(item.upa_code || '').trim() === String(@fields.upa_code || '').trim() && String(item.year || '').trim() === String(@local.selected_year || '').trim() && String(item.phase || '').trim() === 'recolte'))"
     },
     {
       "type": "begin_template",
@@ -80,8 +75,8 @@
     },
     {
       "type": "begin_data_items",
-      "value": "@data.recolte_culture",
-      "parameter_list": "filter: @item.id && String(@item.upa_code || '') === String(@fields.upa_code) && String(@item.recolte_id || '').trim() === String(@local.selected_recolte_id || '').trim() && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte)",
+      "value": "@data.observations_cultures",
+      "parameter_list": "filter: String(@item.upa_code || '').trim() === String(@fields.upa_code || '').trim() && String(@item.year || '').trim() === String(@local.selected_year || '').trim() && String(@item.phase || '').trim() === 'recolte' && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte)",
       "style_list": "display: flex; flex-direction: column; gap: 16px; width: 100%;"
     },
     {
@@ -201,11 +196,6 @@
     },
     {
       "type": "end_display_group"
-    },
-    {
-      "type": "navigation_bar",
-      "parameter_list": "button_list: @data.footer;\n",
-      "style_list": "position: fixed; bottom: 0; left: 0; box-sizing: border-box; "
     }
   ]
 }

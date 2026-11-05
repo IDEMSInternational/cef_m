@@ -2,6 +2,13 @@
   "flow_type": "template",
   "flow_name": "observation",
   "status": "released",
+  "parameter_list": {
+    "app_config": {
+      "APP_FOOTER_DEFAULTS": {
+        "template": "footer"
+      }
+    }
+  },
   "rows": [
     {
       "name": "selected_year",
@@ -155,7 +162,7 @@
     },
     {
       "name": "has_observations",
-      "value": "@calc(Object.values(@data.semis_culture || {}).some(item => String(item.upa_code || '').trim() === String(@fields.upa_code || '').trim() && String(item.semis_id || '').trim() === String(@local.selected_semis_id || '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte)))",
+      "value": "@calc(Object.values(@data.observations_cultures || {}).some(item => String(item.upa_code || '').trim() === String(@fields.upa_code || '').trim() && String(item.year || '').trim() === String(@local.selected_year || '').trim() && String(item.phase || '').trim() === 'semis'))",
       "_translations": {
         "value": {}
       },
@@ -164,42 +171,42 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc(Object.values(@data.semis_culture || {}).some(item => String(item.upa_code || '').trim() === String(@fields.upa_code || '').trim() && String(item.semis_id || '').trim() === String(@local.selected_semis_id || '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte)))",
-            "matchedExpression": "@data.semis_culture",
+            "fullExpression": "@calc(Object.values(@data.observations_cultures || {}).some(item => String(item.upa_code || '').trim() === String(@fields.upa_code || '').trim() && String(item.year || '').trim() === String(@local.selected_year || '').trim() && String(item.phase || '').trim() === 'semis'))",
+            "matchedExpression": "@data.observations_cultures",
             "type": "data",
-            "fieldName": "semis_culture"
+            "fieldName": "observations_cultures"
           },
           {
-            "fullExpression": "@calc(Object.values(@data.semis_culture || {}).some(item => String(item.upa_code || '').trim() === String(@fields.upa_code || '').trim() && String(item.semis_id || '').trim() === String(@local.selected_semis_id || '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte)))",
+            "fullExpression": "@calc(Object.values(@data.observations_cultures || {}).some(item => String(item.upa_code || '').trim() === String(@fields.upa_code || '').trim() && String(item.year || '').trim() === String(@local.selected_year || '').trim() && String(item.phase || '').trim() === 'semis'))",
             "matchedExpression": "@fields.upa_code",
             "type": "fields",
             "fieldName": "upa_code"
           },
           {
-            "fullExpression": "@calc(Object.values(@data.semis_culture || {}).some(item => String(item.upa_code || '').trim() === String(@fields.upa_code || '').trim() && String(item.semis_id || '').trim() === String(@local.selected_semis_id || '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte)))",
-            "matchedExpression": "@local.selected_semis_id",
+            "fullExpression": "@calc(Object.values(@data.observations_cultures || {}).some(item => String(item.upa_code || '').trim() === String(@fields.upa_code || '').trim() && String(item.year || '').trim() === String(@local.selected_year || '').trim() && String(item.phase || '').trim() === 'semis'))",
+            "matchedExpression": "@local.selected_year",
             "type": "local",
-            "fieldName": "selected_semis_id"
+            "fieldName": "selected_year"
           },
           {
-            "fullExpression": "@calc(Object.values(@data.semis_culture || {}).some(item => String(item.upa_code || '').trim() === String(@fields.upa_code || '').trim() && String(item.semis_id || '').trim() === String(@local.selected_semis_id || '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte)))",
-            "matchedExpression": "@calc(Object.values(@data.semis_culture || {}).some(item => String(item.upa_code || '').trim() === String(@fields.upa_code || '').trim() && String(item.semis_id || '').trim() === String(@local.selected_semis_id || '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte)))",
+            "fullExpression": "@calc(Object.values(@data.observations_cultures || {}).some(item => String(item.upa_code || '').trim() === String(@fields.upa_code || '').trim() && String(item.year || '').trim() === String(@local.selected_year || '').trim() && String(item.phase || '').trim() === 'semis'))",
+            "matchedExpression": "@calc(Object.values(@data.observations_cultures || {}).some(item => String(item.upa_code || '').trim() === String(@fields.upa_code || '').trim() && String(item.year || '').trim() === String(@local.selected_year || '').trim() && String(item.phase || '').trim() === 'semis'))",
             "type": "calc",
-            "fieldName": "Object.values(@data.semis_culture || {}).some(item => String(item.upa_code || '').trim() === String(@fields.upa_code || '').trim() && String(item.semis_id || '').trim() === String(@local.selected_semis_id || '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte))"
+            "fieldName": "Object.values(@data.observations_cultures || {}).some(item => String(item.upa_code || '').trim() === String(@fields.upa_code || '').trim() && String(item.year || '').trim() === String(@local.selected_year || '').trim() && String(item.phase || '').trim() === 'semis')"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@data.semis_culture": [
+        "@data.observations_cultures": [
           "value"
         ],
         "@fields.upa_code": [
           "value"
         ],
-        "@local.selected_semis_id": [
+        "@local.selected_year": [
           "value"
         ],
-        "@calc(Object.values(@data.semis_culture || {}).some(item => String(item.upa_code || '').trim() === String(@fields.upa_code || '').trim() && String(item.semis_id || '').trim() === String(@local.selected_semis_id || '').trim() && (!!item.observation_audio || !!item.observation_image || !!item.observation_videos || !!item.observation_texte)))": [
+        "@calc(Object.values(@data.observations_cultures || {}).some(item => String(item.upa_code || '').trim() === String(@fields.upa_code || '').trim() && String(item.year || '').trim() === String(@local.selected_year || '').trim() && String(item.phase || '').trim() === 'semis'))": [
           "value"
         ]
       }
@@ -364,9 +371,9 @@
       "rows": [
         {
           "type": "data_items",
-          "value": "@data.semis_culture",
+          "value": "@data.observations_cultures",
           "parameter_list": {
-            "filter": "(@item.id && String(@item.upa_code || '').trim() === String(@fields.upa_code || '').trim() && String(@item.semis_id || '').trim() === String(@local.selected_semis_id || '').trim() && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte))"
+            "filter": "String(@item.upa_code || '').trim() === String(@fields.upa_code || '').trim() && String(@item.year || '').trim() === String(@local.selected_year || '').trim() && String(@item.phase || '').trim() === 'semis' && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte)"
           },
           "style_list": [
             "display: flex",
@@ -1049,64 +1056,64 @@
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "@data.semis_culture",
-                "matchedExpression": "@data.semis_culture",
+                "fullExpression": "@data.observations_cultures",
+                "matchedExpression": "@data.observations_cultures",
                 "type": "data",
-                "fieldName": "semis_culture"
+                "fieldName": "observations_cultures"
               }
             ],
             "parameter_list": {
               "filter": [
                 {
-                  "fullExpression": "(@item.id && String(@item.upa_code || '').trim() === String(@fields.upa_code || '').trim() && String(@item.semis_id || '').trim() === String(@local.selected_semis_id || '').trim() && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte))",
-                  "matchedExpression": "@item.id",
-                  "type": "item",
-                  "fieldName": "id"
-                },
-                {
-                  "fullExpression": "(@item.id && String(@item.upa_code || '').trim() === String(@fields.upa_code || '').trim() && String(@item.semis_id || '').trim() === String(@local.selected_semis_id || '').trim() && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte))",
+                  "fullExpression": "String(@item.upa_code || '').trim() === String(@fields.upa_code || '').trim() && String(@item.year || '').trim() === String(@local.selected_year || '').trim() && String(@item.phase || '').trim() === 'semis' && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte)",
                   "matchedExpression": "@item.upa_code",
                   "type": "item",
                   "fieldName": "upa_code"
                 },
                 {
-                  "fullExpression": "(@item.id && String(@item.upa_code || '').trim() === String(@fields.upa_code || '').trim() && String(@item.semis_id || '').trim() === String(@local.selected_semis_id || '').trim() && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte))",
+                  "fullExpression": "String(@item.upa_code || '').trim() === String(@fields.upa_code || '').trim() && String(@item.year || '').trim() === String(@local.selected_year || '').trim() && String(@item.phase || '').trim() === 'semis' && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte)",
                   "matchedExpression": "@fields.upa_code",
                   "type": "fields",
                   "fieldName": "upa_code"
                 },
                 {
-                  "fullExpression": "(@item.id && String(@item.upa_code || '').trim() === String(@fields.upa_code || '').trim() && String(@item.semis_id || '').trim() === String(@local.selected_semis_id || '').trim() && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte))",
-                  "matchedExpression": "@item.semis_id",
+                  "fullExpression": "String(@item.upa_code || '').trim() === String(@fields.upa_code || '').trim() && String(@item.year || '').trim() === String(@local.selected_year || '').trim() && String(@item.phase || '').trim() === 'semis' && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte)",
+                  "matchedExpression": "@item.year",
                   "type": "item",
-                  "fieldName": "semis_id"
+                  "fieldName": "year"
                 },
                 {
-                  "fullExpression": "(@item.id && String(@item.upa_code || '').trim() === String(@fields.upa_code || '').trim() && String(@item.semis_id || '').trim() === String(@local.selected_semis_id || '').trim() && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte))",
-                  "matchedExpression": "@local.selected_semis_id",
+                  "fullExpression": "String(@item.upa_code || '').trim() === String(@fields.upa_code || '').trim() && String(@item.year || '').trim() === String(@local.selected_year || '').trim() && String(@item.phase || '').trim() === 'semis' && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte)",
+                  "matchedExpression": "@local.selected_year",
                   "type": "local",
-                  "fieldName": "selected_semis_id"
+                  "fieldName": "selected_year"
                 },
                 {
-                  "fullExpression": "(@item.id && String(@item.upa_code || '').trim() === String(@fields.upa_code || '').trim() && String(@item.semis_id || '').trim() === String(@local.selected_semis_id || '').trim() && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte))",
+                  "fullExpression": "String(@item.upa_code || '').trim() === String(@fields.upa_code || '').trim() && String(@item.year || '').trim() === String(@local.selected_year || '').trim() && String(@item.phase || '').trim() === 'semis' && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte)",
+                  "matchedExpression": "@item.phase",
+                  "type": "item",
+                  "fieldName": "phase"
+                },
+                {
+                  "fullExpression": "String(@item.upa_code || '').trim() === String(@fields.upa_code || '').trim() && String(@item.year || '').trim() === String(@local.selected_year || '').trim() && String(@item.phase || '').trim() === 'semis' && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte)",
                   "matchedExpression": "!@item.observation_audio",
                   "type": "item",
                   "fieldName": "observation_audio"
                 },
                 {
-                  "fullExpression": "(@item.id && String(@item.upa_code || '').trim() === String(@fields.upa_code || '').trim() && String(@item.semis_id || '').trim() === String(@local.selected_semis_id || '').trim() && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte))",
+                  "fullExpression": "String(@item.upa_code || '').trim() === String(@fields.upa_code || '').trim() && String(@item.year || '').trim() === String(@local.selected_year || '').trim() && String(@item.phase || '').trim() === 'semis' && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte)",
                   "matchedExpression": "!@item.observation_image",
                   "type": "item",
                   "fieldName": "observation_image"
                 },
                 {
-                  "fullExpression": "(@item.id && String(@item.upa_code || '').trim() === String(@fields.upa_code || '').trim() && String(@item.semis_id || '').trim() === String(@local.selected_semis_id || '').trim() && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte))",
+                  "fullExpression": "String(@item.upa_code || '').trim() === String(@fields.upa_code || '').trim() && String(@item.year || '').trim() === String(@local.selected_year || '').trim() && String(@item.phase || '').trim() === 'semis' && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte)",
                   "matchedExpression": "!@item.observation_videos",
                   "type": "item",
                   "fieldName": "observation_videos"
                 },
                 {
-                  "fullExpression": "(@item.id && String(@item.upa_code || '').trim() === String(@fields.upa_code || '').trim() && String(@item.semis_id || '').trim() === String(@local.selected_semis_id || '').trim() && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte))",
+                  "fullExpression": "String(@item.upa_code || '').trim() === String(@fields.upa_code || '').trim() && String(@item.year || '').trim() === String(@local.selected_year || '').trim() && String(@item.phase || '').trim() === 'semis' && (!!@item.observation_audio || !!@item.observation_image || !!@item.observation_videos || !!@item.observation_texte)",
                   "matchedExpression": "!@item.observation_texte",
                   "type": "item",
                   "fieldName": "observation_texte"
@@ -1115,11 +1122,8 @@
             }
           },
           "_dynamicDependencies": {
-            "@data.semis_culture": [
+            "@data.observations_cultures": [
               "value"
-            ],
-            "@item.id": [
-              "parameter_list.filter"
             ],
             "@item.upa_code": [
               "parameter_list.filter"
@@ -1127,10 +1131,13 @@
             "@fields.upa_code": [
               "parameter_list.filter"
             ],
-            "@item.semis_id": [
+            "@item.year": [
               "parameter_list.filter"
             ],
-            "@local.selected_semis_id": [
+            "@local.selected_year": [
+              "parameter_list.filter"
+            ],
+            "@item.phase": [
               "parameter_list.filter"
             ],
             "!@item.observation_audio": [

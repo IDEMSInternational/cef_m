@@ -6,20 +6,18 @@
     {
       "type": "title",
       "name": "page_title",
-      "value": "INFO SUPPLEMENTAIRE SUR LES CARACTERISTIQUES DE L'UPA"
+      "value": "@global.info_sup_upa"
     },
     {
       "type": "begin_display_group"
     },
     {
-      "type": "html",
-      "name": "type_canal_info_label",
-      "value": "<span style=\"color: red;\">*</span> Sélectionnez le canal pour donner l'information supplémentaire",
-      "style_list": "font-size:20px;"
+      "type": "subtitle",
+      "value": "@global.type_canal_info_label"
     },
     {
       "type": "audio",
-      "name": "audio_16_1",
+      "name": "audio_18_1",
       "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/canal_obser_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
       "style_list": "float: right;"
     },
@@ -31,7 +29,7 @@
       "name": "error_type_canal_info",
       "value": "@global.reponse_obligatoire",
       "condition": "!@fields.type_canal_info",
-      "style_list": "color: red; font-size: 16px;"
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "radio_button_grid",
@@ -46,12 +44,11 @@
     },
     {
       "type": "text",
-      "name": "info_text_label",
-      "value": "Entrez par écrit l'information supplémentaire."
+      "value": "@global.info_text_label"
     },
     {
       "type": "audio",
-      "name": "audio_16_2",
+      "name": "audio_18_2",
       "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/oberv_ecrit_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
       "style_list": "float: right;"
     },
@@ -72,12 +69,11 @@
     },
     {
       "type": "text",
-      "name": "info_video_label",
-      "value": "Enregistrez par vidéo l'information supplémentaire."
+      "value": "@global.info_video_label"
     },
     {
       "type": "audio",
-      "name": "audio_16_3",
+      "name": "audio_18_3",
       "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/oberv_vid_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
       "style_list": "float: right;"
     },
@@ -86,7 +82,7 @@
     },
     {
       "type": "button",
-      "value": "Prendre une video",
+      "value": "@global.prendre_video",
       "parameter_list": "icon: images/icons/screen-recorder-svgrepo-com.svg",
       "condition": "@fields.type_canal_info == \"par_video\""
     },
@@ -96,12 +92,11 @@
     },
     {
       "type": "text",
-      "name": "info_audio_label",
-      "value": "Enregistrez par vocal l'information supplémentaire."
+      "value": "@global.info_audio_label"
     },
     {
       "type": "audio",
-      "name": "audio_16_4",
+      "name": "audio_18_4",
       "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/oberv_audio_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
       "style_list": "float: right;"
     },
@@ -110,8 +105,7 @@
     },
     {
       "type": "text",
-      "name": "info_audio",
-      "value": "We would need a audio recorder here",
+      "value": "@global.info_audio_need",
       "condition": "@fields.type_canal_info == \"par_vocal\""
     },
     {
@@ -119,13 +113,11 @@
       "condition": "@fields.type_canal_info == \"par_photo\""
     },
     {
-      "type": "text",
-      "name": "info_image_label",
-      "value": "Enregistrez par image l'information supplémentaire."
+      "type": "text"
     },
     {
       "type": "audio",
-      "name": "audio_16_5",
+      "name": "audio_18_5",
       "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/oberv_phot_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
       "style_list": "float: right;"
     },
@@ -134,7 +126,7 @@
     },
     {
       "type": "button",
-      "value": "Prendre une photo",
+      "value": "@global.prendre_photo",
       "parameter_list": "icon: images/icons/photo-svgrepo-com.svg",
       "condition": "@fields.type_canal_info == \"par_photo\""
     },
@@ -151,13 +143,13 @@
     },
     {
       "type": "round_button",
-      "name": "page_16_button_back",
+      "name": "page_18_button_back",
       "action_list": "click | emit: uncompleted",
       "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
     },
     {
       "type": "button",
-      "name": "page_16_button_continue",
+      "name": "page_18_button_continue",
       "value": "@global.btn_continue",
       "action_list": "click | emit: completed",
       "style_list": "flex: 1"

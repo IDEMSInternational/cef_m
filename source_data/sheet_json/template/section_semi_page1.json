@@ -4,15 +4,27 @@
   "status": "released",
   "rows": [
     {
+      "type": "title",
+      "value": "IMPORTANT : Gestion des coûts du semis"
+    },
+    {
       "type": "audio",
       "name": "audio_3_1",
       "parameter_list": "variant: button_only;\nsrc: audio/semis/note_form_semis_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
       "style_list": "float : right;"
     },
     {
+      "type": "begin_display_group",
+      "style_list": "display: block;width: 100%; background: #F4F7FA; border-radius: 12px; padding: 16px; margin-top: 10px;"
+    },
+    {
       "type": "text",
       "name": "note_consentement",
-      "value": "@global.note_info_semis"
+      "value": "@global.note_info_semis",
+      "style_list": "font-size: 16px; line-height: 1.5; color: #333;"
+    },
+    {
+      "type": "end_display_group"
     },
     {
       "type": "begin_display_group",

@@ -5,12 +5,27 @@
   "rows": [
     {
       "type": "title",
-      "value": "**TOTAUX PREVISIONELS DES BESOINS ALIMENTAIRES**",
+      "value": "@global.totaux_previsionnel_besoin",
       "_translations": {
         "value": {}
       },
       "name": "title_2",
-      "_nested_name": "title_2"
+      "_nested_name": "title_2",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.totaux_previsionnel_besoin",
+            "matchedExpression": "@global.totaux_previsionnel_besoin",
+            "type": "global",
+            "fieldName": "totaux_previsionnel_besoin"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.totaux_previsionnel_besoin": [
+          "value"
+        ]
+      }
     },
     {
       "type": "set_field",
@@ -796,28 +811,41 @@
       "_nested_name": "image_8"
     },
     {
-      "type": "html",
-      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\nQuantité totale de concentrés:  :<strong> @fields.total_concentre sacs </strong>\n</div>",
-      "_translations": {
-        "value": {}
-      },
-      "name": "html_9",
-      "_nested_name": "html_9",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\nQuantité totale de concentrés:  :<strong> @fields.total_concentre sacs </strong>\n</div>",
-            "matchedExpression": "@fields.total_concentre",
-            "type": "fields",
-            "fieldName": "total_concentre"
+      "type": "display_group",
+      "style_list": [
+        "background-color: #f0f4f8",
+        "border-left-style: solid",
+        "border-left-color: #0056b3",
+        "border-radius: 5px"
+      ],
+      "rows": [
+        {
+          "type": "text",
+          "value": "@global.total_concentre_label",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_1",
+          "_nested_name": "display_group_9.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.total_concentre_label",
+                "matchedExpression": "@global.total_concentre_label",
+                "type": "global",
+                "fieldName": "total_concentre_label"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.total_concentre_label": [
+              "value"
+            ]
           }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.total_concentre": [
-          "value"
-        ]
-      }
+        }
+      ],
+      "name": "display_group_9",
+      "_nested_name": "display_group_9"
     },
     {
       "type": "text",
@@ -825,8 +853,8 @@
       "_translations": {
         "value": {}
       },
-      "name": "text_10",
-      "_nested_name": "text_10",
+      "name": "text_11",
+      "_nested_name": "text_11",
       "_dynamicFields": {
         "value": [
           {
@@ -855,32 +883,45 @@
         "object-fit:contain",
         "flex-shrink:0"
       ],
-      "name": "image_11",
-      "_nested_name": "image_11"
+      "name": "image_12",
+      "_nested_name": "image_12"
     },
     {
-      "type": "html",
-      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  Quantité totale de résidus de céréales: <strong> @fields.total_residu charrettée </strong></div>",
-      "_translations": {
-        "value": {}
-      },
-      "name": "html_12",
-      "_nested_name": "html_12",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  Quantité totale de résidus de céréales: <strong> @fields.total_residu charrettée </strong></div>",
-            "matchedExpression": "@fields.total_residu",
-            "type": "fields",
-            "fieldName": "total_residu"
+      "type": "display_group",
+      "style_list": [
+        "background-color: #f0f4f8",
+        "border-left-style: solid",
+        "border-left-color: #0056b3",
+        "border-radius: 5px"
+      ],
+      "rows": [
+        {
+          "type": "text",
+          "value": "@global.total_residu_label",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_1",
+          "_nested_name": "display_group_13.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.total_residu_label",
+                "matchedExpression": "@global.total_residu_label",
+                "type": "global",
+                "fieldName": "total_residu_label"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.total_residu_label": [
+              "value"
+            ]
           }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.total_residu": [
-          "value"
-        ]
-      }
+        }
+      ],
+      "name": "display_group_13",
+      "_nested_name": "display_group_13"
     },
     {
       "type": "text",
@@ -888,8 +929,8 @@
       "_translations": {
         "value": {}
       },
-      "name": "text_13",
-      "_nested_name": "text_13",
+      "name": "text_15",
+      "_nested_name": "text_15",
       "_dynamicFields": {
         "value": [
           {
@@ -916,32 +957,45 @@
         "width:120px",
         "height:120px"
       ],
-      "name": "image_14",
-      "_nested_name": "image_14"
+      "name": "image_16",
+      "_nested_name": "image_16"
     },
     {
-      "type": "html",
-      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  Quantité totale de fânes: <strong> @fields.total_fane botte </strong> </div>",
-      "_translations": {
-        "value": {}
-      },
-      "name": "html_15",
-      "_nested_name": "html_15",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  Quantité totale de fânes: <strong> @fields.total_fane botte </strong> </div>",
-            "matchedExpression": "@fields.total_fane",
-            "type": "fields",
-            "fieldName": "total_fane"
+      "type": "display_group",
+      "style_list": [
+        "background-color: #f0f4f8",
+        "border-left-style: solid",
+        "border-left-color: #0056b3",
+        "border-radius: 5px"
+      ],
+      "rows": [
+        {
+          "type": "text",
+          "value": "@global.total_fane_label",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_1",
+          "_nested_name": "display_group_17.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.total_fane_label",
+                "matchedExpression": "@global.total_fane_label",
+                "type": "global",
+                "fieldName": "total_fane_label"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.total_fane_label": [
+              "value"
+            ]
           }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.total_fane": [
-          "value"
-        ]
-      }
+        }
+      ],
+      "name": "display_group_17",
+      "_nested_name": "display_group_17"
     },
     {
       "type": "display_group",
@@ -970,12 +1024,12 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "display_group_16.page9_button_back"
+          "_nested_name": "display_group_19.page9_button_back"
         },
         {
           "type": "button",
           "name": "page9_button_continue",
-          "value": "Continuer",
+          "value": "@global.btn_continue",
           "_translations": {
             "value": {}
           },
@@ -992,11 +1046,26 @@
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "display_group_16.page9_button_continue"
+          "_nested_name": "display_group_19.page9_button_continue",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.btn_continue",
+                "matchedExpression": "@global.btn_continue",
+                "type": "global",
+                "fieldName": "btn_continue"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.btn_continue": [
+              "value"
+            ]
+          }
         }
       ],
-      "name": "display_group_16",
-      "_nested_name": "display_group_16"
+      "name": "display_group_19",
+      "_nested_name": "display_group_19"
     }
   ],
   "_source": {

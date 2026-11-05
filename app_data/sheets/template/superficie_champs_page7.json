@@ -5,12 +5,36 @@
   "rows": [
     {
       "type": "title",
-      "value": "VARIÉTÉ DE LA CULTURE",
+      "value": "VARIETE UTILISEE DANS LA PARCELLE N° @fields.num_parcelle de *@fields.nom_champ*",
       "_translations": {
         "value": {}
       },
       "name": "title_2",
-      "_nested_name": "title_2"
+      "_nested_name": "title_2",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "VARIETE UTILISEE DANS LA PARCELLE N° @fields.num_parcelle de *@fields.nom_champ*",
+            "matchedExpression": "@fields.num_parcelle",
+            "type": "fields",
+            "fieldName": "num_parcelle"
+          },
+          {
+            "fullExpression": "VARIETE UTILISEE DANS LA PARCELLE N° @fields.num_parcelle de *@fields.nom_champ*",
+            "matchedExpression": "@fields.nom_champ",
+            "type": "fields",
+            "fieldName": "nom_champ"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.num_parcelle": [
+          "value"
+        ],
+        "@fields.nom_champ": [
+          "value"
+        ]
+      }
     },
     {
       "name": "attempt_submit_p8",
@@ -282,25 +306,29 @@
       ],
       "rows": [
         {
-          "type": "html",
-          "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Sélectionnez la variété cultivée (@fields.cult_princip) :</label>",
+          "type": "text",
+          "value": "@global.title_page7",
           "_translations": {
             "value": {}
           },
-          "name": "html_1",
-          "_nested_name": "display_group_8.html_1",
+          "style_list": [
+            "color: #1e3656",
+            "font-weight: bold"
+          ],
+          "name": "text_1",
+          "_nested_name": "display_group_8.text_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Sélectionnez la variété cultivée (@fields.cult_princip) :</label>",
-                "matchedExpression": "@fields.cult_princip",
-                "type": "fields",
-                "fieldName": "cult_princip"
+                "fullExpression": "@global.title_page7",
+                "matchedExpression": "@global.title_page7",
+                "type": "global",
+                "fieldName": "title_page7"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@fields.cult_princip": [
+            "@global.title_page7": [
               "value"
             ]
           }
@@ -378,15 +406,27 @@
       }
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: red; font-size: 13px;\">La réponse est obligatoire ! </span>",
+      "type": "text",
+      "value": "@global.warning_message",
       "_translations": {
         "value": {}
       },
       "condition": "@fields.attempt_submit_p8 && !@fields.variete_semence",
-      "name": "html_11",
-      "_nested_name": "html_11",
+      "style_list": [
+        "color: red",
+        "font-size: 13px"
+      ],
+      "name": "text_11",
+      "_nested_name": "text_11",
       "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.warning_message",
+            "matchedExpression": "@global.warning_message",
+            "type": "global",
+            "fieldName": "warning_message"
+          }
+        ],
         "condition": [
           {
             "fullExpression": "@fields.attempt_submit_p8 && !@fields.variete_semence",
@@ -403,6 +443,9 @@
         ]
       },
       "_dynamicDependencies": {
+        "@global.warning_message": [
+          "value"
+        ],
         "@fields.attempt_submit_p8": [
           "condition"
         ],
@@ -420,13 +463,32 @@
       ],
       "rows": [
         {
-          "type": "html",
-          "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Écrivez le nom de la variété :</label>",
+          "type": "text",
+          "value": "@global.n_variete",
           "_translations": {
             "value": {}
           },
-          "name": "html_1",
-          "_nested_name": "display_group_12.html_1"
+          "style_list": [
+            "color: #1e3656",
+            "font-weight: bold"
+          ],
+          "name": "text_1",
+          "_nested_name": "display_group_12.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.n_variete",
+                "matchedExpression": "@global.n_variete",
+                "type": "global",
+                "fieldName": "n_variete"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.n_variete": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",
@@ -500,15 +562,27 @@
       }
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: red; font-size: 13px;\">Veuillez préciser le nom !</span>",
+      "type": "text",
+      "value": "@global.error_n_variete",
       "_translations": {
         "value": {}
       },
       "condition": "@fields.attempt_submit_p8 && @local.is_autre_variete && !@fields.nom_autre_variete",
-      "name": "html_14",
-      "_nested_name": "html_14",
+      "style_list": [
+        "color: red",
+        "font-size: 13px"
+      ],
+      "name": "text_14",
+      "_nested_name": "text_14",
       "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.error_n_variete",
+            "matchedExpression": "@global.error_n_variete",
+            "type": "global",
+            "fieldName": "error_n_variete"
+          }
+        ],
         "condition": [
           {
             "fullExpression": "@fields.attempt_submit_p8 && @local.is_autre_variete && !@fields.nom_autre_variete",
@@ -531,6 +605,9 @@
         ]
       },
       "_dynamicDependencies": {
+        "@global.error_n_variete": [
+          "value"
+        ],
         "@fields.attempt_submit_p8": [
           "condition"
         ],
@@ -551,25 +628,29 @@
       ],
       "rows": [
         {
-          "type": "html",
-          "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Sélectionnez le type de la variété <b>@local.variete_semence</b> :</label>",
+          "type": "text",
+          "value": "@global.type_n_variete",
           "_translations": {
             "value": {}
           },
-          "name": "html_1",
-          "_nested_name": "display_group_15.html_1",
+          "style_list": [
+            "color: #1e3656",
+            "font-weight: bold"
+          ],
+          "name": "text_1",
+          "_nested_name": "display_group_15.text_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Sélectionnez le type de la variété <b>@local.variete_semence</b> :</label>",
-                "matchedExpression": "@local.variete_semence",
-                "type": "local",
-                "fieldName": "variete_semence"
+                "fullExpression": "@global.type_n_variete",
+                "matchedExpression": "@global.type_n_variete",
+                "type": "global",
+                "fieldName": "type_n_variete"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@local.variete_semence": [
+            "@global.type_n_variete": [
               "value"
             ]
           }
@@ -646,15 +727,27 @@
       }
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: red; font-size: 13px;\">Sélection obligatoire ! </span>",
+      "type": "text",
+      "value": "@global.select_warring",
       "_translations": {
         "value": {}
       },
       "condition": "@fields.attempt_submit_p8 && !@fields.type_variete_culture",
-      "name": "html_18",
-      "_nested_name": "html_18",
+      "style_list": [
+        "color: red",
+        "font-size: 13px"
+      ],
+      "name": "text_18",
+      "_nested_name": "text_18",
       "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.select_warring",
+            "matchedExpression": "@global.select_warring",
+            "type": "global",
+            "fieldName": "select_warring"
+          }
+        ],
         "condition": [
           {
             "fullExpression": "@fields.attempt_submit_p8 && !@fields.type_variete_culture",
@@ -671,6 +764,9 @@
         ]
       },
       "_dynamicDependencies": {
+        "@global.select_warring": [
+          "value"
+        ],
         "@fields.attempt_submit_p8": [
           "condition"
         ],
@@ -695,25 +791,29 @@
           "type": "display_group",
           "rows": [
             {
-              "type": "html",
-              "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Sélectionnez la source de la variété <b>@local.nom_variete</b> :</label>",
+              "type": "text",
+              "value": "@global.select_source",
               "_translations": {
                 "value": {}
               },
-              "name": "html_1",
-              "_nested_name": "display_group_19.display_group_1.html_1",
+              "style_list": [
+                "color: #1e3656",
+                "font-weight: bold"
+              ],
+              "name": "text_1",
+              "_nested_name": "display_group_19.display_group_1.text_1",
               "_dynamicFields": {
                 "value": [
                   {
-                    "fullExpression": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Sélectionnez la source de la variété <b>@local.nom_variete</b> :</label>",
-                    "matchedExpression": "@local.nom_variete",
-                    "type": "local",
-                    "fieldName": "nom_variete"
+                    "fullExpression": "@global.select_source",
+                    "matchedExpression": "@global.select_source",
+                    "type": "global",
+                    "fieldName": "select_source"
                   }
                 ]
               },
               "_dynamicDependencies": {
-                "@local.nom_variete": [
+                "@global.select_source": [
                   "value"
                 ]
               }
@@ -788,15 +888,27 @@
           }
         },
         {
-          "type": "html",
-          "value": "<span style=\"color: red; font-size: 13px;\">Sélection obligatoire !</span>",
+          "type": "text",
+          "value": "@global.select_warring",
           "_translations": {
             "value": {}
           },
           "condition": "@fields.attempt_submit_p8 && !@fields.source_semence_culture",
-          "name": "html_3",
-          "_nested_name": "display_group_19.html_3",
+          "style_list": [
+            "color: red",
+            "font-size: 13px"
+          ],
+          "name": "text_3",
+          "_nested_name": "display_group_19.text_3",
           "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.select_warring",
+                "matchedExpression": "@global.select_warring",
+                "type": "global",
+                "fieldName": "select_warring"
+              }
+            ],
             "condition": [
               {
                 "fullExpression": "@fields.attempt_submit_p8 && !@fields.source_semence_culture",
@@ -813,6 +925,9 @@
             ]
           },
           "_dynamicDependencies": {
+            "@global.select_warring": [
+              "value"
+            ],
             "@fields.attempt_submit_p8": [
               "condition"
             ],
@@ -849,13 +964,28 @@
       ],
       "rows": [
         {
-          "type": "html",
-          "value": "<span style=\"color: red;\">*</span> Écrivez le nom \"autre source\" de la semence :",
+          "type": "text",
+          "value": "@global.other_source",
           "_translations": {
             "value": {}
           },
-          "name": "html_1",
-          "_nested_name": "display_group_21.html_1"
+          "name": "text_1",
+          "_nested_name": "display_group_21.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.other_source",
+                "matchedExpression": "@global.other_source",
+                "type": "global",
+                "fieldName": "other_source"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.other_source": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",
@@ -938,15 +1068,27 @@
       }
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: red; font-size: 13px;\">La réponse est obligatoire !</span>",
+      "type": "text",
+      "value": "@global.warning_message",
       "_translations": {
         "value": {}
       },
       "condition": "@fields.attempt_submit_p8 && @fields.source_semence_culture == 'semence_autre_source' && !@fields.autre_source_semence_culture",
-      "name": "html_24",
-      "_nested_name": "html_24",
+      "style_list": [
+        "color: red",
+        "font-size: 13px"
+      ],
+      "name": "text_24",
+      "_nested_name": "text_24",
       "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.warning_message",
+            "matchedExpression": "@global.warning_message",
+            "type": "global",
+            "fieldName": "warning_message"
+          }
+        ],
         "condition": [
           {
             "fullExpression": "@fields.attempt_submit_p8 && @fields.source_semence_culture == 'semence_autre_source' && !@fields.autre_source_semence_culture",
@@ -969,6 +1111,9 @@
         ]
       },
       "_dynamicDependencies": {
+        "@global.warning_message": [
+          "value"
+        ],
         "@fields.attempt_submit_p8": [
           "condition"
         ],

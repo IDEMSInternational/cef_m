@@ -263,7 +263,7 @@
             }
           ],
           "parameter_list": {
-            "placeholder": "Précisez le nom de l'autre..."
+            "placeholder": "@global.texte_placeholder"
           },
           "style_list": [
             "width: 100%",
@@ -279,11 +279,24 @@
                 "type": "field",
                 "fieldName": "autre_activite_primaire"
               }
-            ]
+            ],
+            "parameter_list": {
+              "placeholder": [
+                {
+                  "fullExpression": "@global.texte_placeholder",
+                  "matchedExpression": "@global.texte_placeholder",
+                  "type": "global",
+                  "fieldName": "texte_placeholder"
+                }
+              ]
+            }
           },
           "_dynamicDependencies": {
             "@field.autre_activite_primaire": [
               "value"
+            ],
+            "@global.texte_placeholder": [
+              "parameter_list.placeholder"
             ]
           }
         }

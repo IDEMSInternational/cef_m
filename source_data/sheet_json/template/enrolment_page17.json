@@ -6,7 +6,7 @@
     {
       "type": "title",
       "name": "page_title",
-      "value": "TYPOLOGIE DE L'UPA"
+      "value": "@global.typologie_upa"
     },
     {
       "name": "TLU",
@@ -63,12 +63,11 @@
     },
     {
       "type": "text",
-      "name": "type_ge_gtb",
-      "value": "L'UPA appartient au type A"
+      "value": "@global.type_ge_gtb"
     },
     {
       "type": "audio",
-      "name": "audio_15_1",
+      "name": "audio_17_1",
       "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/type_ge_gtb_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
       "style_list": "float: right;"
     },
@@ -77,8 +76,7 @@
     },
     {
       "type": "text",
-      "name": "type_ge_gtb_hint",
-      "value": "Grande Exploitation avec un Grand Troupeau Bovin",
+      "value": "@global.type_ge_gtb_hint",
       "condition": "@local.type == \"HRE-LH\"",
       "style_list": "color: gray; font-size: 16px;"
     },
@@ -93,12 +91,11 @@
     },
     {
       "type": "text",
-      "name": "type_ge",
-      "value": "L'UPA appartient au type B"
+      "value": "@global.type_ge"
     },
     {
       "type": "audio",
-      "name": "audio_15_2",
+      "name": "audio_17_2",
       "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/type_ge_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
       "style_list": "float: right;"
     },
@@ -107,8 +104,7 @@
     },
     {
       "type": "text",
-      "name": "type_ge_hint",
-      "value": "Grande Exploitation",
+      "value": "@global.type_ge_hint",
       "condition": "@local.type == \"HRE\"",
       "style_list": "color: gray; font-size: 16px;"
     },
@@ -123,12 +119,11 @@
     },
     {
       "type": "text",
-      "name": "type_me",
-      "value": "L'UPA appartient au type C"
+      "value": "@global.type_me"
     },
     {
       "type": "audio",
-      "name": "audio_15_3",
+      "name": "audio_17_3",
       "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/type_me_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
       "style_list": "float: right;"
     },
@@ -137,8 +132,7 @@
     },
     {
       "type": "text",
-      "name": "type_me_hint",
-      "value": "Moyenne Exploitation",
+      "value": "@global.type_me_hint",
       "condition": "@local.type == \"MRE\"",
       "style_list": "color: gray; font-size: 16px;"
     },
@@ -153,12 +147,11 @@
     },
     {
       "type": "text",
-      "name": "type_pe",
-      "value": "L'UPA appartient au type D"
+      "value": "@global.type_pe"
     },
     {
       "type": "audio",
-      "name": "audio_15_4",
+      "name": "audio_17_4",
       "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/type_pe_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
       "style_list": "float: right;"
     },
@@ -167,8 +160,7 @@
     },
     {
       "type": "text",
-      "name": "type_pe_hint",
-      "value": "Petite Exploitation",
+      "value": "@global.type_pe_hint",
       "condition": "@local.type == \"LRE\"",
       "style_list": "color: gray; font-size: 16px;"
     },
@@ -183,13 +175,12 @@
     },
     {
       "type": "text",
-      "name": "note_ratio_membre_terre",
-      "value": "Ratio membres-terre cultivée: @local.ratio_membre_terre",
+      "value": "@global.note_ratio_membre_terre",
       "condition": "!!@local.ratio_membre_terre"
     },
     {
       "type": "audio",
-      "name": "audio_15_4",
+      "name": "audio_17_4",
       "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/ratio_mbre_ter_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
       "style_list": "float: right;"
     },
@@ -207,13 +198,12 @@
     },
     {
       "type": "text",
-      "name": "note_ratio_actif_terre",
-      "value": "Ratio actifs-terre cultivée: @local.ratio_actif_terre",
+      "value": "@global.note_ratio_actif_terre",
       "condition": "!!@local.ratio_actif_terre"
     },
     {
       "type": "audio",
-      "name": "audio_15_4",
+      "name": "audio_17_4",
       "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/ratio_actif_ter_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
       "style_list": "float: right;"
     },
@@ -231,13 +221,12 @@
     },
     {
       "type": "text",
-      "name": "note_ratio_boeuflabour_terre",
-      "value": "Ratio boeufs labour-terre cultivée: @local.ratio_boeuflabour_terre",
+      "value": "@global.note_ratio_boeuflabour_terre",
       "condition": "!!@local.ratio_boeuflabour_terre"
     },
     {
       "type": "audio",
-      "name": "audio_15_4",
+      "name": "audio_17_4",
       "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/ratio_bl_ter_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
       "style_list": "float: right;"
     },
@@ -253,13 +242,13 @@
     },
     {
       "type": "round_button",
-      "name": "page_15_button_back",
+      "name": "page_17_button_back",
       "action_list": "click | emit: uncompleted",
       "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
     },
     {
       "type": "button",
-      "name": "page_15_button_continue",
+      "name": "page_17_button_continue",
       "value": "@global.btn_continue",
       "action_list": "click | emit: completed",
       "style_list": "flex: 1"

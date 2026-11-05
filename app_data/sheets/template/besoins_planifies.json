@@ -103,7 +103,7 @@
       "_translations": {
         "value": {}
       },
-      "condition": "@calc(!!@fields.date_choisie)",
+      "condition": "@fields.date_choisie",
       "type": "set_variable",
       "_nested_name": "annee_choisie",
       "_dynamicFields": {
@@ -123,31 +123,20 @@
         ],
         "condition": [
           {
-            "fullExpression": "@calc(!!@fields.date_choisie)",
-            "matchedExpression": "!@fields.date_choisie",
+            "fullExpression": "@fields.date_choisie",
+            "matchedExpression": "@fields.date_choisie",
             "type": "fields",
             "fieldName": "date_choisie"
-          },
-          {
-            "fullExpression": "@calc(!!@fields.date_choisie)",
-            "matchedExpression": "@calc(!!@fields.date_choisie)",
-            "type": "calc",
-            "fieldName": "!!@fields.date_choisie"
           }
         ]
       },
       "_dynamicDependencies": {
         "@fields.date_choisie": [
-          "value"
+          "value",
+          "condition"
         ],
         "@calc(String(@fields.date_choisie || '').substring(0,4))": [
           "value"
-        ],
-        "!@fields.date_choisie": [
-          "condition"
-        ],
-        "@calc(!!@fields.date_choisie)": [
-          "condition"
         ]
       }
     },
@@ -213,76 +202,6 @@
       }
     },
     {
-      "name": "animal_totals",
-      "value": "@calc(Object.values(@data.alimentation_animaux_categorie || {}).filter(a => Object.values(@data.alimentation_animaux || {}).some(f => String(f.id) === String(a.animal_feed_id) && String(f.upa_code) === String(@fields.upa_code) && String(f.year) === String(@local.annee_choisie))).reduce((acc, a) => { acc[a.categorie] = (acc[a.categorie] || 0) + Number(a.nb_animaux || 0); return acc; }, {}))",
-      "_translations": {
-        "value": {}
-      },
-      "condition": "@local.annee_choisie",
-      "type": "set_variable",
-      "_nested_name": "animal_totals",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc(Object.values(@data.alimentation_animaux_categorie || {}).filter(a => Object.values(@data.alimentation_animaux || {}).some(f => String(f.id) === String(a.animal_feed_id) && String(f.upa_code) === String(@fields.upa_code) && String(f.year) === String(@local.annee_choisie))).reduce((acc, a) => { acc[a.categorie] = (acc[a.categorie] || 0) + Number(a.nb_animaux || 0); return acc; }, {}))",
-            "matchedExpression": "@data.alimentation_animaux_categorie",
-            "type": "data",
-            "fieldName": "alimentation_animaux_categorie"
-          },
-          {
-            "fullExpression": "@calc(Object.values(@data.alimentation_animaux_categorie || {}).filter(a => Object.values(@data.alimentation_animaux || {}).some(f => String(f.id) === String(a.animal_feed_id) && String(f.upa_code) === String(@fields.upa_code) && String(f.year) === String(@local.annee_choisie))).reduce((acc, a) => { acc[a.categorie] = (acc[a.categorie] || 0) + Number(a.nb_animaux || 0); return acc; }, {}))",
-            "matchedExpression": "@data.alimentation_animaux",
-            "type": "data",
-            "fieldName": "alimentation_animaux"
-          },
-          {
-            "fullExpression": "@calc(Object.values(@data.alimentation_animaux_categorie || {}).filter(a => Object.values(@data.alimentation_animaux || {}).some(f => String(f.id) === String(a.animal_feed_id) && String(f.upa_code) === String(@fields.upa_code) && String(f.year) === String(@local.annee_choisie))).reduce((acc, a) => { acc[a.categorie] = (acc[a.categorie] || 0) + Number(a.nb_animaux || 0); return acc; }, {}))",
-            "matchedExpression": "@fields.upa_code",
-            "type": "fields",
-            "fieldName": "upa_code"
-          },
-          {
-            "fullExpression": "@calc(Object.values(@data.alimentation_animaux_categorie || {}).filter(a => Object.values(@data.alimentation_animaux || {}).some(f => String(f.id) === String(a.animal_feed_id) && String(f.upa_code) === String(@fields.upa_code) && String(f.year) === String(@local.annee_choisie))).reduce((acc, a) => { acc[a.categorie] = (acc[a.categorie] || 0) + Number(a.nb_animaux || 0); return acc; }, {}))",
-            "matchedExpression": "@local.annee_choisie",
-            "type": "local",
-            "fieldName": "annee_choisie"
-          },
-          {
-            "fullExpression": "@calc(Object.values(@data.alimentation_animaux_categorie || {}).filter(a => Object.values(@data.alimentation_animaux || {}).some(f => String(f.id) === String(a.animal_feed_id) && String(f.upa_code) === String(@fields.upa_code) && String(f.year) === String(@local.annee_choisie))).reduce((acc, a) => { acc[a.categorie] = (acc[a.categorie] || 0) + Number(a.nb_animaux || 0); return acc; }, {}))",
-            "matchedExpression": "@calc(Object.values(@data.alimentation_animaux_categorie || {}).filter(a => Object.values(@data.alimentation_animaux || {}).some(f => String(f.id) === String(a.animal_feed_id) && String(f.upa_code) === String(@fields.upa_code) && String(f.year) === String(@local.annee_choisie))).reduce((acc, a) => { acc[a.categorie] = (acc[a.categorie] || 0) + Number(a.nb_animaux || 0); return acc; }, {}))",
-            "type": "calc",
-            "fieldName": "Object.values(@data.alimentation_animaux_categorie || {}).filter(a => Object.values(@data.alimentation_animaux || {}).some(f => String(f.id) === String(a.animal_feed_id) && String(f.upa_code) === String(@fields.upa_code) && String(f.year) === String(@local.annee_choisie))).reduce((acc, a) => { acc[a.categorie] = (acc[a.categorie] || 0) + Number(a.nb_animaux || 0); return acc; }, {})"
-          }
-        ],
-        "condition": [
-          {
-            "fullExpression": "@local.annee_choisie",
-            "matchedExpression": "@local.annee_choisie",
-            "type": "local",
-            "fieldName": "annee_choisie"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@data.alimentation_animaux_categorie": [
-          "value"
-        ],
-        "@data.alimentation_animaux": [
-          "value"
-        ],
-        "@fields.upa_code": [
-          "value"
-        ],
-        "@local.annee_choisie": [
-          "value",
-          "condition"
-        ],
-        "@calc(Object.values(@data.alimentation_animaux_categorie || {}).filter(a => Object.values(@data.alimentation_animaux || {}).some(f => String(f.id) === String(a.animal_feed_id) && String(f.upa_code) === String(@fields.upa_code) && String(f.year) === String(@local.annee_choisie))).reduce((acc, a) => { acc[a.categorie] = (acc[a.categorie] || 0) + Number(a.nb_animaux || 0); return acc; }, {}))": [
-          "value"
-        ]
-      }
-    },
-    {
       "type": "task_card",
       "condition": "!!@local.last_upa_entry",
       "rows": [
@@ -302,7 +221,7 @@
                 "text-align: center"
               ],
               "name": "title_1",
-              "_nested_name": "task_card_9.display_group_1.title_1",
+              "_nested_name": "task_card_8.display_group_1.title_1",
               "_dynamicFields": {
                 "value": [
                   {
@@ -348,7 +267,7 @@
                         "font-size: 15px"
                       ],
                       "name": "text_1",
-                      "_nested_name": "task_card_9.display_group_1.display_group_2.display_group_1.text_1",
+                      "_nested_name": "task_card_8.display_group_1.display_group_2.display_group_1.text_1",
                       "_dynamicFields": {
                         "value": [
                           {
@@ -376,7 +295,7 @@
                         "font-size: 15px"
                       ],
                       "name": "text_2",
-                      "_nested_name": "task_card_9.display_group_1.display_group_2.display_group_1.text_2",
+                      "_nested_name": "task_card_8.display_group_1.display_group_2.display_group_1.text_2",
                       "_dynamicFields": {
                         "value": [
                           {
@@ -395,7 +314,7 @@
                     }
                   ],
                   "name": "display_group_1",
-                  "_nested_name": "task_card_9.display_group_1.display_group_2.display_group_1"
+                  "_nested_name": "task_card_8.display_group_1.display_group_2.display_group_1"
                 },
                 {
                   "type": "display_group",
@@ -415,7 +334,7 @@
                         "font-weight: bold"
                       ],
                       "name": "text_1",
-                      "_nested_name": "task_card_9.display_group_1.display_group_2.display_group_2.text_1",
+                      "_nested_name": "task_card_8.display_group_1.display_group_2.display_group_2.text_1",
                       "_dynamicFields": {
                         "value": [
                           {
@@ -444,7 +363,7 @@
                         "font-weight: bold"
                       ],
                       "name": "text_2",
-                      "_nested_name": "task_card_9.display_group_1.display_group_2.display_group_2.text_2",
+                      "_nested_name": "task_card_8.display_group_1.display_group_2.display_group_2.text_2",
                       "_dynamicFields": {
                         "value": [
                           {
@@ -463,19 +382,19 @@
                     }
                   ],
                   "name": "display_group_2",
-                  "_nested_name": "task_card_9.display_group_1.display_group_2.display_group_2"
+                  "_nested_name": "task_card_8.display_group_1.display_group_2.display_group_2"
                 }
               ],
               "name": "display_group_2",
-              "_nested_name": "task_card_9.display_group_1.display_group_2"
+              "_nested_name": "task_card_8.display_group_1.display_group_2"
             }
           ],
           "name": "display_group_1",
-          "_nested_name": "task_card_9.display_group_1"
+          "_nested_name": "task_card_8.display_group_1"
         }
       ],
-      "name": "task_card_9",
-      "_nested_name": "task_card_9",
+      "name": "task_card_8",
+      "_nested_name": "task_card_8",
       "_dynamicFields": {
         "condition": [
           {
@@ -489,6 +408,100 @@
       "_dynamicDependencies": {
         "!@local.last_upa_entry": [
           "condition"
+        ]
+      }
+    },
+    {
+      "name": "animal_totals",
+      "value": "@calc(Object.values(@data.alimentation_anim_cat_join || {}).filter(a => String(a.upa_code) === String(@fields.upa_code) && String(a.year) === String(@local.annee_choisie)).reduce((acc, a) => { acc[a.categorie] = (acc[a.categorie] || 0) + Number(a.nb_animaux || 0); return acc; }, {}))",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@local.annee_choisie",
+      "type": "set_variable",
+      "_nested_name": "animal_totals",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Object.values(@data.alimentation_anim_cat_join || {}).filter(a => String(a.upa_code) === String(@fields.upa_code) && String(a.year) === String(@local.annee_choisie)).reduce((acc, a) => { acc[a.categorie] = (acc[a.categorie] || 0) + Number(a.nb_animaux || 0); return acc; }, {}))",
+            "matchedExpression": "@data.alimentation_anim_cat_join",
+            "type": "data",
+            "fieldName": "alimentation_anim_cat_join"
+          },
+          {
+            "fullExpression": "@calc(Object.values(@data.alimentation_anim_cat_join || {}).filter(a => String(a.upa_code) === String(@fields.upa_code) && String(a.year) === String(@local.annee_choisie)).reduce((acc, a) => { acc[a.categorie] = (acc[a.categorie] || 0) + Number(a.nb_animaux || 0); return acc; }, {}))",
+            "matchedExpression": "@fields.upa_code",
+            "type": "fields",
+            "fieldName": "upa_code"
+          },
+          {
+            "fullExpression": "@calc(Object.values(@data.alimentation_anim_cat_join || {}).filter(a => String(a.upa_code) === String(@fields.upa_code) && String(a.year) === String(@local.annee_choisie)).reduce((acc, a) => { acc[a.categorie] = (acc[a.categorie] || 0) + Number(a.nb_animaux || 0); return acc; }, {}))",
+            "matchedExpression": "@local.annee_choisie",
+            "type": "local",
+            "fieldName": "annee_choisie"
+          },
+          {
+            "fullExpression": "@calc(Object.values(@data.alimentation_anim_cat_join || {}).filter(a => String(a.upa_code) === String(@fields.upa_code) && String(a.year) === String(@local.annee_choisie)).reduce((acc, a) => { acc[a.categorie] = (acc[a.categorie] || 0) + Number(a.nb_animaux || 0); return acc; }, {}))",
+            "matchedExpression": "@calc(Object.values(@data.alimentation_anim_cat_join || {}).filter(a => String(a.upa_code) === String(@fields.upa_code) && String(a.year) === String(@local.annee_choisie)).reduce((acc, a) => { acc[a.categorie] = (acc[a.categorie] || 0) + Number(a.nb_animaux || 0); return acc; }, {}))",
+            "type": "calc",
+            "fieldName": "Object.values(@data.alimentation_anim_cat_join || {}).filter(a => String(a.upa_code) === String(@fields.upa_code) && String(a.year) === String(@local.annee_choisie)).reduce((acc, a) => { acc[a.categorie] = (acc[a.categorie] || 0) + Number(a.nb_animaux || 0); return acc; }, {})"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "@local.annee_choisie",
+            "matchedExpression": "@local.annee_choisie",
+            "type": "local",
+            "fieldName": "annee_choisie"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@data.alimentation_anim_cat_join": [
+          "value"
+        ],
+        "@fields.upa_code": [
+          "value"
+        ],
+        "@local.annee_choisie": [
+          "value",
+          "condition"
+        ],
+        "@calc(Object.values(@data.alimentation_anim_cat_join || {}).filter(a => String(a.upa_code) === String(@fields.upa_code) && String(a.year) === String(@local.annee_choisie)).reduce((acc, a) => { acc[a.categorie] = (acc[a.categorie] || 0) + Number(a.nb_animaux || 0); return acc; }, {}))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "value": "@calc(Object.keys(Object.values(@data.alimentation_anim_cat_join || {})[0] || {}).join(' | '))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "name": "set_variable_11",
+      "_nested_name": "set_variable_11",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Object.keys(Object.values(@data.alimentation_anim_cat_join || {})[0] || {}).join(' | '))",
+            "matchedExpression": "@data.alimentation_anim_cat_join",
+            "type": "data",
+            "fieldName": "alimentation_anim_cat_join"
+          },
+          {
+            "fullExpression": "@calc(Object.keys(Object.values(@data.alimentation_anim_cat_join || {})[0] || {}).join(' | '))",
+            "matchedExpression": "@calc(Object.keys(Object.values(@data.alimentation_anim_cat_join || {})[0] || {}).join(' | '))",
+            "type": "calc",
+            "fieldName": "Object.keys(Object.values(@data.alimentation_anim_cat_join || {})[0] || {}).join(' | ')"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@data.alimentation_anim_cat_join": [
+          "value"
+        ],
+        "@calc(Object.keys(Object.values(@data.alimentation_anim_cat_join || {})[0] || {}).join(' | '))": [
+          "value"
         ]
       }
     },
@@ -515,7 +528,7 @@
                 "text-align: center"
               ],
               "name": "title_1",
-              "_nested_name": "task_card_11.display_group_1.title_1",
+              "_nested_name": "task_card_12.display_group_1.title_1",
               "_dynamicFields": {
                 "value": [
                   {
@@ -562,7 +575,7 @@
                         "font-size: 16px"
                       ],
                       "name": "text_1",
-                      "_nested_name": "task_card_11.display_group_1.data_items_2.display_group_1_@item.id.text_1",
+                      "_nested_name": "task_card_12.display_group_1.data_items_2.display_group_1_@item.id.text_1",
                       "_dynamicFields": {
                         "value": [
                           {
@@ -574,7 +587,7 @@
                         ],
                         "_nested_name": [
                           {
-                            "fullExpression": "task_card_11.display_group_1.data_items_2.display_group_1_@item.id.text_1",
+                            "fullExpression": "task_card_12.display_group_1.data_items_2.display_group_1_@item.id.text_1",
                             "matchedExpression": "@item.id.text_1",
                             "type": "item",
                             "fieldName": "id"
@@ -603,7 +616,7 @@
                         "font-weight: bold"
                       ],
                       "name": "text_2",
-                      "_nested_name": "task_card_11.display_group_1.data_items_2.display_group_1_@item.id.text_2",
+                      "_nested_name": "task_card_12.display_group_1.data_items_2.display_group_1_@item.id.text_2",
                       "_dynamicFields": {
                         "value": [
                           {
@@ -621,7 +634,7 @@
                         ],
                         "_nested_name": [
                           {
-                            "fullExpression": "task_card_11.display_group_1.data_items_2.display_group_1_@item.id.text_2",
+                            "fullExpression": "task_card_12.display_group_1.data_items_2.display_group_1_@item.id.text_2",
                             "matchedExpression": "@item.id.text_2",
                             "type": "item",
                             "fieldName": "id"
@@ -642,7 +655,7 @@
                     }
                   ],
                   "name": "display_group_1_@item.id",
-                  "_nested_name": "task_card_11.display_group_1.data_items_2.display_group_1_@item.id",
+                  "_nested_name": "task_card_12.display_group_1.data_items_2.display_group_1_@item.id",
                   "_dynamicFields": {
                     "condition": [
                       {
@@ -668,7 +681,7 @@
                     ],
                     "_nested_name": [
                       {
-                        "fullExpression": "task_card_11.display_group_1.data_items_2.display_group_1_@item.id",
+                        "fullExpression": "task_card_12.display_group_1.data_items_2.display_group_1_@item.id",
                         "matchedExpression": "@item.id",
                         "type": "item",
                         "fieldName": "id"
@@ -690,7 +703,7 @@
                 }
               ],
               "name": "data_items_2",
-              "_nested_name": "task_card_11.display_group_1.data_items_2",
+              "_nested_name": "task_card_12.display_group_1.data_items_2",
               "_dynamicFields": {
                 "value": [
                   {
@@ -715,7 +728,7 @@
               },
               "condition": "@local.annee_choisie",
               "type": "set_variable",
-              "_nested_name": "task_card_11.display_group_1.son_tourteau_total",
+              "_nested_name": "task_card_12.display_group_1.son_tourteau_total",
               "_dynamicFields": {
                 "value": [
                   {
@@ -776,7 +789,7 @@
               },
               "condition": "@local.annee_choisie",
               "type": "set_variable",
-              "_nested_name": "task_card_11.display_group_1.besoin_animaux_upa",
+              "_nested_name": "task_card_12.display_group_1.besoin_animaux_upa",
               "_dynamicFields": {
                 "value": [
                   {
@@ -843,7 +856,7 @@
                     "font-size: 16px"
                   ],
                   "name": "text_1",
-                  "_nested_name": "task_card_11.display_group_1.display_group_5.text_1",
+                  "_nested_name": "task_card_12.display_group_1.display_group_5.text_1",
                   "_dynamicFields": {
                     "value": [
                       {
@@ -872,7 +885,7 @@
                     "font-weight: bold"
                   ],
                   "name": "text_2",
-                  "_nested_name": "task_card_11.display_group_1.display_group_5.text_2",
+                  "_nested_name": "task_card_12.display_group_1.display_group_5.text_2",
                   "_dynamicFields": {
                     "value": [
                       {
@@ -900,7 +913,7 @@
                 }
               ],
               "name": "display_group_5",
-              "_nested_name": "task_card_11.display_group_1.display_group_5"
+              "_nested_name": "task_card_12.display_group_1.display_group_5"
             },
             {
               "type": "data_items",
@@ -931,7 +944,7 @@
                         "font-size: 16px"
                       ],
                       "name": "text_1",
-                      "_nested_name": "task_card_11.display_group_1.data_items_6.display_group_1_@item.id.text_1",
+                      "_nested_name": "task_card_12.display_group_1.data_items_6.display_group_1_@item.id.text_1",
                       "_dynamicFields": {
                         "value": [
                           {
@@ -943,7 +956,7 @@
                         ],
                         "_nested_name": [
                           {
-                            "fullExpression": "task_card_11.display_group_1.data_items_6.display_group_1_@item.id.text_1",
+                            "fullExpression": "task_card_12.display_group_1.data_items_6.display_group_1_@item.id.text_1",
                             "matchedExpression": "@item.id.text_1",
                             "type": "item",
                             "fieldName": "id"
@@ -972,7 +985,7 @@
                         "font-weight: bold"
                       ],
                       "name": "text_2",
-                      "_nested_name": "task_card_11.display_group_1.data_items_6.display_group_1_@item.id.text_2",
+                      "_nested_name": "task_card_12.display_group_1.data_items_6.display_group_1_@item.id.text_2",
                       "_dynamicFields": {
                         "value": [
                           {
@@ -996,7 +1009,7 @@
                         ],
                         "_nested_name": [
                           {
-                            "fullExpression": "task_card_11.display_group_1.data_items_6.display_group_1_@item.id.text_2",
+                            "fullExpression": "task_card_12.display_group_1.data_items_6.display_group_1_@item.id.text_2",
                             "matchedExpression": "@item.id.text_2",
                             "type": "item",
                             "fieldName": "id"
@@ -1020,7 +1033,7 @@
                     }
                   ],
                   "name": "display_group_1_@item.id",
-                  "_nested_name": "task_card_11.display_group_1.data_items_6.display_group_1_@item.id",
+                  "_nested_name": "task_card_12.display_group_1.data_items_6.display_group_1_@item.id",
                   "_dynamicFields": {
                     "name": [
                       {
@@ -1032,7 +1045,7 @@
                     ],
                     "_nested_name": [
                       {
-                        "fullExpression": "task_card_11.display_group_1.data_items_6.display_group_1_@item.id",
+                        "fullExpression": "task_card_12.display_group_1.data_items_6.display_group_1_@item.id",
                         "matchedExpression": "@item.id",
                         "type": "item",
                         "fieldName": "id"
@@ -1048,7 +1061,7 @@
                 }
               ],
               "name": "data_items_6",
-              "_nested_name": "task_card_11.display_group_1.data_items_6",
+              "_nested_name": "task_card_12.display_group_1.data_items_6",
               "_dynamicFields": {
                 "value": [
                   {
@@ -1067,11 +1080,11 @@
             }
           ],
           "name": "display_group_1",
-          "_nested_name": "task_card_11.display_group_1"
+          "_nested_name": "task_card_12.display_group_1"
         }
       ],
-      "name": "task_card_11",
-      "_nested_name": "task_card_11",
+      "name": "task_card_12",
+      "_nested_name": "task_card_12",
       "_dynamicFields": {
         "condition": [
           {
@@ -1128,7 +1141,7 @@
             "font-size: 15px"
           ],
           "name": "text_1",
-          "_nested_name": "display_group_13.text_1",
+          "_nested_name": "display_group_14.text_1",
           "_dynamicFields": {
             "value": [
               {
@@ -1146,8 +1159,8 @@
           }
         }
       ],
-      "name": "display_group_13",
-      "_nested_name": "display_group_13",
+      "name": "display_group_14",
+      "_nested_name": "display_group_14",
       "_dynamicFields": {
         "condition": [
           {
@@ -1170,37 +1183,6 @@
         ],
         "@local.annee_choisie": [
           "condition"
-        ]
-      }
-    },
-    {
-      "type": "navigation_bar",
-      "parameter_list": {
-        "button_list": "@data.footer"
-      },
-      "style_list": [
-        "position: fixed",
-        "bottom: 0",
-        "left: 0",
-        "box-sizing: border-box"
-      ],
-      "name": "navigation_bar_15",
-      "_nested_name": "navigation_bar_15",
-      "_dynamicFields": {
-        "parameter_list": {
-          "button_list": [
-            {
-              "fullExpression": "@data.footer",
-              "matchedExpression": "@data.footer",
-              "type": "data",
-              "fieldName": "footer"
-            }
-          ]
-        }
-      },
-      "_dynamicDependencies": {
-        "@data.footer": [
-          "parameter_list.button_list"
         ]
       }
     }

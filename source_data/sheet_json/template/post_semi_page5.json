@@ -9,12 +9,13 @@
     },
     {
       "type": "begin_display_group",
-      "name": "header_top",
+      "name": "header",
       "style_list": "background: #00adcc; padding: 15px; border-radius: 0 0 15px 15px; margin-bottom: 20px;"
     },
     {
-      "type": "html",
-      "value": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>"
+      "type": "text",
+      "value": "CULTURE @local.v_current_human / @field.total_cultures_selected",
+      "style_list": "color: white; font-weight: bold; font-size: 14px; text-transform: uppercase;"
     },
     {
       "type": "end_display_group"
@@ -30,19 +31,20 @@
     {
       "type": "image",
       "value": "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@field.active_culture_name || '').toLowerCase().trim()) ? 'images/' + @field.active_culture_name + '.jpg' : 'images/autre.jpeg')",
-      "style_list": "width: 100px; height: 100px;"
+      "style_list": "width: 60%; object-fit: contain;"
     },
     {
       "type": "text",
-      "value": "<h3 style='color: black; margin: 10px 0;'>Culture : <span style='color: #e3a730;'>@field.active_culture_name</span></h3>",
-      "style_list": "font-weight: bold; font-size: 18px;"
+      "value": "Culture : @field.active_culture_name",
+      "style_list": "font-weight: bold; font-size: 18px; color: #e3a730; margin-top: 10px; text-align: center;"
     },
     {
       "type": "end_display_group"
     },
     {
-      "type": "html",
-      "value": "<br><b style=\"color: #e67e22\">4. AUTRES COÛTS AU POST-SEMIS</b>"
+      "type": "text",
+      "value": "@global.sec_autre",
+      "style_list": "color: #e67e22; font-weight: bold; margin-top: 15px; margin-bottom: 5px;"
     },
     {
       "type": "begin_display_group",
@@ -57,12 +59,13 @@
       "style_list": "float: right;"
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: red;\">*</span>Ecrivez le nom(s) d'autre(s) coût(s)"
+      "type": "text",
+      "value": "@global.lbl_autre_Q",
+      "style_list": "font-weight: bold; font-size: 16px; color: #333; margin-bottom: 5px;"
     },
     {
       "type": "text",
-      "value": "*Ces coûts couvrent des services ou intrants non pris en compte.*"
+      "value": "@global.lbl_autre_hint"
     },
     {
       "type": "radio_button_grid",
@@ -88,8 +91,9 @@
       "style_list": "float: right;"
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: red;\">*</span> Indiquez s'il y a d'autre(s) coût(s) au post semis non renseignés"
+      "type": "text",
+      "value": "@global.lbl_nom_autre",
+      "style_list": "font-weight: bold; font-size: 16px; color: #333; margin-bottom: 5px;"
     },
     {
       "type": "image",
@@ -108,7 +112,7 @@
     },
     {
       "type": "text",
-      "value": "*La réponse est obligatoire !*",
+      "value": "@global.lbl_oblig\n",
       "condition": "@calc(@field.no_autre_cout_postsemis == 'oui' && (@field.nom_autre_cout_postsemis == '' || @field.nom_autre_cout_postsemis == null))",
       "style_list": "color: red; font-size: 12px;"
     },
@@ -130,17 +134,18 @@
       "style_list": "float: right;"
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: red;\">*</span>Donnez le montant du coût pour <span style=\"color: #e67e22\"> @field.nom_autre_cout_postsemis</span>"
+      "type": "text",
+      "value": "Donnez le montant du coût pour @field.nom_autre_cout_postsemis",
+      "style_list": "font-weight: bold; font-size: 16px; color: #333; margin-bottom: 5px;"
     },
     {
       "type": "text",
-      "value": "S'il y a plusieurs éléments, donnez le coût agrégé de l'ensemble",
+      "value": "@global.info_cout_name",
       "style_list": "font-style: italic; color: #666; font-size: 12px;"
     },
     {
       "type": "text",
-      "value": "*Rappel : 1 dram = 5 FCFA*",
+      "value": "@global.hint_price",
       "style_list": "font-size: 14px; color: gray;"
     },
     {

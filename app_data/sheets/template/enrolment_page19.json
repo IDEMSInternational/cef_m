@@ -6,27 +6,57 @@
     {
       "type": "title",
       "name": "page_title",
-      "value": "APRECIATIONS ET OBSERVATIONS SUR LE FORMULAIRE",
+      "value": "@global.apreciation_observation",
       "_translations": {
         "value": {}
       },
-      "_nested_name": "page_title"
+      "_nested_name": "page_title",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.apreciation_observation",
+            "matchedExpression": "@global.apreciation_observation",
+            "type": "global",
+            "fieldName": "apreciation_observation"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.apreciation_observation": [
+          "value"
+        ]
+      }
     },
     {
       "type": "display_group",
       "rows": [
         {
           "type": "text",
-          "name": "observation_appreciation_label",
-          "value": "Partagez vos appréciations, observations, ou suggestions d'amélioration sur le formulaire par audio",
+          "value": "@global.observation_appreciation_label",
           "_translations": {
             "value": {}
           },
-          "_nested_name": "display_group_3.observation_appreciation_label"
+          "name": "text_1",
+          "_nested_name": "display_group_3.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.observation_appreciation_label",
+                "matchedExpression": "@global.observation_appreciation_label",
+                "type": "global",
+                "fieldName": "observation_appreciation_label"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.observation_appreciation_label": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",
-          "name": "audio_17_1",
+          "name": "audio_19_1",
           "parameter_list": {
             "variant": "button_only",
             "src": "audio/Enrolement/appreciation_audio_fr.mp3",
@@ -35,7 +65,7 @@
           "style_list": [
             "float: right"
           ],
-          "_nested_name": "display_group_3.audio_17_1"
+          "_nested_name": "display_group_3.audio_19_1"
         }
       ],
       "name": "display_group_3",
@@ -58,8 +88,7 @@
     },
     {
       "type": "text",
-      "name": "observation_appreciation_hint",
-      "value": "*Il s'agit de partager à travers un enregistrement vocal toute appréciation (positive/négative) ou observation sur les éléments de ce formulaire, et aussi des suggestions d'amélioration.",
+      "value": "@global.observation_appreciation_hint",
       "_translations": {
         "value": {}
       },
@@ -67,12 +96,27 @@
         "color: gray",
         "font-size: 16px"
       ],
-      "_nested_name": "observation_appreciation_hint"
+      "name": "text_6",
+      "_nested_name": "text_6",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.observation_appreciation_hint",
+            "matchedExpression": "@global.observation_appreciation_hint",
+            "type": "global",
+            "fieldName": "observation_appreciation_hint"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.observation_appreciation_hint": [
+          "value"
+        ]
+      }
     },
     {
       "type": "text",
-      "name": "observation_appreciation",
-      "value": "We would need a recorder here in order to transmit observations or feedback regarding the form.",
+      "value": "@global.observation_appreciation_need",
       "_translations": {
         "value": {}
       },
@@ -80,7 +124,23 @@
         "color: gray",
         "font-size: 14px"
       ],
-      "_nested_name": "observation_appreciation"
+      "name": "text_7",
+      "_nested_name": "text_7",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.observation_appreciation_need",
+            "matchedExpression": "@global.observation_appreciation_need",
+            "type": "global",
+            "fieldName": "observation_appreciation_need"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.observation_appreciation_need": [
+          "value"
+        ]
+      }
     },
     {
       "type": "display_group",
@@ -95,7 +155,7 @@
       "rows": [
         {
           "type": "round_button",
-          "name": "page_17_button_back",
+          "name": "page_19_button_back",
           "action_list": [
             {
               "trigger": "click",
@@ -110,11 +170,11 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "dg_footer.page_17_button_back"
+          "_nested_name": "dg_footer.page_19_button_back"
         },
         {
           "type": "button",
-          "name": "page_17_button_continue",
+          "name": "page_19_button_continue",
           "value": "@global.btn_continue",
           "_translations": {
             "value": {}
@@ -132,7 +192,7 @@
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "dg_footer.page_17_button_continue",
+          "_nested_name": "dg_footer.page_19_button_continue",
           "_dynamicFields": {
             "value": [
               {

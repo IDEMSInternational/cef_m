@@ -9,12 +9,13 @@
     },
     {
       "type": "begin_display_group",
-      "name": "header_top",
+      "name": "header",
       "style_list": "background: #00adcc; padding: 15px; border-radius: 0 0 15px 15px; margin-bottom: 20px;"
     },
     {
-      "type": "html",
-      "value": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>"
+      "type": "text",
+      "value": "CULTURE @local.v_current_human / @field.total_cultures_selected",
+      "style_list": "color: white; font-weight: bold; font-size: 14px; text-transform: uppercase;"
     },
     {
       "type": "end_display_group"
@@ -30,12 +31,12 @@
     {
       "type": "image",
       "value": "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@field.active_culture_name || '').toLowerCase().trim()) ? 'images/' + @field.active_culture_name + '.jpg' : 'images/autre.jpeg')",
-      "style_list": "width: 100px; height: 100px;"
+      "style_list": "width: 60%; object-fit: contain;"
     },
     {
       "type": "text",
-      "value": "<h3 style='color: black; margin: 10px 0;'>Culture : <span style='color: #e3a730;'>@field.active_culture_name</span></h3>",
-      "style_list": "font-weight: bold; font-size: 18px;"
+      "value": "Culture : @field.active_culture_name",
+      "style_list": "font-weight: bold; font-size: 18px; color: #e3a730; margin-top: 10px; text-align: center;"
     },
     {
       "type": "end_display_group"
@@ -53,8 +54,9 @@
       "value": "@calc(!@local.v_quantite_npk_fmt || Number(@field.quantite_npk) < 0)"
     },
     {
-      "type": "html",
-      "value": "<br><b style=\"color: #e67e22\">1. APPORT NPK (Engrais de fond)</b>"
+      "type": "text",
+      "value": "@global.sec_npk",
+      "style_list": "color: #e67e22; font-weight: bold; margin-top: 15px; margin-bottom: 5px;"
     },
     {
       "type": "begin_display_group",
@@ -68,8 +70,9 @@
       "style_list": "float: right;"
     },
     {
-      "type": "html",
-      "value": "<br>Quantité NPK utilisée (Sacs de 50kg)<span style=\"color: red;\">*</span>"
+      "type": "text",
+      "value": "@global.lbl_npk",
+      "style_list": "font-weight: bold; font-size: 16px; color: #333; margin-bottom: 5px;"
     },
     {
       "type": "image",
@@ -88,7 +91,7 @@
     },
     {
       "type": "text",
-      "value": "Mettez une valeur positive.",
+      "value": "@global.error_positive_value",
       "condition": "@local.v_quantite_npk_err",
       "style_list": "color: red; font-size: 12px;"
     },
@@ -105,13 +108,14 @@
       "style_list": "float: right;"
     },
     {
-      "type": "html",
-      "value": "Coût total NPK payé (Dram)<span style=\"color: red;\">*</span>",
-      "condition": "@field.quantite_npk > 0"
+      "type": "text",
+      "value": "@global.lbl_npk_c_nz",
+      "condition": "@field.quantite_npk > 0",
+      "style_list": "font-weight: bold; font-size: 16px; color: #333;"
     },
     {
       "type": "text",
-      "value": "*Rappel : 1 dram = 5 FCFA*",
+      "value": "@global.hint_price",
       "condition": "@field.quantite_npk > 0\n",
       "style_list": "font-size: 14px; color: gray;"
     },
@@ -143,12 +147,13 @@
       "style_list": "float: right;"
     },
     {
-      "type": "html",
-      "value": "Coût total NPK payé (Dram)<span style=\"color: red;\">*</span>"
+      "type": "text",
+      "value": "@global.lbl_npk_c_nz",
+      "style_list": "font-weight: bold; font-size: 16px; color: #333;"
     },
     {
       "type": "text",
-      "value": "*Rappel : 1 dram = 5 FCFA*",
+      "value": "@global.hint_price",
       "condition": "\n",
       "style_list": "font-size: 14px; color: gray;"
     },
@@ -179,8 +184,9 @@
       "value": "@calc(!@local.v_quantite_uree_fmt || Number(@field.quantite_uree) < 0)"
     },
     {
-      "type": "html",
-      "value": "<br><b style=\"color: #e67e22\">2. APPORT URÉE (Engrais de couverture)</b>"
+      "type": "text",
+      "value": "@global.sec_uree",
+      "style_list": "color: #e67e22; font-weight: bold; margin-top: 20px; margin-bottom: 5px;"
     },
     {
       "type": "begin_display_group",
@@ -195,8 +201,9 @@
       "style_list": "float: right;"
     },
     {
-      "type": "html",
-      "value": "<br>Quantité Urée utilisée (Sacs de 50kg)<span style=\"color: red;\">*</span>"
+      "type": "text",
+      "value": "@global.lbl_uree",
+      "style_list": "font-weight: bold; font-size: 16px; color: #333; margin-bottom: 5px;"
     },
     {
       "type": "end_display_group"
@@ -215,7 +222,7 @@
     },
     {
       "type": "text",
-      "value": "Mettez une valeur positive.",
+      "value": "@global.error_positive_value",
       "condition": "@local.v_quantite_uree_err",
       "style_list": "color: red; font-size: 12px;"
     },
@@ -233,12 +240,13 @@
       "style_list": "float: right;"
     },
     {
-      "type": "html",
-      "value": "Coût total Urée payé (Dram)<span style=\"color: red;\">*</span>"
+      "type": "text",
+      "value": "@global.lbl_uree_c_nz",
+      "style_list": "font-weight: bold; font-size: 16px; color: #333; margin-bottom: 5px;"
     },
     {
       "type": "text",
-      "value": "*Rappel : 1 dram = 5 FCFA*",
+      "value": "@global.hint_price",
       "style_list": "font-size: 14px; color: gray;"
     },
     {
@@ -270,11 +278,12 @@
     },
     {
       "type": "html",
-      "value": "Coût total Urée payé (Dram)<span style=\"color: red;\">*</span>"
+      "value": "@global.lbl_uree_c_nz",
+      "style_list": "font-weight: bold; font-size: 16px; color: #333; margin-bottom: 5px;"
     },
     {
       "type": "text",
-      "value": "*Rappel : 1 dram = 5 FCFA*",
+      "value": "@global.hint_price",
       "style_list": "font-size: 14px; color: gray;"
     },
     {

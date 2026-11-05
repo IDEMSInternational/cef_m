@@ -38,7 +38,7 @@
     },
     {
       "type": "display_group",
-      "name": "header_top",
+      "name": "header",
       "style_list": [
         "background: #00adcc",
         "padding: 15px",
@@ -47,23 +47,29 @@
       ],
       "rows": [
         {
-          "type": "html",
-          "value": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>",
+          "type": "text",
+          "value": "CULTURE @local.v_current_human / @field.total_cultures_selected",
           "_translations": {
             "value": {}
           },
-          "name": "html_1",
-          "_nested_name": "header_top.html_1",
+          "style_list": [
+            "color: white",
+            "font-weight: bold",
+            "font-size: 14px",
+            "text-transform: uppercase"
+          ],
+          "name": "text_1",
+          "_nested_name": "header.text_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>",
+                "fullExpression": "CULTURE @local.v_current_human / @field.total_cultures_selected",
                 "matchedExpression": "@local.v_current_human",
                 "type": "local",
                 "fieldName": "v_current_human"
               },
               {
-                "fullExpression": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>",
+                "fullExpression": "CULTURE @local.v_current_human / @field.total_cultures_selected",
                 "matchedExpression": "@field.total_cultures_selected",
                 "type": "field",
                 "fieldName": "total_cultures_selected"
@@ -80,7 +86,7 @@
           }
         }
       ],
-      "_nested_name": "header_top"
+      "_nested_name": "header"
     },
     {
       "type": "title",
@@ -112,8 +118,8 @@
             "value": {}
           },
           "style_list": [
-            "width: 100px",
-            "height: 100px"
+            "width: 60%",
+            "object-fit: contain"
           ],
           "name": "image_1",
           "_nested_name": "display_group_6.image_1",
@@ -151,20 +157,23 @@
         },
         {
           "type": "text",
-          "value": "<h3 style='color: black; margin: 10px 0;'>Culture : <span style='color: #e3a730;'>@field.active_culture_name</span></h3>",
+          "value": "Culture : @field.active_culture_name",
           "_translations": {
             "value": {}
           },
           "style_list": [
             "font-weight: bold",
-            "font-size: 18px"
+            "font-size: 18px",
+            "color: #e3a730",
+            "margin-top: 10px",
+            "text-align: center"
           ],
           "name": "text_2",
           "_nested_name": "display_group_6.text_2",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "<h3 style='color: black; margin: 10px 0;'>Culture : <span style='color: #e3a730;'>@field.active_culture_name</span></h3>",
+                "fullExpression": "Culture : @field.active_culture_name",
                 "matchedExpression": "@field.active_culture_name",
                 "type": "field",
                 "fieldName": "active_culture_name"
@@ -299,13 +308,34 @@
       }
     },
     {
-      "type": "html",
-      "value": "<br><b style=\"color: #e67e22\">1. APPORT NPK (Engrais de fond)</b>",
+      "type": "text",
+      "value": "@global.sec_npk",
       "_translations": {
         "value": {}
       },
-      "name": "html_11",
-      "_nested_name": "html_11"
+      "style_list": [
+        "color: #e67e22",
+        "font-weight: bold",
+        "margin-top: 15px",
+        "margin-bottom: 5px"
+      ],
+      "name": "text_11",
+      "_nested_name": "text_11",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.sec_npk",
+            "matchedExpression": "@global.sec_npk",
+            "type": "global",
+            "fieldName": "sec_npk"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.sec_npk": [
+          "value"
+        ]
+      }
     },
     {
       "type": "display_group",
@@ -330,13 +360,34 @@
           "_nested_name": "npk_card.audio_1"
         },
         {
-          "type": "html",
-          "value": "<br>Quantité NPK utilisée (Sacs de 50kg)<span style=\"color: red;\">*</span>",
+          "type": "text",
+          "value": "@global.lbl_npk",
           "_translations": {
             "value": {}
           },
-          "name": "html_2",
-          "_nested_name": "npk_card.html_2"
+          "style_list": [
+            "font-weight: bold",
+            "font-size: 16px",
+            "color: #333",
+            "margin-bottom: 5px"
+          ],
+          "name": "text_2",
+          "_nested_name": "npk_card.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.lbl_npk",
+                "matchedExpression": "@global.lbl_npk",
+                "type": "global",
+                "fieldName": "lbl_npk"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.lbl_npk": [
+              "value"
+            ]
+          }
         },
         {
           "type": "image",
@@ -395,7 +446,7 @@
     },
     {
       "type": "text",
-      "value": "Mettez une valeur positive.",
+      "value": "@global.error_positive_value",
       "_translations": {
         "value": {}
       },
@@ -407,6 +458,14 @@
       "name": "text_14",
       "_nested_name": "text_14",
       "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.error_positive_value",
+            "matchedExpression": "@global.error_positive_value",
+            "type": "global",
+            "fieldName": "error_positive_value"
+          }
+        ],
         "condition": [
           {
             "fullExpression": "@local.v_quantite_npk_err",
@@ -417,6 +476,9 @@
         ]
       },
       "_dynamicDependencies": {
+        "@global.error_positive_value": [
+          "value"
+        ],
         "@local.v_quantite_npk_err": [
           "condition"
         ]
@@ -446,15 +508,28 @@
           "_nested_name": "npk_cost_card.audio_1"
         },
         {
-          "type": "html",
-          "value": "Coût total NPK payé (Dram)<span style=\"color: red;\">*</span>",
+          "type": "text",
+          "value": "@global.lbl_npk_c_nz",
           "_translations": {
             "value": {}
           },
           "condition": "@field.quantite_npk > 0",
-          "name": "html_2",
-          "_nested_name": "npk_cost_card.html_2",
+          "style_list": [
+            "font-weight: bold",
+            "font-size: 16px",
+            "color: #333"
+          ],
+          "name": "text_2",
+          "_nested_name": "npk_cost_card.text_2",
           "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.lbl_npk_c_nz",
+                "matchedExpression": "@global.lbl_npk_c_nz",
+                "type": "global",
+                "fieldName": "lbl_npk_c_nz"
+              }
+            ],
             "condition": [
               {
                 "fullExpression": "@field.quantite_npk > 0",
@@ -465,6 +540,9 @@
             ]
           },
           "_dynamicDependencies": {
+            "@global.lbl_npk_c_nz": [
+              "value"
+            ],
             "@field.quantite_npk": [
               "condition"
             ]
@@ -472,7 +550,7 @@
         },
         {
           "type": "text",
-          "value": "*Rappel : 1 dram = 5 FCFA*",
+          "value": "@global.hint_price",
           "_translations": {
             "value": {}
           },
@@ -484,6 +562,14 @@
           "name": "text_3",
           "_nested_name": "npk_cost_card.text_3",
           "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.hint_price",
+                "matchedExpression": "@global.hint_price",
+                "type": "global",
+                "fieldName": "hint_price"
+              }
+            ],
             "condition": [
               {
                 "fullExpression": "@field.quantite_npk > 0",
@@ -494,6 +580,9 @@
             ]
           },
           "_dynamicDependencies": {
+            "@global.hint_price": [
+              "value"
+            ],
             "@field.quantite_npk": [
               "condition"
             ]
@@ -593,17 +682,37 @@
           "_nested_name": "cout_npk_zero.audio_1"
         },
         {
-          "type": "html",
-          "value": "Coût total NPK payé (Dram)<span style=\"color: red;\">*</span>",
+          "type": "text",
+          "value": "@global.lbl_npk_c_nz",
           "_translations": {
             "value": {}
           },
-          "name": "html_2",
-          "_nested_name": "cout_npk_zero.html_2"
+          "style_list": [
+            "font-weight: bold",
+            "font-size: 16px",
+            "color: #333"
+          ],
+          "name": "text_2",
+          "_nested_name": "cout_npk_zero.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.lbl_npk_c_nz",
+                "matchedExpression": "@global.lbl_npk_c_nz",
+                "type": "global",
+                "fieldName": "lbl_npk_c_nz"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.lbl_npk_c_nz": [
+              "value"
+            ]
+          }
         },
         {
           "type": "text",
-          "value": "*Rappel : 1 dram = 5 FCFA*",
+          "value": "@global.hint_price",
           "_translations": {
             "value": {}
           },
@@ -613,7 +722,22 @@
             "color: gray"
           ],
           "name": "text_3",
-          "_nested_name": "cout_npk_zero.text_3"
+          "_nested_name": "cout_npk_zero.text_3",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.hint_price",
+                "matchedExpression": "@global.hint_price",
+                "type": "global",
+                "fieldName": "hint_price"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.hint_price": [
+              "value"
+            ]
+          }
         },
         {
           "type": "image",
@@ -773,13 +897,34 @@
       }
     },
     {
-      "type": "html",
-      "value": "<br><b style=\"color: #e67e22\">2. APPORT URÉE (Engrais de couverture)</b>",
+      "type": "text",
+      "value": "@global.sec_uree",
       "_translations": {
         "value": {}
       },
-      "name": "html_22",
-      "_nested_name": "html_22"
+      "style_list": [
+        "color: #e67e22",
+        "font-weight: bold",
+        "margin-top: 20px",
+        "margin-bottom: 5px"
+      ],
+      "name": "text_22",
+      "_nested_name": "text_22",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.sec_uree",
+            "matchedExpression": "@global.sec_uree",
+            "type": "global",
+            "fieldName": "sec_uree"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.sec_uree": [
+          "value"
+        ]
+      }
     },
     {
       "type": "display_group",
@@ -804,13 +949,34 @@
           "_nested_name": "uree_group.npk_note"
         },
         {
-          "type": "html",
-          "value": "<br>Quantité Urée utilisée (Sacs de 50kg)<span style=\"color: red;\">*</span>",
+          "type": "text",
+          "value": "@global.lbl_uree",
           "_translations": {
             "value": {}
           },
-          "name": "html_2",
-          "_nested_name": "uree_group.html_2"
+          "style_list": [
+            "font-weight: bold",
+            "font-size: 16px",
+            "color: #333",
+            "margin-bottom: 5px"
+          ],
+          "name": "text_2",
+          "_nested_name": "uree_group.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.lbl_uree",
+                "matchedExpression": "@global.lbl_uree",
+                "type": "global",
+                "fieldName": "lbl_uree"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.lbl_uree": [
+              "value"
+            ]
+          }
         }
       ],
       "_nested_name": "uree_group"
@@ -869,7 +1035,7 @@
     },
     {
       "type": "text",
-      "value": "Mettez une valeur positive.",
+      "value": "@global.error_positive_value",
       "_translations": {
         "value": {}
       },
@@ -881,6 +1047,14 @@
       "name": "text_27",
       "_nested_name": "text_27",
       "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.error_positive_value",
+            "matchedExpression": "@global.error_positive_value",
+            "type": "global",
+            "fieldName": "error_positive_value"
+          }
+        ],
         "condition": [
           {
             "fullExpression": "@local.v_quantite_uree_err",
@@ -891,6 +1065,9 @@
         ]
       },
       "_dynamicDependencies": {
+        "@global.error_positive_value": [
+          "value"
+        ],
         "@local.v_quantite_uree_err": [
           "condition"
         ]
@@ -920,17 +1097,38 @@
           "_nested_name": "card_cout.uree_note"
         },
         {
-          "type": "html",
-          "value": "Coût total Urée payé (Dram)<span style=\"color: red;\">*</span>",
+          "type": "text",
+          "value": "@global.lbl_uree_c_nz",
           "_translations": {
             "value": {}
           },
-          "name": "html_2",
-          "_nested_name": "card_cout.html_2"
+          "style_list": [
+            "font-weight: bold",
+            "font-size: 16px",
+            "color: #333",
+            "margin-bottom: 5px"
+          ],
+          "name": "text_2",
+          "_nested_name": "card_cout.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.lbl_uree_c_nz",
+                "matchedExpression": "@global.lbl_uree_c_nz",
+                "type": "global",
+                "fieldName": "lbl_uree_c_nz"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.lbl_uree_c_nz": [
+              "value"
+            ]
+          }
         },
         {
           "type": "text",
-          "value": "*Rappel : 1 dram = 5 FCFA*",
+          "value": "@global.hint_price",
           "_translations": {
             "value": {}
           },
@@ -939,7 +1137,22 @@
             "color: gray"
           ],
           "name": "text_3",
-          "_nested_name": "card_cout.text_3"
+          "_nested_name": "card_cout.text_3",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.hint_price",
+                "matchedExpression": "@global.hint_price",
+                "type": "global",
+                "fieldName": "hint_price"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.hint_price": [
+              "value"
+            ]
+          }
         },
         {
           "type": "image",
@@ -1036,16 +1249,37 @@
         },
         {
           "type": "html",
-          "value": "Coût total Urée payé (Dram)<span style=\"color: red;\">*</span>",
+          "value": "@global.lbl_uree_c_nz",
           "_translations": {
             "value": {}
           },
+          "style_list": [
+            "font-weight: bold",
+            "font-size: 16px",
+            "color: #333",
+            "margin-bottom: 5px"
+          ],
           "name": "html_2",
-          "_nested_name": "card_cout_zero.html_2"
+          "_nested_name": "card_cout_zero.html_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.lbl_uree_c_nz",
+                "matchedExpression": "@global.lbl_uree_c_nz",
+                "type": "global",
+                "fieldName": "lbl_uree_c_nz"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.lbl_uree_c_nz": [
+              "value"
+            ]
+          }
         },
         {
           "type": "text",
-          "value": "*Rappel : 1 dram = 5 FCFA*",
+          "value": "@global.hint_price",
           "_translations": {
             "value": {}
           },
@@ -1054,7 +1288,22 @@
             "color: gray"
           ],
           "name": "text_3",
-          "_nested_name": "card_cout_zero.text_3"
+          "_nested_name": "card_cout_zero.text_3",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.hint_price",
+                "matchedExpression": "@global.hint_price",
+                "type": "global",
+                "fieldName": "hint_price"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.hint_price": [
+              "value"
+            ]
+          }
         },
         {
           "type": "image",

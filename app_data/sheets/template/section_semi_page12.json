@@ -384,23 +384,29 @@
       ],
       "rows": [
         {
-          "type": "html",
-          "value": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>",
+          "type": "text",
+          "value": "CULTURE @local.v_current_human / @field.total_cultures_selected",
           "_translations": {
             "value": {}
           },
-          "name": "html_1",
-          "_nested_name": "header_top.html_1",
+          "style_list": [
+            "color: white",
+            "font-weight: bold",
+            "font-size: 14px",
+            "text-transform: uppercase"
+          ],
+          "name": "text_1",
+          "_nested_name": "header_top.text_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>",
+                "fullExpression": "CULTURE @local.v_current_human / @field.total_cultures_selected",
                 "matchedExpression": "@local.v_current_human",
                 "type": "local",
                 "fieldName": "v_current_human"
               },
               {
-                "fullExpression": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>",
+                "fullExpression": "CULTURE @local.v_current_human / @field.total_cultures_selected",
                 "matchedExpression": "@field.total_cultures_selected",
                 "type": "field",
                 "fieldName": "total_cultures_selected"
@@ -488,20 +494,23 @@
         },
         {
           "type": "text",
-          "value": "<h3 style='color: black; margin: 10px 0;'>Culture : <span style='color: #e3a730;'>@field.active_culture_name</span></h3>",
+          "value": "Culture : @field.active_culture_name",
           "_translations": {
             "value": {}
           },
           "style_list": [
             "font-weight: bold",
-            "font-size: 18px"
+            "font-size: 18px",
+            "color: #e3a730",
+            "margin-top: 10px",
+            "text-align: center"
           ],
           "name": "text_2",
           "_nested_name": "display_group_12.text_2",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "<h3 style='color: black; margin: 10px 0;'>Culture : <span style='color: #e3a730;'>@field.active_culture_name</span></h3>",
+                "fullExpression": "Culture : @field.active_culture_name",
                 "matchedExpression": "@field.active_culture_name",
                 "type": "field",
                 "fieldName": "active_culture_name"
@@ -545,13 +554,28 @@
           "_nested_name": "display_group_14.aud_obs"
         },
         {
-          "type": "html",
-          "value": "<h3 style=\"color: #1e3656; margin: 0 0 10px 0; text-align: center;\">BILAN DES COÛTS AU SEMIS</h3>",
+          "type": "text",
+          "value": "@global.lbl_section_title_12",
           "_translations": {
             "value": {}
           },
-          "name": "html_2",
-          "_nested_name": "display_group_14.html_2"
+          "name": "text_2",
+          "_nested_name": "display_group_14.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.lbl_section_title_12",
+                "matchedExpression": "@global.lbl_section_title_12",
+                "type": "global",
+                "fieldName": "lbl_section_title_12"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.lbl_section_title_12": [
+              "value"
+            ]
+          }
         },
         {
           "type": "text",
@@ -584,23 +608,24 @@
           }
         },
         {
-          "type": "html",
-          "value": "<div style=\"font-size: 22px; font-weight: bold; color: #1e3656;\">@local.v_total_drm Drm</div><div style=\"font-size: 16px; color: #4f8ff1; font-weight: bold;\">(@local.v_total_cfa FCFA)</div>",
+          "type": "text",
+          "value": "@local.v_total_cfa FCFA",
           "_translations": {
             "value": {}
           },
-          "name": "html_4",
-          "_nested_name": "display_group_14.html_4",
+          "style_list": [
+            "font-size: 22px",
+            "font-weight: bold",
+            "color: #1e3656",
+            "text-align: center",
+            "margin-top: 4px"
+          ],
+          "name": "text_4",
+          "_nested_name": "display_group_14.text_4",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "<div style=\"font-size: 22px; font-weight: bold; color: #1e3656;\">@local.v_total_drm Drm</div><div style=\"font-size: 16px; color: #4f8ff1; font-weight: bold;\">(@local.v_total_cfa FCFA)</div>",
-                "matchedExpression": "@local.v_total_drm",
-                "type": "local",
-                "fieldName": "v_total_drm"
-              },
-              {
-                "fullExpression": "<div style=\"font-size: 22px; font-weight: bold; color: #1e3656;\">@local.v_total_drm Drm</div><div style=\"font-size: 16px; color: #4f8ff1; font-weight: bold;\">(@local.v_total_cfa FCFA)</div>",
+                "fullExpression": "@local.v_total_cfa FCFA",
                 "matchedExpression": "@local.v_total_cfa",
                 "type": "local",
                 "fieldName": "v_total_cfa"
@@ -608,10 +633,38 @@
             ]
           },
           "_dynamicDependencies": {
-            "@local.v_total_drm": [
-              "value"
-            ],
             "@local.v_total_cfa": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "value": "(@local.v_total_drm Dram)",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-size: 16px",
+            "font-weight: bold",
+            "color: #4f8ff1",
+            "text-align: center",
+            "margin-top: 2px"
+          ],
+          "name": "text_5",
+          "_nested_name": "display_group_14.text_5",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "(@local.v_total_drm Dram)",
+                "matchedExpression": "@local.v_total_drm",
+                "type": "local",
+                "fieldName": "v_total_drm"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.v_total_drm": [
               "value"
             ]
           }
@@ -643,16 +696,34 @@
           "_nested_name": "display_group_16.audio_1"
         },
         {
-          "type": "html",
-          "value": "Comment souhaitez-vous enregistrer vos observations de semis ?",
+          "type": "text",
+          "value": "@global.lbl_obs_question",
           "_translations": {
             "value": {}
           },
           "style_list": [
-            "font-weight: bold"
+            "font-weight: bold",
+            "font-size: 14px",
+            "color: #333333",
+            "flex: 1"
           ],
-          "name": "html_2",
-          "_nested_name": "display_group_16.html_2"
+          "name": "text_2",
+          "_nested_name": "display_group_16.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.lbl_obs_question",
+                "matchedExpression": "@global.lbl_obs_question",
+                "type": "global",
+                "fieldName": "lbl_obs_question"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.lbl_obs_question": [
+              "value"
+            ]
+          }
         }
       ],
       "name": "display_group_16",
@@ -719,11 +790,26 @@
         {
           "type": "text",
           "name": "info_text_label",
-          "value": "Entrez par écrit l'observation faite.",
+          "value": "@global.obs_ecrit",
           "_translations": {
             "value": {}
           },
-          "_nested_name": "display_group_19.info_text_label"
+          "_nested_name": "display_group_19.info_text_label",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.obs_ecrit",
+                "matchedExpression": "@global.obs_ecrit",
+                "type": "global",
+                "fieldName": "obs_ecrit"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.obs_ecrit": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",
@@ -814,11 +900,26 @@
         {
           "type": "text",
           "name": "info_video_label",
-          "value": "Enregistrez par vidéo l'observation faite",
+          "value": "@global.obs_video",
           "_translations": {
             "value": {}
           },
-          "_nested_name": "display_group_22.info_video_label"
+          "_nested_name": "display_group_22.info_video_label",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.obs_video",
+                "matchedExpression": "@global.obs_video",
+                "type": "global",
+                "fieldName": "obs_video"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.obs_video": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",
@@ -855,13 +956,21 @@
     {
       "type": "text",
       "name": "info_video",
-      "value": "We would need a video recorder here",
+      "value": "@global.error_vid_obs",
       "_translations": {
         "value": {}
       },
       "condition": "@field.type_observation == \"par_video\"",
       "_nested_name": "info_video",
       "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.error_vid_obs",
+            "matchedExpression": "@global.error_vid_obs",
+            "type": "global",
+            "fieldName": "error_vid_obs"
+          }
+        ],
         "condition": [
           {
             "fullExpression": "@field.type_observation == \"par_video\"",
@@ -872,6 +981,9 @@
         ]
       },
       "_dynamicDependencies": {
+        "@global.error_vid_obs": [
+          "value"
+        ],
         "@field.type_observation": [
           "condition"
         ]
@@ -884,11 +996,26 @@
         {
           "type": "text",
           "name": "info_audio_label",
-          "value": "Enregistrez par vocal l'observation faite.",
+          "value": "@global.obs_voc",
           "_translations": {
             "value": {}
           },
-          "_nested_name": "display_group_25.info_audio_label"
+          "_nested_name": "display_group_25.info_audio_label",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.obs_voc",
+                "matchedExpression": "@global.obs_voc",
+                "type": "global",
+                "fieldName": "obs_voc"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.obs_voc": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",
@@ -925,13 +1052,21 @@
     {
       "type": "text",
       "name": "info_audio",
-      "value": "We would need a audio recorder here",
+      "value": "@global.error_voc_obs",
       "_translations": {
         "value": {}
       },
       "condition": "@field.type_observation == \"par_vocal\"",
       "_nested_name": "info_audio",
       "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.error_voc_obs",
+            "matchedExpression": "@global.error_voc_obs",
+            "type": "global",
+            "fieldName": "error_voc_obs"
+          }
+        ],
         "condition": [
           {
             "fullExpression": "@field.type_observation == \"par_vocal\"",
@@ -942,6 +1077,9 @@
         ]
       },
       "_dynamicDependencies": {
+        "@global.error_voc_obs": [
+          "value"
+        ],
         "@field.type_observation": [
           "condition"
         ]
@@ -954,11 +1092,26 @@
         {
           "type": "text",
           "name": "info_image_label",
-          "value": "Enregistrez par image l'observation faite.",
+          "value": "@global.obs_img",
           "_translations": {
             "value": {}
           },
-          "_nested_name": "display_group_28.info_image_label"
+          "_nested_name": "display_group_28.info_image_label",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.obs_img",
+                "matchedExpression": "@global.obs_img",
+                "type": "global",
+                "fieldName": "obs_img"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.obs_img": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",
@@ -995,13 +1148,21 @@
     {
       "type": "text",
       "name": "info_image",
-      "value": "We would need a camera here",
+      "value": "@global.error_img_obs",
       "_translations": {
         "value": {}
       },
       "condition": "@field.type_observation == \"par_photo\"",
       "_nested_name": "info_image",
       "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.error_img_obs",
+            "matchedExpression": "@global.error_img_obs",
+            "type": "global",
+            "fieldName": "error_img_obs"
+          }
+        ],
         "condition": [
           {
             "fullExpression": "@field.type_observation == \"par_photo\"",
@@ -1012,6 +1173,9 @@
         ]
       },
       "_dynamicDependencies": {
+        "@global.error_img_obs": [
+          "value"
+        ],
         "@field.type_observation": [
           "condition"
         ]

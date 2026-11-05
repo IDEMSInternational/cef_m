@@ -131,7 +131,7 @@
     },
     {
       "type": "display_group",
-      "name": "header_top",
+      "name": "header",
       "style_list": [
         "background: #00adcc",
         "padding: 15px",
@@ -140,23 +140,29 @@
       ],
       "rows": [
         {
-          "type": "html",
-          "value": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>",
+          "type": "text",
+          "value": "CULTURE @local.v_current_human / @field.total_cultures_selected",
           "_translations": {
             "value": {}
           },
-          "name": "html_1",
-          "_nested_name": "header_top.html_1",
+          "style_list": [
+            "color: white",
+            "font-weight: bold",
+            "font-size: 14px",
+            "text-transform: uppercase"
+          ],
+          "name": "text_1",
+          "_nested_name": "header.text_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>",
+                "fullExpression": "CULTURE @local.v_current_human / @field.total_cultures_selected",
                 "matchedExpression": "@local.v_current_human",
                 "type": "local",
                 "fieldName": "v_current_human"
               },
               {
-                "fullExpression": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>",
+                "fullExpression": "CULTURE @local.v_current_human / @field.total_cultures_selected",
                 "matchedExpression": "@field.total_cultures_selected",
                 "type": "field",
                 "fieldName": "total_cultures_selected"
@@ -173,11 +179,11 @@
           }
         }
       ],
-      "_nested_name": "header_top"
+      "_nested_name": "header"
     },
     {
       "type": "title",
-      "value": "BILAN & OBSERVATIONS",
+      "value": "OBSERVATIONS PERIODE DE POST-SEMIS",
       "_translations": {
         "value": {}
       },
@@ -205,8 +211,8 @@
             "value": {}
           },
           "style_list": [
-            "width: 100px",
-            "height: 100px"
+            "width: 60%",
+            "object-fit: contain"
           ],
           "name": "image_1",
           "_nested_name": "display_group_8.image_1",
@@ -244,20 +250,23 @@
         },
         {
           "type": "text",
-          "value": "<h3 style='color: black; margin: 10px 0;'>Culture : <span style='color: #e3a730;'>@field.active_culture_name</span></h3>",
+          "value": "Culture : @field.active_culture_name",
           "_translations": {
             "value": {}
           },
           "style_list": [
             "font-weight: bold",
-            "font-size: 18px"
+            "font-size: 18px",
+            "color: #e3a730",
+            "margin-top: 10px",
+            "text-align: center"
           ],
           "name": "text_2",
           "_nested_name": "display_group_8.text_2",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "<h3 style='color: black; margin: 10px 0;'>Culture : <span style='color: #e3a730;'>@field.active_culture_name</span></h3>",
+                "fullExpression": "Culture : @field.active_culture_name",
                 "matchedExpression": "@field.active_culture_name",
                 "type": "field",
                 "fieldName": "active_culture_name"
@@ -275,17 +284,30 @@
       "_nested_name": "display_group_8"
     },
     {
-      "type": "html",
-      "value": "<br><h3 style=\"color: #E65100; margin:0;\">TOTAL INVESTI : @local.v_tot_cult Dram</h3>",
+      "type": "text",
+      "value": "@global.tot_inv : @local.v_tot_cult Dram",
       "_translations": {
         "value": {}
       },
-      "name": "html_10",
-      "_nested_name": "html_10",
+      "style_list": [
+        "color: #E65100",
+        "font-weight: bold",
+        "font-size: 18px",
+        "text-align: center",
+        "margin-bottom: 5px"
+      ],
+      "name": "text_10",
+      "_nested_name": "text_10",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<br><h3 style=\"color: #E65100; margin:0;\">TOTAL INVESTI : @local.v_tot_cult Dram</h3>",
+            "fullExpression": "@global.tot_inv : @local.v_tot_cult Dram",
+            "matchedExpression": "@global.tot_inv",
+            "type": "global",
+            "fieldName": "tot_inv"
+          },
+          {
+            "fullExpression": "@global.tot_inv : @local.v_tot_cult Dram",
             "matchedExpression": "@local.v_tot_cult",
             "type": "local",
             "fieldName": "v_tot_cult"
@@ -293,31 +315,59 @@
         ]
       },
       "_dynamicDependencies": {
+        "@global.tot_inv": [
+          "value"
+        ],
         "@local.v_tot_cult": [
           "value"
         ]
       }
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: #757575; font-size: 14px;\">Équivalent : <b>@local.v_tot_fcfa FCFA</b><br><small><i>(Base : 1 dram = 5 FCFA)</i></small></p>",
+      "type": "text",
+      "value": "@global.equi: @local.v_tot_fcfa FCFA @global.base",
       "_translations": {
         "value": {}
       },
-      "name": "html_11",
-      "_nested_name": "html_11",
+      "style_list": [
+        "color: #757575",
+        "font-size: 14px",
+        "text-align: center",
+        "font-style: italic",
+        "margin-bottom: 15px"
+      ],
+      "name": "text_11",
+      "_nested_name": "text_11",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: #757575; font-size: 14px;\">Équivalent : <b>@local.v_tot_fcfa FCFA</b><br><small><i>(Base : 1 dram = 5 FCFA)</i></small></p>",
+            "fullExpression": "@global.equi: @local.v_tot_fcfa FCFA @global.base",
+            "matchedExpression": "@global.equi",
+            "type": "global",
+            "fieldName": "equi"
+          },
+          {
+            "fullExpression": "@global.equi: @local.v_tot_fcfa FCFA @global.base",
             "matchedExpression": "@local.v_tot_fcfa",
             "type": "local",
             "fieldName": "v_tot_fcfa"
+          },
+          {
+            "fullExpression": "@global.equi: @local.v_tot_fcfa FCFA @global.base",
+            "matchedExpression": "@global.base",
+            "type": "global",
+            "fieldName": "base"
           }
         ]
       },
       "_dynamicDependencies": {
+        "@global.equi": [
+          "value"
+        ],
         "@local.v_tot_fcfa": [
+          "value"
+        ],
+        "@global.base": [
           "value"
         ]
       }
@@ -348,13 +398,33 @@
       "_nested_name": "bilan_card"
     },
     {
-      "type": "html",
-      "value": "<br><b style=\"color: #455A64\">COMMENT SOUHAITEZ-VOUS FAIRE VOTRE CONSTAT ?</b>",
+      "type": "text",
+      "value": "@global.lbl_constat_title",
       "_translations": {
         "value": {}
       },
-      "name": "html_14",
-      "_nested_name": "html_14"
+      "style_list": [
+        "color: #455A64",
+        "font-weight: bold",
+        "margin-bottom: 10px"
+      ],
+      "name": "text_14",
+      "_nested_name": "text_14",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.lbl_constat_title",
+            "matchedExpression": "@global.lbl_constat_title",
+            "type": "global",
+            "fieldName": "lbl_constat_title"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.lbl_constat_title": [
+          "value"
+        ]
+      }
     },
     {
       "type": "radio_button_grid",
@@ -435,12 +505,27 @@
         },
         {
           "type": "text",
-          "value": "Enregistrez votre témoignage vocal ci-dessus.",
+          "value": "@global.txt_obs_v",
           "_translations": {
             "value": {}
           },
           "name": "text_2",
-          "_nested_name": "obs_audio.text_2"
+          "_nested_name": "obs_audio.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.txt_obs_v",
+                "matchedExpression": "@global.txt_obs_v",
+                "type": "global",
+                "fieldName": "txt_obs_v"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.txt_obs_v": [
+              "value"
+            ]
+          }
         }
       ],
       "_nested_name": "obs_audio",
@@ -485,12 +570,27 @@
         },
         {
           "type": "text",
-          "value": "Prenez une photo d'un point précis du champ.",
+          "value": "@global.txt_obs_p",
           "_translations": {
             "value": {}
           },
           "name": "text_2",
-          "_nested_name": "obs_photo.text_2"
+          "_nested_name": "obs_photo.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.txt_obs_p",
+                "matchedExpression": "@global.txt_obs_p",
+                "type": "global",
+                "fieldName": "txt_obs_p"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.txt_obs_p": [
+              "value"
+            ]
+          }
         }
       ],
       "_nested_name": "obs_photo",
@@ -535,12 +635,27 @@
         },
         {
           "type": "text",
-          "value": "Filmez l'état général de la culture.",
+          "value": "@global.txt_obs_vi",
           "_translations": {
             "value": {}
           },
           "name": "text_2",
-          "_nested_name": "obs_video.text_2"
+          "_nested_name": "obs_video.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.txt_obs_vi",
+                "matchedExpression": "@global.txt_obs_vi",
+                "type": "global",
+                "fieldName": "txt_obs_vi"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.txt_obs_vi": [
+              "value"
+            ]
+          }
         }
       ],
       "_nested_name": "obs_video",

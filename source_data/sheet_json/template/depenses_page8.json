@@ -5,14 +5,14 @@
   "rows": [
     {
       "type": "title",
-      "value": "MONTANT PREVISIONNEL DE L'EDUCATION DES ENFANTS"
+      "value": "@global.montant_previsionnel_note"
     },
     {
       "type": "begin_display_group"
     },
     {
-      "type": "text",
-      "value": "**Frais totaux annuels de(s) enfants du @fields.select_niveau_scolaire**"
+      "type": "subtitle",
+      "value": "@global.frais_totaux_annuel_hint"
     },
     {
       "type": "audio",
@@ -26,6 +26,10 @@
     {
       "name": "frais_education_annuel",
       "value": "@calc(Number(@fields.totaux_frais_education_premier_cycle || 0) + Number(@fields.totaux_frais_education_second_cycle || 0) + Number(@fields.totaux_frais_education_lycee_professionnelle || 0) + Number(@fields.totaux_frais_education_universite || 0))"
+    },
+    {
+      "name": "frais_education_annuel_cfa",
+      "value": "@calc(Number(@local.frais_education_annuel || 0) * 5)"
     },
     {
       "type": "begin_display_group"
@@ -45,8 +49,26 @@
       "type": "end_display_group"
     },
     {
-      "type": "html",
-      "value": "<div style=\"background-color: #C8E6C9; padding: 15px; border: 3px solid #2E7D32; border-radius: 12px; box-shadow: 0px 4px 10px rgba(46, 125, 50, 0.2); text-align: center; margin: 10px 0;\">\n  <span style=\"color: #1B5E20; font-weight: 800; font-size: 22px; display: block;\">\n    Frais totaux annuels sont : @local.frais_education_annuel drm\n  </span>\n</div>"
+      "type": "begin_display_group",
+      "parameter_list": "style: column",
+      "style_list": "background-color: #C8E6C9; border: 3px solid #2E7D32; border-radius: 12px; text-align: center; "
+    },
+    {
+      "type": "text",
+      "value": "@global.frais_totaux_niveau_enfants",
+      "style_list": "font-size: 16px; color: #6D4C41;"
+    },
+    {
+      "type": "text",
+      "value": "@local.frais_education_annuel drm ",
+      "style_list": "background: #E8F5E9; border-radius: 10px; color: #2E7D32; font-weight: bold; font-size: 20px;"
+    },
+    {
+      "type": "text",
+      "value": "**@local.frais_education_annuel_cfa FCFA**"
+    },
+    {
+      "type": "end_display_group"
     },
     {
       "type": "begin_display_group",

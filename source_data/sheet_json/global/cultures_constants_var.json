@@ -12,6 +12,679 @@
       "type": "declare_global_constant",
       "name": "note_cult_hint",
       "value": "Cela inclut les cultures primaires et les cultures secondaires"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "planif_cultures",
+      "value": "PLANIFICATION CULTURES "
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "cult_prevues",
+      "value": "Séléctionnez les cultures prevues par votre UPA pour la saison prochaine"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "autre_cult_label",
+      "value": "Écrivez le nom de l'autre culture 1"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "autre_cult_hint",
+      "value": "Il s'agit d'une culture prevue qui n'existe pas dans la liste des cultures ci-dessus"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "culture_existant",
+      "value": "*Cette culture existe déjà dans la liste standard !*"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "autre_cult_label2",
+      "value": "Écrivez le nom de l'autre culture 2"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "error_select",
+      "value": "Veuillez sélectionner au moins une culture pour continuer!"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "prev_superficie ",
+      "value": "PREVISION SUPERFICIE"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "prev_superficie_label",
+      "value": "**@fields.culture_label**: Superficie totale prévisonnelle (ha)"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "prev_superficie_hint",
+      "value": "*Superficie cumulée de toutes les parcelles de @fields.culture_label*"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "superficie_prestation",
+      "value": "**@fields.culture_label**: Superficie prévisionnelle à labourer par prestation (ha)"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "cout_prestation",
+      "value": "Coût prévisionnel de labour par prestation (drm)"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "prev_engrais_organiq",
+      "value": "PREVISION ENGRAIS ORGANIQUE"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "cout_fumure_organiq",
+      "value": "Coût total de la fumure organique (drm)"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "cout_fumure_hint",
+      "value": "*Mettez \"0\" si aucune fumure achetée*"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "cout_transport_fumure",
+      "value": "Coût total prestation de transport de la fumure (drm)"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "prev_var_semence",
+      "value": "PREVISIONS VARIETES DE SEMENCES"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "variete_semence",
+      "value": "Selectionnez la/les variété(s) de semences à utiliser pour @fields.superficie_ha_prevue ha"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "variete_semence_hint",
+      "value": "La superficie totale peut être cultivée avec une ou plusieurs variétés de semences"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "autre_variete_semence",
+      "value": "Ecrivez le nom de l'autre variété"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "autre_semence_hint",
+      "value": "*Il s'agit d'une variété qui n'existe pas dans la liste des variétés ci-dessus*"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "var_semence",
+      "value": "VARIETE DE SEMENCE"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "prev_semence",
+      "value": "**Les prévisions pour @fields.superficie_ha_prevue ha de @fields.culture_label sont:**"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "qtite_semence_var",
+      "value": "Quantité de semence de la variété @fields.variete_label (kg)"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "source_variete_semence",
+      "value": "Sélectionnez la source d'approvisionnement de la variété @fields.variete_label"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "source_variete_semence_hint",
+      "value": "La superficie totale peut être cultivée avec une ou plusieurs variétés de semences"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "nom_source_variete",
+      "value": "Ecrivez le nom de l'autre source d'approvisionnement de la variété @fields.variete_label"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "nom_source_variete_hint",
+      "value": "*Il s'agit d'une autre source qui n'existe pas dans la liste des sources ci-dessus*"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "cout_variete",
+      "value": "Coût total de la variété @fields.variete_label(drm)"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "hint_semence",
+      "value": "*1 drm=5 FCFA. Mettez \"0\" si aucune semence achétée*"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "type_engrais_prevu",
+      "value": "Selectionnez le(s) type(s) d'engrais mineraux à utiliser pour @fields.superficie_ha_prevue ha"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "type_engrais_prevu_hint",
+      "value": "Une ou plusieurs selections possibles"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "engrais_mineral",
+      "value": "Donnez le nom \"autre engrais mineral"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "prev_type_engrais",
+      "value": "PREVISION TYPES D'ENGRAIS"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "prev_type_engrais_hint",
+      "value": "Les prévisions pour @fields.superficie_ha_prevue ha de @fields.culture_label sont:"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "qtite_comp14",
+      "value": "Quantité de complexe coton 14-18-18 (sac 50 kg)"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "valeur_positive",
+      "value": "*Mettez une valeur positive et supérieur à zero*"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "cout_comp14",
+      "value": "Coût total de @fields.quantite_prevue_npk_coton_14_18_18 sacs de complexe coton 14-18-18 (drm)"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "qtite_comp_15",
+      "value": "Quantité de complexe céréales 15-15-15 (sac 50 kg)"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "cout_comp15",
+      "value": "Coût total de @fields.quantite_prevue_npk_cereale_15_15_15 sac de complexe céréales 15-15-15 (drm)"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "qtite_comp17",
+      "value": "Quantité de complexe céréales 17-17-17 (sac 50 kg)"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "cout_comp17",
+      "value": "Coût total de @fields.quantite_prevue_npk_cereale_17_17_17 sac de complexe céréales 17-17-17 (drm)"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "qtite_compdap",
+      "value": "Quantité de DAP (sac 50 kg)"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "cout_compdap",
+      "value": "Coût total de @fields.quantite_prevue_dap sac de DAP (drm)"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "qtite_comp_uree",
+      "value": "Quantité de l'urée (sac 50kg)"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "cout_comp_uree",
+      "value": "Coût total de @fields.quantite_prevue_uree sac de l'urée (drm)"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "qtite_autre_engrais",
+      "value": "Quantité autre engrais @fields.precision_autre_engrais (sac 50 kg)"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "cout_autre_engrais",
+      "value": "Coût total de @fields.quantite_prevue_autre_engrais sac d'autre engrais @fields.precision_autre_engrais (drm)"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "cout_prev_intrants ",
+      "value": "COÛTS PREVISIONNELS DES AUTRES INTRANTS"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "cout_prev_label",
+      "value": "**Les prévisions pour @fields.superficie_ha_prevue ha de @fields.culture_label sont:**"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "cout_herb",
+      "value": "Coût total herbicide pré-levé (drm)"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "cout_prev_hint",
+      "value": "Si non usage prevue, mettez zero *1 drm=5 FCFA*"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "cout_prestation_sarclage",
+      "value": "Coût total prestation sarclage (drm)"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "type_engrais_error",
+      "value": "*Aucun apport d’engrais* ne peut pas être sélectionné avec d’autres options d’engrais."
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "cout_prestation_deherb",
+      "value": "Coût total prestation de désherbage (drm)"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "cout_prestation_herbicide",
+      "value": "Coût total herbicide post-levée (drm)"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "cout_prestation_buttage",
+      "value": "Coût total de prestation de buttage (drm)"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "cout_insecticide",
+      "value": "Coût total insecticide (drm)"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "prod_prev",
+      "value": "PRODUCTION PREVISIONNELLE"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "prod_prev_label",
+      "value": "Les prévisions pour @fields.superficie_ha_prevue ha de @fields.culture_label sont:"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "cout_prest_recolte",
+      "value": "Coût total de prestation de récolte (drm)"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "cout_battage",
+      "value": "Coût total de battage (drm)"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "prod_superf_culture",
+      "value": "Production (kg) de @fields.superficie_ha_prevue ha de @fields.culture_label"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "autre_cout_prev",
+      "value": "AUTRES COÛTS PREVUS"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "autre_cout_prev_qtion",
+      "value": "Indiquez s'il y a d'autre(s) coût(s) prevu (s) non renseigné(s)"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "autre_cout_prev_hint",
+      "value": "*Ces coûts couvrent des services ou intrants non pris en compte*"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "nom_autre_cout",
+      "value": "Nom(s) d'autre(s) coût(s)"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "montant_autre_cout",
+      "value": "Montant coût (s) autre (s) @fields.nom_autre_cout_prevu:"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "montant_autre_cout_hint",
+      "value": "\"S'il y a plusieurs éléments de coûts, donnez le coût agrégé de l'ensemble\n*1 drm=5 FCFA*\""
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "cout_prev_culture",
+      "value": "COÛTS PREVISIONNELS DE LA CULTURE"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "cout_total_prev",
+      "value": "**Coût total prévisionnel:**"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "cout_labour_label",
+      "value": "Prestation de labour pour @fields.superficie_ha_prevue ha: **@fields.cout_prevue_superficie_labour drm**"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "drm_cfa_hint",
+      "value": "*1 drm=5 FCFA*"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "cout_fumure_label",
+      "value": "Coût total fumure organique pour @fields.superficie_ha_prevue ha: **@fields.cout_total_fumure drm**"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "achat_semence_label",
+      "value": "Achat de semences pour @fields.superficie_ha_prevue ha: **@fields.cout_prevu_semence_achetee drm**"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "achat_semence_hint",
+      "value": "Coûts prévisionels: toutes les variétés de semences\n*1 drm=5 FCFA*"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "achat_engrais_label",
+      "value": "Achat des engrais mineraux pour @fields.superficie_ha_prevue ha: **@fields.cout_prevu_engrais drm**"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "achat_engrais_hint",
+      "value": "Coûts prévisionels des types d'engrais selectionnés pour la culture de @fields.culture_label\n*1 drm=5 FCFA*"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "autre_engrais_label",
+      "value": "Achat autres intrants pour @fields.superficie_ha_prevue ha: **@fields.couts_totaux_prevus_autres_intrants drm**"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "autre_engrais_hint",
+      "value": "Coûts prévisionels des autres intrants et services pour  la culture de @fields.culture_label\n*1 drm=5 FCFA*"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "autre_cout_label",
+      "value": "Autre(s) coût(s), @fields.nom_autre_cout_prevu, pour @fields.superficie_ha_prevue ha: **@fields.autre_cout_prevu drm**"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "service_recolte_label",
+      "value": "Sevices de récolte et battage pour @fields.superficie_ha_prevue ha: **@fields.cout_prevu_recolte_battage drm**"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "cout_totaux_label",
+      "value": "Coûts totaux prévisionnels pour @fields.superficie_ha_prevue ha: **@fields.couts_totaux_prevus drm**"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "cout_totaux_benef",
+      "value": "COÛTS TOTAUX ET BENEFICES PREVISIONNELS"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "cout_totaux_prev",
+      "value": "Coûts totaux prévisionnels: **@fields.couts_totaux_prevus drm**"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "cout_totaux_prev_hint",
+      "value": "Ces coûts totaux prévisionnels couvrent uniquement les charges payables."
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "prix_prev ",
+      "value": "Donnez le prix prévisionnel du produit de @fields.culture_label (drm/kg)"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "chiffre_previsionnel",
+      "value": "Le chiffre d'affaire prévisionnel de la production total de @fields.culture_label : **@local.chiffre_affaire_prevu drm**"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "chiffre_previsionnel_hint",
+      "value": "Calcul: @fields.prix_prevu_vente * @fields.production_prevue\n*1 drm=5 FCFA*"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "marge_brut_label",
+      "value": "La marge brute prévisionnelle: **@local.marge_brute_prevue drm**"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "marge_brut_hint",
+      "value": "Calcul: @local.chiffre_affaire_prevu - @fields.couts_totaux_prevus\n*1 drm=5 FCFA*"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "marge_brut_positive",
+      "value": "**La Mage brute est positive: @fields.prix_prevu_vente drm/kg**"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "marge_brut_nulle",
+      "value": "**La marge brute est nulle: @fields.prix_prevu_vente drm/kg**"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "marge_brut_negative",
+      "value": "**La Marge brute négative à @fields.prix_prevu_vente drm/kg**"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "superf_hint_0",
+      "value": "*Mettez 0 si aucune superficie*"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "list_cult_prevue",
+      "value": "Cultures prevues : **@local.culture_list_all**"
+    },
+    {
+      "type": "declare_global_constant"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "superficie_totale_prev",
+      "value": "La superficie totale des cultures prévues: **@local.total_superficie_prevue ha**"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "superficie_total_labour_prestation ",
+      "value": "La superficie totale à labourer par prestation: **@local.total_superficie_prevue_labour ha**"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "compte_prev_culture",
+      "value": "**Comptes prévisionnels des cultures : @fields.culture_list_all**"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "cout_globaux_prev",
+      "value": "**Les coûts totaux prévisionnels des cultures: @fields.couts_globaux_prevus_cultures drm, soit @fields.couts_globaux_prevus_cultures_fcfa FCFA**"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "superficie_total_prestation",
+      "value": "La superficie totale à labourer par prestation: **@fields.total_superficie_prevue_labour ha**"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "besoin_engrais_cult_prev",
+      "value": "Besoins en engrais des cultures prevues : @fields.culture_list_all"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "besoin_prev_npk14",
+      "value": "Besoins prévisionnels en complexe coton 14-18-18:  **@local.besoins_prevue_npk_coton_14_18_18 sacs**"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "sac_kg_hint",
+      "value": "*1 sac=50kg*"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "besoin_prev_npk15",
+      "value": "Besoins prévisionnels en complexe céréales 15-15-15: **@local.besoins_prevue_npk_cereale_15_15_15 sac**"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "besoin_prev_npk17",
+      "value": "Besoins prévisionnels en complexe céréales 17-17-17: **@local.besoins_prevue_npk_cereale_17_17_17 sac**"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "besoin_prev_dap",
+      "value": "Besoins prévisionnels en DAP: **@local.besoins_prevue_dap sac**"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "besoin_prev_uree",
+      "value": "Besoins prévisionnels en urée: **@local.besoins_prevus_uree sac**"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "source_approvision_engrais",
+      "value": "Sélectionnez la/les source(s) d'approvisionnement des engrais"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "autre_source_approv_engrais",
+      "value": "**Ecrivez le nom de l'autre source d'approvisionnement des engrais**"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "autre_source_approv_engrais_hint",
+      "value": "Il s'agit d'une source qui n'existe pas dans la liste des sources ci-dessus"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "select_error_message",
+      "value": "*Veuillez sélectionner au moins une source pour continuer*!"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "nombre_sac_obtenir",
+      "value": "Donnez le nombre de sac à obtenir à travers: @fields.engrais_source_label, de:"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "complexe_coton14_prev",
+      "value": "**Complexe coton 14-18-18, sur les @fields.besoins_prevue_npk_coton_14_18_18 sac prevu(s)**"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "complexe_coton14_prev_hint",
+      "value": "Le complexe coton 14-18-18 est reçu à travers la culture du coton avec la CMDT\n*1 sac=50kg*"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "complexe_coton15_prev",
+      "value": "**Complexe céréales 15-15-15, sur les @fields.besoins_prevue_npk_cereale_15_15_15 sac prevu(s)**"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "complexe_coton15_prev_error",
+      "value": "Donnez une valeur valide entre 0 et @fields.besoins_prevue_npk_cereale_15_15_15 "
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "complexe_coton17_prev",
+      "value": "**Complexe céréales 17-17-17, sur les @fields.besoins_prevue_npk_cereale_17_17_17 sac prevu(s)**"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "complexe_coton17_prev_error",
+      "value": "Donnez une valeur valide entre 0 et @fields.besoins_prevue_npk_cereale_17_17_17 "
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "complexe_dap_prev",
+      "value": "**DAP, sur les @fields.besoins_prevue_dap sac prevu(s)**"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "complexe_dap_prev_error",
+      "value": "Donnez une valeur valide entre 0 et @fields.besoins_prevue_dap "
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "complexe_uree_prev",
+      "value": "**L'urée, sur les @fields.besoins_prevus_uree sac prevu(s)**"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "complexe_uree_prev_error",
+      "value": "Donnez une valeur valide entre 0 et @fields.besoins_prevus_uree  "
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "repartition_qtite_engrais",
+      "value": "REPARTITION DES QUANTITES D'ENGRAIS: @fields.culture_list_all"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "rappel_npk14",
+      "value": "Complexe coton 14-18-18: Total réparti (@local.total_source_npk_coton_14_18_18 sac) n'est pas égal au total des besoins (@fields.besoins_prevue_npk_coton_14_18_18 sac)\nLa différence (sac) est: **@local.rappel_total_source_npk_coton_14_18_18**"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "rappel_npk15",
+      "value": "Complexe céréale 15-15-15: Total réparti (@local.total_source_npk_cereal_15_15_15 sac) n'est pas égal au total des besoins (@fields.besoins_prevue_npk_cereale_15_15_15 sac)\nLa différence (sac) est: **@local.rappel_total_source_npk_cereal_15_15_15**"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "rappel_npk17",
+      "value": "Complexe céréale 17-17-17: Total réparti (@local.total_source_npk_cereal_17_17_17 sac) n'est pas égal au total des besoins (@fields.besoins_prevue_npk_cereale_17_17_17 sac)\nLa différence (sac) est: **@local.rappel_total_source_npk_cereal_17_17_17**"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "rappel_dap",
+      "value": "\"DAP: Total réparti (@local.total_source_dap sac) n'est pas égal au total des besoins (@fields.besoins_prevue_dap sac)\nLa différence (sac) est: **@local.rappel_total_source_dap**\""
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "rappel_uree",
+      "value": "\"Urée: Total réparti (@local.total_source_uree sac) n'est pas égal au total des besoins (@fields.besoins_prevus_uree sac)\nLa différence (sac) est: **@local.rappel_total_source_uree**\""
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "conclusion_rappel",
+      "value": "LES BESOINS EN ENGRAIS SONT BIEN REPARTIS ENTRE LES SOURCES D'APPROVISIONNEMENT"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "culture_prevues",
+      "value": "**Les cultures prévues:**"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "fin_formulaire",
+      "value": "**FIN DU FORMULAIRE**"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "bouton_fin",
+      "value": "Fin"
+    },
+    {
+      "type": "declare_global_constant",
+      "name": "fin_culture_upa",
+      "value": "Les autres formulaires de planification qui complètent ce formulaire sont:\n-***Alimentation humaine***;\n-***Alimentation animale***;\n-***Depenses de l'UPA***;\n-***Fumure organique***.\n======= MERCI========"
     }
   ]
 }

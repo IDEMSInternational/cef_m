@@ -5,26 +5,25 @@
   "rows": [
     {
       "type": "title",
-      "value": " EQUIPEMENT DE L'UPA"
+      "value": "@global.equipement_upa"
     },
     {
       "name": "attempt_submit",
       "value": "@fields.attempt_submit"
     },
     {
-      "type": "begin_display_group",
-      "style_list": "display: block; width: 100%"
+      "type": "begin_display_group"
+    },
+    {
+      "type": "subtitle",
+      "value": "@global.nb_tracteurs"
     },
     {
       "type": "audio",
       "name": "audio_13_1",
       "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/tracteur_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "exclude_from_translation": true,
-      "style_list": "float:right;"
-    },
-    {
-      "type": "html",
-      "value": "@global.nb_tracteurs<span style=\"color: red;\">*</span>"
+      "style_list": "float:right;",
+      "exclude_from_translation": true
     },
     {
       "type": "end_display_group"
@@ -38,14 +37,14 @@
       "type": "text_box",
       "name": "nombre_tracteur",
       "value": "@fields.nombre_tracteur\n",
-      "parameter_list": "number_input: true; placeholder:Ecrivez le nombre de tracteurs;",
+      "parameter_list": "number_input: true; placeholder:@global.texte_placeholder;",
       "condition": "!!@field.nombre_tracteur\n\n\n",
       "exclude_from_translation": true
     },
     {
       "type": "text_box",
       "name": "nombre_tracteur",
-      "parameter_list": "number_input: true; placeholder:Ecrivez le nombre de tracteurs;",
+      "parameter_list": "number_input: true; placeholder:@global.texte_placeholder;",
       "condition": "!@field.nombre_tracteur\n\n",
       "exclude_from_translation": true
     },
@@ -54,30 +53,30 @@
       "value": "@calc((/^\\d+$/.test(@local.nombre_tracteur) && @local.nombre_tracteur >=0 ) || @local.nombre_tracteur == ' ' || !!@local.nombre_tracteur )"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@local.nombre_tracteur && @fields.attempt_submit "
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@local.nombre_tracteur && @fields.attempt_submit ",
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "text",
       "value": "@global.error_number_min_0",
       "condition": "!@local.valid_nombre_tracteur && @fields.attempt_submit ",
-      "style_list": "color: red; font-size: 12px;\n"
+      "style_list": "@global.reponse_style"
     },
     {
-      "type": "begin_display_group",
-      "style_list": "display: block; width: 100%"
+      "type": "begin_display_group"
+    },
+    {
+      "type": "subtitle",
+      "value": "@global.nb_motoculteurs"
     },
     {
       "type": "audio",
       "name": "audio_13_2",
       "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/motocult_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "exclude_from_translation": true,
-      "style_list": "float:right;"
-    },
-    {
-      "type": "html",
-      "value": "@global.nb_motoculteurs<span style=\"color: red;\">*</span>"
+      "style_list": "float:right;",
+      "exclude_from_translation": true
     },
     {
       "type": "end_display_group"
@@ -91,14 +90,14 @@
       "type": "text_box",
       "name": "nombre_motoculteurs",
       "value": "@fields.nombre_motoculteurs\n",
-      "parameter_list": "number_input: true; placeholder:Nombre de motoculteurs;",
+      "parameter_list": "number_input: true; placeholder: @global.texte_placeholder;",
       "condition": "!!@field.nombre_motoculteurs\n",
       "exclude_from_translation": true
     },
     {
       "type": "text_box",
       "name": "nombre_motoculteurs",
-      "parameter_list": "number_input: true; placeholder:Nombre de motoculteurs;",
+      "parameter_list": "number_input: true; placeholder:@global.texte_placeholder;",
       "condition": "!@field.nombre_motoculteurs\n\n\n",
       "exclude_from_translation": true
     },
@@ -107,30 +106,30 @@
       "value": "@calc((/^\\d+$/.test(@local.nombre_motoculteurs) && @local.nombre_motoculteurs >=0 ) || @local.nombre_motoculteurs == ' ' || !!@local.nombre_motoculteurs )"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@local.nombre_motoculteurs && @fields.attempt_submit "
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@local.nombre_motoculteurs && @fields.attempt_submit ",
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "text",
       "value": "@global.error_number_min_0",
       "condition": "!@local.valid_nombre_motoculteurs && @fields.attempt_submit ",
-      "style_list": "color: red; font-size: 12px;\n"
+      "style_list": "@global.reponse_style"
     },
     {
-      "type": "begin_display_group",
-      "style_list": "display: block; width: 100%"
+      "type": "begin_display_group"
+    },
+    {
+      "type": "subtitle",
+      "value": "@global.nb_moto_tricycles"
     },
     {
       "type": "audio",
       "name": "audio_13_3",
       "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/mototricycle_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "exclude_from_translation": true,
-      "style_list": "float:right;"
-    },
-    {
-      "type": "html",
-      "value": "@global.nb_moto_tricycles<span style=\"color: red;\">*</span>"
+      "style_list": "float:right;",
+      "exclude_from_translation": true
     },
     {
       "type": "end_display_group"
@@ -144,14 +143,14 @@
       "type": "text_box",
       "name": "nombre_mototricycle",
       "value": "@fields.nombre_mototricycle\n",
-      "parameter_list": "number_input: true; placeholder: Nombre de moto-tricycles;",
+      "parameter_list": "number_input: true; placeholder: @global.texte_placeholder;",
       "condition": "!!@fields.nombre_mototricycle\n\n",
       "exclude_from_translation": true
     },
     {
       "type": "text_box",
       "name": "nombre_mototricycle",
-      "parameter_list": "number_input: true; placeholder:Nombre de moto-tricycles;",
+      "parameter_list": "number_input: true; placeholder: @global.texte_placeholder;",
       "condition": "!@fields.nombre_mototricycle\n\n\n\n",
       "exclude_from_translation": true
     },
@@ -160,30 +159,30 @@
       "value": "@calc((/^\\d+$/.test(@local.nombre_mototricycle) && @local.nombre_mototricycle >=0 ) || @local.nombre_mototricycle == ' ' || !!@local.nombre_mototricycle )"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@local.nombre_mototricycle && @fields.attempt_submit "
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@local.nombre_mototricycle && @fields.attempt_submit ",
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "text",
       "value": "@global.error_number_min_0",
       "condition": "!@local.valid_nombre_mototricycle && @fields.attempt_submit ",
-      "style_list": "color: red; font-size: 12px;\n"
+      "style_list": "@global.reponse_style"
     },
     {
-      "type": "begin_display_group",
-      "style_list": "display: block; width: 100%"
+      "type": "begin_display_group"
+    },
+    {
+      "type": "subtitle",
+      "value": "@global.nb_batteuses"
     },
     {
       "type": "audio",
       "name": "audio_13_4",
       "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/batteuse_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "exclude_from_translation": true,
-      "style_list": "float:right;"
-    },
-    {
-      "type": "html",
-      "value": "@global.nb_batteuses<span style=\"color: red;\">*</span>"
+      "style_list": "float:right;",
+      "exclude_from_translation": true
     },
     {
       "type": "end_display_group"
@@ -197,14 +196,14 @@
       "type": "text_box",
       "name": "nombre_batteuse",
       "value": "@fields.nombre_batteuse\n",
-      "parameter_list": "number_input: true; placeholder: Nombre de batteuses;",
+      "parameter_list": "number_input: true; placeholder:@global.texte_placeholder;",
       "condition": "!!@fields.nombre_batteuse",
       "exclude_from_translation": true
     },
     {
       "type": "text_box",
       "name": "nombre_batteuse",
-      "parameter_list": "number_input: true; placeholder:Nombre de batteuses;",
+      "parameter_list": "number_input: true; placeholder:@global.texte_placeholder;",
       "condition": "!@fields.nombre_batteuse",
       "exclude_from_translation": true
     },
@@ -213,30 +212,30 @@
       "value": "@calc((/^\\d+$/.test(@local.nombre_batteuse) && @local.nombre_batteuse >=0 ) || @local.nombre_batteuse == ' ' || !!@local.nombre_batteuse )"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@local.nombre_batteuse && @fields.attempt_submit "
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@local.nombre_batteuse && @fields.attempt_submit ",
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "text",
       "value": "@global.error_number_min_0",
       "condition": "!@local.valid_nombre_batteuse && @fields.attempt_submit ",
-      "style_list": "color: red; font-size: 12px;\n"
+      "style_list": "@global.reponse_style"
     },
     {
-      "type": "begin_display_group",
-      "style_list": "display: block; width: 100%"
+      "type": "begin_display_group"
+    },
+    {
+      "type": "subtitle",
+      "value": "@global.nb_decortiqueuses"
     },
     {
       "type": "audio",
       "name": "audio_13_5",
       "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/decortiqueuse_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "exclude_from_translation": true,
-      "style_list": "float:right;"
-    },
-    {
-      "type": "html",
-      "value": "@global.nb_decortiqueuses<span style=\"color: red;\">*</span>"
+      "style_list": "float:right;",
+      "exclude_from_translation": true
     },
     {
       "type": "end_display_group"
@@ -250,14 +249,14 @@
       "type": "text_box",
       "name": "nombre_decortiqueuse",
       "value": "@fields.nombre_decortiqueuse\n",
-      "parameter_list": "number_input: true; placeholder: Nombre de decortiqueuses;",
+      "parameter_list": "number_input: true; placeholder: @global.texte_placeholder;",
       "condition": "!!@fields.nombre_decortiqueuse",
       "exclude_from_translation": true
     },
     {
       "type": "text_box",
       "name": "nombre_decortiqueuse",
-      "parameter_list": "number_input: true; placeholder:Nombre de decortiqueuses;",
+      "parameter_list": "number_input: true; placeholder: @global.texte_placeholder;",
       "condition": "!@fields.nombre_decortiqueuse",
       "exclude_from_translation": true
     },
@@ -266,9 +265,10 @@
       "value": "@calc((/^\\d+$/.test(@local.nombre_decortiqueuse) && @local.nombre_decortiqueuse >=0 ) || @local.nombre_decortiqueuse == ' ' || !!@local.nombre_decortiqueuse )"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@local.nombre_decortiqueuse && @fields.attempt_submit "
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@local.nombre_decortiqueuse && @fields.attempt_submit ",
+      "style_list": "@global.reponse_style\n@global.reponse_style"
     },
     {
       "type": "text",
@@ -280,22 +280,23 @@
       "type": "begin_display_group"
     },
     {
-      "type": "html",
-      "value": "@global.oui_non_materiel<span style=\"color: red;\">*</span>"
+      "type": "subtitle",
+      "value": "@global.oui_non_materiel"
     },
     {
       "type": "audio",
       "name": "audio_13_6",
       "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/on_autre_mat_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "exclude_from_translation": true,
-      "style_list": "float: right;"
+      "style_list": "float: right;",
+      "exclude_from_translation": true
     },
     {
       "type": "end_display_group"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: black;\"> @global.autre_materiel_hint  </p>"
+      "type": "text",
+      "value": "@global.autre_materiel_hint",
+      "style_list": "@global.hint_style"
     },
     {
       "type": "begin_radio_list",
@@ -314,27 +315,27 @@
       "type": "end_radio_list"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@fields.on_autre_materiel && @fields.attempt_submit"
+      "type": "text",
+      "value": "@global.reponse_obligatoire </p>",
+      "condition": "!@fields.on_autre_materiel && @fields.attempt_submit",
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "begin_display_group",
       "condition": "@fields.on_autre_materiel == 'oui'"
     },
     {
-      "type": "html",
-      "value": "@global.nom_autre_materiel<span style=\"color: red;\">*</span>",
-      "parameter_list": "style: contextual;",
-      "exclude_from_translation": true,
-      "style_list": "font-size:20px;"
+      "type": "subtitle",
+      "value": "@global.nom_autre_materiel",
+      "style_list": "font-size:20px;",
+      "exclude_from_translation": true
     },
     {
       "type": "audio",
       "name": "autre_mat",
       "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/autre_mat_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "exclude_from_translation": true,
-      "style_list": "align-self: flex-end;"
+      "style_list": "align-self: flex-end;",
+      "exclude_from_translation": true
     },
     {
       "type": "end_display_group"
@@ -350,19 +351,19 @@
       "name": "autre_materiel",
       "value": "@fields.autre_materiel",
       "action_list": "changed | set_field : autre_materiel: this.value;",
-      "parameter_list": "placeholder: Entrez le nom du matériel",
+      "parameter_list": "placeholder: @global.texte_placeholder;",
       "condition": "@fields.on_autre_materiel == 'oui'",
       "exclude_from_translation": true
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@local.autre_materiel && @fields.on_autre_materiel == 'oui'"
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@local.autre_materiel && @fields.on_autre_materiel == 'oui'",
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "text",
       "value": "@global.nb_autre_materiel",
-      "parameter_list": "style: contextual;",
       "condition": "@fields.on_autre_materiel == 'oui'",
       "exclude_from_translation": true
     },
@@ -371,7 +372,7 @@
       "name": "nombre_autre_materiel",
       "value": "@fields.nombre_autre_materiel",
       "action_list": "changed | set_field : nombre_autre_materiel: this.value;",
-      "parameter_list": "number_input: true;\nplaceholder: Entrez le nombre;",
+      "parameter_list": "number_input: true;\nplaceholder: @global.texte_placeholder;",
       "condition": "@fields.on_autre_materiel == 'oui'",
       "exclude_from_translation": true
     },
@@ -384,8 +385,8 @@
       "type": "text",
       "value": "@global.error_number_min_0",
       "condition": "!@local.valid_nombre_autre_materiel && @fields.on_autre_materiel == 'oui'",
-      "exclude_from_translation": true,
-      "style_list": "color: #FF0000;\nfont-size: 14px"
+      "style_list": "@global.reponse_style",
+      "exclude_from_translation": true
     },
     {
       "name": "completed_enabled",

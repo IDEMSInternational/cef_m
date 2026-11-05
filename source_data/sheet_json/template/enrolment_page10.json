@@ -12,8 +12,7 @@
       "value": "@fields.attempt_submit"
     },
     {
-      "type": "begin_display_group",
-      "style_list": "display: block; width: 100%\n"
+      "type": "begin_display_group"
     },
     {
       "type": "subtitle",
@@ -39,7 +38,7 @@
       "name": "superficie_possede_upa",
       "value": "@fields.superficie_possede_upa",
       "action_list": "changed | set_field: superficie_possede_upa: this.value;",
-      "parameter_list": "number_input: true; placeholder: Nombre hectares possédés;"
+      "parameter_list": "number_input: true; placeholder:  @global.texte_placeholder"
     },
     {
       "name": "v_poss",
@@ -58,8 +57,7 @@
       "style_list": "color: red; font-size: 12px;"
     },
     {
-      "type": "begin_display_group",
-      "style_list": "display: block; width: 100%"
+      "type": "begin_display_group"
     },
     {
       "type": "subtitle",
@@ -85,7 +83,7 @@
       "name": "superficie_cultive_upa",
       "value": "@fields.superficie_cultive_upa",
       "action_list": "changed | set_field: superficie_possede_upa: this.value;",
-      "parameter_list": "number_input: true; placeholder: Nombre hectares cultivés;"
+      "parameter_list": "number_input: true; placeholder:  @global.texte_placeholder;"
     },
     {
       "name": "v_cult",
@@ -101,13 +99,13 @@
       "type": "text",
       "value": "@global.valeur_positive",
       "condition": "!@local.v_cult",
-      "style_list": "color: red; font-size: 12px;"
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "text",
       "value": "@global.erreur_surface",
       "condition": "@local.v_poss && @local.v_cult && Number(@local.superficie_cultive_upa) > Number(@local.superficie_possede_upa)",
-      "style_list": "color: red; font-weight: bold;"
+      "style_list": "@global.reponse_style"
     },
     {
       "name": "completed_enabled",

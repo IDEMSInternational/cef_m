@@ -5,11 +5,15 @@
   "rows": [
     {
       "name": "valid_npk_coton",
-      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@fields.quantite_npk_coton) && Number(@fields.quantite_npk_coton) >= 0)"
+      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(String(@fields.quantite_npk_coton_14_18_18 || '')) && Number(@fields.quantite_npk_coton_14_18_18) >= 0)"
     },
     {
-      "name": "valid_npk_cereale",
-      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@fields.quantite_npk_cereale) && Number(@fields.quantite_npk_cereale) >= 0)"
+      "name": "valid_npk_cereale_15",
+      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@fields.quantite_npk_cereale_15_15_15) && Number(@fields.quantite_npk_cereale_15_15_15) >= 0)"
+    },
+    {
+      "name": "valid_npk_cereale_17",
+      "value": "@calc(/^\\d+(\\.\\d+)?$/.test(@fields.quantite_npk_cereale_17_17_17) && Number(@fields.quantite_npk_cereale_17_17_17) >= 0)"
     },
     {
       "name": "valid_uree",
@@ -25,18 +29,19 @@
     },
     {
       "name": "completed_enabled",
-      "value": "@calc(!!@fields.on_fertilisant_info && (@fields.on_fertilisant_info === 'non' || (@fields.on_fertilisant_info === 'oui' && (@fields.culture === 'coton' ? @local.valid_npk_coton : @local.valid_npk_cereale) && @local.valid_uree && (@fields.culture !== 'riz' || @local.valid_dap) && @local.valid_autre_engrais)))"
+      "value": "@calc(!!@fields.on_fertilisant_info && (@fields.on_fertilisant_info === 'non' || (@fields.on_fertilisant_info === 'oui' && (@fields.culture === 'coton' ? @local.valid_npk_coton : (@local.valid_npk_cereale_15 && @local.valid_npk_cereale_17)) && @local.valid_uree && (@fields.culture !== 'riz' || @local.valid_dap) && @local.valid_autre_engrais)))"
     },
     {
       "type": "title",
-      "value": "**Quantité d'engrais minéraux dans la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**"
+      "value": "**QUANTITE D'ENGRAIS MINERAUX DANS LA PARCELLE N⁰@fields.num_parcelle DE @fields.nom_champ**"
     },
     {
       "type": "begin_display_group"
     },
     {
-      "type": "html",
-      "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> L'information sur les engrais minéraux est-elle disponible ?</label>"
+      "type": "text",
+      "value": "@global.autre_engrais_oui_non",
+      "style_list": "color: #1e3656; font-weight: bold;"
     },
     {
       "type": "audio",
@@ -64,9 +69,10 @@
       "type": "end_radio_list"
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: red; font-size: 17px;\">La sélection est obligatoire !</span>",
-      "condition": "@fields.attempt_submit_p13 && !@fields.on_fertilisant_info"
+      "type": "text",
+      "value": "@global.select_warring",
+      "condition": "@fields.attempt_submit_p13 && !@fields.on_fertilisant_info",
+      "style_list": "color: red; font-size: 13px;"
     },
     {
       "type": "begin_display_group",
@@ -74,8 +80,9 @@
       "style_list": "margin: 15px 0; padding: 12px; background: #fff3cd;"
     },
     {
-      "type": "html",
-      "value": "<p style=\"margin: 0; color: #856404; font-size: 17px; line-height: 1.4; font-weight: 500;\">VEUILLEZ CONTINUER. Cependant, vous devez revenir renseigner les quantités des engrais minéraux dès que l'information sera disponible.</p>"
+      "type": "text",
+      "value": "@global.autre_engrais_non",
+      "style_list": "margin: 0; color: #856404; font-size: 17px; line-height: 1.4; font-weight: 500;"
     },
     {
       "type": "end_display_group"
@@ -89,8 +96,9 @@
       "style_list": "display: block; width: 100%; margin-top: 10px; padding: 10px;\n"
     },
     {
-      "type": "html",
-      "value": "<span style=\"font-size: 17px; color: #1e3656; font-weight: bold;\">Complexe Coton 14-18-18 (sacs de 50kg)</span>"
+      "type": "text",
+      "value": "@global.hint_coton_engrais",
+      "style_list": "font-size: 17px; color: #1e3656; font-weight: bold;"
     },
     {
       "type": "audio",
@@ -110,16 +118,17 @@
     },
     {
       "type": "text_box",
-      "name": "quantite_npk_coton",
-      "value": "@fields.quantite_npk_coton",
-      "action_list": "changed | set_field: quantite_npk_coton: this.value;",
+      "name": "quantite_npk_coton_14_18_18",
+      "value": "@fields.quantite_npk_coton_14_18_18",
+      "action_list": "changed | set_field: quantite_npk_coton_14_18_18: this.value;",
       "parameter_list": "placeholder: Mettez 0 si aucun apport;",
       "condition": "@fields.on_fertilisant_info == 'oui' && @fields.culture == 'coton'"
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: red; font-size: 17px;\">Veuillez entrer une quantité valide (nombre positif ou 0) !</span>",
-      "condition": "@fields.attempt_submit_p13 && !@local.valid_npk_coton"
+      "type": "text",
+      "value": "@global.message_quant",
+      "condition": "@fields.attempt_submit_p13 && !@local.valid_npk_coton",
+      "style_list": "color: red; font-size: 13px;"
     },
     {
       "type": "begin_display_group",
@@ -130,8 +139,9 @@
       "type": "begin_display_group"
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: red;\">*</span><span style=\"font-size: 17px; color: #1e3656; font-weight: bold;\">Complexe Céréale NPK (sacs de 50kg)</span>"
+      "type": "text",
+      "value": "@global.hint_cereale_engrais",
+      "style_list": "font-size: 17px; color: #1e3656; font-weight: bold;"
     },
     {
       "type": "audio",
@@ -151,16 +161,60 @@
     },
     {
       "type": "text_box",
-      "name": "quantite_npk_cereale",
-      "value": "@fields.quantite_npk_cereale",
-      "action_list": "changed | set_field: quantite_npk_cereale: this.value;",
+      "name": "quantite_npk_cereale_15_15_15",
+      "value": "@fields.quantite_npk_cereale_15_15_15",
+      "action_list": "changed | set_field: quantite_npk_cereale_15_15_15: this.value;",
       "parameter_list": "placeholder: Mettez 0 si aucun apport;",
       "condition": "@fields.on_fertilisant_info == 'oui' && @fields.culture != 'coton'"
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: red; font-size: 17px;\">Veuillez entrer une quantité valide (nombre positif ou 0) !</span>",
-      "condition": "@fields.attempt_submit_p13 && !@local.valid_npk_cerealeTRUE"
+      "type": "text",
+      "value": "@global.message_quant",
+      "condition": "@fields.attempt_submit_p13 && !@local.valid_npk_cereale_15",
+      "style_list": "color: red; font-size: 13px;"
+    },
+    {
+      "type": "begin_display_group",
+      "condition": "@fields.on_fertilisant_info == 'oui' && @fields.culture != 'coton'",
+      "style_list": "display: block; width: 100%; margin-top: 10px; padding: 10px;"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "@global.hint_cereale_engrais_17",
+      "style_list": "font-size: 17px; color: #1e3656; font-weight: bold;"
+    },
+    {
+      "type": "audio",
+      "name": "audio_13_2",
+      "parameter_list": "variant: button_only;\nsrc: audio/Superficie/qte_npk_17_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/sac.jpg",
+      "style_list": "width: 50%; object-fit: contain;\n\n\n"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text_box",
+      "name": "quantite_npk_cereale_17_17_17",
+      "value": "@fields.quantite_npk_cereale_17_17_17",
+      "action_list": "changed | set_field: quantite_npk_cereale_17_17_17: this.value;",
+      "parameter_list": "placeholder: Mettez 0 si aucun apport;",
+      "condition": "@fields.on_fertilisant_info == 'oui' && @fields.culture != 'coton'"
+    },
+    {
+      "type": "text",
+      "value": "@global.message_quant",
+      "condition": "@fields.attempt_submit_p13 && !@local.valid_npk_cereale_17",
+      "style_list": "color: red; font-size: 13px;"
     },
     {
       "type": "begin_display_group",
@@ -171,8 +225,9 @@
       "type": "begin_display_group"
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: red;\">*</span><span style=\"font-size: 17px; color: #1e3656; font-weight: bold;\">Urée (sacs de 50kg)</span>"
+      "type": "text",
+      "value": "@global.hint_uree_engrais",
+      "style_list": "font-size: 17px; color: #1e3656; font-weight: bold;"
     },
     {
       "type": "audio",
@@ -199,9 +254,10 @@
       "condition": "@fields.on_fertilisant_info == 'oui'"
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: red; font-size: 17px;\">Veuillez entrer une quantité valide (nombre positif ou 0) !</span>",
-      "condition": "@fields.attempt_submit_p13 && !@local.valid_uree"
+      "type": "text",
+      "value": "@global.message_quant",
+      "condition": "@fields.attempt_submit_p13 && !@local.valid_uree",
+      "style_list": "color: red; font-size: 13px;\n"
     },
     {
       "type": "begin_display_group",
@@ -213,8 +269,9 @@
       "style_list": "\n"
     },
     {
-      "type": "html",
-      "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> DAP (sacs de 50kg) :</label>"
+      "type": "text",
+      "value": "@global.hint_dap_engrais",
+      "style_list": "font-size: 17px; color: #1e3656; font-weight: bold;"
     },
     {
       "type": "audio",
@@ -241,9 +298,10 @@
       "condition": "@fields.on_fertilisant_info == 'oui' && @fields.culture == 'riz'"
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: red; font-size: 12px;\">Veuillez entrer une quantité valide (nombre positif ou 0) !</span>",
-      "style_list": "@fields.attempt_submit_p13 && !@local.valid_dap"
+      "type": "text",
+      "value": "@global.message_quant",
+      "condition": "@fields.attempt_submit_p13 && !@local.valid_dap",
+      "style_list": "color: red; font-size: 13px;\n"
     },
     {
       "type": "begin_display_group",
@@ -251,8 +309,9 @@
       "style_list": "display: block; width: 100%; margin-top: 10px; padding: 10px;\n"
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: red;\">*</span><label style=\"color: #1e3656; font-size: 17px;font-weight: bold;\">Un autre type d'engrais a-t-il été apporté ?</label>"
+      "type": "text",
+      "value": "@global.hint_other_engrais",
+      "style_list": "font-size: 17px; color: #1e3656; font-weight: bold;"
     },
     {
       "type": "audio",
@@ -274,9 +333,10 @@
       "type": "end_display_group"
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: red; font-size: 17px;\">La sélection est obligatoire !</span>",
-      "condition": "@fields.attempt_submit_p13 && !@fields.autre_engrais_mineral"
+      "type": "text",
+      "value": "@global.select_warring",
+      "condition": "@fields.attempt_submit_p13 && !@fields.autre_engrais_mineral",
+      "style_list": "color: red; font-size: 13px;"
     },
     {
       "type": "end_display_group"
@@ -287,8 +347,9 @@
       "style_list": "display: block; width: 100%; margin-top: 10px; padding: 10px;\n\n"
     },
     {
-      "type": "html",
-      "value": "<label style=\"color: #1e3656;font-size: 17px ;font-weight: bold;\"><span style=\"color: red;\">*</span> Nom de l'autre engrais :</label>"
+      "type": "text",
+      "value": "@global.name_other_engrais",
+      "style_list": "color: #1e3656;font-size: 17px ;font-weight: bold;"
     },
     {
       "type": "audio",
@@ -312,8 +373,9 @@
       "style_list": "display: block; width: 100%; margin-top: 10px; padding: 10px;\n\n"
     },
     {
-      "type": "html",
-      "value": "<label style=\"color: #1e3656; font-weight: bold;font-size: 17px;margin-top: 12px; display: block;\"><span style=\"color: red;\">*</span> Quantité apportée (sacs de 50kg) :</label>"
+      "type": "text",
+      "value": "@global.qtite_sac",
+      "style_list": "color: #1e3656;font-size: 17px ;font-weight: bold;"
     },
     {
       "type": "audio",
@@ -332,9 +394,10 @@
       "condition": "@fields.on_fertilisant_info == 'oui' && @fields.autre_engrais_mineral == 'oui'"
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: red; font-size: 12px;\">Veuillez entrer une quantité valide (nombre positif ou 0) !</span>\n",
-      "condition": "@fields.attempt_submit_p13 && (!@fields.quantite_autre_engrais || !/^\\d+(\\.\\d+)?$/.test(@fields.quantite_autre_engrais))"
+      "type": "text",
+      "value": "@global.message_quant",
+      "condition": "@fields.attempt_submit_p13 && (!@fields.quantite_autre_engrais || !/^\\d+(\\.\\d+)?$/.test(@fields.quantite_autre_engrais))",
+      "style_list": "color: red; font-size: 13px;"
     },
     {
       "type": "begin_display_group",
@@ -352,7 +415,7 @@
       "type": "button",
       "name": "page13_button_continue",
       "value": "Continuer",
-      "action_list": "click | set_field: @calc('on_fertilisant_info_parcelle_N' + @fields.num_parcelle) : @fields.on_fertilisant_info;\n        click | set_field: @calc('qte_npk_coton_parcelle_N' + @fields.num_parcelle) : @fields.quantite_npk_coton;\n        click | set_field: @calc('qte_npk_cereale_parcelle_N' + @fields.num_parcelle) : @fields.quantite_npk_cereale;\n        click | set_field: @calc('qte_uree_parcelle_N' + @fields.num_parcelle) : @fields.quantite_uree;\n        click | set_field: @calc('qte_dap_parcelle_N' + @fields.num_parcelle) : @fields.quantite_dap;\n        click | set_field: @calc('autre_engrais_mineral_parcelle_N' + @fields.num_parcelle) : @fields.autre_engrais_mineral;\n        click | set_field: @calc('nom_autre_engrais_parcelle_N' + @fields.num_parcelle) : @fields.nom_autre_engrais;\n        click | set_field: @calc('qte_autre_engrais_parcelle_N' + @fields.num_parcelle) : @fields.quantite_autre_engrais;\n        click | set_field: attempt_submit_p13: false;\n        click | emit: completed;",
+      "action_list": "click | set_field: @calc('on_fertilisant_info_parcelle_N' + @fields.num_parcelle) : @fields.on_fertilisant_info;\nclick | set_field: @calc('qte_npk_coton_parcelle_N' + @fields.num_parcelle) : @fields.quantite_npk_coton_14_18_18;\nclick | set_field: @calc('qte_npk_cereale_parcelle_N' + @fields.num_parcelle) : @fields.quantite_npk_cereale_15_15_15;\nclick | set_field: @calc('qte_uree_parcelle_N' + @fields.num_parcelle) : @fields.quantite_uree;\nclick | set_field: @calc('qte_dap_parcelle_N' + @fields.num_parcelle) : @fields.quantite_dap;\nclick | set_field: @calc('autre_engrais_mineral_parcelle_N' + @fields.num_parcelle) : @fields.autre_engrais_mineral;\nclick | set_field: @calc('nom_autre_engrais_parcelle_N' + @fields.num_parcelle) : @fields.nom_autre_engrais;\nclick | set_field: @calc('qte_autre_engrais_parcelle_N' + @fields.num_parcelle) : @fields.quantite_autre_engrais;\nclick | set_field: attempt_submit_p13 : false;\nclick | emit: completed;",
       "parameter_list": "disabled: !@local.completed_enabled",
       "style_list": "flex: 1"
     },

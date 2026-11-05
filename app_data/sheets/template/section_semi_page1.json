@@ -4,6 +4,15 @@
   "status": "released",
   "rows": [
     {
+      "type": "title",
+      "value": "IMPORTANT : Gestion des coûts du semis",
+      "_translations": {
+        "value": {}
+      },
+      "name": "title_2",
+      "_nested_name": "title_2"
+    },
+    {
       "type": "audio",
       "name": "audio_3_1",
       "parameter_list": {
@@ -17,28 +26,48 @@
       "_nested_name": "audio_3_1"
     },
     {
-      "type": "text",
-      "name": "note_consentement",
-      "value": "@global.note_info_semis",
-      "_translations": {
-        "value": {}
-      },
-      "_nested_name": "note_consentement",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@global.note_info_semis",
-            "matchedExpression": "@global.note_info_semis",
-            "type": "global",
-            "fieldName": "note_info_semis"
+      "type": "display_group",
+      "style_list": [
+        "display: block",
+        "width: 100%",
+        "background: #F4F7FA",
+        "border-radius: 12px",
+        "padding: 16px",
+        "margin-top: 10px"
+      ],
+      "rows": [
+        {
+          "type": "text",
+          "name": "note_consentement",
+          "value": "@global.note_info_semis",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-size: 16px",
+            "line-height: 1.5",
+            "color: #333"
+          ],
+          "_nested_name": "display_group_4.note_consentement",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.note_info_semis",
+                "matchedExpression": "@global.note_info_semis",
+                "type": "global",
+                "fieldName": "note_info_semis"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.note_info_semis": [
+              "value"
+            ]
           }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@global.note_info_semis": [
-          "value"
-        ]
-      }
+        }
+      ],
+      "name": "display_group_4",
+      "_nested_name": "display_group_4"
     },
     {
       "type": "display_group",

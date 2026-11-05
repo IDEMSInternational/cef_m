@@ -26,13 +26,34 @@
       ],
       "rows": [
         {
-          "type": "html",
-          "value": "<span style=\"color: #d71920; font-weight: bold; margin-right: 4px;\">*</span><span style=\"color: #333333; font-weight: 600; font-size: 18px;\">1. Sélectionnez vos culture(s) principales</span>",
+          "type": "text",
+          "value": "@global.primary_crops_label",
           "_translations": {
             "value": {}
           },
-          "name": "html_1",
-          "_nested_name": "cult_pri.html_1"
+          "style_list": [
+            "font-weight: 600",
+            "font-size: 18px",
+            "color: #333333",
+            "flex: 1"
+          ],
+          "name": "text_1",
+          "_nested_name": "cult_pri.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.primary_crops_label",
+                "matchedExpression": "@global.primary_crops_label",
+                "type": "global",
+                "fieldName": "primary_crops_label"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.primary_crops_label": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",
@@ -53,7 +74,7 @@
     },
     {
       "type": "text",
-      "value": "*Les cultures principales sont des cultures dominantes faites par l'UPA sur des grandes superficies avec plus d'investissement en main d'oeuvre et intrants*",
+      "value": "@global.primary_crops_hint",
       "_translations": {
         "value": {}
       },
@@ -64,7 +85,22 @@
         "margin-bottom: 15px"
       ],
       "name": "text_5",
-      "_nested_name": "text_5"
+      "_nested_name": "text_5",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.primary_crops_hint",
+            "matchedExpression": "@global.primary_crops_hint",
+            "type": "global",
+            "fieldName": "primary_crops_hint"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.primary_crops_hint": [
+          "value"
+        ]
+      }
     },
     {
       "type": "data_items",
@@ -265,13 +301,34 @@
           "type": "display_group",
           "rows": [
             {
-              "type": "html",
-              "value": "<br><span style=\"color: red;\">*</span>Ecrivez le nom de l'autre culture primaire 1",
+              "type": "text",
+              "value": "@global.sc_name_1_label",
               "_translations": {
                 "value": {}
               },
-              "name": "html_1",
-              "_nested_name": "autre_prim_1.display_group_1.html_1"
+              "style_list": [
+                "font-size: 14px",
+                "font-weight: 600",
+                "color: #333333",
+                "flex: 1"
+              ],
+              "name": "text_1",
+              "_nested_name": "autre_prim_1.display_group_1.text_1",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "@global.sc_name_1_label",
+                    "matchedExpression": "@global.sc_name_1_label",
+                    "type": "global",
+                    "fieldName": "sc_name_1_label"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@global.sc_name_1_label": [
+                  "value"
+                ]
+              }
             },
             {
               "type": "audio",
@@ -293,7 +350,7 @@
         },
         {
           "type": "text",
-          "value": "*Il s'agit d'une culture qui n'existe pas dans la liste des cultures ci-dessus*",
+          "value": "@global.primay_crops_sc",
           "_translations": {
             "value": {}
           },
@@ -303,7 +360,22 @@
             "font-style: italic"
           ],
           "name": "text_2",
-          "_nested_name": "autre_prim_1.text_2"
+          "_nested_name": "autre_prim_1.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.primay_crops_sc",
+                "matchedExpression": "@global.primay_crops_sc",
+                "type": "global",
+                "fieldName": "primay_crops_sc"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.primay_crops_sc": [
+              "value"
+            ]
+          }
         },
         {
           "type": "image",
@@ -358,7 +430,7 @@
         },
         {
           "type": "text",
-          "value": "*La réponse est obligatoire, aucune valeur n'a été donnée!*",
+          "value": "@global.error_required_answer",
           "_translations": {
             "value": {}
           },
@@ -372,6 +444,14 @@
           "name": "text_5",
           "_nested_name": "autre_prim_1.text_5",
           "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.error_required_answer",
+                "matchedExpression": "@global.error_required_answer",
+                "type": "global",
+                "fieldName": "error_required_answer"
+              }
+            ],
             "condition": [
               {
                 "fullExpression": "@calc(@field.cul_autre_1 && (@field.autre_culture_primaire_1 == '' || @field.autre_culture_primaire_1 == null))",
@@ -400,6 +480,9 @@
             ]
           },
           "_dynamicDependencies": {
+            "@global.error_required_answer": [
+              "value"
+            ],
             "@field.cul_autre_1": [
               "condition"
             ],
@@ -414,7 +497,7 @@
         },
         {
           "type": "text",
-          "value": "*Cette culture existe déjà dans la liste standard !*",
+          "value": "@global.list_crops_exist",
           "_translations": {
             "value": {}
           },
@@ -428,6 +511,14 @@
           "name": "text_6",
           "_nested_name": "autre_prim_1.text_6",
           "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.list_crops_exist",
+                "matchedExpression": "@global.list_crops_exist",
+                "type": "global",
+                "fieldName": "list_crops_exist"
+              }
+            ],
             "condition": [
               {
                 "fullExpression": "@calc(@field.cul_autre_1 && !!@field.autre_culture_primaire_1 && ['mais','mil','sorgho','coton','arachide','fourrage'].includes(@field.autre_culture_primaire_1.toLowerCase().trim()))",
@@ -456,6 +547,9 @@
             ]
           },
           "_dynamicDependencies": {
+            "@global.list_crops_exist": [
+              "value"
+            ],
             "@field.cul_autre_1": [
               "condition"
             ],
@@ -507,13 +601,34 @@
           "type": "display_group",
           "rows": [
             {
-              "type": "html",
-              "value": "<br><span style=\"color: red;\">*</span>Ecrivez le nom de l'autre culture primaire 2",
+              "type": "text",
+              "value": "@global.sc_name_2_label",
               "_translations": {
                 "value": {}
               },
-              "name": "html_1",
-              "_nested_name": "autre_prim_2.display_group_1.html_1"
+              "style_list": [
+                "font-size: 14px",
+                "font-weight: 600",
+                "color: #333333",
+                "flex: 1"
+              ],
+              "name": "text_1",
+              "_nested_name": "autre_prim_2.display_group_1.text_1",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "@global.sc_name_2_label",
+                    "matchedExpression": "@global.sc_name_2_label",
+                    "type": "global",
+                    "fieldName": "sc_name_2_label"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@global.sc_name_2_label": [
+                  "value"
+                ]
+              }
             },
             {
               "type": "audio",
@@ -535,7 +650,7 @@
         },
         {
           "type": "text",
-          "value": "*Il s'agit d'une culture qui n'existe pas dans la liste des cultures ci-dessus*",
+          "value": "@global.primay_crops_sc",
           "_translations": {
             "value": {}
           },
@@ -545,7 +660,22 @@
             "font-style: italic"
           ],
           "name": "text_2",
-          "_nested_name": "autre_prim_2.text_2"
+          "_nested_name": "autre_prim_2.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.primay_crops_sc",
+                "matchedExpression": "@global.primay_crops_sc",
+                "type": "global",
+                "fieldName": "primay_crops_sc"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.primay_crops_sc": [
+              "value"
+            ]
+          }
         },
         {
           "type": "image",
@@ -600,7 +730,7 @@
         },
         {
           "type": "text",
-          "value": "*La réponse est obligatoire, aucune valeur n'a été donnée!*",
+          "value": "@global.error_required_answer",
           "_translations": {
             "value": {}
           },
@@ -614,6 +744,14 @@
           "name": "text_5",
           "_nested_name": "autre_prim_2.text_5",
           "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.error_required_answer",
+                "matchedExpression": "@global.error_required_answer",
+                "type": "global",
+                "fieldName": "error_required_answer"
+              }
+            ],
             "condition": [
               {
                 "fullExpression": "@calc(@field.cul_autre_2 && @local.v_autre_1_clean_ok && (@field.autre_culture_primaire_2 == '' || @field.autre_culture_primaire_2 == null))",
@@ -648,6 +786,9 @@
             ]
           },
           "_dynamicDependencies": {
+            "@global.error_required_answer": [
+              "value"
+            ],
             "@field.cul_autre_2": [
               "condition"
             ],
@@ -665,7 +806,7 @@
         },
         {
           "type": "text",
-          "value": "*Cette culture existe déjà dans la liste standard ou est identique à la première !*",
+          "value": "@global.list_crops_exist_primary",
           "_translations": {
             "value": {}
           },
@@ -679,6 +820,14 @@
           "name": "text_6",
           "_nested_name": "autre_prim_2.text_6",
           "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.list_crops_exist_primary",
+                "matchedExpression": "@global.list_crops_exist_primary",
+                "type": "global",
+                "fieldName": "list_crops_exist_primary"
+              }
+            ],
             "condition": [
               {
                 "fullExpression": "@calc(@field.cul_autre_2 && !!@field.autre_culture_primaire_2 && (['mais','mil','sorgho','coton','arachide','fourrage'].includes(@field.autre_culture_primaire_2.toLowerCase().trim()) || (!!@field.autre_culture_primaire_1 && @field.autre_culture_primaire_1.toLowerCase().trim() == @field.autre_culture_primaire_2.toLowerCase().trim())))",
@@ -725,6 +874,9 @@
             ]
           },
           "_dynamicDependencies": {
+            "@global.list_crops_exist_primary": [
+              "value"
+            ],
             "@field.cul_autre_2": [
               "condition"
             ],
@@ -767,7 +919,7 @@
     {
       "type": "text",
       "name": "error_select",
-      "value": "*Veuillez sélectionner au moins une culture pour continuer*!",
+      "value": "@global.error_required_answer",
       "_translations": {
         "value": {}
       },
@@ -783,6 +935,14 @@
       ],
       "_nested_name": "error_select",
       "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.error_required_answer",
+            "matchedExpression": "@global.error_required_answer",
+            "type": "global",
+            "fieldName": "error_required_answer"
+          }
+        ],
         "condition": [
           {
             "fullExpression": "!@local.completed_enabled",
@@ -793,6 +953,9 @@
         ]
       },
       "_dynamicDependencies": {
+        "@global.error_required_answer": [
+          "value"
+        ],
         "!@local.completed_enabled": [
           "condition"
         ]
@@ -1172,6 +1335,7 @@
           "parameter_list": {
             "disabled": "!@local.completed_enabled"
           },
+          "condition": "@local.v_list_prim.length > 0",
           "style_list": [
             "flex: 1"
           ],
@@ -1228,7 +1392,15 @@
                   "fieldName": "completed_enabled"
                 }
               ]
-            }
+            },
+            "condition": [
+              {
+                "fullExpression": "@local.v_list_prim.length > 0",
+                "matchedExpression": "@local.v_list_prim.length",
+                "type": "local",
+                "fieldName": "v_list_prim"
+              }
+            ]
           },
           "_dynamicDependencies": {
             "@local.v_list_prim.join": [
@@ -1237,7 +1409,8 @@
             ],
             "@local.v_list_prim.length": [
               "action_list.1.args.1",
-              "action_list.1._raw"
+              "action_list.1._raw",
+              "condition"
             ],
             "!@local.completed_enabled": [
               "parameter_list.disabled"

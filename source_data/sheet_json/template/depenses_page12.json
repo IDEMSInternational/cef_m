@@ -33,7 +33,7 @@
       "value": "@calc((Number(@local.depenes_total_upa * 5)).toLocaleString('fr-FR').replace(/\\u202f/g, ' '))"
     },
     {
-      "type": "text",
+      "type": "subtitle",
       "value": "@global.total_depenses_recurrentes",
       "style_list": "font-size:20px;"
     },
@@ -48,11 +48,25 @@
       "style_list": "color: gray; font-size: 16px;"
     },
     {
-      "type": "html",
-      "value": "<div style=\"background: #FFF3E0; padding: 20px; border-radius: 15px; text-align: center; border: 2px solid #E65100;\">\n  <h1 style=\"color: #E65100; margin: 10px 0;\">@local.total_depenses_recurrentes drm</h1>\n  \n  <div style=\"background: #E8F5E9; padding: 10px; border-radius: 10px;\">\n    <span style=\"color: #2E7D32; font-weight: bold; font-size: 20px;\">\n      @local.total_depenses_recurrentes_cfa FCFA\n    </span>\n  </div>\n</div>"
+      "type": "begin_display_group",
+      "parameter_list": "style: column",
+      "style_list": "background: #FFF3E0; border-radius: 15px; text-align: center; border: 2px solid #E65100;"
     },
     {
       "type": "text",
+      "value": "@local.total_depenses_recurrentes drm",
+      "style_list": "color: #E65100; margin: 10px 0;"
+    },
+    {
+      "type": "text",
+      "value": " @local.total_depenses_recurrentes_cfa FCFA",
+      "style_list": "color: #2E7D32; font-weight: bold; font-size: 20px;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "subtitle",
       "value": "@global.total_depenses_investissements",
       "style_list": "font-size:20px;"
     },
@@ -67,11 +81,25 @@
       "style_list": "color: gray; font-size: 16px;"
     },
     {
-      "type": "html",
-      "value": "<div style=\"background: #FFF3E0; padding: 20px; border-radius: 15px; text-align: center; border: 2px solid #E65100;\">\n  <h1 style=\"color: #E65100; margin: 10px 0;\">@local.total_depenses_investissements drm</h1>\n  \n  <div style=\"background: #E8F5E9; padding: 10px; border-radius: 10px;\">\n    <span style=\"color: #2E7D32; font-weight: bold; font-size: 20px;\">\n      @local.total_depenses_investissements_cfa FCFA\n    </span>\n  </div>\n</div>"
+      "type": "begin_display_group",
+      "parameter_list": "style: column",
+      "style_list": "background: #FFF3E0; border-radius: 15px; text-align: center; border: 2px solid #E65100;"
     },
     {
       "type": "text",
+      "value": "@local.total_depenses_investissements drm",
+      "style_list": "color: #E65100; margin: 10px 0;"
+    },
+    {
+      "type": "text",
+      "value": "@local.total_depenses_investissements_cfa FCFA",
+      "style_list": "color: #2E7D32; font-weight: bold; font-size: 20px;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "subtitle",
       "value": "@global.depenes_total_upa",
       "style_list": "font-size:20px;"
     },
@@ -86,12 +114,25 @@
       "style_list": "color: gray; font-size: 16px;"
     },
     {
-      "type": "html",
-      "value": "<div style=\"background: #FFF3E0; padding: 20px; border-radius: 15px; text-align: center; border: 2px solid #E65100;\">\n  <h1 style=\"color: #E65100; margin: 10px 0;\">@local.depenes_total_upa drm</h1>\n  \n  <div style=\"background: #E8F5E9; padding: 10px; border-radius: 10px;\">\n    <span style=\"color: #2E7D32; font-weight: bold; font-size: 20px;\">\n      @local.depenes_total_upa_cfa FCFA\n    </span>\n  </div>\n</div>"
+      "type": "begin_display_group",
+      "parameter_list": "style: column",
+      "style_list": "background: #FFF3E0; border-radius: 15px; text-align: center; border: 2px solid #E65100;"
+    },
+    {
+      "type": "text",
+      "value": "@local.depenes_total_upa drm",
+      "style_list": "color: #E65100; margin: 10px 0;"
+    },
+    {
+      "type": "text",
+      "value": "@local.depenes_total_upa_cfa FCFA",
+      "style_list": "color: #2E7D32; font-weight: bold; font-size: 20px;"
+    },
+    {
+      "type": "end_display_group"
     },
     {
       "type": "begin_display_group",
-      "name": "dg_footer",
       "value": " ",
       "parameter_list": "sticky: bottom;",
       "style_list": "padding: 12px 24px;"

@@ -1,0 +1,245 @@
+{
+  "flow_type": "template",
+  "flow_name": "new_evaluation_anl",
+  "status": "released",
+  "rows": [
+    {
+      "name": "chef_upa_display",
+      "value": "@calc((Object.values(@data.upas || {}).find(u => String(u.code || '') === String(@fields.upa_code)) || {}).chef_upa || '')",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "chef_upa_display",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc((Object.values(@data.upas || {}).find(u => String(u.code || '') === String(@fields.upa_code)) || {}).chef_upa || '')",
+            "matchedExpression": "@data.upas",
+            "type": "data",
+            "fieldName": "upas"
+          },
+          {
+            "fullExpression": "@calc((Object.values(@data.upas || {}).find(u => String(u.code || '') === String(@fields.upa_code)) || {}).chef_upa || '')",
+            "matchedExpression": "@fields.upa_code",
+            "type": "fields",
+            "fieldName": "upa_code"
+          },
+          {
+            "fullExpression": "@calc((Object.values(@data.upas || {}).find(u => String(u.code || '') === String(@fields.upa_code)) || {}).chef_upa || '')",
+            "matchedExpression": "@calc((Object.values(@data.upas || {}).find(u => String(u.code || '') === String(@fields.upa_code)) || {}).chef_upa || '')",
+            "type": "calc",
+            "fieldName": "(Object.values(@data.upas || {}).find(u => String(u.code || '') === String(@fields.upa_code)) || {}).chef_upa || ''"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@data.upas": [
+          "value"
+        ],
+        "@fields.upa_code": [
+          "value"
+        ],
+        "@calc((Object.values(@data.upas || {}).find(u => String(u.code || '') === String(@fields.upa_code)) || {}).chef_upa || '')": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "parameter_list": {
+        "style": "column"
+      },
+      "style_list": [
+        "background: linear-gradient(135deg, #2e7d32, #4caf50)",
+        "border-radius: 0 0 16px 16px",
+        "display: flex",
+        "flex-direction: column",
+        "align-items: center",
+        "justify-content: center",
+        "gap: 2px",
+        "width: 100%",
+        "box-sizing: border-box",
+        "box-shadow: 0 2px 6px rgba(0,0,0,0.15)"
+      ],
+      "rows": [
+        {
+          "type": "text",
+          "value": "Unité de Production Agricole (UPA)",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "color: white",
+            "font-size: 18px",
+            "margin: 0",
+            "padding: 0",
+            "line-height: 1.2",
+            "letter-spacing: 0.5px",
+            "text-transform: uppercase",
+            "opacity: 0.9",
+            "text-align: center"
+          ],
+          "name": "text_1",
+          "_nested_name": "display_group_3.text_1"
+        },
+        {
+          "type": "text",
+          "value": "**@local.chef_upa_display**",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "color: white",
+            "font-size: 24px",
+            "font-weight: bold",
+            "margin: 0",
+            "padding: 0",
+            "line-height: 1.2",
+            "text-align: center"
+          ],
+          "name": "text_2",
+          "_nested_name": "display_group_3.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "**@local.chef_upa_display**",
+                "matchedExpression": "@local.chef_upa_display",
+                "type": "local",
+                "fieldName": "chef_upa_display"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.chef_upa_display": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_3",
+      "_nested_name": "display_group_3"
+    },
+    {
+      "type": "display_grid",
+      "name": "evaluation_menu",
+      "parameter_list": {
+        "item_width": "140px",
+        "item_border": "none",
+        "grid_width": "100%",
+        "grid_gap": "16px"
+      },
+      "style_list": [
+        "padding-bottom: 20px"
+      ],
+      "rows": [
+        {
+          "type": "data_items",
+          "name": "evaluation_items",
+          "value": "@data.evaluation_pages",
+          "rows": [
+            {
+              "type": "button",
+              "name": "evaluation_tile",
+              "value": "@item.tile_title",
+              "_translations": {
+                "value": {}
+              },
+              "action_list": [
+                {
+                  "trigger": "click",
+                  "action_id": "go_to",
+                  "args": [
+                    "@item.target_template"
+                  ],
+                  "_raw": "click | go_to: @item.target_template"
+                }
+              ],
+              "parameter_list": {
+                "variant": "card-portrait",
+                "image_asset": "@item.image_path"
+              },
+              "_nested_name": "evaluation_menu.evaluation_items.evaluation_tile",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "@item.tile_title",
+                    "matchedExpression": "@item.tile_title",
+                    "type": "item",
+                    "fieldName": "tile_title"
+                  }
+                ],
+                "action_list": {
+                  "0": {
+                    "args": {
+                      "0": [
+                        {
+                          "fullExpression": "@item.target_template",
+                          "matchedExpression": "@item.target_template",
+                          "type": "item",
+                          "fieldName": "target_template"
+                        }
+                      ]
+                    },
+                    "_raw": [
+                      {
+                        "fullExpression": "click | go_to: @item.target_template",
+                        "matchedExpression": "@item.target_template",
+                        "type": "item",
+                        "fieldName": "target_template"
+                      }
+                    ]
+                  }
+                },
+                "parameter_list": {
+                  "image_asset": [
+                    {
+                      "fullExpression": "@item.image_path",
+                      "matchedExpression": "@item.image_path",
+                      "type": "item",
+                      "fieldName": "image_path"
+                    }
+                  ]
+                }
+              },
+              "_dynamicDependencies": {
+                "@item.tile_title": [
+                  "value"
+                ],
+                "@item.target_template": [
+                  "action_list.0.args.0",
+                  "action_list.0._raw"
+                ],
+                "@item.image_path": [
+                  "parameter_list.image_asset"
+                ]
+              }
+            }
+          ],
+          "_nested_name": "evaluation_menu.evaluation_items",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@data.evaluation_pages",
+                "matchedExpression": "@data.evaluation_pages",
+                "type": "data",
+                "fieldName": "evaluation_pages"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@data.evaluation_pages": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "evaluation_menu"
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/home screen.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/101vhqFeVwFOEXsetLO1RPrKGGmuUw6bUr7kKwaBJwvs"
+  }
+}
