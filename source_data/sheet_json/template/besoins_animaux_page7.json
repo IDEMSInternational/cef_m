@@ -5,7 +5,7 @@
   "rows": [
     {
       "type": "title",
-      "value": "**TOTAUX PREVISIONELS DES BESOINS ALIMENTAIRES** "
+      "value": "@global.totaux_previsionnel_besoin"
     },
     {
       "type": "set_field",
@@ -36,8 +36,15 @@
       "style_list": "width:120px; height:120px; object-fit:contain; flex-shrink:0;"
     },
     {
-      "type": "html",
-      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\nQuantité totale de concentrés:  :<strong> @fields.total_concentre sacs </strong>\n</div>"
+      "type": "begin_display_group",
+      "style_list": "background-color: #f0f4f8; border-left-style: solid; border-left-color: #0056b3; border-radius: 5px;"
+    },
+    {
+      "type": "text",
+      "value": "@global.total_concentre_label"
+    },
+    {
+      "type": "end_display_group"
     },
     {
       "type": "text",
@@ -49,8 +56,15 @@
       "style_list": "width:120px; height:120px; object-fit:contain; flex-shrink:0;"
     },
     {
-      "type": "html",
-      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  Quantité totale de résidus de céréales: <strong> @fields.total_residu charrettée </strong></div>"
+      "type": "begin_display_group",
+      "style_list": "background-color: #f0f4f8; border-left-style: solid; border-left-color: #0056b3; border-radius: 5px;"
+    },
+    {
+      "type": "text",
+      "value": "@global.total_residu_label"
+    },
+    {
+      "type": "end_display_group"
     },
     {
       "type": "text",
@@ -62,8 +76,15 @@
       "style_list": "width:120px; height:120px; "
     },
     {
-      "type": "html",
-      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  Quantité totale de fânes: <strong> @fields.total_fane botte </strong> </div>"
+      "type": "begin_display_group",
+      "style_list": "background-color: #f0f4f8; border-left-style: solid; border-left-color: #0056b3; border-radius: 5px;"
+    },
+    {
+      "type": "text",
+      "value": "@global.total_fane_label"
+    },
+    {
+      "type": "end_display_group"
     },
     {
       "type": "begin_display_group",
@@ -80,7 +101,7 @@
     {
       "type": "button",
       "name": "page9_button_continue",
-      "value": "Continuer",
+      "value": "@global.btn_continue",
       "action_list": "click | emit: completed;",
       "style_list": "flex: 1"
     },

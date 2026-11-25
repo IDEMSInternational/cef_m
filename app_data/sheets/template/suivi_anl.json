@@ -5,17 +5,32 @@
   "rows": [
     {
       "type": "title",
-      "value": "SUIVI DE CAMPAGNE",
+      "value": "@global.step_suiv",
       "_translations": {
         "value": {}
       },
       "name": "title_2",
-      "_nested_name": "title_2"
+      "_nested_name": "title_2",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.step_suiv",
+            "matchedExpression": "@global.step_suiv",
+            "type": "global",
+            "fieldName": "step_suiv"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.step_suiv": [
+          "value"
+        ]
+      }
     },
     {
       "type": "plh_module_list_item",
       "name": "item_superficie",
-      "value": "Superficie Champs",
+      "value": "@global.sec_sup",
       "_translations": {
         "value": {}
       },
@@ -33,12 +48,27 @@
         "module_image_asset": "images/superf_champ.jpg",
         "nav_image_asset": "images/icons/expand_circle_right.png"
       },
-      "_nested_name": "item_superficie"
+      "_nested_name": "item_superficie",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.sec_sup",
+            "matchedExpression": "@global.sec_sup",
+            "type": "global",
+            "fieldName": "sec_sup"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.sec_sup": [
+          "value"
+        ]
+      }
     },
     {
       "type": "plh_module_list_item",
       "name": "item_semi",
-      "value": "Semis",
+      "value": "@global.sec_semis",
       "_translations": {
         "value": {}
       },
@@ -56,12 +86,27 @@
         "module_image_asset": "images/seeding.png",
         "nav_image_asset": "images/icons/expand_circle_right.png"
       },
-      "_nested_name": "item_semi"
+      "_nested_name": "item_semi",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.sec_semis",
+            "matchedExpression": "@global.sec_semis",
+            "type": "global",
+            "fieldName": "sec_semis"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.sec_semis": [
+          "value"
+        ]
+      }
     },
     {
       "type": "plh_module_list_item",
       "name": "item_post_semi",
-      "value": "Post Semis",
+      "value": "@global.sec_postsemis",
       "_translations": {
         "value": {}
       },
@@ -79,12 +124,27 @@
         "module_image_asset": "images/sup_cult.jpg",
         "nav_image_asset": "images/icons/expand_circle_right.png"
       },
-      "_nested_name": "item_post_semi"
+      "_nested_name": "item_post_semi",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.sec_postsemis",
+            "matchedExpression": "@global.sec_postsemis",
+            "type": "global",
+            "fieldName": "sec_postsemis"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.sec_postsemis": [
+          "value"
+        ]
+      }
     },
     {
       "type": "plh_module_list_item",
       "name": "item_recolte",
-      "value": "Récolte",
+      "value": "@global.sec_recolte",
       "_translations": {
         "value": {}
       },
@@ -102,7 +162,22 @@
         "module_image_asset": "images/ratio_membre_terre.jpg",
         "nav_image_asset": "images/icons/expand_circle_right.png"
       },
-      "_nested_name": "item_recolte"
+      "_nested_name": "item_recolte",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.sec_recolte",
+            "matchedExpression": "@global.sec_recolte",
+            "type": "global",
+            "fieldName": "sec_recolte"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.sec_recolte": [
+          "value"
+        ]
+      }
     }
   ],
   "_source": {

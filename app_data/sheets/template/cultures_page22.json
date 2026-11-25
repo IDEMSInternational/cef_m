@@ -5,26 +5,126 @@
   "rows": [
     {
       "type": "title",
-      "value": "**FIN DU FORMULAIRE**",
+      "value": "@global.fin_formulaire",
       "_translations": {
         "value": {}
       },
       "name": "title_2",
-      "_nested_name": "title_2"
+      "_nested_name": "title_2",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.fin_formulaire",
+            "matchedExpression": "@global.fin_formulaire",
+            "type": "global",
+            "fieldName": "fin_formulaire"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.fin_formulaire": [
+          "value"
+        ]
+      }
     },
     {
       "type": "text",
-      "value": "Les autres formulaires de planification qui complètent ce formulaire sont:\n-***Alimentation humaine***;\n-***Alimentation animale***;\n-***Depenses***;\n-***Fumure organique***.\n======= MERCI========",
+      "value": "@global.fin_culture_upa",
       "_translations": {
         "value": {}
       },
       "name": "text_3",
-      "_nested_name": "text_3"
+      "_nested_name": "text_3",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.fin_culture_upa",
+            "matchedExpression": "@global.fin_culture_upa",
+            "type": "global",
+            "fieldName": "fin_culture_upa"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.fin_culture_upa": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "value": "",
+      "parameter_list": {
+        "sticky": "bottom"
+      },
+      "style_list": [
+        "padding: 12px 24px"
+      ],
+      "rows": [
+        {
+          "type": "round_button",
+          "name": "page_22_button_back",
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "uncompleted"
+              ],
+              "_raw": "click | emit: uncompleted"
+            }
+          ],
+          "parameter_list": {
+            "icon_src": "arrow-back",
+            "variant": "no-background"
+          },
+          "_nested_name": "display_group_4.page_22_button_back"
+        },
+        {
+          "type": "button",
+          "name": "page_22_button_continue",
+          "value": "@global.bouton_fin",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "go_to",
+              "args": [
+                "planification_anl"
+              ],
+              "_raw": "click | go_to: planification_anl"
+            }
+          ],
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "display_group_4.page_22_button_continue",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.bouton_fin",
+                "matchedExpression": "@global.bouton_fin",
+                "type": "global",
+                "fieldName": "bouton_fin"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.bouton_fin": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_4",
+      "_nested_name": "display_group_4"
     }
   ],
   "_source": {
     "name": "cef_m sheets",
-    "path": "template/Planification/Cultures_form_sheets.xlsx",
+    "path": "template/Planification/cultures_form_sheets.xlsx",
     "url": "https://docs.google.com/spreadsheets/d/1BAP12cPkFZaHtm0Xozys0kLOqnVOi1h2UUBMoZbmKQI"
   }
 }

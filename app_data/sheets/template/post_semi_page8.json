@@ -1,0 +1,192 @@
+{
+  "flow_type": "template",
+  "flow_name": "post_semi_page8",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "name": "page_title",
+      "value": "@global.title_page8",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "page_title",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.title_page8",
+            "matchedExpression": "@global.title_page8",
+            "type": "global",
+            "fieldName": "title_page8"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.title_page8": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "text",
+          "name": "observation_appreciation_label",
+          "value": "@global.observation_appreciation_label",
+          "_translations": {
+            "value": {}
+          },
+          "_nested_name": "display_group_3.observation_appreciation_label",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.observation_appreciation_label",
+                "matchedExpression": "@global.observation_appreciation_label",
+                "type": "global",
+                "fieldName": "observation_appreciation_label"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.observation_appreciation_label": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "audio",
+          "name": "audio_20_1",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/postSemi/appreciation_audio_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "display_group_3.audio_20_1"
+        }
+      ],
+      "name": "display_group_3",
+      "_nested_name": "display_group_3"
+    },
+    {
+      "type": "image",
+      "value": "images/vocal.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width:120px",
+        "height:120px",
+        "object-fit:contain",
+        "flex-shrink:0"
+      ],
+      "name": "image_5",
+      "_nested_name": "image_5"
+    },
+    {
+      "type": "text",
+      "name": "observation_appreciation_hint",
+      "value": "@global.observation_appreciation",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "font-size:14px"
+      ],
+      "_nested_name": "observation_appreciation_hint",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.observation_appreciation",
+            "matchedExpression": "@global.observation_appreciation",
+            "type": "global",
+            "fieldName": "observation_appreciation"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.observation_appreciation": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "dg_footer",
+      "value": "",
+      "parameter_list": {
+        "sticky": "bottom"
+      },
+      "style_list": [
+        "padding: 12px 24px"
+      ],
+      "rows": [
+        {
+          "type": "round_button",
+          "name": "page_8_button_back",
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "uncompleted"
+              ],
+              "_raw": "click | emit: uncompleted"
+            }
+          ],
+          "parameter_list": {
+            "icon_src": "arrow-back",
+            "variant": "no-background"
+          },
+          "_nested_name": "dg_footer.page_8_button_back"
+        },
+        {
+          "type": "button",
+          "name": "page_8_button_continue",
+          "value": "@global.btn_continue",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "completed"
+              ],
+              "_raw": "click | emit: completed"
+            }
+          ],
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "dg_footer.page_8_button_continue",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.btn_continue",
+                "matchedExpression": "@global.btn_continue",
+                "type": "global",
+                "fieldName": "btn_continue"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.btn_continue": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "dg_footer"
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/Suivi/Post-semis_form_sheets.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/12PZPM4h6d74rSqBrmHZOvENYeVPTI8AAYZmt-zTmsJs"
+  }
+}

@@ -5,17 +5,32 @@
   "rows": [
     {
       "type": "title",
-      "value": "PLANIFICATION ANNUELLE",
+      "value": "@global.step_plan",
       "_translations": {
         "value": {}
       },
       "name": "title_2",
-      "_nested_name": "title_2"
+      "_nested_name": "title_2",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.step_plan",
+            "matchedExpression": "@global.step_plan",
+            "type": "global",
+            "fieldName": "step_plan"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.step_plan": [
+          "value"
+        ]
+      }
     },
     {
       "type": "plh_module_list_item",
       "name": "item_enrolment",
-      "value": "Enrôlement",
+      "value": "@global.planif_enrol",
       "_translations": {
         "value": {}
       },
@@ -33,12 +48,27 @@
         "module_image_asset": "images/ecrire.jpg",
         "nav_image_asset": "images/icons/expand_circle_right.png"
       },
-      "_nested_name": "item_enrolment"
+      "_nested_name": "item_enrolment",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.planif_enrol",
+            "matchedExpression": "@global.planif_enrol",
+            "type": "global",
+            "fieldName": "planif_enrol"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.planif_enrol": [
+          "value"
+        ]
+      }
     },
     {
       "type": "plh_module_list_item",
       "name": "item_depenses",
-      "value": "Cultures de l'UPA",
+      "value": "@global.planif_culture",
       "_translations": {
         "value": {}
       },
@@ -57,12 +87,27 @@
         "nav_image_asset": "images/icons/expand_circle_right.png",
         "background": "#E8F5E9"
       },
-      "_nested_name": "item_depenses"
+      "_nested_name": "item_depenses",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.planif_culture",
+            "matchedExpression": "@global.planif_culture",
+            "type": "global",
+            "fieldName": "planif_culture"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.planif_culture": [
+          "value"
+        ]
+      }
     },
     {
       "type": "plh_module_list_item",
       "name": "item_humains",
-      "value": "Alimentation Humaine",
+      "value": "@global.planif_alim_humain",
       "_translations": {
         "value": {}
       },
@@ -81,12 +126,27 @@
         "nav_image_asset": "images/icons/expand_circle_right.png",
         "background": "#B3B3B3"
       },
-      "_nested_name": "item_humains"
+      "_nested_name": "item_humains",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.planif_alim_humain",
+            "matchedExpression": "@global.planif_alim_humain",
+            "type": "global",
+            "fieldName": "planif_alim_humain"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.planif_alim_humain": [
+          "value"
+        ]
+      }
     },
     {
       "type": "plh_module_list_item",
       "name": "item_animaux",
-      "value": "Alimentation Animale",
+      "value": "@global.planif_alim_animaux",
       "_translations": {
         "value": {}
       },
@@ -105,12 +165,27 @@
         "nav_image_asset": "images/icons/expand_circle_right.png",
         "background": "#E3F2FD"
       },
-      "_nested_name": "item_animaux"
+      "_nested_name": "item_animaux",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.planif_alim_animaux",
+            "matchedExpression": "@global.planif_alim_animaux",
+            "type": "global",
+            "fieldName": "planif_alim_animaux"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.planif_alim_animaux": [
+          "value"
+        ]
+      }
     },
     {
       "type": "plh_module_list_item",
       "name": "item_depenses",
-      "value": "Dépenses de l'UPA",
+      "value": "@global.planif_depense",
       "_translations": {
         "value": {}
       },
@@ -129,12 +204,27 @@
         "nav_image_asset": "images/icons/expand_circle_right.png",
         "background": "#FFF3E0"
       },
-      "_nested_name": "item_depenses"
+      "_nested_name": "item_depenses",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.planif_depense",
+            "matchedExpression": "@global.planif_depense",
+            "type": "global",
+            "fieldName": "planif_depense"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.planif_depense": [
+          "value"
+        ]
+      }
     },
     {
       "type": "plh_module_list_item",
       "name": "item_fumure",
-      "value": "Fumure organique",
+      "value": "@global.planif_fumure_org",
       "_translations": {
         "value": {}
       },
@@ -154,7 +244,22 @@
         "background": "#f0fdfa",
         "border-left": "4px solid #00adcc"
       },
-      "_nested_name": "item_fumure"
+      "_nested_name": "item_fumure",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.planif_fumure_org",
+            "matchedExpression": "@global.planif_fumure_org",
+            "type": "global",
+            "fieldName": "planif_fumure_org"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.planif_fumure_org": [
+          "value"
+        ]
+      }
     }
   ],
   "_source": {

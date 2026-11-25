@@ -131,7 +131,7 @@
     },
     {
       "type": "display_group",
-      "name": "header_top",
+      "name": "header",
       "style_list": [
         "background: #00adcc",
         "padding: 15px",
@@ -140,49 +140,61 @@
       ],
       "rows": [
         {
-          "type": "html",
-          "value": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>",
+          "type": "text",
+          "value": "@global.cult_head",
           "_translations": {
             "value": {}
           },
-          "name": "html_1",
-          "_nested_name": "header_top.html_1",
+          "style_list": [
+            "color: white",
+            "font-weight: bold",
+            "font-size: 14px",
+            "text-transform: uppercase"
+          ],
+          "name": "text_1",
+          "_nested_name": "header.text_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>",
-                "matchedExpression": "@local.v_current_human",
-                "type": "local",
-                "fieldName": "v_current_human"
-              },
-              {
-                "fullExpression": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>",
-                "matchedExpression": "@field.total_cultures_selected",
-                "type": "field",
-                "fieldName": "total_cultures_selected"
+                "fullExpression": "@global.cult_head",
+                "matchedExpression": "@global.cult_head",
+                "type": "global",
+                "fieldName": "cult_head"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@local.v_current_human": [
-              "value"
-            ],
-            "@field.total_cultures_selected": [
+            "@global.cult_head": [
               "value"
             ]
           }
         }
       ],
-      "_nested_name": "header_top"
+      "_nested_name": "header"
     },
     {
       "type": "title",
-      "value": "BILAN & OBSERVATIONS",
+      "value": "@global.title_page6",
       "_translations": {
         "value": {}
       },
       "name": "title_7",
-      "_nested_name": "title_7"
+      "_nested_name": "title_7",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.title_page6",
+            "matchedExpression": "@global.title_page6",
+            "type": "global",
+            "fieldName": "title_page6"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.title_page6": [
+          "value"
+        ]
+      }
     },
     {
       "type": "display_group",
@@ -205,8 +217,8 @@
             "value": {}
           },
           "style_list": [
-            "width: 100px",
-            "height: 100px"
+            "width: 60%",
+            "object-fit: contain"
           ],
           "name": "image_1",
           "_nested_name": "display_group_8.image_1",
@@ -244,28 +256,31 @@
         },
         {
           "type": "text",
-          "value": "<h3 style='color: black; margin: 10px 0;'>Culture : <span style='color: #e3a730;'>@field.active_culture_name</span></h3>",
+          "value": "@global.cult_name",
           "_translations": {
             "value": {}
           },
           "style_list": [
             "font-weight: bold",
-            "font-size: 18px"
+            "font-size: 18px",
+            "color: #e3a730",
+            "margin-top: 10px",
+            "text-align: center"
           ],
           "name": "text_2",
           "_nested_name": "display_group_8.text_2",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "<h3 style='color: black; margin: 10px 0;'>Culture : <span style='color: #e3a730;'>@field.active_culture_name</span></h3>",
-                "matchedExpression": "@field.active_culture_name",
-                "type": "field",
-                "fieldName": "active_culture_name"
+                "fullExpression": "@global.cult_name",
+                "matchedExpression": "@global.cult_name",
+                "type": "global",
+                "fieldName": "cult_name"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@field.active_culture_name": [
+            "@global.cult_name": [
               "value"
             ]
           }
@@ -275,17 +290,30 @@
       "_nested_name": "display_group_8"
     },
     {
-      "type": "html",
-      "value": "<br><h3 style=\"color: #E65100; margin:0;\">TOTAL INVESTI : @local.v_tot_cult Dram</h3>",
+      "type": "text",
+      "value": "@global.tot_inv : @local.v_tot_cult Dram",
       "_translations": {
         "value": {}
       },
-      "name": "html_10",
-      "_nested_name": "html_10",
+      "style_list": [
+        "color: #E65100",
+        "font-weight: bold",
+        "font-size: 18px",
+        "text-align: center",
+        "margin-bottom: 5px"
+      ],
+      "name": "text_10",
+      "_nested_name": "text_10",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<br><h3 style=\"color: #E65100; margin:0;\">TOTAL INVESTI : @local.v_tot_cult Dram</h3>",
+            "fullExpression": "@global.tot_inv : @local.v_tot_cult Dram",
+            "matchedExpression": "@global.tot_inv",
+            "type": "global",
+            "fieldName": "tot_inv"
+          },
+          {
+            "fullExpression": "@global.tot_inv : @local.v_tot_cult Dram",
             "matchedExpression": "@local.v_tot_cult",
             "type": "local",
             "fieldName": "v_tot_cult"
@@ -293,23 +321,33 @@
         ]
       },
       "_dynamicDependencies": {
+        "@global.tot_inv": [
+          "value"
+        ],
         "@local.v_tot_cult": [
           "value"
         ]
       }
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: #757575; font-size: 14px;\">Équivalent : <b>@local.v_tot_fcfa FCFA</b><br><small><i>(Base : 1 dram = 5 FCFA)</i></small></p>",
+      "type": "text",
+      "value": "≈  @local.v_tot_fcfa FCFA",
       "_translations": {
         "value": {}
       },
-      "name": "html_11",
-      "_nested_name": "html_11",
+      "style_list": [
+        "color: #757575",
+        "font-size: 14px",
+        "text-align: center",
+        "font-style: italic",
+        "margin-bottom: 15px"
+      ],
+      "name": "text_11",
+      "_nested_name": "text_11",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: #757575; font-size: 14px;\">Équivalent : <b>@local.v_tot_fcfa FCFA</b><br><small><i>(Base : 1 dram = 5 FCFA)</i></small></p>",
+            "fullExpression": "≈  @local.v_tot_fcfa FCFA",
             "matchedExpression": "@local.v_tot_fcfa",
             "type": "local",
             "fieldName": "v_tot_fcfa"
@@ -334,7 +372,7 @@
           "type": "audio",
           "parameter_list": {
             "variant": "button_only",
-            "src": "audio/postSemi/cout_cult_postsemis_fr.mp3",
+            "src": "audio/postSemi/cout_cult_postSemi_fr.mp3",
             "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
           "exclude_from_translation": true,
@@ -348,13 +386,33 @@
       "_nested_name": "bilan_card"
     },
     {
-      "type": "html",
-      "value": "<br><b style=\"color: #455A64\">COMMENT SOUHAITEZ-VOUS FAIRE VOTRE CONSTAT ?</b>",
+      "type": "text",
+      "value": "@global.lbl_constat_title",
       "_translations": {
         "value": {}
       },
-      "name": "html_14",
-      "_nested_name": "html_14"
+      "style_list": [
+        "color: #455A64",
+        "font-weight: bold",
+        "margin-bottom: 10px"
+      ],
+      "name": "text_14",
+      "_nested_name": "text_14",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.lbl_constat_title",
+            "matchedExpression": "@global.lbl_constat_title",
+            "type": "global",
+            "fieldName": "lbl_constat_title"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.lbl_constat_title": [
+          "value"
+        ]
+      }
     },
     {
       "type": "radio_button_grid",
@@ -423,7 +481,7 @@
           "type": "audio",
           "parameter_list": {
             "variant": "button_only",
-            "src": "audio/postSemi/Ob_audio_postsemis_fr.mp3",
+            "src": "audio/postSemi/Ob_audio_postSemi_fr.mp3",
             "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
           "exclude_from_translation": true,
@@ -435,12 +493,27 @@
         },
         {
           "type": "text",
-          "value": "Enregistrez votre témoignage vocal ci-dessus.",
+          "value": "@global.txt_obs_v",
           "_translations": {
             "value": {}
           },
           "name": "text_2",
-          "_nested_name": "obs_audio.text_2"
+          "_nested_name": "obs_audio.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.txt_obs_v",
+                "matchedExpression": "@global.txt_obs_v",
+                "type": "global",
+                "fieldName": "txt_obs_v"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.txt_obs_v": [
+              "value"
+            ]
+          }
         }
       ],
       "_nested_name": "obs_audio",
@@ -473,7 +546,7 @@
           "type": "audio",
           "parameter_list": {
             "variant": "button_only",
-            "src": "audio/postSemi/Ob_photo_postsemis_fr.mp3",
+            "src": "audio/postSemi/Ob_photo_postSemi_fr.mp3",
             "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
           "exclude_from_translation": true,
@@ -485,12 +558,27 @@
         },
         {
           "type": "text",
-          "value": "Prenez une photo d'un point précis du champ.",
+          "value": "@global.txt_obs_p",
           "_translations": {
             "value": {}
           },
           "name": "text_2",
-          "_nested_name": "obs_photo.text_2"
+          "_nested_name": "obs_photo.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.txt_obs_p",
+                "matchedExpression": "@global.txt_obs_p",
+                "type": "global",
+                "fieldName": "txt_obs_p"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.txt_obs_p": [
+              "value"
+            ]
+          }
         }
       ],
       "_nested_name": "obs_photo",
@@ -523,7 +611,7 @@
           "type": "audio",
           "parameter_list": {
             "variant": "button_only",
-            "src": "audio/postSemi/Ob_video_postsemis_fr.mp3",
+            "src": "audio/postSemi/Ob_video_postSemi_fr.mp3",
             "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
           "exclude_from_translation": true,
@@ -535,12 +623,27 @@
         },
         {
           "type": "text",
-          "value": "Filmez l'état général de la culture.",
+          "value": "@global.txt_obs_vi",
           "_translations": {
             "value": {}
           },
           "name": "text_2",
-          "_nested_name": "obs_video.text_2"
+          "_nested_name": "obs_video.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.txt_obs_vi",
+                "matchedExpression": "@global.txt_obs_vi",
+                "type": "global",
+                "fieldName": "txt_obs_vi"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.txt_obs_vi": [
+              "value"
+            ]
+          }
         }
       ],
       "_nested_name": "obs_video",
@@ -570,18 +673,42 @@
       ],
       "rows": [
         {
+          "type": "text",
+          "value": "@global.hint_text",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_1",
+          "_nested_name": "obs_text.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.hint_text",
+                "matchedExpression": "@global.hint_text",
+                "type": "global",
+                "fieldName": "hint_text"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.hint_text": [
+              "value"
+            ]
+          }
+        },
+        {
           "type": "audio",
           "parameter_list": {
             "variant": "button_only",
-            "src": "audio/postSemi/Ob_ecrit_postsemis_fr.mp3",
+            "src": "audio/postSemi/Ob_ecrit_postSemi_fr.mp3",
             "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
           "exclude_from_translation": true,
           "style_list": [
             "float: right"
           ],
-          "name": "audio_1",
-          "_nested_name": "obs_text.audio_1"
+          "name": "audio_2",
+          "_nested_name": "obs_text.audio_2"
         },
         {
           "type": "text_area",
@@ -602,7 +729,6 @@
             }
           ],
           "parameter_list": {
-            "placeholder": "Saisissez vos remarques...",
             "multiline": "true"
           },
           "style_list": [
@@ -1056,28 +1182,28 @@
               "trigger": "click",
               "action_id": "set_field",
               "args": [
-                "no_autre_cout_postsemis",
+                "no_autre_cout_postSemi",
                 ""
               ],
-              "_raw": "click | set_field: no_autre_cout_postsemis :"
+              "_raw": "click | set_field: no_autre_cout_postSemi :"
             },
             {
               "trigger": "click",
               "action_id": "set_field",
               "args": [
-                "nom_autre_cout_postsemis",
+                "nom_autre_cout_postSemi",
                 ""
               ],
-              "_raw": "click | set_field: nom_autre_cout_postsemis :"
+              "_raw": "click | set_field: nom_autre_cout_postSemi :"
             },
             {
               "trigger": "click",
               "action_id": "set_field",
               "args": [
-                "autre_cout_postsemis",
+                "autre_cout_postSemi",
                 ""
               ],
-              "_raw": "click | set_field: autre_cout_postsemis :"
+              "_raw": "click | set_field: autre_cout_postSemi :"
             },
             {
               "trigger": "click",

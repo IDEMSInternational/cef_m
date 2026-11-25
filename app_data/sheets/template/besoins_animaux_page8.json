@@ -5,12 +5,27 @@
   "rows": [
     {
       "type": "title",
-      "value": "**REPARTITION DES BESOINS PREVISIONNELS EN CONCENTRES**",
+      "value": "@global.repartition_besoin_prevision",
       "_translations": {
         "value": {}
       },
       "name": "title_2",
-      "_nested_name": "title_2"
+      "_nested_name": "title_2",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.repartition_besoin_prevision",
+            "matchedExpression": "@global.repartition_besoin_prevision",
+            "type": "global",
+            "fieldName": "repartition_besoin_prevision"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.repartition_besoin_prevision": [
+          "value"
+        ]
+      }
     },
     {
       "type": "text",
@@ -37,6 +52,30 @@
       }
     },
     {
+      "name": "attempt_submit",
+      "value": "@fields.attempt_submit",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "attempt_submit",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.attempt_submit",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.attempt_submit": [
+          "value"
+        ]
+      }
+    },
+    {
       "type": "image",
       "value": "images/Residus.jpg",
       "_translations": {
@@ -48,21 +87,21 @@
         "object-fit:contain",
         "flex-shrink:0"
       ],
-      "name": "image_4",
-      "_nested_name": "image_4"
+      "name": "image_5",
+      "_nested_name": "image_5"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: black;\"> @global.hint_total_concentre </p>",
+      "type": "subtitle",
+      "value": "@global.hint_total_concentre",
       "_translations": {
         "value": {}
       },
-      "name": "html_5",
-      "_nested_name": "html_5",
+      "name": "subtitle_6",
+      "_nested_name": "subtitle_6",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: black;\"> @global.hint_total_concentre </p>",
+            "fullExpression": "@global.hint_total_concentre",
             "matchedExpression": "@global.hint_total_concentre",
             "type": "global",
             "fieldName": "hint_total_concentre"
@@ -81,8 +120,8 @@
       "_translations": {
         "value": {}
       },
-      "name": "text_6",
-      "_nested_name": "text_6",
+      "name": "text_7",
+      "_nested_name": "text_7",
       "_dynamicFields": {
         "value": [
           {
@@ -111,8 +150,8 @@
         "object-fit:contain",
         "flex-shrink:0"
       ],
-      "name": "image_7",
-      "_nested_name": "image_7"
+      "name": "image_8",
+      "_nested_name": "image_8"
     },
     {
       "type": "text_box",
@@ -134,7 +173,7 @@
       ],
       "parameter_list": {
         "number_input": "true",
-        "placeholder": "Donnez la quantité de son de céréales"
+        "placeholder": "@global.texte_placeholder"
       },
       "exclude_from_translation": true,
       "_nested_name": "quantite_son",
@@ -146,53 +185,91 @@
             "type": "fields",
             "fieldName": "quantite_son"
           }
-        ]
+        ],
+        "parameter_list": {
+          "placeholder": [
+            {
+              "fullExpression": "@global.texte_placeholder",
+              "matchedExpression": "@global.texte_placeholder",
+              "type": "global",
+              "fieldName": "texte_placeholder"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@fields.quantite_son": [
           "value"
+        ],
+        "@global.texte_placeholder": [
+          "parameter_list.placeholder"
         ]
       }
     },
     {
-      "type": "html",
-      "name": "html_text",
-      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
       "_translations": {
         "value": {}
       },
-      "condition": "!@local.quantite_son",
-      "_nested_name": "html_text",
+      "condition": "!@fields.quantite_son && @fields.attempt_submit",
+      "style_list": [
+        "@global.reponse_style"
+      ],
+      "name": "text_10",
+      "_nested_name": "text_10",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: red;\"> @global.warning_message </p>",
-            "matchedExpression": "@global.warning_message",
+            "fullExpression": "@global.reponse_obligatoire",
+            "matchedExpression": "@global.reponse_obligatoire",
             "type": "global",
-            "fieldName": "warning_message"
+            "fieldName": "reponse_obligatoire"
           }
         ],
         "condition": [
           {
-            "fullExpression": "!@local.quantite_son",
-            "matchedExpression": "!@local.quantite_son",
-            "type": "local",
+            "fullExpression": "!@fields.quantite_son && @fields.attempt_submit",
+            "matchedExpression": "!@fields.quantite_son",
+            "type": "fields",
             "fieldName": "quantite_son"
+          },
+          {
+            "fullExpression": "!@fields.quantite_son && @fields.attempt_submit",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
-        "@global.warning_message": [
+        "@global.reponse_obligatoire": [
           "value"
         ],
-        "!@local.quantite_son": [
+        "!@fields.quantite_son": [
           "condition"
+        ],
+        "@fields.attempt_submit": [
+          "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
     {
       "name": "valid_quantite_son",
-      "value": "@calc((/^\\d+$/.test(@fields.quantite_son) && @fields.quantite_son <= @fields.total_concentre ) || @fields.quantite_son == '' || !@fields.quantite_son )",
+      "value": "@calc((/^\\d+$/.test(@fields.quantite_son) && @fields.quantite_son<= @fields.total_concentre ) || @fields.quantite_son == '' || !@fields.quantite_son )",
       "_translations": {
         "value": {}
       },
@@ -201,40 +278,40 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@fields.quantite_son) && @fields.quantite_son <= @fields.total_concentre ) || @fields.quantite_son == '' || !@fields.quantite_son )",
+            "fullExpression": "@calc((/^\\d+$/.test(@fields.quantite_son) && @fields.quantite_son<= @fields.total_concentre ) || @fields.quantite_son == '' || !@fields.quantite_son )",
             "matchedExpression": "@fields.quantite_son",
             "type": "fields",
             "fieldName": "quantite_son"
           },
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@fields.quantite_son) && @fields.quantite_son <= @fields.total_concentre ) || @fields.quantite_son == '' || !@fields.quantite_son )",
+            "fullExpression": "@calc((/^\\d+$/.test(@fields.quantite_son) && @fields.quantite_son<= @fields.total_concentre ) || @fields.quantite_son == '' || !@fields.quantite_son )",
             "matchedExpression": "@fields.quantite_son",
             "type": "fields",
             "fieldName": "quantite_son"
           },
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@fields.quantite_son) && @fields.quantite_son <= @fields.total_concentre ) || @fields.quantite_son == '' || !@fields.quantite_son )",
+            "fullExpression": "@calc((/^\\d+$/.test(@fields.quantite_son) && @fields.quantite_son<= @fields.total_concentre ) || @fields.quantite_son == '' || !@fields.quantite_son )",
             "matchedExpression": "@fields.total_concentre",
             "type": "fields",
             "fieldName": "total_concentre"
           },
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@fields.quantite_son) && @fields.quantite_son <= @fields.total_concentre ) || @fields.quantite_son == '' || !@fields.quantite_son )",
+            "fullExpression": "@calc((/^\\d+$/.test(@fields.quantite_son) && @fields.quantite_son<= @fields.total_concentre ) || @fields.quantite_son == '' || !@fields.quantite_son )",
             "matchedExpression": "@fields.quantite_son",
             "type": "fields",
             "fieldName": "quantite_son"
           },
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@fields.quantite_son) && @fields.quantite_son <= @fields.total_concentre ) || @fields.quantite_son == '' || !@fields.quantite_son )",
+            "fullExpression": "@calc((/^\\d+$/.test(@fields.quantite_son) && @fields.quantite_son<= @fields.total_concentre ) || @fields.quantite_son == '' || !@fields.quantite_son )",
             "matchedExpression": "!@fields.quantite_son",
             "type": "fields",
             "fieldName": "quantite_son"
           },
           {
-            "fullExpression": "@calc((/^\\d+$/.test(@fields.quantite_son) && @fields.quantite_son <= @fields.total_concentre ) || @fields.quantite_son == '' || !@fields.quantite_son )",
-            "matchedExpression": "@calc((/^\\d+$/.test(@fields.quantite_son) && @fields.quantite_son <= @fields.total_concentre ) || @fields.quantite_son == '' || !@fields.quantite_son )",
+            "fullExpression": "@calc((/^\\d+$/.test(@fields.quantite_son) && @fields.quantite_son<= @fields.total_concentre ) || @fields.quantite_son == '' || !@fields.quantite_son )",
+            "matchedExpression": "@calc((/^\\d+$/.test(@fields.quantite_son) && @fields.quantite_son<= @fields.total_concentre ) || @fields.quantite_son == '' || !@fields.quantite_son )",
             "type": "calc",
-            "fieldName": "(/^\\d+$/.test(@fields.quantite_son) && @fields.quantite_son <= @fields.total_concentre ) || @fields.quantite_son == '' || !@fields.quantite_son "
+            "fieldName": "(/^\\d+$/.test(@fields.quantite_son) && @fields.quantite_son<= @fields.total_concentre ) || @fields.quantite_son == '' || !@fields.quantite_son "
           }
         ]
       },
@@ -250,7 +327,7 @@
         "!@fields.quantite_son": [
           "value"
         ],
-        "@calc((/^\\d+$/.test(@fields.quantite_son) && @fields.quantite_son <= @fields.total_concentre ) || @fields.quantite_son == '' || !@fields.quantite_son )": [
+        "@calc((/^\\d+$/.test(@fields.quantite_son) && @fields.quantite_son<= @fields.total_concentre ) || @fields.quantite_son == '' || !@fields.quantite_son )": [
           "value"
         ]
       }
@@ -264,11 +341,10 @@
       "condition": "!@local.valid_quantite_son",
       "exclude_from_translation": true,
       "style_list": [
-        "color: #FF0000",
-        "font-size: 14px"
+        "@global.reponse_style"
       ],
-      "name": "text_11",
-      "_nested_name": "text_11",
+      "name": "text_12",
+      "_nested_name": "text_12",
       "_dynamicFields": {
         "value": [
           {
@@ -285,7 +361,17 @@
             "type": "local",
             "fieldName": "valid_quantite_son"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.validite_nombre": [
@@ -293,6 +379,9 @@
         ],
         "!@local.valid_quantite_son": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
@@ -303,8 +392,8 @@
         "value": {}
       },
       "condition": "@fields.quantite_son > 0",
-      "name": "text_12",
-      "_nested_name": "text_12",
+      "name": "text_13",
+      "_nested_name": "text_13",
       "_dynamicFields": {
         "value": [
           {
@@ -333,18 +422,18 @@
       }
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: black;\"> @global.hint_qtite_tourteau </p>",
+      "type": "text",
+      "value": "@global.hint_qtite_tourteau",
       "_translations": {
         "value": {}
       },
       "condition": "@fields.quantite_son > 0",
-      "name": "html_13",
-      "_nested_name": "html_13",
+      "name": "text_14",
+      "_nested_name": "text_14",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: black;\"> @global.hint_qtite_tourteau </p>",
+            "fullExpression": "@global.hint_qtite_tourteau",
             "matchedExpression": "@global.hint_qtite_tourteau",
             "type": "global",
             "fieldName": "hint_qtite_tourteau"
@@ -381,8 +470,8 @@
         "object-fit:contain",
         "flex-shrink:0"
       ],
-      "name": "image_14",
-      "_nested_name": "image_14",
+      "name": "image_15",
+      "_nested_name": "image_15",
       "_dynamicFields": {
         "condition": [
           {
@@ -406,7 +495,7 @@
       "_translations": {
         "value": {}
       },
-      "condition": "@fields.quantite_son > 0",
+      "condition": "@fields.quantite_son",
       "_nested_name": "quantite_tourteau",
       "_dynamicFields": {
         "value": [
@@ -431,7 +520,7 @@
         ],
         "condition": [
           {
-            "fullExpression": "@fields.quantite_son > 0",
+            "fullExpression": "@fields.quantite_son",
             "matchedExpression": "@fields.quantite_son",
             "type": "fields",
             "fieldName": "quantite_son"
@@ -452,26 +541,46 @@
       }
     },
     {
-      "type": "html",
-      "name": "note_tourteau",
-      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n La quantité de tourteau de coton est :  <strong> @fields.quantite_tourteau sacs\n</strong> </div>",
-      "_translations": {
-        "value": {}
-      },
-      "condition": "@fields.quantite_son > 0",
-      "_nested_name": "note_tourteau",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n La quantité de tourteau de coton est :  <strong> @fields.quantite_tourteau sacs\n</strong> </div>",
-            "matchedExpression": "@fields.quantite_tourteau",
-            "type": "fields",
-            "fieldName": "quantite_tourteau"
+      "type": "display_group",
+      "condition": "@fields.quantite_son",
+      "style_list": [
+        "background-color: #f0f4f8",
+        "border-left-style: solid",
+        "border-left-color: #0056b3",
+        "border-radius: 5px"
+      ],
+      "rows": [
+        {
+          "type": "text",
+          "value": "@global.note_tourteau_label",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_1",
+          "_nested_name": "display_group_17.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.note_tourteau_label",
+                "matchedExpression": "@global.note_tourteau_label",
+                "type": "global",
+                "fieldName": "note_tourteau_label"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.note_tourteau_label": [
+              "value"
+            ]
           }
-        ],
+        }
+      ],
+      "name": "display_group_17",
+      "_nested_name": "display_group_17",
+      "_dynamicFields": {
         "condition": [
           {
-            "fullExpression": "@fields.quantite_son > 0",
+            "fullExpression": "@fields.quantite_son",
             "matchedExpression": "@fields.quantite_son",
             "type": "fields",
             "fieldName": "quantite_son"
@@ -479,9 +588,6 @@
         ]
       },
       "_dynamicDependencies": {
-        "@fields.quantite_tourteau": [
-          "value"
-        ],
         "@fields.quantite_son": [
           "condition"
         ]
@@ -489,7 +595,7 @@
     },
     {
       "name": "completed_enabled",
-      "value": "!!@fields.quantite_son",
+      "value": "@fields.quantite_son",
       "_translations": {
         "value": {}
       },
@@ -498,15 +604,15 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "!!@fields.quantite_son",
-            "matchedExpression": "!@fields.quantite_son",
+            "fullExpression": "@fields.quantite_son",
+            "matchedExpression": "@fields.quantite_son",
             "type": "fields",
             "fieldName": "quantite_son"
           }
         ]
       },
       "_dynamicDependencies": {
-        "!@fields.quantite_son": [
+        "@fields.quantite_son": [
           "value"
         ]
       }
@@ -538,12 +644,62 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "display_group_18.page10_button_back"
+          "_nested_name": "display_group_20.page10_button_back"
+        },
+        {
+          "type": "button",
+          "name": "btn_attempt_submit",
+          "value": "@global.btn_continue",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "attempt_submit",
+                true
+              ],
+              "_raw": "click | set_field: attempt_submit: true"
+            }
+          ],
+          "condition": "!@local.completed_enabled",
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "display_group_20.btn_attempt_submit",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.btn_continue",
+                "matchedExpression": "@global.btn_continue",
+                "type": "global",
+                "fieldName": "btn_continue"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "!@local.completed_enabled",
+                "matchedExpression": "!@local.completed_enabled",
+                "type": "local",
+                "fieldName": "completed_enabled"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.btn_continue": [
+              "value"
+            ],
+            "!@local.completed_enabled": [
+              "condition"
+            ]
+          }
         },
         {
           "type": "button",
           "name": "page10_button_continue",
-          "value": "Continuer",
+          "value": "@global.btn_continue",
           "_translations": {
             "value": {}
           },
@@ -560,11 +716,20 @@
           "parameter_list": {
             "disabled": "!@local.completed_enabled"
           },
+          "condition": "@local.completed_enabled",
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "display_group_18.page10_button_continue",
+          "_nested_name": "display_group_20.page10_button_continue",
           "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.btn_continue",
+                "matchedExpression": "@global.btn_continue",
+                "type": "global",
+                "fieldName": "btn_continue"
+              }
+            ],
             "parameter_list": {
               "disabled": [
                 {
@@ -574,17 +739,31 @@
                   "fieldName": "completed_enabled"
                 }
               ]
-            }
+            },
+            "condition": [
+              {
+                "fullExpression": "@local.completed_enabled",
+                "matchedExpression": "@local.completed_enabled",
+                "type": "local",
+                "fieldName": "completed_enabled"
+              }
+            ]
           },
           "_dynamicDependencies": {
+            "@global.btn_continue": [
+              "value"
+            ],
             "!@local.completed_enabled": [
               "parameter_list.disabled"
+            ],
+            "@local.completed_enabled": [
+              "condition"
             ]
           }
         }
       ],
-      "name": "display_group_18",
-      "_nested_name": "display_group_18"
+      "name": "display_group_20",
+      "_nested_name": "display_group_20"
     }
   ],
   "_source": {

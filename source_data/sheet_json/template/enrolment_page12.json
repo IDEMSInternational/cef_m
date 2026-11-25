@@ -5,25 +5,19 @@
   "rows": [
     {
       "type": "title",
-      "value": "EQUIPEMENT DE L'UPA"
+      "value": "@global.membre_upa"
     },
     {
-      "name": "attempt_submit",
-      "value": "@fields.attempt_submit"
+      "type": "begin_display_group"
     },
     {
-      "type": "begin_display_group",
-      "style_list": "display: block; width: 100%"
-    },
-    {
-      "type": "html",
-      "value": "@global.nb_charrues<span style=\"color: red;\">*</span>",
-      "style_list": "font-size:20px;"
+      "type": "subtitle",
+      "value": "@global.nb_personnes_upa"
     },
     {
       "type": "audio",
-      "name": "audio_12_1",
-      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/charrue_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "name": "audio_11_1",
+      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/membre_upa_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
       "exclude_from_translation": true,
       "style_list": "float:right;"
     },
@@ -32,44 +26,331 @@
     },
     {
       "type": "image",
-      "value": "images/charrue.jpg\n",
+      "value": "images/membres.jpg",
       "style_list": "width:100px; height:100px; "
     },
     {
+      "type": "text",
+      "value": "@global.nb_personnes_upa_hint",
+      "style_list": "@global.hint_style"
+    },
+    {
       "type": "text_box",
-      "value": "@fields.nombre_charrues",
-      "action_list": "changed | set_field : nombre_charrues: this.value;",
-      "parameter_list": "number_input: true; placeholder:Ecrivez le nombre ;",
+      "name": "upa_membres",
+      "value": "@fields.upa_membres",
+      "parameter_list": "number_input: true; placeholder: @global.texte_placeholder;",
+      "condition": "!!@field.upa_membres",
       "exclude_from_translation": true
     },
     {
-      "name": "valid_nombre_charrues",
-      "value": "@calc((/^\\d+$/.test(@fields.nombre_charrues) && @fields.nombre_charrues >=0 ) || @fields.nombre_charrues == ' ' || !!@fields.nombre_charrues )"
+      "type": "text_box",
+      "name": "upa_membres",
+      "parameter_list": "number_input: true; placeholder: @global.texte_placeholder;",
+      "condition": "!@field.upa_membres",
+      "exclude_from_translation": true
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@fields.nombre_charrues && @fields.attempt_submit "
+      "name": "v_upa",
+      "value": "@calc(/^\\d+$/.test(@local.upa_membres) && @local.upa_membres > 0 || !@local.upa_membres)",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@local.upa_membres && @fields.attempt_submit ",
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "text",
       "value": "@global.error_number_min_0",
-      "condition": "!@local.valid_nombre_charrues && @fields.attempt_submit ",
-      "style_list": "color: red; font-size: 12px;"
+      "condition": "!@local.v_upa",
+      "exclude_from_translation": true,
+      "style_list": "@global.reponse_style"
     },
     {
-      "type": "begin_display_group",
-      "style_list": "display: block; width: 100%"
+      "type": "begin_display_group"
     },
     {
-      "type": "html",
-      "value": "@global.nb_multiculteurs<span style=\"color: red;\">*</span>",
-      "style_list": "font-size:20px;"
+      "type": "subtitle",
+      "value": "@global.nb_personnes_actifs"
     },
     {
       "type": "audio",
-      "name": "audio_12_2",
-      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/multicul_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "name": "audio_11_2",
+      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/actifs_upa_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "float:right;"
+    },
+    {
+      "type": "end_display_group\n"
+    },
+    {
+      "type": "image",
+      "value": "images/travailleurs.jpg",
+      "style_list": "width:100px; height:100px; "
+    },
+    {
+      "type": "text",
+      "value": "@global.nb_personnes_actifs_hint",
+      "style_list": "@global.hint_style"
+    },
+    {
+      "type": "text_box",
+      "name": "upa_actifs",
+      "value": "@fields.upa_actifs",
+      "parameter_list": "number_input: true;\nplaceholder: @global.texte_placeholder;\n",
+      "condition": "!!@field.upa_actifs",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text_box",
+      "name": "upa_actifs",
+      "parameter_list": "number_input: true;\nplaceholder:  @global.texte_placeholder;\n",
+      "condition": "!@field.upa_actifs",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@local.upa_actifs && @fields.attempt_submit ",
+      "style_list": "@global.reponse_style"
+    },
+    {
+      "type": "text",
+      "value": "@global.erreur_membres",
+      "condition": "@calc(Number(@local.upa_actifs) >= Number(@local.upa_membres))",
+      "exclude_from_translation": true,
+      "style_list": "@global.reponse_style"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "subtitle",
+      "value": "@global.nb_enfants"
+    },
+    {
+      "type": "audio",
+      "name": "audio_11_3",
+      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/enfants_upa_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "float:right;"
+    },
+    {
+      "type": "end_display_group\n"
+    },
+    {
+      "type": "image",
+      "value": "images/enfants.jpg",
+      "style_list": "width:100px; height:100px; "
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_enfants",
+      "value": "@fields.nombre_enfants",
+      "parameter_list": "number_input: true ; placeholder:  @global.texte_placeholder;",
+      "condition": "!!@field.nombre_enfants",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_enfants",
+      "parameter_list": "number_input: true;placeholder:  @global.texte_placeholder;",
+      "condition": "!@field.nombre_enfants",
+      "exclude_from_translation": true
+    },
+    {
+      "name": "v_enf",
+      "value": "@calc((/^\\d+$/.test(@local.nombre_enfants) && Number(@local.nombre_enfants) >= 0) || !@local.nombre_enfants)",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text",
+      "value": "@global.error_number_min_0",
+      "condition": "!@local.v_enf",
+      "exclude_from_translation": true,
+      "style_list": "@global.reponse_style"
+    },
+    {
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@local.nombre_enfants && @fields.attempt_submit ",
+      "style_list": "@global.reponse_style"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "subtitle",
+      "value": "@global.nb_adolescents"
+    },
+    {
+      "type": "audio",
+      "name": "audio_11_4",
+      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/adolescents_upa_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "float:right;"
+    },
+    {
+      "type": "end_display_group\n"
+    },
+    {
+      "type": "image",
+      "value": "images/adolescent.jpg\n",
+      "style_list": "width:100px; height:100px; "
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_adolescents",
+      "value": "@fields.nombre_adolescents",
+      "parameter_list": "number_input: true; placeholder: @global.texte_placeholder;",
+      "condition": "!!@field.nombre_adolescents",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_adolescents",
+      "parameter_list": "number_input: true; placeholder: @global.texte_placeholder;",
+      "condition": "!@field.nombre_adolescents",
+      "exclude_from_translation": true
+    },
+    {
+      "name": "v_ado",
+      "value": "@calc((/^\\d+$/.test(@local.nombre_adolescents) && Number(@local.nombre_adolescents) >= 0) || !@local.nombre_adolescents)",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@local.nombre_adolescents && @fields.attempt_submit ",
+      "style_list": "@global.reponse_style"
+    },
+    {
+      "type": "text",
+      "value": "@global.error_number_min_0",
+      "condition": "!@local.v_ado",
+      "exclude_from_translation": true,
+      "style_list": "@global.reponse_style"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "subtitle",
+      "value": "@global.nb_femmes"
+    },
+    {
+      "type": "audio",
+      "name": "audio_11_5",
+      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/femmes_upa_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "float:right;"
+    },
+    {
+      "type": "end_display_group\n"
+    },
+    {
+      "type": "image",
+      "value": "images/femme_adult.jpg\n",
+      "style_list": "width:100px; height:100px; "
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_femmes",
+      "value": "@fields.nombre_femmes",
+      "parameter_list": "number_input: true;  placeholder: @global.texte_placeholder;",
+      "condition": "!!@field.nombre_femmes",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_femmes",
+      "parameter_list": "number_input: true; placeholder: @global.texte_placeholder;",
+      "condition": "!@field.nombre_femmes",
+      "exclude_from_translation": true
+    },
+    {
+      "name": "v_fem",
+      "value": "@calc((/^\\d+$/.test(@local.nombre_femmes) && Number(@local.nombre_femmes) >= 0) || !@local.nombre_femmes)",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@local.nombre_femmes && @fields.attempt_submit ",
+      "style_list": "@global.reponse_style"
+    },
+    {
+      "type": "text",
+      "value": "@global.error_number_min_0",
+      "condition": "!@local.v_fem",
+      "style_list": "@global.reponse_style"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "subtitle",
+      "value": "@global.nb_hommes"
+    },
+    {
+      "type": "audio",
+      "name": "audio_11_6",
+      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/hommes_upa_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "float:right;"
+    },
+    {
+      "type": "end_display_group\n"
+    },
+    {
+      "type": "image",
+      "value": "images/homme_adult.jpg\n\n",
+      "style_list": "width:100px; height:100px; "
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_hommes",
+      "value": "@fields.nombre_hommes",
+      "parameter_list": "number_input: true; placeholder: @global.texte_placeholder;",
+      "condition": "!!@field.nombre_hommes",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_hommes",
+      "parameter_list": "number_input: true; placeholder: @global.texte_placeholder;",
+      "condition": "!@field.nombre_hommes",
+      "exclude_from_translation": true
+    },
+    {
+      "name": "v_hom",
+      "value": "@calc((/^\\d+$/.test(@local.nombre_hommes) && Number(@local.nombre_hommes) >= 0) || !@local.nombre_hommes)",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@local.nombre_hommes && @fields.attempt_submit ",
+      "style_list": "@global.reponse_style"
+    },
+    {
+      "type": "text",
+      "value": "@global.error_number_min_0",
+      "condition": "!@local.v_hom",
+      "style_list": "@global.reponse_style"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "subtitle",
+      "value": "@global.nb_femmes_agees"
+    },
+    {
+      "type": "audio",
+      "name": "audio_11_7",
+      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/vieille_upa_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
       "exclude_from_translation": true,
       "style_list": "float:right;"
     },
@@ -78,44 +359,52 @@
     },
     {
       "type": "image",
-      "value": "images/multiculteur.jpg\n",
+      "value": "images/vieille.jpg",
       "style_list": "width:100px; height:100px; "
     },
     {
       "type": "text_box",
-      "value": "@fields.nombre_multiculteurs",
-      "action_list": "changed | set_field : nombre_multiculteurs: this.value;",
-      "parameter_list": "number_input: true; placeholder:Ecrivez le nombre ;",
+      "name": "nombre_femmes_agees",
+      "value": "@fields.nombre_femmes_agees",
+      "parameter_list": "number_input: true; placeholder: @global.texte_placeholder;",
+      "condition": "!!@field.nombre_femmes_agees",
       "exclude_from_translation": true
     },
     {
-      "name": "valid_nombre_multiculteurs",
-      "value": "@calc((/^\\d+$/.test(@fields.nombre_multiculteurs) && @fields.nombre_multiculteurs >=0 ) || @fields.nombre_multiculteurs == ' ' || !!@fields.nombre_multiculteurs )"
+      "type": "text_box",
+      "name": "nombre_femmes_agees",
+      "parameter_list": "number_input: true; placeholder: @global.texte_placeholder;",
+      "condition": "!@field.nombre_femmes_agees",
+      "exclude_from_translation": true
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@fields.nombre_multiculteurs && @fields.attempt_submit "
+      "name": "v_f_age",
+      "value": "@calc((/^\\d+$/.test(@local.nombre_femmes_agees) && Number(@local.nombre_femmes_agees) >= 0 )|| !@local.nombre_femmes_agees)",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@local.nombre_femmes_agees && @fields.attempt_submit ",
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "text",
       "value": "@global.error_number_min_0",
-      "condition": "!@local.valid_nombre_multiculteurs && @fields.attempt_submit ",
-      "style_list": "color: red; font-size: 12px;"
+      "condition": "!@local.v_f_age",
+      "style_list": "@global.reponse_style"
     },
     {
-      "type": "begin_display_group",
-      "style_list": "display: block; width: 100%"
+      "type": "begin_display_group"
     },
     {
-      "type": "html",
-      "value": "@global.nb_charrettes<span style=\"color: red;\">*</span>",
-      "style_list": "font-size:20px;"
+      "type": "subtitle",
+      "value": "@global.nb_hommes_agees"
     },
     {
       "type": "audio",
-      "name": "audio_12_3",
-      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/charret_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "name": "audio_11_8",
+      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/vieux_upa_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
       "exclude_from_translation": true,
       "style_list": "float:right;"
     },
@@ -124,242 +413,57 @@
     },
     {
       "type": "image",
-      "value": "images/charrette.jpg\n",
+      "value": "images/vieux.jpg",
       "style_list": "width:100px; height:100px; "
     },
     {
       "type": "text_box",
-      "value": "@fields.nombre_charrettes\n",
-      "action_list": "changed | set_field : nombre_charrettes: this.value;",
-      "parameter_list": "number_input: true; placeholder:Ecrivez le nombre ;",
+      "name": "nombre_hommes_ages",
+      "value": "@fields.nombre_hommes_ages\n",
+      "parameter_list": "number_input: true; placeholder: @global.texte_placeholder;",
+      "condition": "!!@field.nombre_hommes_ages",
       "exclude_from_translation": true
-    },
-    {
-      "name": "valid_nombre_charrettes",
-      "value": "@calc((/^\\d+$/.test(@fields.nombre_charrettes) && @fields.nombre_charrettes >=0 ) || @fields.nombre_charrettes == ' ' || !!@fields.nombre_charrettes )"
-    },
-    {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@fields.nombre_charrettes && @fields.attempt_submit "
-    },
-    {
-      "type": "text",
-      "value": "@global.error_number_min_0",
-      "condition": "!@local.valid_nombre_charrettes && @fields.attempt_submit ",
-      "style_list": "color: red; font-size: 12px;"
-    },
-    {
-      "type": "begin_display_group",
-      "style_list": "display: block; width: 100%"
-    },
-    {
-      "type": "html",
-      "value": "@global.nb_semoirs<span style=\"color: red;\">*</span>",
-      "style_list": "font-size:20px;"
-    },
-    {
-      "type": "audio",
-      "name": "audio_12_5",
-      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/semoir_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "exclude_from_translation": true,
-      "style_list": "float:right;"
-    },
-    {
-      "type": "end_display_group"
-    },
-    {
-      "type": "image",
-      "value": "images/semoir.jpg\n",
-      "style_list": "width:100px; height:100px; "
     },
     {
       "type": "text_box",
-      "value": "@fields.nombre_semoir",
-      "action_list": "changed | set_field : nombre_semoir: this.value;",
-      "parameter_list": "number_input: true; placeholder:Nombre de semoirs;",
+      "name": "nombre_hommes_ages",
+      "parameter_list": "number_input: true; placeholder: @global.texte_placeholder;",
+      "condition": "!@field.nombre_hommes_ages",
       "exclude_from_translation": true
     },
     {
-      "name": "valid_nombre_semoir",
-      "value": "@calc((/^\\d+$/.test(@fields.nombre_semoir) && @fields.nombre_semoir >=0 ) || @fields.nombre_semoir == ' ' || !!@fields.nombre_semoir )"
+      "name": "v_h_age",
+      "value": "@calc((/^\\d+$/.test(@local.nombre_hommes_ages) && Number(@local.nombre_hommes_ages) >= 0)  || !@local.nombre_hommes_ages)",
+      "exclude_from_translation": true
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@fields.nombre_semoir && @fields.attempt_submit "
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@local.nombre_hommes_ages && @fields.attempt_submit ",
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "text",
       "value": "@global.error_number_min_0",
-      "condition": "!@local.valid_nombre_semoir && @fields.attempt_submit ",
-      "style_list": "color: red; font-size: 12px;"
+      "condition": "!@local.v_h_age",
+      "style_list": "@global.reponse_style"
     },
     {
-      "type": "begin_display_group"
-    },
-    {
-      "type": "html",
-      "value": "@global.nb_appareils<p style=\"color: red;\">*</p> ",
-      "parameter_list": "style: contextual;",
-      "exclude_from_translation": true,
-      "style_list": "font-size:20px;"
-    },
-    {
-      "type": "audio",
-      "name": "audio_12_6",
-      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/pompe_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "name": "check_total",
+      "value": "@calc(Number(@local.nombre_enfants || 0) + Number(@local.nombre_adolescents || 0) + Number(@local.nombre_femmes || 0) + Number(@local.nombre_hommes || 0) + Number(@local.nombre_femmes_agees || 0) + Number(@local.nombre_hommes_ages || 0))",
       "exclude_from_translation": true
-    },
-    {
-      "type": "end_display_group"
-    },
-    {
-      "type": "image",
-      "value": "images/traitement.jpg",
-      "style_list": "width: 120px; height: 120px; object-fit: cover;"
-    },
-    {
-      "type": "begin_display_group"
-    },
-    {
-      "type": "text_box",
-      "value": "@fields.nombre_pompe_traitement",
-      "action_list": "changed | set_field : nombre_pompe_traitement: this.value;",
-      "parameter_list": "number_input: true;\nplaceholder: Entrez le nombre;",
-      "exclude_from_translation": true
-    },
-    {
-      "name": "valid_nombre_pompe_traitement",
-      "value": "@calc((/^\\d+$/.test(@fields.nombre_pompe_traitement) && @fields.nombre_pompe_traitement >=0 ) || @fields.nombre_pompe_traitement == ' ' || !!@fields.nombre_pompe_traitement )",
-      "exclude_from_translation": true
-    },
-    {
-      "type": "end_display_group"
-    },
-    {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@fields.nombre_pompe_traitement && @fields.attempt_submit"
     },
     {
       "type": "text",
-      "value": "@global.error_number_min_0",
-      "condition": "!@local.valid_nombre_pompe_traitement && @fields.attempt_submit ",
+      "value": "@global.erreur_check_total",
+      "condition": "@calc(@local.check_total > 0 && @local.check_total != @local.upa_membres)",
       "exclude_from_translation": true,
-      "style_list": "color: red; font-size: 12px;"
+      "style_list": "color: red; background: #ffebee;"
     },
     {
-      "type": "begin_display_group"
-    },
-    {
-      "type": "html",
-      "value": "@global.nb_pulverisateur_herse<span style=\"color: red;\">*</span> ",
-      "parameter_list": "style: contextual;",
-      "exclude_from_translation": true,
-      "style_list": "font-size:20px;"
-    },
-    {
-      "type": "audio",
-      "name": "audio_12_7",
-      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/herse_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "name": "completed_enabled\n",
+      "value": "@calc(!!@local.upa_membres && Number(@local.check_total) == Number(@local.upa_membres) && Number(@local.upa_actifs) <= Number(@local.upa_membres))",
       "exclude_from_translation": true
-    },
-    {
-      "type": "end_display_group"
-    },
-    {
-      "type": "image",
-      "value": "images/herse.jpg",
-      "style_list": "width: 120px; height: 120px; object-fit: cover;"
-    },
-    {
-      "type": "begin_display_group"
-    },
-    {
-      "type": "text_box",
-      "value": "@field.nombre_pulverisateurs",
-      "action_list": "changed | set_field : nombre_pulverisateurs: this.value;",
-      "parameter_list": "number_input: true;\nplaceholder: Entrez le nombre;",
-      "exclude_from_translation": true
-    },
-    {
-      "name": "valid_nombre_pulverisateurs",
-      "value": "@calc((/^\\d+$/.test(@fields.nombre_pulverisateurs) && @fields.nombre_pulverisateurs >=0 ) || @fields.nombre_pulverisateurs == ' ' || !!@fields.nombre_pulverisateurs )",
-      "exclude_from_translation": true
-    },
-    {
-      "type": "end_display_group"
-    },
-    {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@fields.nombre_pulverisateurs && @fields.attempt_submit"
-    },
-    {
-      "type": "text",
-      "value": "@global.error_number_min_0",
-      "condition": "!@local.valid_nombre_pulverisateurs && @fields.attempt_submit ",
-      "exclude_from_translation": true,
-      "style_list": "color: red; font-size: 12px;"
-    },
-    {
-      "type": "begin_display_group"
-    },
-    {
-      "type": "html",
-      "value": "@global.nb_corps_butteurs<span style=\"color: red;\">*</span> ",
-      "parameter_list": "style: contextual;",
-      "exclude_from_translation": true,
-      "style_list": "font-size:20px;"
-    },
-    {
-      "type": "audio",
-      "name": "audio_12_8",
-      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/corp_but_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "exclude_from_translation": true
-    },
-    {
-      "type": "end_display_group"
-    },
-    {
-      "type": "image",
-      "value": "images/butter.jpg",
-      "style_list": "width: 120px; height: 120px; object-fit: cover;"
-    },
-    {
-      "type": "begin_display_group"
-    },
-    {
-      "type": "text_box",
-      "value": "@fields.nombre_corps_buteur",
-      "action_list": "changed | set_field : nombre_corps_buteur: this.value;",
-      "parameter_list": "number_input: true;\nplaceholder: Entrez le nombre;",
-      "exclude_from_translation": true
-    },
-    {
-      "name": "valid_nombre_corps_buteur",
-      "value": "@calc((/^\\d+$/.test(@fields.nombre_corps_buteur) && @fields.nombre_corps_buteur >=0 ) || @fields.nombre_corps_buteur == ' ' || !!@fields.nombre_corps_buteur )",
-      "exclude_from_translation": true
-    },
-    {
-      "type": "end_display_group"
-    },
-    {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@fields.nombre_corps_buteur && @fields.attempt_submit"
-    },
-    {
-      "type": "text",
-      "value": "@global.error_number_min_0",
-      "condition": "!@local.valid_nombre_corps_buteur && @fields.attempt_submit ",
-      "exclude_from_translation": true,
-      "style_list": "color: red; font-size: 12px;"
-    },
-    {
-      "name": "completed_enabled",
-      "value": "@local.valid_nombre_charrues && @local.valid_nombre_multiculteurs && @local.valid_nombre_charrettes && @local.valid_nombre_semoir && @local.valid_nombre_pompe_traitement && @local.valid_nombre_pulverisateurs && @local.valid_nombre_corps_buteur"
     },
     {
       "type": "begin_display_group",
@@ -383,9 +487,9 @@
     },
     {
       "type": "button",
-      "name": "button_completed_12",
+      "name": "button_completed_11",
       "value": "@global.btn_continue",
-      "action_list": "click | set_field: nombre_charrues: @fields.nombre_charrues; \nclick | set_field: nombre_multiculteurs: @fields.nombre_multiculteurs; \nclick | set_field: nombre_charrettes: @fields.nombre_charrettes; \nclick | set_field: nombre_semoir: @fields.nombre_semoir; \nclick | set_field: nombre_pompe_traitement: @fields.nombre_pompe_traitement; \nclick | set_field: nombre_pulverisateurs: @fields.nombre_pulverisateurs; \nclick | set_field: nombre_corps_buteur: @fields.nombre_corps_buteur; \n\nclick | set_field: attempt_submit: false;\nclick | emit: completed",
+      "action_list": "click | set_field: upa_membres: @local.upa_membres;\nclick | set_field: upa_actifs: @local.upa_actifs;\nclick | set_field: nombre_enfants: @local.nombre_enfants;\nclick | set_field: nombre_adolescents: @local.nombre_adolescents;\nclick | set_field: nombre_femmes: @local.nombre_femmes;\nclick | set_field: nombre_hommes: @local.nombre_hommes;\nclick | set_field: nombre_femmes_agees: @local.nombre_femmes_agees;\nclick | set_field: nombre_hommes_ages: @local.nombre_hommes_ages;\nclick | set_field: attempt_submit: false;\nclick | emit: completed\n",
       "parameter_list": "disabled: !@local.completed_enabled",
       "condition": "@local.completed_enabled",
       "style_list": "flex: 1"

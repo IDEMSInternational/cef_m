@@ -4,39 +4,6 @@
   "status": "released",
   "rows": [
     {
-      "type": "title",
-      "value": "**Culture précédente dans la parcelle N⁰@fields.num_parcelle lors de la saison passée du champ @fields.nom_champ**",
-      "_translations": {
-        "value": {}
-      },
-      "name": "title_2",
-      "_nested_name": "title_2",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "**Culture précédente dans la parcelle N⁰@fields.num_parcelle lors de la saison passée du champ @fields.nom_champ**",
-            "matchedExpression": "@fields.num_parcelle",
-            "type": "fields",
-            "fieldName": "num_parcelle"
-          },
-          {
-            "fullExpression": "**Culture précédente dans la parcelle N⁰@fields.num_parcelle lors de la saison passée du champ @fields.nom_champ**",
-            "matchedExpression": "@fields.nom_champ",
-            "type": "fields",
-            "fieldName": "nom_champ"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.num_parcelle": [
-          "value"
-        ],
-        "@fields.nom_champ": [
-          "value"
-        ]
-      }
-    },
-    {
       "type": "display_group",
       "rows": [
         {
@@ -46,7 +13,7 @@
             "value": {}
           },
           "name": "text_1",
-          "_nested_name": "display_group_3.text_1",
+          "_nested_name": "display_group_2.text_1",
           "_dynamicFields": {
             "value": [
               {
@@ -74,11 +41,11 @@
           "style_list": [
             "float : right"
           ],
-          "_nested_name": "display_group_3.audio_6_1"
+          "_nested_name": "display_group_2.audio_6_1"
         }
       ],
-      "name": "display_group_3",
-      "_nested_name": "display_group_3"
+      "name": "display_group_2",
+      "_nested_name": "display_group_2"
     },
     {
       "type": "radio_button_grid",
@@ -136,18 +103,21 @@
       }
     },
     {
-      "type": "html",
+      "type": "text",
       "name": "html_text",
-      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "value": "@global.warning_message",
       "_translations": {
         "value": {}
       },
       "condition": "!@fields.culture_prev",
+      "style_list": [
+        "color: red"
+      ],
       "_nested_name": "html_text",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: red;\"> @global.warning_message </p>",
+            "fullExpression": "@global.warning_message",
             "matchedExpression": "@global.warning_message",
             "type": "global",
             "fieldName": "warning_message"
@@ -182,7 +152,7 @@
             "value": {}
           },
           "name": "text_1",
-          "_nested_name": "display_group_7.text_1",
+          "_nested_name": "display_group_6.text_1",
           "_dynamicFields": {
             "value": [
               {
@@ -210,11 +180,11 @@
           "style_list": [
             "float : right"
           ],
-          "_nested_name": "display_group_7.audio_6_2"
+          "_nested_name": "display_group_6.audio_6_2"
         }
       ],
-      "name": "display_group_7",
-      "_nested_name": "display_group_7",
+      "name": "display_group_6",
+      "_nested_name": "display_group_6",
       "_dynamicFields": {
         "condition": [
           {
@@ -250,8 +220,7 @@
         }
       ],
       "parameter_list": {
-        "max_length": "30",
-        "placeholder": "Entrez le nom de la culture"
+        "max_length": "30"
       },
       "condition": "@fields.culture_prev == 'autre'",
       "exclude_from_translation": true,
@@ -335,7 +304,7 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "display_group_11.page6_button_back"
+          "_nested_name": "display_group_10.page6_button_back"
         },
         {
           "type": "button",
@@ -378,7 +347,7 @@
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "display_group_11.page6_button_continue",
+          "_nested_name": "display_group_10.page6_button_continue",
           "_dynamicFields": {
             "action_list": {
               "0": {
@@ -500,8 +469,8 @@
           }
         }
       ],
-      "name": "display_group_11",
-      "_nested_name": "display_group_11"
+      "name": "display_group_10",
+      "_nested_name": "display_group_10"
     }
   ],
   "_source": {

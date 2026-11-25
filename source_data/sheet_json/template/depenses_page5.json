@@ -11,8 +11,8 @@
       "type": "begin_display_group"
     },
     {
-      "type": "text",
-      "value": "**Indiquez s'il y a des enfants de 7 à 25 ans de votre UPA qui sont scolarisés**"
+      "type": "subtitle",
+      "value": "@global.enfant_scolarise"
     },
     {
       "type": "audio",
@@ -24,8 +24,9 @@
       "type": "end_display_group"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: black;\">@global.enfants_scolarise_oui_hint  </p>"
+      "type": "text",
+      "value": "@global.enfants_scolarise_oui_hint ",
+      "style_list": "@global.hint_style"
     },
     {
       "type": "begin_radio_list",
@@ -44,17 +45,18 @@
       "type": "end_radio_list"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire",
-      "condition": "!@fields.enfants_scolarise_oui && @fields.attempt_submit"
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@fields.enfants_scolarise_oui && @fields.attempt_submit",
+      "style_list": "@reponse_style"
     },
     {
       "type": "begin_display_group",
       "condition": "@fields.enfants_scolarise_oui == 'oui'"
     },
     {
-      "type": "text",
-      "value": "**Selectionnez les niveaux scolaires de fréquentation des enfants de 7 à 25 ans de votre UPA**"
+      "type": "subtitle",
+      "value": "@global.niveau_scolaire_enfant"
     },
     {
       "type": "audio",
@@ -96,9 +98,10 @@
       "value": "@calc(@fields.premier_cycle || @fields.second_cycle || @fields.lycee_professionnelle || @fields.universite)"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire",
-      "condition": "!@local.valid_type_scolarite && @fields.attempt_submit"
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@local.valid_type_scolarite && @fields.attempt_submit",
+      "style_list": "@global.hint_style"
     },
     {
       "name": "select_niveau_scolaire",

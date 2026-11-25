@@ -4,25 +4,25 @@
   "status": "released",
   "rows": [
     {
-      "type": "text",
-      "value": "**Besoins en engrais des cultures prevues : @fields.culture_list_all**",
+      "type": "title",
+      "value": "@global.besoin_engrais_cult_prev",
       "_translations": {
         "value": {}
       },
-      "name": "text_2",
-      "_nested_name": "text_2",
+      "name": "title_2",
+      "_nested_name": "title_2",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "**Besoins en engrais des cultures prevues : @fields.culture_list_all**",
-            "matchedExpression": "@fields.culture_list_all",
-            "type": "fields",
-            "fieldName": "culture_list_all"
+            "fullExpression": "@global.besoin_engrais_cult_prev",
+            "matchedExpression": "@global.besoin_engrais_cult_prev",
+            "type": "global",
+            "fieldName": "besoin_engrais_cult_prev"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.culture_list_all": [
+        "@global.besoin_engrais_cult_prev": [
           "value"
         ]
       }
@@ -869,7 +869,7 @@
     },
     {
       "type": "text",
-      "value": "Besoins prévisionnels en complexe coton 14-18-18:  **@local.besoins_prevue_npk_coton_14_18_18 sacs**",
+      "value": "@global.besoin_prev_npk14",
       "_translations": {
         "value": {}
       },
@@ -878,15 +878,15 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "Besoins prévisionnels en complexe coton 14-18-18:  **@local.besoins_prevue_npk_coton_14_18_18 sacs**",
-            "matchedExpression": "@local.besoins_prevue_npk_coton_14_18_18",
-            "type": "local",
-            "fieldName": "besoins_prevue_npk_coton_14_18_18"
+            "fullExpression": "@global.besoin_prev_npk14",
+            "matchedExpression": "@global.besoin_prev_npk14",
+            "type": "global",
+            "fieldName": "besoin_prev_npk14"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@local.besoins_prevue_npk_coton_14_18_18": [
+        "@global.besoin_prev_npk14": [
           "value"
         ]
       }
@@ -896,16 +896,43 @@
       "rows": [
         {
           "type": "text",
-          "value": "*1 sac= 50kg*",
+          "value": "@global.sac_kg_hint",
           "_translations": {
             "value": {}
           },
           "style_list": [
-            "color: gray",
-            "font-size: 16px"
+            "@global.hint_style"
           ],
           "name": "text_1",
-          "_nested_name": "display_group_9.text_1"
+          "_nested_name": "display_group_9.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.sac_kg_hint",
+                "matchedExpression": "@global.sac_kg_hint",
+                "type": "global",
+                "fieldName": "sac_kg_hint"
+              }
+            ],
+            "style_list": {
+              "0": [
+                {
+                  "fullExpression": "@global.hint_style",
+                  "matchedExpression": "@global.hint_style",
+                  "type": "global",
+                  "fieldName": "hint_style"
+                }
+              ]
+            }
+          },
+          "_dynamicDependencies": {
+            "@global.sac_kg_hint": [
+              "value"
+            ],
+            "@global.hint_style": [
+              "style_list.0"
+            ]
+          }
         },
         {
           "type": "image",
@@ -928,7 +955,7 @@
     },
     {
       "type": "text",
-      "value": "Besoins prévisionnels en complexe céréales 15-15-15: **@local.besoins_prevue_npk_cereale_15_15_15 sac**",
+      "value": "@global.besoin_prev_npk15",
       "_translations": {
         "value": {}
       },
@@ -937,15 +964,15 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "Besoins prévisionnels en complexe céréales 15-15-15: **@local.besoins_prevue_npk_cereale_15_15_15 sac**",
-            "matchedExpression": "@local.besoins_prevue_npk_cereale_15_15_15",
-            "type": "local",
-            "fieldName": "besoins_prevue_npk_cereale_15_15_15"
+            "fullExpression": "@global.besoin_prev_npk15",
+            "matchedExpression": "@global.besoin_prev_npk15",
+            "type": "global",
+            "fieldName": "besoin_prev_npk15"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@local.besoins_prevue_npk_cereale_15_15_15": [
+        "@global.besoin_prev_npk15": [
           "value"
         ]
       }
@@ -955,20 +982,47 @@
       "rows": [
         {
           "type": "text",
-          "value": "*1 sac= 50kg*",
+          "value": "@global.sac_kg_hint",
           "_translations": {
             "value": {}
           },
           "style_list": [
-            "color: gray",
-            "font-size: 16px"
+            "@global.hint_style"
           ],
           "name": "text_1",
-          "_nested_name": "display_group_12.text_1"
+          "_nested_name": "display_group_12.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.sac_kg_hint",
+                "matchedExpression": "@global.sac_kg_hint",
+                "type": "global",
+                "fieldName": "sac_kg_hint"
+              }
+            ],
+            "style_list": {
+              "0": [
+                {
+                  "fullExpression": "@global.hint_style",
+                  "matchedExpression": "@global.hint_style",
+                  "type": "global",
+                  "fieldName": "hint_style"
+                }
+              ]
+            }
+          },
+          "_dynamicDependencies": {
+            "@global.sac_kg_hint": [
+              "value"
+            ],
+            "@global.hint_style": [
+              "style_list.0"
+            ]
+          }
         },
         {
           "type": "image",
-          "value": "images/sac.jpg",
+          "value": "@global.sac_kg_hint",
           "_translations": {
             "value": {}
           },
@@ -979,7 +1033,22 @@
             "flex-shrink:0"
           ],
           "name": "image_2",
-          "_nested_name": "display_group_12.image_2"
+          "_nested_name": "display_group_12.image_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.sac_kg_hint",
+                "matchedExpression": "@global.sac_kg_hint",
+                "type": "global",
+                "fieldName": "sac_kg_hint"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.sac_kg_hint": [
+              "value"
+            ]
+          }
         }
       ],
       "name": "display_group_12",
@@ -987,7 +1056,7 @@
     },
     {
       "type": "text",
-      "value": "Besoins prévisionnels en complexe céréales 17-17-17: **@local.besoins_prevue_npk_cereale_17_17_17 sac**",
+      "value": "@global.besoin_prev_npk17",
       "_translations": {
         "value": {}
       },
@@ -996,15 +1065,15 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "Besoins prévisionnels en complexe céréales 17-17-17: **@local.besoins_prevue_npk_cereale_17_17_17 sac**",
-            "matchedExpression": "@local.besoins_prevue_npk_cereale_17_17_17",
-            "type": "local",
-            "fieldName": "besoins_prevue_npk_cereale_17_17_17"
+            "fullExpression": "@global.besoin_prev_npk17",
+            "matchedExpression": "@global.besoin_prev_npk17",
+            "type": "global",
+            "fieldName": "besoin_prev_npk17"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@local.besoins_prevue_npk_cereale_17_17_17": [
+        "@global.besoin_prev_npk17": [
           "value"
         ]
       }
@@ -1014,16 +1083,43 @@
       "rows": [
         {
           "type": "text",
-          "value": "*1 sac= 50kg*",
+          "value": "@global.sac_kg_hint",
           "_translations": {
             "value": {}
           },
           "style_list": [
-            "color: gray",
-            "font-size: 16px"
+            "@global.hint_style"
           ],
           "name": "text_1",
-          "_nested_name": "display_group_15.text_1"
+          "_nested_name": "display_group_15.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.sac_kg_hint",
+                "matchedExpression": "@global.sac_kg_hint",
+                "type": "global",
+                "fieldName": "sac_kg_hint"
+              }
+            ],
+            "style_list": {
+              "0": [
+                {
+                  "fullExpression": "@global.hint_style",
+                  "matchedExpression": "@global.hint_style",
+                  "type": "global",
+                  "fieldName": "hint_style"
+                }
+              ]
+            }
+          },
+          "_dynamicDependencies": {
+            "@global.sac_kg_hint": [
+              "value"
+            ],
+            "@global.hint_style": [
+              "style_list.0"
+            ]
+          }
         },
         {
           "type": "image",
@@ -1046,7 +1142,7 @@
     },
     {
       "type": "text",
-      "value": "Besoins prévisionnels en DAP: **@local.besoins_prevue_dap sac**",
+      "value": "@global.besoin_prev_dap",
       "_translations": {
         "value": {}
       },
@@ -1055,15 +1151,15 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "Besoins prévisionnels en DAP: **@local.besoins_prevue_dap sac**",
-            "matchedExpression": "@local.besoins_prevue_dap",
-            "type": "local",
-            "fieldName": "besoins_prevue_dap"
+            "fullExpression": "@global.besoin_prev_dap",
+            "matchedExpression": "@global.besoin_prev_dap",
+            "type": "global",
+            "fieldName": "besoin_prev_dap"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@local.besoins_prevue_dap": [
+        "@global.besoin_prev_dap": [
           "value"
         ]
       }
@@ -1073,16 +1169,43 @@
       "rows": [
         {
           "type": "text",
-          "value": "*1 sac= 50kg*",
+          "value": "@global.sac_kg_hint",
           "_translations": {
             "value": {}
           },
           "style_list": [
-            "color: gray",
-            "font-size: 16px"
+            "@global.hint_style"
           ],
           "name": "text_1",
-          "_nested_name": "display_group_18.text_1"
+          "_nested_name": "display_group_18.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.sac_kg_hint",
+                "matchedExpression": "@global.sac_kg_hint",
+                "type": "global",
+                "fieldName": "sac_kg_hint"
+              }
+            ],
+            "style_list": {
+              "0": [
+                {
+                  "fullExpression": "@global.hint_style",
+                  "matchedExpression": "@global.hint_style",
+                  "type": "global",
+                  "fieldName": "hint_style"
+                }
+              ]
+            }
+          },
+          "_dynamicDependencies": {
+            "@global.sac_kg_hint": [
+              "value"
+            ],
+            "@global.hint_style": [
+              "style_list.0"
+            ]
+          }
         },
         {
           "type": "image",
@@ -1105,7 +1228,7 @@
     },
     {
       "type": "text",
-      "value": "Besoins prévisionnels en urée: **@local.besoins_prevus_uree sac**",
+      "value": "@global.besoin_prev_uree",
       "_translations": {
         "value": {}
       },
@@ -1114,15 +1237,15 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "Besoins prévisionnels en urée: **@local.besoins_prevus_uree sac**",
-            "matchedExpression": "@local.besoins_prevus_uree",
-            "type": "local",
-            "fieldName": "besoins_prevus_uree"
+            "fullExpression": "@global.besoin_prev_uree",
+            "matchedExpression": "@global.besoin_prev_uree",
+            "type": "global",
+            "fieldName": "besoin_prev_uree"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@local.besoins_prevus_uree": [
+        "@global.besoin_prev_uree": [
           "value"
         ]
       }
@@ -1132,16 +1255,43 @@
       "rows": [
         {
           "type": "text",
-          "value": "*1 sac= 50kg*",
+          "value": "@global.sac_kg_hint",
           "_translations": {
             "value": {}
           },
           "style_list": [
-            "color: gray",
-            "font-size: 16px"
+            "@global.hint_style"
           ],
           "name": "text_1",
-          "_nested_name": "display_group_21.text_1"
+          "_nested_name": "display_group_21.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.sac_kg_hint",
+                "matchedExpression": "@global.sac_kg_hint",
+                "type": "global",
+                "fieldName": "sac_kg_hint"
+              }
+            ],
+            "style_list": {
+              "0": [
+                {
+                  "fullExpression": "@global.hint_style",
+                  "matchedExpression": "@global.hint_style",
+                  "type": "global",
+                  "fieldName": "hint_style"
+                }
+              ]
+            }
+          },
+          "_dynamicDependencies": {
+            "@global.sac_kg_hint": [
+              "value"
+            ],
+            "@global.hint_style": [
+              "style_list.0"
+            ]
+          }
         },
         {
           "type": "image",
@@ -1391,7 +1541,7 @@
   ],
   "_source": {
     "name": "cef_m sheets",
-    "path": "template/Planification/Cultures_form_sheets.xlsx",
+    "path": "template/Planification/cultures_form_sheets.xlsx",
     "url": "https://docs.google.com/spreadsheets/d/1BAP12cPkFZaHtm0Xozys0kLOqnVOi1h2UUBMoZbmKQI"
   }
 }

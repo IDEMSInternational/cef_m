@@ -1,0 +1,63 @@
+{
+  "flow_type": "template",
+  "flow_name": "post_semi_page8",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "name": "page_title",
+      "value": "@global.title_page8"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "name": "observation_appreciation_label",
+      "value": "@global.observation_appreciation_label"
+    },
+    {
+      "type": "audio",
+      "name": "audio_20_1",
+      "parameter_list": "variant: button_only;\nsrc: audio/postSemi/appreciation_audio_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "style_list": "float: right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/vocal.jpg",
+      "style_list": "width:120px; height:120px; object-fit:contain; flex-shrink:0;"
+    },
+    {
+      "type": "text",
+      "name": "observation_appreciation_hint",
+      "value": "@global.observation_appreciation",
+      "style_list": "font-size:14px;"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "dg_footer",
+      "value": " ",
+      "parameter_list": "sticky: bottom;",
+      "style_list": "padding: 12px 24px;"
+    },
+    {
+      "type": "round_button",
+      "name": "page_8_button_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+    },
+    {
+      "type": "button",
+      "name": "page_8_button_continue",
+      "value": "@global.btn_continue",
+      "action_list": "click | emit: completed",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "end_display_group"
+    }
+  ]
+}

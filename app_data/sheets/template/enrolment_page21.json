@@ -1,0 +1,130 @@
+{
+  "flow_type": "template",
+  "flow_name": "enrolment_page21",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "name": "note_merci",
+      "value": "@global.merci_fin",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "note_merci",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.merci_fin",
+            "matchedExpression": "@global.merci_fin",
+            "type": "global",
+            "fieldName": "merci_fin"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.merci_fin": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "@global.formulaire_continue",
+      "_translations": {
+        "value": {}
+      },
+      "name": "text_3",
+      "_nested_name": "text_3",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.formulaire_continue",
+            "matchedExpression": "@global.formulaire_continue",
+            "type": "global",
+            "fieldName": "formulaire_continue"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.formulaire_continue": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "dg_footer",
+      "value": "",
+      "parameter_list": {
+        "sticky": "bottom"
+      },
+      "style_list": [
+        "padding: 12px 24px"
+      ],
+      "rows": [
+        {
+          "type": "round_button",
+          "name": "page_20_button_back",
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "uncompleted"
+              ],
+              "_raw": "click | emit: uncompleted"
+            }
+          ],
+          "parameter_list": {
+            "icon_src": "arrow-back",
+            "variant": "no-background"
+          },
+          "_nested_name": "dg_footer.page_20_button_back"
+        },
+        {
+          "type": "button",
+          "name": "page_20_button_continue",
+          "value": "@global.bouton_fin",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "go_to",
+              "args": [
+                "planification_anl"
+              ],
+              "_raw": "click | go_to: planification_anl"
+            }
+          ],
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "dg_footer.page_20_button_continue",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.bouton_fin",
+                "matchedExpression": "@global.bouton_fin",
+                "type": "global",
+                "fieldName": "bouton_fin"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.bouton_fin": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "dg_footer"
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/Planification/enrolment_form_sheets.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/1mR9iAG_wjGK0G39YVxIlwlGFILSbgZvCqESHTMNXNgA"
+  }
+}

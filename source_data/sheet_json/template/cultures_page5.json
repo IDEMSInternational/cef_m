@@ -32,16 +32,16 @@
     },
     {
       "type": "title",
-      "value": "PREVISIONS VARIETES DE SEMENCES"
+      "value": "@global.prev_var_semence"
+    },
+    {
+      "type": "subtitle",
+      "value": "@global.variete_semence"
     },
     {
       "type": "text",
-      "value": "**Selectionnez la/les variété(s) de semences à utiliser pour @fields.superficie_ha_prevue ha**"
-    },
-    {
-      "type": "text",
-      "value": "La superficie totale peut être cultivée avec une ou plusieurs variétés de semences",
-      "style_list": "color: gray; font-size: 16px;"
+      "value": "@global.variete_semence_hint",
+      "style_list": "@global.hint_style"
     },
     {
       "type": "begin_data_items",
@@ -72,12 +72,12 @@
     },
     {
       "type": "text",
-      "value": "**Ecrivez le nom de l'autre variété**"
+      "value": "@global.autre_variete_semence"
     },
     {
       "type": "text",
-      "value": "*Il s'agit d'une variété qui n'existe pas dans la liste des variétés ci-dessus*",
-      "style_list": "font-size: 12px; color: #718096; font-style: italic;"
+      "value": "@global.autre_semence_hint",
+      "style_list": "@global.hint_style"
     },
     {
       "type": "image",
@@ -89,13 +89,13 @@
       "name": "autre_variete_nom",
       "value": "@fields.autre_variete_nom",
       "action_list": "changed | set_field: autre_variete : this.value;",
-      "parameter_list": "placeholder: Ecrivez le nom de l'autre variété;"
+      "parameter_list": "placeholder: @global.texte_placeholder;"
     },
     {
       "type": "text",
-      "value": "*La réponse est obligatoire, aucune valeur n'a été donnée!*",
+      "value": "@global.reponse_obligatoire",
       "condition": "@calc(@fields.autre_variete && (@fields.autre_variete == '' || @fields.autre_variete == null))",
-      "style_list": "color: #d71920; font-size: 12px; font-weight: bold; margin-top: 4px;"
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "end_display_group"
@@ -118,7 +118,7 @@
     },
     {
       "type": "button",
-      "name": "page_4_btn_attempt_submit",
+      "name": "page_5_btn_attempt_submit",
       "value": "@global.btn_continue",
       "action_list": "click | set_field: attempt_submit: true;",
       "condition": "!@local.completed_enabled",

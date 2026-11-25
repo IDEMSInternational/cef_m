@@ -5,12 +5,27 @@
   "rows": [
     {
       "type": "title",
-      "value": "PATURAGE LIBRE / TRANSHUMANCE",
+      "value": "@global.paturage_transhumance_title",
       "_translations": {
         "value": {}
       },
       "name": "title_2",
-      "_nested_name": "title_2"
+      "_nested_name": "title_2",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.paturage_transhumance_title",
+            "matchedExpression": "@global.paturage_transhumance_title",
+            "type": "global",
+            "fieldName": "paturage_transhumance_title"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.paturage_transhumance_title": [
+          "value"
+        ]
+      }
     },
     {
       "type": "data_items",
@@ -135,13 +150,21 @@
         },
         {
           "type": "text",
-          "value": "**Les quantités des aliments ci-dessous pour ce regime sont calculées en fonction du nombre d’animaux**",
+          "value": "@global.paturage_transhumance_title_hint",
           "_translations": {
             "value": {}
           },
           "name": "text_2_@item.id",
           "_nested_name": "data_items_3.text_2_@item.id",
           "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.paturage_transhumance_title_hint",
+                "matchedExpression": "@global.paturage_transhumance_title_hint",
+                "type": "global",
+                "fieldName": "paturage_transhumance_title_hint"
+              }
+            ],
             "name": [
               {
                 "fullExpression": "text_2_@item.id",
@@ -160,6 +183,9 @@
             ]
           },
           "_dynamicDependencies": {
+            "@global.paturage_transhumance_title_hint": [
+              "value"
+            ],
             "@item.id": [
               "name",
               "_nested_name"
@@ -227,12 +253,27 @@
     },
     {
       "type": "text",
-      "value": "Concentrés= tourteau de coton ou son de céréales\n*1 sac de tourteau = 40 kg,\n*1 sac de son= 50 kg",
+      "value": "@global.concentre_son_tourteau_hint",
       "_translations": {
         "value": {}
       },
       "name": "text_8",
-      "_nested_name": "text_8"
+      "_nested_name": "text_8",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.concentre_son_tourteau_hint",
+            "matchedExpression": "@global.concentre_son_tourteau_hint",
+            "type": "global",
+            "fieldName": "concentre_son_tourteau_hint"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.concentre_son_tourteau_hint": [
+          "value"
+        ]
+      }
     },
     {
       "type": "image",
@@ -250,37 +291,65 @@
       "_nested_name": "image_9"
     },
     {
-      "type": "html",
-      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de concentrés (sac):</strong> @local.paturage_transh_con sac\n</div>",
+      "type": "display_group",
+      "style_list": [
+        "background-color: #f0f4f8",
+        "border-left-style: solid",
+        "border-left-color: #0056b3",
+        "border-radius: 5px"
+      ],
+      "rows": [
+        {
+          "type": "text",
+          "value": "@global.concentre_son_tourteau_paturage_transh",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_1",
+          "_nested_name": "display_group_10.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.concentre_son_tourteau_paturage_transh",
+                "matchedExpression": "@global.concentre_son_tourteau_paturage_transh",
+                "type": "global",
+                "fieldName": "concentre_son_tourteau_paturage_transh"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.concentre_son_tourteau_paturage_transh": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_10",
+      "_nested_name": "display_group_10"
+    },
+    {
+      "type": "text",
+      "value": "@global.residus_cereale_paille_hint",
       "_translations": {
         "value": {}
       },
-      "name": "html_10",
-      "_nested_name": "html_10",
+      "name": "text_12",
+      "_nested_name": "text_12",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de concentrés (sac):</strong> @local.paturage_transh_con sac\n</div>",
-            "matchedExpression": "@local.paturage_transh_con",
-            "type": "local",
-            "fieldName": "paturage_transh_con"
+            "fullExpression": "@global.residus_cereale_paille_hint",
+            "matchedExpression": "@global.residus_cereale_paille_hint",
+            "type": "global",
+            "fieldName": "residus_cereale_paille_hint"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@local.paturage_transh_con": [
+        "@global.residus_cereale_paille_hint": [
           "value"
         ]
       }
-    },
-    {
-      "type": "text",
-      "value": "Résidus de céréales= paille de céréales (maïs, sorgho ou mil)\n* 1 charrétée= 100 kg",
-      "_translations": {
-        "value": {}
-      },
-      "name": "text_11",
-      "_nested_name": "text_11"
     },
     {
       "type": "image",
@@ -294,41 +363,69 @@
         "object-fit:contain",
         "flex-shrink:0"
       ],
-      "name": "image_12",
-      "_nested_name": "image_12"
+      "name": "image_13",
+      "_nested_name": "image_13"
     },
     {
-      "type": "html",
-      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de résidus de céréales (charrétée):</strong> @local.paturage_transh_resid charrétée</div>",
+      "type": "display_group",
+      "style_list": [
+        "background-color: #f0f4f8",
+        "border-left-style: solid",
+        "border-left-color: #0056b3",
+        "border-radius: 5px"
+      ],
+      "rows": [
+        {
+          "type": "text",
+          "value": "@global.residus_cereale_paille_paturage_transh",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_1",
+          "_nested_name": "display_group_14.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.residus_cereale_paille_paturage_transh",
+                "matchedExpression": "@global.residus_cereale_paille_paturage_transh",
+                "type": "global",
+                "fieldName": "residus_cereale_paille_paturage_transh"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.residus_cereale_paille_paturage_transh": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_14",
+      "_nested_name": "display_group_14"
+    },
+    {
+      "type": "text",
+      "value": "@global.fane_cereale_hint",
       "_translations": {
         "value": {}
       },
-      "name": "html_13",
-      "_nested_name": "html_13",
+      "name": "text_16",
+      "_nested_name": "text_16",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de résidus de céréales (charrétée):</strong> @local.paturage_transh_resid charrétée</div>",
-            "matchedExpression": "@local.paturage_transh_resid",
-            "type": "local",
-            "fieldName": "paturage_transh_resid"
+            "fullExpression": "@global.fane_cereale_hint",
+            "matchedExpression": "@global.fane_cereale_hint",
+            "type": "global",
+            "fieldName": "fane_cereale_hint"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@local.paturage_transh_resid": [
+        "@global.fane_cereale_hint": [
           "value"
         ]
       }
-    },
-    {
-      "type": "text",
-      "value": "Fânes=foins,\nFânes de niébé, de mucuna, d'arachide, de soja,\nFoins de Brachiaria, de panicum\n*1 botte de fâne= 1,5 kg",
-      "_translations": {
-        "value": {}
-      },
-      "name": "text_14",
-      "_nested_name": "text_14"
     },
     {
       "type": "image",
@@ -340,32 +437,45 @@
         "width:120px",
         "height:120px"
       ],
-      "name": "image_15",
-      "_nested_name": "image_15"
+      "name": "image_17",
+      "_nested_name": "image_17"
     },
     {
-      "type": "html",
-      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de fânes (botte):</strong> @local.paturage_transh_fane botte</div>",
-      "_translations": {
-        "value": {}
-      },
-      "name": "html_16",
-      "_nested_name": "html_16",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de fânes (botte):</strong> @local.paturage_transh_fane botte</div>",
-            "matchedExpression": "@local.paturage_transh_fane",
-            "type": "local",
-            "fieldName": "paturage_transh_fane"
+      "type": "display_group",
+      "style_list": [
+        "background-color: #f0f4f8",
+        "border-left-style: solid",
+        "border-left-color: #0056b3",
+        "border-radius: 5px"
+      ],
+      "rows": [
+        {
+          "type": "text",
+          "value": "@global.fane_cereale_paturage_transh",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_1",
+          "_nested_name": "display_group_18.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.fane_cereale_paturage_transh",
+                "matchedExpression": "@global.fane_cereale_paturage_transh",
+                "type": "global",
+                "fieldName": "fane_cereale_paturage_transh"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.fane_cereale_paturage_transh": [
+              "value"
+            ]
           }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@local.paturage_transh_fane": [
-          "value"
-        ]
-      }
+        }
+      ],
+      "name": "display_group_18",
+      "_nested_name": "display_group_18"
     },
     {
       "type": "set_field",

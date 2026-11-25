@@ -5,21 +5,60 @@
   "rows": [
     {
       "type": "title",
-      "value": "**DEPENSE DE TOURTEAU**",
+      "value": "@global.depense_tourteau_title",
       "_translations": {
         "value": {}
       },
       "name": "title_2",
-      "_nested_name": "title_2"
+      "_nested_name": "title_2",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.depense_tourteau_title",
+            "matchedExpression": "@global.depense_tourteau_title",
+            "type": "global",
+            "fieldName": "depense_tourteau_title"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.depense_tourteau_title": [
+          "value"
+        ]
+      }
     },
     {
-      "type": "text",
+      "name": "attempt_submit",
+      "value": "@fields.attempt_submit",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "attempt_submit",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.attempt_submit",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.attempt_submit": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "subtitle",
       "value": "@global.note_qtite_tourteau_achete",
       "_translations": {
         "value": {}
       },
-      "name": "text_3",
-      "_nested_name": "text_3",
+      "name": "subtitle_4",
+      "_nested_name": "subtitle_4",
       "_dynamicFields": {
         "value": [
           {
@@ -48,41 +87,54 @@
         "object-fit:contain",
         "flex-shrink:0"
       ],
-      "name": "image_4",
-      "_nested_name": "image_4"
+      "name": "image_5",
+      "_nested_name": "image_5"
     },
     {
-      "type": "html",
-      "name": "note_quantite_sac_tourteau",
-      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\nLa quantité de tourteau de coton à acheter: <strong> @fields.quantite_tourteau sacs\n</strong> </div>",
-      "_translations": {
-        "value": {}
-      },
-      "_nested_name": "note_quantite_sac_tourteau",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\nLa quantité de tourteau de coton à acheter: <strong> @fields.quantite_tourteau sacs\n</strong> </div>",
-            "matchedExpression": "@fields.quantite_tourteau",
-            "type": "fields",
-            "fieldName": "quantite_tourteau"
+      "type": "display_group",
+      "style_list": [
+        "background-color: #f0f4f8",
+        "border-left-style: solid",
+        "border-left-color: #0056b3",
+        "border-radius: 5px"
+      ],
+      "rows": [
+        {
+          "type": "text",
+          "value": "@global.note_quantite_sac_tourteau",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_1",
+          "_nested_name": "display_group_6.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.note_quantite_sac_tourteau",
+                "matchedExpression": "@global.note_quantite_sac_tourteau",
+                "type": "global",
+                "fieldName": "note_quantite_sac_tourteau"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.note_quantite_sac_tourteau": [
+              "value"
+            ]
           }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.quantite_tourteau": [
-          "value"
-        ]
-      }
+        }
+      ],
+      "name": "display_group_6",
+      "_nested_name": "display_group_6"
     },
     {
-      "type": "text",
+      "type": "subtitle",
       "value": "@global.note_prix_sac_tourteau",
       "_translations": {
         "value": {}
       },
-      "name": "text_6",
-      "_nested_name": "text_6",
+      "name": "subtitle_8",
+      "_nested_name": "subtitle_8",
       "_dynamicFields": {
         "value": [
           {
@@ -100,13 +152,28 @@
       }
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: black;\">*1 drm=5 FCFA*</p>",
+      "type": "text",
+      "value": "@global.drm_cfa_hint",
       "_translations": {
         "value": {}
       },
-      "name": "html_7",
-      "_nested_name": "html_7"
+      "name": "text_9",
+      "_nested_name": "text_9",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.drm_cfa_hint",
+            "matchedExpression": "@global.drm_cfa_hint",
+            "type": "global",
+            "fieldName": "drm_cfa_hint"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.drm_cfa_hint": [
+          "value"
+        ]
+      }
     },
     {
       "type": "image",
@@ -120,8 +187,8 @@
         "object-fit:contain",
         "flex-shrink:0"
       ],
-      "name": "image_8",
-      "_nested_name": "image_8"
+      "name": "image_10",
+      "_nested_name": "image_10"
     },
     {
       "type": "text_box",
@@ -143,7 +210,7 @@
       ],
       "parameter_list": {
         "number_input": "true",
-        "placeholder": "Donnez le prix d'un sac de sac tourteau"
+        "placeholder": "@global.texte_placeholder"
       },
       "exclude_from_translation": true,
       "_nested_name": "prix_sac_tourteau",
@@ -155,47 +222,85 @@
             "type": "fields",
             "fieldName": "prix_sac_tourteau"
           }
-        ]
+        ],
+        "parameter_list": {
+          "placeholder": [
+            {
+              "fullExpression": "@global.texte_placeholder",
+              "matchedExpression": "@global.texte_placeholder",
+              "type": "global",
+              "fieldName": "texte_placeholder"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@fields.prix_sac_tourteau": [
           "value"
+        ],
+        "@global.texte_placeholder": [
+          "parameter_list.placeholder"
         ]
       }
     },
     {
-      "type": "html",
-      "name": "html_text",
-      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
       "_translations": {
         "value": {}
       },
-      "condition": "!@fields.prix_sac_tourteau",
-      "_nested_name": "html_text",
+      "condition": "!@fields.prix_sac_tourteau && @fields.attempt_submit",
+      "style_list": [
+        "@global.hint_style"
+      ],
+      "name": "text_12",
+      "_nested_name": "text_12",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: red;\"> @global.warning_message </p>",
-            "matchedExpression": "@global.warning_message",
+            "fullExpression": "@global.reponse_obligatoire",
+            "matchedExpression": "@global.reponse_obligatoire",
             "type": "global",
-            "fieldName": "warning_message"
+            "fieldName": "reponse_obligatoire"
           }
         ],
         "condition": [
           {
-            "fullExpression": "!@fields.prix_sac_tourteau",
+            "fullExpression": "!@fields.prix_sac_tourteau && @fields.attempt_submit",
             "matchedExpression": "!@fields.prix_sac_tourteau",
             "type": "fields",
             "fieldName": "prix_sac_tourteau"
+          },
+          {
+            "fullExpression": "!@fields.prix_sac_tourteau && @fields.attempt_submit",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.hint_style",
+              "matchedExpression": "@global.hint_style",
+              "type": "global",
+              "fieldName": "hint_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
-        "@global.warning_message": [
+        "@global.reponse_obligatoire": [
           "value"
         ],
         "!@fields.prix_sac_tourteau": [
           "condition"
+        ],
+        "@fields.attempt_submit": [
+          "condition"
+        ],
+        "@global.hint_style": [
+          "style_list.0"
         ]
       }
     },
@@ -267,8 +372,8 @@
         "color: #FF0000",
         "font-size: 14px"
       ],
-      "name": "text_12",
-      "_nested_name": "text_12",
+      "name": "text_14",
+      "_nested_name": "text_14",
       "_dynamicFields": {
         "value": [
           {
@@ -297,14 +402,14 @@
       }
     },
     {
-      "type": "text",
+      "type": "subtitle",
       "value": "@global.note_montant_tourteau",
       "_translations": {
         "value": {}
       },
       "condition": "@fields.prix_sac_tourteau",
-      "name": "text_13",
-      "_nested_name": "text_13",
+      "name": "subtitle_15",
+      "_nested_name": "subtitle_15",
       "_dynamicFields": {
         "value": [
           {
@@ -333,15 +438,23 @@
       }
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: black;\">*1 drm=5 FCFA*</p>",
+      "type": "text",
+      "value": "@global.drm_cfa_hint",
       "_translations": {
         "value": {}
       },
       "condition": "@fields.prix_sac_tourteau",
-      "name": "html_14",
-      "_nested_name": "html_14",
+      "name": "text_16",
+      "_nested_name": "text_16",
       "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.drm_cfa_hint",
+            "matchedExpression": "@global.drm_cfa_hint",
+            "type": "global",
+            "fieldName": "drm_cfa_hint"
+          }
+        ],
         "condition": [
           {
             "fullExpression": "@fields.prix_sac_tourteau",
@@ -352,6 +465,9 @@
         ]
       },
       "_dynamicDependencies": {
+        "@global.drm_cfa_hint": [
+          "value"
+        ],
         "@fields.prix_sac_tourteau": [
           "condition"
         ]
@@ -370,8 +486,8 @@
         "object-fit:contain",
         "flex-shrink:0"
       ],
-      "name": "image_15",
-      "_nested_name": "image_15",
+      "name": "image_17",
+      "_nested_name": "image_17",
       "_dynamicFields": {
         "condition": [
           {
@@ -441,29 +557,43 @@
       }
     },
     {
-      "type": "text",
-      "value": "@global.montant_tourteau",
-      "_translations": {
-        "value": {}
-      },
+      "type": "display_group",
       "condition": "@fields.prix_sac_tourteau",
       "style_list": [
         "background-color: #f0f4f8",
-        "border-left-width: 4px",
         "border-left-style: solid",
-        "border-left-color: #0056b3"
+        "border-left-color: #0056b3",
+        "border-radius: 5px"
       ],
-      "name": "text_17",
-      "_nested_name": "text_17",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@global.montant_tourteau",
-            "matchedExpression": "@global.montant_tourteau",
-            "type": "global",
-            "fieldName": "montant_tourteau"
+      "rows": [
+        {
+          "type": "text",
+          "value": "@global.montant_tourteau",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_1",
+          "_nested_name": "display_group_19.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.montant_tourteau",
+                "matchedExpression": "@global.montant_tourteau",
+                "type": "global",
+                "fieldName": "montant_tourteau"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.montant_tourteau": [
+              "value"
+            ]
           }
-        ],
+        }
+      ],
+      "name": "display_group_19",
+      "_nested_name": "display_group_19",
+      "_dynamicFields": {
         "condition": [
           {
             "fullExpression": "@fields.prix_sac_tourteau",
@@ -474,27 +604,27 @@
         ]
       },
       "_dynamicDependencies": {
-        "@global.montant_tourteau": [
-          "value"
-        ],
         "@fields.prix_sac_tourteau": [
           "condition"
         ]
       }
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: black;\">@global.hint_montant_tourteau</p>",
+      "type": "text",
+      "value": "@global.hint_montant_tourteau",
       "_translations": {
         "value": {}
       },
       "condition": "@fields.prix_sac_tourteau",
-      "name": "html_18",
-      "_nested_name": "html_18",
+      "style_list": [
+        "@global.hint_style"
+      ],
+      "name": "text_21",
+      "_nested_name": "text_21",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: black;\">@global.hint_montant_tourteau</p>",
+            "fullExpression": "@global.hint_montant_tourteau",
             "matchedExpression": "@global.hint_montant_tourteau",
             "type": "global",
             "fieldName": "hint_montant_tourteau"
@@ -507,7 +637,17 @@
             "type": "fields",
             "fieldName": "prix_sac_tourteau"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.hint_style",
+              "matchedExpression": "@global.hint_style",
+              "type": "global",
+              "fieldName": "hint_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.hint_montant_tourteau": [
@@ -515,6 +655,9 @@
         ],
         "@fields.prix_sac_tourteau": [
           "condition"
+        ],
+        "@global.hint_style": [
+          "style_list.0"
         ]
       }
     },
@@ -569,12 +712,62 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "display_group_20.page12_button_back"
+          "_nested_name": "display_group_23.page12_button_back"
+        },
+        {
+          "type": "button",
+          "name": "btn_attempt_submit",
+          "value": "@global.btn_continue",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "attempt_submit",
+                true
+              ],
+              "_raw": "click | set_field: attempt_submit: true"
+            }
+          ],
+          "condition": "!@local.completed_enabled",
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "display_group_23.btn_attempt_submit",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.btn_continue",
+                "matchedExpression": "@global.btn_continue",
+                "type": "global",
+                "fieldName": "btn_continue"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "!@local.completed_enabled",
+                "matchedExpression": "!@local.completed_enabled",
+                "type": "local",
+                "fieldName": "completed_enabled"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.btn_continue": [
+              "value"
+            ],
+            "!@local.completed_enabled": [
+              "condition"
+            ]
+          }
         },
         {
           "type": "button",
           "name": "page12_button_continue",
-          "value": "Continuer",
+          "value": "@global.btn_continue",
           "_translations": {
             "value": {}
           },
@@ -591,11 +784,20 @@
           "parameter_list": {
             "disabled": "!@local.completed_enabled"
           },
+          "condition": "@local.completed_enabled",
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "display_group_20.page12_button_continue",
+          "_nested_name": "display_group_23.page12_button_continue",
           "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.btn_continue",
+                "matchedExpression": "@global.btn_continue",
+                "type": "global",
+                "fieldName": "btn_continue"
+              }
+            ],
             "parameter_list": {
               "disabled": [
                 {
@@ -605,17 +807,31 @@
                   "fieldName": "completed_enabled"
                 }
               ]
-            }
+            },
+            "condition": [
+              {
+                "fullExpression": "@local.completed_enabled",
+                "matchedExpression": "@local.completed_enabled",
+                "type": "local",
+                "fieldName": "completed_enabled"
+              }
+            ]
           },
           "_dynamicDependencies": {
+            "@global.btn_continue": [
+              "value"
+            ],
             "!@local.completed_enabled": [
               "parameter_list.disabled"
+            ],
+            "@local.completed_enabled": [
+              "condition"
             ]
           }
         }
       ],
-      "name": "display_group_20",
-      "_nested_name": "display_group_20"
+      "name": "display_group_23",
+      "_nested_name": "display_group_23"
     }
   ],
   "_source": {

@@ -1,0 +1,28 @@
+{
+  "flow_type": "template",
+  "flow_name": "footer",
+  "status": "released",
+  "rows": [
+    {
+      "name": "home",
+      "value": "Accueil"
+    },
+    {
+      "name": "actions",
+      "value": "Audio"
+    },
+    {
+      "name": "groups",
+      "value": "deconnecter"
+    },
+    {
+      "name": "button_list_pill",
+      "value": "icon: images/icons/white-home.svg | label: Accueil | target_template: evaluation_anl;\nicon: images/icons/speaker_Icon.svg | label: Composante | target_template: audiov;\nicon: images/icons/lock_icon.svg | label: Connexion | target_template: auth;",
+      "comments": "Alternative footer, depends on PR to look right: https://github.com/IDEMSInternational/open-app-builder/pull/3192"
+    },
+    {
+      "type": "plh_bottom_nav",
+      "parameter_list": "button_list: @local.button_list_pill; variant: pill;"
+    }
+  ]
+}

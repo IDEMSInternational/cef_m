@@ -5,7 +5,7 @@
   "rows": [
     {
       "type": "title",
-      "value": "**Niveau de fertilité de la parcelle N⁰ @fields.num_parcelle de @fields.nom_champ**",
+      "value": "@global.title_page3",
       "_translations": {
         "value": {}
       },
@@ -14,24 +14,15 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "**Niveau de fertilité de la parcelle N⁰ @fields.num_parcelle de @fields.nom_champ**",
-            "matchedExpression": "@fields.num_parcelle",
-            "type": "fields",
-            "fieldName": "num_parcelle"
-          },
-          {
-            "fullExpression": "**Niveau de fertilité de la parcelle N⁰ @fields.num_parcelle de @fields.nom_champ**",
-            "matchedExpression": "@fields.nom_champ",
-            "type": "fields",
-            "fieldName": "nom_champ"
+            "fullExpression": "@global.title_page3",
+            "matchedExpression": "@global.title_page3",
+            "type": "global",
+            "fieldName": "title_page3"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.num_parcelle": [
-          "value"
-        ],
-        "@fields.nom_champ": [
+        "@global.title_page3": [
           "value"
         ]
       }
@@ -94,15 +85,6 @@
       "_nested_name": "image_5"
     },
     {
-      "type": "html",
-      "name": "html_text",
-      "value": "<p style=\"color: black;\"> Sélectionner un niveau en dessous !</p>",
-      "_translations": {
-        "value": {}
-      },
-      "_nested_name": "html_text"
-    },
-    {
       "type": "radio_button_grid",
       "name": "fertilite_sol",
       "value": "@fields.fertilite_sol",
@@ -157,18 +139,21 @@
       }
     },
     {
-      "type": "html",
+      "type": "text",
       "name": "html_text",
-      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "value": "@global.warning_message",
       "_translations": {
         "value": {}
       },
       "condition": "!@local.fertilite_sol",
+      "style_list": [
+        "color: red"
+      ],
       "_nested_name": "html_text",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: red;\"> @global.warning_message </p>",
+            "fullExpression": "@global.warning_message",
             "matchedExpression": "@global.warning_message",
             "type": "global",
             "fieldName": "warning_message"
@@ -244,7 +229,7 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "display_group_10.page5_button_back"
+          "_nested_name": "display_group_9.page5_button_back"
         },
         {
           "type": "button",
@@ -278,7 +263,7 @@
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "display_group_10.page5_button_continue",
+          "_nested_name": "display_group_9.page5_button_continue",
           "_dynamicFields": {
             "action_list": {
               "0": {
@@ -351,8 +336,8 @@
           }
         }
       ],
-      "name": "display_group_10",
-      "_nested_name": "display_group_10"
+      "name": "display_group_9",
+      "_nested_name": "display_group_9"
     }
   ],
   "_source": {

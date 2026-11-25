@@ -52,7 +52,7 @@
       "rows": [
         {
           "type": "round_button",
-          "name": "page3_button_back",
+          "name": "page1_button_back",
           "action_list": [
             {
               "trigger": "click",
@@ -67,12 +67,12 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "display_group_4.page3_button_back"
+          "_nested_name": "display_group_4.page1_button_back"
         },
         {
           "type": "button",
-          "name": "page3_button_continue",
-          "value": "Continuer",
+          "name": "page1_button_continue",
+          "value": "@global.btn_continue",
           "_translations": {
             "value": {}
           },
@@ -89,7 +89,22 @@
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "display_group_4.page3_button_continue"
+          "_nested_name": "display_group_4.page1_button_continue",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.btn_continue",
+                "matchedExpression": "@global.btn_continue",
+                "type": "global",
+                "fieldName": "btn_continue"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.btn_continue": [
+              "value"
+            ]
+          }
         }
       ],
       "name": "display_group_4",

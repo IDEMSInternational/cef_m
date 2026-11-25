@@ -5,11 +5,15 @@
   "rows": [
     {
       "type": "title",
-      "value": "**REPARTITION DES BESOINS PREVISIONNELS EN CONCENTRES**"
+      "value": "@global.repartition_besoin_prevision"
     },
     {
       "type": "text",
       "value": "@global.note_total_concentre"
+    },
+    {
+      "name": "attempt_submit",
+      "value": "@fields.attempt_submit"
     },
     {
       "type": "image",
@@ -17,8 +21,8 @@
       "style_list": "width:120px; height:120px; object-fit:contain; flex-shrink:0;"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: black;\"> @global.hint_total_concentre </p>"
+      "type": "subtitle",
+      "value": "@global.hint_total_concentre"
     },
     {
       "type": "text",
@@ -34,25 +38,25 @@
       "name": "quantite_son",
       "value": "@fields.quantite_son",
       "action_list": "changed | set_field: quantite_son : this.value;",
-      "parameter_list": "number_input: true;\nplaceholder: Donnez la quantité de son de céréales;",
+      "parameter_list": "number_input: true; placeholder: @global.texte_placeholder;",
       "exclude_from_translation": true
     },
     {
-      "type": "html",
-      "name": "html_text",
-      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
-      "condition": "!@local.quantite_son "
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@fields.quantite_son && @fields.attempt_submit",
+      "style_list": "@global.reponse_style"
     },
     {
       "name": "valid_quantite_son",
-      "value": "@calc((/^\\d+$/.test(@fields.quantite_son) && @fields.quantite_son <= @fields.total_concentre ) || @fields.quantite_son == '' || !@fields.quantite_son )"
+      "value": "@calc((/^\\d+$/.test(@fields.quantite_son) && @fields.quantite_son<= @fields.total_concentre ) || @fields.quantite_son == '' || !@fields.quantite_son )"
     },
     {
       "type": "text",
       "value": "@global.validite_nombre",
       "condition": "!@local.valid_quantite_son",
       "exclude_from_translation": true,
-      "style_list": "color: #FF0000;\nfont-size: 14px"
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "text",
@@ -60,8 +64,8 @@
       "condition": "@fields.quantite_son > 0 "
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: black;\"> @global.hint_qtite_tourteau </p>",
+      "type": "text",
+      "value": "@global.hint_qtite_tourteau",
       "condition": "@fields.quantite_son > 0 "
     },
     {
@@ -74,17 +78,23 @@
       "type": "set_field",
       "name": "quantite_tourteau",
       "value": "@calc(Number(@fields.total_concentre) - Number(@fields.quantite_son))",
-      "condition": "@fields.quantite_son > 0 "
+      "condition": "@fields.quantite_son "
     },
     {
-      "type": "html",
-      "name": "note_tourteau",
-      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n La quantité de tourteau de coton est :  <strong> @fields.quantite_tourteau sacs\n</strong> </div>",
-      "condition": "@fields.quantite_son > 0 "
+      "type": "begin_display_group",
+      "condition": "@fields.quantite_son",
+      "style_list": "background-color: #f0f4f8; border-left-style: solid; border-left-color: #0056b3; border-radius: 5px;"
+    },
+    {
+      "type": "text",
+      "value": "@global.note_tourteau_label"
+    },
+    {
+      "type": "end_display_group"
     },
     {
       "name": "completed_enabled",
-      "value": "!!@fields.quantite_son"
+      "value": "@fields.quantite_son"
     },
     {
       "type": "begin_display_group",
@@ -100,10 +110,19 @@
     },
     {
       "type": "button",
+      "name": "btn_attempt_submit",
+      "value": "@global.btn_continue",
+      "action_list": "click | set_field: attempt_submit: true;",
+      "condition": "!@local.completed_enabled",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "button",
       "name": "page10_button_continue",
-      "value": "Continuer",
+      "value": "@global.btn_continue",
       "action_list": "click | emit: completed;",
       "parameter_list": "disabled: !@local.completed_enabled",
+      "condition": "@local.completed_enabled",
       "style_list": "flex: 1"
     },
     {

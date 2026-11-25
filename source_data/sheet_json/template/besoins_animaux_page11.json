@@ -5,7 +5,7 @@
   "rows": [
     {
       "type": "title",
-      "value": "**RECAPITULATIF DES PREVISIONS**"
+      "value": "@global.recap_prevision_title"
     },
     {
       "type": "set_field",
@@ -28,7 +28,7 @@
       "value": "Categories animales de l'UPA selectionnées: **@fields.cat_animaux_selected**"
     },
     {
-      "type": "text",
+      "type": "subtitle",
       "value": "@global.note_sup_fouragere"
     },
     {
@@ -37,21 +37,33 @@
       "style_list": "width:120px; height:120px; object-fit:contain; flex-shrink:0;"
     },
     {
-      "type": "html",
-      "name": "note_cal_superficie",
-      "value": "<div style=\"background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; padding: 16px; border-radius: 12px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 16px;\">\n  <span style=\"font-size: 14px; opacity: 0.9; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 6px;\"> @global.sup_fouragere\n  </span>\n  <span style=\"font-size: 28px; font-weight: bold; color: #ffffff;\">\n   @fields.cal_superficie ha\n  </span>\n</div>"
-    },
-    {
-      "type": "html",
-      "value": "<p style=\"color: black;\">@global.hint_sup_fouragere</strong> </p>"
+      "type": "begin_display_group",
+      "parameter_list": "style: column",
+      "style_list": "background:#f0f4f8 ; padding: 16px; border-radius: 12px; text-align: center; \n"
     },
     {
       "type": "text",
+      "value": "@global.sup_fouragere"
+    },
+    {
+      "type": "text",
+      "value": "\n**@fields.cal_superficie ha**"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "value": "@global.hint_sup_fouragere",
+      "style_list": "@global.hint_style"
+    },
+    {
+      "type": "subtitle",
       "value": "@global.note_mot_alim_betail"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: black;\">*1 drm=5 FCFA*</p>"
+      "type": "text",
+      "value": "@global.drm_cfa_hint"
     },
     {
       "type": "image",
@@ -59,21 +71,33 @@
       "style_list": "width:120px; height:120px; object-fit:contain; flex-shrink:0;"
     },
     {
-      "type": "html",
-      "name": "depense",
-      "value": "<div style=\"background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; padding: 16px; border-radius: 12px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 16px;\">\n  <span style=\"font-size: 14px; opacity: 0.9; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 6px;\">@global.mot_alim_betail\n  </span>\n  <span style=\"font-size: 28px; font-weight: bold; color: #ffffff;\">\n    @fields.cal_depense_total drm\n  </span>\n</div>"
-    },
-    {
-      "type": "html",
-      "value": "<p style=\"color: black;\">@global.hint_mot_alim_betail</p>"
+      "type": "begin_display_group",
+      "parameter_list": "style: column",
+      "style_list": "background:#f0f4f8 ; padding: 16px; border-radius: 12px; text-align: center; \n"
     },
     {
       "type": "text",
+      "value": "@global.mot_alim_betail"
+    },
+    {
+      "type": "text",
+      "value": "**@fields.cal_depense_total drm**"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "value": "@global.hint_mot_alim_betail",
+      "style_list": "@global.hint_style"
+    },
+    {
+      "type": "subtitle",
       "value": "@global.note_montant_soin"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: black;\">*1 drm=5 FCFA*</p>"
+      "type": "text",
+      "value": "@global.drm_cfa_hint"
     },
     {
       "type": "image",
@@ -81,13 +105,25 @@
       "style_list": "width:120px; height:120px; object-fit:contain; flex-shrink:0;"
     },
     {
-      "type": "html",
-      "name": "total_frais_soins",
-      "value": "<div style=\"background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; padding: 16px; border-radius: 12px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 16px;\">\n  <span style=\"font-size: 14px; opacity: 0.9; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 6px;\">\n@global.montant_soin\n  </span>\n  <span style=\"font-size: 28px; font-weight: bold; color: #ffffff;\">\n    @fields.cal_depense_soins drm\n  </span>\n</div>"
+      "type": "begin_display_group",
+      "parameter_list": "style: column",
+      "style_list": "background:#f0f4f8 ; padding: 16px; border-radius: 12px; text-align: center; \n"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: black;\">@global.hint_montant_soin</p>"
+      "type": "text",
+      "value": "@global.montant_soin"
+    },
+    {
+      "type": "text",
+      "value": "**@fields.cal_depense_soins drm**"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "value": "@global.hint_montant_soin",
+      "style_list": "@global.hint_style"
     },
     {
       "type": "begin_display_group",
@@ -97,13 +133,13 @@
     },
     {
       "type": "round_button",
-      "name": "page13_button_back",
+      "name": "page11_button_back",
       "action_list": "click | emit: uncompleted;",
       "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
     },
     {
       "type": "button",
-      "name": "page13_button_continue",
+      "name": "page11_button_continue",
       "value": "Continuer",
       "action_list": "click | emit: completed;",
       "style_list": "flex: 1"

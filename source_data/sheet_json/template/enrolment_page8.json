@@ -5,7 +5,7 @@
   "rows": [
     {
       "type": "title",
-      "value": "@global.societe_coop"
+      "value": "@global.appartenance_asso"
     },
     {
       "name": "attempt_submit",
@@ -16,12 +16,12 @@
     },
     {
       "type": "subtitle",
-      "value": "@global.fr_scpc_id_note"
+      "value": "@global.appartenance_coton_note"
     },
     {
       "type": "audio",
-      "name": "audio_8_1",
-      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/federation_scpc_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "name": "audio_7_1",
+      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/on_scpc_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
       "exclude_from_translation": true,
       "style_list": "float: right;"
     },
@@ -35,13 +35,12 @@
     },
     {
       "type": "begin_radio_list",
-      "value": "@fields.fr_scpc_id",
-      "action_list": "changed | set_field : fr_scpc_id: this.value;"
+      "value": "@fields.appartenance_coton",
+      "action_list": "changed | set_field : appartenance_coton: this.value;"
     },
     {
       "type": "begin_data_items",
-      "value": "@data.village_FR_SCPC",
-      "parameter_list": "filter: @item.village == @fields.village_id"
+      "value": "@data.oui_non"
     },
     {
       "type": "end_data_items"
@@ -52,20 +51,20 @@
     {
       "type": "text",
       "value": "@global.reponse_obligatoire",
-      "condition": "!@fields.fr_scpc_id && @fields.attempt_submit",
+      "condition": "!@fields.appartenance_coton && @fields.attempt_submit",
       "style_list": "@global.reponse_style"
     },
     {
       "type": "begin_display_group"
     },
     {
-      "type": "text",
-      "value": "@global.us_scpc_id_note"
+      "type": "subtitle",
+      "value": "@global.appartenance_cereale_note"
     },
     {
       "type": "audio",
-      "name": "audio_8_2",
-      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/union_sect_scpc_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "name": "audio_7_2",
+      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/on_op_cereales_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
       "exclude_from_translation": true,
       "style_list": "float: right;"
     },
@@ -74,18 +73,17 @@
     },
     {
       "type": "image",
-      "value": "images/op_coton.jpg",
+      "value": "images/op_cereales.jpg",
       "style_list": "width:100px; height:100px; "
     },
     {
       "type": "begin_radio_list",
-      "value": "@fields.us_scpc_id",
-      "action_list": "changed | set_field : us_scpc_id: this.value;"
+      "value": "@fields.appartenance_cereale",
+      "action_list": "changed | set_field : appartenance_cereale: this.value;"
     },
     {
       "type": "begin_data_items",
-      "value": "@data.village_UN_SCPC",
-      "parameter_list": "filter: @item.village == @fields.village_id"
+      "value": "@data.oui_non"
     },
     {
       "type": "end_data_items"
@@ -96,59 +94,16 @@
     {
       "type": "text",
       "value": "@global.reponse_obligatoire",
-      "condition": "!@fields.us_scpc_id && @fields.attempt_submit",
-      "style_list": "@global.reponse_style"
-    },
-    {
-      "type": "begin_display_group"
-    },
-    {
-      "type": "text",
-      "value": "@global.base_scpc_id_note"
-    },
-    {
-      "type": "audio",
-      "name": "audio_8_3",
-      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/scpc_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "exclude_from_translation": true,
-      "style_list": "float: right;"
-    },
-    {
-      "type": "end_display_group"
-    },
-    {
-      "type": "image",
-      "value": "images/op_coton.jpg",
-      "style_list": "width:100px; height:100px; "
-    },
-    {
-      "type": "begin_radio_list",
-      "value": "@fields.base_scpc_id",
-      "action_list": "changed | set_field : base_scpc_id: this.value;"
-    },
-    {
-      "type": "begin_data_items",
-      "value": "@data.village_SCPC",
-      "parameter_list": "filter: @item.village == @fields.village_id"
-    },
-    {
-      "type": "end_data_items"
-    },
-    {
-      "type": "end_radio_list"
-    },
-    {
-      "type": "text",
-      "value": "@global.reponse_obligatoire",
-      "condition": "!@fields.base_scpc_id && @fields.attempt_submit",
+      "condition": "!@fields.appartenance_cereale && @fields.attempt_submit",
       "style_list": "@global.reponse_style"
     },
     {
       "name": "completed_enabled",
-      "value": "@fields.fr_scpc_id && @fields.us_scpc_id && @fields.base_scpc_id"
+      "value": "@fields.appartenance_cereale && @fields.appartenance_coton"
     },
     {
       "type": "begin_display_group",
+      "name": "dg_footer",
       "value": " ",
       "parameter_list": "sticky: bottom;",
       "style_list": "padding: 12px 24px;"
@@ -168,7 +123,7 @@
     {
       "type": "button",
       "value": "@global.btn_continue",
-      "action_list": "click | set_field: attempt_submit: false;\nclick | emit: completed",
+      "action_list": "click | set_field: attempt_submit: false;\nclick | emit: completed;",
       "parameter_list": "disabled: !@local.completed_enabled",
       "condition": "@local.completed_enabled",
       "style_list": "flex: 1"

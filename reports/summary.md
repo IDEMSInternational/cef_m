@@ -3,33 +3,35 @@
 
 | type | count |
 | --- | --- |
-| audio | 338 |
-| button | 226 |
+| audio | 347 |
+| button | 243 |
 | combo_box | 11 |
-| data_items | 120 |
-| date_time_picker | 18 |
+| data_items | 117 |
+| date_time_picker | 19 |
 | declare_field_default | 2 |
-| display_group | 810 |
-| html | 430 |
-| image | 379 |
-| map | 1 |
-| navigation_bar | 8 |
+| display_grid | 1 |
+| display_group | 869 |
+| end | 1 |
+| html | 16 |
+| image | 388 |
+| map | 4 |
+| plh_bottom_nav | 1 |
 | plh_module_list_item | 10 |
 | radio_button_grid | 27 |
-| radio_list | 26 |
-| round_button | 141 |
+| radio_list | 27 |
+| round_button | 149 |
 | set_field | 35 |
-| set_variable | 747 |
+| set_variable | 745 |
 | simple_checkbox | 10 |
 | square_button | 2 |
-| subtitle | 26 |
+| subtitle | 178 |
 | task_card | 3 |
 | task_progress_bar | 10 |
 | template | 26 |
-| text | 913 |
+| text | 1209 |
 | text_area | 10 |
-| text_box | 242 |
-| title | 148 |
+| text_box | 246 |
+| title | 144 |
 | toggle_bar | 1 |
 </details>
 
@@ -39,26 +41,14 @@
 | type | count |
 | --- | --- |
 | add_data | 10 |
-| align-items | 1 |
 | audio_play | 1 |
-| background | 1 |
-| border | 1 |
-| border-radius | 1 |
-| display | 1 |
-| emit: completed | 137 |
-| emit: completed
-click | 1 |
+| emit: completed | 142 |
 | emit: force_reprocess | 3 |
-| emit: uncompleted | 136 |
-| flex-direction | 1 |
-| go_to | 65 |
-| height | 1 |
-| margin-bottom | 1 |
-| overflow | 1 |
-| set_data | 76 |
-| set_field | 791 |
+| emit: uncompleted | 144 |
+| go_to | 62 |
+| set_data | 77 |
+| set_field | 807 |
 | set_local | 35 |
-| width | 2 |
 </details>
 
 <details open>
@@ -66,8 +56,8 @@ click | 1 |
 
 | assets | KB | MB |
 | --- | --- | --- |
-| total | 48987 KB | 49 MB |
-| unused | 181418 KB | 181.4 MB |
+| total | 50983 KB | 51 MB |
+| unused | 181287 KB | 181.3 MB |
 </details>
 
 <details open>
@@ -120,10 +110,8 @@ Assets that appear in app-data but do not have references within sheets
 | audio/Enrolement/femmes_upa_bm.mp3 | 36.9 |
 | audio/Enrolement/genise_bm.mp3 | 16.8 |
 | audio/Enrolement/gps_upa_bm.mp3 | 19.8 |
-| audio/Enrolement/gps_upa_fr.mp3 | 23.8 |
 | audio/Enrolement/groupe_m_bm.mp3 | 37.1 |
 | audio/Enrolement/groupe_m_bm.wav | 202.5 |
-| audio/Enrolement/groupe_m_fr.mp3 | 45.5 |
 | audio/Enrolement/groupe_m_fr.wav | 249.9 |
 | audio/Enrolement/herse_bm.mp3 | 15.8 |
 | audio/Enrolement/hommes_upa_bm.mp3 | 34.5 |
@@ -326,7 +314,6 @@ Assets that appear in app-data but do not have references within sheets
 | audio/Superficie/qte_fo_bm.mp3 | 41.4 |
 | audio/Superficie/qte_npk_15_bm.mp3 | 44.6 |
 | audio/Superficie/qte_npk_17_bm.mp3 | 49.8 |
-| audio/Superficie/qte_npk_17_fr.mp3 | 33.6 |
 | audio/Superficie/qte_npk_bm.mp3 | 34.1 |
 | audio/Superficie/qte_npk_coton_bm.mp3 | 28.5 |
 | audio/Superficie/qte_npk_fr.mp3 | 43.8 |
@@ -472,27 +459,33 @@ Assets that appear in app-data but do not have references within sheets
 | audio/fumureOrganique/superf_cult_bm.mp3 | 46.3 |
 | audio/fumureOrganique/superf_fumure_bm.mp3 | 82 |
 | audio/postSemi/Ob_audio_postsemis_bm.mp3 | 172.7 |
+| audio/postSemi/Ob_audio_postsemis_fr.mp3 | 188.4 |
 | audio/postSemi/Ob_ecrit_postsemis_bm.mp3 | 178.7 |
+| audio/postSemi/Ob_ecrit_postsemis_fr.mp3 | 194.4 |
 | audio/postSemi/Ob_photo_postsemis_bm.mp3 | 204.2 |
+| audio/postSemi/Ob_photo_postsemis_fr.mp3 | 188.4 |
 | audio/postSemi/Ob_video_postsemis_bm.mp3 | 188.4 |
+| audio/postSemi/Ob_video_postsemis_fr.mp3 | 178.7 |
 | audio/postSemi/annee_saison_bm.mp3 | 20.6 |
 | audio/postSemi/annee_saison_fr.mp3 | 23.4 |
 | audio/postSemi/appreciation_audio_bm.mp3 | 50.4 |
-| audio/postSemi/appreciation_audio_fr.mp3 | 52.5 |
 | audio/postSemi/canal_obser_bm.mp3 | 121.7 |
 | audio/postSemi/canal_obser_fr.mp3 | 98.5 |
 | audio/postSemi/cout_buttage_bm.mp3 | 106.7 |
 | audio/postSemi/cout_cult_postsemis_bm.mp3 | 188.4 |
+| audio/postSemi/cout_cult_postsemis_fr.mp3 | 231.9 |
 | audio/postSemi/cout_desherbage_bm.mp3 | 125.4 |
 | audio/postSemi/cout_herbicide_bm.mp3 | 119.4 |
 | audio/postSemi/cout_insecticide_bm.mp3 | 109.7 |
 | audio/postSemi/cout_npk_bm.mp3 | 42.2 |
 | audio/postSemi/cout_sarclage_bm.mp3 | 132.2 |
 | audio/postSemi/cout_tot_postsemis_bm.mp3 | 196.7 |
+| audio/postSemi/cout_tot_postsemis_fr.mp3 | 263.4 |
 | audio/postSemi/cout_ur_bm.mp3 | 30.2 |
 | audio/postSemi/montant_autre_cout_bm.mp3 | 26.9 |
 | audio/postSemi/nom_autre_cout_bm.mp3 | 30.2 |
 | audio/postSemi/note_form_postsemis_bm.mp3 | 529.6 |
+| audio/postSemi/note_form_postsemis_fr.mp3 | 384.1 |
 | audio/postSemi/on_autre_cout_psemis_bm.mp3 | 45.5 |
 | audio/postSemi/q_herbicide_bm.mp3 | 204.2 |
 | audio/postSemi/q_insecticide_bm.mp3 | 183.9 |
@@ -501,6 +494,7 @@ Assets that appear in app-data but do not have references within sheets
 | audio/postSemi/qr_code_bm.mp3 | 206.4 |
 | audio/postSemi/qr_code_fr.mp3 | 165.9 |
 | audio/postSemi/select_culture_bm.mp3 | 98.9 |
+| audio/postSemi/select_culture_fr.mp3 | 89.4 |
 | audio/postSemi/sup_buttage_bm.mp3 | 196.7 |
 | audio/postSemi/super_desherbage_bm.mp3 | 165.9 |
 | audio/postSemi/super_sarclage_bm.mp3 | 181.7 |
@@ -520,9 +514,7 @@ Assets that appear in app-data but do not have references within sheets
 | audio/recolte/cout_cult_recolte_bm.mp3 | 30.7 |
 | audio/recolte/cout_cult_recolte_fr.mp3 | 191.4 |
 | audio/recolte/cout_recolt_bm.mp3 | 29.3 |
-| audio/recolte/cout_recolt_fr.mp3 | 140.4 |
 | audio/recolte/cout_tot_recolte_bm.mp3 | 162.9 |
-| audio/recolte/cout_tot_recolte_fr.mp3 | 191.4 |
 | audio/recolte/cult_second_bm.mp3 | 137.9 |
 | audio/recolte/cult_second_fr.mp3 | 118.7 |
 | audio/recolte/cult_second_nom1_bm.mp3 | 191.4 |
@@ -535,7 +527,6 @@ Assets that appear in app-data but do not have references within sheets
 | audio/recolte/nom_autre_cout_fr.mp3 | 40.4 |
 | audio/recolte/note_form_recolte_bm.mp3 | 559.6 |
 | audio/recolte/on_autre_cout_recolte_bm.mp3 | 54 |
-| audio/recolte/on_autre_cout_recolte_fr.mp3 | 40.4 |
 | audio/recolte/production_fane_bm.mp3 | 209.4 |
 | audio/recolte/production_graine_bm.mp3 | 144.9 |
 | audio/recolte/production_residu_bm.mp3 | 127.7 |
@@ -543,7 +534,6 @@ Assets that appear in app-data but do not have references within sheets
 | audio/recolte/select_culture_bm.mp3 | 98.9 |
 | audio/recolte/select_culture_fr.mp3 | 89.4 |
 | audio/recolte/sup_recolt_bm.mp3 | 175.7 |
-| audio/recolte/sup_recolt_fr.mp3 | 172.7 |
 | audio/semis/Obser_audio_bm.mp3 | 244.7 |
 | audio/semis/Obser_audio_fr.mp3 | 204.2 |
 | audio/semis/Obser_ecris_bm.mp3 | 273.2 |
@@ -566,11 +556,8 @@ Assets that appear in app-data but do not have references within sheets
 | audio/semis/cout_tot_semis_bm.mp3 | 247.7 |
 | audio/semis/cout_transport_bm.mp3 | 125.4 |
 | audio/semis/cult_second_bm.mp3 | 137.9 |
-| audio/semis/cult_second_fr.mp3 | 118.7 |
 | audio/semis/cult_second_nom1_bm.mp3 | 191.4 |
-| audio/semis/cult_second_nom1_fr.mp3 | 332.4 |
 | audio/semis/cult_second_nom2_bm.mp3 | 222.2 |
-| audio/semis/cult_second_nom2_fr.mp3 | 319.7 |
 | audio/semis/date_semence_bm.mp3 | 162.9 |
 | audio/semis/date_semence_fr.mp3 | 172.7 |
 | audio/semis/montant_autre_cout_bm.mp3 | 26.9 |
@@ -668,9 +655,7 @@ Assets that appear in app-data but do not have references within sheets
 | images/embouche_bovine.jpg | 18.4 |
 | images/embouche_ovine.jpg | 18.1 |
 | images/farming.png | 16.3 |
-| images/gps_local.jpg | 17.5 |
 | images/green_back.png | 33.9 |
-| images/groupe_m.jpg | 361.7 |
 | images/herbicide.jpg | 5.2 |
 | images/home.jpg | 6.9 |
 | images/home.png | 26.6 |
@@ -713,268 +698,270 @@ Assets that have references within sheets but do not appear in app-data
 
 | path | count |
 | --- | --- |
-| 1690985621287.jpg | 1 |
-| 1690986621837.jpg | 1 |
-| 1690986661073.jpg | 1 |
-| 1690986740166.jpg | 1 |
-| 1690986777433.jpg | 1 |
-| 1690986800382.jpg | 1 |
-| 1690989741032.jpg | 1 |
-| 1690990091355.jpg | 1 |
-| 1690994019602.jpg | 1 |
-| 1694002493303.jpg | 1 |
-| 1694003090101.jpg | 1 |
-| 1694425229784.jpg | 1 |
-| 1694427832884.jpg | 1 |
-| 1694463650315.jpg | 1 |
-| 1694463749844.jpg | 1 |
-| 1720528993937.jpg | 1 |
-| 1720540780909.jpg | 1 |
-| 1720590947642.jpg | 1 |
-| 1720980819931.jpg | 1 |
-| 1720982059581.jpg | 1 |
-| 1720982101004.jpg | 1 |
-| 1725368902139.jpg | 1 |
-| 1725369698592.jpg | 1 |
-| 1725370528216.jpg | 1 |
-| 1725371063248.jpg | 1 |
-| 1725371648879.jpg | 1 |
-| 1725372291216.jpg | 1 |
-| 1725375047997.jpg | 1 |
-| 1725375917137.jpg | 1 |
-| 1725376313816.jpg | 1 |
-| 1725377016975.jpg | 1 |
-| 1725453839647.jpg | 1 |
-| 1725454178707.jpg | 1 |
-| 1725454664332.jpg | 1 |
-| 1725455130481.jpg | 1 |
-| 1725455794752.jpg | 1 |
-| 1725456231266.jpg | 1 |
-| 1725457063527.jpg | 1 |
-| 1725457555383.jpg | 1 |
-| 1725458274710.jpg | 1 |
-| 1725460728731.jpg | 1 |
-| 1725529310752.jpg | 1 |
-| 1725529930748.jpg | 1 |
-| 1725530504858.jpg | 1 |
-| 1725531772338.jpg | 1 |
-| 1725532598772.jpg | 1 |
-| 1725533116915.jpg | 1 |
-| 1725533625125.jpg | 1 |
-| 1725535869438.jpg | 1 |
-| 1725612671657.jpg | 1 |
-| 1725613370779.jpg | 1 |
-| 1725614066142.jpg | 1 |
-| 1725614601265.jpg | 1 |
-| 1725615040510.jpg | 1 |
-| 1725618771993.jpg | 1 |
-| 1725619637107.jpg | 1 |
-| 1725621026931.jpg | 1 |
-| 1725623033021.jpg | 1 |
-| 1725623520737.jpg | 1 |
-| 1725624071790.jpg | 1 |
-| 1725624584773.jpg | 1 |
-| 1725625393281.jpg | 1 |
-| 1725625914574.jpg | 1 |
-| 1725702111747.jpg | 1 |
-| 1725702534749.jpg | 1 |
-| 1725702976258.jpg | 1 |
-| 1725703411160.jpg | 1 |
-| 1725703916452.jpg | 1 |
-| 1725704499417.jpg | 1 |
-| 1725704988431.jpg | 1 |
-| 1725705501718.jpg | 1 |
-| 1725706782455.jpg | 1 |
-| 1725708929411.jpg | 1 |
-| 1725709404549.jpg | 1 |
-| 1725709787538.jpg | 1 |
-| 1725710155118.jpg | 1 |
-| 1725710525861.jpg | 1 |
-| 1725710810979.jpg | 1 |
-| 1725712002019.jpg | 1 |
-| 1725712741277.jpg | 1 |
-| 1725713187250.jpg | 1 |
-| 1725720211604.jpg | 1 |
-| 1725720865878.jpg | 1 |
-| 1725872816135.jpg | 1 |
-| 1725873447565.jpg | 1 |
-| 1725873851499.jpg | 1 |
-| 1725875098881.jpg | 1 |
-| 1725875837360.jpg | 1 |
-| 1725876422125.jpg | 1 |
-| 1725876922497.jpg | 1 |
-| 1725877302478.jpg | 1 |
-| 1725878583131.jpg | 1 |
-| 1725879296042.jpg | 1 |
-| 1725883721688.jpg | 1 |
-| 1725884186717.jpg | 1 |
-| 1725884626759.jpg | 1 |
-| 1725885361571.jpg | 1 |
-| 1725885929636.jpg | 1 |
-| 1725886561816.jpg | 1 |
-| 1725887099035.jpg | 1 |
-| 1725887473256.jpg | 1 |
-| 1725891862232.jpg | 1 |
-| 1725892323507.jpg | 1 |
-| 1725967728608.jpg | 1 |
-| 1725968326539.jpg | 1 |
-| 1725969360910.jpg | 1 |
-| 1725970587798.jpg | 1 |
-| 1725972072457.jpg | 1 |
-| 1725972763490.jpg | 1 |
-| 1725974135990.jpg | 1 |
-| 1725977775597.jpg | 1 |
-| 1725978311954.jpg | 1 |
-| 1725979157591.jpg | 1 |
-| 1725979622964.jpg | 1 |
-| 1725980134836.jpg | 1 |
-| 1725980693116.jpg | 1 |
-| 1726045133067.jpg | 1 |
-| 1726045514884.jpg | 1 |
-| 1726045995143.jpg | 1 |
-| 1726046736810.jpg | 1 |
-| 1726046994462.jpg | 1 |
-| 1726047878725.jpg | 1 |
-| 1726048240847.jpg | 1 |
-| 1754567415153.jpg | 1 |
-| 1754567764749.jpg | 1 |
-| 1754568253453.jpg | 1 |
-| 1754568719672.jpg | 1 |
-| 1754570537643.jpg | 1 |
-| 1754570922467.jpg | 1 |
-| 1754572914827.jpg | 1 |
-| 1754573206355.jpg | 1 |
-| 1754574143457.jpg | 1 |
-| 1754646398128.jpg | 1 |
-| 1754646890251.jpg | 1 |
-| 1754647233886.jpg | 1 |
-| 1754647505301.jpg | 1 |
-| 1754649577416.jpg | 1 |
-| 1754726695263.jpg | 1 |
-| 1754726953551.jpg | 1 |
-| 1754727232920.jpg | 1 |
-| 1754727642460.jpg | 1 |
-| 1754728383387.jpg | 1 |
-| 1754729207160.jpg | 1 |
-| 1754729556291.jpg | 1 |
-| 1754732833643.jpg | 1 |
-| 1754733203099.jpg | 1 |
-| 1754733698929.jpg | 1 |
-| 1754734732105.jpg | 1 |
-| 1754735586670.jpg | 1 |
-| 1754736916501.jpg | 1 |
-| 1754737483167.jpg | 1 |
-| 1754738099066.jpg | 1 |
-| 1754738515022.jpg | 1 |
-| 1754738949870.jpg | 1 |
-| 1754739847453.jpg | 1 |
-| 1754740865799.jpg | 1 |
-| 1754741227173.jpg | 1 |
-| 1754741788036.jpg | 1 |
-| 1754745484971.jpg | 1 |
-| 1754745969607.jpg | 1 |
-| 1754747219332.jpg | 1 |
-| 1754747643018.jpg | 1 |
-| 1754812308997.jpg | 1 |
-| 1754813526866.jpg | 1 |
-| 1754814118539.jpg | 1 |
-| 1754814617139.jpg | 1 |
-| 1754817619307.jpg | 1 |
-| 1754818074434.jpg | 1 |
-| 1754818507605.jpg | 1 |
-| 1754819035972.jpg | 1 |
-| 1754819482402.jpg | 1 |
-| 1754820100126.jpg | 1 |
-| 1754820472767.jpg | 1 |
-| 1754821089905.jpg | 1 |
-| 1754821820201.jpg | 1 |
-| 1754825067416.jpg | 1 |
-| 1754827102677.jpg | 1 |
-| 1754827801668.jpg | 1 |
-| 1754828379645.jpg | 1 |
-| 1754831646149.jpg | 1 |
-| 1754832357450.jpg | 1 |
-| 1754832970049.jpg | 1 |
-| 1754833380992.jpg | 1 |
-| 1754927784872.jpg | 1 |
-| 1754928130120.jpg | 1 |
-| 1754929477606.jpg | 1 |
-| 1754932380039.jpg | 1 |
-| 1754932824351.jpg | 1 |
-| 1754933303850.jpg | 1 |
-| 1754933810609.jpg | 1 |
-| 1754934575332.jpg | 1 |
-| 1754934892551.jpg | 1 |
-| 1754982358986.jpg | 1 |
-| 1754983023316.jpg | 1 |
-| 1754984577491.jpg | 1 |
-| 1754986036369.jpg | 1 |
-| 1754986695616.jpg | 1 |
-| 1754989112726.jpg | 1 |
-| 1754989470831.jpg | 1 |
-| 1754990490964.jpg | 1 |
-| 1754991453011.jpg | 1 |
-| 1754991716175.jpg | 1 |
-| 1754992026112.jpg | 1 |
-| 1754992481726.jpg | 1 |
-| 1754992891672.jpg | 1 |
-| 1754993306126.jpg | 1 |
-| 1754997472889.jpg | 1 |
-| 1754998149304.jpg | 1 |
-| 1754999319048.jpg | 1 |
-| 1754999845009.jpg | 1 |
-| 1755000263003.jpg | 1 |
-| 1755000741476.jpg | 1 |
-| 1755005654070.jpg | 1 |
-| 1755006322673.jpg | 1 |
-| 1755006976782.jpg | 1 |
-| 1755007387457.jpg | 1 |
-| 1755011264663.jpg | 1 |
-| 1755012142606.jpg | 1 |
-| 1755012629149.jpg | 1 |
-| 1755013060526.jpg | 1 |
-| 1755013506020.jpg | 1 |
-| 1755077506138.jpg | 1 |
-| 1755078096921.jpg | 1 |
-| 1755078741345.jpg | 1 |
-| 1755081452839.jpg | 1 |
-| 1755081900887.jpg | 1 |
-| 1755082233836.jpg | 1 |
-| 1755084149836.jpg | 1 |
-| 1755084627332.jpg | 1 |
-| 1755085350248.jpg | 1 |
-| 1755088232571.jpg | 1 |
-| 1755089462026.jpg | 1 |
-| 1755089777836.jpg | 1 |
-| 1755090105816.jpg | 1 |
-| 1755090496688.jpg | 1 |
-| 1755090827758.jpg | 1 |
-| 1755093364968.jpg | 1 |
-| 1755094479325.jpg | 1 |
-| 1755096476185.jpg | 1 |
-| 1755096962635.jpg | 1 |
-| 1755097372746.jpg | 1 |
-| 1755098508331.jpg | 1 |
-| 1755098801662.jpg | 1 |
-| 1755104464598.jpg | 1 |
-| 1755104844695.jpg | 1 |
-| 1755105300229.jpg | 1 |
+| 1690985621287.jpg | 2 |
+| 1690986621837.jpg | 2 |
+| 1690986661073.jpg | 2 |
+| 1690986740166.jpg | 2 |
+| 1690986777433.jpg | 2 |
+| 1690986800382.jpg | 2 |
+| 1690989741032.jpg | 2 |
+| 1690990091355.jpg | 2 |
+| 1690994019602.jpg | 2 |
+| 1694002493303.jpg | 2 |
+| 1694003090101.jpg | 2 |
+| 1694425229784.jpg | 2 |
+| 1694427832884.jpg | 2 |
+| 1694463650315.jpg | 2 |
+| 1694463749844.jpg | 2 |
+| 1720528993937.jpg | 2 |
+| 1720540780909.jpg | 2 |
+| 1720590947642.jpg | 2 |
+| 1720980819931.jpg | 2 |
+| 1720982059581.jpg | 2 |
+| 1720982101004.jpg | 2 |
+| 1725368902139.jpg | 2 |
+| 1725369698592.jpg | 2 |
+| 1725370528216.jpg | 2 |
+| 1725371063248.jpg | 2 |
+| 1725371648879.jpg | 2 |
+| 1725372291216.jpg | 2 |
+| 1725375047997.jpg | 2 |
+| 1725375917137.jpg | 2 |
+| 1725376313816.jpg | 2 |
+| 1725377016975.jpg | 2 |
+| 1725453839647.jpg | 2 |
+| 1725454178707.jpg | 2 |
+| 1725454664332.jpg | 2 |
+| 1725455130481.jpg | 2 |
+| 1725455794752.jpg | 2 |
+| 1725456231266.jpg | 2 |
+| 1725457063527.jpg | 2 |
+| 1725457555383.jpg | 2 |
+| 1725458274710.jpg | 2 |
+| 1725460728731.jpg | 2 |
+| 1725529310752.jpg | 2 |
+| 1725529930748.jpg | 2 |
+| 1725530504858.jpg | 2 |
+| 1725531772338.jpg | 2 |
+| 1725532598772.jpg | 2 |
+| 1725533116915.jpg | 2 |
+| 1725533625125.jpg | 2 |
+| 1725535869438.jpg | 2 |
+| 1725612671657.jpg | 2 |
+| 1725613370779.jpg | 2 |
+| 1725614066142.jpg | 2 |
+| 1725614601265.jpg | 2 |
+| 1725615040510.jpg | 2 |
+| 1725618771993.jpg | 2 |
+| 1725619637107.jpg | 2 |
+| 1725621026931.jpg | 2 |
+| 1725623033021.jpg | 2 |
+| 1725623520737.jpg | 2 |
+| 1725624071790.jpg | 2 |
+| 1725624584773.jpg | 2 |
+| 1725625393281.jpg | 2 |
+| 1725625914574.jpg | 2 |
+| 1725702111747.jpg | 2 |
+| 1725702534749.jpg | 2 |
+| 1725702976258.jpg | 2 |
+| 1725703411160.jpg | 2 |
+| 1725703916452.jpg | 2 |
+| 1725704499417.jpg | 2 |
+| 1725704988431.jpg | 2 |
+| 1725705501718.jpg | 2 |
+| 1725706782455.jpg | 2 |
+| 1725708929411.jpg | 2 |
+| 1725709404549.jpg | 2 |
+| 1725709787538.jpg | 2 |
+| 1725710155118.jpg | 2 |
+| 1725710525861.jpg | 2 |
+| 1725710810979.jpg | 2 |
+| 1725712002019.jpg | 2 |
+| 1725712741277.jpg | 2 |
+| 1725713187250.jpg | 2 |
+| 1725720211604.jpg | 2 |
+| 1725720865878.jpg | 2 |
+| 1725872816135.jpg | 3 |
+| 1725873447565.jpg | 3 |
+| 1725873851499.jpg | 3 |
+| 1725875098881.jpg | 3 |
+| 1725875837360.jpg | 3 |
+| 1725876422125.jpg | 3 |
+| 1725876922497.jpg | 3 |
+| 1725877302478.jpg | 3 |
+| 1725878583131.jpg | 3 |
+| 1725879296042.jpg | 3 |
+| 1725883721688.jpg | 2 |
+| 1725884186717.jpg | 2 |
+| 1725884626759.jpg | 2 |
+| 1725885361571.jpg | 2 |
+| 1725885929636.jpg | 2 |
+| 1725886561816.jpg | 2 |
+| 1725887099035.jpg | 2 |
+| 1725887473256.jpg | 2 |
+| 1725891862232.jpg | 2 |
+| 1725892323507.jpg | 2 |
+| 1725967728608.jpg | 2 |
+| 1725968326539.jpg | 2 |
+| 1725969360910.jpg | 2 |
+| 1725970587798.jpg | 2 |
+| 1725972072457.jpg | 2 |
+| 1725972763490.jpg | 2 |
+| 1725974135990.jpg | 2 |
+| 1725977775597.jpg | 2 |
+| 1725978311954.jpg | 2 |
+| 1725979157591.jpg | 2 |
+| 1725979622964.jpg | 2 |
+| 1725980134836.jpg | 2 |
+| 1725980693116.jpg | 2 |
+| 1726045133067.jpg | 2 |
+| 1726045514884.jpg | 2 |
+| 1726045995143.jpg | 2 |
+| 1726046736810.jpg | 2 |
+| 1726046994462.jpg | 2 |
+| 1726047878725.jpg | 2 |
+| 1726048240847.jpg | 2 |
+| 1754567415153.jpg | 2 |
+| 1754567764749.jpg | 2 |
+| 1754568253453.jpg | 2 |
+| 1754568719672.jpg | 2 |
+| 1754570537643.jpg | 2 |
+| 1754570922467.jpg | 2 |
+| 1754572914827.jpg | 2 |
+| 1754573206355.jpg | 2 |
+| 1754574143457.jpg | 2 |
+| 1754646398128.jpg | 2 |
+| 1754646890251.jpg | 2 |
+| 1754647233886.jpg | 2 |
+| 1754647505301.jpg | 2 |
+| 1754649577416.jpg | 2 |
+| 1754726695263.jpg | 2 |
+| 1754726953551.jpg | 2 |
+| 1754727232920.jpg | 2 |
+| 1754727642460.jpg | 2 |
+| 1754728383387.jpg | 2 |
+| 1754729207160.jpg | 2 |
+| 1754729556291.jpg | 2 |
+| 1754732833643.jpg | 2 |
+| 1754733203099.jpg | 2 |
+| 1754733698929.jpg | 2 |
+| 1754734732105.jpg | 3 |
+| 1754735586670.jpg | 3 |
+| 1754736916501.jpg | 3 |
+| 1754737483167.jpg | 3 |
+| 1754738099066.jpg | 3 |
+| 1754738515022.jpg | 3 |
+| 1754738949870.jpg | 3 |
+| 1754739847453.jpg | 3 |
+| 1754740865799.jpg | 3 |
+| 1754741227173.jpg | 3 |
+| 1754741788036.jpg | 3 |
+| 1754745484971.jpg | 2 |
+| 1754745969607.jpg | 2 |
+| 1754747219332.jpg | 2 |
+| 1754747643018.jpg | 2 |
+| 1754812308997.jpg | 2 |
+| 1754813526866.jpg | 2 |
+| 1754814118539.jpg | 2 |
+| 1754814617139.jpg | 2 |
+| 1754817619307.jpg | 2 |
+| 1754818074434.jpg | 2 |
+| 1754818507605.jpg | 2 |
+| 1754819035972.jpg | 2 |
+| 1754819482402.jpg | 2 |
+| 1754820100126.jpg | 2 |
+| 1754820472767.jpg | 2 |
+| 1754821089905.jpg | 2 |
+| 1754821820201.jpg | 2 |
+| 1754825067416.jpg | 2 |
+| 1754827102677.jpg | 2 |
+| 1754827801668.jpg | 2 |
+| 1754828379645.jpg | 2 |
+| 1754831646149.jpg | 2 |
+| 1754832357450.jpg | 2 |
+| 1754832970049.jpg | 2 |
+| 1754833380992.jpg | 2 |
+| 1754927784872.jpg | 2 |
+| 1754928130120.jpg | 2 |
+| 1754929477606.jpg | 2 |
+| 1754932380039.jpg | 2 |
+| 1754932824351.jpg | 2 |
+| 1754933303850.jpg | 2 |
+| 1754933810609.jpg | 2 |
+| 1754934575332.jpg | 2 |
+| 1754934892551.jpg | 2 |
+| 1754982358986.jpg | 2 |
+| 1754983023316.jpg | 2 |
+| 1754984577491.jpg | 2 |
+| 1754986036369.jpg | 2 |
+| 1754986695616.jpg | 2 |
+| 1754989112726.jpg | 2 |
+| 1754989470831.jpg | 2 |
+| 1754990490964.jpg | 2 |
+| 1754991453011.jpg | 2 |
+| 1754991716175.jpg | 2 |
+| 1754992026112.jpg | 2 |
+| 1754992481726.jpg | 2 |
+| 1754992891672.jpg | 2 |
+| 1754993306126.jpg | 2 |
+| 1754997472889.jpg | 2 |
+| 1754998149304.jpg | 2 |
+| 1754999319048.jpg | 2 |
+| 1754999845009.jpg | 2 |
+| 1755000263003.jpg | 2 |
+| 1755000741476.jpg | 2 |
+| 1755005654070.jpg | 2 |
+| 1755006322673.jpg | 2 |
+| 1755006976782.jpg | 2 |
+| 1755007387457.jpg | 2 |
+| 1755011264663.jpg | 2 |
+| 1755012142606.jpg | 2 |
+| 1755012629149.jpg | 2 |
+| 1755013060526.jpg | 2 |
+| 1755013506020.jpg | 2 |
+| 1755077506138.jpg | 2 |
+| 1755078096921.jpg | 2 |
+| 1755078741345.jpg | 2 |
+| 1755081452839.jpg | 2 |
+| 1755081900887.jpg | 2 |
+| 1755082233836.jpg | 2 |
+| 1755084149836.jpg | 2 |
+| 1755084627332.jpg | 2 |
+| 1755085350248.jpg | 2 |
+| 1755088232571.jpg | 2 |
+| 1755089462026.jpg | 2 |
+| 1755089777836.jpg | 2 |
+| 1755090105816.jpg | 2 |
+| 1755090496688.jpg | 2 |
+| 1755090827758.jpg | 2 |
+| 1755093364968.jpg | 2 |
+| 1755094479325.jpg | 2 |
+| 1755096476185.jpg | 2 |
+| 1755096962635.jpg | 2 |
+| 1755097372746.jpg | 2 |
+| 1755098508331.jpg | 2 |
+| 1755098801662.jpg | 2 |
+| 1755104464598.jpg | 2 |
+| 1755104844695.jpg | 2 |
+| 1755105300229.jpg | 2 |
+| @local.v_nom_cult_prev.jpg | 1 |
 | audio/Enrolement/appreciation_audio_fr.mp3 | 6 |
 | audio/Enrolement/on_autre_mat_fr.mp3 | 1 |
 | audio/Enrolement/scpc_fr.mp3 | 1 |
 | audio/alimentationHumaine/appreciation_audio_fr.mp3 | 1 |
-| audio/postSemi/autre_cout_recolte_fr.mp3 | 1 |
-| audio/postSemi/cult_second_fr.mp3 | 1 |
-| audio/postSemi/cult_second_nom1_fr.mp3 | 1 |
-| audio/postSemi/cult_second_nom2_fr.mp3 | 1 |
-| audio/postSemi/nom_autre_cout_recolte_fr.mp3 | 1 |
-| audio/postSemi/nom_autre_pcult1_fr.mp3 | 1 |
-| audio/postSemi/nom_autre_pcult2_fr.mp3 | 1 |
-| audio/postSemi/on_autre_cout_recolte_fr.mp3 | 1 |
+| audio/postSemi/Ob_audio_postSemi_fr.mp3 | 1 |
+| audio/postSemi/Ob_ecrit_postSemi_fr.mp3 | 1 |
+| audio/postSemi/Ob_photo_postSemi_fr.mp3 | 1 |
+| audio/postSemi/Ob_video_postSemi_fr.mp3 | 1 |
+| audio/postSemi/cout_cult_postSemi_fr.mp3 | 1 |
+| audio/postSemi/cout_tot_postSemi_fr.mp3 | 1 |
+| audio/postSemi/note_form_postSemi_fr.mp3 | 1 |
 | audio/recolte/Ob_audio_recoltes_fr.mp3 | 1 |
 | audio/recolte/Ob_ecrit_recoltes_fr.mp3 | 1 |
 | audio/recolte/Ob_photo_recoltes_fr.mp3 | 1 |
 | audio/recolte/Ob_video_recoltes_fr.mp3 | 1 |
+| audio/recolte/autre_cout_recolte_fr.mp3 | 1 |
+| audio/recolte/nom_autre_cout_recolte_fr.mp3 | 1 |
 | audio/semis/autre_cout_semis_fr.mp3 | 2 |
 | audio/semis/cout_battage_fr.mp3 | 1 |
 | audio/semis/cout_buttage_fr.mp3 | 1 |
@@ -988,6 +975,8 @@ Assets that have references within sheets but do not appear in app-data
 | audio/semis/cult_autre_nom2_fr.mp3 | 1 |
 | audio/semis/no_autre_cout_semis_fr.mp3 | 1 |
 | audio/semis/nom_autre_cout_semis_fr.mp3 | 1 |
+| audio/semis/nom_autre_pcult1_fr.mp3 | 1 |
+| audio/semis/nom_autre_pcult2_fr.mp3 | 1 |
 | audio/semis/oberv_audio_fr.mp3 | 1 |
 | audio/semis/oberv_ecrit_fr.mp3 | 1 |
 | audio/semis/oberv_phot_fr.mp3 | 1 |
@@ -997,6 +986,7 @@ Assets that have references within sheets but do not appear in app-data
 | audio/semis/q_ur_fr.mp3 | 1 |
 | audio/superficie/nbre_parcel_fr.mp3 | 1 |
 | click | audio_play:audio/Enrolement/pompe_fr.mp3 | 1 |
+| images/@local.v_nom_cult_prev.jpg | 2 |
 | images/autre1.jpg | 2 |
 | images/holding.jpg | 1 |
 | images/insecticide_cfa.jpg | 1 |
@@ -1036,6 +1026,8 @@ Assets that are used within sheets and also can be found in the synced asset dat
 | audio/Enrolement/federation_scpc_fr.mp3 | 46.3 | 1 |
 | audio/Enrolement/femmes_upa_fr.mp3 | 28.8 | 1 |
 | audio/Enrolement/genise_fr.mp3 | 14.1 | 1 |
+| audio/Enrolement/gps_upa_fr.mp3 | 23.8 | 1 |
+| audio/Enrolement/groupe_m_fr.mp3 | 45.5 | 1 |
 | audio/Enrolement/herse_fr.mp3 | 12 | 1 |
 | audio/Enrolement/hommes_upa_fr.mp3 | 25.9 | 1 |
 | audio/Enrolement/lapin_fr.mp3 | 15.3 | 1 |
@@ -1107,6 +1099,7 @@ Assets that are used within sheets and also can be found in the synced asset dat
 | audio/Superficie/qte_dap_fr.mp3 | 24.4 | 1 |
 | audio/Superficie/qte_fo_fr.mp3 | 47 | 1 |
 | audio/Superficie/qte_npk_15_fr.mp3 | 31.2 | 1 |
+| audio/Superficie/qte_npk_17_fr.mp3 | 33.6 | 1 |
 | audio/Superficie/qte_npk_coton_fr.mp3 | 41.2 | 1 |
 | audio/Superficie/qte_uree_fr.mp3 | 29.3 | 1 |
 | audio/Superficie/source_semence_fr.mp3 | 38.1 | 1 |
@@ -1176,39 +1169,36 @@ Assets that are used within sheets and also can be found in the synced asset dat
 | audio/fumureOrganique/strategie_5ans_fr.mp3 | 371.2 | 1 |
 | audio/fumureOrganique/superf_cult_fr.mp3 | 37.9 | 1 |
 | audio/fumureOrganique/superf_fumure_fr.mp3 | 84.4 | 1 |
-| audio/postSemi/Ob_audio_postsemis_fr.mp3 | 188.4 | 1 |
-| audio/postSemi/Ob_ecrit_postsemis_fr.mp3 | 194.4 | 1 |
-| audio/postSemi/Ob_photo_postsemis_fr.mp3 | 188.4 | 1 |
-| audio/postSemi/Ob_video_postsemis_fr.mp3 | 178.7 | 1 |
+| audio/postSemi/appreciation_audio_fr.mp3 | 52.5 | 2 |
 | audio/postSemi/cout_buttage_fr.mp3 | 144.9 | 2 |
-| audio/postSemi/cout_cult_postsemis_fr.mp3 | 231.9 | 1 |
 | audio/postSemi/cout_desherbage_fr.mp3 | 153.2 | 2 |
 | audio/postSemi/cout_herbicide_fr.mp3 | 140.4 | 2 |
 | audio/postSemi/cout_insecticide_fr.mp3 | 106.7 | 2 |
 | audio/postSemi/cout_npk_fr.mp3 | 106.7 | 1 |
 | audio/postSemi/cout_sarclage_fr.mp3 | 147.9 | 2 |
-| audio/postSemi/cout_tot_postsemis_fr.mp3 | 263.4 | 1 |
 | audio/postSemi/cout_ur_fr.mp3 | 106.7 | 2 |
 | audio/postSemi/montant_autre_cout_fr.mp3 | 27.7 | 1 |
 | audio/postSemi/nom_autre_cout_fr.mp3 | 40.4 | 1 |
-| audio/postSemi/note_form_postsemis_fr.mp3 | 384.1 | 1 |
 | audio/postSemi/on_autre_cout_psemis_fr.mp3 | 36.1 | 1 |
 | audio/postSemi/q_herbicide_fr.mp3 | 252.9 | 1 |
 | audio/postSemi/q_insecticide_fr.mp3 | 284.4 | 1 |
 | audio/postSemi/q_npk_fr.mp3 | 273.2 | 1 |
 | audio/postSemi/q_ur_fr.mp3 | 255.9 | 2 |
-| audio/postSemi/select_culture_fr.mp3 | 89.4 | 1 |
 | audio/postSemi/sup_buttage_fr.mp3 | 225.2 | 1 |
 | audio/postSemi/super_desherbage_fr.mp3 | 225.2 | 1 |
 | audio/postSemi/super_sarclage_fr.mp3 | 212.4 | 1 |
 | audio/recolte/annee_saison_fr.mp3 | 23.4 | 1 |
 | audio/recolte/canal_obser_fr.mp3 | 98.5 | 1 |
 | audio/recolte/cout_battage_fr.mp3 | 106.7 | 2 |
+| audio/recolte/cout_recolt_fr.mp3 | 140.4 | 2 |
+| audio/recolte/cout_tot_recolte_fr.mp3 | 191.4 | 1 |
 | audio/recolte/note_form_recolte_fr.mp3 | 405.4 | 1 |
+| audio/recolte/on_autre_cout_recolte_fr.mp3 | 40.4 | 1 |
 | audio/recolte/production_fane_fr.mp3 | 288.2 | 1 |
 | audio/recolte/production_graine_fr.mp3 | 153.2 | 1 |
 | audio/recolte/production_residu_fr.mp3 | 216.9 | 1 |
 | audio/recolte/qr_code_fr.mp3 | 165.9 | 1 |
+| audio/recolte/sup_recolt_fr.mp3 | 172.7 | 1 |
 | audio/semis/Q_fumure_fr.mp3 | 319.7 | 1 |
 | audio/semis/appreciation_audio_fr.mp3 | 52.5 | 1 |
 | audio/semis/canal_obser_fr.mp3 | 98.5 | 1 |
@@ -1220,6 +1210,9 @@ Assets that are used within sheets and also can be found in the synced asset dat
 | audio/semis/cout_semence_fr.mp3 | 140.4 | 5 |
 | audio/semis/cout_tot_semis_fr.mp3 | 260.4 | 2 |
 | audio/semis/cout_transport_fr.mp3 | 316.7 | 3 |
+| audio/semis/cult_second_fr.mp3 | 118.7 | 1 |
+| audio/semis/cult_second_nom1_fr.mp3 | 332.4 | 1 |
+| audio/semis/cult_second_nom2_fr.mp3 | 319.7 | 1 |
 | audio/semis/nom_autre_cout_fr.mp3 | 40.4 | 1 |
 | audio/semis/note_form_semis_fr.mp3 | 402.4 | 2 |
 | audio/semis/on_autre_cout_semis_fr.mp3 | 51.4 | 1 |
@@ -1227,21 +1220,22 @@ Assets that are used within sheets and also can be found in the synced asset dat
 | audio/semis/q_herbicide_fr.mp3 | 297.2 | 1 |
 | audio/semis/q_pnt_fr.mp3 | 337.7 | 1 |
 | audio/semis/q_semence_fr.mp3 | 36.4 | 2 |
-| audio/semis/select_culture_fr.mp3 | 89.4 | 1 |
+| audio/semis/select_culture_fr.mp3 | 89.4 | 2 |
 | audio/semis/sup_culture_fr.mp3 | 309.9 | 2 |
 | audio/semis/sup_labour_fr.mp3 | 244.7 | 2 |
 | images/1er_cycle.jpg | 93.8 | 1 |
 | images/2nd_cycle.jpg | 106.1 | 1 |
-| images/Cout de production.jpg | 1357.8 | 3 |
+| images/Cout de production resized.jpg | 1251.7 | 1 |
+| images/Cout de production.jpg | 1357.8 | 1 |
 | images/Cout de production.png | 1357.8 | 1 |
 | images/Fane.jpg | 18.2 | 1 |
 | images/Fane2.jpg | 18.2 | 5 |
 | images/Fatoumata_pic.png | 1245.9 | 1 |
 | images/Flag_of_Italy.svg.png | 2.9 | 1 |
 | images/Flag_of_Mali.svg | 0.2 | 1 |
-| images/Observation.png | 1985.1 | 4 |
-| images/Production.png | 2046.7 | 4 |
-| images/Rendement.png | 2038.3 | 4 |
+| images/Observation.png | 1985.1 | 3 |
+| images/Production.png | 2046.7 | 3 |
+| images/Rendement.png | 2038.3 | 3 |
 | images/Residus.jpg | 17.6 | 7 |
 | images/adolescent.jpg | 22.3 | 1 |
 | images/agri.jpg | 33.3 | 3 |
@@ -1259,7 +1253,7 @@ Assets that are used within sheets and also can be found in the synced asset dat
 | images/background_app.png | 718.7 | 1 |
 | images/batteuse.jpg | 15.1 | 1 |
 | images/besoin_upa.jpg | 13.5 | 1 |
-| images/besoins  planifiés.png | 1986.7 | 3 |
+| images/besoins  planifiés.png | 1986.7 | 2 |
 | images/bienvenue.png | 1173.8 | 1 |
 | images/bissap.jpg | 5.3 | 6 |
 | images/boeuf_labour.jpg | 14.2 | 1 |
@@ -1271,11 +1265,11 @@ Assets that are used within sheets and also can be found in the synced asset dat
 | images/butter.jpg | 20.1 | 1 |
 | images/camera.png | 36 | 3 |
 | images/canard.jpg | 17.4 | 1 |
-| images/cartes champs.png | 2058.1 | 3 |
-| images/cfa.jpg | 2.6 | 63 |
-| images/cfa_tot.jpg | 2.9 | 23 |
+| images/cartes champs.png | 2058.1 | 2 |
+| images/cfa.jpg | 2.6 | 65 |
+| images/cfa_tot.jpg | 2.9 | 24 |
 | images/champ.jpg | 37.4 | 1 |
-| images/characteristics UPA.png | 2012.4 | 5 |
+| images/characteristics UPA.png | 2012.4 | 4 |
 | images/charrette.jpg | 4.2 | 4 |
 | images/charrue.jpg | 10.6 | 1 |
 | images/chef_travaux.jpg | 3.6 | 1 |
@@ -1305,23 +1299,25 @@ Assets that are used within sheets and also can be found in the synced asset dat
 | images/first_asset.png | 3.5 | 2 |
 | images/flacon.jpg | 4 | 3 |
 | images/fonio.jpg | 6.1 | 6 |
-| images/fourrage.jpg | 3.6 | 6 |
+| images/fourrage.jpg | 22 | 6 |
 | images/fruits.jpeg | 446 | 1 |
 | images/fumure.jpg | 6.6 | 1 |
 | images/genisse.jpg | 17.8 | 1 |
+| images/gps_local.jpg | 17.5 | 1 |
 | images/grenier.jpg | 250.8 | 1 |
 | images/groupe_a.jpg | 87.4 | 2 |
-| images/groupe_b.jpg | 88.6 | 2 |
-| images/groupe_c.jpg | 82.5 | 2 |
+| images/groupe_b.jpg | 288.2 | 2 |
+| images/groupe_c.jpg | 477 | 2 |
 | images/groupe_d.jpg | 68.3 | 2 |
+| images/groupe_m.jpg | 361.7 | 1 |
 | images/herbicide_cfa.jpg | 13.4 | 2 |
 | images/herse.jpg | 17.4 | 1 |
 | images/homme_adult.jpg | 19 | 1 |
-| images/icons/audio/Speaker_Icon.svg | 0.5 | 339 |
+| images/icons/audio/Speaker_Icon.svg | 0.5 | 348 |
 | images/icons/expand_circle_right.png | 4 | 10 |
 | images/icons/lock_icon.svg | 1 | 1 |
-| images/icons/photo-svgrepo-com.svg | 0.8 | 1 |
-| images/icons/screen-recorder-svgrepo-com.svg | 1.3 | 1 |
+| images/icons/photo-svgrepo-com.svg | 0.8 | 6 |
+| images/icons/screen-recorder-svgrepo-com.svg | 1.3 | 6 |
 | images/icons/speaker_Icon.svg | 0.5 | 1 |
 | images/icons/white-home.svg | 1.3 | 1 |
 | images/kg.jpg | 3.8 | 7 |
@@ -1394,8 +1390,8 @@ Assets that are used within sheets and also can be found in the synced asset dat
 | images/superf_champ.jpg | 4 | 2 |
 | images/superf_fumure.jpg | 17.7 | 1 |
 | images/superf_geoloca.jpg | 4.4 | 1 |
-| images/superf_unit.jpg | 2.9 | 11 |
-| images/superficiescultures.png | 2062 | 3 |
+| images/superf_unit.jpg | 2.9 | 12 |
+| images/superficiescultures.png | 2062 | 2 |
 | images/taureau.jpg | 20 | 1 |
 | images/text.jpg | 3.6 | 1 |
 | images/tourteau.jpg | 17.7 | 2 |
@@ -1422,7 +1418,7 @@ Assets that are used within sheets and also can be found in the synced asset dat
 
 | type | subtype | total |
 | --- | --- | --- |
-| data_list |  | 88 |
-| global |  | 12 |
-| template |  | 192 |
+| data_list |  | 87 |
+| global |  | 13 |
+| template |  | 200 |
 </details>

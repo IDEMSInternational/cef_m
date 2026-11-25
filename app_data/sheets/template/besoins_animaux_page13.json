@@ -5,12 +5,27 @@
   "rows": [
     {
       "type": "title",
-      "value": "**APRECIATIONS ET OBSERVATIONS SUR LE FORMULAIRE**",
+      "value": "@global.appreciation_observ",
       "_translations": {
         "value": {}
       },
       "name": "title_2",
-      "_nested_name": "title_2"
+      "_nested_name": "title_2",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.appreciation_observ",
+            "matchedExpression": "@global.appreciation_observ",
+            "type": "global",
+            "fieldName": "appreciation_observ"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.appreciation_observ": [
+          "value"
+        ]
+      }
     },
     {
       "type": "display_group",
@@ -102,7 +117,7 @@
     {
       "type": "text",
       "name": "obser_appreciation",
-      "value": "We would need a recorder here in order to transmit observations or feedback regarding the form.",
+      "value": "@global.info_audio_need",
       "_translations": {
         "value": {}
       },
@@ -110,7 +125,22 @@
         "color: gray",
         "font-size: 14px"
       ],
-      "_nested_name": "obser_appreciation"
+      "_nested_name": "obser_appreciation",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.info_audio_need",
+            "matchedExpression": "@global.info_audio_need",
+            "type": "global",
+            "fieldName": "info_audio_need"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.info_audio_need": [
+          "value"
+        ]
+      }
     },
     {
       "type": "display_group",

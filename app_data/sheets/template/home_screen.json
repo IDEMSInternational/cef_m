@@ -17,7 +17,7 @@
         "margin-left: calc(-50vw + 50%)",
         "margin-right: calc(-50vw + 50%)",
         "position: relative",
-        "top: 0",
+        "top: 5",
         "z-index: 0",
         "border-bottom-left-radius: 50% 30px",
         "border-bottom-right-radius: 50% 30px"
@@ -26,25 +26,106 @@
       "_nested_name": "image_2"
     },
     {
-      "type": "title",
-      "value": "CEF-M",
+      "value": "@global.titre_homeScreen",
       "_translations": {
         "value": {}
       },
       "style_list": [
         "text-align: center"
       ],
-      "name": "title_3",
-      "_nested_name": "title_3"
+      "type": "set_variable",
+      "name": "set_variable_3",
+      "_nested_name": "set_variable_3",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.titre_homeScreen",
+            "matchedExpression": "@global.titre_homeScreen",
+            "type": "global",
+            "fieldName": "titre_homeScreen"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.titre_homeScreen": [
+          "value"
+        ]
+      }
     },
     {
-      "type": "html",
-      "value": "<div style=\"text-align:center; font-family:Arial, sans-serif; padding:20px;\"> <h2 style=\"color:#2E7D32; margin-top:20px;\"> Bienvenue ! Aw Bissimilla !</h2> <p style=\"font-size:16px; color:#555;\"> Des estimations de meilleure qualité pour de meilleures décisions agricoles </p> </div>",
-      "_translations": {
-        "value": {}
+      "type": "display_group",
+      "parameter_list": {
+        "style": "column"
       },
-      "name": "html_4",
-      "_nested_name": "html_4"
+      "style_list": [
+        "text-align:center",
+        "font-family:Arial,"
+      ],
+      "rows": [
+        {
+          "type": "text",
+          "value": "@global.note_bien",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "color:#2E7D32",
+            "margin-top:20px"
+          ],
+          "name": "text_1",
+          "_nested_name": "display_group_4.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.note_bien",
+                "matchedExpression": "@global.note_bien",
+                "type": "global",
+                "fieldName": "note_bien"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.note_bien": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "value": "@global.text_bien",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-size:16px",
+            "color:#555"
+          ],
+          "name": "text_2",
+          "_nested_name": "display_group_4.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.text_bien",
+                "matchedExpression": "@global.text_bien",
+                "type": "global",
+                "fieldName": "text_bien"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.text_bien": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_4",
+      "_nested_name": "display_group_4"
+    },
+    {
+      "type": "end",
+      "name": "end_6",
+      "_nested_name": "end_6"
     },
     {
       "type": "display_group",
@@ -59,15 +140,15 @@
       "rows": [
         {
           "type": "button",
-          "value": "Scanner QR code",
+          "value": "@global.text_scan",
           "action_list": [
             {
               "trigger": "click",
               "action_id": "go_to",
               "args": [
-                "scan_screen"
+                "section_screen"
               ],
-              "_raw": "click | go_to: scan_screen"
+              "_raw": "click | go_to: section_screen"
             }
           ],
           "parameter_list": {
@@ -78,11 +159,26 @@
           },
           "rows": [],
           "name": "button_1",
-          "_nested_name": "display_group_5.button_1"
+          "_nested_name": "display_group_7.button_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.text_scan",
+                "matchedExpression": "@global.text_scan",
+                "type": "global",
+                "fieldName": "text_scan"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.text_scan": [
+              "value"
+            ]
+          }
         }
       ],
-      "name": "display_group_5",
-      "_nested_name": "display_group_5"
+      "name": "display_group_7",
+      "_nested_name": "display_group_7"
     },
     {
       "type": "display_group",
@@ -97,8 +193,8 @@
         "height:150px"
       ],
       "rows": [],
-      "name": "display_group_7",
-      "_nested_name": "display_group_7"
+      "name": "display_group_9",
+      "_nested_name": "display_group_9"
     }
   ],
   "_source": {

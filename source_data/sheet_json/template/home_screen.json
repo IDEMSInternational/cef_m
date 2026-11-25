@@ -6,16 +6,32 @@
     {
       "type": "image",
       "value": "images/background_app.png",
-      "style_list": "width: 100vw; \nheight: auto; \nobject-fit: cover; \nobject-position: center top; \nmargin-left: calc(-50vw + 50%); \nmargin-right: calc(-50vw + 50%); \nposition: relative; \ntop: 0; \nz-index: 0; \nborder-bottom-left-radius: 50% 30px; \nborder-bottom-right-radius: 50% 30px;"
+      "style_list": "width: 100vw; \nheight: auto; \nobject-fit: cover; \nobject-position: center top; \nmargin-left: calc(-50vw + 50%); \nmargin-right: calc(-50vw + 50%); \nposition: relative; \ntop: 5; \nz-index: 0; \nborder-bottom-left-radius: 50% 30px; \nborder-bottom-right-radius: 50% 30px;"
     },
     {
-      "type": "title",
-      "value": "CEF-M",
+      "value": "@global.titre_homeScreen",
       "style_list": "text-align: center;"
     },
     {
-      "type": "html",
-      "value": "<div style=\"text-align:center; font-family:Arial, sans-serif; padding:20px;\"> <h2 style=\"color:#2E7D32; margin-top:20px;\"> Bienvenue ! Aw Bissimilla !</h2> <p style=\"font-size:16px; color:#555;\"> Des estimations de meilleure qualité pour de meilleures décisions agricoles </p> </div>\t\t\t\t\t\t\t"
+      "type": "begin_display_group",
+      "parameter_list": "style:column",
+      "style_list": "text-align:center; font-family:Arial,"
+    },
+    {
+      "type": "text",
+      "value": "@global.note_bien",
+      "style_list": "color:#2E7D32; margin-top:20px;"
+    },
+    {
+      "type": "text",
+      "value": "@global.text_bien",
+      "style_list": "font-size:16px; color:#555;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "end"
     },
     {
       "type": "begin_display_group",
@@ -23,8 +39,8 @@
     },
     {
       "type": "begin_button",
-      "value": "Scanner QR code",
-      "action_list": "click | go_to: scan_screen",
+      "value": "@global.text_scan\n",
+      "action_list": "click | go_to: section_screen",
       "parameter_list": "variant: card-portrait; image_asset: images/qr_code.jpg;button_align: centre; style: flexible"
     },
     {

@@ -5,52 +5,67 @@
   "rows": [
     {
       "type": "title",
-      "value": "**APRECIATIONS ET OBSERVATIONS SUR LE FORMULAIRE**",
+      "name": "page_title",
+      "value": "@global.apreciation_observation",
       "_translations": {
         "value": {}
       },
-      "name": "title_2",
-      "_nested_name": "title_2"
+      "_nested_name": "page_title",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.apreciation_observation",
+            "matchedExpression": "@global.apreciation_observation",
+            "type": "global",
+            "fieldName": "apreciation_observation"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.apreciation_observation": [
+          "value"
+        ]
+      }
     },
     {
       "type": "display_group",
       "rows": [
         {
           "type": "text",
-          "name": "observation_label",
-          "value": "@global.observation_label",
+          "value": "@global.observation_appreciation_label",
           "_translations": {
             "value": {}
           },
-          "_nested_name": "display_group_3.observation_label",
+          "name": "text_1",
+          "_nested_name": "display_group_3.text_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "@global.observation_label",
-                "matchedExpression": "@global.observation_label",
+                "fullExpression": "@global.observation_appreciation_label",
+                "matchedExpression": "@global.observation_appreciation_label",
                 "type": "global",
-                "fieldName": "observation_label"
+                "fieldName": "observation_appreciation_label"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@global.observation_label": [
+            "@global.observation_appreciation_label": [
               "value"
             ]
           }
         },
         {
           "type": "audio",
-          "name": "audio_8_1",
+          "name": "audio_19_1",
           "parameter_list": {
-            "variant": "compact",
+            "variant": "button_only",
             "src": "audio/Enrolement/appreciation_audio_fr.mp3",
             "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
           "style_list": [
             "float: right"
           ],
-          "_nested_name": "display_group_3.audio_8_1"
+          "_nested_name": "display_group_3.audio_19_1"
         }
       ],
       "name": "display_group_3",
@@ -63,8 +78,8 @@
         "value": {}
       },
       "style_list": [
-        "width:110px",
-        "height:110px",
+        "width:120px",
+        "height:120px",
         "object-fit:contain",
         "flex-shrink:0"
       ],
@@ -73,8 +88,7 @@
     },
     {
       "type": "text",
-      "name": "observation_hint",
-      "value": "@global.observation_hint",
+      "value": "@global.observation_appreciation_hint",
       "_translations": {
         "value": {}
       },
@@ -82,27 +96,27 @@
         "color: gray",
         "font-size: 16px"
       ],
-      "_nested_name": "observation_hint",
+      "name": "text_6",
+      "_nested_name": "text_6",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@global.observation_hint",
-            "matchedExpression": "@global.observation_hint",
+            "fullExpression": "@global.observation_appreciation_hint",
+            "matchedExpression": "@global.observation_appreciation_hint",
             "type": "global",
-            "fieldName": "observation_hint"
+            "fieldName": "observation_appreciation_hint"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@global.observation_hint": [
+        "@global.observation_appreciation_hint": [
           "value"
         ]
       }
     },
     {
       "type": "text",
-      "name": "obser_appreciation",
-      "value": "We would need a recorder here in order to transmit observations or feedback regarding the form.",
+      "value": "@global.observation_appreciation_need",
       "_translations": {
         "value": {}
       },
@@ -110,10 +124,27 @@
         "color: gray",
         "font-size: 14px"
       ],
-      "_nested_name": "obser_appreciation"
+      "name": "text_7",
+      "_nested_name": "text_7",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.observation_appreciation_need",
+            "matchedExpression": "@global.observation_appreciation_need",
+            "type": "global",
+            "fieldName": "observation_appreciation_need"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.observation_appreciation_need": [
+          "value"
+        ]
+      }
     },
     {
       "type": "display_group",
+      "name": "dg_footer",
       "value": "",
       "parameter_list": {
         "sticky": "bottom"
@@ -124,7 +155,7 @@
       "rows": [
         {
           "type": "round_button",
-          "name": "page_15_button_back",
+          "name": "page_19_button_back",
           "action_list": [
             {
               "trigger": "click",
@@ -139,11 +170,11 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "display_group_8.page_15_button_back"
+          "_nested_name": "dg_footer.page_19_button_back"
         },
         {
           "type": "button",
-          "name": "page_15_button_continue",
+          "name": "page_19_button_continue",
           "value": "@global.btn_continue",
           "_translations": {
             "value": {}
@@ -161,7 +192,7 @@
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "display_group_8.page_15_button_continue",
+          "_nested_name": "dg_footer.page_19_button_continue",
           "_dynamicFields": {
             "value": [
               {
@@ -179,13 +210,12 @@
           }
         }
       ],
-      "name": "display_group_8",
-      "_nested_name": "display_group_8"
+      "_nested_name": "dg_footer"
     }
   ],
   "_source": {
     "name": "cef_m sheets",
-    "path": "template/Planification/Cultures_form_sheets.xlsx",
+    "path": "template/Planification/cultures_form_sheets.xlsx",
     "url": "https://docs.google.com/spreadsheets/d/1BAP12cPkFZaHtm0Xozys0kLOqnVOi1h2UUBMoZbmKQI"
   }
 }

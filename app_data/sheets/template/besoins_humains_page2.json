@@ -5,12 +5,27 @@
   "rows": [
     {
       "type": "title",
-      "value": "PREVISIONS DES PERSONNES A NOURRIR",
+      "value": "@global.prevision_title",
       "_translations": {
         "value": {}
       },
       "name": "title_2",
-      "_nested_name": "title_2"
+      "_nested_name": "title_2",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.prevision_title",
+            "matchedExpression": "@global.prevision_title",
+            "type": "global",
+            "fieldName": "prevision_title"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.prevision_title": [
+          "value"
+        ]
+      }
     },
     {
       "name": "attempt_submit",
@@ -40,17 +55,32 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "html",
-          "value": "Donnez le nombre de personnes à nourrir dans votre UPA à partir des récoltes de la saision hivernale prochaine:<span style=\"color: red;\">*</span>",
+          "type": "subtitle",
+          "value": "@global.perssonne_nourrir_label",
           "_translations": {
             "value": {}
           },
-          "name": "html_1",
-          "_nested_name": "display_group_4.html_1"
+          "name": "subtitle_1",
+          "_nested_name": "display_group_4.subtitle_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.perssonne_nourrir_label",
+                "matchedExpression": "@global.perssonne_nourrir_label",
+                "type": "global",
+                "fieldName": "perssonne_nourrir_label"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.perssonne_nourrir_label": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",
-          "name": "audio_4_1",
+          "name": "audio_2_1",
           "parameter_list": {
             "variant": "button_only",
             "src": "audio/alimentationHumaine/nombre_nourris_fr.mp3",
@@ -59,7 +89,7 @@
           "style_list": [
             "float : right"
           ],
-          "_nested_name": "display_group_4.audio_4_1"
+          "_nested_name": "display_group_4.audio_2_1"
         }
       ],
       "name": "display_group_4",
@@ -80,12 +110,43 @@
     },
     {
       "type": "html",
-      "value": "<p style=\"color: #666; font-size: 13px; line-height: 1.5;\">Il s'agit du nombre de personnes (adultes et enfants) dont l'alimentation sera assurée sur 12 mois, à partir des récoltés en octobre de cette année.</p>",
+      "value": "@global.perssonne_nourrir_hint",
       "_translations": {
         "value": {}
       },
+      "style_list": [
+        "@global.hint_style"
+      ],
       "name": "html_7",
-      "_nested_name": "html_7"
+      "_nested_name": "html_7",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.perssonne_nourrir_hint",
+            "matchedExpression": "@global.perssonne_nourrir_hint",
+            "type": "global",
+            "fieldName": "perssonne_nourrir_hint"
+          }
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.hint_style",
+              "matchedExpression": "@global.hint_style",
+              "type": "global",
+              "fieldName": "hint_style"
+            }
+          ]
+        }
+      },
+      "_dynamicDependencies": {
+        "@global.perssonne_nourrir_hint": [
+          "value"
+        ],
+        "@global.hint_style": [
+          "style_list.0"
+        ]
+      }
     },
     {
       "type": "text_box",
@@ -106,8 +167,8 @@
         }
       ],
       "parameter_list": {
-        "placeholder": "Nombre de personnes",
-        "input_type": "number"
+        "number_input": "true",
+        "placeholder": "@global.texte_placeholder"
       },
       "style_list": [
         "margin-top: 10px"
@@ -121,11 +182,24 @@
             "type": "fields",
             "fieldName": "personnes_nourrir"
           }
-        ]
+        ],
+        "parameter_list": {
+          "placeholder": [
+            {
+              "fullExpression": "@global.texte_placeholder",
+              "matchedExpression": "@global.texte_placeholder",
+              "type": "global",
+              "fieldName": "texte_placeholder"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@fields.personnes_nourrir": [
           "value"
+        ],
+        "@global.texte_placeholder": [
+          "parameter_list.placeholder"
         ]
       }
     },
@@ -163,18 +237,21 @@
       }
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
       "_translations": {
         "value": {}
       },
       "condition": "!@fields.personnes_nourrir && @fields.attempt_submit",
-      "name": "html_10",
-      "_nested_name": "html_10",
+      "style_list": [
+        "@global.reponse_style"
+      ],
+      "name": "text_10",
+      "_nested_name": "text_10",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+            "fullExpression": "@global.reponse_obligatoire",
             "matchedExpression": "@global.reponse_obligatoire",
             "type": "global",
             "fieldName": "reponse_obligatoire"
@@ -193,7 +270,17 @@
             "type": "fields",
             "fieldName": "attempt_submit"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.reponse_obligatoire": [
@@ -204,6 +291,9 @@
         ],
         "@fields.attempt_submit": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
@@ -212,13 +302,28 @@
       "condition": "@fields.personnes_nourrir > 0",
       "rows": [
         {
-          "type": "text",
-          "value": "**PREVISIONS**",
+          "type": "subtitle",
+          "value": "@global.prevision_label",
           "_translations": {
             "value": {}
           },
-          "name": "text_1",
-          "_nested_name": "display_group_11.text_1"
+          "name": "subtitle_1",
+          "_nested_name": "display_group_11.subtitle_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.prevision_label",
+                "matchedExpression": "@global.prevision_label",
+                "type": "global",
+                "fieldName": "prevision_label"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.prevision_label": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",
@@ -254,11 +359,8 @@
     },
     {
       "type": "display_group",
-      "name": "prevision",
       "condition": "@fields.personnes_nourrir > 0",
       "style_list": [
-        "background: #1e3656",
-        "padding: 15px",
         "border-radius: 12px",
         "color: white"
       ],
@@ -270,56 +372,114 @@
             "value": {}
           },
           "style_list": [
-            "width:180px",
-            "height:180px"
+            "width:190px",
+            "height:190px"
           ],
           "name": "image_1",
-          "_nested_name": "prevision.image_1"
+          "_nested_name": "display_group_13.image_1"
         },
         {
-          "type": "html",
-          "value": "<div style=\"overflow: hidden;\">\n    <div style=\"text-transform: uppercase; font-size: 15px; color: #4f8ff1; font-weight: bold; margin-bottom: 2px;\"> @fields.personnes_nourrir personnes à nourrir à partir des récoltes prochaines,l'UPA doit prévoire :</div>\n    <div style=\"font-size: 22px; font-weight: bold; margin-bottom: 4px;\">\n        @local.besoin_cereale_exploitation <span style=\"font-size: 14px; font-weight: normal;\">sacs de céréales</span>\n    </div>\n    <p style=\"font-size: 11px; color: #cbd5e0; line-height: 1.2; margin: 0;\">\n        Ces sacs de céréales couvrent généralement les besoins alimentaires (prévus ou non) des <b>@field.personnes_nourrir membres</b> / 12 mois.\n    </p>\n</div>\n<div style=\"clear: both;\"></div>",
-          "_translations": {
-            "value": {}
+          "type": "display_group",
+          "parameter_list": {
+            "style": "column"
           },
-          "name": "html_2",
-          "_nested_name": "prevision.html_2",
-          "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "<div style=\"overflow: hidden;\">\n    <div style=\"text-transform: uppercase; font-size: 15px; color: #4f8ff1; font-weight: bold; margin-bottom: 2px;\"> @fields.personnes_nourrir personnes à nourrir à partir des récoltes prochaines,l'UPA doit prévoire :</div>\n    <div style=\"font-size: 22px; font-weight: bold; margin-bottom: 4px;\">\n        @local.besoin_cereale_exploitation <span style=\"font-size: 14px; font-weight: normal;\">sacs de céréales</span>\n    </div>\n    <p style=\"font-size: 11px; color: #cbd5e0; line-height: 1.2; margin: 0;\">\n        Ces sacs de céréales couvrent généralement les besoins alimentaires (prévus ou non) des <b>@field.personnes_nourrir membres</b> / 12 mois.\n    </p>\n</div>\n<div style=\"clear: both;\"></div>",
-                "matchedExpression": "@fields.personnes_nourrir",
-                "type": "fields",
-                "fieldName": "personnes_nourrir"
+          "rows": [
+            {
+              "type": "text",
+              "value": "@global.prevision_label_hint1",
+              "_translations": {
+                "value": {}
               },
-              {
-                "fullExpression": "<div style=\"overflow: hidden;\">\n    <div style=\"text-transform: uppercase; font-size: 15px; color: #4f8ff1; font-weight: bold; margin-bottom: 2px;\"> @fields.personnes_nourrir personnes à nourrir à partir des récoltes prochaines,l'UPA doit prévoire :</div>\n    <div style=\"font-size: 22px; font-weight: bold; margin-bottom: 4px;\">\n        @local.besoin_cereale_exploitation <span style=\"font-size: 14px; font-weight: normal;\">sacs de céréales</span>\n    </div>\n    <p style=\"font-size: 11px; color: #cbd5e0; line-height: 1.2; margin: 0;\">\n        Ces sacs de céréales couvrent généralement les besoins alimentaires (prévus ou non) des <b>@field.personnes_nourrir membres</b> / 12 mois.\n    </p>\n</div>\n<div style=\"clear: both;\"></div>",
-                "matchedExpression": "@local.besoin_cereale_exploitation",
-                "type": "local",
-                "fieldName": "besoin_cereale_exploitation"
+              "style_list": [
+                "text-transform: uppercase",
+                "font-size: 15px",
+                "font-weight: bold",
+                "margin-bottom: 2px"
+              ],
+              "name": "text_1",
+              "_nested_name": "display_group_13.display_group_2.text_1",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "@global.prevision_label_hint1",
+                    "matchedExpression": "@global.prevision_label_hint1",
+                    "type": "global",
+                    "fieldName": "prevision_label_hint1"
+                  }
+                ]
               },
-              {
-                "fullExpression": "<div style=\"overflow: hidden;\">\n    <div style=\"text-transform: uppercase; font-size: 15px; color: #4f8ff1; font-weight: bold; margin-bottom: 2px;\"> @fields.personnes_nourrir personnes à nourrir à partir des récoltes prochaines,l'UPA doit prévoire :</div>\n    <div style=\"font-size: 22px; font-weight: bold; margin-bottom: 4px;\">\n        @local.besoin_cereale_exploitation <span style=\"font-size: 14px; font-weight: normal;\">sacs de céréales</span>\n    </div>\n    <p style=\"font-size: 11px; color: #cbd5e0; line-height: 1.2; margin: 0;\">\n        Ces sacs de céréales couvrent généralement les besoins alimentaires (prévus ou non) des <b>@field.personnes_nourrir membres</b> / 12 mois.\n    </p>\n</div>\n<div style=\"clear: both;\"></div>",
-                "matchedExpression": "@field.personnes_nourrir",
-                "type": "field",
-                "fieldName": "personnes_nourrir"
+              "_dynamicDependencies": {
+                "@global.prevision_label_hint1": [
+                  "value"
+                ]
               }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@fields.personnes_nourrir": [
-              "value"
-            ],
-            "@local.besoin_cereale_exploitation": [
-              "value"
-            ],
-            "@field.personnes_nourrir": [
-              "value"
-            ]
-          }
+            },
+            {
+              "type": "text",
+              "value": "@global.prevision_label_hint2",
+              "_translations": {
+                "value": {}
+              },
+              "style_list": [
+                "font-size: 22px",
+                "font-weight: bold",
+                "margin-bottom: 4px"
+              ],
+              "name": "text_2",
+              "_nested_name": "display_group_13.display_group_2.text_2",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "@global.prevision_label_hint2",
+                    "matchedExpression": "@global.prevision_label_hint2",
+                    "type": "global",
+                    "fieldName": "prevision_label_hint2"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@global.prevision_label_hint2": [
+                  "value"
+                ]
+              }
+            },
+            {
+              "type": "text",
+              "value": "@global.prevision_label_hint3",
+              "_translations": {
+                "value": {}
+              },
+              "style_list": [
+                "font-size: 11px",
+                "color: gray",
+                "line-height: 1.2",
+                "margin: 0"
+              ],
+              "name": "text_3",
+              "_nested_name": "display_group_13.display_group_2.text_3",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "@global.prevision_label_hint3",
+                    "matchedExpression": "@global.prevision_label_hint3",
+                    "type": "global",
+                    "fieldName": "prevision_label_hint3"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@global.prevision_label_hint3": [
+                  "value"
+                ]
+              }
+            }
+          ],
+          "name": "display_group_2",
+          "_nested_name": "display_group_13.display_group_2"
         }
       ],
-      "_nested_name": "prevision",
+      "name": "display_group_13",
+      "_nested_name": "display_group_13",
       "_dynamicFields": {
         "condition": [
           {
@@ -401,7 +561,7 @@
         {
           "type": "button",
           "name": "button_continue_attempt_submit",
-          "value": "Continuer",
+          "value": "@global.btn_continue",
           "_translations": {
             "value": {}
           },
@@ -422,6 +582,14 @@
           ],
           "_nested_name": "dg_footer.button_continue_attempt_submit",
           "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.btn_continue",
+                "matchedExpression": "@global.btn_continue",
+                "type": "global",
+                "fieldName": "btn_continue"
+              }
+            ],
             "condition": [
               {
                 "fullExpression": "!@local.completed_enabled",
@@ -432,6 +600,9 @@
             ]
           },
           "_dynamicDependencies": {
+            "@global.btn_continue": [
+              "value"
+            ],
             "!@local.completed_enabled": [
               "condition"
             ]

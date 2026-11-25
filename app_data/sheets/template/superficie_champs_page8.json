@@ -5,12 +5,27 @@
   "rows": [
     {
       "type": "title",
-      "value": "DATE ET QUANTITÉ DE SEMIS",
+      "value": "@global.title_page8",
       "_translations": {
         "value": {}
       },
       "name": "title_2",
-      "_nested_name": "title_2"
+      "_nested_name": "title_2",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.title_page8",
+            "matchedExpression": "@global.title_page8",
+            "type": "global",
+            "fieldName": "title_page8"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.title_page8": [
+          "value"
+        ]
+      }
     },
     {
       "name": "attempt_submit_p9",
@@ -128,61 +143,31 @@
       }
     },
     {
-      "type": "html",
-      "value": "<h1 style=\"color: #1e3656; margin: 0; font-size: 15px; text-transform: uppercase;\">Semis de @fields.cult_princip dans la parcelle N⁰@fields.num_parcelle</h1>",
-      "_translations": {
-        "value": {}
-      },
-      "name": "html_6",
-      "_nested_name": "html_6",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "<h1 style=\"color: #1e3656; margin: 0; font-size: 15px; text-transform: uppercase;\">Semis de @fields.cult_princip dans la parcelle N⁰@fields.num_parcelle</h1>",
-            "matchedExpression": "@fields.cult_princip",
-            "type": "fields",
-            "fieldName": "cult_princip"
-          },
-          {
-            "fullExpression": "<h1 style=\"color: #1e3656; margin: 0; font-size: 15px; text-transform: uppercase;\">Semis de @fields.cult_princip dans la parcelle N⁰@fields.num_parcelle</h1>",
-            "matchedExpression": "@fields.num_parcelle",
-            "type": "fields",
-            "fieldName": "num_parcelle"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.cult_princip": [
-          "value"
-        ],
-        "@fields.num_parcelle": [
-          "value"
-        ]
-      }
-    },
-    {
       "type": "display_group",
       "rows": [
         {
-          "type": "html",
-          "value": "<label font-weight: bold;\"><span style=\"color: red;\">*</span> Date de semis de <b>@fields.cult_princip</b> </label>",
+          "type": "text",
+          "value": "@global.note_date_semis",
           "_translations": {
             "value": {}
           },
-          "name": "html_1",
-          "_nested_name": "display_group_7.html_1",
+          "style_list": [
+            "font-weight: bold"
+          ],
+          "name": "text_1",
+          "_nested_name": "display_group_6.text_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "<label font-weight: bold;\"><span style=\"color: red;\">*</span> Date de semis de <b>@fields.cult_princip</b> </label>",
-                "matchedExpression": "@fields.cult_princip",
-                "type": "fields",
-                "fieldName": "cult_princip"
+                "fullExpression": "@global.note_date_semis",
+                "matchedExpression": "@global.note_date_semis",
+                "type": "global",
+                "fieldName": "note_date_semis"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@fields.cult_princip": [
+            "@global.note_date_semis": [
               "value"
             ]
           }
@@ -198,11 +183,11 @@
           "style_list": [
             "float : right"
           ],
-          "_nested_name": "display_group_7.audio_9_1"
+          "_nested_name": "display_group_6.audio_9_1"
         }
       ],
-      "name": "display_group_7",
-      "_nested_name": "display_group_7"
+      "name": "display_group_6",
+      "_nested_name": "display_group_6"
     },
     {
       "type": "data_items",
@@ -221,11 +206,11 @@
                 "value": {}
               },
               "style_list": [
-                "width: 40%",
+                "width: 20%",
                 "object-fit: contain"
               ],
               "name": "image_1",
-              "_nested_name": "data_items_9.display_group_1_@item.id.image_1",
+              "_nested_name": "data_items_8.display_group_1_@item.id.image_1",
               "_dynamicFields": {
                 "value": [
                   {
@@ -237,7 +222,7 @@
                 ],
                 "_nested_name": [
                   {
-                    "fullExpression": "data_items_9.display_group_1_@item.id.image_1",
+                    "fullExpression": "data_items_8.display_group_1_@item.id.image_1",
                     "matchedExpression": "@item.id.image_1",
                     "type": "item",
                     "fieldName": "id"
@@ -255,7 +240,7 @@
             }
           ],
           "name": "display_group_1_@item.id",
-          "_nested_name": "data_items_9.display_group_1_@item.id",
+          "_nested_name": "data_items_8.display_group_1_@item.id",
           "_dynamicFields": {
             "name": [
               {
@@ -267,7 +252,7 @@
             ],
             "_nested_name": [
               {
-                "fullExpression": "data_items_9.display_group_1_@item.id",
+                "fullExpression": "data_items_8.display_group_1_@item.id",
                 "matchedExpression": "@item.id",
                 "type": "item",
                 "fieldName": "id"
@@ -282,8 +267,8 @@
           }
         }
       ],
-      "name": "data_items_9",
-      "_nested_name": "data_items_9",
+      "name": "data_items_8",
+      "_nested_name": "data_items_8",
       "_dynamicFields": {
         "value": [
           {
@@ -361,15 +346,27 @@
       }
     },
     {
-      "type": "html",
+      "type": "text",
       "name": "html_text",
-      "value": "<span style=\"color: red; font-size: 13px;\">La date est obligatoire ! </span>",
+      "value": "@global.date_warring",
       "_translations": {
         "value": {}
       },
       "condition": "@fields.attempt_submit_p9 && !@fields.date_semence",
+      "style_list": [
+        "color: red",
+        "font-size: 13px"
+      ],
       "_nested_name": "html_text",
       "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.date_warring",
+            "matchedExpression": "@global.date_warring",
+            "type": "global",
+            "fieldName": "date_warring"
+          }
+        ],
         "condition": [
           {
             "fullExpression": "@fields.attempt_submit_p9 && !@fields.date_semence",
@@ -386,6 +383,9 @@
         ]
       },
       "_dynamicDependencies": {
+        "@global.date_warring": [
+          "value"
+        ],
         "@fields.attempt_submit_p9": [
           "condition"
         ],
@@ -398,25 +398,29 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "html",
-          "value": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Quantité de semence de @fields.cult_princip (en kg) </label",
+          "type": "text",
+          "value": "@global.note_qtite_semence",
           "_translations": {
             "value": {}
           },
-          "name": "html_1",
-          "_nested_name": "display_group_13.html_1",
+          "style_list": [
+            "color: #1e3656",
+            "font-weight: bold"
+          ],
+          "name": "text_1",
+          "_nested_name": "display_group_12.text_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "<label style=\"color: #1e3656; font-weight: bold;\"><span style=\"color: red;\">*</span> Quantité de semence de @fields.cult_princip (en kg) </label",
-                "matchedExpression": "@fields.cult_princip",
-                "type": "fields",
-                "fieldName": "cult_princip"
+                "fullExpression": "@global.note_qtite_semence",
+                "matchedExpression": "@global.note_qtite_semence",
+                "type": "global",
+                "fieldName": "note_qtite_semence"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@fields.cult_princip": [
+            "@global.note_qtite_semence": [
               "value"
             ]
           }
@@ -429,11 +433,11 @@
             "src": "audio/Superficie/q_semence_fr.mp3",
             "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
-          "_nested_name": "display_group_13.audio_9_2"
+          "_nested_name": "display_group_12.audio_9_2"
         }
       ],
-      "name": "display_group_13",
-      "_nested_name": "display_group_13"
+      "name": "display_group_12",
+      "_nested_name": "display_group_12"
     },
     {
       "type": "image",
@@ -445,21 +449,25 @@
         "width:30%",
         "object-fit:contain"
       ],
-      "name": "image_15",
-      "_nested_name": "image_15"
+      "name": "image_14",
+      "_nested_name": "image_14"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: #555; font-size: 14px;\">@global.semence_kg</p>",
+      "type": "text",
+      "value": "@global.semence_kg",
       "_translations": {
         "value": {}
       },
-      "name": "html_16",
-      "_nested_name": "html_16",
+      "style_list": [
+        "color: #555",
+        "font-size: 14px"
+      ],
+      "name": "text_15",
+      "_nested_name": "text_15",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: #555; font-size: 14px;\">@global.semence_kg</p>",
+            "fullExpression": "@global.semence_kg",
             "matchedExpression": "@global.semence_kg",
             "type": "global",
             "fieldName": "semence_kg"
@@ -491,7 +499,7 @@
         }
       ],
       "parameter_list": {
-        "number_input": "true\nplaceholder"
+        "number_input": "true"
       },
       "condition": "!!@fields.quantite_semence",
       "exclude_from_translation": true,
@@ -538,8 +546,7 @@
         }
       ],
       "parameter_list": {
-        "number_input": "true",
-        "placeholder": "Entrez la quantite en kg"
+        "number_input": "true"
       },
       "condition": "!@field.quantite_semence",
       "exclude_from_translation": true,
@@ -561,15 +568,27 @@
       }
     },
     {
-      "type": "html",
+      "type": "text",
       "name": "html_text",
-      "value": "<span style=\"color: red; font-size: 13px;\">La quantité est obligatoire !</span>",
+      "value": "@global.quant_warring",
       "_translations": {
         "value": {}
       },
       "condition": "@fields.attempt_submit_p9 && !@fields.quantite_semence",
+      "style_list": [
+        "color: red",
+        "font-size: 13px"
+      ],
       "_nested_name": "html_text",
       "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.quant_warring",
+            "matchedExpression": "@global.quant_warring",
+            "type": "global",
+            "fieldName": "quant_warring"
+          }
+        ],
         "condition": [
           {
             "fullExpression": "@fields.attempt_submit_p9 && !@fields.quantite_semence",
@@ -586,6 +605,9 @@
         ]
       },
       "_dynamicDependencies": {
+        "@global.quant_warring": [
+          "value"
+        ],
         "@fields.attempt_submit_p9": [
           "condition"
         ],
@@ -595,15 +617,27 @@
       }
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: red; font-size: 13px;\">Veuillez saisir un nombre valide (>= 0) !</span>",
+      "type": "text",
+      "value": "@global.validite_nombre",
       "_translations": {
         "value": {}
       },
       "condition": "!!@fields.quantite_semence && !@local.valid_qte",
-      "name": "html_20",
-      "_nested_name": "html_20",
+      "style_list": [
+        "color: red",
+        "font-size: 13px"
+      ],
+      "name": "text_19",
+      "_nested_name": "text_19",
       "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.validite_nombre",
+            "matchedExpression": "@global.validite_nombre",
+            "type": "global",
+            "fieldName": "validite_nombre"
+          }
+        ],
         "condition": [
           {
             "fullExpression": "!!@fields.quantite_semence && !@local.valid_qte",
@@ -620,6 +654,9 @@
         ]
       },
       "_dynamicDependencies": {
+        "@global.validite_nombre": [
+          "value"
+        ],
         "!@fields.quantite_semence": [
           "condition"
         ],
@@ -653,7 +690,7 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "display_group_21.page9_button_back"
+          "_nested_name": "display_group_20.page9_button_back"
         },
         {
           "type": "button",
@@ -705,7 +742,7 @@
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "display_group_21.page9_button_continue",
+          "_nested_name": "display_group_20.page9_button_continue",
           "_dynamicFields": {
             "action_list": {
               "0": {
@@ -827,8 +864,8 @@
           }
         }
       ],
-      "name": "display_group_21",
-      "_nested_name": "display_group_21"
+      "name": "display_group_20",
+      "_nested_name": "display_group_20"
     }
   ],
   "_source": {

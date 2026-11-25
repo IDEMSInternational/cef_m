@@ -5,11 +5,15 @@
   "rows": [
     {
       "type": "title",
-      "value": "**NOMBRE DE TETES ET RÉGIME ALIMENTAIRE**"
+      "value": "@global.nbre_tete_regime"
     },
     {
       "type": "text",
       "value": "@global.nbre_animaux"
+    },
+    {
+      "name": "attempt_submit",
+      "value": "@fields.attempt_submit"
     },
     {
       "type": "begin_data_items",
@@ -26,26 +30,21 @@
       "style_list": "width:150px; height:150px; "
     },
     {
-      "type": "text",
+      "type": "subtitle",
       "value": "@global.note_nbre_animaux"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: black;\"> @global.hint_note_nbre_animaux </p>"
+      "type": "text",
+      "value": "@global.hint_note_nbre_animaux",
+      "style_list": "@global.hint_style"
     },
     {
       "type": "text_box",
       "name": "nb_animaux",
       "value": "@fields.nb_animaux",
       "action_list": "changed | set_field: nb_animaux : this.value;",
-      "parameter_list": "number_input: true\nplaceholder: Entrez le nombre d'animaux;",
-      "exclude_from_translation": true
-    },
-    {
-      "type": "html",
-      "name": "html_text",
-      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
-      "condition": "!@fields.nb_animaux "
+      "parameter_list": "number_input: true; placeholder: @global.texte_placeholder;",
+      "exclude_from_translation_1": true
     },
     {
       "name": "valid_nb_animaux",
@@ -53,10 +52,16 @@
     },
     {
       "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@fields.nb_animaux && @fields.attempt_submit",
+      "style_list": "@global.reponse_style"
+    },
+    {
+      "type": "text",
       "value": "@global.validite_nombre",
       "condition": "!@local.valid_nb_animaux",
-      "exclude_from_translation": true,
-      "style_list": "color: #FF0000;\nfont-size: 14px"
+      "style_list": "@global.reponse_style",
+      "exclude_from_translation_1": true
     },
     {
       "type": "text",
@@ -86,10 +91,10 @@
       "type": "end_radio_list"
     },
     {
-      "type": "html",
-      "name": "html_text",
-      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
-      "condition": "!@fields.type_regime"
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@fields.type_regime && @fields.attempt_submit",
+      "style_list": "@global.reponse_style"
     },
     {
       "name": "completed_enabled",
@@ -103,16 +108,25 @@
     },
     {
       "type": "round_button",
-      "name": "page6_button_back",
+      "name": "page4_button_back",
       "action_list": "click | emit: uncompleted",
       "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
     },
     {
       "type": "button",
-      "name": "page6_button_continue",
-      "value": "Continuer",
+      "name": "btn_attempt_submit",
+      "value": "@global.btn_continue",
+      "action_list": "click | set_field: attempt_submit: true;",
+      "condition": "!@local.completed_enabled",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "button",
+      "name": "page4_button_continue",
+      "value": "@global.btn_continue",
       "action_list": "click | set_field: type_regime_@fields.current_cat_animaux : @local.type_regime;\nclick | set_field: nb_animaux_@fields.current_cat_animaux : @fields.nb_animaux;\nclick | emit: completed;",
       "parameter_list": "disabled: !@local.completed_enabled",
+      "condition": "@local.completed_enabled",
       "style_list": "flex: 1"
     },
     {
