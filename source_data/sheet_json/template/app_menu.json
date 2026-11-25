@@ -5,20 +5,22 @@
   "rows": [
     {
       "type": "title ",
-      "value": "Navigation"
+      "value": "@global.text_nag\n"
     },
     {
       "type": "html",
-      "value": "<div style=\"font-size: 13px; color: #555; margin-bottom: 20px;\">Accédez rapidement aux différentes étapes du processus :</div>"
+      "value": "@global.note_nag\n",
+      "style_list": "font-size: 13px; color: #555; margin-bottom: 20px"
     },
     {
       "type": "begin_display_group",
       "action_list": "click | go_to: planification_anl",
-      "style_list": "display: flex; align-items: center; justify-content: space-between; padding: 14px 16px; background: #fff8f0; margin-bottom: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.04); cursor: pointer;"
+      "style_list": "display: flex; align-items: center; justify-content: space-between;background: #fff8f0; margin-bottom: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.04); cursor: pointer; padding: 14px 16px;"
     },
     {
-      "type": "html",
-      "value": "<span style=\"font-weight: 700; font-size: 15px; color: #3e1f08;\">Planification</span> <span style=\"font-weight: bold; font-size: 18px; color: #8c3800;\">&gt;</span>"
+      "type": "text",
+      "value": "@global.step_plan",
+      "style_list": "font-weight: 700; color: #3e1f08;font-weight: bold; font-size: 18px;"
     },
     {
       "type": "end_display_group"
@@ -29,9 +31,9 @@
       "style_list": "display: flex; align-items: center; justify-content: space-between; padding: 14px 16px; background: #f0fdf4; margin-bottom: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.04); cursor: pointer;"
     },
     {
-      "type": "html",
-      "value": "<span style=\"font-weight: 700; font-size: 15px; color: #1b4332;\">Suivi</span> <span style=\"font-weight: bold; font-size: 18px; color: #2e7d32;\">&gt;</span>",
-      "action_list": "\n"
+      "type": "text",
+      "value": "@global.step_suiv",
+      "style_list": "font-weight: 700; color: #1b4332;font-weight: bold; font-size: 18px;"
     },
     {
       "type": "end_display_group"
@@ -43,7 +45,8 @@
     },
     {
       "type": "html",
-      "value": "<span style=\"font-weight: 700; font-size: 15px; color: #1e3656;\">Évaluation</span> <span style=\"font-weight: bold; font-size: 18px; color: #1e3656;\">&gt;</span>"
+      "value": "@global.step_ev",
+      "style_list": "font-weight: 700; color: #1e3656;font-weight: bold; font-size: 18px;"
     },
     {
       "type": "end_display_group"

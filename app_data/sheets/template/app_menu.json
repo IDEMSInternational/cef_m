@@ -5,21 +5,56 @@
   "rows": [
     {
       "type": "title",
-      "value": "Navigation",
+      "value": "@global.text_nag",
       "_translations": {
         "value": {}
       },
       "name": "title_2",
-      "_nested_name": "title_2"
+      "_nested_name": "title_2",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.text_nag",
+            "matchedExpression": "@global.text_nag",
+            "type": "global",
+            "fieldName": "text_nag"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.text_nag": [
+          "value"
+        ]
+      }
     },
     {
       "type": "html",
-      "value": "<div style=\"font-size: 13px; color: #555; margin-bottom: 20px;\">Accédez rapidement aux différentes étapes du processus :</div>",
+      "value": "@global.note_nag",
       "_translations": {
         "value": {}
       },
+      "style_list": [
+        "font-size: 13px",
+        "color: #555",
+        "margin-bottom: 20px"
+      ],
       "name": "html_3",
-      "_nested_name": "html_3"
+      "_nested_name": "html_3",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.note_nag",
+            "matchedExpression": "@global.note_nag",
+            "type": "global",
+            "fieldName": "note_nag"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.note_nag": [
+          "value"
+        ]
+      }
     },
     {
       "type": "display_group",
@@ -37,21 +72,42 @@
         "display: flex",
         "align-items: center",
         "justify-content: space-between",
-        "padding: 14px 16px",
         "background: #fff8f0",
         "margin-bottom: 12px",
         "box-shadow: 0 2px 5px rgba(0,0,0,0.04)",
-        "cursor: pointer"
+        "cursor: pointer",
+        "padding: 14px 16px"
       ],
       "rows": [
         {
-          "type": "html",
-          "value": "<span style=\"font-weight: 700; font-size: 15px; color: #3e1f08;\">Planification</span> <span style=\"font-weight: bold; font-size: 18px; color: #8c3800;\">&gt;</span>",
+          "type": "text",
+          "value": "@global.step_plan",
           "_translations": {
             "value": {}
           },
-          "name": "html_1",
-          "_nested_name": "display_group_4.html_1"
+          "style_list": [
+            "font-weight: 700",
+            "color: #3e1f08",
+            "font-weight: bold",
+            "font-size: 18px"
+          ],
+          "name": "text_1",
+          "_nested_name": "display_group_4.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.step_plan",
+                "matchedExpression": "@global.step_plan",
+                "type": "global",
+                "fieldName": "step_plan"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.step_plan": [
+              "value"
+            ]
+          }
         }
       ],
       "name": "display_group_4",
@@ -81,14 +137,34 @@
       ],
       "rows": [
         {
-          "type": "html",
-          "value": "<span style=\"font-weight: 700; font-size: 15px; color: #1b4332;\">Suivi</span> <span style=\"font-weight: bold; font-size: 18px; color: #2e7d32;\">&gt;</span>",
+          "type": "text",
+          "value": "@global.step_suiv",
           "_translations": {
             "value": {}
           },
-          "action_list": [],
-          "name": "html_1",
-          "_nested_name": "display_group_6.html_1"
+          "style_list": [
+            "font-weight: 700",
+            "color: #1b4332",
+            "font-weight: bold",
+            "font-size: 18px"
+          ],
+          "name": "text_1",
+          "_nested_name": "display_group_6.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.step_suiv",
+                "matchedExpression": "@global.step_suiv",
+                "type": "global",
+                "fieldName": "step_suiv"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.step_suiv": [
+              "value"
+            ]
+          }
         }
       ],
       "name": "display_group_6",
@@ -119,12 +195,33 @@
       "rows": [
         {
           "type": "html",
-          "value": "<span style=\"font-weight: 700; font-size: 15px; color: #1e3656;\">Évaluation</span> <span style=\"font-weight: bold; font-size: 18px; color: #1e3656;\">&gt;</span>",
+          "value": "@global.step_ev",
           "_translations": {
             "value": {}
           },
+          "style_list": [
+            "font-weight: 700",
+            "color: #1e3656",
+            "font-weight: bold",
+            "font-size: 18px"
+          ],
           "name": "html_1",
-          "_nested_name": "display_group_8.html_1"
+          "_nested_name": "display_group_8.html_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.step_ev",
+                "matchedExpression": "@global.step_ev",
+                "type": "global",
+                "fieldName": "step_ev"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.step_ev": [
+              "value"
+            ]
+          }
         }
       ],
       "name": "display_group_8",

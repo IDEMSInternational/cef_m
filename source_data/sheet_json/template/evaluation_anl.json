@@ -14,120 +14,40 @@
     },
     {
       "type": "text",
-      "value": "Unité de Production Agricole (UPA)",
-      "style_list": "color: white; font-size: 18px; margin: 0; padding: 0; line-height: 1.2; letter-spacing: 0.5px; text-transform: uppercase; opacity: 0.9; text-align: center; "
+      "value": "@global.planif_upa_title",
+      "style_list": "color: white; font-size: 18px; margin: 0; padding: 0; line-height: 1.2; letter-spacing: 0.5px; text-transform: uppercase; opacity: 0.9; text-align: center;"
     },
     {
       "type": "text",
-      "value": " **@local.chef_upa_display**",
-      "style_list": "color: white; font-size: 24px; font-weight: bold; margin: 0; padding: 0; line-height: 1.2; text-align: center; "
+      "value": "**@local.chef_upa_display**",
+      "style_list": "color: white; font-size: 24px; font-weight: bold; margin: 0; padding: 0; line-height: 1.2; text-align: center;"
     },
     {
       "type": "end_display_group"
     },
     {
-      "type": "begin_display_group",
-      "parameter_list": "item_width: 100px;\nitem_border: solid;\ngrid_width: 50%;\ngrid_gap: 20px;"
+      "type": "begin_display_grid",
+      "name": "evaluation_menu",
+      "parameter_list": "item_width: 140px; item_border: none; grid_width: 100%; grid_gap: 16px",
+      "style_list": "padding-bottom: 20px"
     },
     {
-      "type": "begin_button",
-      "value": "Caractéristiques de l'UPA ",
-      "action_list": "click | go_to: caracteristique_upa ",
-      "parameter_list": "variant: card-portrait; image_asset: images/characteristics UPA.png; style: full;"
+      "type": "begin_data_items",
+      "name": "evaluation_items",
+      "value": "@data.evaluation_pages"
     },
     {
-      "type": "end_button"
+      "type": "button",
+      "name": "evaluation_tile",
+      "value": "@item.tile_title",
+      "action_list": "click | go_to: @item.target_template",
+      "parameter_list": "variant: card-portrait; image_asset: @item.image_path"
     },
     {
-      "type": "begin_button",
-      "value": "Cartes des Champs",
-      "action_list": "click | go_to: carte_champs",
-      "parameter_list": "variant: card-portrait; image_asset: images/cartes champs.png;style: full;\n"
+      "type": "end_data_items"
     },
     {
-      "type": "end_button"
-    },
-    {
-      "type": "end_display_group"
-    },
-    {
-      "type": "begin_display_group",
-      "parameter_list": "item_width: 100px;\nitem_border: solid;\ngrid_width: 50%;\ngrid_gap: 20px;"
-    },
-    {
-      "type": "begin_button",
-      "value": "Superficies des Cultures ",
-      "action_list": "click | go_to: superficies_cultures ",
-      "parameter_list": "variant: card-portrait; image_asset: images/superficiescultures.png;button_align: centre; style: full;\n"
-    },
-    {
-      "type": "end_button"
-    },
-    {
-      "type": "begin_button",
-      "value": "Besoins Planifiés",
-      "action_list": "click | go_to: besoins_planifies",
-      "parameter_list": "variant: card-portrait; image_asset: images/besoins  planifiés.png;button_align: centre; style: full;\n"
-    },
-    {
-      "type": "end_button"
-    },
-    {
-      "type": "end_display_group"
-    },
-    {
-      "type": "begin_display_group",
-      "parameter_list": "item_width: 100px;\nitem_border: solid;\ngrid_width: 50%;\ngrid_gap: 20px;"
-    },
-    {
-      "type": "begin_button",
-      "value": "Cout de Productions",
-      "action_list": "click | go_to: cout_productions;\n",
-      "parameter_list": "variant: card-portrait; image_asset: images/Cout de production.jpg;button_align: centre; style: full;"
-    },
-    {
-      "type": "end_button"
-    },
-    {
-      "type": "begin_button",
-      "value": "Productions totales",
-      "action_list": "\nclick | go_to: production_totale;\n",
-      "parameter_list": "variant: card-portrait; image_asset: images/Production.png;button_align: centre; style: full;"
-    },
-    {
-      "type": "end_button"
-    },
-    {
-      "type": "end_display_group"
-    },
-    {
-      "type": "begin_display_group",
-      "parameter_list": "item_width: 100px;\nitem_border: solid;\ngrid_width: 50%;\ngrid_gap: 20px;",
-      "style_list": "padding-bottom: 20px;"
-    },
-    {
-      "type": "begin_button",
-      "value": "Rendement",
-      "action_list": "click | go_to: rendement;\n",
-      "parameter_list": "variant: card-portrait; image_asset: images/Rendement.png;button_align: centre; style: full;\n"
-    },
-    {
-      "type": "end_button"
-    },
-    {
-      "type": "begin_button",
-      "value": "Observations",
-      "action_list": "click | go_to: observation;",
-      "parameter_list": "variant: card-portrait; image_asset: images/Observation.png;button_align: centre; style: full;"
-    },
-    {
-      "type": "end_button"
-    },
-    {
-      "type": "end_display_group"
-    },
-    {
-      "value": "<div style=\"\n    background-color: #FEF2F2;\n    border: 1px solid #FECACA;\n    border-left: 4px solid #EF4444;\n    border-radius: 8px;\n    padding: 12px 16px;\n    margin: 10px 0;\n    display: flex;\n    align-items: center;\n    gap: 10px;\n    box-shadow: 0 1px 3px rgba(0,0,0,0.05);\n\">\n    <!-- Icône d'avertissement -->\n    <svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#DC2626\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n        <circle cx=\"12\" cy=\"12\" r=\"10\"></circle>\n        <line x1=\"12\" y1=\"8\" x2=\"12\" y2=\"12\"></line>\n        <line x1=\"12\" y1=\"16\" x2=\"12.01\" y2=\"16\"></line>\n    </svg>\n    \n    <!-- Message -->\n    <span style=\"\n        color: #991B1B;\n        font-size: 13px;\n        font-weight: 600;\n        font-family: Arial, sans-serif;\n    \">\n        Veuillez faire un choix pour continuer !\n    </span>\n</div>"
+      "type": "end_display_grid"
     }
   ]
 }

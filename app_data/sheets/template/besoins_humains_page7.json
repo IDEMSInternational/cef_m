@@ -5,12 +5,27 @@
   "rows": [
     {
       "type": "title",
-      "value": "APRECIATIONS ET OBSERVATIONS SUR LE FORMULAIRE",
+      "value": "@global.apreciation_observation_form",
       "_translations": {
         "value": {}
       },
       "name": "title_2",
-      "_nested_name": "title_2"
+      "_nested_name": "title_2",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.apreciation_observation_form",
+            "matchedExpression": "@global.apreciation_observation_form",
+            "type": "global",
+            "fieldName": "apreciation_observation_form"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.apreciation_observation_form": [
+          "value"
+        ]
+      }
     },
     {
       "type": "image",
@@ -27,25 +42,31 @@
       "_nested_name": "image_3"
     },
     {
-      "type": "html",
-      "value": "<h3 style=\"color: #1e3656; margin: 0 0 5px 0; font-size: 16px;\">VOTRE AVIS NOUS INTÉRESSE</h3>",
-      "_translations": {
-        "value": {}
-      },
-      "name": "html_4",
-      "_nested_name": "html_4"
-    },
-    {
       "type": "display_group",
       "rows": [
         {
           "type": "text",
-          "value": "Partagez vos appréciations, observations ou suggestions d'amélioration sur le formulaire par audio",
+          "value": "@global.partage_apreciation",
           "_translations": {
             "value": {}
           },
           "name": "text_1",
-          "_nested_name": "display_group_5.text_1"
+          "_nested_name": "display_group_4.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.partage_apreciation",
+                "matchedExpression": "@global.partage_apreciation",
+                "type": "global",
+                "fieldName": "partage_apreciation"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.partage_apreciation": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",
@@ -59,20 +80,63 @@
           "style_list": [
             "float: right"
           ],
-          "_nested_name": "display_group_5.audio_appreciation"
+          "_nested_name": "display_group_4.audio_appreciation"
         }
       ],
-      "name": "display_group_5",
-      "_nested_name": "display_group_5"
+      "name": "display_group_4",
+      "_nested_name": "display_group_4"
     },
     {
-      "type": "html",
-      "value": "<div style=\"background: linear-gradient(135deg, #1e3656 0%, #2c5282 100%); padding: 30px 20px; border-radius: 20px; text-align: center; color: white; margin: 15px;\">\n    \n    <div style=\"font-size: 22px; font-weight: bold; margin-bottom: 10px; letter-spacing: 1px;\">MERCI !</div>\n    <p style=\"font-size: 15px; color: #a5c7f9; line-height: 1.6; margin-bottom: 25px;\">\n        Votre planification céréalière est terminée avec succès.\n    </p>\n\n    <div style=\"text-align: left; background: rgba(255,255,255,0.1); padding: 20px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1);\">\n        <b style=\"color: #4f8ff1; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;\">Étapes suivantes suggérées :</b>\n        <ul style=\"list-style: none; padding: 0; margin: 15px 0 0 0; font-size: 13px; color: #e2e8f0; line-height: 2;\">\n            <li> L'alimentation animale de l'UPA</li>\n            <li> La fumure organique (fertilité)</li>\n            <li>Le budget annuel des dépenses</li>\n        </ul>\n    </div>\n</div>",
+      "type": "text",
+      "value": "@global.observation_appreciation_need",
       "_translations": {
         "value": {}
       },
-      "name": "html_7",
-      "_nested_name": "html_7"
+      "style_list": [
+        "color: gray",
+        "font-size: 14px"
+      ],
+      "name": "text_6",
+      "_nested_name": "text_6",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.observation_appreciation_need",
+            "matchedExpression": "@global.observation_appreciation_need",
+            "type": "global",
+            "fieldName": "observation_appreciation_need"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.observation_appreciation_need": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "@global.besoin_humain_fin",
+      "_translations": {
+        "value": {}
+      },
+      "name": "text_7",
+      "_nested_name": "text_7",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.besoin_humain_fin",
+            "matchedExpression": "@global.besoin_humain_fin",
+            "type": "global",
+            "fieldName": "besoin_humain_fin"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.besoin_humain_fin": [
+          "value"
+        ]
+      }
     },
     {
       "type": "display_group",
@@ -85,7 +149,7 @@
       "rows": [
         {
           "type": "round_button",
-          "name": "page9_button_back",
+          "name": "page7_button_back",
           "action_list": [
             {
               "trigger": "click",
@@ -100,12 +164,12 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "display_group_8.page9_button_back"
+          "_nested_name": "display_group_8.page7_button_back"
         },
         {
           "type": "button",
-          "name": "page9_button_completed",
-          "value": "ENREGISTRER",
+          "name": "page7_button_completed",
+          "value": "@global.bouton_fin",
           "_translations": {
             "value": {}
           },
@@ -114,15 +178,30 @@
               "trigger": "click",
               "action_id": "go_to",
               "args": [
-                "home_screen"
+                "planification_anl"
               ],
-              "_raw": "click | go_to: home_screen"
+              "_raw": "click | go_to: planification_anl"
             }
           ],
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "display_group_8.page9_button_completed"
+          "_nested_name": "display_group_8.page7_button_completed",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.bouton_fin",
+                "matchedExpression": "@global.bouton_fin",
+                "type": "global",
+                "fieldName": "bouton_fin"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.bouton_fin": [
+              "value"
+            ]
+          }
         }
       ],
       "name": "display_group_8",

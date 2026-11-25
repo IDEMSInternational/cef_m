@@ -5,12 +5,27 @@
   "rows": [
     {
       "type": "title",
-      "value": "**RECAPITULATIF DES PREVISIONS**",
+      "value": "@global.recap_prevision_title",
       "_translations": {
         "value": {}
       },
       "name": "title_2",
-      "_nested_name": "title_2"
+      "_nested_name": "title_2",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.recap_prevision_title",
+            "matchedExpression": "@global.recap_prevision_title",
+            "type": "global",
+            "fieldName": "recap_prevision_title"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.recap_prevision_title": [
+          "value"
+        ]
+      }
     },
     {
       "type": "set_field",
@@ -208,13 +223,13 @@
       }
     },
     {
-      "type": "text",
+      "type": "subtitle",
       "value": "@global.note_sup_fouragere",
       "_translations": {
         "value": {}
       },
-      "name": "text_7",
-      "_nested_name": "text_7",
+      "name": "subtitle_7",
+      "_nested_name": "subtitle_7",
       "_dynamicFields": {
         "value": [
           {
@@ -247,70 +262,117 @@
       "_nested_name": "image_8"
     },
     {
-      "type": "html",
-      "name": "note_cal_superficie",
-      "value": "<div style=\"background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; padding: 16px; border-radius: 12px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 16px;\">\n  <span style=\"font-size: 14px; opacity: 0.9; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 6px;\"> @global.sup_fouragere\n  </span>\n  <span style=\"font-size: 28px; font-weight: bold; color: #ffffff;\">\n   @fields.cal_superficie ha\n  </span>\n</div>",
-      "_translations": {
-        "value": {}
+      "type": "display_group",
+      "parameter_list": {
+        "style": "column"
       },
-      "_nested_name": "note_cal_superficie",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "<div style=\"background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; padding: 16px; border-radius: 12px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 16px;\">\n  <span style=\"font-size: 14px; opacity: 0.9; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 6px;\"> @global.sup_fouragere\n  </span>\n  <span style=\"font-size: 28px; font-weight: bold; color: #ffffff;\">\n   @fields.cal_superficie ha\n  </span>\n</div>",
-            "matchedExpression": "@global.sup_fouragere",
-            "type": "global",
-            "fieldName": "sup_fouragere"
+      "style_list": [
+        "background:#f0f4f8",
+        "padding: 16px",
+        "border-radius: 12px",
+        "text-align: center"
+      ],
+      "rows": [
+        {
+          "type": "text",
+          "value": "@global.sup_fouragere",
+          "_translations": {
+            "value": {}
           },
-          {
-            "fullExpression": "<div style=\"background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; padding: 16px; border-radius: 12px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 16px;\">\n  <span style=\"font-size: 14px; opacity: 0.9; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 6px;\"> @global.sup_fouragere\n  </span>\n  <span style=\"font-size: 28px; font-weight: bold; color: #ffffff;\">\n   @fields.cal_superficie ha\n  </span>\n</div>",
-            "matchedExpression": "@fields.cal_superficie",
-            "type": "fields",
-            "fieldName": "cal_superficie"
+          "name": "text_1",
+          "_nested_name": "display_group_9.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.sup_fouragere",
+                "matchedExpression": "@global.sup_fouragere",
+                "type": "global",
+                "fieldName": "sup_fouragere"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.sup_fouragere": [
+              "value"
+            ]
           }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@global.sup_fouragere": [
-          "value"
-        ],
-        "@fields.cal_superficie": [
-          "value"
-        ]
-      }
+        },
+        {
+          "type": "text",
+          "value": "**@fields.cal_superficie ha**",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_2",
+          "_nested_name": "display_group_9.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "**@fields.cal_superficie ha**",
+                "matchedExpression": "@fields.cal_superficie",
+                "type": "fields",
+                "fieldName": "cal_superficie"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@fields.cal_superficie": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_9",
+      "_nested_name": "display_group_9"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: black;\">@global.hint_sup_fouragere</strong> </p>",
+      "type": "text",
+      "value": "@global.hint_sup_fouragere",
       "_translations": {
         "value": {}
       },
-      "name": "html_10",
-      "_nested_name": "html_10",
+      "style_list": [
+        "@global.hint_style"
+      ],
+      "name": "text_11",
+      "_nested_name": "text_11",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: black;\">@global.hint_sup_fouragere</strong> </p>",
+            "fullExpression": "@global.hint_sup_fouragere",
             "matchedExpression": "@global.hint_sup_fouragere",
             "type": "global",
             "fieldName": "hint_sup_fouragere"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.hint_style",
+              "matchedExpression": "@global.hint_style",
+              "type": "global",
+              "fieldName": "hint_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.hint_sup_fouragere": [
           "value"
+        ],
+        "@global.hint_style": [
+          "style_list.0"
         ]
       }
     },
     {
-      "type": "text",
+      "type": "subtitle",
       "value": "@global.note_mot_alim_betail",
       "_translations": {
         "value": {}
       },
-      "name": "text_11",
-      "_nested_name": "text_11",
+      "name": "subtitle_12",
+      "_nested_name": "subtitle_12",
       "_dynamicFields": {
         "value": [
           {
@@ -328,13 +390,28 @@
       }
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: black;\">*1 drm=5 FCFA*</p>",
+      "type": "text",
+      "value": "@global.drm_cfa_hint",
       "_translations": {
         "value": {}
       },
-      "name": "html_12",
-      "_nested_name": "html_12"
+      "name": "text_13",
+      "_nested_name": "text_13",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.drm_cfa_hint",
+            "matchedExpression": "@global.drm_cfa_hint",
+            "type": "global",
+            "fieldName": "drm_cfa_hint"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.drm_cfa_hint": [
+          "value"
+        ]
+      }
     },
     {
       "type": "image",
@@ -348,74 +425,121 @@
         "object-fit:contain",
         "flex-shrink:0"
       ],
-      "name": "image_13",
-      "_nested_name": "image_13"
+      "name": "image_14",
+      "_nested_name": "image_14"
     },
     {
-      "type": "html",
-      "name": "depense",
-      "value": "<div style=\"background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; padding: 16px; border-radius: 12px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 16px;\">\n  <span style=\"font-size: 14px; opacity: 0.9; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 6px;\">@global.mot_alim_betail\n  </span>\n  <span style=\"font-size: 28px; font-weight: bold; color: #ffffff;\">\n    @fields.cal_depense_total drm\n  </span>\n</div>",
-      "_translations": {
-        "value": {}
+      "type": "display_group",
+      "parameter_list": {
+        "style": "column"
       },
-      "_nested_name": "depense",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "<div style=\"background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; padding: 16px; border-radius: 12px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 16px;\">\n  <span style=\"font-size: 14px; opacity: 0.9; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 6px;\">@global.mot_alim_betail\n  </span>\n  <span style=\"font-size: 28px; font-weight: bold; color: #ffffff;\">\n    @fields.cal_depense_total drm\n  </span>\n</div>",
-            "matchedExpression": "@global.mot_alim_betail",
-            "type": "global",
-            "fieldName": "mot_alim_betail"
+      "style_list": [
+        "background:#f0f4f8",
+        "padding: 16px",
+        "border-radius: 12px",
+        "text-align: center"
+      ],
+      "rows": [
+        {
+          "type": "text",
+          "value": "@global.mot_alim_betail",
+          "_translations": {
+            "value": {}
           },
-          {
-            "fullExpression": "<div style=\"background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; padding: 16px; border-radius: 12px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 16px;\">\n  <span style=\"font-size: 14px; opacity: 0.9; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 6px;\">@global.mot_alim_betail\n  </span>\n  <span style=\"font-size: 28px; font-weight: bold; color: #ffffff;\">\n    @fields.cal_depense_total drm\n  </span>\n</div>",
-            "matchedExpression": "@fields.cal_depense_total",
-            "type": "fields",
-            "fieldName": "cal_depense_total"
+          "name": "text_1",
+          "_nested_name": "display_group_15.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.mot_alim_betail",
+                "matchedExpression": "@global.mot_alim_betail",
+                "type": "global",
+                "fieldName": "mot_alim_betail"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.mot_alim_betail": [
+              "value"
+            ]
           }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@global.mot_alim_betail": [
-          "value"
-        ],
-        "@fields.cal_depense_total": [
-          "value"
-        ]
-      }
+        },
+        {
+          "type": "text",
+          "value": "**@fields.cal_depense_total drm**",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_2",
+          "_nested_name": "display_group_15.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "**@fields.cal_depense_total drm**",
+                "matchedExpression": "@fields.cal_depense_total",
+                "type": "fields",
+                "fieldName": "cal_depense_total"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@fields.cal_depense_total": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_15",
+      "_nested_name": "display_group_15"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: black;\">@global.hint_mot_alim_betail</p>",
+      "type": "text",
+      "value": "@global.hint_mot_alim_betail",
       "_translations": {
         "value": {}
       },
-      "name": "html_15",
-      "_nested_name": "html_15",
+      "style_list": [
+        "@global.hint_style"
+      ],
+      "name": "text_17",
+      "_nested_name": "text_17",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: black;\">@global.hint_mot_alim_betail</p>",
+            "fullExpression": "@global.hint_mot_alim_betail",
             "matchedExpression": "@global.hint_mot_alim_betail",
             "type": "global",
             "fieldName": "hint_mot_alim_betail"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.hint_style",
+              "matchedExpression": "@global.hint_style",
+              "type": "global",
+              "fieldName": "hint_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.hint_mot_alim_betail": [
           "value"
+        ],
+        "@global.hint_style": [
+          "style_list.0"
         ]
       }
     },
     {
-      "type": "text",
+      "type": "subtitle",
       "value": "@global.note_montant_soin",
       "_translations": {
         "value": {}
       },
-      "name": "text_16",
-      "_nested_name": "text_16",
+      "name": "subtitle_18",
+      "_nested_name": "subtitle_18",
       "_dynamicFields": {
         "value": [
           {
@@ -433,13 +557,28 @@
       }
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: black;\">*1 drm=5 FCFA*</p>",
+      "type": "text",
+      "value": "@global.drm_cfa_hint",
       "_translations": {
         "value": {}
       },
-      "name": "html_17",
-      "_nested_name": "html_17"
+      "name": "text_19",
+      "_nested_name": "text_19",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.drm_cfa_hint",
+            "matchedExpression": "@global.drm_cfa_hint",
+            "type": "global",
+            "fieldName": "drm_cfa_hint"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.drm_cfa_hint": [
+          "value"
+        ]
+      }
     },
     {
       "type": "image",
@@ -453,63 +592,110 @@
         "object-fit:contain",
         "flex-shrink:0"
       ],
-      "name": "image_18",
-      "_nested_name": "image_18"
+      "name": "image_20",
+      "_nested_name": "image_20"
     },
     {
-      "type": "html",
-      "name": "total_frais_soins",
-      "value": "<div style=\"background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; padding: 16px; border-radius: 12px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 16px;\">\n  <span style=\"font-size: 14px; opacity: 0.9; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 6px;\">\n@global.montant_soin\n  </span>\n  <span style=\"font-size: 28px; font-weight: bold; color: #ffffff;\">\n    @fields.cal_depense_soins drm\n  </span>\n</div>",
-      "_translations": {
-        "value": {}
+      "type": "display_group",
+      "parameter_list": {
+        "style": "column"
       },
-      "_nested_name": "total_frais_soins",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "<div style=\"background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; padding: 16px; border-radius: 12px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 16px;\">\n  <span style=\"font-size: 14px; opacity: 0.9; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 6px;\">\n@global.montant_soin\n  </span>\n  <span style=\"font-size: 28px; font-weight: bold; color: #ffffff;\">\n    @fields.cal_depense_soins drm\n  </span>\n</div>",
-            "matchedExpression": "@global.montant_soin",
-            "type": "global",
-            "fieldName": "montant_soin"
+      "style_list": [
+        "background:#f0f4f8",
+        "padding: 16px",
+        "border-radius: 12px",
+        "text-align: center"
+      ],
+      "rows": [
+        {
+          "type": "text",
+          "value": "@global.montant_soin",
+          "_translations": {
+            "value": {}
           },
-          {
-            "fullExpression": "<div style=\"background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; padding: 16px; border-radius: 12px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 16px;\">\n  <span style=\"font-size: 14px; opacity: 0.9; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 6px;\">\n@global.montant_soin\n  </span>\n  <span style=\"font-size: 28px; font-weight: bold; color: #ffffff;\">\n    @fields.cal_depense_soins drm\n  </span>\n</div>",
-            "matchedExpression": "@fields.cal_depense_soins",
-            "type": "fields",
-            "fieldName": "cal_depense_soins"
+          "name": "text_1",
+          "_nested_name": "display_group_21.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.montant_soin",
+                "matchedExpression": "@global.montant_soin",
+                "type": "global",
+                "fieldName": "montant_soin"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.montant_soin": [
+              "value"
+            ]
           }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@global.montant_soin": [
-          "value"
-        ],
-        "@fields.cal_depense_soins": [
-          "value"
-        ]
-      }
+        },
+        {
+          "type": "text",
+          "value": "**@fields.cal_depense_soins drm**",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_2",
+          "_nested_name": "display_group_21.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "**@fields.cal_depense_soins drm**",
+                "matchedExpression": "@fields.cal_depense_soins",
+                "type": "fields",
+                "fieldName": "cal_depense_soins"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@fields.cal_depense_soins": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_21",
+      "_nested_name": "display_group_21"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: black;\">@global.hint_montant_soin</p>",
+      "type": "text",
+      "value": "@global.hint_montant_soin",
       "_translations": {
         "value": {}
       },
-      "name": "html_20",
-      "_nested_name": "html_20",
+      "style_list": [
+        "@global.hint_style"
+      ],
+      "name": "text_23",
+      "_nested_name": "text_23",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: black;\">@global.hint_montant_soin</p>",
+            "fullExpression": "@global.hint_montant_soin",
             "matchedExpression": "@global.hint_montant_soin",
             "type": "global",
             "fieldName": "hint_montant_soin"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.hint_style",
+              "matchedExpression": "@global.hint_style",
+              "type": "global",
+              "fieldName": "hint_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.hint_montant_soin": [
           "value"
+        ],
+        "@global.hint_style": [
+          "style_list.0"
         ]
       }
     },
@@ -525,7 +711,7 @@
       "rows": [
         {
           "type": "round_button",
-          "name": "page13_button_back",
+          "name": "page11_button_back",
           "action_list": [
             {
               "trigger": "click",
@@ -540,11 +726,11 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "display_group_21.page13_button_back"
+          "_nested_name": "display_group_24.page11_button_back"
         },
         {
           "type": "button",
-          "name": "page13_button_continue",
+          "name": "page11_button_continue",
           "value": "Continuer",
           "_translations": {
             "value": {}
@@ -562,11 +748,11 @@
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "display_group_21.page13_button_continue"
+          "_nested_name": "display_group_24.page11_button_continue"
         }
       ],
-      "name": "display_group_21",
-      "_nested_name": "display_group_21"
+      "name": "display_group_24",
+      "_nested_name": "display_group_24"
     }
   ],
   "_source": {

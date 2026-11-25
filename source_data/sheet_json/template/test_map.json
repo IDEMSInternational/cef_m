@@ -1,0 +1,51 @@
+{
+  "flow_type": "template",
+  "flow_name": "test_map",
+  "status": "released",
+  "rows": [
+    {
+      "name": "upa_code",
+      "value": 205
+    },
+    {
+      "name": "champ_id",
+      "value": 64
+    },
+    {
+      "type": "title",
+      "value": "test map"
+    },
+    {
+      "type": "text",
+      "value": "@global.choix_annee_text"
+    },
+    {
+      "type": "date_time_picker",
+      "value": "@fields.date_choisie",
+      "action_list": "changed | set_field: date_choisie: this.value;\n\n",
+      "parameter_list": "type: year;\nmin: 2023; \nmax: @calc(now());"
+    },
+    {
+      "name": "annee_choisie",
+      "value": "@calc(String(@fields.date_choisie || '').substring(0,4))",
+      "condition": "@calc(!!@fields.date_choisie)"
+    },
+    {
+      "name": "Mali_lon",
+      "value": "-5.54"
+    },
+    {
+      "name": "Mali_lat",
+      "value": "12.55"
+    },
+    {
+      "name": "zoom",
+      "value": 15
+    },
+    {
+      "type": "map",
+      "name": "test_map",
+      "parameter_list": "data_list: test_map_data;\ngeometry_field_name:trace_superficie; \ncenter_lon: @local.Mali_lon;\ncenter_lat: @local.Mali_lat;\nzoom: @local.zoom;\neditable: false;\nfilter: (@item.year == @local.annee_choisie && @item.upa_code == @local.upa_code)"
+    }
+  ]
+}

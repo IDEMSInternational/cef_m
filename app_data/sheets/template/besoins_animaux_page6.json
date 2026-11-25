@@ -5,12 +5,27 @@
   "rows": [
     {
       "type": "title",
-      "value": "**SOINS VETERINAIRES**",
+      "value": "@global.soins_veto_title",
       "_translations": {
         "value": {}
       },
       "name": "title_2",
-      "_nested_name": "title_2"
+      "_nested_name": "title_2",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.soins_veto_title",
+            "matchedExpression": "@global.soins_veto_title",
+            "type": "global",
+            "fieldName": "soins_veto_title"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.soins_veto_title": [
+          "value"
+        ]
+      }
     },
     {
       "type": "data_items",
@@ -241,25 +256,38 @@
           }
         },
         {
-          "type": "html",
-          "value": "<p style=\"color: black;\"> @global.hint_prix_unit_veto</p>",
+          "type": "text",
+          "value": "@global.hint_prix_unit_veto",
           "_translations": {
             "value": {}
           },
-          "name": "html_5_@item.id",
-          "_nested_name": "data_items_3.html_5_@item.id",
+          "style_list": [
+            "@global.hint_style"
+          ],
+          "name": "text_5_@item.id",
+          "_nested_name": "data_items_3.text_5_@item.id",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "<p style=\"color: black;\"> @global.hint_prix_unit_veto</p>",
+                "fullExpression": "@global.hint_prix_unit_veto",
                 "matchedExpression": "@global.hint_prix_unit_veto",
                 "type": "global",
                 "fieldName": "hint_prix_unit_veto"
               }
             ],
+            "style_list": {
+              "0": [
+                {
+                  "fullExpression": "@global.hint_style",
+                  "matchedExpression": "@global.hint_style",
+                  "type": "global",
+                  "fieldName": "hint_style"
+                }
+              ]
+            },
             "name": [
               {
-                "fullExpression": "html_5_@item.id",
+                "fullExpression": "text_5_@item.id",
                 "matchedExpression": "@item.id",
                 "type": "item",
                 "fieldName": "id"
@@ -267,7 +295,7 @@
             ],
             "_nested_name": [
               {
-                "fullExpression": "data_items_3.html_5_@item.id",
+                "fullExpression": "data_items_3.text_5_@item.id",
                 "matchedExpression": "@item.id",
                 "type": "item",
                 "fieldName": "id"
@@ -278,6 +306,9 @@
             "@global.hint_prix_unit_veto": [
               "value"
             ],
+            "@global.hint_style": [
+              "style_list.0"
+            ],
             "@item.id": [
               "name",
               "_nested_name"
@@ -285,17 +316,38 @@
           }
         },
         {
-          "type": "html",
-          "value": "<p style=\"color: black;\">*1 drm=5 FCFA*</p>",
+          "type": "text",
+          "value": "@global.drm_cfa_hint",
           "_translations": {
             "value": {}
           },
-          "name": "html_6_@item.id",
-          "_nested_name": "data_items_3.html_6_@item.id",
+          "style_list": [
+            "@global.hint_style"
+          ],
+          "name": "text_6_@item.id",
+          "_nested_name": "data_items_3.text_6_@item.id",
           "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.drm_cfa_hint",
+                "matchedExpression": "@global.drm_cfa_hint",
+                "type": "global",
+                "fieldName": "drm_cfa_hint"
+              }
+            ],
+            "style_list": {
+              "0": [
+                {
+                  "fullExpression": "@global.hint_style",
+                  "matchedExpression": "@global.hint_style",
+                  "type": "global",
+                  "fieldName": "hint_style"
+                }
+              ]
+            },
             "name": [
               {
-                "fullExpression": "html_6_@item.id",
+                "fullExpression": "text_6_@item.id",
                 "matchedExpression": "@item.id",
                 "type": "item",
                 "fieldName": "id"
@@ -303,7 +355,7 @@
             ],
             "_nested_name": [
               {
-                "fullExpression": "data_items_3.html_6_@item.id",
+                "fullExpression": "data_items_3.text_6_@item.id",
                 "matchedExpression": "@item.id",
                 "type": "item",
                 "fieldName": "id"
@@ -311,6 +363,12 @@
             ]
           },
           "_dynamicDependencies": {
+            "@global.drm_cfa_hint": [
+              "value"
+            ],
+            "@global.hint_style": [
+              "style_list.0"
+            ],
             "@item.id": [
               "name",
               "_nested_name"
@@ -375,7 +433,8 @@
             }
           ],
           "parameter_list": {
-            "number_input": "true\nplaceholder"
+            "number_input": "true",
+            "placeholder": "@global.texte_placeholder"
           },
           "exclude_from_translation": true,
           "_nested_name": "data_items_3.frais_veterinaire_tete",
@@ -387,30 +446,46 @@
                 "type": "fields",
                 "fieldName": "frais_veterinaire_tete"
               }
-            ]
+            ],
+            "parameter_list": {
+              "placeholder": [
+                {
+                  "fullExpression": "@global.texte_placeholder",
+                  "matchedExpression": "@global.texte_placeholder",
+                  "type": "global",
+                  "fieldName": "texte_placeholder"
+                }
+              ]
+            }
           },
           "_dynamicDependencies": {
             "@fields.frais_veterinaire_tete": [
               "value"
+            ],
+            "@global.texte_placeholder": [
+              "parameter_list.placeholder"
             ]
           }
         },
         {
-          "type": "html",
-          "name": "html_text",
-          "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+          "type": "text",
+          "value": "@global.reponse_obligatoire",
           "_translations": {
             "value": {}
           },
           "condition": "!@local.frais_veterinaire_tete",
-          "_nested_name": "data_items_3.html_text",
+          "style_list": [
+            "@global.reponse_style"
+          ],
+          "name": "text_9_@item.id",
+          "_nested_name": "data_items_3.text_9_@item.id",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "<p style=\"color: red;\"> @global.warning_message </p>",
-                "matchedExpression": "@global.warning_message",
+                "fullExpression": "@global.reponse_obligatoire",
+                "matchedExpression": "@global.reponse_obligatoire",
                 "type": "global",
-                "fieldName": "warning_message"
+                "fieldName": "reponse_obligatoire"
               }
             ],
             "condition": [
@@ -420,14 +495,47 @@
                 "type": "local",
                 "fieldName": "frais_veterinaire_tete"
               }
+            ],
+            "style_list": {
+              "0": [
+                {
+                  "fullExpression": "@global.reponse_style",
+                  "matchedExpression": "@global.reponse_style",
+                  "type": "global",
+                  "fieldName": "reponse_style"
+                }
+              ]
+            },
+            "name": [
+              {
+                "fullExpression": "text_9_@item.id",
+                "matchedExpression": "@item.id",
+                "type": "item",
+                "fieldName": "id"
+              }
+            ],
+            "_nested_name": [
+              {
+                "fullExpression": "data_items_3.text_9_@item.id",
+                "matchedExpression": "@item.id",
+                "type": "item",
+                "fieldName": "id"
+              }
             ]
           },
           "_dynamicDependencies": {
-            "@global.warning_message": [
+            "@global.reponse_obligatoire": [
               "value"
             ],
             "!@local.frais_veterinaire_tete": [
               "condition"
+            ],
+            "@global.reponse_style": [
+              "style_list.0"
+            ],
+            "@item.id": [
+              "name",
+              "_nested_name"
             ]
           }
         },
@@ -494,11 +602,10 @@
             "value": {}
           },
           "condition": "!@local.valid_frais_veterinaire_tete",
-          "exclude_from_translation": true,
           "style_list": [
-            "color: #FF0000",
-            "font-size: 14px"
+            "@global.reponse_style"
           ],
+          "exclude_from_translation": true,
           "name": "text_11_@item.id",
           "_nested_name": "data_items_3.text_11_@item.id",
           "_dynamicFields": {
@@ -518,6 +625,16 @@
                 "fieldName": "valid_frais_veterinaire_tete"
               }
             ],
+            "style_list": {
+              "0": [
+                {
+                  "fullExpression": "@global.reponse_style",
+                  "matchedExpression": "@global.reponse_style",
+                  "type": "global",
+                  "fieldName": "reponse_style"
+                }
+              ]
+            },
             "name": [
               {
                 "fullExpression": "text_11_@item.id",
@@ -541,6 +658,9 @@
             ],
             "!@local.valid_frais_veterinaire_tete": [
               "condition"
+            ],
+            "@global.reponse_style": [
+              "style_list.0"
             ],
             "@item.id": [
               "name",
@@ -657,15 +777,23 @@
           }
         },
         {
-          "type": "html",
-          "value": "<p style=\"color: black;\">*1 drm=5 FCFA*</p>",
+          "type": "text",
+          "value": "@global.drm_cfa_hint",
           "_translations": {
             "value": {}
           },
           "condition": "@fields.frais_veterinaire_tete > 0",
-          "name": "html_14_@item.id",
-          "_nested_name": "data_items_3.html_14_@item.id",
+          "name": "text_14_@item.id",
+          "_nested_name": "data_items_3.text_14_@item.id",
           "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.drm_cfa_hint",
+                "matchedExpression": "@global.drm_cfa_hint",
+                "type": "global",
+                "fieldName": "drm_cfa_hint"
+              }
+            ],
             "condition": [
               {
                 "fullExpression": "@fields.frais_veterinaire_tete > 0",
@@ -676,7 +804,7 @@
             ],
             "name": [
               {
-                "fullExpression": "html_14_@item.id",
+                "fullExpression": "text_14_@item.id",
                 "matchedExpression": "@item.id",
                 "type": "item",
                 "fieldName": "id"
@@ -684,7 +812,7 @@
             ],
             "_nested_name": [
               {
-                "fullExpression": "data_items_3.html_14_@item.id",
+                "fullExpression": "data_items_3.text_14_@item.id",
                 "matchedExpression": "@item.id",
                 "type": "item",
                 "fieldName": "id"
@@ -692,6 +820,9 @@
             ]
           },
           "_dynamicDependencies": {
+            "@global.drm_cfa_hint": [
+              "value"
+            ],
             "@fields.frais_veterinaire_tete": [
               "condition"
             ],
@@ -827,44 +958,86 @@
           }
         },
         {
-          "type": "text",
-          "name": "note_totaux",
-          "value": "@global.frais_totaux_veto",
-          "_translations": {
-            "value": {}
-          },
-          "condition": "@fields.frais_veterinaire_tete > 0",
+          "type": "display_group",
           "style_list": [
             "background-color: #f0f4f8",
-            "border-left-width: 4px",
             "border-left-style: solid",
-            "border-left-color: #0056b3"
+            "border-left-color: #0056b3",
+            "border-radius: 5px"
           ],
-          "_nested_name": "data_items_3.note_totaux",
+          "rows": [
+            {
+              "type": "text",
+              "name": "note_totaux",
+              "value": "@global.frais_totaux_veto",
+              "_translations": {
+                "value": {}
+              },
+              "condition": "@fields.frais_veterinaire_tete > 0",
+              "_nested_name": "data_items_3.display_group_17_@item.id.note_totaux",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "@global.frais_totaux_veto",
+                    "matchedExpression": "@global.frais_totaux_veto",
+                    "type": "global",
+                    "fieldName": "frais_totaux_veto"
+                  }
+                ],
+                "condition": [
+                  {
+                    "fullExpression": "@fields.frais_veterinaire_tete > 0",
+                    "matchedExpression": "@fields.frais_veterinaire_tete",
+                    "type": "fields",
+                    "fieldName": "frais_veterinaire_tete"
+                  }
+                ],
+                "_nested_name": [
+                  {
+                    "fullExpression": "data_items_3.display_group_17_@item.id.note_totaux",
+                    "matchedExpression": "@item.id.note_totaux",
+                    "type": "item",
+                    "fieldName": "id"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@global.frais_totaux_veto": [
+                  "value"
+                ],
+                "@fields.frais_veterinaire_tete": [
+                  "condition"
+                ],
+                "@item.id.note_totaux": [
+                  "_nested_name"
+                ]
+              }
+            }
+          ],
+          "name": "display_group_17_@item.id",
+          "_nested_name": "data_items_3.display_group_17_@item.id",
           "_dynamicFields": {
-            "value": [
+            "name": [
               {
-                "fullExpression": "@global.frais_totaux_veto",
-                "matchedExpression": "@global.frais_totaux_veto",
-                "type": "global",
-                "fieldName": "frais_totaux_veto"
+                "fullExpression": "display_group_17_@item.id",
+                "matchedExpression": "@item.id",
+                "type": "item",
+                "fieldName": "id"
               }
             ],
-            "condition": [
+            "_nested_name": [
               {
-                "fullExpression": "@fields.frais_veterinaire_tete > 0",
-                "matchedExpression": "@fields.frais_veterinaire_tete",
-                "type": "fields",
-                "fieldName": "frais_veterinaire_tete"
+                "fullExpression": "data_items_3.display_group_17_@item.id",
+                "matchedExpression": "@item.id",
+                "type": "item",
+                "fieldName": "id"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@global.frais_totaux_veto": [
-              "value"
-            ],
-            "@fields.frais_veterinaire_tete": [
-              "condition"
+            "@item.id": [
+              "name",
+              "_nested_name"
             ]
           }
         },
@@ -1164,7 +1337,7 @@
       "rows": [
         {
           "type": "round_button",
-          "name": "page8_button_back",
+          "name": "page6_button_back",
           "action_list": [
             {
               "trigger": "click",
@@ -1179,12 +1352,12 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "display_group_9.page8_button_back"
+          "_nested_name": "display_group_9.page6_button_back"
         },
         {
           "type": "button",
           "name": "button_next_cat_animaux",
-          "value": "Continuer",
+          "value": "@global.btn_continue",
           "_translations": {
             "value": {}
           },
@@ -1304,6 +1477,14 @@
           ],
           "_nested_name": "display_group_9.button_next_cat_animaux",
           "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.btn_continue",
+                "matchedExpression": "@global.btn_continue",
+                "type": "global",
+                "fieldName": "btn_continue"
+              }
+            ],
             "action_list": {
               "0": {
                 "args": {
@@ -1434,6 +1615,9 @@
             ]
           },
           "_dynamicDependencies": {
+            "@global.btn_continue": [
+              "value"
+            ],
             "@fields.current_cat_animaux": [
               "action_list.0.args.0",
               "action_list.0._raw",
@@ -1466,8 +1650,8 @@
         },
         {
           "type": "button",
-          "name": "page8_button_continue",
-          "value": "Continuer",
+          "name": "page6_button_continue",
+          "value": "@global.btn_continue",
           "_translations": {
             "value": {}
           },
@@ -1506,8 +1690,16 @@
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "display_group_9.page8_button_continue",
+          "_nested_name": "display_group_9.page6_button_continue",
           "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.btn_continue",
+                "matchedExpression": "@global.btn_continue",
+                "type": "global",
+                "fieldName": "btn_continue"
+              }
+            ],
             "action_list": {
               "0": {
                 "args": {
@@ -1598,6 +1790,9 @@
             ]
           },
           "_dynamicDependencies": {
+            "@global.btn_continue": [
+              "value"
+            ],
             "@fields.current_cat_animaux": [
               "action_list.0.args.0",
               "action_list.0._raw",

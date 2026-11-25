@@ -5,11 +5,16 @@
   "rows": [
     {
       "type": "title",
-      "value": "**ESPÈCES ANIMALES DE L'UPA**"
+      "value": "@global.espece_animale_UPA_title"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: black;\"> @global.espece_animaux_hint </p>"
+      "type": "text",
+      "value": "@global.espece_animaux_hint",
+      "style_list": "@global.hint_style"
+    },
+    {
+      "name": "attempt_submit",
+      "value": "@fields.attempt_submit"
     },
     {
       "type": "text",
@@ -35,8 +40,8 @@
       "value": "@fields.@item.name",
       "action_list": "changed | set_field: @item.name: !@fields.@item.name;",
       "parameter_list": "label_text: @item.text;",
-      "exclude_from_translation": true,
-      "style_list": "margin-bottom: 10px;"
+      "style_list": "margin-bottom: 10px;",
+      "exclude_from_translation_1": true
     },
     {
       "type": "end_display_group"
@@ -66,9 +71,10 @@
       "action_list": "\n\n\n\n\n"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@local.valid_cat_animaux"
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@local.valid_cat_animaux && @fields.attempt_submit",
+      "style_list": "@global.reponse_style "
     },
     {
       "name": "completed_enabled",
@@ -82,16 +88,25 @@
     },
     {
       "type": "round_button",
-      "name": "page4_button_back",
+      "name": "page2_button_back",
       "action_list": "click | emit: uncompleted",
       "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
     },
     {
       "type": "button",
-      "name": "page4_button_continue",
-      "value": "Continuer",
+      "name": "btn_attempt_submit",
+      "value": "@global.btn_continue",
+      "action_list": "click | set_field: attempt_submit: true;",
+      "condition": "!@local.completed_enabled",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "button",
+      "name": "page2_button_continue",
+      "value": "@global.btn_continue",
       "action_list": "click | set_field: cat_animaux_selected : @local.cat_animaux_selected;\nclick | set_field: cat_animaux_selected_count : @local.cat_animaux_selected_count;\nclick | set_field: current_cat_animaux: @local.current_cat_animaux;\nclick | set_field: cat_animaux_loop_idx : @local.cat_animaux_loop_idx;\nclick | emit: completed;",
       "parameter_list": "disabled: !@local.completed_enabled",
+      "condition": "@local.completed_enabled",
       "style_list": "flex: 1"
     },
     {

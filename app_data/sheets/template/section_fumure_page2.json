@@ -9,11 +9,26 @@
         {
           "type": "title",
           "name": "page_title",
-          "value": "RECOMMENDATIONS DE LA RECHERCHE:",
+          "value": "@global.recommendation_recher_title",
           "_translations": {
             "value": {}
           },
-          "_nested_name": "display_group_2.page_title"
+          "_nested_name": "display_group_2.page_title",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.recommendation_recher_title",
+                "matchedExpression": "@global.recommendation_recher_title",
+                "type": "global",
+                "fieldName": "recommendation_recher_title"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.recommendation_recher_title": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",

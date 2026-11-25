@@ -5,7 +5,7 @@
   "rows": [
     {
       "type": "title",
-      "value": "@global.asso_producteur"
+      "value": "@global.societe_coop"
     },
     {
       "name": "attempt_submit",
@@ -16,12 +16,12 @@
     },
     {
       "type": "subtitle",
-      "value": "@global.un_cereale_id_note"
+      "value": "@global.fr_scpc_id_note"
     },
     {
       "type": "audio",
-      "name": "audio_9_1",
-      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/union_cereales_fr.mp2;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "name": "audio_8_1",
+      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/federation_scpc_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
       "exclude_from_translation": true,
       "style_list": "float: right;"
     },
@@ -30,17 +30,17 @@
     },
     {
       "type": "image",
-      "value": "images/op_cereales.jpg",
+      "value": "images/op_coton.jpg",
       "style_list": "width:100px; height:100px; "
     },
     {
       "type": "begin_radio_list",
-      "value": "@fields.un_cereale_id",
-      "action_list": "changed | set_field : un_cereale_id: this.value;"
+      "value": "@fields.fr_scpc_id",
+      "action_list": "changed | set_field : fr_scpc_id: this.value;"
     },
     {
       "type": "begin_data_items",
-      "value": "@data.village_UN_cereale",
+      "value": "@data.village_FR_SCPC",
       "parameter_list": "filter: @item.village == @fields.village_id"
     },
     {
@@ -52,20 +52,20 @@
     {
       "type": "text",
       "value": "@global.reponse_obligatoire",
-      "condition": "!@fields.un_cereale_id && @fields.attempt_submit",
+      "condition": "!@fields.fr_scpc_id && @fields.attempt_submit",
       "style_list": "@global.reponse_style"
     },
     {
       "type": "begin_display_group"
     },
     {
-      "type": "subtitle",
-      "value": "@global.base_coop_cereale_id_note"
+      "type": "text",
+      "value": "@global.us_scpc_id_note"
     },
     {
       "type": "audio",
-      "name": "audio_9_1",
-      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/union_cereales_fr.mp2;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "name": "audio_8_2",
+      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/union_sect_scpc_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
       "exclude_from_translation": true,
       "style_list": "float: right;"
     },
@@ -74,17 +74,17 @@
     },
     {
       "type": "image",
-      "value": "images/op_cereales.jpg",
+      "value": "images/op_coton.jpg",
       "style_list": "width:100px; height:100px; "
     },
     {
       "type": "begin_radio_list",
-      "value": "@fields.base_coop_cereale_id",
-      "action_list": "changed | set_field : base_coop_cereale_id: this.value;"
+      "value": "@fields.us_scpc_id",
+      "action_list": "changed | set_field : us_scpc_id: this.value;"
     },
     {
       "type": "begin_data_items",
-      "value": "@data.village_base_COOP",
+      "value": "@data.village_UN_SCPC",
       "parameter_list": "filter: @item.village == @fields.village_id"
     },
     {
@@ -96,16 +96,59 @@
     {
       "type": "text",
       "value": "@global.reponse_obligatoire",
-      "condition": "!@fields.base_coop_cereale_id && @fields.attempt_submit",
+      "condition": "!@fields.us_scpc_id && @fields.attempt_submit",
+      "style_list": "@global.reponse_style"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "@global.base_scpc_id_note"
+    },
+    {
+      "type": "audio",
+      "name": "audio_8_3",
+      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/scpc_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "float: right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/op_coton.jpg",
+      "style_list": "width:100px; height:100px; "
+    },
+    {
+      "type": "begin_radio_list",
+      "value": "@fields.base_scpc_id",
+      "action_list": "changed | set_field : base_scpc_id: this.value;"
+    },
+    {
+      "type": "begin_data_items",
+      "value": "@data.village_SCPC",
+      "parameter_list": "filter: @item.village == @fields.village_id"
+    },
+    {
+      "type": "end_data_items"
+    },
+    {
+      "type": "end_radio_list"
+    },
+    {
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@fields.base_scpc_id && @fields.attempt_submit",
       "style_list": "@global.reponse_style"
     },
     {
       "name": "completed_enabled",
-      "value": "@fields.un_cereale_id && @fields.base_coop_cereale_id "
+      "value": "@fields.fr_scpc_id && @fields.us_scpc_id && @fields.base_scpc_id"
     },
     {
       "type": "begin_display_group",
-      "name": "dg_footer",
       "value": " ",
       "parameter_list": "sticky: bottom;",
       "style_list": "padding: 12px 24px;"

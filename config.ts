@@ -13,14 +13,14 @@ config.google_drive.assets_folders = [
 
 config.git = {
   content_repo: "https://github.com/IDEMSInternational/cef_m.git",
-  content_tag_latest: "1.2.2",
+  content_tag_latest: "1.3.0",
 };
 
 
-config.app_config.APP_SIDEMENU_DEFAULTS.title = "cef_m";
-config.app_config.APP_HEADER_DEFAULTS.title = "cef_m";
-config.app_config.NOTIFICATION_DEFAULTS.title = "New message from cef_m";
-config.app_config.NOTIFICATION_DEFAULTS.text = "You have a new message from cef_m";
+config.app_config.APP_SIDEMENU_DEFAULTS.title = "CEF-M";
+config.app_config.APP_HEADER_DEFAULTS.title = "CEF-M";
+config.app_config.NOTIFICATION_DEFAULTS.title = "New message from CEF-M";
+config.app_config.NOTIFICATION_DEFAULTS.text = "You have a new message from CEF-M";
 config.app_config.APP_THEMES.available = ["default","plh_facilitator_cw"];
 config.app_config.APP_THEMES.defaultThemeName = "plh_facilitator_cw";
 

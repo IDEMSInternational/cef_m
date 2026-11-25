@@ -5,12 +5,27 @@
   "rows": [
     {
       "type": "title",
-      "value": "REPARTITION DES BESOINS EN CEREALES",
+      "value": "@global.repartition_besoin_cereale",
       "_translations": {
         "value": {}
       },
       "name": "title_2",
-      "_nested_name": "title_2"
+      "_nested_name": "title_2",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.repartition_besoin_cereale",
+            "matchedExpression": "@global.repartition_besoin_cereale",
+            "type": "global",
+            "fieldName": "repartition_besoin_cereale"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.repartition_besoin_cereale": [
+          "value"
+        ]
+      }
     },
     {
       "name": "attempt_submit",
@@ -40,32 +55,56 @@
       "type": "display_group",
       "name": "recap_besoin",
       "style_list": [
-        "background: #1e3656",
         "padding: 15px",
         "text-align: center"
       ],
       "rows": [
         {
-          "type": "html",
-          "value": "<div style=\"color: #4f8ff1; font-size: 12px; font-weight: bold; text-transform: uppercase;\">Répartition de la quantité totale de céréales nécessaire entre le maïs, mil, sorgho et riz en fonction de l'importance de chacune dans la consommation de votre UPA.</div>",
+          "type": "text",
+          "value": "@global.repartition_besoin_cereale_hint",
           "_translations": {
             "value": {}
           },
-          "name": "html_1",
-          "_nested_name": "recap_besoin.html_1"
-        },
-        {
-          "type": "html",
-          "value": "<div style=\"color: white; font-size: 24px; font-weight: bold;\">@fields.besoin_cereale_exploitation sacs</div>",
-          "_translations": {
-            "value": {}
-          },
-          "name": "html_2",
-          "_nested_name": "recap_besoin.html_2",
+          "style_list": [
+            "font-size: 12px",
+            "font-weight: bold",
+            "text-transform: uppercase"
+          ],
+          "name": "text_1",
+          "_nested_name": "recap_besoin.text_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "<div style=\"color: white; font-size: 24px; font-weight: bold;\">@fields.besoin_cereale_exploitation sacs</div>",
+                "fullExpression": "@global.repartition_besoin_cereale_hint",
+                "matchedExpression": "@global.repartition_besoin_cereale_hint",
+                "type": "global",
+                "fieldName": "repartition_besoin_cereale_hint"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.repartition_besoin_cereale_hint": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "value": "@fields.besoin_cereale_exploitation sacs",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-size: 24px",
+            "font-weight: bold",
+            "color: blue"
+          ],
+          "name": "text_2",
+          "_nested_name": "recap_besoin.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@fields.besoin_cereale_exploitation sacs",
                 "matchedExpression": "@fields.besoin_cereale_exploitation",
                 "type": "fields",
                 "fieldName": "besoin_cereale_exploitation"
@@ -82,26 +121,42 @@
       "_nested_name": "recap_besoin"
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: black;\">Attention: le cumul des sacs des quatre types de céréales doit être égal aux besoins de céréales de l'exploitation de @fields.besoin_cereale_exploitation sacs.</span>",
+      "type": "text",
+      "value": "@global.repartition_besoin_cereale_attention",
       "_translations": {
         "value": {}
       },
-      "name": "html_6",
-      "_nested_name": "html_6",
+      "style_list": [
+        "@global.hint_style"
+      ],
+      "name": "text_6",
+      "_nested_name": "text_6",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<span style=\"color: black;\">Attention: le cumul des sacs des quatre types de céréales doit être égal aux besoins de céréales de l'exploitation de @fields.besoin_cereale_exploitation sacs.</span>",
-            "matchedExpression": "@fields.besoin_cereale_exploitation",
-            "type": "fields",
-            "fieldName": "besoin_cereale_exploitation"
+            "fullExpression": "@global.repartition_besoin_cereale_attention",
+            "matchedExpression": "@global.repartition_besoin_cereale_attention",
+            "type": "global",
+            "fieldName": "repartition_besoin_cereale_attention"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.hint_style",
+              "matchedExpression": "@global.hint_style",
+              "type": "global",
+              "fieldName": "hint_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
-        "@fields.besoin_cereale_exploitation": [
+        "@global.repartition_besoin_cereale_attention": [
           "value"
+        ],
+        "@global.hint_style": [
+          "style_list.0"
         ]
       }
     },
@@ -109,26 +164,38 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "html",
-          "value": "<span style=\"color: red;\">*</span><b>Donnez le nombre de sacs de maïs à prévoir</b>",
+          "type": "subtitle",
+          "value": "@global.nbre_sac_mais",
           "_translations": {
             "value": {}
           },
-          "name": "html_1",
-          "_nested_name": "display_group_7.html_1"
+          "name": "subtitle_1",
+          "_nested_name": "display_group_7.subtitle_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.nbre_sac_mais",
+                "matchedExpression": "@global.nbre_sac_mais",
+                "type": "global",
+                "fieldName": "nbre_sac_mais"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.nbre_sac_mais": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",
-          "name": "audio_5_1",
+          "name": "audio_3_1",
           "parameter_list": {
             "variant": "button_only",
             "src": "audio/alimentationHumaine/sac_mais_fr.mp3",
             "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
-          "style_list": [
-            "float : right"
-          ],
-          "_nested_name": "display_group_7.audio_5_1"
+          "_nested_name": "display_group_7.audio_3_1"
         }
       ],
       "name": "display_group_7",
@@ -166,8 +233,8 @@
         }
       ],
       "parameter_list": {
-        "input_type": "number",
-        "placeholder": "Nombre de sac de maïs"
+        "number_input": "true",
+        "placeholder": "@global.texte_placeholder"
       },
       "style_list": [
         "margin: 10px"
@@ -181,11 +248,24 @@
             "type": "fields",
             "fieldName": "sac_mais"
           }
-        ]
+        ],
+        "parameter_list": {
+          "placeholder": [
+            {
+              "fullExpression": "@global.texte_placeholder",
+              "matchedExpression": "@global.texte_placeholder",
+              "type": "global",
+              "fieldName": "texte_placeholder"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@fields.sac_mais": [
           "value"
+        ],
+        "@global.texte_placeholder": [
+          "parameter_list.placeholder"
         ]
       }
     },
@@ -248,18 +328,21 @@
       }
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
       "_translations": {
         "value": {}
       },
       "condition": "!@fields.sac_mais && @fields.attempt_submit",
-      "name": "html_12",
-      "_nested_name": "html_12",
+      "style_list": [
+        "@global.reponse_style"
+      ],
+      "name": "text_12",
+      "_nested_name": "text_12",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+            "fullExpression": "@global.reponse_obligatoire",
             "matchedExpression": "@global.reponse_obligatoire",
             "type": "global",
             "fieldName": "reponse_obligatoire"
@@ -278,7 +361,17 @@
             "type": "fields",
             "fieldName": "attempt_submit"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.reponse_obligatoire": [
@@ -289,6 +382,9 @@
         ],
         "@fields.attempt_submit": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
@@ -300,8 +396,7 @@
       },
       "condition": "!@local.valid_sac_mais",
       "style_list": [
-        "color: red",
-        "font-size: 12px"
+        "@global.reponse_style"
       ],
       "name": "text_13",
       "_nested_name": "text_13",
@@ -321,7 +416,17 @@
             "type": "local",
             "fieldName": "valid_sac_mais"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.erreur_sacs": [
@@ -329,6 +434,9 @@
         ],
         "!@local.valid_sac_mais": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
@@ -336,17 +444,32 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "html",
-          "value": "<span style=\"color: red;\">*</span><b>Donnez le nombre de sacs de mil à prévoir</b>",
+          "type": "subtitle",
+          "value": "@global.nbre_sac_mil",
           "_translations": {
             "value": {}
           },
-          "name": "html_1",
-          "_nested_name": "display_group_14.html_1"
+          "name": "subtitle_1",
+          "_nested_name": "display_group_14.subtitle_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.nbre_sac_mil",
+                "matchedExpression": "@global.nbre_sac_mil",
+                "type": "global",
+                "fieldName": "nbre_sac_mil"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.nbre_sac_mil": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",
-          "name": "audio_5_2",
+          "name": "audio_3_2",
           "parameter_list": {
             "variant": "button_only",
             "src": "audio/alimentationHumaine/sac_mil_fr.mp3",
@@ -355,7 +478,7 @@
           "style_list": [
             "float : right"
           ],
-          "_nested_name": "display_group_14.audio_5_2"
+          "_nested_name": "display_group_14.audio_3_2"
         }
       ],
       "name": "display_group_14",
@@ -393,8 +516,8 @@
         }
       ],
       "parameter_list": {
-        "input_type": "number",
-        "placeholder": "Nombre de sac de mil"
+        "number_input": "true",
+        "placeholder": "@global.texte_placeholder"
       },
       "style_list": [
         "margin: 10px"
@@ -408,11 +531,24 @@
             "type": "field",
             "fieldName": "sac_mil"
           }
-        ]
+        ],
+        "parameter_list": {
+          "placeholder": [
+            {
+              "fullExpression": "@global.texte_placeholder",
+              "matchedExpression": "@global.texte_placeholder",
+              "type": "global",
+              "fieldName": "texte_placeholder"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@field.sac_mil": [
           "value"
+        ],
+        "@global.texte_placeholder": [
+          "parameter_list.placeholder"
         ]
       }
     },
@@ -475,18 +611,21 @@
       }
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
       "_translations": {
         "value": {}
       },
       "condition": "!@fields.sac_mil && @fields.attempt_submit",
-      "name": "html_19",
-      "_nested_name": "html_19",
+      "style_list": [
+        "@global.reponse_style"
+      ],
+      "name": "text_19",
+      "_nested_name": "text_19",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+            "fullExpression": "@global.reponse_obligatoire",
             "matchedExpression": "@global.reponse_obligatoire",
             "type": "global",
             "fieldName": "reponse_obligatoire"
@@ -505,7 +644,17 @@
             "type": "fields",
             "fieldName": "attempt_submit"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.reponse_obligatoire": [
@@ -516,6 +665,9 @@
         ],
         "@fields.attempt_submit": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
@@ -527,8 +679,7 @@
       },
       "condition": "!@local.valid_sac_mil",
       "style_list": [
-        "color: red",
-        "font-size: 12px"
+        "@global.reponse_style"
       ],
       "name": "text_20",
       "_nested_name": "text_20",
@@ -548,7 +699,17 @@
             "type": "local",
             "fieldName": "valid_sac_mil"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.erreur_sacs": [
@@ -556,6 +717,9 @@
         ],
         "!@local.valid_sac_mil": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
@@ -563,26 +727,38 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "html",
-          "value": "<span style=\"color: red;\">*</span><b>Donnez le nombre de sacs de sorgho à prévoir</b>",
+          "type": "subtitle",
+          "value": "@global.nbre_sac_sorgho",
           "_translations": {
             "value": {}
           },
-          "name": "html_1",
-          "_nested_name": "display_group_21.html_1"
+          "name": "subtitle_1",
+          "_nested_name": "display_group_21.subtitle_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.nbre_sac_sorgho",
+                "matchedExpression": "@global.nbre_sac_sorgho",
+                "type": "global",
+                "fieldName": "nbre_sac_sorgho"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.nbre_sac_sorgho": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",
-          "name": "audio_5_3",
+          "name": "audio_3_3",
           "parameter_list": {
             "variant": "button_only",
             "src": "audio/alimentationHumaine/sac_sorgho_fr.mp3",
             "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
-          "style_list": [
-            "float : right"
-          ],
-          "_nested_name": "display_group_21.audio_5_3"
+          "_nested_name": "display_group_21.audio_3_3"
         }
       ],
       "name": "display_group_21",
@@ -620,8 +796,8 @@
         }
       ],
       "parameter_list": {
-        "input_type": "number",
-        "placeholder": "Nombre de sac de sorgho"
+        "number_input": "true",
+        "placeholder": "@global.texte_placeholder"
       },
       "style_list": [
         "margin: 10px"
@@ -635,11 +811,24 @@
             "type": "field",
             "fieldName": "sac_sorgho"
           }
-        ]
+        ],
+        "parameter_list": {
+          "placeholder": [
+            {
+              "fullExpression": "@global.texte_placeholder",
+              "matchedExpression": "@global.texte_placeholder",
+              "type": "global",
+              "fieldName": "texte_placeholder"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@field.sac_sorgho": [
           "value"
+        ],
+        "@global.texte_placeholder": [
+          "parameter_list.placeholder"
         ]
       }
     },
@@ -702,18 +891,21 @@
       }
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
       "_translations": {
         "value": {}
       },
       "condition": "!@fields.sac_sorgho && @fields.attempt_submit",
-      "name": "html_26",
-      "_nested_name": "html_26",
+      "style_list": [
+        "@global.reponse_style"
+      ],
+      "name": "text_26",
+      "_nested_name": "text_26",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+            "fullExpression": "@global.reponse_obligatoire",
             "matchedExpression": "@global.reponse_obligatoire",
             "type": "global",
             "fieldName": "reponse_obligatoire"
@@ -732,7 +924,17 @@
             "type": "fields",
             "fieldName": "attempt_submit"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.reponse_obligatoire": [
@@ -743,6 +945,9 @@
         ],
         "@fields.attempt_submit": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
@@ -754,8 +959,7 @@
       },
       "condition": "!@local.valid_sac_sorgho",
       "style_list": [
-        "color: red",
-        "font-size: 12px"
+        "@global.reponse_style"
       ],
       "name": "text_27",
       "_nested_name": "text_27",
@@ -775,7 +979,17 @@
             "type": "local",
             "fieldName": "valid_sac_sorgho"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.erreur_sacs": [
@@ -783,6 +997,9 @@
         ],
         "!@local.valid_sac_sorgho": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
@@ -790,17 +1007,32 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "html",
-          "value": "<span style=\"color: red;\">*</span><b>Donnez le nombre de sacs de riz à prévoir</b>",
+          "type": "subtitle",
+          "value": "@global.nbre_sac_riz",
           "_translations": {
             "value": {}
           },
-          "name": "html_1",
-          "_nested_name": "display_group_28.html_1"
+          "name": "subtitle_1",
+          "_nested_name": "display_group_28.subtitle_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.nbre_sac_riz",
+                "matchedExpression": "@global.nbre_sac_riz",
+                "type": "global",
+                "fieldName": "nbre_sac_riz"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.nbre_sac_riz": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",
-          "name": "audio_5_4",
+          "name": "audio_3_4",
           "parameter_list": {
             "variant": "button_only",
             "src": "audio/alimentationHumaine/sac_riz_fr.mp3",
@@ -809,7 +1041,7 @@
           "style_list": [
             "float : right"
           ],
-          "_nested_name": "display_group_28.audio_5_4"
+          "_nested_name": "display_group_28.audio_3_4"
         }
       ],
       "name": "display_group_28",
@@ -847,8 +1079,8 @@
         }
       ],
       "parameter_list": {
-        "input_type": "number",
-        "placeholder": "Nombre de sac de riz"
+        "number_input": "true",
+        "placeholder": "@global.texte_placeholder"
       },
       "style_list": [
         "margin: 10px"
@@ -862,11 +1094,24 @@
             "type": "fields",
             "fieldName": "sac_riz"
           }
-        ]
+        ],
+        "parameter_list": {
+          "placeholder": [
+            {
+              "fullExpression": "@global.texte_placeholder",
+              "matchedExpression": "@global.texte_placeholder",
+              "type": "global",
+              "fieldName": "texte_placeholder"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@fields.sac_riz": [
           "value"
+        ],
+        "@global.texte_placeholder": [
+          "parameter_list.placeholder"
         ]
       }
     },
@@ -929,18 +1174,21 @@
       }
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
       "_translations": {
         "value": {}
       },
       "condition": "!@fields.sac_riz && @fields.attempt_submit",
-      "name": "html_33",
-      "_nested_name": "html_33",
+      "style_list": [
+        "@global.reponse_style"
+      ],
+      "name": "text_33",
+      "_nested_name": "text_33",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+            "fullExpression": "@global.reponse_obligatoire",
             "matchedExpression": "@global.reponse_obligatoire",
             "type": "global",
             "fieldName": "reponse_obligatoire"
@@ -959,7 +1207,17 @@
             "type": "fields",
             "fieldName": "attempt_submit"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.reponse_obligatoire": [
@@ -970,6 +1228,9 @@
         ],
         "@fields.attempt_submit": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
@@ -981,8 +1242,7 @@
       },
       "condition": "!@local.valid_sac_riz",
       "style_list": [
-        "color: red",
-        "font-size: 12px"
+        "@global.reponse_style"
       ],
       "name": "text_34",
       "_nested_name": "text_34",
@@ -1002,7 +1262,17 @@
             "type": "local",
             "fieldName": "valid_sac_riz"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.erreur_sacs": [
@@ -1010,17 +1280,20 @@
         ],
         "!@local.valid_sac_riz": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
     {
-      "name": "v_cumul_sacs",
+      "name": "sac_cereales",
       "value": "@calc(Number(@field.sac_mais || 0) + Number(@field.sac_mil || 0) + Number(@field.sac_sorgho || 0) + Number(@fields.sac_riz || 0))",
       "_translations": {
         "value": {}
       },
       "type": "set_variable",
-      "_nested_name": "v_cumul_sacs",
+      "_nested_name": "sac_cereales",
       "_dynamicFields": {
         "value": [
           {
@@ -1074,94 +1347,122 @@
       }
     },
     {
-      "name": "v_diff_sacs",
-      "value": "@calc(Math.abs(@local.v_cumul_sacs - @fields.besoin_cereale_exploitation))",
+      "name": "sac_cereales_diff",
+      "value": "@calc(Math.abs(@local.sac_cereales - @fields.besoin_cereale_exploitation))",
       "_translations": {
         "value": {}
       },
       "type": "set_variable",
-      "_nested_name": "v_diff_sacs",
+      "_nested_name": "sac_cereales_diff",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc(Math.abs(@local.v_cumul_sacs - @fields.besoin_cereale_exploitation))",
-            "matchedExpression": "@local.v_cumul_sacs",
+            "fullExpression": "@calc(Math.abs(@local.sac_cereales - @fields.besoin_cereale_exploitation))",
+            "matchedExpression": "@local.sac_cereales",
             "type": "local",
-            "fieldName": "v_cumul_sacs"
+            "fieldName": "sac_cereales"
           },
           {
-            "fullExpression": "@calc(Math.abs(@local.v_cumul_sacs - @fields.besoin_cereale_exploitation))",
+            "fullExpression": "@calc(Math.abs(@local.sac_cereales - @fields.besoin_cereale_exploitation))",
             "matchedExpression": "@fields.besoin_cereale_exploitation",
             "type": "fields",
             "fieldName": "besoin_cereale_exploitation"
           },
           {
-            "fullExpression": "@calc(Math.abs(@local.v_cumul_sacs - @fields.besoin_cereale_exploitation))",
-            "matchedExpression": "@calc(Math.abs(@local.v_cumul_sacs - @fields.besoin_cereale_exploitation))",
+            "fullExpression": "@calc(Math.abs(@local.sac_cereales - @fields.besoin_cereale_exploitation))",
+            "matchedExpression": "@calc(Math.abs(@local.sac_cereales - @fields.besoin_cereale_exploitation))",
             "type": "calc",
-            "fieldName": "Math.abs(@local.v_cumul_sacs - @fields.besoin_cereale_exploitation)"
+            "fieldName": "Math.abs(@local.sac_cereales - @fields.besoin_cereale_exploitation)"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@local.v_cumul_sacs": [
+        "@local.sac_cereales": [
           "value"
         ],
         "@fields.besoin_cereale_exploitation": [
           "value"
         ],
-        "@calc(Math.abs(@local.v_cumul_sacs - @fields.besoin_cereale_exploitation))": [
+        "@calc(Math.abs(@local.sac_cereales - @fields.besoin_cereale_exploitation))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "@global.message_cumul_sac",
+      "_translations": {
+        "value": {}
+      },
+      "name": "text_37",
+      "_nested_name": "text_37",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.message_cumul_sac",
+            "matchedExpression": "@global.message_cumul_sac",
+            "type": "global",
+            "fieldName": "message_cumul_sac"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.message_cumul_sac": [
           "value"
         ]
       }
     },
     {
       "type": "display_group",
-      "name": "msg_ok",
-      "condition": "@local.v_cumul_sacs == @fields.besoin_cereale_exploitation",
+      "condition": "@local.sac_cereales == @fields.besoin_cereale_exploitation",
       "style_list": [
         "background: #e8f5e9",
-        "padding: 15px",
-        "margin: 15px",
-        "text-align: center"
+        "text-align: center",
+        "border-radius: 10px"
       ],
       "rows": [
         {
-          "type": "html",
-          "value": "<b style=\"color: #2e7d32;\"> COMPTE CORRECT</b><br><span style=\"color: #4caf50;\">Le total de @local.v_cumul_sacs sacs correspond exactement au besoin.</span>",
+          "type": "text",
+          "value": "@global.msg_cumul_ok",
           "_translations": {
             "value": {}
           },
-          "name": "html_1",
-          "_nested_name": "msg_ok.html_1",
+          "style_list": [
+            "color: #4caf50",
+            "font-weight: bold",
+            "font-size: 16px"
+          ],
+          "name": "text_1",
+          "_nested_name": "display_group_38.text_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "<b style=\"color: #2e7d32;\"> COMPTE CORRECT</b><br><span style=\"color: #4caf50;\">Le total de @local.v_cumul_sacs sacs correspond exactement au besoin.</span>",
-                "matchedExpression": "@local.v_cumul_sacs",
-                "type": "local",
-                "fieldName": "v_cumul_sacs"
+                "fullExpression": "@global.msg_cumul_ok",
+                "matchedExpression": "@global.msg_cumul_ok",
+                "type": "global",
+                "fieldName": "msg_cumul_ok"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@local.v_cumul_sacs": [
+            "@global.msg_cumul_ok": [
               "value"
             ]
           }
         }
       ],
-      "_nested_name": "msg_ok",
+      "name": "display_group_38",
+      "_nested_name": "display_group_38",
       "_dynamicFields": {
         "condition": [
           {
-            "fullExpression": "@local.v_cumul_sacs == @fields.besoin_cereale_exploitation",
-            "matchedExpression": "@local.v_cumul_sacs",
+            "fullExpression": "@local.sac_cereales == @fields.besoin_cereale_exploitation",
+            "matchedExpression": "@local.sac_cereales",
             "type": "local",
-            "fieldName": "v_cumul_sacs"
+            "fieldName": "sac_cereales"
           },
           {
-            "fullExpression": "@local.v_cumul_sacs == @fields.besoin_cereale_exploitation",
+            "fullExpression": "@local.sac_cereales == @fields.besoin_cereale_exploitation",
             "matchedExpression": "@fields.besoin_cereale_exploitation",
             "type": "fields",
             "fieldName": "besoin_cereale_exploitation"
@@ -1169,7 +1470,7 @@
         ]
       },
       "_dynamicDependencies": {
-        "@local.v_cumul_sacs": [
+        "@local.sac_cereales": [
           "condition"
         ],
         "@fields.besoin_cereale_exploitation": [
@@ -1180,35 +1481,82 @@
     {
       "type": "display_group",
       "name": "msg_sup",
-      "condition": "@local.v_cumul_sacs > @field.besoin_cereale_exploitation",
+      "parameter_list": {
+        "style": "column"
+      },
+      "condition": "@local.sac_cereales > @field.besoin_cereale_exploitation",
       "style_list": [
         "background: #ffebee",
-        "padding: 15px",
-        "margin: 15px",
-        "text-align: center"
+        "text-align: center",
+        "border-radius: 10px"
       ],
       "rows": [
         {
-          "type": "html",
-          "value": "<b style=\"color: #c62828;\"> TOTAL TROP ÉLEVÉ</b><br><span style=\"color: #d32f2f;\">Diminuez le nombre de <b>@local.v_diff_sacs sac(s)</b> </span>",
+          "type": "text",
+          "value": "@global.msg_cumul_sup",
           "_translations": {
             "value": {}
           },
-          "name": "html_1",
-          "_nested_name": "msg_sup.html_1",
+          "style_list": [
+            "color: #c62828",
+            "font-weight: bold",
+            "font-size: 16px"
+          ],
+          "name": "text_1",
+          "_nested_name": "msg_sup.text_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "<b style=\"color: #c62828;\"> TOTAL TROP ÉLEVÉ</b><br><span style=\"color: #d32f2f;\">Diminuez le nombre de <b>@local.v_diff_sacs sac(s)</b> </span>",
-                "matchedExpression": "@local.v_diff_sacs",
-                "type": "local",
-                "fieldName": "v_diff_sacs"
+                "fullExpression": "@global.msg_cumul_sup",
+                "matchedExpression": "@global.msg_cumul_sup",
+                "type": "global",
+                "fieldName": "msg_cumul_sup"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@local.v_diff_sacs": [
+            "@global.msg_cumul_sup": [
               "value"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "value": "@global.msg_cumul_sup_hint",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "@global.reponse_style"
+          ],
+          "name": "text_2",
+          "_nested_name": "msg_sup.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.msg_cumul_sup_hint",
+                "matchedExpression": "@global.msg_cumul_sup_hint",
+                "type": "global",
+                "fieldName": "msg_cumul_sup_hint"
+              }
+            ],
+            "style_list": {
+              "0": [
+                {
+                  "fullExpression": "@global.reponse_style",
+                  "matchedExpression": "@global.reponse_style",
+                  "type": "global",
+                  "fieldName": "reponse_style"
+                }
+              ]
+            }
+          },
+          "_dynamicDependencies": {
+            "@global.msg_cumul_sup_hint": [
+              "value"
+            ],
+            "@global.reponse_style": [
+              "style_list.0"
             ]
           }
         }
@@ -1217,13 +1565,13 @@
       "_dynamicFields": {
         "condition": [
           {
-            "fullExpression": "@local.v_cumul_sacs > @field.besoin_cereale_exploitation",
-            "matchedExpression": "@local.v_cumul_sacs",
+            "fullExpression": "@local.sac_cereales > @field.besoin_cereale_exploitation",
+            "matchedExpression": "@local.sac_cereales",
             "type": "local",
-            "fieldName": "v_cumul_sacs"
+            "fieldName": "sac_cereales"
           },
           {
-            "fullExpression": "@local.v_cumul_sacs > @field.besoin_cereale_exploitation",
+            "fullExpression": "@local.sac_cereales > @field.besoin_cereale_exploitation",
             "matchedExpression": "@field.besoin_cereale_exploitation",
             "type": "field",
             "fieldName": "besoin_cereale_exploitation"
@@ -1231,7 +1579,7 @@
         ]
       },
       "_dynamicDependencies": {
-        "@local.v_cumul_sacs": [
+        "@local.sac_cereales": [
           "condition"
         ],
         "@field.besoin_cereale_exploitation": [
@@ -1241,65 +1589,112 @@
     },
     {
       "type": "display_group",
-      "name": "msg_inf",
-      "condition": "@local.v_cumul_sacs < @field.besoin_cereale_exploitation && @local.v_cumul_sacs > 0",
+      "parameter_list": {
+        "style": "column"
+      },
+      "condition": "@local.sac_cereales < @field.besoin_cereale_exploitation && @local.sac_cereales > 0",
       "style_list": [
         "background: #fff3e0",
-        "padding: 15px",
-        "margin: 15px",
+        "border-radius: 10px",
         "text-align: center"
       ],
       "rows": [
         {
-          "type": "html",
-          "value": "<b style=\"color: #ef6c00;\"> TOTAL INSUFFISANT</b><br><span style=\"color: #f57c00;\">Augmentez le nombre de <b>@local.v_diff_sacs sac(s)</b></span>",
+          "type": "text",
+          "value": "@global.msg_cumul_inf",
           "_translations": {
             "value": {}
           },
-          "name": "html_1",
-          "_nested_name": "msg_inf.html_1",
+          "style_list": [
+            "color: #ef6c00",
+            "font-weight: bold",
+            "font-size: 16px"
+          ],
+          "name": "text_1",
+          "_nested_name": "display_group_42.text_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "<b style=\"color: #ef6c00;\"> TOTAL INSUFFISANT</b><br><span style=\"color: #f57c00;\">Augmentez le nombre de <b>@local.v_diff_sacs sac(s)</b></span>",
-                "matchedExpression": "@local.v_diff_sacs",
-                "type": "local",
-                "fieldName": "v_diff_sacs"
+                "fullExpression": "@global.msg_cumul_inf",
+                "matchedExpression": "@global.msg_cumul_inf",
+                "type": "global",
+                "fieldName": "msg_cumul_inf"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@local.v_diff_sacs": [
+            "@global.msg_cumul_inf": [
               "value"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "value": "@global.msg_cumul_inf_hint",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "@global.reponse_style"
+          ],
+          "name": "text_2",
+          "_nested_name": "display_group_42.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.msg_cumul_inf_hint",
+                "matchedExpression": "@global.msg_cumul_inf_hint",
+                "type": "global",
+                "fieldName": "msg_cumul_inf_hint"
+              }
+            ],
+            "style_list": {
+              "0": [
+                {
+                  "fullExpression": "@global.reponse_style",
+                  "matchedExpression": "@global.reponse_style",
+                  "type": "global",
+                  "fieldName": "reponse_style"
+                }
+              ]
+            }
+          },
+          "_dynamicDependencies": {
+            "@global.msg_cumul_inf_hint": [
+              "value"
+            ],
+            "@global.reponse_style": [
+              "style_list.0"
             ]
           }
         }
       ],
-      "_nested_name": "msg_inf",
+      "name": "display_group_42",
+      "_nested_name": "display_group_42",
       "_dynamicFields": {
         "condition": [
           {
-            "fullExpression": "@local.v_cumul_sacs < @field.besoin_cereale_exploitation && @local.v_cumul_sacs > 0",
-            "matchedExpression": "@local.v_cumul_sacs",
+            "fullExpression": "@local.sac_cereales < @field.besoin_cereale_exploitation && @local.sac_cereales > 0",
+            "matchedExpression": "@local.sac_cereales",
             "type": "local",
-            "fieldName": "v_cumul_sacs"
+            "fieldName": "sac_cereales"
           },
           {
-            "fullExpression": "@local.v_cumul_sacs < @field.besoin_cereale_exploitation && @local.v_cumul_sacs > 0",
+            "fullExpression": "@local.sac_cereales < @field.besoin_cereale_exploitation && @local.sac_cereales > 0",
             "matchedExpression": "@field.besoin_cereale_exploitation",
             "type": "field",
             "fieldName": "besoin_cereale_exploitation"
           },
           {
-            "fullExpression": "@local.v_cumul_sacs < @field.besoin_cereale_exploitation && @local.v_cumul_sacs > 0",
-            "matchedExpression": "@local.v_cumul_sacs",
+            "fullExpression": "@local.sac_cereales < @field.besoin_cereale_exploitation && @local.sac_cereales > 0",
+            "matchedExpression": "@local.sac_cereales",
             "type": "local",
-            "fieldName": "v_cumul_sacs"
+            "fieldName": "sac_cereales"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@local.v_cumul_sacs": [
+        "@local.sac_cereales": [
           "condition",
           "condition"
         ],
@@ -1310,7 +1705,7 @@
     },
     {
       "name": "completed_enabled",
-      "value": "@local.v_cumul_sacs == @field.besoin_cereale_exploitation",
+      "value": "@local.sac_cereales == @field.besoin_cereale_exploitation",
       "_translations": {
         "value": {}
       },
@@ -1319,13 +1714,13 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@local.v_cumul_sacs == @field.besoin_cereale_exploitation",
-            "matchedExpression": "@local.v_cumul_sacs",
+            "fullExpression": "@local.sac_cereales == @field.besoin_cereale_exploitation",
+            "matchedExpression": "@local.sac_cereales",
             "type": "local",
-            "fieldName": "v_cumul_sacs"
+            "fieldName": "sac_cereales"
           },
           {
-            "fullExpression": "@local.v_cumul_sacs == @field.besoin_cereale_exploitation",
+            "fullExpression": "@local.sac_cereales == @field.besoin_cereale_exploitation",
             "matchedExpression": "@field.besoin_cereale_exploitation",
             "type": "field",
             "fieldName": "besoin_cereale_exploitation"
@@ -1333,7 +1728,7 @@
         ]
       },
       "_dynamicDependencies": {
-        "@local.v_cumul_sacs": [
+        "@local.sac_cereales": [
           "value"
         ],
         "@field.besoin_cereale_exploitation": [
@@ -1353,7 +1748,7 @@
       "rows": [
         {
           "type": "round_button",
-          "name": "page5_button_back",
+          "name": "page3_button_back",
           "action_list": [
             {
               "trigger": "click",
@@ -1377,7 +1772,7 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "dg_footer.page5_button_back"
+          "_nested_name": "dg_footer.page3_button_back"
         },
         {
           "type": "button",
@@ -1420,7 +1815,7 @@
         },
         {
           "type": "button",
-          "name": "page5_button_completed",
+          "name": "page3_button_completed",
           "value": "@global.btn_continue",
           "_translations": {
             "value": {}
@@ -1451,7 +1846,7 @@
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "dg_footer.page5_button_completed",
+          "_nested_name": "dg_footer.page3_button_completed",
           "_dynamicFields": {
             "value": [
               {

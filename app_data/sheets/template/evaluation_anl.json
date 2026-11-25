@@ -65,7 +65,7 @@
       "rows": [
         {
           "type": "text",
-          "value": "Unité de Production Agricole (UPA)",
+          "value": "@global.planif_upa_title",
           "_translations": {
             "value": {}
           },
@@ -81,7 +81,22 @@
             "text-align: center"
           ],
           "name": "text_1",
-          "_nested_name": "display_group_3.text_1"
+          "_nested_name": "display_group_3.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.planif_upa_title",
+                "matchedExpression": "@global.planif_upa_title",
+                "type": "global",
+                "fieldName": "planif_upa_title"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.planif_upa_title": [
+              "value"
+            ]
+          }
         },
         {
           "type": "text",
@@ -121,250 +136,120 @@
       "_nested_name": "display_group_3"
     },
     {
-      "type": "display_group",
+      "type": "display_grid",
+      "name": "evaluation_menu",
       "parameter_list": {
-        "item_width": "100px",
-        "item_border": "solid",
-        "grid_width": "50%",
-        "grid_gap": "20px"
-      },
-      "rows": [
-        {
-          "type": "button",
-          "value": "Caractéristiques de l'UPA",
-          "action_list": [
-            {
-              "trigger": "click",
-              "action_id": "go_to",
-              "args": [
-                "caracteristique_upa"
-              ],
-              "_raw": "click | go_to: caracteristique_upa"
-            }
-          ],
-          "parameter_list": {
-            "variant": "card-portrait",
-            "image_asset": "images/characteristics UPA.png",
-            "style": "full"
-          },
-          "rows": [],
-          "name": "button_1",
-          "_nested_name": "display_group_5.button_1"
-        },
-        {
-          "type": "button",
-          "value": "Cartes des Champs",
-          "action_list": [
-            {
-              "trigger": "click",
-              "action_id": "go_to",
-              "args": [
-                "carte_champs"
-              ],
-              "_raw": "click | go_to: carte_champs"
-            }
-          ],
-          "parameter_list": {
-            "variant": "card-portrait",
-            "image_asset": "images/cartes champs.png",
-            "style": "full"
-          },
-          "rows": [],
-          "name": "button_2",
-          "_nested_name": "display_group_5.button_2"
-        }
-      ],
-      "name": "display_group_5",
-      "_nested_name": "display_group_5"
-    },
-    {
-      "type": "display_group",
-      "parameter_list": {
-        "item_width": "100px",
-        "item_border": "solid",
-        "grid_width": "50%",
-        "grid_gap": "20px"
-      },
-      "rows": [
-        {
-          "type": "button",
-          "value": "Superficies des Cultures",
-          "action_list": [
-            {
-              "trigger": "click",
-              "action_id": "go_to",
-              "args": [
-                "superficies_cultures"
-              ],
-              "_raw": "click | go_to: superficies_cultures"
-            }
-          ],
-          "parameter_list": {
-            "variant": "card-portrait",
-            "image_asset": "images/superficiescultures.png",
-            "button_align": "centre",
-            "style": "full"
-          },
-          "rows": [],
-          "name": "button_1",
-          "_nested_name": "display_group_7.button_1"
-        },
-        {
-          "type": "button",
-          "value": "Besoins Planifiés",
-          "action_list": [
-            {
-              "trigger": "click",
-              "action_id": "go_to",
-              "args": [
-                "besoins_planifies"
-              ],
-              "_raw": "click | go_to: besoins_planifies"
-            }
-          ],
-          "parameter_list": {
-            "variant": "card-portrait",
-            "image_asset": "images/besoins  planifiés.png",
-            "button_align": "centre",
-            "style": "full"
-          },
-          "rows": [],
-          "name": "button_2",
-          "_nested_name": "display_group_7.button_2"
-        }
-      ],
-      "name": "display_group_7",
-      "_nested_name": "display_group_7"
-    },
-    {
-      "type": "display_group",
-      "parameter_list": {
-        "item_width": "100px",
-        "item_border": "solid",
-        "grid_width": "50%",
-        "grid_gap": "20px"
-      },
-      "rows": [
-        {
-          "type": "button",
-          "value": "Cout de Productions",
-          "action_list": [
-            {
-              "trigger": "click",
-              "action_id": "go_to",
-              "args": [
-                "cout_productions"
-              ],
-              "_raw": "click | go_to: cout_productions"
-            }
-          ],
-          "parameter_list": {
-            "variant": "card-portrait",
-            "image_asset": "images/Cout de production.jpg",
-            "button_align": "centre",
-            "style": "full"
-          },
-          "rows": [],
-          "name": "button_1",
-          "_nested_name": "display_group_9.button_1"
-        },
-        {
-          "type": "button",
-          "value": "Productions totales",
-          "action_list": [
-            {
-              "trigger": "click",
-              "action_id": "go_to",
-              "args": [
-                "production_totale"
-              ],
-              "_raw": "click | go_to: production_totale"
-            }
-          ],
-          "parameter_list": {
-            "variant": "card-portrait",
-            "image_asset": "images/Production.png",
-            "button_align": "centre",
-            "style": "full"
-          },
-          "rows": [],
-          "name": "button_2",
-          "_nested_name": "display_group_9.button_2"
-        }
-      ],
-      "name": "display_group_9",
-      "_nested_name": "display_group_9"
-    },
-    {
-      "type": "display_group",
-      "parameter_list": {
-        "item_width": "100px",
-        "item_border": "solid",
-        "grid_width": "50%",
-        "grid_gap": "20px"
+        "item_width": "140px",
+        "item_border": "none",
+        "grid_width": "100%",
+        "grid_gap": "16px"
       },
       "style_list": [
         "padding-bottom: 20px"
       ],
       "rows": [
         {
-          "type": "button",
-          "value": "Rendement",
-          "action_list": [
+          "type": "data_items",
+          "name": "evaluation_items",
+          "value": "@data.evaluation_pages",
+          "rows": [
             {
-              "trigger": "click",
-              "action_id": "go_to",
-              "args": [
-                "rendement"
+              "type": "button",
+              "name": "evaluation_tile",
+              "value": "@item.tile_title",
+              "_translations": {
+                "value": {}
+              },
+              "action_list": [
+                {
+                  "trigger": "click",
+                  "action_id": "go_to",
+                  "args": [
+                    "@item.target_template"
+                  ],
+                  "_raw": "click | go_to: @item.target_template"
+                }
               ],
-              "_raw": "click | go_to: rendement"
+              "parameter_list": {
+                "variant": "card-portrait",
+                "image_asset": "@item.image_path"
+              },
+              "_nested_name": "evaluation_menu.evaluation_items.evaluation_tile",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "@item.tile_title",
+                    "matchedExpression": "@item.tile_title",
+                    "type": "item",
+                    "fieldName": "tile_title"
+                  }
+                ],
+                "action_list": {
+                  "0": {
+                    "args": {
+                      "0": [
+                        {
+                          "fullExpression": "@item.target_template",
+                          "matchedExpression": "@item.target_template",
+                          "type": "item",
+                          "fieldName": "target_template"
+                        }
+                      ]
+                    },
+                    "_raw": [
+                      {
+                        "fullExpression": "click | go_to: @item.target_template",
+                        "matchedExpression": "@item.target_template",
+                        "type": "item",
+                        "fieldName": "target_template"
+                      }
+                    ]
+                  }
+                },
+                "parameter_list": {
+                  "image_asset": [
+                    {
+                      "fullExpression": "@item.image_path",
+                      "matchedExpression": "@item.image_path",
+                      "type": "item",
+                      "fieldName": "image_path"
+                    }
+                  ]
+                }
+              },
+              "_dynamicDependencies": {
+                "@item.tile_title": [
+                  "value"
+                ],
+                "@item.target_template": [
+                  "action_list.0.args.0",
+                  "action_list.0._raw"
+                ],
+                "@item.image_path": [
+                  "parameter_list.image_asset"
+                ]
+              }
             }
           ],
-          "parameter_list": {
-            "variant": "card-portrait",
-            "image_asset": "images/Rendement.png",
-            "button_align": "centre",
-            "style": "full"
+          "_nested_name": "evaluation_menu.evaluation_items",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@data.evaluation_pages",
+                "matchedExpression": "@data.evaluation_pages",
+                "type": "data",
+                "fieldName": "evaluation_pages"
+              }
+            ]
           },
-          "rows": [],
-          "name": "button_1",
-          "_nested_name": "display_group_11.button_1"
-        },
-        {
-          "type": "button",
-          "value": "Observations",
-          "action_list": [
-            {
-              "trigger": "click",
-              "action_id": "go_to",
-              "args": [
-                "observation"
-              ],
-              "_raw": "click | go_to: observation"
-            }
-          ],
-          "parameter_list": {
-            "variant": "card-portrait",
-            "image_asset": "images/Observation.png",
-            "button_align": "centre",
-            "style": "full"
-          },
-          "rows": [],
-          "name": "button_2",
-          "_nested_name": "display_group_11.button_2"
+          "_dynamicDependencies": {
+            "@data.evaluation_pages": [
+              "value"
+            ]
+          }
         }
       ],
-      "name": "display_group_11",
-      "_nested_name": "display_group_11"
-    },
-    {
-      "value": "<div style=\"\n    background-color: #FEF2F2;\n    border: 1px solid #FECACA;\n    border-left: 4px solid #EF4444;\n    border-radius: 8px;\n    padding: 12px 16px;\n    margin: 10px 0;\n    display: flex;\n    align-items: center;\n    gap: 10px;\n    box-shadow: 0 1px 3px rgba(0,0,0,0.05);\n\">\n    <!-- Icône d'avertissement -->\n    <svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#DC2626\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n        <circle cx=\"12\" cy=\"12\" r=\"10\"></circle>\n        <line x1=\"12\" y1=\"8\" x2=\"12\" y2=\"12\"></line>\n        <line x1=\"12\" y1=\"16\" x2=\"12.01\" y2=\"16\"></line>\n    </svg>\n    \n    <!-- Message -->\n    <span style=\"\n        color: #991B1B;\n        font-size: 13px;\n        font-weight: 600;\n        font-family: Arial, sans-serif;\n    \">\n        Veuillez faire un choix pour continuer !\n    </span>\n</div>",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "name": "set_variable_13",
-      "_nested_name": "set_variable_13"
+      "_nested_name": "evaluation_menu"
     }
   ],
   "_source": {

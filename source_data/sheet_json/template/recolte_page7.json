@@ -1,0 +1,107 @@
+{
+  "flow_type": "template",
+  "flow_name": "recolte_page7",
+  "status": "released",
+  "rows": [
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "@global.page7"
+    },
+    {
+      "type": "audio",
+      "parameter_list": "variant: button_only;\nsrc: audio/recolte/cout_tot_recolte_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "flex-shrink: 0;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/cfa_tot.jpg",
+      "style_list": "width: 40%; object-fit: contain; display: block; margin: 10px auto;"
+    },
+    {
+      "name": "montant",
+      "value": "@calc(Number(@field.grand_total_recolte || 0))"
+    },
+    {
+      "name": "montant_cfa",
+      "value": "@calc(@local.montant * 5)"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "final_grp",
+      "style_list": "background: #FFF3E0; padding: 20px; border-radius: 15px; text-align: center; margin-bottom: 20px;\n"
+    },
+    {
+      "type": "text",
+      "value": "@global.inv_rec",
+      "style_list": "color: #6D4C41; font-size: 14px; font-weight: bold; text-transform: uppercase; margin-bottom: 5px;"
+    },
+    {
+      "type": "text",
+      "value": "@local.montant Dram",
+      "style_list": "color: #E65100; font-size: 28px; font-weight: bold; margin-bottom: 15px;"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "subcard_fcfa",
+      "style_list": "background: #E8F5E9; padding: 10px; border-radius: 10px;"
+    },
+    {
+      "type": "text",
+      "value": "@local.montant_cfa FCFA",
+      "style_list": "color: #2E7D32; font-weight: bold; font-size: 20px; text-align: center;\n"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "cultures_list",
+      "style_list": "padding: 20px;"
+    },
+    {
+      "type": "text ",
+      "value": "@global.lbl_cultures_title",
+      "style_list": "color: #e3a730; border-bottom: 1px solid #eee; padding-bottom: 10px;"
+    },
+    {
+      "type": "text ",
+      "value": "@field.selected_cultures_list",
+      "style_list": "color: #666; font-style: italic; margin-top: 5px;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "dg_footer",
+      "parameter_list": "sticky: bottom;",
+      "style_list": "padding: 12px 24px;"
+    },
+    {
+      "type": "round_button",
+      "name": "button_back",
+      "action_list": "click | emit: uncompleted",
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+    },
+    {
+      "type": "button",
+      "name": "button_completed",
+      "value": "@global.btn_continue",
+      "action_list": "click | emit: completed",
+      "style_list": "flex: 1"
+    },
+    {
+      "type": "end_display_group"
+    }
+  ]
+}

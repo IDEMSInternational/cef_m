@@ -5,7 +5,7 @@
   "rows": [
     {
       "type": "title",
-      "value": "**Superficie de la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**",
+      "value": "@global.title_page14",
       "_translations": {
         "value": {}
       },
@@ -14,24 +14,15 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "**Superficie de la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**",
-            "matchedExpression": "@fields.num_parcelle",
-            "type": "fields",
-            "fieldName": "num_parcelle"
-          },
-          {
-            "fullExpression": "**Superficie de la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**",
-            "matchedExpression": "@fields.nom_champ",
-            "type": "fields",
-            "fieldName": "nom_champ"
+            "fullExpression": "@global.title_page14",
+            "matchedExpression": "@global.title_page14",
+            "type": "global",
+            "fieldName": "title_page14"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.num_parcelle": [
-          "value"
-        ],
-        "@fields.nom_champ": [
+        "@global.title_page14": [
           "value"
         ]
       }
@@ -133,7 +124,7 @@
         }
       ],
       "parameter_list": {
-        "number_input": "true\nplaceholder"
+        "number_input": "true"
       },
       "exclude_from_translation": true,
       "_nested_name": "superficie_parcelle",
@@ -154,18 +145,21 @@
       }
     },
     {
-      "type": "html",
+      "type": "text",
       "name": "html_text",
-      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "value": "@global.warning_message",
       "_translations": {
         "value": {}
       },
       "condition": "!@local.superficie_parcelle",
+      "style_list": [
+        "color: red"
+      ],
       "_nested_name": "html_text",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: red;\"> @global.warning_message </p>",
+            "fullExpression": "@global.warning_message",
             "matchedExpression": "@global.warning_message",
             "type": "global",
             "fieldName": "warning_message"

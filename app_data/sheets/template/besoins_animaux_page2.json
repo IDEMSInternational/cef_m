@@ -5,33 +5,88 @@
   "rows": [
     {
       "type": "title",
-      "value": "**ESPÈCES ANIMALES DE L'UPA**",
+      "value": "@global.espece_animale_UPA_title",
       "_translations": {
         "value": {}
       },
       "name": "title_2",
-      "_nested_name": "title_2"
-    },
-    {
-      "type": "html",
-      "value": "<p style=\"color: black;\"> @global.espece_animaux_hint </p>",
-      "_translations": {
-        "value": {}
-      },
-      "name": "html_3",
-      "_nested_name": "html_3",
+      "_nested_name": "title_2",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: black;\"> @global.espece_animaux_hint </p>",
-            "matchedExpression": "@global.espece_animaux_hint",
+            "fullExpression": "@global.espece_animale_UPA_title",
+            "matchedExpression": "@global.espece_animale_UPA_title",
             "type": "global",
-            "fieldName": "espece_animaux_hint"
+            "fieldName": "espece_animale_UPA_title"
           }
         ]
       },
       "_dynamicDependencies": {
+        "@global.espece_animale_UPA_title": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "@global.espece_animaux_hint",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "@global.hint_style"
+      ],
+      "name": "text_3",
+      "_nested_name": "text_3",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.espece_animaux_hint",
+            "matchedExpression": "@global.espece_animaux_hint",
+            "type": "global",
+            "fieldName": "espece_animaux_hint"
+          }
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.hint_style",
+              "matchedExpression": "@global.hint_style",
+              "type": "global",
+              "fieldName": "hint_style"
+            }
+          ]
+        }
+      },
+      "_dynamicDependencies": {
         "@global.espece_animaux_hint": [
+          "value"
+        ],
+        "@global.hint_style": [
+          "style_list.0"
+        ]
+      }
+    },
+    {
+      "name": "attempt_submit",
+      "value": "@fields.attempt_submit",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "attempt_submit",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.attempt_submit",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.attempt_submit": [
           "value"
         ]
       }
@@ -42,8 +97,8 @@
       "_translations": {
         "value": {}
       },
-      "name": "text_4",
-      "_nested_name": "text_4",
+      "name": "text_5",
+      "_nested_name": "text_5",
       "_dynamicFields": {
         "value": [
           {
@@ -96,7 +151,7 @@
                 "height:100px"
               ],
               "name": "image_1",
-              "_nested_name": "data_items_5.display_group_1_@item.id.image_1",
+              "_nested_name": "data_items_6.display_group_1_@item.id.image_1",
               "_dynamicFields": {
                 "value": [
                   {
@@ -108,7 +163,7 @@
                 ],
                 "_nested_name": [
                   {
-                    "fullExpression": "data_items_5.display_group_1_@item.id.image_1",
+                    "fullExpression": "data_items_6.display_group_1_@item.id.image_1",
                     "matchedExpression": "@item.id.image_1",
                     "type": "item",
                     "fieldName": "id"
@@ -145,11 +200,11 @@
               "parameter_list": {
                 "label_text": "@item.text"
               },
-              "exclude_from_translation": true,
               "style_list": [
                 "margin-bottom: 10px"
               ],
-              "_nested_name": "data_items_5.display_group_1_@item.id.@item.name",
+              "exclude_from_translation_1": true,
+              "_nested_name": "data_items_6.display_group_1_@item.id.@item.name",
               "_dynamicFields": {
                 "name": [
                   {
@@ -215,13 +270,13 @@
                 },
                 "_nested_name": [
                   {
-                    "fullExpression": "data_items_5.display_group_1_@item.id.@item.name",
+                    "fullExpression": "data_items_6.display_group_1_@item.id.@item.name",
                     "matchedExpression": "@item.id",
                     "type": "item",
                     "fieldName": "id"
                   },
                   {
-                    "fullExpression": "data_items_5.display_group_1_@item.id.@item.name",
+                    "fullExpression": "data_items_6.display_group_1_@item.id.@item.name",
                     "matchedExpression": "@item.name",
                     "type": "item",
                     "fieldName": "name"
@@ -248,7 +303,7 @@
             }
           ],
           "name": "display_group_1_@item.id",
-          "_nested_name": "data_items_5.display_group_1_@item.id",
+          "_nested_name": "data_items_6.display_group_1_@item.id",
           "_dynamicFields": {
             "name": [
               {
@@ -260,7 +315,7 @@
             ],
             "_nested_name": [
               {
-                "fullExpression": "data_items_5.display_group_1_@item.id",
+                "fullExpression": "data_items_6.display_group_1_@item.id",
                 "matchedExpression": "@item.id",
                 "type": "item",
                 "fieldName": "id"
@@ -275,8 +330,8 @@
           }
         }
       ],
-      "name": "data_items_5",
-      "_nested_name": "data_items_5",
+      "name": "data_items_6",
+      "_nested_name": "data_items_6",
       "_dynamicFields": {
         "value": [
           {
@@ -712,18 +767,21 @@
       }
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
       "_translations": {
         "value": {}
       },
-      "condition": "!@local.valid_cat_animaux",
-      "name": "html_12",
-      "_nested_name": "html_12",
+      "condition": "!@local.valid_cat_animaux && @fields.attempt_submit",
+      "style_list": [
+        "@global.reponse_style"
+      ],
+      "name": "text_13",
+      "_nested_name": "text_13",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+            "fullExpression": "@global.reponse_obligatoire",
             "matchedExpression": "@global.reponse_obligatoire",
             "type": "global",
             "fieldName": "reponse_obligatoire"
@@ -731,12 +789,28 @@
         ],
         "condition": [
           {
-            "fullExpression": "!@local.valid_cat_animaux",
+            "fullExpression": "!@local.valid_cat_animaux && @fields.attempt_submit",
             "matchedExpression": "!@local.valid_cat_animaux",
             "type": "local",
             "fieldName": "valid_cat_animaux"
+          },
+          {
+            "fullExpression": "!@local.valid_cat_animaux && @fields.attempt_submit",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
         "@global.reponse_obligatoire": [
@@ -744,6 +818,12 @@
         ],
         "!@local.valid_cat_animaux": [
           "condition"
+        ],
+        "@fields.attempt_submit": [
+          "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
@@ -783,7 +863,7 @@
       "rows": [
         {
           "type": "round_button",
-          "name": "page4_button_back",
+          "name": "page2_button_back",
           "action_list": [
             {
               "trigger": "click",
@@ -798,12 +878,62 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "display_group_14.page4_button_back"
+          "_nested_name": "display_group_15.page2_button_back"
         },
         {
           "type": "button",
-          "name": "page4_button_continue",
-          "value": "Continuer",
+          "name": "btn_attempt_submit",
+          "value": "@global.btn_continue",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "attempt_submit",
+                true
+              ],
+              "_raw": "click | set_field: attempt_submit: true"
+            }
+          ],
+          "condition": "!@local.completed_enabled",
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "display_group_15.btn_attempt_submit",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.btn_continue",
+                "matchedExpression": "@global.btn_continue",
+                "type": "global",
+                "fieldName": "btn_continue"
+              }
+            ],
+            "condition": [
+              {
+                "fullExpression": "!@local.completed_enabled",
+                "matchedExpression": "!@local.completed_enabled",
+                "type": "local",
+                "fieldName": "completed_enabled"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.btn_continue": [
+              "value"
+            ],
+            "!@local.completed_enabled": [
+              "condition"
+            ]
+          }
+        },
+        {
+          "type": "button",
+          "name": "page2_button_continue",
+          "value": "@global.btn_continue",
           "_translations": {
             "value": {}
           },
@@ -856,11 +986,20 @@
           "parameter_list": {
             "disabled": "!@local.completed_enabled"
           },
+          "condition": "@local.completed_enabled",
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "display_group_14.page4_button_continue",
+          "_nested_name": "display_group_15.page2_button_continue",
           "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.btn_continue",
+                "matchedExpression": "@global.btn_continue",
+                "type": "global",
+                "fieldName": "btn_continue"
+              }
+            ],
             "action_list": {
               "0": {
                 "args": {
@@ -952,9 +1091,20 @@
                   "fieldName": "completed_enabled"
                 }
               ]
-            }
+            },
+            "condition": [
+              {
+                "fullExpression": "@local.completed_enabled",
+                "matchedExpression": "@local.completed_enabled",
+                "type": "local",
+                "fieldName": "completed_enabled"
+              }
+            ]
           },
           "_dynamicDependencies": {
+            "@global.btn_continue": [
+              "value"
+            ],
             "@local.cat_animaux_selected": [
               "action_list.0.args.1",
               "action_list.0._raw"
@@ -973,12 +1123,15 @@
             ],
             "!@local.completed_enabled": [
               "parameter_list.disabled"
+            ],
+            "@local.completed_enabled": [
+              "condition"
             ]
           }
         }
       ],
-      "name": "display_group_14",
-      "_nested_name": "display_group_14"
+      "name": "display_group_15",
+      "_nested_name": "display_group_15"
     }
   ],
   "_source": {

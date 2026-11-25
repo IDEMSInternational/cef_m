@@ -1,0 +1,130 @@
+{
+  "flow_type": "template",
+  "flow_name": "recolte_page9",
+  "status": "released",
+  "rows": [
+    {
+      "type": "title",
+      "name": "page_title",
+      "value": "@global.title_page9",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "page_title",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.title_page9",
+            "matchedExpression": "@global.title_page9",
+            "type": "global",
+            "fieldName": "title_page9"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.title_page9": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "name": "note_fin",
+      "value": "@global.note_fin_recolte",
+      "_translations": {
+        "value": {}
+      },
+      "_nested_name": "note_fin",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.note_fin_recolte",
+            "matchedExpression": "@global.note_fin_recolte",
+            "type": "global",
+            "fieldName": "note_fin_recolte"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.note_fin_recolte": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "dg_footer",
+      "value": "",
+      "parameter_list": {
+        "sticky": "bottom"
+      },
+      "style_list": [
+        "padding: 12px 24px"
+      ],
+      "rows": [
+        {
+          "type": "round_button",
+          "name": "page_21_button_back",
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "uncompleted"
+              ],
+              "_raw": "click | emit: uncompleted"
+            }
+          ],
+          "parameter_list": {
+            "icon_src": "arrow-back",
+            "variant": "no-background"
+          },
+          "_nested_name": "dg_footer.page_21_button_back"
+        },
+        {
+          "type": "button",
+          "name": "page_21_button_continue",
+          "value": "@global.btn_continue",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "go_to",
+              "args": [
+                "suivi_anl"
+              ],
+              "_raw": "click | go_to: suivi_anl"
+            }
+          ],
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "dg_footer.page_21_button_continue",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.btn_continue",
+                "matchedExpression": "@global.btn_continue",
+                "type": "global",
+                "fieldName": "btn_continue"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.btn_continue": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "dg_footer"
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/Suivi/Recolte_form_sheets.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/1Ntx5DFmilfEnlVuuxWLQ2UmbTS8HV8mlyPWYLNnCE2U"
+  }
+}

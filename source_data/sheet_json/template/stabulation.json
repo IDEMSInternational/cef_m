@@ -5,7 +5,7 @@
   "rows": [
     {
       "type": "title",
-      "value": "STABULATION"
+      "value": "@global.stabulation_title"
     },
     {
       "type": "begin_data_items",
@@ -29,7 +29,7 @@
     },
     {
       "type": "text",
-      "value": "**Les quantités des aliments ci-dessous pour ce regime sont calculées en fonction du nombre d’animaux**"
+      "value": "@global.stabulation_title_hint"
     },
     {
       "type": "end_data_items"
@@ -48,7 +48,7 @@
     },
     {
       "type": "text",
-      "value": " \n         \nConcentrés= tourteau de coton ou son de céréales\n*1 sac de tourteau = 40 kg,\n*1 sac de son= 50 kg"
+      "value": "@global.concentre_son_tourteau_hint"
     },
     {
       "type": "image",
@@ -56,12 +56,19 @@
       "style_list": "width:120px; height:120px; object-fit:contain; flex-shrink:0;"
     },
     {
-      "type": "html",
-      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de concentrés :</strong> @local.stabulation_con sac\n</div>"
+      "type": "begin_display_group",
+      "style_list": "background-color: #f0f4f8; border-left-style: solid; border-left-color: #0056b3; border-radius: 5px;"
     },
     {
       "type": "text",
-      "value": "Résidus de céréales= paille de céréales (maïs, sorgho ou mil)\n* 1 charrétée= 100 kg"
+      "value": "@global.concentre_son_tourteau_stabulation"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "value": "@global.residus_cereale_paille_hint"
     },
     {
       "type": "image",
@@ -69,12 +76,19 @@
       "style_list": "width:120px; height:120px; object-fit:contain; flex-shrink:0;"
     },
     {
-      "type": "html",
-      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de résidus de céréales: </strong> @local.stabulation_resid charrétée</div>"
+      "type": "begin_display_group",
+      "style_list": "background-color: #f0f4f8; border-left-style: solid; border-left-color: #0056b3; border-radius: 5px;"
     },
     {
       "type": "text",
-      "value": "Fânes=foins,\nFânes de niébé, de mucuna, d'arachide, de soja,\nFoins de Brachiaria, de panicum\n*1 botte de fâne= 1,5 kg"
+      "value": "@global.residus_cereale_paille_stabulation"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "value": "@global.fane_cereale_hint"
     },
     {
       "type": "image",
@@ -82,8 +96,15 @@
       "style_list": "width:120px; height:120px; "
     },
     {
-      "type": "html",
-      "value": "<div style=\"background-color: #f0f4f8; border-left: 4px solid #0056b3; padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-family: sans-serif;\">\n  <strong>Quantité de fânes: </strong> @local.stabulation_fane botte</div>"
+      "type": "begin_display_group",
+      "style_list": "background-color: #f0f4f8; border-left-style: solid; border-left-color: #0056b3; border-radius: 5px;"
+    },
+    {
+      "type": "text",
+      "value": "@global.fane_cereale_stabulation"
+    },
+    {
+      "type": "end_display_group"
     },
     {
       "type": "set_field",

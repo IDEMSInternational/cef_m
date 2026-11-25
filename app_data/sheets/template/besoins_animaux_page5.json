@@ -114,7 +114,7 @@
       "rows": [
         {
           "type": "round_button",
-          "name": "page7_button_back",
+          "name": "page5_button_back",
           "action_list": [
             {
               "trigger": "click",
@@ -129,12 +129,12 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "display_group_10.page7_button_back"
+          "_nested_name": "display_group_10.page5_button_back"
         },
         {
           "type": "button",
-          "name": "page7_button_continue",
-          "value": "Continuer",
+          "name": "page5_button_continue",
+          "value": "@global.btn_continue",
           "_translations": {
             "value": {}
           },
@@ -151,7 +151,22 @@
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "display_group_10.page7_button_continue"
+          "_nested_name": "display_group_10.page5_button_continue",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.btn_continue",
+                "matchedExpression": "@global.btn_continue",
+                "type": "global",
+                "fieldName": "btn_continue"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.btn_continue": [
+              "value"
+            ]
+          }
         }
       ],
       "name": "display_group_10",

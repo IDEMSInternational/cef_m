@@ -5,7 +5,7 @@
   "rows": [
     {
       "type": "title",
-      "value": "@global.asso_producteur",
+      "value": "@global.societe_coop",
       "_translations": {
         "value": {}
       },
@@ -14,15 +14,15 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@global.asso_producteur",
-            "matchedExpression": "@global.asso_producteur",
+            "fullExpression": "@global.societe_coop",
+            "matchedExpression": "@global.societe_coop",
             "type": "global",
-            "fieldName": "asso_producteur"
+            "fieldName": "societe_coop"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@global.asso_producteur": [
+        "@global.societe_coop": [
           "value"
         ]
       }
@@ -56,7 +56,7 @@
       "rows": [
         {
           "type": "subtitle",
-          "value": "@global.un_cereale_id_note",
+          "value": "@global.fr_scpc_id_note",
           "_translations": {
             "value": {}
           },
@@ -65,32 +65,32 @@
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "@global.un_cereale_id_note",
-                "matchedExpression": "@global.un_cereale_id_note",
+                "fullExpression": "@global.fr_scpc_id_note",
+                "matchedExpression": "@global.fr_scpc_id_note",
                 "type": "global",
-                "fieldName": "un_cereale_id_note"
+                "fieldName": "fr_scpc_id_note"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@global.un_cereale_id_note": [
+            "@global.fr_scpc_id_note": [
               "value"
             ]
           }
         },
         {
           "type": "audio",
-          "name": "audio_9_1",
+          "name": "audio_8_1",
           "parameter_list": {
             "variant": "button_only",
-            "src": "audio/Enrolement/union_cereales_fr.mp2",
+            "src": "audio/Enrolement/federation_scpc_fr.mp3",
             "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
           "exclude_from_translation": true,
           "style_list": [
             "float: right"
           ],
-          "_nested_name": "display_group_4.audio_9_1"
+          "_nested_name": "display_group_4.audio_8_1"
         }
       ],
       "name": "display_group_4",
@@ -98,7 +98,7 @@
     },
     {
       "type": "image",
-      "value": "images/op_cereales.jpg",
+      "value": "images/op_coton.jpg",
       "_translations": {
         "value": {}
       },
@@ -111,22 +111,22 @@
     },
     {
       "type": "radio_list",
-      "value": "@fields.un_cereale_id",
+      "value": "@fields.fr_scpc_id",
       "action_list": [
         {
           "trigger": "changed",
           "action_id": "set_field",
           "args": [
-            "un_cereale_id",
+            "fr_scpc_id",
             "this.value"
           ],
-          "_raw": "changed | set_field : un_cereale_id: this.value"
+          "_raw": "changed | set_field : fr_scpc_id: this.value"
         }
       ],
       "rows": [
         {
           "type": "data_items",
-          "value": "@data.village_UN_cereale",
+          "value": "@data.village_FR_SCPC",
           "parameter_list": {
             "filter": "@item.village == @fields.village_id"
           },
@@ -136,10 +136,10 @@
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "@data.village_UN_cereale",
-                "matchedExpression": "@data.village_UN_cereale",
+                "fullExpression": "@data.village_FR_SCPC",
+                "matchedExpression": "@data.village_FR_SCPC",
                 "type": "data",
-                "fieldName": "village_UN_cereale"
+                "fieldName": "village_FR_SCPC"
               }
             ],
             "parameter_list": {
@@ -160,7 +160,7 @@
             }
           },
           "_dynamicDependencies": {
-            "@data.village_UN_cereale": [
+            "@data.village_FR_SCPC": [
               "value"
             ],
             "@item.village": [
@@ -177,15 +177,15 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@fields.un_cereale_id",
-            "matchedExpression": "@fields.un_cereale_id",
+            "fullExpression": "@fields.fr_scpc_id",
+            "matchedExpression": "@fields.fr_scpc_id",
             "type": "fields",
-            "fieldName": "un_cereale_id"
+            "fieldName": "fr_scpc_id"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.un_cereale_id": [
+        "@fields.fr_scpc_id": [
           "value"
         ]
       }
@@ -196,7 +196,7 @@
       "_translations": {
         "value": {}
       },
-      "condition": "!@fields.un_cereale_id && @fields.attempt_submit",
+      "condition": "!@fields.fr_scpc_id && @fields.attempt_submit",
       "style_list": [
         "@global.reponse_style"
       ],
@@ -213,13 +213,13 @@
         ],
         "condition": [
           {
-            "fullExpression": "!@fields.un_cereale_id && @fields.attempt_submit",
-            "matchedExpression": "!@fields.un_cereale_id",
+            "fullExpression": "!@fields.fr_scpc_id && @fields.attempt_submit",
+            "matchedExpression": "!@fields.fr_scpc_id",
             "type": "fields",
-            "fieldName": "un_cereale_id"
+            "fieldName": "fr_scpc_id"
           },
           {
-            "fullExpression": "!@fields.un_cereale_id && @fields.attempt_submit",
+            "fullExpression": "!@fields.fr_scpc_id && @fields.attempt_submit",
             "matchedExpression": "@fields.attempt_submit",
             "type": "fields",
             "fieldName": "attempt_submit"
@@ -240,7 +240,7 @@
         "@global.reponse_obligatoire": [
           "value"
         ],
-        "!@fields.un_cereale_id": [
+        "!@fields.fr_scpc_id": [
           "condition"
         ],
         "@fields.attempt_submit": [
@@ -255,42 +255,42 @@
       "type": "display_group",
       "rows": [
         {
-          "type": "subtitle",
-          "value": "@global.base_coop_cereale_id_note",
+          "type": "text",
+          "value": "@global.us_scpc_id_note",
           "_translations": {
             "value": {}
           },
-          "name": "subtitle_1",
-          "_nested_name": "display_group_10.subtitle_1",
+          "name": "text_1",
+          "_nested_name": "display_group_10.text_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "@global.base_coop_cereale_id_note",
-                "matchedExpression": "@global.base_coop_cereale_id_note",
+                "fullExpression": "@global.us_scpc_id_note",
+                "matchedExpression": "@global.us_scpc_id_note",
                 "type": "global",
-                "fieldName": "base_coop_cereale_id_note"
+                "fieldName": "us_scpc_id_note"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@global.base_coop_cereale_id_note": [
+            "@global.us_scpc_id_note": [
               "value"
             ]
           }
         },
         {
           "type": "audio",
-          "name": "audio_9_1",
+          "name": "audio_8_2",
           "parameter_list": {
             "variant": "button_only",
-            "src": "audio/Enrolement/union_cereales_fr.mp2",
+            "src": "audio/Enrolement/union_sect_scpc_fr.mp3",
             "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
           "exclude_from_translation": true,
           "style_list": [
             "float: right"
           ],
-          "_nested_name": "display_group_10.audio_9_1"
+          "_nested_name": "display_group_10.audio_8_2"
         }
       ],
       "name": "display_group_10",
@@ -298,7 +298,7 @@
     },
     {
       "type": "image",
-      "value": "images/op_cereales.jpg",
+      "value": "images/op_coton.jpg",
       "_translations": {
         "value": {}
       },
@@ -311,22 +311,22 @@
     },
     {
       "type": "radio_list",
-      "value": "@fields.base_coop_cereale_id",
+      "value": "@fields.us_scpc_id",
       "action_list": [
         {
           "trigger": "changed",
           "action_id": "set_field",
           "args": [
-            "base_coop_cereale_id",
+            "us_scpc_id",
             "this.value"
           ],
-          "_raw": "changed | set_field : base_coop_cereale_id: this.value"
+          "_raw": "changed | set_field : us_scpc_id: this.value"
         }
       ],
       "rows": [
         {
           "type": "data_items",
-          "value": "@data.village_base_COOP",
+          "value": "@data.village_UN_SCPC",
           "parameter_list": {
             "filter": "@item.village == @fields.village_id"
           },
@@ -336,10 +336,10 @@
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "@data.village_base_COOP",
-                "matchedExpression": "@data.village_base_COOP",
+                "fullExpression": "@data.village_UN_SCPC",
+                "matchedExpression": "@data.village_UN_SCPC",
                 "type": "data",
-                "fieldName": "village_base_COOP"
+                "fieldName": "village_UN_SCPC"
               }
             ],
             "parameter_list": {
@@ -360,7 +360,7 @@
             }
           },
           "_dynamicDependencies": {
-            "@data.village_base_COOP": [
+            "@data.village_UN_SCPC": [
               "value"
             ],
             "@item.village": [
@@ -377,15 +377,15 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@fields.base_coop_cereale_id",
-            "matchedExpression": "@fields.base_coop_cereale_id",
+            "fullExpression": "@fields.us_scpc_id",
+            "matchedExpression": "@fields.us_scpc_id",
             "type": "fields",
-            "fieldName": "base_coop_cereale_id"
+            "fieldName": "us_scpc_id"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.base_coop_cereale_id": [
+        "@fields.us_scpc_id": [
           "value"
         ]
       }
@@ -396,7 +396,7 @@
       "_translations": {
         "value": {}
       },
-      "condition": "!@fields.base_coop_cereale_id && @fields.attempt_submit",
+      "condition": "!@fields.us_scpc_id && @fields.attempt_submit",
       "style_list": [
         "@global.reponse_style"
       ],
@@ -413,13 +413,13 @@
         ],
         "condition": [
           {
-            "fullExpression": "!@fields.base_coop_cereale_id && @fields.attempt_submit",
-            "matchedExpression": "!@fields.base_coop_cereale_id",
+            "fullExpression": "!@fields.us_scpc_id && @fields.attempt_submit",
+            "matchedExpression": "!@fields.us_scpc_id",
             "type": "fields",
-            "fieldName": "base_coop_cereale_id"
+            "fieldName": "us_scpc_id"
           },
           {
-            "fullExpression": "!@fields.base_coop_cereale_id && @fields.attempt_submit",
+            "fullExpression": "!@fields.us_scpc_id && @fields.attempt_submit",
             "matchedExpression": "@fields.attempt_submit",
             "type": "fields",
             "fieldName": "attempt_submit"
@@ -440,7 +440,207 @@
         "@global.reponse_obligatoire": [
           "value"
         ],
-        "!@fields.base_coop_cereale_id": [
+        "!@fields.us_scpc_id": [
+          "condition"
+        ],
+        "@fields.attempt_submit": [
+          "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "text",
+          "value": "@global.base_scpc_id_note",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_1",
+          "_nested_name": "display_group_16.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.base_scpc_id_note",
+                "matchedExpression": "@global.base_scpc_id_note",
+                "type": "global",
+                "fieldName": "base_scpc_id_note"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.base_scpc_id_note": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "audio",
+          "name": "audio_8_3",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/Enrolement/scpc_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "exclude_from_translation": true,
+          "style_list": [
+            "float: right"
+          ],
+          "_nested_name": "display_group_16.audio_8_3"
+        }
+      ],
+      "name": "display_group_16",
+      "_nested_name": "display_group_16"
+    },
+    {
+      "type": "image",
+      "value": "images/op_coton.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width:100px",
+        "height:100px"
+      ],
+      "name": "image_18",
+      "_nested_name": "image_18"
+    },
+    {
+      "type": "radio_list",
+      "value": "@fields.base_scpc_id",
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "base_scpc_id",
+            "this.value"
+          ],
+          "_raw": "changed | set_field : base_scpc_id: this.value"
+        }
+      ],
+      "rows": [
+        {
+          "type": "data_items",
+          "value": "@data.village_SCPC",
+          "parameter_list": {
+            "filter": "@item.village == @fields.village_id"
+          },
+          "rows": [],
+          "name": "data_items_1",
+          "_nested_name": "radio_list_19.data_items_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@data.village_SCPC",
+                "matchedExpression": "@data.village_SCPC",
+                "type": "data",
+                "fieldName": "village_SCPC"
+              }
+            ],
+            "parameter_list": {
+              "filter": [
+                {
+                  "fullExpression": "@item.village == @fields.village_id",
+                  "matchedExpression": "@item.village",
+                  "type": "item",
+                  "fieldName": "village"
+                },
+                {
+                  "fullExpression": "@item.village == @fields.village_id",
+                  "matchedExpression": "@fields.village_id",
+                  "type": "fields",
+                  "fieldName": "village_id"
+                }
+              ]
+            }
+          },
+          "_dynamicDependencies": {
+            "@data.village_SCPC": [
+              "value"
+            ],
+            "@item.village": [
+              "parameter_list.filter"
+            ],
+            "@fields.village_id": [
+              "parameter_list.filter"
+            ]
+          }
+        }
+      ],
+      "name": "radio_list_19",
+      "_nested_name": "radio_list_19",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.base_scpc_id",
+            "matchedExpression": "@fields.base_scpc_id",
+            "type": "fields",
+            "fieldName": "base_scpc_id"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.base_scpc_id": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "!@fields.base_scpc_id && @fields.attempt_submit",
+      "style_list": [
+        "@global.reponse_style"
+      ],
+      "name": "text_21",
+      "_nested_name": "text_21",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.reponse_obligatoire",
+            "matchedExpression": "@global.reponse_obligatoire",
+            "type": "global",
+            "fieldName": "reponse_obligatoire"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "!@fields.base_scpc_id && @fields.attempt_submit",
+            "matchedExpression": "!@fields.base_scpc_id",
+            "type": "fields",
+            "fieldName": "base_scpc_id"
+          },
+          {
+            "fullExpression": "!@fields.base_scpc_id && @fields.attempt_submit",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
+          }
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
+      },
+      "_dynamicDependencies": {
+        "@global.reponse_obligatoire": [
+          "value"
+        ],
+        "!@fields.base_scpc_id": [
           "condition"
         ],
         "@fields.attempt_submit": [
@@ -453,7 +653,7 @@
     },
     {
       "name": "completed_enabled",
-      "value": "@fields.un_cereale_id && @fields.base_coop_cereale_id",
+      "value": "@fields.fr_scpc_id && @fields.us_scpc_id && @fields.base_scpc_id",
       "_translations": {
         "value": {}
       },
@@ -462,31 +662,39 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@fields.un_cereale_id && @fields.base_coop_cereale_id",
-            "matchedExpression": "@fields.un_cereale_id",
+            "fullExpression": "@fields.fr_scpc_id && @fields.us_scpc_id && @fields.base_scpc_id",
+            "matchedExpression": "@fields.fr_scpc_id",
             "type": "fields",
-            "fieldName": "un_cereale_id"
+            "fieldName": "fr_scpc_id"
           },
           {
-            "fullExpression": "@fields.un_cereale_id && @fields.base_coop_cereale_id",
-            "matchedExpression": "@fields.base_coop_cereale_id",
+            "fullExpression": "@fields.fr_scpc_id && @fields.us_scpc_id && @fields.base_scpc_id",
+            "matchedExpression": "@fields.us_scpc_id",
             "type": "fields",
-            "fieldName": "base_coop_cereale_id"
+            "fieldName": "us_scpc_id"
+          },
+          {
+            "fullExpression": "@fields.fr_scpc_id && @fields.us_scpc_id && @fields.base_scpc_id",
+            "matchedExpression": "@fields.base_scpc_id",
+            "type": "fields",
+            "fieldName": "base_scpc_id"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.un_cereale_id": [
+        "@fields.fr_scpc_id": [
           "value"
         ],
-        "@fields.base_coop_cereale_id": [
+        "@fields.us_scpc_id": [
+          "value"
+        ],
+        "@fields.base_scpc_id": [
           "value"
         ]
       }
     },
     {
       "type": "display_group",
-      "name": "dg_footer",
       "value": "",
       "parameter_list": {
         "sticky": "bottom"
@@ -512,7 +720,7 @@
             "variant": "no-background"
           },
           "name": "round_button_1",
-          "_nested_name": "dg_footer.round_button_1"
+          "_nested_name": "display_group_23.round_button_1"
         },
         {
           "type": "button",
@@ -536,7 +744,7 @@
             "flex: 1"
           ],
           "name": "button_2",
-          "_nested_name": "dg_footer.button_2",
+          "_nested_name": "display_group_23.button_2",
           "_dynamicFields": {
             "value": [
               {
@@ -597,7 +805,7 @@
             "flex: 1"
           ],
           "name": "button_3",
-          "_nested_name": "dg_footer.button_3",
+          "_nested_name": "display_group_23.button_3",
           "_dynamicFields": {
             "value": [
               {
@@ -639,7 +847,8 @@
           }
         }
       ],
-      "_nested_name": "dg_footer"
+      "name": "display_group_23",
+      "_nested_name": "display_group_23"
     }
   ],
   "_source": {

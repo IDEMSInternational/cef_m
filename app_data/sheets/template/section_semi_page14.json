@@ -6,11 +6,26 @@
     {
       "type": "title",
       "name": "page_title",
-      "value": "APRECIATIONS ET OBSERVATIONS SUR LE FORMULAIRE",
+      "value": "@global.title_page14",
       "_translations": {
         "value": {}
       },
-      "_nested_name": "page_title"
+      "_nested_name": "page_title",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.title_page14",
+            "matchedExpression": "@global.title_page14",
+            "type": "global",
+            "fieldName": "title_page14"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.title_page14": [
+          "value"
+        ]
+      }
     },
     {
       "type": "display_group",
@@ -97,15 +112,6 @@
           "value"
         ]
       }
-    },
-    {
-      "type": "text",
-      "name": "observation_appreciation",
-      "value": "We would need a recorder here in order to transmit observations or feedback regarding the form.",
-      "_translations": {
-        "value": {}
-      },
-      "_nested_name": "observation_appreciation"
     },
     {
       "type": "display_group",

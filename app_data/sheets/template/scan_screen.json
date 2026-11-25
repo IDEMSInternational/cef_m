@@ -5,12 +5,27 @@
   "rows": [
     {
       "type": "title",
-      "value": "Identification de l'Unité de Production Agricole (UPA) par QR code",
+      "value": "@global.identif_upa_qr_code",
       "_translations": {
         "value": {}
       },
       "name": "title_2",
-      "_nested_name": "title_2"
+      "_nested_name": "title_2",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.identif_upa_qr_code",
+            "matchedExpression": "@global.identif_upa_qr_code",
+            "type": "global",
+            "fieldName": "identif_upa_qr_code"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.identif_upa_qr_code": [
+          "value"
+        ]
+      }
     },
     {
       "type": "image",
@@ -41,7 +56,7 @@
       "rows": [
         {
           "type": "text",
-          "value": "Utilisez la camera pour scanner votre code",
+          "value": "@global.cam_scanner",
           "_translations": {
             "value": {}
           },
@@ -53,7 +68,22 @@
             "color: #333"
           ],
           "name": "text_1",
-          "_nested_name": "display_group_4.text_1"
+          "_nested_name": "display_group_4.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.cam_scanner",
+                "matchedExpression": "@global.cam_scanner",
+                "type": "global",
+                "fieldName": "cam_scanner"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.cam_scanner": [
+              "value"
+            ]
+          }
         },
         {
           "type": "audio",
@@ -75,6 +105,46 @@
     },
     {
       "type": "text",
+      "value": "@global.hint_camera",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "@global.hint_style"
+      ],
+      "name": "text_6",
+      "_nested_name": "text_6",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.hint_camera",
+            "matchedExpression": "@global.hint_camera",
+            "type": "global",
+            "fieldName": "hint_camera"
+          }
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.hint_style",
+              "matchedExpression": "@global.hint_style",
+              "type": "global",
+              "fieldName": "hint_style"
+            }
+          ]
+        }
+      },
+      "_dynamicDependencies": {
+        "@global.hint_camera": [
+          "value"
+        ],
+        "@global.hint_style": [
+          "style_list.0"
+        ]
+      }
+    },
+    {
+      "type": "text",
       "value": "LOGIQUE DE RÉCUPÉRATION (PULLDATA) -- Pas encore dispo",
       "_translations": {
         "value": {}
@@ -83,8 +153,8 @@
         "font-size:11px",
         "color:gray"
       ],
-      "name": "text_6",
-      "_nested_name": "text_6"
+      "name": "text_7",
+      "_nested_name": "text_7"
     },
     {
       "type": "html",
@@ -104,13 +174,12 @@
       "_translations": {
         "value": {}
       },
-      "name": "html_8",
-      "_nested_name": "html_8"
+      "name": "html_9",
+      "_nested_name": "html_9"
     },
     {
       "type": "button",
-      "name": "button_completed",
-      "value": "Continuer",
+      "value": "@global.btn_continue",
       "_translations": {
         "value": {}
       },
@@ -127,7 +196,23 @@
       "style_list": [
         "flex: 1"
       ],
-      "_nested_name": "button_completed"
+      "name": "button_10",
+      "_nested_name": "button_10",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.btn_continue",
+            "matchedExpression": "@global.btn_continue",
+            "type": "global",
+            "fieldName": "btn_continue"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.btn_continue": [
+          "value"
+        ]
+      }
     }
   ],
   "_source": {

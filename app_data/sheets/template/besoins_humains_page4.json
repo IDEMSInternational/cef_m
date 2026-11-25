@@ -5,12 +5,27 @@
   "rows": [
     {
       "type": "title",
-      "value": "RENDEMENTS MOYENS DE VOTRE UPA",
+      "value": "@global.rendement_moyen_upa",
       "_translations": {
         "value": {}
       },
       "name": "title_2",
-      "_nested_name": "title_2"
+      "_nested_name": "title_2",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.rendement_moyen_upa",
+            "matchedExpression": "@global.rendement_moyen_upa",
+            "type": "global",
+            "fieldName": "rendement_moyen_upa"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.rendement_moyen_upa": [
+          "value"
+        ]
+      }
     },
     {
       "name": "attempt_submit",
@@ -96,17 +111,32 @@
           "type": "display_group",
           "rows": [
             {
-              "type": "html",
-              "value": "<b>Donnez le rendement moyen du maïs de votre exploitation (sac de 100 kg/ha)</b><span style=\"color: red;\">*</span>",
+              "type": "subtitle",
+              "value": "@global.rendement_moyen_mais",
               "_translations": {
                 "value": {}
               },
-              "name": "html_1",
-              "_nested_name": "display_group_4.display_group_1.html_1"
+              "name": "subtitle_1",
+              "_nested_name": "display_group_4.display_group_1.subtitle_1",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "@global.rendement_moyen_mais",
+                    "matchedExpression": "@global.rendement_moyen_mais",
+                    "type": "global",
+                    "fieldName": "rendement_moyen_mais"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@global.rendement_moyen_mais": [
+                  "value"
+                ]
+              }
             },
             {
               "type": "audio",
-              "name": "audio_6_1",
+              "name": "audio_4_1",
               "parameter_list": {
                 "variant": "button_only",
                 "src": "audio/alimentationHumaine/rdt_moyen_mais_fr.mp3",
@@ -115,36 +145,49 @@
               "style_list": [
                 "float : right"
               ],
-              "_nested_name": "display_group_4.display_group_1.audio_6_1"
+              "_nested_name": "display_group_4.display_group_1.audio_4_1"
             }
           ],
           "name": "display_group_1",
           "_nested_name": "display_group_4.display_group_1"
         },
         {
-          "type": "html",
-          "value": "<p style=\"color: black;\"> @global.rendement_hint </p>",
+          "type": "text",
+          "value": "@global.rendement_hint",
           "_translations": {
             "value": {}
           },
           "style_list": [
-            "font-size: 12px"
+            "@global.hint_style"
           ],
-          "name": "html_2",
-          "_nested_name": "display_group_4.html_2",
+          "name": "text_2",
+          "_nested_name": "display_group_4.text_2",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "<p style=\"color: black;\"> @global.rendement_hint </p>",
+                "fullExpression": "@global.rendement_hint",
                 "matchedExpression": "@global.rendement_hint",
                 "type": "global",
                 "fieldName": "rendement_hint"
               }
-            ]
+            ],
+            "style_list": {
+              "0": [
+                {
+                  "fullExpression": "@global.hint_style",
+                  "matchedExpression": "@global.hint_style",
+                  "type": "global",
+                  "fieldName": "hint_style"
+                }
+              ]
+            }
           },
           "_dynamicDependencies": {
             "@global.rendement_hint": [
               "value"
+            ],
+            "@global.hint_style": [
+              "style_list.0"
             ]
           }
         },
@@ -180,8 +223,8 @@
             }
           ],
           "parameter_list": {
-            "input_type": "number",
-            "placeholder": "Entrez le rendement de maïs"
+            "number_input": "true",
+            "placeholder": "@global.texte_placeholder"
           },
           "style_list": [
             "margin: 10px"
@@ -195,27 +238,43 @@
                 "type": "fields",
                 "fieldName": "rend_moyen_mais"
               }
-            ]
+            ],
+            "parameter_list": {
+              "placeholder": [
+                {
+                  "fullExpression": "@global.texte_placeholder",
+                  "matchedExpression": "@global.texte_placeholder",
+                  "type": "global",
+                  "fieldName": "texte_placeholder"
+                }
+              ]
+            }
           },
           "_dynamicDependencies": {
             "@fields.rend_moyen_mais": [
               "value"
+            ],
+            "@global.texte_placeholder": [
+              "parameter_list.placeholder"
             ]
           }
         },
         {
-          "type": "html",
-          "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+          "type": "text",
+          "value": "@global.reponse_obligatoire",
           "_translations": {
             "value": {}
           },
           "condition": "!@fields.rend_moyen_mais && @fields.attempt_submit",
-          "name": "html_6",
-          "_nested_name": "display_group_4.html_6",
+          "style_list": [
+            "@global.reponse_style"
+          ],
+          "name": "text_6",
+          "_nested_name": "display_group_4.text_6",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+                "fullExpression": "@global.reponse_obligatoire",
                 "matchedExpression": "@global.reponse_obligatoire",
                 "type": "global",
                 "fieldName": "reponse_obligatoire"
@@ -234,7 +293,17 @@
                 "type": "fields",
                 "fieldName": "attempt_submit"
               }
-            ]
+            ],
+            "style_list": {
+              "0": [
+                {
+                  "fullExpression": "@global.reponse_style",
+                  "matchedExpression": "@global.reponse_style",
+                  "type": "global",
+                  "fieldName": "reponse_style"
+                }
+              ]
+            }
           },
           "_dynamicDependencies": {
             "@global.reponse_obligatoire": [
@@ -245,6 +314,9 @@
             ],
             "@fields.attempt_submit": [
               "condition"
+            ],
+            "@global.reponse_style": [
+              "style_list.0"
             ]
           }
         },
@@ -256,8 +328,7 @@
           },
           "condition": "!@local.valid_rend_moyen_mais",
           "style_list": [
-            "color: red",
-            "font-size: 12px"
+            "@global.reponse_style"
           ],
           "name": "text_7",
           "_nested_name": "display_group_4.text_7",
@@ -277,7 +348,17 @@
                 "type": "local",
                 "fieldName": "valid_rend_moyen_mais"
               }
-            ]
+            ],
+            "style_list": {
+              "0": [
+                {
+                  "fullExpression": "@global.reponse_style",
+                  "matchedExpression": "@global.reponse_style",
+                  "type": "global",
+                  "fieldName": "reponse_style"
+                }
+              ]
+            }
           },
           "_dynamicDependencies": {
             "@global.erreur_rendement": [
@@ -285,6 +366,9 @@
             ],
             "!@local.valid_rend_moyen_mais": [
               "condition"
+            ],
+            "@global.reponse_style": [
+              "style_list.0"
             ]
           }
         }
@@ -367,17 +451,32 @@
           "type": "display_group",
           "rows": [
             {
-              "type": "html",
-              "value": "<b>Donnez le rendement moyen du mil de votre exploitation (sac de 100 kg/ha)</b><span style=\"color: red;\">*</span>",
+              "type": "subtitle",
+              "value": "@global.rendement_moyen_mil",
               "_translations": {
                 "value": {}
               },
-              "name": "html_1",
-              "_nested_name": "display_group_6.display_group_1.html_1"
+              "name": "subtitle_1",
+              "_nested_name": "display_group_6.display_group_1.subtitle_1",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "@global.rendement_moyen_mil",
+                    "matchedExpression": "@global.rendement_moyen_mil",
+                    "type": "global",
+                    "fieldName": "rendement_moyen_mil"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@global.rendement_moyen_mil": [
+                  "value"
+                ]
+              }
             },
             {
               "type": "audio",
-              "name": "audio_6_2",
+              "name": "audio_4_2",
               "parameter_list": {
                 "variant": "button_only",
                 "src": "audio/alimentationHumaine/rdt_moyen_mil_fr.mp3",
@@ -386,36 +485,49 @@
               "style_list": [
                 "float : right"
               ],
-              "_nested_name": "display_group_6.display_group_1.audio_6_2"
+              "_nested_name": "display_group_6.display_group_1.audio_4_2"
             }
           ],
           "name": "display_group_1",
           "_nested_name": "display_group_6.display_group_1"
         },
         {
-          "type": "html",
-          "value": "<p style=\"color: black;\"> @global.rendement_hint </p>",
+          "type": "text",
+          "value": "@global.rendement_hint",
           "_translations": {
             "value": {}
           },
           "style_list": [
-            "font-size: 12px"
+            "@global.hint_style"
           ],
-          "name": "html_2",
-          "_nested_name": "display_group_6.html_2",
+          "name": "text_2",
+          "_nested_name": "display_group_6.text_2",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "<p style=\"color: black;\"> @global.rendement_hint </p>",
+                "fullExpression": "@global.rendement_hint",
                 "matchedExpression": "@global.rendement_hint",
                 "type": "global",
                 "fieldName": "rendement_hint"
               }
-            ]
+            ],
+            "style_list": {
+              "0": [
+                {
+                  "fullExpression": "@global.hint_style",
+                  "matchedExpression": "@global.hint_style",
+                  "type": "global",
+                  "fieldName": "hint_style"
+                }
+              ]
+            }
           },
           "_dynamicDependencies": {
             "@global.rendement_hint": [
               "value"
+            ],
+            "@global.hint_style": [
+              "style_list.0"
             ]
           }
         },
@@ -451,8 +563,8 @@
             }
           ],
           "parameter_list": {
-            "input_type": "number",
-            "placeholder": "Entrez le rendement de mil"
+            "number_input": "true",
+            "placeholder": "@global.texte_placeholder"
           },
           "style_list": [
             "margin: 10px"
@@ -466,27 +578,43 @@
                 "type": "fields",
                 "fieldName": "rend_moyen_mil"
               }
-            ]
+            ],
+            "parameter_list": {
+              "placeholder": [
+                {
+                  "fullExpression": "@global.texte_placeholder",
+                  "matchedExpression": "@global.texte_placeholder",
+                  "type": "global",
+                  "fieldName": "texte_placeholder"
+                }
+              ]
+            }
           },
           "_dynamicDependencies": {
             "@fields.rend_moyen_mil": [
               "value"
+            ],
+            "@global.texte_placeholder": [
+              "parameter_list.placeholder"
             ]
           }
         },
         {
-          "type": "html",
-          "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+          "type": "text",
+          "value": "@global.reponse_obligatoire",
           "_translations": {
             "value": {}
           },
           "condition": "!@fields.rend_moyen_mil && @fields.attempt_submit",
-          "name": "html_6",
-          "_nested_name": "display_group_6.html_6",
+          "style_list": [
+            "@global.reponse_style"
+          ],
+          "name": "text_6",
+          "_nested_name": "display_group_6.text_6",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+                "fullExpression": "@global.reponse_obligatoire",
                 "matchedExpression": "@global.reponse_obligatoire",
                 "type": "global",
                 "fieldName": "reponse_obligatoire"
@@ -505,7 +633,17 @@
                 "type": "fields",
                 "fieldName": "attempt_submit"
               }
-            ]
+            ],
+            "style_list": {
+              "0": [
+                {
+                  "fullExpression": "@global.reponse_style",
+                  "matchedExpression": "@global.reponse_style",
+                  "type": "global",
+                  "fieldName": "reponse_style"
+                }
+              ]
+            }
           },
           "_dynamicDependencies": {
             "@global.reponse_obligatoire": [
@@ -516,6 +654,9 @@
             ],
             "@fields.attempt_submit": [
               "condition"
+            ],
+            "@global.reponse_style": [
+              "style_list.0"
             ]
           }
         },
@@ -527,8 +668,7 @@
           },
           "condition": "!@local.valid_rend_moyen_mil",
           "style_list": [
-            "color: red",
-            "font-size: 12px"
+            "@global.reponse_style"
           ],
           "name": "text_7",
           "_nested_name": "display_group_6.text_7",
@@ -548,7 +688,17 @@
                 "type": "local",
                 "fieldName": "valid_rend_moyen_mil"
               }
-            ]
+            ],
+            "style_list": {
+              "0": [
+                {
+                  "fullExpression": "@global.reponse_style",
+                  "matchedExpression": "@global.reponse_style",
+                  "type": "global",
+                  "fieldName": "reponse_style"
+                }
+              ]
+            }
           },
           "_dynamicDependencies": {
             "@global.erreur_rendement": [
@@ -556,6 +706,9 @@
             ],
             "!@local.valid_rend_moyen_mil": [
               "condition"
+            ],
+            "@global.reponse_style": [
+              "style_list.0"
             ]
           }
         }
@@ -638,17 +791,32 @@
           "type": "display_group",
           "rows": [
             {
-              "type": "html",
-              "value": "<b>Donnez le rendement moyen du sorgho de votre exploitation (sac de 100kg/ha)</b><span style=\"color: red;\">*</span>",
+              "type": "subtitle",
+              "value": "@global.rendement_moyen_sorgho",
               "_translations": {
                 "value": {}
               },
-              "name": "html_1",
-              "_nested_name": "display_group_8.display_group_1.html_1"
+              "name": "subtitle_1",
+              "_nested_name": "display_group_8.display_group_1.subtitle_1",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "@global.rendement_moyen_sorgho",
+                    "matchedExpression": "@global.rendement_moyen_sorgho",
+                    "type": "global",
+                    "fieldName": "rendement_moyen_sorgho"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@global.rendement_moyen_sorgho": [
+                  "value"
+                ]
+              }
             },
             {
               "type": "audio",
-              "name": "audio_6_3",
+              "name": "audio_4_3",
               "parameter_list": {
                 "variant": "button_only",
                 "src": "audio/alimentationHumaine/rdt_moyen_sorgho_fr.mp3",
@@ -657,36 +825,49 @@
               "style_list": [
                 "float : right"
               ],
-              "_nested_name": "display_group_8.display_group_1.audio_6_3"
+              "_nested_name": "display_group_8.display_group_1.audio_4_3"
             }
           ],
           "name": "display_group_1",
           "_nested_name": "display_group_8.display_group_1"
         },
         {
-          "type": "html",
-          "value": "<p style=\"color: black;\"> @global.rendement_hint </p>",
+          "type": "text",
+          "value": "@global.rendement_hint",
           "_translations": {
             "value": {}
           },
           "style_list": [
-            "font-size: 12px"
+            "@global.hint_style"
           ],
-          "name": "html_2",
-          "_nested_name": "display_group_8.html_2",
+          "name": "text_2",
+          "_nested_name": "display_group_8.text_2",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "<p style=\"color: black;\"> @global.rendement_hint </p>",
+                "fullExpression": "@global.rendement_hint",
                 "matchedExpression": "@global.rendement_hint",
                 "type": "global",
                 "fieldName": "rendement_hint"
               }
-            ]
+            ],
+            "style_list": {
+              "0": [
+                {
+                  "fullExpression": "@global.hint_style",
+                  "matchedExpression": "@global.hint_style",
+                  "type": "global",
+                  "fieldName": "hint_style"
+                }
+              ]
+            }
           },
           "_dynamicDependencies": {
             "@global.rendement_hint": [
               "value"
+            ],
+            "@global.hint_style": [
+              "style_list.0"
             ]
           }
         },
@@ -722,8 +903,8 @@
             }
           ],
           "parameter_list": {
-            "input_type": "number",
-            "placeholder": "Entrez le rendement de sorgho"
+            "number_input": "true",
+            "placeholder": "@global.texte_placeholder"
           },
           "style_list": [
             "margin: 10px"
@@ -737,27 +918,43 @@
                 "type": "fields",
                 "fieldName": "rend_moyen_sorgho"
               }
-            ]
+            ],
+            "parameter_list": {
+              "placeholder": [
+                {
+                  "fullExpression": "@global.texte_placeholder",
+                  "matchedExpression": "@global.texte_placeholder",
+                  "type": "global",
+                  "fieldName": "texte_placeholder"
+                }
+              ]
+            }
           },
           "_dynamicDependencies": {
             "@fields.rend_moyen_sorgho": [
               "value"
+            ],
+            "@global.texte_placeholder": [
+              "parameter_list.placeholder"
             ]
           }
         },
         {
-          "type": "html",
-          "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+          "type": "text",
+          "value": "@global.reponse_obligatoire",
           "_translations": {
             "value": {}
           },
           "condition": "!@fields.rend_moyen_sorgho && @fields.attempt_submit",
-          "name": "html_6",
-          "_nested_name": "display_group_8.html_6",
+          "style_list": [
+            "@global.reponse_style"
+          ],
+          "name": "text_6",
+          "_nested_name": "display_group_8.text_6",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+                "fullExpression": "@global.reponse_obligatoire",
                 "matchedExpression": "@global.reponse_obligatoire",
                 "type": "global",
                 "fieldName": "reponse_obligatoire"
@@ -776,7 +973,17 @@
                 "type": "fields",
                 "fieldName": "attempt_submit"
               }
-            ]
+            ],
+            "style_list": {
+              "0": [
+                {
+                  "fullExpression": "@global.reponse_style",
+                  "matchedExpression": "@global.reponse_style",
+                  "type": "global",
+                  "fieldName": "reponse_style"
+                }
+              ]
+            }
           },
           "_dynamicDependencies": {
             "@global.reponse_obligatoire": [
@@ -787,6 +994,9 @@
             ],
             "@fields.attempt_submit": [
               "condition"
+            ],
+            "@global.reponse_style": [
+              "style_list.0"
             ]
           }
         },
@@ -798,8 +1008,7 @@
           },
           "condition": "!@local.valid_rend_moyen_sorgho",
           "style_list": [
-            "color: red",
-            "font-size: 12px"
+            "@global.reponse_style"
           ],
           "name": "text_7",
           "_nested_name": "display_group_8.text_7",
@@ -819,7 +1028,17 @@
                 "type": "local",
                 "fieldName": "valid_rend_moyen_sorgho"
               }
-            ]
+            ],
+            "style_list": {
+              "0": [
+                {
+                  "fullExpression": "@global.reponse_style",
+                  "matchedExpression": "@global.reponse_style",
+                  "type": "global",
+                  "fieldName": "reponse_style"
+                }
+              ]
+            }
           },
           "_dynamicDependencies": {
             "@global.erreur_rendement": [
@@ -827,6 +1046,9 @@
             ],
             "!@local.valid_rend_moyen_sorgho": [
               "condition"
+            ],
+            "@global.reponse_style": [
+              "style_list.0"
             ]
           }
         }
@@ -909,17 +1131,32 @@
           "type": "display_group",
           "rows": [
             {
-              "type": "html",
-              "value": "<b>Donnez le rendement moyen du riz de votre exploitation (sac de 100kg/ha)</b><span style=\"color: red;\">*</span>",
+              "type": "subtitle",
+              "value": "@global.rendement_moyen_riz",
               "_translations": {
                 "value": {}
               },
-              "name": "html_1",
-              "_nested_name": "display_group_10.display_group_1.html_1"
+              "name": "subtitle_1",
+              "_nested_name": "display_group_10.display_group_1.subtitle_1",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "@global.rendement_moyen_riz",
+                    "matchedExpression": "@global.rendement_moyen_riz",
+                    "type": "global",
+                    "fieldName": "rendement_moyen_riz"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@global.rendement_moyen_riz": [
+                  "value"
+                ]
+              }
             },
             {
               "type": "audio",
-              "name": "audio_6_4",
+              "name": "audio_4_4",
               "parameter_list": {
                 "variant": "button_only",
                 "src": "audio/alimentationHumaine/rdt_moyen_riz_fr.mp3",
@@ -928,36 +1165,49 @@
               "style_list": [
                 "float : right"
               ],
-              "_nested_name": "display_group_10.display_group_1.audio_6_4"
+              "_nested_name": "display_group_10.display_group_1.audio_4_4"
             }
           ],
           "name": "display_group_1",
           "_nested_name": "display_group_10.display_group_1"
         },
         {
-          "type": "html",
-          "value": "<p style=\"color: black;\"> @global.rendement_hint </p>",
+          "type": "text",
+          "value": "@global.rendement_hint",
           "_translations": {
             "value": {}
           },
           "style_list": [
-            "font-size: 12px"
+            "@global.hint_style"
           ],
-          "name": "html_2",
-          "_nested_name": "display_group_10.html_2",
+          "name": "text_2",
+          "_nested_name": "display_group_10.text_2",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "<p style=\"color: black;\"> @global.rendement_hint </p>",
+                "fullExpression": "@global.rendement_hint",
                 "matchedExpression": "@global.rendement_hint",
                 "type": "global",
                 "fieldName": "rendement_hint"
               }
-            ]
+            ],
+            "style_list": {
+              "0": [
+                {
+                  "fullExpression": "@global.hint_style",
+                  "matchedExpression": "@global.hint_style",
+                  "type": "global",
+                  "fieldName": "hint_style"
+                }
+              ]
+            }
           },
           "_dynamicDependencies": {
             "@global.rendement_hint": [
               "value"
+            ],
+            "@global.hint_style": [
+              "style_list.0"
             ]
           }
         },
@@ -1017,18 +1267,21 @@
           }
         },
         {
-          "type": "html",
-          "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+          "type": "text",
+          "value": "@global.reponse_obligatoire",
           "_translations": {
             "value": {}
           },
           "condition": "!@fields.rend_moyen_riz && @fields.attempt_submit",
-          "name": "html_6",
-          "_nested_name": "display_group_10.html_6",
+          "style_list": [
+            "@global.reponse_style"
+          ],
+          "name": "text_6",
+          "_nested_name": "display_group_10.text_6",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
+                "fullExpression": "@global.reponse_obligatoire",
                 "matchedExpression": "@global.reponse_obligatoire",
                 "type": "global",
                 "fieldName": "reponse_obligatoire"
@@ -1047,7 +1300,17 @@
                 "type": "fields",
                 "fieldName": "attempt_submit"
               }
-            ]
+            ],
+            "style_list": {
+              "0": [
+                {
+                  "fullExpression": "@global.reponse_style",
+                  "matchedExpression": "@global.reponse_style",
+                  "type": "global",
+                  "fieldName": "reponse_style"
+                }
+              ]
+            }
           },
           "_dynamicDependencies": {
             "@global.reponse_obligatoire": [
@@ -1058,6 +1321,9 @@
             ],
             "@fields.attempt_submit": [
               "condition"
+            ],
+            "@global.reponse_style": [
+              "style_list.0"
             ]
           }
         },
@@ -1069,8 +1335,7 @@
           },
           "condition": "!@local.valid_rend_moyen_riz",
           "style_list": [
-            "color: red",
-            "font-size: 12px"
+            "@global.reponse_style"
           ],
           "name": "text_7",
           "_nested_name": "display_group_10.text_7",
@@ -1090,7 +1355,17 @@
                 "type": "local",
                 "fieldName": "valid_rend_moyen_riz"
               }
-            ]
+            ],
+            "style_list": {
+              "0": [
+                {
+                  "fullExpression": "@global.reponse_style",
+                  "matchedExpression": "@global.reponse_style",
+                  "type": "global",
+                  "fieldName": "reponse_style"
+                }
+              ]
+            }
           },
           "_dynamicDependencies": {
             "@global.erreur_rendement": [
@@ -1098,6 +1373,9 @@
             ],
             "!@local.valid_rend_moyen_riz": [
               "condition"
+            ],
+            "@global.reponse_style": [
+              "style_list.0"
             ]
           }
         }
@@ -1191,7 +1469,7 @@
       "rows": [
         {
           "type": "round_button",
-          "name": "page6_button_back",
+          "name": "page4_button_back",
           "action_list": [
             {
               "trigger": "click",
@@ -1215,7 +1493,7 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "display_group_13.page6_button_back"
+          "_nested_name": "display_group_13.page4_button_back"
         },
         {
           "type": "button",
@@ -1258,7 +1536,7 @@
         },
         {
           "type": "button",
-          "name": "page6_button_completed",
+          "name": "page4_button_completed",
           "value": "Continuer",
           "_translations": {
             "value": {}
@@ -1289,7 +1567,7 @@
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "display_group_13.page6_button_completed",
+          "_nested_name": "display_group_13.page4_button_completed",
           "_dynamicFields": {
             "parameter_list": {
               "disabled": [

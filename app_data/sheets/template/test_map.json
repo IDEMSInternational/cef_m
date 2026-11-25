@@ -1,0 +1,279 @@
+{
+  "flow_type": "template",
+  "flow_name": "test_map",
+  "status": "released",
+  "rows": [
+    {
+      "name": "upa_code",
+      "value": 205,
+      "type": "set_variable",
+      "_nested_name": "upa_code"
+    },
+    {
+      "name": "champ_id",
+      "value": 64,
+      "type": "set_variable",
+      "_nested_name": "champ_id"
+    },
+    {
+      "type": "title",
+      "value": "test map",
+      "_translations": {
+        "value": {}
+      },
+      "name": "title_4",
+      "_nested_name": "title_4"
+    },
+    {
+      "type": "text",
+      "value": "@global.choix_annee_text",
+      "_translations": {
+        "value": {}
+      },
+      "name": "text_5",
+      "_nested_name": "text_5",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.choix_annee_text",
+            "matchedExpression": "@global.choix_annee_text",
+            "type": "global",
+            "fieldName": "choix_annee_text"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.choix_annee_text": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "date_time_picker",
+      "value": "@fields.date_choisie",
+      "_translations": {
+        "value": {}
+      },
+      "action_list": [
+        {
+          "trigger": "changed",
+          "action_id": "set_field",
+          "args": [
+            "date_choisie",
+            "this.value"
+          ],
+          "_raw": "changed | set_field: date_choisie: this.value"
+        }
+      ],
+      "parameter_list": {
+        "type": "year",
+        "min": "2023",
+        "max": "@calc(now())"
+      },
+      "name": "date_time_picker_6",
+      "_nested_name": "date_time_picker_6",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.date_choisie",
+            "matchedExpression": "@fields.date_choisie",
+            "type": "fields",
+            "fieldName": "date_choisie"
+          }
+        ],
+        "parameter_list": {
+          "max": [
+            {
+              "fullExpression": "@calc(now())",
+              "matchedExpression": "@calc(now())",
+              "type": "calc",
+              "fieldName": "now()"
+            }
+          ]
+        }
+      },
+      "_dynamicDependencies": {
+        "@fields.date_choisie": [
+          "value"
+        ],
+        "@calc(now())": [
+          "parameter_list.max"
+        ]
+      }
+    },
+    {
+      "name": "annee_choisie",
+      "value": "@calc(String(@fields.date_choisie || '').substring(0,4))",
+      "_translations": {
+        "value": {}
+      },
+      "condition": "@calc(!!@fields.date_choisie)",
+      "type": "set_variable",
+      "_nested_name": "annee_choisie",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(String(@fields.date_choisie || '').substring(0,4))",
+            "matchedExpression": "@fields.date_choisie",
+            "type": "fields",
+            "fieldName": "date_choisie"
+          },
+          {
+            "fullExpression": "@calc(String(@fields.date_choisie || '').substring(0,4))",
+            "matchedExpression": "@calc(String(@fields.date_choisie || '').substring(0,4))",
+            "type": "calc",
+            "fieldName": "String(@fields.date_choisie || '').substring(0,4)"
+          }
+        ],
+        "condition": [
+          {
+            "fullExpression": "@calc(!!@fields.date_choisie)",
+            "matchedExpression": "!@fields.date_choisie",
+            "type": "fields",
+            "fieldName": "date_choisie"
+          },
+          {
+            "fullExpression": "@calc(!!@fields.date_choisie)",
+            "matchedExpression": "@calc(!!@fields.date_choisie)",
+            "type": "calc",
+            "fieldName": "!!@fields.date_choisie"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.date_choisie": [
+          "value"
+        ],
+        "@calc(String(@fields.date_choisie || '').substring(0,4))": [
+          "value"
+        ],
+        "!@fields.date_choisie": [
+          "condition"
+        ],
+        "@calc(!!@fields.date_choisie)": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "name": "Mali_lon",
+      "value": "-5.54",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "Mali_lon"
+    },
+    {
+      "name": "Mali_lat",
+      "value": "12.55",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "Mali_lat"
+    },
+    {
+      "name": "zoom",
+      "value": 15,
+      "type": "set_variable",
+      "_nested_name": "zoom"
+    },
+    {
+      "type": "map",
+      "name": "test_map",
+      "parameter_list": {
+        "data_list": "test_map_data",
+        "geometry_field_name": "trace_superficie",
+        "center_lon": "@local.Mali_lon",
+        "center_lat": "@local.Mali_lat",
+        "zoom": "@local.zoom",
+        "editable": "false",
+        "filter": "(@item.year == @local.annee_choisie && @item.upa_code == @local.upa_code)"
+      },
+      "_nested_name": "test_map",
+      "_dynamicFields": {
+        "parameter_list": {
+          "center_lon": [
+            {
+              "fullExpression": "@local.Mali_lon",
+              "matchedExpression": "@local.Mali_lon",
+              "type": "local",
+              "fieldName": "Mali_lon"
+            }
+          ],
+          "center_lat": [
+            {
+              "fullExpression": "@local.Mali_lat",
+              "matchedExpression": "@local.Mali_lat",
+              "type": "local",
+              "fieldName": "Mali_lat"
+            }
+          ],
+          "zoom": [
+            {
+              "fullExpression": "@local.zoom",
+              "matchedExpression": "@local.zoom",
+              "type": "local",
+              "fieldName": "zoom"
+            }
+          ],
+          "filter": [
+            {
+              "fullExpression": "(@item.year == @local.annee_choisie && @item.upa_code == @local.upa_code)",
+              "matchedExpression": "@item.year",
+              "type": "item",
+              "fieldName": "year"
+            },
+            {
+              "fullExpression": "(@item.year == @local.annee_choisie && @item.upa_code == @local.upa_code)",
+              "matchedExpression": "@local.annee_choisie",
+              "type": "local",
+              "fieldName": "annee_choisie"
+            },
+            {
+              "fullExpression": "(@item.year == @local.annee_choisie && @item.upa_code == @local.upa_code)",
+              "matchedExpression": "@item.upa_code",
+              "type": "item",
+              "fieldName": "upa_code"
+            },
+            {
+              "fullExpression": "(@item.year == @local.annee_choisie && @item.upa_code == @local.upa_code)",
+              "matchedExpression": "@local.upa_code",
+              "type": "local",
+              "fieldName": "upa_code"
+            }
+          ]
+        }
+      },
+      "_dynamicDependencies": {
+        "@local.Mali_lon": [
+          "parameter_list.center_lon"
+        ],
+        "@local.Mali_lat": [
+          "parameter_list.center_lat"
+        ],
+        "@local.zoom": [
+          "parameter_list.zoom"
+        ],
+        "@item.year": [
+          "parameter_list.filter"
+        ],
+        "@local.annee_choisie": [
+          "parameter_list.filter"
+        ],
+        "@item.upa_code": [
+          "parameter_list.filter"
+        ],
+        "@local.upa_code": [
+          "parameter_list.filter"
+        ]
+      }
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/Evaluation/test map.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/1WLmjxajjUBgO99NgtLoWtcH--hCdMys0cs2uzWAa2tI"
+  }
+}

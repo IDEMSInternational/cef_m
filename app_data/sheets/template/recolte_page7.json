@@ -1,0 +1,392 @@
+{
+  "flow_type": "template",
+  "flow_name": "recolte_page7",
+  "status": "released",
+  "rows": [
+    {
+      "type": "display_group",
+      "rows": [
+        {
+          "type": "text",
+          "value": "@global.page7",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_1",
+          "_nested_name": "display_group_2.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.page7",
+                "matchedExpression": "@global.page7",
+                "type": "global",
+                "fieldName": "page7"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.page7": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "audio",
+          "parameter_list": {
+            "variant": "button_only",
+            "src": "audio/recolte/cout_tot_recolte_fr.mp3",
+            "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
+          },
+          "exclude_from_translation": true,
+          "style_list": [
+            "flex-shrink: 0"
+          ],
+          "name": "audio_2",
+          "_nested_name": "display_group_2.audio_2"
+        }
+      ],
+      "name": "display_group_2",
+      "_nested_name": "display_group_2"
+    },
+    {
+      "type": "image",
+      "value": "images/cfa_tot.jpg",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "width: 40%",
+        "object-fit: contain",
+        "display: block",
+        "margin: 10px auto"
+      ],
+      "name": "image_4",
+      "_nested_name": "image_4"
+    },
+    {
+      "name": "montant",
+      "value": "@calc(Number(@field.grand_total_recolte || 0))",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "montant",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Number(@field.grand_total_recolte || 0))",
+            "matchedExpression": "@field.grand_total_recolte",
+            "type": "field",
+            "fieldName": "grand_total_recolte"
+          },
+          {
+            "fullExpression": "@calc(Number(@field.grand_total_recolte || 0))",
+            "matchedExpression": "@calc(Number(@field.grand_total_recolte || 0))",
+            "type": "calc",
+            "fieldName": "Number(@field.grand_total_recolte || 0)"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@field.grand_total_recolte": [
+          "value"
+        ],
+        "@calc(Number(@field.grand_total_recolte || 0))": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "montant_cfa",
+      "value": "@calc(@local.montant * 5)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "montant_cfa",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(@local.montant * 5)",
+            "matchedExpression": "@local.montant",
+            "type": "local",
+            "fieldName": "montant"
+          },
+          {
+            "fullExpression": "@calc(@local.montant * 5)",
+            "matchedExpression": "@calc(@local.montant * 5)",
+            "type": "calc",
+            "fieldName": "@local.montant * 5"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.montant": [
+          "value"
+        ],
+        "@calc(@local.montant * 5)": [
+          "value"
+        ]
+      }
+    },
+    {
+      "type": "display_group",
+      "name": "final_grp",
+      "style_list": [
+        "background: #FFF3E0",
+        "padding: 20px",
+        "border-radius: 15px",
+        "text-align: center",
+        "margin-bottom: 20px"
+      ],
+      "rows": [
+        {
+          "type": "text",
+          "value": "@global.inv_rec",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "color: #6D4C41",
+            "font-size: 14px",
+            "font-weight: bold",
+            "text-transform: uppercase",
+            "margin-bottom: 5px"
+          ],
+          "name": "text_1",
+          "_nested_name": "final_grp.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.inv_rec",
+                "matchedExpression": "@global.inv_rec",
+                "type": "global",
+                "fieldName": "inv_rec"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.inv_rec": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "value": "@local.montant Dram",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "color: #E65100",
+            "font-size: 28px",
+            "font-weight: bold",
+            "margin-bottom: 15px"
+          ],
+          "name": "text_2",
+          "_nested_name": "final_grp.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@local.montant Dram",
+                "matchedExpression": "@local.montant",
+                "type": "local",
+                "fieldName": "montant"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.montant": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "display_group",
+          "name": "subcard_fcfa",
+          "style_list": [
+            "background: #E8F5E9",
+            "padding: 10px",
+            "border-radius: 10px"
+          ],
+          "rows": [
+            {
+              "type": "text",
+              "value": "@local.montant_cfa FCFA",
+              "_translations": {
+                "value": {}
+              },
+              "style_list": [
+                "color: #2E7D32",
+                "font-weight: bold",
+                "font-size: 20px",
+                "text-align: center"
+              ],
+              "name": "text_1",
+              "_nested_name": "final_grp.subcard_fcfa.text_1",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "@local.montant_cfa FCFA",
+                    "matchedExpression": "@local.montant_cfa",
+                    "type": "local",
+                    "fieldName": "montant_cfa"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@local.montant_cfa": [
+                  "value"
+                ]
+              }
+            }
+          ],
+          "_nested_name": "final_grp.subcard_fcfa"
+        }
+      ],
+      "_nested_name": "final_grp"
+    },
+    {
+      "type": "display_group",
+      "name": "cultures_list",
+      "style_list": [
+        "padding: 20px"
+      ],
+      "rows": [
+        {
+          "type": "text",
+          "value": "@global.lbl_cultures_title",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "color: #e3a730",
+            "border-bottom: 1px solid #eee",
+            "padding-bottom: 10px"
+          ],
+          "name": "text_1",
+          "_nested_name": "cultures_list.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.lbl_cultures_title",
+                "matchedExpression": "@global.lbl_cultures_title",
+                "type": "global",
+                "fieldName": "lbl_cultures_title"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.lbl_cultures_title": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "value": "@field.selected_cultures_list",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "color: #666",
+            "font-style: italic",
+            "margin-top: 5px"
+          ],
+          "name": "text_2",
+          "_nested_name": "cultures_list.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@field.selected_cultures_list",
+                "matchedExpression": "@field.selected_cultures_list",
+                "type": "field",
+                "fieldName": "selected_cultures_list"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@field.selected_cultures_list": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "cultures_list"
+    },
+    {
+      "type": "display_group",
+      "name": "dg_footer",
+      "parameter_list": {
+        "sticky": "bottom"
+      },
+      "style_list": [
+        "padding: 12px 24px"
+      ],
+      "rows": [
+        {
+          "type": "round_button",
+          "name": "button_back",
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "uncompleted"
+              ],
+              "_raw": "click | emit: uncompleted"
+            }
+          ],
+          "parameter_list": {
+            "icon_src": "arrow-back",
+            "variant": "no-background"
+          },
+          "_nested_name": "dg_footer.button_back"
+        },
+        {
+          "type": "button",
+          "name": "button_completed",
+          "value": "@global.btn_continue",
+          "_translations": {
+            "value": {}
+          },
+          "action_list": [
+            {
+              "trigger": "click",
+              "action_id": "emit",
+              "args": [
+                "completed"
+              ],
+              "_raw": "click | emit: completed"
+            }
+          ],
+          "style_list": [
+            "flex: 1"
+          ],
+          "_nested_name": "dg_footer.button_completed",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.btn_continue",
+                "matchedExpression": "@global.btn_continue",
+                "type": "global",
+                "fieldName": "btn_continue"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.btn_continue": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "_nested_name": "dg_footer"
+    }
+  ],
+  "_source": {
+    "name": "cef_m sheets",
+    "path": "template/Suivi/Recolte_form_sheets.xlsx",
+    "url": "https://docs.google.com/spreadsheets/d/1Ntx5DFmilfEnlVuuxWLQ2UmbTS8HV8mlyPWYLNnCE2U"
+  }
+}

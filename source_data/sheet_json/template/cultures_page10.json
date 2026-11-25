@@ -32,18 +32,18 @@
     },
     {
       "type": "title",
-      "value": "PRODUCTION PREVISIONNELLE"
+      "value": "@global.prod_prev"
     },
     {
       "type": "text",
-      "value": "**Les prévisions pour @fields.superficie_ha_prevue ha de @fields.culture_label sont:**"
+      "value": "@global.prod_prev_label"
     },
     {
       "type": "begin_display_group"
     },
     {
-      "type": "text",
-      "value": "**Coût total de prestation de récolte (drm)**"
+      "type": "subtitle",
+      "value": "@global.cout_prest_recolte"
     },
     {
       "type": "audio",
@@ -61,15 +61,15 @@
     },
     {
       "type": "text",
-      "value": "Si non usage prevue, mettez zero\n*1 drm=5 FCFA*",
-      "style_list": "color: gray; font-size: 16px;"
+      "value": "@global.cout_prev_hint",
+      "style_list": "@global.hint_style"
     },
     {
       "type": "text_box",
       "name": "cout_prevu_total_prestation_recolte",
       "value": "@fields.cout_prevu_total_prestation_recolte",
       "action_list": "changed | set_field : cout_prevu_total_prestation_recolte: this.value;",
-      "parameter_list": "number_input: true;\nplaceholder: Écrivez le nombre;"
+      "parameter_list": "number_input: true;\nplaceholder: @global.texte_placeholder;"
     },
     {
       "name": "valid_cout_prevu_total_prestation_recolte",
@@ -77,16 +77,16 @@
     },
     {
       "type": "text",
-      "value": "@global.error_required_answer",
+      "value": "@global.reponse_obligatoire",
       "condition": "@fields.attempt_submit && !@local.valid_cout_prevu_total_prestation_recolte",
-      "style_list": "color: red; font-size: 16px; background: #fff5f5; padding: 5px;"
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "begin_display_group"
     },
     {
-      "type": "text",
-      "value": "**Coût total de battage (drm)**"
+      "type": "subtitle",
+      "value": "@global.cout_battage"
     },
     {
       "type": "audio",
@@ -104,15 +104,15 @@
     },
     {
       "type": "text",
-      "value": "Si non usage prevue, mettez zero\n*1 drm=5 FCFA*",
-      "style_list": "color: gray; font-size: 16px;"
+      "value": "@global.cout_prev_hint",
+      "style_list": "@global.hint_style"
     },
     {
       "type": "text_box",
       "name": "cout_prevu_total_battage",
       "value": "@fields.cout_prevu_total_battage",
       "action_list": "changed | set_field : cout_prevu_total_battage: this.value;",
-      "parameter_list": "number_input: true;\nplaceholder: Écrivez le nombre;"
+      "parameter_list": "number_input: true;\nplaceholder: @global.texte_placeholder;"
     },
     {
       "name": "valid_cout_prevu_total_battage",
@@ -120,16 +120,16 @@
     },
     {
       "type": "text",
-      "value": "@global.error_required_answer",
+      "value": "@global.reponse_obligatoire",
       "condition": "@fields.attempt_submit && !@local.valid_cout_prevu_total_battage",
-      "style_list": "color: red; font-size: 16px; background: #fff5f5; padding: 5px;"
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "begin_display_group"
     },
     {
-      "type": "text",
-      "value": "**Production (kg) de @fields.superficie_ha_prevue ha de @fields.culture_label**"
+      "type": "subtitle",
+      "value": "@global.prod_superf_culture"
     },
     {
       "type": "audio",
@@ -150,7 +150,7 @@
       "name": "production_prevue",
       "value": "@fields.production_prevue",
       "action_list": "changed | set_field : production_prevue: this.value;",
-      "parameter_list": "number_input: true;\nplaceholder: Écrivez le nombre;"
+      "parameter_list": "number_input: true;\nplaceholder: @global.texte_placeholder;"
     },
     {
       "name": "valid_production_prevue",
@@ -158,9 +158,9 @@
     },
     {
       "type": "text",
-      "value": "@global.error_required_answer",
+      "value": "@global.reponse_obligatoire",
       "condition": "@fields.attempt_submit && !@local.valid_production_prevue",
-      "style_list": "color: red; font-size: 16px; background: #fff5f5; padding: 5px;"
+      "style_list": "@global.reponse_style"
     },
     {
       "name": "completed_enabled",

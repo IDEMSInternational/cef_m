@@ -116,11 +116,26 @@
     {
       "type": "text",
       "name": "observation_appreciation",
-      "value": "We would need a recorder here in order to transmit observations or feedback regarding the form.",
+      "value": "@global.observation_appreciation_need",
       "_translations": {
         "value": {}
       },
-      "_nested_name": "observation_appreciation"
+      "_nested_name": "observation_appreciation",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.observation_appreciation_need",
+            "matchedExpression": "@global.observation_appreciation_need",
+            "type": "global",
+            "fieldName": "observation_appreciation_need"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.observation_appreciation_need": [
+          "value"
+        ]
+      }
     },
     {
       "type": "display_group",

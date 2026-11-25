@@ -5,7 +5,7 @@
   "rows": [
     {
       "type": "title",
-      "value": "**Superficie de la parcelle N⁰@fields.num_parcelle de @fields.nom_champ**"
+      "value": "@global.title_page14"
     },
     {
       "type": "begin_display_group"
@@ -36,14 +36,15 @@
       "name": "superficie_parcelle",
       "value": "@fields.superficie_parcelle",
       "action_list": "changed | set_field: superficie_parcelle: this.value;",
-      "parameter_list": "number_input: true\nplaceholder: Entrez la valeur;",
+      "parameter_list": "number_input: true;",
       "exclude_from_translation": true
     },
     {
-      "type": "html",
+      "type": "text",
       "name": "html_text",
-      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
-      "condition": "!@local.superficie_parcelle "
+      "value": "@global.warning_message",
+      "condition": "!@local.superficie_parcelle ",
+      "style_list": "color: red;"
     },
     {
       "name": "valid_superficie_parcelle",

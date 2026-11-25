@@ -5,12 +5,27 @@
   "rows": [
     {
       "type": "title",
-      "value": "**APRECIATIONS ET OBSERVATIONS SUR LE FORMULAIRE**",
+      "value": "@global.title_page19",
       "_translations": {
         "value": {}
       },
       "name": "title_2",
-      "_nested_name": "title_2"
+      "_nested_name": "title_2",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.title_page19",
+            "matchedExpression": "@global.title_page19",
+            "type": "global",
+            "fieldName": "title_page19"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.title_page19": [
+          "value"
+        ]
+      }
     },
     {
       "type": "display_group",
@@ -100,19 +115,6 @@
       }
     },
     {
-      "type": "text",
-      "name": "obser_appreciation",
-      "value": "We would need a recorder here in order to transmit observations or feedback regarding the form.",
-      "_translations": {
-        "value": {}
-      },
-      "style_list": [
-        "color: gray",
-        "font-size: 14px"
-      ],
-      "_nested_name": "obser_appreciation"
-    },
-    {
       "type": "display_group",
       "value": "",
       "parameter_list": {
@@ -139,7 +141,7 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "display_group_8.page_19_button_back"
+          "_nested_name": "display_group_7.page_19_button_back"
         },
         {
           "type": "button",
@@ -161,7 +163,7 @@
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "display_group_8.page_19_button_continue",
+          "_nested_name": "display_group_7.page_19_button_continue",
           "_dynamicFields": {
             "value": [
               {
@@ -179,8 +181,8 @@
           }
         }
       ],
-      "name": "display_group_8",
-      "_nested_name": "display_group_8"
+      "name": "display_group_7",
+      "_nested_name": "display_group_7"
     }
   ],
   "_source": {

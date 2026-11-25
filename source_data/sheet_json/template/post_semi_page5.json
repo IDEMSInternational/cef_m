@@ -9,19 +9,16 @@
     },
     {
       "type": "begin_display_group",
-      "name": "header_top",
+      "name": "header",
       "style_list": "background: #00adcc; padding: 15px; border-radius: 0 0 15px 15px; margin-bottom: 20px;"
     },
     {
-      "type": "html",
-      "value": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>"
+      "type": "text",
+      "value": "@global.cult_head",
+      "style_list": "color: white; font-weight: bold; font-size: 14px; text-transform: uppercase;"
     },
     {
       "type": "end_display_group"
-    },
-    {
-      "type": "title",
-      "value": "DÉTAILS DE LA CULTURE : AUTRES COÛTS"
     },
     {
       "type": "begin_display_group",
@@ -30,45 +27,47 @@
     {
       "type": "image",
       "value": "@calc(['mais','mil','sorgho','coton','arachide','fourrage','fonio','riz','sésame','wouandzou','patate','bissap'].includes((@field.active_culture_name || '').toLowerCase().trim()) ? 'images/' + @field.active_culture_name + '.jpg' : 'images/autre.jpeg')",
-      "style_list": "width: 100px; height: 100px;"
+      "style_list": "width: 60%; object-fit: contain;"
     },
     {
       "type": "text",
-      "value": "<h3 style='color: black; margin: 10px 0;'>Culture : <span style='color: #e3a730;'>@field.active_culture_name</span></h3>",
-      "style_list": "font-weight: bold; font-size: 18px;"
+      "value": "@global.cult_name",
+      "style_list": "font-weight: bold; font-size: 18px; color: #e3a730; margin-top: 10px; text-align: center;"
     },
     {
       "type": "end_display_group"
     },
     {
-      "type": "html",
-      "value": "<br><b style=\"color: #e67e22\">4. AUTRES COÛTS AU POST-SEMIS</b>"
+      "type": "text",
+      "value": "@global.sec_autre",
+      "style_list": "color: #e67e22; font-weight: bold; margin-top: 15px; margin-bottom: 5px;"
     },
     {
       "type": "begin_display_group",
-      "name": "grp_autre_cout_postsemis",
+      "name": "grp_autre_cout_postSemi",
       "style_list": "display: block; width: 100%"
     },
     {
       "type": "audio",
-      "name": "note_autre_cout_postsemis",
+      "name": "note_autre_cout_postSemi",
       "parameter_list": "variant: button_only;\nsrc: audio/postSemi/on_autre_cout_psemis_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
       "exclude_from_translation": true,
       "style_list": "float: right;"
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: red;\">*</span>Ecrivez le nom(s) d'autre(s) coût(s)"
+      "type": "text",
+      "value": "@global.lbl_autre_Q",
+      "style_list": "font-weight: bold; font-size: 16px; color: #333; margin-bottom: 5px;"
     },
     {
       "type": "text",
-      "value": "*Ces coûts couvrent des services ou intrants non pris en compte.*"
+      "value": "@global.lbl_autre_hint"
     },
     {
       "type": "radio_button_grid",
-      "name": "no_autre_cout_postsemis",
-      "value": "@field.no_autre_cout_postsemis",
-      "action_list": "changed | set_field: no_autre_cout_postsemis : this.value;",
+      "name": "no_autre_cout_postSemi",
+      "value": "@field.no_autre_cout_postSemi",
+      "action_list": "changed | set_field: no_autre_cout_postSemi : this.value;",
       "parameter_list": "answer_list: @data.yes_no;\nvariant: flex;\nstyle: secondary;\nitem_width: 60px;\ngrid_gap: 8px;"
     },
     {
@@ -77,19 +76,20 @@
     {
       "type": "begin_display_group",
       "name": "group_nom_autre",
-      "condition": "@field.no_autre_cout_postsemis == 'oui'",
+      "condition": "@field.no_autre_cout_postSemi == 'oui'",
       "style_list": "display: block; width: 100%"
     },
     {
       "type": "audio",
-      "name": "note_autre_cout_postsemis",
+      "name": "note_autre_cout_postSemi",
       "parameter_list": "variant: button_only;\nsrc: audio/postSemi/nom_autre_cout_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
       "exclude_from_translation": true,
       "style_list": "float: right;"
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: red;\">*</span> Indiquez s'il y a d'autre(s) coût(s) au post semis non renseignés"
+      "type": "text",
+      "value": "@global.lbl_nom_autre",
+      "style_list": "font-weight: bold; font-size: 16px; color: #333; margin-bottom: 5px;"
     },
     {
       "type": "image",
@@ -98,49 +98,49 @@
     },
     {
       "type": "text_box",
-      "name": "nom_autre_cout_postsemis",
-      "value": "@field.nom_autre_cout_postsemis",
-      "action_list": "changed | set_field: nom_autre_cout_postsemis : this.value;",
-      "parameter_list": "placeholder: Nom des coûts...;"
+      "name": "nom_autre_cout_postSemi",
+      "value": "@field.nom_autre_cout_postSemi",
+      "action_list": "changed | set_field: nom_autre_cout_postSemi : this.value;"
     },
     {
       "type": "end_display_group"
     },
     {
       "type": "text",
-      "value": "*La réponse est obligatoire !*",
-      "condition": "@calc(@field.no_autre_cout_postsemis == 'oui' && (@field.nom_autre_cout_postsemis == '' || @field.nom_autre_cout_postsemis == null))",
+      "value": "@global.lbl_oblig\n",
+      "condition": "@calc(@field.no_autre_cout_postSemi == 'oui' && (@field.nom_autre_cout_postSemi == '' || @field.nom_autre_cout_postSemi == null))",
       "style_list": "color: red; font-size: 12px;"
     },
     {
       "name": "v_montant_autre_err",
-      "value": "@calc(!/^\\d+(\\.\\d+)?$/.test(@field.autre_cout_postsemis) || Number(@field.autre_cout_postsemis) < 0)"
+      "value": "@calc(!/^\\d+(\\.\\d+)?$/.test(@field.autre_cout_postSemi) || Number(@field.autre_cout_postSemi) < 0)"
     },
     {
       "type": "begin_display_group",
       "name": "group_montant_autre",
-      "condition": "@field.no_autre_cout_postsemis == 'oui'",
+      "condition": "@field.no_autre_cout_postSemi == 'oui'",
       "style_list": "display: block; width: 100%"
     },
     {
       "type": "audio",
-      "name": "note_autre_cout_postsemis",
+      "name": "note_autre_cout_postSemi",
       "parameter_list": "variant: button_only;\nsrc: audio/postSemi/montant_autre_cout_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
       "exclude_from_translation": true,
       "style_list": "float: right;"
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: red;\">*</span>Donnez le montant du coût pour <span style=\"color: #e67e22\"> @field.nom_autre_cout_postsemis</span>"
+      "type": "text",
+      "value": "@global.autre_cout_postSemi",
+      "style_list": "font-weight: bold; font-size: 16px; color: #333; margin-bottom: 5px;"
     },
     {
       "type": "text",
-      "value": "S'il y a plusieurs éléments, donnez le coût agrégé de l'ensemble",
+      "value": "@global.info_cout_name",
       "style_list": "font-style: italic; color: #666; font-size: 12px;"
     },
     {
       "type": "text",
-      "value": "*Rappel : 1 dram = 5 FCFA*",
+      "value": "@global.hint_price",
       "style_list": "font-size: 14px; color: gray;"
     },
     {
@@ -150,27 +150,27 @@
     },
     {
       "type": "text_box",
-      "name": "autre_cout_postsemis",
-      "value": "@field.autre_cout_postsemis",
-      "action_list": "changed | set_field: autre_cout_postsemis: this.value;",
-      "parameter_list": "number_input: true; placeholder: Montant en Dram...;"
+      "name": "autre_cout_postSemi",
+      "value": "@field.autre_cout_postSemi",
+      "action_list": "changed | set_field: autre_cout_postSemi: this.value;",
+      "parameter_list": "number_input: true;"
     },
     {
       "type": "end_display_group"
     },
     {
       "type": "text",
-      "value": "*Mettez une valeur positive*",
-      "condition": "@calc(@field.no_autre_cout_postsemis == 'oui' && @local.v_montant_autre_err)",
+      "value": "@global.error_positive_value",
+      "condition": "@calc(@field.no_autre_cout_postSemi == 'oui' && @local.v_montant_autre_err)",
       "style_list": "color: red; font-size: 12px;"
     },
     {
       "name": "v_autre_cout_ok",
-      "value": "@calc(@field.no_autre_cout_postsemis == 'non' || (@field.no_autre_cout_postsemis == 'oui' && @field.nom_autre_cout_postsemis != '' && @field.nom_autre_cout_postsemis != null && !@local.v_montant_autre_err))"
+      "value": "@calc(@field.no_autre_cout_postSemi == 'non' || (@field.no_autre_cout_postSemi == 'oui' && @field.nom_autre_cout_postSemi != '' && @field.nom_autre_cout_postSemi != null && !@local.v_montant_autre_err))"
     },
     {
       "name": "v_valeur_autre_cout",
-      "value": "@calc(@field.no_autre_cout_postsemis == 'oui' ? Number(@field.autre_cout_postsemis) : 0)"
+      "value": "@calc(@field.no_autre_cout_postSemi == 'oui' ? Number(@field.autre_cout_postSemi) : 0)"
     },
     {
       "name": "completed_enabled",

@@ -5,7 +5,7 @@
   "rows": [
     {
       "type": "title",
-      "value": "APRECIATIONS ET OBSERVATIONS SUR LE FORMULAIRE"
+      "value": "@global.apreciation_observation_form"
     },
     {
       "type": "image",
@@ -13,15 +13,11 @@
       "style_list": "width: 70%; border-radius: 10px; margin-bottom: 15px;"
     },
     {
-      "type": "html",
-      "value": "<h3 style=\"color: #1e3656; margin: 0 0 5px 0; font-size: 16px;\">VOTRE AVIS NOUS INTÉRESSE</h3>"
-    },
-    {
       "type": "begin_display_group"
     },
     {
       "type": "text",
-      "value": "Partagez vos appréciations, observations ou suggestions d'amélioration sur le formulaire par audio"
+      "value": "@global.partage_apreciation"
     },
     {
       "type": "audio",
@@ -34,8 +30,13 @@
       "type": "end_display_group"
     },
     {
-      "type": "html",
-      "value": "<div style=\"background: linear-gradient(135deg, #1e3656 0%, #2c5282 100%); padding: 30px 20px; border-radius: 20px; text-align: center; color: white; margin: 15px;\">\n    \n    <div style=\"font-size: 22px; font-weight: bold; margin-bottom: 10px; letter-spacing: 1px;\">MERCI !</div>\n    <p style=\"font-size: 15px; color: #a5c7f9; line-height: 1.6; margin-bottom: 25px;\">\n        Votre planification céréalière est terminée avec succès.\n    </p>\n\n    <div style=\"text-align: left; background: rgba(255,255,255,0.1); padding: 20px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1);\">\n        <b style=\"color: #4f8ff1; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;\">Étapes suivantes suggérées :</b>\n        <ul style=\"list-style: none; padding: 0; margin: 15px 0 0 0; font-size: 13px; color: #e2e8f0; line-height: 2;\">\n            <li> L'alimentation animale de l'UPA</li>\n            <li> La fumure organique (fertilité)</li>\n            <li>Le budget annuel des dépenses</li>\n        </ul>\n    </div>\n</div>"
+      "type": "text",
+      "value": "@global.observation_appreciation_need",
+      "style_list": "color: gray; font-size: 14px;\n"
+    },
+    {
+      "type": "text",
+      "value": "@global.besoin_humain_fin"
     },
     {
       "type": "begin_display_group",
@@ -44,15 +45,15 @@
     },
     {
       "type": "round_button",
-      "name": "page9_button_back",
+      "name": "page7_button_back",
       "action_list": "click | emit: uncompleted",
       "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
     },
     {
       "type": "button",
-      "name": "page9_button_completed",
-      "value": "ENREGISTRER",
-      "action_list": "click | go_to: home_screen;",
+      "name": "page7_button_completed",
+      "value": "@global.bouton_fin",
+      "action_list": "click | go_to: planification_anl;",
       "style_list": "flex: 1"
     },
     {

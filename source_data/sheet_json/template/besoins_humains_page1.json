@@ -8,11 +8,11 @@
     },
     {
       "type": "text",
-      "value": "**PLANIFICATION**"
+      "value": "@global.planification_title"
     },
     {
       "type": "audio",
-      "name": "audio_3_1",
+      "name": "audio_1_1",
       "parameter_list": "variant: button_only;\nsrc: audio/alimentationHumaine/besoins_annuels_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
       "style_list": "float : right;"
     },
@@ -21,19 +21,19 @@
     },
     {
       "type": "text",
-      "value": "Dans le contexte du sahel, où les populations rurales cultivent et consomment principales les céreales (mil, sorgho, maïs et riz). Il est important de connaitre le besoin annuel en denrées alimentaires de l'UPA avant la saison de production et d'allouer assez de superficies à la production des céréales. \nCe formulaire a pour but d'aider votre UPA à connaitre ses besoins en céréales et d'allouer assez de superficie à la production de céréales au cours de la saison hivernale pour satisfaire les besoins.\n\n ",
+      "value": "@global.planification_hint",
       "style_list": "font-size: 16px;"
     },
     {
       "type": "begin_display_group"
     },
     {
-      "type": "text",
-      "value": "**NOTE APPROCHE BESOIN**"
+      "type": "subtitle",
+      "value": "@global.note_approche_besoin"
     },
     {
       "type": "audio",
-      "name": "audio_3_2",
+      "name": "audio_1_2",
       "parameter_list": "variant: button_only;\nsrc: audio/alimentationHumaine/besoins_cereales_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
       "style_list": "float : right;"
     },
@@ -41,8 +41,21 @@
       "type": "end_display_group"
     },
     {
-      "type": "html",
-      "value": "    <br><br>\n    <div style=\"background: #e3f2fd; padding: 15px; border-radius: 10px; border-left: 5px solid #4f8ff1; font-weight: bold;\">\n        Pour bien planifier les besoins alimentaires de l’UPA, on conseille de prévoir trois sacs de céréales par personne pour une année.\n    </div>\n    <br>\n    Cette quantité peut couvrir l’alimentation d’une personne pendant les douze mois, avec une petite réserve en cas d’imprévu. Pour connaître le besoin total, on multiplie donc trois sacs par le nombre de personnes qui seront nourries avec les récoltes de la prochaine campagne agricole. Ensuite, cette quantité totale est partagée entre les quatre céréales selon les habitudes alimentaires de l’UPA. Enfin, on calcule la superficie à cultiver pour chaque céréale à partir du rendement moyen obtenu habituellement dans l’UPA.\n</div>"
+      "type": "begin_display_group",
+      "style_list": "background: #e3f2fd;  border-radius: 10px; border-left: 5px solid #4f8ff1; "
+    },
+    {
+      "type": "text",
+      "value": "@global.planification_hint_2",
+      "style_list": "font-weight: bold; font-size: 16px;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "value": "@global.planification_hint_3",
+      "style_list": "font-size: 16px;"
     },
     {
       "type": "image",
@@ -57,13 +70,13 @@
     },
     {
       "type": "round_button",
-      "name": "page3_button_back",
+      "name": "page1_button_back",
       "action_list": "click | set_field: attempt_submit: false;\nclick | emit: uncompleted",
       "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
     },
     {
       "type": "button",
-      "name": "page3_button_completed",
+      "name": "page1_button_completed",
       "value": "@global.btn_continue",
       "action_list": "click | emit: completed",
       "style_list": "flex: 1"

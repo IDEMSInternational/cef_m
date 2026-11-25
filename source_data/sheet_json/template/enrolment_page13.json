@@ -5,392 +5,354 @@
   "rows": [
     {
       "type": "title",
-      "value": " EQUIPEMENT DE L'UPA"
+      "value": "@global.equipement_upa"
     },
     {
       "name": "attempt_submit",
       "value": "@fields.attempt_submit"
     },
     {
-      "type": "begin_display_group",
-      "style_list": "display: block; width: 100%"
+      "type": "begin_display_group"
+    },
+    {
+      "type": "subtitle",
+      "value": "@global.nb_charrues"
     },
     {
       "type": "audio",
-      "name": "audio_13_1",
-      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/tracteur_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "name": "audio_12_1",
+      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/charrue_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
       "exclude_from_translation": true,
       "style_list": "float:right;"
-    },
-    {
-      "type": "html",
-      "value": "@global.nb_tracteurs<span style=\"color: red;\">*</span>"
     },
     {
       "type": "end_display_group"
     },
     {
       "type": "image",
-      "value": "images/tractor.jpg\n",
+      "value": "images/charrue.jpg\n",
       "style_list": "width:100px; height:100px; "
     },
     {
       "type": "text_box",
-      "name": "nombre_tracteur",
-      "value": "@fields.nombre_tracteur\n",
-      "parameter_list": "number_input: true; placeholder:Ecrivez le nombre de tracteurs;",
-      "condition": "!!@field.nombre_tracteur\n\n\n",
+      "value": "@fields.nombre_charrues",
+      "action_list": "changed | set_field : nombre_charrues: this.value;",
+      "parameter_list": "number_input: true; placeholder: @global.texte_placeholder;",
       "exclude_from_translation": true
     },
     {
-      "type": "text_box",
-      "name": "nombre_tracteur",
-      "parameter_list": "number_input: true; placeholder:Ecrivez le nombre de tracteurs;",
-      "condition": "!@field.nombre_tracteur\n\n",
-      "exclude_from_translation": true
+      "name": "valid_nombre_charrues",
+      "value": "@calc((/^\\d+$/.test(@fields.nombre_charrues) && @fields.nombre_charrues >=0 ) || @fields.nombre_charrues == ' ' || !!@fields.nombre_charrues )"
     },
     {
-      "name": "valid_nombre_tracteur",
-      "value": "@calc((/^\\d+$/.test(@local.nombre_tracteur) && @local.nombre_tracteur >=0 ) || @local.nombre_tracteur == ' ' || !!@local.nombre_tracteur )"
-    },
-    {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@local.nombre_tracteur && @fields.attempt_submit "
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@fields.nombre_charrues && @fields.attempt_submit ",
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "text",
       "value": "@global.error_number_min_0",
-      "condition": "!@local.valid_nombre_tracteur && @fields.attempt_submit ",
-      "style_list": "color: red; font-size: 12px;\n"
-    },
-    {
-      "type": "begin_display_group",
-      "style_list": "display: block; width: 100%"
-    },
-    {
-      "type": "audio",
-      "name": "audio_13_2",
-      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/motocult_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "exclude_from_translation": true,
-      "style_list": "float:right;"
-    },
-    {
-      "type": "html",
-      "value": "@global.nb_motoculteurs<span style=\"color: red;\">*</span>"
-    },
-    {
-      "type": "end_display_group"
-    },
-    {
-      "type": "image",
-      "value": "images/motoculture.jpg\n",
-      "style_list": "width:100px; height:100px; "
-    },
-    {
-      "type": "text_box",
-      "name": "nombre_motoculteurs",
-      "value": "@fields.nombre_motoculteurs\n",
-      "parameter_list": "number_input: true; placeholder:Nombre de motoculteurs;",
-      "condition": "!!@field.nombre_motoculteurs\n",
-      "exclude_from_translation": true
-    },
-    {
-      "type": "text_box",
-      "name": "nombre_motoculteurs",
-      "parameter_list": "number_input: true; placeholder:Nombre de motoculteurs;",
-      "condition": "!@field.nombre_motoculteurs\n\n\n",
-      "exclude_from_translation": true
-    },
-    {
-      "name": "valid_nombre_motoculteurs",
-      "value": "@calc((/^\\d+$/.test(@local.nombre_motoculteurs) && @local.nombre_motoculteurs >=0 ) || @local.nombre_motoculteurs == ' ' || !!@local.nombre_motoculteurs )"
-    },
-    {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@local.nombre_motoculteurs && @fields.attempt_submit "
-    },
-    {
-      "type": "text",
-      "value": "@global.error_number_min_0",
-      "condition": "!@local.valid_nombre_motoculteurs && @fields.attempt_submit ",
-      "style_list": "color: red; font-size: 12px;\n"
-    },
-    {
-      "type": "begin_display_group",
-      "style_list": "display: block; width: 100%"
-    },
-    {
-      "type": "audio",
-      "name": "audio_13_3",
-      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/mototricycle_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "exclude_from_translation": true,
-      "style_list": "float:right;"
-    },
-    {
-      "type": "html",
-      "value": "@global.nb_moto_tricycles<span style=\"color: red;\">*</span>"
-    },
-    {
-      "type": "end_display_group"
-    },
-    {
-      "type": "image",
-      "value": "images/moto_tricycle.jpg\n",
-      "style_list": "width:100px; height:100px; "
-    },
-    {
-      "type": "text_box",
-      "name": "nombre_mototricycle",
-      "value": "@fields.nombre_mototricycle\n",
-      "parameter_list": "number_input: true; placeholder: Nombre de moto-tricycles;",
-      "condition": "!!@fields.nombre_mototricycle\n\n",
-      "exclude_from_translation": true
-    },
-    {
-      "type": "text_box",
-      "name": "nombre_mototricycle",
-      "parameter_list": "number_input: true; placeholder:Nombre de moto-tricycles;",
-      "condition": "!@fields.nombre_mototricycle\n\n\n\n",
-      "exclude_from_translation": true
-    },
-    {
-      "name": "valid_nombre_mototricycle",
-      "value": "@calc((/^\\d+$/.test(@local.nombre_mototricycle) && @local.nombre_mototricycle >=0 ) || @local.nombre_mototricycle == ' ' || !!@local.nombre_mototricycle )"
-    },
-    {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@local.nombre_mototricycle && @fields.attempt_submit "
-    },
-    {
-      "type": "text",
-      "value": "@global.error_number_min_0",
-      "condition": "!@local.valid_nombre_mototricycle && @fields.attempt_submit ",
-      "style_list": "color: red; font-size: 12px;\n"
-    },
-    {
-      "type": "begin_display_group",
-      "style_list": "display: block; width: 100%"
-    },
-    {
-      "type": "audio",
-      "name": "audio_13_4",
-      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/batteuse_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "exclude_from_translation": true,
-      "style_list": "float:right;"
-    },
-    {
-      "type": "html",
-      "value": "@global.nb_batteuses<span style=\"color: red;\">*</span>"
-    },
-    {
-      "type": "end_display_group"
-    },
-    {
-      "type": "image",
-      "value": "images/batteuse.jpg\n",
-      "style_list": "width:100px; height:100px; "
-    },
-    {
-      "type": "text_box",
-      "name": "nombre_batteuse",
-      "value": "@fields.nombre_batteuse\n",
-      "parameter_list": "number_input: true; placeholder: Nombre de batteuses;",
-      "condition": "!!@fields.nombre_batteuse",
-      "exclude_from_translation": true
-    },
-    {
-      "type": "text_box",
-      "name": "nombre_batteuse",
-      "parameter_list": "number_input: true; placeholder:Nombre de batteuses;",
-      "condition": "!@fields.nombre_batteuse",
-      "exclude_from_translation": true
-    },
-    {
-      "name": "valid_nombre_batteuse",
-      "value": "@calc((/^\\d+$/.test(@local.nombre_batteuse) && @local.nombre_batteuse >=0 ) || @local.nombre_batteuse == ' ' || !!@local.nombre_batteuse )"
-    },
-    {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@local.nombre_batteuse && @fields.attempt_submit "
-    },
-    {
-      "type": "text",
-      "value": "@global.error_number_min_0",
-      "condition": "!@local.valid_nombre_batteuse && @fields.attempt_submit ",
-      "style_list": "color: red; font-size: 12px;\n"
-    },
-    {
-      "type": "begin_display_group",
-      "style_list": "display: block; width: 100%"
-    },
-    {
-      "type": "audio",
-      "name": "audio_13_5",
-      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/decortiqueuse_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "exclude_from_translation": true,
-      "style_list": "float:right;"
-    },
-    {
-      "type": "html",
-      "value": "@global.nb_decortiqueuses<span style=\"color: red;\">*</span>"
-    },
-    {
-      "type": "end_display_group"
-    },
-    {
-      "type": "image",
-      "value": "images/decortiqueuse.jpg\n",
-      "style_list": "width:100px; height:100px; "
-    },
-    {
-      "type": "text_box",
-      "name": "nombre_decortiqueuse",
-      "value": "@fields.nombre_decortiqueuse\n",
-      "parameter_list": "number_input: true; placeholder: Nombre de decortiqueuses;",
-      "condition": "!!@fields.nombre_decortiqueuse",
-      "exclude_from_translation": true
-    },
-    {
-      "type": "text_box",
-      "name": "nombre_decortiqueuse",
-      "parameter_list": "number_input: true; placeholder:Nombre de decortiqueuses;",
-      "condition": "!@fields.nombre_decortiqueuse",
-      "exclude_from_translation": true
-    },
-    {
-      "name": "valid_nombre_decortiqueuse",
-      "value": "@calc((/^\\d+$/.test(@local.nombre_decortiqueuse) && @local.nombre_decortiqueuse >=0 ) || @local.nombre_decortiqueuse == ' ' || !!@local.nombre_decortiqueuse )"
-    },
-    {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@local.nombre_decortiqueuse && @fields.attempt_submit "
-    },
-    {
-      "type": "text",
-      "value": "@global.error_number_min_0",
-      "condition": "!@local.valid_nombre_decortiqueuse && @fields.attempt_submit ",
-      "style_list": "color: red; font-size: 12px;\n"
+      "condition": "!@local.valid_nombre_charrues && @fields.attempt_submit ",
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "begin_display_group"
     },
     {
-      "type": "html",
-      "value": "@global.oui_non_materiel<span style=\"color: red;\">*</span>"
+      "type": "subtitle",
+      "value": "@global.nb_multiculteurs"
     },
     {
       "type": "audio",
-      "name": "audio_13_6",
-      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/on_autre_mat_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "name": "audio_12_2",
+      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/multicul_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
       "exclude_from_translation": true,
-      "style_list": "float: right;"
-    },
-    {
-      "type": "end_display_group"
-    },
-    {
-      "type": "html",
-      "value": "<p style=\"color: black;\"> @global.autre_materiel_hint  </p>"
-    },
-    {
-      "type": "begin_radio_list",
-      "name": "on_autre_materiel",
-      "value": "@fields.on_autre_materiel",
-      "action_list": "changed | set_field : on_autre_materiel: this.value;"
-    },
-    {
-      "type": "begin_data_items",
-      "value": "@data.oui_non"
-    },
-    {
-      "type": "end_data_items"
-    },
-    {
-      "type": "end_radio_list"
-    },
-    {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@fields.on_autre_materiel && @fields.attempt_submit"
-    },
-    {
-      "type": "begin_display_group",
-      "condition": "@fields.on_autre_materiel == 'oui'"
-    },
-    {
-      "type": "html",
-      "value": "@global.nom_autre_materiel<span style=\"color: red;\">*</span>",
-      "parameter_list": "style: contextual;",
-      "exclude_from_translation": true,
-      "style_list": "font-size:20px;"
-    },
-    {
-      "type": "audio",
-      "name": "autre_mat",
-      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/autre_mat_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "exclude_from_translation": true,
-      "style_list": "align-self: flex-end;"
+      "style_list": "float:right;"
     },
     {
       "type": "end_display_group"
     },
     {
       "type": "image",
-      "value": "images/autre_mat.jpg",
-      "condition": "@fields.on_autre_materiel == 'oui'",
-      "style_list": "width: 120px; height: 120px; object-fit: cover;"
+      "value": "images/multiculteur.jpg\n",
+      "style_list": "width:100px; height:100px; "
     },
     {
       "type": "text_box",
-      "name": "autre_materiel",
-      "value": "@fields.autre_materiel",
-      "action_list": "changed | set_field : autre_materiel: this.value;",
-      "parameter_list": "placeholder: Entrez le nom du matériel",
-      "condition": "@fields.on_autre_materiel == 'oui'",
+      "value": "@fields.nombre_multiculteurs",
+      "action_list": "changed | set_field : nombre_multiculteurs: this.value;",
+      "parameter_list": "number_input: true; placeholder: @global.texte_placeholder;",
       "exclude_from_translation": true
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@local.autre_materiel && @fields.on_autre_materiel == 'oui'"
+      "name": "valid_nombre_multiculteurs",
+      "value": "@calc((/^\\d+$/.test(@fields.nombre_multiculteurs) && @fields.nombre_multiculteurs >=0 ) || @fields.nombre_multiculteurs == ' ' || !!@fields.nombre_multiculteurs )"
     },
     {
       "type": "text",
-      "value": "@global.nb_autre_materiel",
-      "parameter_list": "style: contextual;",
-      "condition": "@fields.on_autre_materiel == 'oui'",
-      "exclude_from_translation": true
-    },
-    {
-      "type": "text_box",
-      "name": "nombre_autre_materiel",
-      "value": "@fields.nombre_autre_materiel",
-      "action_list": "changed | set_field : nombre_autre_materiel: this.value;",
-      "parameter_list": "number_input: true;\nplaceholder: Entrez le nombre;",
-      "condition": "@fields.on_autre_materiel == 'oui'",
-      "exclude_from_translation": true
-    },
-    {
-      "name": "valid_nombre_autre_materiel",
-      "value": "@calc((/^\\d+$/.test(@fields.nombre_autre_materiel) && @fields.nombre_autre_materiel >=0 ) || @fields.nombre_autre_materiel == ' ' || !!@fields.nombre_autre_materiel )",
-      "exclude_from_translation": true
+      "value": " @global.reponse_obligatoire ",
+      "condition": "!@fields.nombre_multiculteurs && @fields.attempt_submit ",
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "text",
       "value": "@global.error_number_min_0",
-      "condition": "!@local.valid_nombre_autre_materiel && @fields.on_autre_materiel == 'oui'",
+      "condition": "!@local.valid_nombre_multiculteurs && @fields.attempt_submit ",
+      "style_list": "@global.reponse_style"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "subtitle",
+      "value": "@global.nb_charrettes"
+    },
+    {
+      "type": "audio",
+      "name": "audio_12_3",
+      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/charret_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
       "exclude_from_translation": true,
-      "style_list": "color: #FF0000;\nfont-size: 14px"
+      "style_list": "float:right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/charrette.jpg\n",
+      "style_list": "width:100px; height:100px; "
+    },
+    {
+      "type": "text_box",
+      "value": "@fields.nombre_charrettes\n",
+      "action_list": "changed | set_field : nombre_charrettes: this.value;",
+      "parameter_list": "number_input: true; placeholder: @global.texte_placeholder;",
+      "exclude_from_translation": true
+    },
+    {
+      "name": "valid_nombre_charrettes",
+      "value": "@calc((/^\\d+$/.test(@fields.nombre_charrettes) && @fields.nombre_charrettes >=0 ) || @fields.nombre_charrettes == ' ' || !!@fields.nombre_charrettes )"
+    },
+    {
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@fields.nombre_charrettes && @fields.attempt_submit ",
+      "style_list": "@global.reponse_style"
+    },
+    {
+      "type": "text",
+      "value": "@global.error_number_min_0",
+      "condition": "!@local.valid_nombre_charrettes && @fields.attempt_submit ",
+      "style_list": "@global.reponse_style"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "subtitle",
+      "value": "@global.nb_semoirs"
+    },
+    {
+      "type": "audio",
+      "name": "audio_12_5",
+      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/semoir_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "float:right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/semoir.jpg\n",
+      "style_list": "width:100px; height:100px; "
+    },
+    {
+      "type": "text_box",
+      "value": "@fields.nombre_semoir",
+      "action_list": "changed | set_field : nombre_semoir: this.value;",
+      "parameter_list": "number_input: true; placeholder: @global.texte_placeholder;",
+      "exclude_from_translation": true
+    },
+    {
+      "name": "valid_nombre_semoir",
+      "value": "@calc((/^\\d+$/.test(@fields.nombre_semoir) && @fields.nombre_semoir >=0 ) || @fields.nombre_semoir == ' ' || !!@fields.nombre_semoir )"
+    },
+    {
+      "type": "text",
+      "value": "@global.reponse_obligatoire ",
+      "condition": "!@fields.nombre_semoir && @fields.attempt_submit ",
+      "style_list": "@global.reponse_style"
+    },
+    {
+      "type": "text",
+      "value": "@global.error_number_min_0",
+      "condition": "!@local.valid_nombre_semoir && @fields.attempt_submit ",
+      "style_list": "@global.reponse_style"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "subtitle",
+      "value": "@global.nb_appareils",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "audio",
+      "name": "audio_12_6",
+      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/pompe_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/traitement.jpg",
+      "style_list": "width: 120px; height: 120px; object-fit: cover;"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text_box",
+      "value": "@fields.nombre_pompe_traitement",
+      "action_list": "changed | set_field : nombre_pompe_traitement: this.value;",
+      "parameter_list": "number_input: true;\nplaceholder: @global.texte_placeholder;",
+      "exclude_from_translation": true
+    },
+    {
+      "name": "valid_nombre_pompe_traitement",
+      "value": "@calc((/^\\d+$/.test(@fields.nombre_pompe_traitement) && @fields.nombre_pompe_traitement >=0 ) || @fields.nombre_pompe_traitement == ' ' || !!@fields.nombre_pompe_traitement )",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@fields.nombre_pompe_traitement && @fields.attempt_submit",
+      "style_list": "@global.reponse_style"
+    },
+    {
+      "type": "text",
+      "value": "@global.error_number_min_0",
+      "condition": "!@local.valid_nombre_pompe_traitement && @fields.attempt_submit ",
+      "exclude_from_translation": true,
+      "style_list": "@global.reponse_style"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "subtitle",
+      "value": "@global.nb_pulverisateur_herse",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "audio",
+      "name": "audio_12_7",
+      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/herse_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/herse.jpg",
+      "style_list": "width: 120px; height: 120px; object-fit: cover;"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text_box",
+      "value": "@field.nombre_pulverisateurs",
+      "action_list": "changed | set_field : nombre_pulverisateurs: this.value;",
+      "parameter_list": "number_input: true;\nplaceholder: @global.texte_placeholder;",
+      "exclude_from_translation": true
+    },
+    {
+      "name": "valid_nombre_pulverisateurs",
+      "value": "@calc((/^\\d+$/.test(@fields.nombre_pulverisateurs) && @fields.nombre_pulverisateurs >=0 ) || @fields.nombre_pulverisateurs == ' ' || !!@fields.nombre_pulverisateurs )",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@fields.nombre_pulverisateurs && @fields.attempt_submit",
+      "style_list": "@global.reponse_style"
+    },
+    {
+      "type": "text",
+      "value": "@global.error_number_min_0",
+      "condition": "!@local.valid_nombre_pulverisateurs && @fields.attempt_submit ",
+      "exclude_from_translation": true,
+      "style_list": "@global.reponse_style"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "subtitle",
+      "value": "@global.nb_corps_butteurs",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "audio",
+      "name": "audio_12_8",
+      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/corp_but_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "image",
+      "value": "images/butter.jpg",
+      "style_list": "width: 120px; height: 120px; object-fit: cover;"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text_box",
+      "value": "@fields.nombre_corps_buteur",
+      "action_list": "changed | set_field : nombre_corps_buteur: this.value;",
+      "parameter_list": "number_input: true;\nplaceholder: @global.texte_placeholder;",
+      "exclude_from_translation": true
+    },
+    {
+      "name": "valid_nombre_corps_buteur",
+      "value": "@calc((/^\\d+$/.test(@fields.nombre_corps_buteur) && @fields.nombre_corps_buteur >=0 ) || @fields.nombre_corps_buteur == ' ' || !!@fields.nombre_corps_buteur )",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@fields.nombre_corps_buteur && @fields.attempt_submit",
+      "style_list": "@global.reponse_style"
+    },
+    {
+      "type": "text",
+      "value": "@global.error_number_min_0",
+      "condition": "!@local.valid_nombre_corps_buteur && @fields.attempt_submit ",
+      "exclude_from_translation": true,
+      "style_list": "@global.reponse_style"
     },
     {
       "name": "completed_enabled",
-      "value": "@local.valid_nombre_tracteur  && @local.valid_nombre_motoculteurs && @local.valid_nombre_mototricycle && @local.valid_nombre_batteuse && @local.valid_nombre_decortiqueuse && !!@fields.on_autre_materiel",
-      "style_list": true
+      "value": "@local.valid_nombre_charrues && @local.valid_nombre_multiculteurs && @local.valid_nombre_charrettes && @local.valid_nombre_semoir && @local.valid_nombre_pompe_traitement && @local.valid_nombre_pulverisateurs && @local.valid_nombre_corps_buteur"
     },
     {
       "type": "begin_display_group",
@@ -402,7 +364,7 @@
       "type": "round_button",
       "name": "button_back",
       "action_list": "click | emit: uncompleted",
-      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+      "parameter_list": "icon_src: arrow-back;variant: no-background;"
     },
     {
       "type": "button",
@@ -414,10 +376,10 @@
     },
     {
       "type": "button",
-      "name": "button_continue_13",
-      "value": "Continuer",
-      "action_list": "click | set_field: nombre_tracteur: @local.nombre_tracteur;\nclick | set_field: nombre_motoculteurs: @local.nombre_motoculteurs;\nclick | set_field: nombre_mototricycle : @local.nombre_mototricycle ;\nclick | set_field: nombre_batteuse: @local.nombre_batteuse;\nclick | set_field: nombre_decortiqueuse: @local.nombre_decortiqueuse;\nclick | set_field: attempt_submit: false;\nclick | emit: completed;",
-      "parameter_list": "disabled: !@local.completed_enabled;",
+      "name": "button_completed_12",
+      "value": "@global.btn_continue",
+      "action_list": "click | set_field: nombre_charrues: @fields.nombre_charrues; \nclick | set_field: nombre_multiculteurs: @fields.nombre_multiculteurs; \nclick | set_field: nombre_charrettes: @fields.nombre_charrettes; \nclick | set_field: nombre_semoir: @fields.nombre_semoir; \nclick | set_field: nombre_pompe_traitement: @fields.nombre_pompe_traitement; \nclick | set_field: nombre_pulverisateurs: @fields.nombre_pulverisateurs; \nclick | set_field: nombre_corps_buteur: @fields.nombre_corps_buteur; \n\nclick | set_field: attempt_submit: false;\nclick | emit: completed",
+      "parameter_list": "disabled: !@local.completed_enabled",
       "condition": "@local.completed_enabled",
       "style_list": "flex: 1"
     },

@@ -5,21 +5,27 @@
   "rows": [
     {
       "type": "title",
-      "value": "Choix de la composante",
+      "value": "@global.choix_comp",
       "_translations": {
         "value": {}
       },
       "name": "title_2",
-      "_nested_name": "title_2"
-    },
-    {
-      "type": "html",
-      "value": "<div style=\"text-align: center; margin-bottom: 20px; color: #555555; font-size: 14px;\"> Veuillez sélectionner la section sur laquelle vous souhaitez travailler : </div>",
-      "_translations": {
-        "value": {}
+      "_nested_name": "title_2",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.choix_comp",
+            "matchedExpression": "@global.choix_comp",
+            "type": "global",
+            "fieldName": "choix_comp"
+          }
+        ]
       },
-      "name": "html_3",
-      "_nested_name": "html_3"
+      "_dynamicDependencies": {
+        "@global.choix_comp": [
+          "value"
+        ]
+      }
     },
     {
       "type": "display_group",
@@ -40,7 +46,7 @@
           "rows": [
             {
               "type": "button",
-              "value": "PLANIFICATION",
+              "value": "@global.step_plan",
               "action_list": [
                 {
                   "trigger": "click",
@@ -63,11 +69,26 @@
               ],
               "rows": [],
               "name": "button_1",
-              "_nested_name": "display_group_4.display_group_1.button_1"
+              "_nested_name": "display_group_3.display_group_1.button_1",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "@global.step_plan",
+                    "matchedExpression": "@global.step_plan",
+                    "type": "global",
+                    "fieldName": "step_plan"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@global.step_plan": [
+                  "value"
+                ]
+              }
             }
           ],
           "name": "display_group_1",
-          "_nested_name": "display_group_4.display_group_1"
+          "_nested_name": "display_group_3.display_group_1"
         },
         {
           "type": "display_group",
@@ -82,7 +103,7 @@
           "rows": [
             {
               "type": "button",
-              "value": "SUIVI DE CAMPAGNE",
+              "value": "@global.step_suiv",
               "action_list": [
                 {
                   "trigger": "click",
@@ -105,11 +126,26 @@
               ],
               "rows": [],
               "name": "button_1",
-              "_nested_name": "display_group_4.display_group_2.button_1"
+              "_nested_name": "display_group_3.display_group_2.button_1",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "@global.step_suiv",
+                    "matchedExpression": "@global.step_suiv",
+                    "type": "global",
+                    "fieldName": "step_suiv"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@global.step_suiv": [
+                  "value"
+                ]
+              }
             }
           ],
           "name": "display_group_2",
-          "_nested_name": "display_group_4.display_group_2"
+          "_nested_name": "display_group_3.display_group_2"
         },
         {
           "type": "display_group",
@@ -124,7 +160,7 @@
           "rows": [
             {
               "type": "button",
-              "value": "EVALUATION",
+              "value": "@global.step_ev",
               "action_list": [
                 {
                   "trigger": "click",
@@ -147,49 +183,30 @@
               ],
               "rows": [],
               "name": "button_1",
-              "_nested_name": "display_group_4.display_group_3.button_1"
+              "_nested_name": "display_group_3.display_group_3.button_1",
+              "_dynamicFields": {
+                "value": [
+                  {
+                    "fullExpression": "@global.step_ev",
+                    "matchedExpression": "@global.step_ev",
+                    "type": "global",
+                    "fieldName": "step_ev"
+                  }
+                ]
+              },
+              "_dynamicDependencies": {
+                "@global.step_ev": [
+                  "value"
+                ]
+              }
             }
           ],
           "name": "display_group_3",
-          "_nested_name": "display_group_4.display_group_3"
+          "_nested_name": "display_group_3.display_group_3"
         }
       ],
-      "name": "display_group_4",
-      "_nested_name": "display_group_4"
-    },
-    {
-      "type": "html",
-      "value": "<span style=\"color: red; font-size: 13px; text-align: center; display: block;\">Veuillez faire un choix pour continuer !</span>",
-      "_translations": {
-        "value": {}
-      },
-      "condition": "@fields.attempt_submit && !@fields.section_step",
-      "name": "html_6",
-      "_nested_name": "html_6",
-      "_dynamicFields": {
-        "condition": [
-          {
-            "fullExpression": "@fields.attempt_submit && !@fields.section_step",
-            "matchedExpression": "@fields.attempt_submit",
-            "type": "fields",
-            "fieldName": "attempt_submit"
-          },
-          {
-            "fullExpression": "@fields.attempt_submit && !@fields.section_step",
-            "matchedExpression": "!@fields.section_step",
-            "type": "fields",
-            "fieldName": "section_step"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@fields.attempt_submit": [
-          "condition"
-        ],
-        "!@fields.section_step": [
-          "condition"
-        ]
-      }
+      "name": "display_group_3",
+      "_nested_name": "display_group_3"
     }
   ],
   "_source": {

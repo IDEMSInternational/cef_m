@@ -5,8 +5,7 @@
   "rows": [
     {
       "type": "title",
-      "name": "page_title",
-      "value": "VOLAILLES DE L'UPA"
+      "value": "@global.autre_betail"
     },
     {
       "name": "attempt_submit",
@@ -16,289 +15,326 @@
       "type": "begin_display_group"
     },
     {
-      "type": "html",
-      "name": "nombre_poules_label",
-      "value": "@global.nb_poulets<span style=\"color: red;\">*</span> ",
-      "style_list": "font-size:20px;"
+      "type": "subtitle",
+      "value": "@global.nb_ane",
+      "exclude_from_translation": true
     },
     {
       "type": "audio",
-      "name": "audio_16_1",
-      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/poulet_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "style_list": "float: right;"
+      "name": "audio_15_1",
+      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/ane_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "align-self: flex-end;"
     },
     {
       "type": "end_display_group"
     },
     {
       "type": "image",
-      "value": "images/poule.jpg",
-      "style_list": "width:120px; height:120px; object-fit:contain; flex-shrink:0;"
-    },
-    {
-      "type": "text_box",
-      "name": "nombre_poules",
-      "value": "@fields.nombre_poules",
-      "action_list": "changed | set_field : nombre_poules: this.value;",
-      "parameter_list": "number_input: true;\nplaceholder: Entrez le nombre;"
-    },
-    {
-      "name": "valid_nombre_poules",
-      "value": "@calc((/^\\d+$/.test(@fields.nombre_poules) && @fields.nombre_poules>= 0 ) || @fields.nombre_poules == ' ' || !!@fields.nombre_poules)"
-    },
-    {
-      "type": "text",
-      "value": "@global.error_number_min_0",
-      "condition": "!@local.valid_nombre_poules && @fields.attempt_submit",
-      "exclude_from_translation": true,
-      "style_list": "color: #FF0000;\nfont-size: 12px"
+      "value": "images/ane.jpg",
+      "style_list": "width: 120px; height: 120px; object-fit: cover;"
     },
     {
       "type": "begin_display_group"
     },
     {
-      "type": "html",
-      "name": "nombre_pintades_label",
-      "value": "@global.nb_pintades<span style=\"color: red;\">*</span> ",
-      "style_list": "font-size:20px;"
+      "type": "text_box",
+      "name": "nombre_anes",
+      "value": "@fields.nombre_anes",
+      "parameter_list": "number_input: true; placeholder:@global.texte_placeholder;",
+      "condition": "!!@field.nombre_anes",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_anes",
+      "parameter_list": "number_input: true; placeholder:@global.texte_placeholder;",
+      "condition": "!@field.nombre_anes",
+      "exclude_from_translation": true
+    },
+    {
+      "name": "valid_nombre_anes",
+      "value": "@calc((/^\\d+$/.test(@local.nombre_anes) && @local.nombre_anes >=0 ) || @local.nombre_anes == ' ' || !!@local.nombre_anes )",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@local.nombre_anes && @fields.attempt_submit",
+      "style_list": "@global.reponse_style"
+    },
+    {
+      "type": "text",
+      "value": "@global.error_number_min_0",
+      "condition": "!@local.valid_nombre_anes && @fields.attempt_submit",
+      "exclude_from_translation": true,
+      "style_list": "@global.reponse_style"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "subtitle",
+      "value": "@global.nb_cheveaux",
+      "exclude_from_translation": true
     },
     {
       "type": "audio",
-      "name": "audio_16_2",
-      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/pintade_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "style_list": "float: right;"
+      "name": "audio_15_2",
+      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/chevo_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "align-self: flex-end;"
     },
     {
       "type": "end_display_group"
     },
     {
       "type": "image",
-      "value": "images/pintade.jpg",
-      "style_list": "width:120px; height:120px; object-fit:contain; flex-shrink:0;"
-    },
-    {
-      "type": "text_box",
-      "name": "nombre_pintades",
-      "value": "@fields.nombre_pintades",
-      "action_list": "changed | set_field : nombre_pintades: this.value;",
-      "parameter_list": "number_input: true;\nplaceholder: Entrez le nombre;"
-    },
-    {
-      "name": "valid_nombre_pintades",
-      "value": "@calc((/^\\d+$/.test(@fields.nombre_pintades) && @fields.nombre_pintades>= 0 ) || @fields.nombre_pintades == ' ' || !!@fields.nombre_pintades)"
-    },
-    {
-      "type": "text",
-      "value": "@global.error_number_min_0",
-      "condition": "!@local.valid_nombre_pintades && @fields.attempt_submit",
-      "exclude_from_translation": true,
-      "style_list": "color: #FF0000;\nfont-size: 12px"
+      "value": "images/cheval.jpg",
+      "style_list": "width: 120px; height: 120px; object-fit: cover;"
     },
     {
       "type": "begin_display_group"
     },
     {
-      "type": "html",
-      "name": "nombre_lapins_label",
-      "value": "@global.nb_lapins<span style=\"color: red;\">*</span>",
-      "style_list": "font-size:20px;"
+      "type": "text_box",
+      "name": "nombre_chevaux",
+      "value": "@fields.nombre_chevaux",
+      "parameter_list": "number_input: true; placeholder:@global.texte_placeholder;",
+      "condition": "!!@field.nombre_chevaux",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_chevaux",
+      "parameter_list": "number_input: true; placeholder:@global.texte_placeholder;",
+      "condition": "!@field.nombre_chevaux",
+      "exclude_from_translation": true
+    },
+    {
+      "name": "valid_nombre_chevaux",
+      "value": "@calc((/^\\d+$/.test(@local.nombre_chevaux) && @local.nombre_chevaux >=0 ) || @local.nombre_chevaux == ' ' || !!@local.nombre_chevaux )",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@local.nombre_chevaux && @fields.attempt_submit",
+      "style_list": "@global.reponse_style"
+    },
+    {
+      "type": "text",
+      "value": "@global.error_number_min_0",
+      "condition": "!@local.valid_nombre_chevaux && @fields.attempt_submit",
+      "exclude_from_translation": true,
+      "style_list": "@global.reponse_style"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "subtitle",
+      "value": "@global.nb_moutons",
+      "exclude_from_translation": true
     },
     {
       "type": "audio",
-      "name": "audio_16_3",
-      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/lapin_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "style_list": "float: right;"
+      "name": "audio_15_3",
+      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/mout_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "align-self: flex-end;"
     },
     {
       "type": "end_display_group"
     },
     {
       "type": "image",
-      "value": "images/lapin.jpg",
-      "style_list": "width:120px; height:120px; object-fit:contain; flex-shrink:0;"
-    },
-    {
-      "type": "text_box",
-      "name": "nombre_lapins",
-      "value": "@fields.nombre_lapins",
-      "action_list": "changed | set_field : nombre_lapins: this.value;",
-      "parameter_list": "number_input: true;\nplaceholder: Entrez le nombre;"
-    },
-    {
-      "name": "valid_nombre_lapins",
-      "value": "@calc((/^\\d+$/.test(@fields.nombre_lapins) && @fields.nombre_lapins>= 0 ) || @fields.nombre_lapins == ' ' || !!@fields.nombre_lapins)"
-    },
-    {
-      "type": "text",
-      "value": "@global.error_number_min_0",
-      "condition": "!@local.valid_nombre_lapins && @fields.attempt_submit",
-      "exclude_from_translation": true,
-      "style_list": "color: #FF0000;\nfont-size: 12px"
+      "value": "images/mouton.jpg",
+      "style_list": "width: 120px; height: 120px; object-fit: cover;"
     },
     {
       "type": "begin_display_group"
     },
     {
-      "type": "html",
-      "name": "nombre_canards_label",
-      "value": "@global.nb_canards<span style=\"color: red;\">*</span> ",
-      "style_list": "font-size:20px;"
+      "type": "text_box",
+      "name": "nombre_moutons",
+      "value": "@fields.nombre_moutons",
+      "parameter_list": "number_input: true; placeholder:@global.texte_placeholder;",
+      "condition": "!!@field.nombre_moutons",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_moutons",
+      "parameter_list": "number_input: true; placeholder:@global.texte_placeholder;",
+      "condition": "!@field.nombre_moutons",
+      "exclude_from_translation": true
+    },
+    {
+      "name": "valid_nombre_moutons",
+      "value": "@calc((/^\\d+$/.test(@local.nombre_moutons) && @local.nombre_moutons >=0 ) || @local.nombre_moutons == ' ' || !!@local.nombre_moutons )",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@local.nombre_moutons && @fields.attempt_submit",
+      "style_list": "@global.reponse_style"
+    },
+    {
+      "type": "text",
+      "value": "@global.error_number_min_0 ",
+      "condition": "!@local.valid_nombre_moutons && @fields.attempt_submit",
+      "exclude_from_translation": true,
+      "style_list": "@global.reponse_style"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "subtitle",
+      "value": "@global.nb_chevre",
+      "exclude_from_translation": true
     },
     {
       "type": "audio",
-      "name": "audio_16_4",
-      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/canard_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "style_list": "float: right;"
+      "name": "audio_15_4",
+      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/chevre_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "align-self: flex-end;"
     },
     {
       "type": "end_display_group"
     },
     {
       "type": "image",
-      "value": "images/canard.jpg",
-      "style_list": "width:120px; height:120px; object-fit:contain; flex-shrink:0;"
-    },
-    {
-      "type": "text_box",
-      "name": "nombre_canards",
-      "value": "@fields.nombre_canards",
-      "action_list": "changed | set_field : nombre_canards: this.value;",
-      "parameter_list": "number_input: true;\nplaceholder: Entrez le nombre;"
-    },
-    {
-      "name": "valid_nombre_canards",
-      "value": "@calc((/^\\d+$/.test(@fields.nombre_canards) && @fields.nombre_canards>= 0 ) || @fields.nombre_canards == ' ' || !!@fields.nombre_canards)"
-    },
-    {
-      "type": "text",
-      "value": "@global.error_number_min_0",
-      "condition": "!@local.valid_nombre_canards && @fields.attempt_submit",
-      "exclude_from_translation": true,
-      "style_list": "color: #FF0000;\nfont-size: 12px"
+      "value": "images/chevre.jpg",
+      "style_list": "width: 120px; height: 120px; object-fit: cover;"
     },
     {
       "type": "begin_display_group"
     },
     {
-      "type": "html",
-      "name": "nombre_pigeons_label",
-      "value": "@global.nb_pigeons<span style=\"color: red;\">*</span> ",
-      "style_list": "font-size:20px;"
+      "type": "text_box",
+      "name": "nombre_chevres",
+      "value": "@fields.nombre_chevres",
+      "parameter_list": "number_input: true; placeholder:@global.texte_placeholder;",
+      "condition": "!!@field.nombre_chevres",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "text_box",
+      "name": "nombre_chevres",
+      "parameter_list": "number_input: true; placeholder:@global.texte_placeholder;",
+      "condition": "!@field.nombre_chevres",
+      "exclude_from_translation": true
+    },
+    {
+      "name": "valid_nombre_chevres",
+      "value": "@calc((/^\\d+$/.test(@local.nombre_chevres) && @local.nombre_chevres >=0 ) || @local.nombre_chevres == ' ' || !!@local.nombre_chevres )",
+      "exclude_from_translation": true
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@local.nombre_chevres && @fields.attempt_submit",
+      "style_list": "@global.reponse_style"
+    },
+    {
+      "type": "text",
+      "value": "@global.error_number_min_0",
+      "condition": "!@local.valid_nombre_chevres && @fields.attempt_submit",
+      "exclude_from_translation": true,
+      "style_list": "@global.reponse_style"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "subtitle",
+      "value": "@global.nb_porcs",
+      "exclude_from_translation": true
     },
     {
       "type": "audio",
-      "name": "audio_16_5",
-      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/pigeon_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "style_list": "float: right;"
+      "name": "audio_15_5",
+      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/porc_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "exclude_from_translation": true,
+      "style_list": "align-self: flex-end;"
     },
     {
       "type": "end_display_group"
     },
     {
       "type": "image",
-      "value": "images/pigeon.jpg",
-      "style_list": "width:120px; height:120px; object-fit:contain; flex-shrink:0;\n"
-    },
-    {
-      "type": "text_box",
-      "name": "nombre_pigeons",
-      "value": "@fields.nombre_pigeons",
-      "action_list": "changed | set_field : nombre_pigeons: this.value;",
-      "parameter_list": "number_input: true;\nplaceholder: Entrez le nombre;"
-    },
-    {
-      "name": "valid_nombre_pigeons",
-      "value": "@calc((/^\\d+$/.test(@fields.nombre_pigeons) && @fields.nombre_pigeons>= 0 ) || @fields.nombre_pigeons == ' ' || !!@fields.nombre_pigeons)"
-    },
-    {
-      "type": "text",
-      "value": "@global.error_number_min_0",
-      "condition": "!@local.valid_nombre_pigeons && @fields.attempt_submit",
-      "exclude_from_translation": true,
-      "style_list": "color: #FF0000;\nfont-size: 12px"
+      "value": "images/porc.jpg",
+      "style_list": "width: 120px; height: 120px; object-fit: cover;"
     },
     {
       "type": "begin_display_group"
     },
     {
-      "type": "text",
-      "name": "autre_animal_label",
-      "value": "@global.autre_volaille",
-      "style_list": "font-size:20px;"
+      "type": "text_box",
+      "name": "nombre_porcs",
+      "value": "@fields.nombre_porcs",
+      "parameter_list": "number_input: true; placeholder:@global.texte_placeholder;",
+      "condition": "!!@field.nombre_porcs",
+      "exclude_from_translation": true
     },
     {
-      "type": "audio",
-      "name": "audio_16_6",
-      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/autre_vol_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "style_list": "float: right;"
+      "type": "text_box",
+      "name": "nombre_porcs",
+      "parameter_list": "number_input: true; placeholder:@global.texte_placeholder;",
+      "condition": "!@field.nombre_porcs",
+      "exclude_from_translation": true
+    },
+    {
+      "name": "valid_nombre_porcs",
+      "value": "@calc((/^\\d+$/.test(@local.nombre_porcs) && @local.nombre_porcs >=0 ) || @local.nombre_porcs == ' ' || !!@local.nombre_porcs )",
+      "exclude_from_translation": true
     },
     {
       "type": "end_display_group"
     },
     {
       "type": "text",
-      "value": "Ecrivez aucun s'il n'ya pas d'autre volaille",
-      "exclude_from_translation": true,
-      "style_list": "color: #000000;\nfont-size: 12px"
-    },
-    {
-      "type": "text_box",
-      "name": "autre_animal",
-      "value": "@fields.autre_animal",
-      "action_list": "changed | set_field : autre_animal: this.value;"
-    },
-    {
-      "type": "begin_display_group",
-      "condition": "!!@local.autre_animal"
-    },
-    {
-      "type": "text",
-      "name": "nombre_autre_animal_label",
-      "value": "@global.nombre_autre_volaille",
-      "style_list": "font-size:20px;"
-    },
-    {
-      "type": "audio",
-      "name": "audio_16_6",
-      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/nbre_autre_vol_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "style_list": "float: right;"
-    },
-    {
-      "type": "end_display_group"
-    },
-    {
-      "type": "text_box",
-      "name": "nombre_autre_animal",
-      "value": "@fields.nombre_autre_animal",
-      "action_list": "changed | set_field : nombre_autre_animal: this.value;",
-      "parameter_list": "number_input: true;\nplaceholder: Entrez le nombre;",
-      "condition": "!!@local.autre_animal"
-    },
-    {
-      "name": "valid_nombre_autre_animal",
-      "value": "@calc((/^\\d+$/.test(@fields.nombre_autre_animal) && @fields.nombre_autre_animal>= 0 ) || @fields.nombre_autre_animal == ' ' || !!@fields.nombre_autre_animal)"
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@local.nombre_porcs && @fields.attempt_submit",
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "text",
       "value": "@global.error_number_min_0",
-      "condition": "!@local.valid_nombre_autre_animal && @fields.attempt_submit",
+      "condition": "!@local.valid_nombre_porcs && @fields.attempt_submit",
       "exclude_from_translation": true,
-      "style_list": "color: #FF0000;\nfont-size: 12px"
+      "style_list": "@global.reponse_style"
     },
     {
       "name": "completed_enabled",
-      "value": "@local.valid_nombre_poules && @local.valid_nombre_pintades && @local.valid_nombre_lapins && @local.valid_nombre_canards && @local.valid_nombre_pigeons"
+      "value": "@local.valid_nombre_anes && @local.valid_nombre_chevaux && @local.valid_nombre_moutons  && @local.valid_nombre_chevres && @local.valid_nombre_porcs",
+      "style_list": true
     },
     {
       "type": "begin_display_group",
       "name": "dg_footer",
-      "value": " ",
       "parameter_list": "sticky: bottom;",
       "style_list": "padding: 12px 24px;"
     },
     {
       "type": "round_button",
-      "name": "page_14_button_back",
+      "name": "button_back",
       "action_list": "click | emit: uncompleted",
       "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
     },
@@ -312,10 +348,10 @@
     },
     {
       "type": "button",
-      "name": "page_14_button_continue",
-      "value": "@global.btn_continue",
-      "action_list": "click | set_field: attempt_submit: false;\nclick | emit: completed",
-      "parameter_list": "disabled: !@local.completed_enabled",
+      "name": "button_continue_15",
+      "value": "Continuer",
+      "action_list": "click | set_field: nombre_anes: @local.nombre_anes;\nclick | set_field: nombre_chevaux: @local.nombre_chevaux;\nclick | set_field: nombre_moutons: @local.nombre_moutons;\nclick | set_field: nombre_chevres: @local.nombre_chevres;\nclick | set_field: nombre_porcs: @local.nombre_porcs;\nclick | set_field: attempt_submit: false;\nclick | emit: completed;",
+      "parameter_list": "disabled: !@local.completed_enabled;",
       "condition": "@local.completed_enabled",
       "style_list": "flex: 1"
     },

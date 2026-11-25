@@ -289,7 +289,7 @@
       }
     },
     {
-      "type": "text",
+      "type": "subtitle",
       "value": "@global.total_depenses_recurrentes",
       "_translations": {
         "value": {}
@@ -297,8 +297,8 @@
       "style_list": [
         "font-size:20px"
       ],
-      "name": "text_9",
-      "_nested_name": "text_9",
+      "name": "subtitle_9",
+      "_nested_name": "subtitle_9",
       "_dynamicFields": {
         "value": [
           {
@@ -359,40 +359,80 @@
       }
     },
     {
-      "type": "html",
-      "value": "<div style=\"background: #FFF3E0; padding: 20px; border-radius: 15px; text-align: center; border: 2px solid #E65100;\">\n  <h1 style=\"color: #E65100; margin: 10px 0;\">@local.total_depenses_recurrentes drm</h1>\n  \n  <div style=\"background: #E8F5E9; padding: 10px; border-radius: 10px;\">\n    <span style=\"color: #2E7D32; font-weight: bold; font-size: 20px;\">\n      @local.total_depenses_recurrentes_cfa FCFA\n    </span>\n  </div>\n</div>",
-      "_translations": {
-        "value": {}
+      "type": "display_group",
+      "parameter_list": {
+        "style": "column"
       },
-      "name": "html_12",
-      "_nested_name": "html_12",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "<div style=\"background: #FFF3E0; padding: 20px; border-radius: 15px; text-align: center; border: 2px solid #E65100;\">\n  <h1 style=\"color: #E65100; margin: 10px 0;\">@local.total_depenses_recurrentes drm</h1>\n  \n  <div style=\"background: #E8F5E9; padding: 10px; border-radius: 10px;\">\n    <span style=\"color: #2E7D32; font-weight: bold; font-size: 20px;\">\n      @local.total_depenses_recurrentes_cfa FCFA\n    </span>\n  </div>\n</div>",
-            "matchedExpression": "@local.total_depenses_recurrentes",
-            "type": "local",
-            "fieldName": "total_depenses_recurrentes"
+      "style_list": [
+        "background: #FFF3E0",
+        "border-radius: 15px",
+        "text-align: center",
+        "border: 2px solid #E65100"
+      ],
+      "rows": [
+        {
+          "type": "text",
+          "value": "@local.total_depenses_recurrentes drm",
+          "_translations": {
+            "value": {}
           },
-          {
-            "fullExpression": "<div style=\"background: #FFF3E0; padding: 20px; border-radius: 15px; text-align: center; border: 2px solid #E65100;\">\n  <h1 style=\"color: #E65100; margin: 10px 0;\">@local.total_depenses_recurrentes drm</h1>\n  \n  <div style=\"background: #E8F5E9; padding: 10px; border-radius: 10px;\">\n    <span style=\"color: #2E7D32; font-weight: bold; font-size: 20px;\">\n      @local.total_depenses_recurrentes_cfa FCFA\n    </span>\n  </div>\n</div>",
-            "matchedExpression": "@local.total_depenses_recurrentes_cfa",
-            "type": "local",
-            "fieldName": "total_depenses_recurrentes_cfa"
+          "style_list": [
+            "color: #E65100",
+            "margin: 10px 0"
+          ],
+          "name": "text_1",
+          "_nested_name": "display_group_12.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@local.total_depenses_recurrentes drm",
+                "matchedExpression": "@local.total_depenses_recurrentes",
+                "type": "local",
+                "fieldName": "total_depenses_recurrentes"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.total_depenses_recurrentes": [
+              "value"
+            ]
           }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@local.total_depenses_recurrentes": [
-          "value"
-        ],
-        "@local.total_depenses_recurrentes_cfa": [
-          "value"
-        ]
-      }
+        },
+        {
+          "type": "text",
+          "value": "@local.total_depenses_recurrentes_cfa FCFA",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "color: #2E7D32",
+            "font-weight: bold",
+            "font-size: 20px"
+          ],
+          "name": "text_2",
+          "_nested_name": "display_group_12.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@local.total_depenses_recurrentes_cfa FCFA",
+                "matchedExpression": "@local.total_depenses_recurrentes_cfa",
+                "type": "local",
+                "fieldName": "total_depenses_recurrentes_cfa"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.total_depenses_recurrentes_cfa": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_12",
+      "_nested_name": "display_group_12"
     },
     {
-      "type": "text",
+      "type": "subtitle",
       "value": "@global.total_depenses_investissements",
       "_translations": {
         "value": {}
@@ -400,8 +440,8 @@
       "style_list": [
         "font-size:20px"
       ],
-      "name": "text_13",
-      "_nested_name": "text_13",
+      "name": "subtitle_14",
+      "_nested_name": "subtitle_14",
       "_dynamicFields": {
         "value": [
           {
@@ -430,8 +470,8 @@
         "object-fit:contain",
         "flex-shrink:0"
       ],
-      "name": "image_14",
-      "_nested_name": "image_14"
+      "name": "image_15",
+      "_nested_name": "image_15"
     },
     {
       "type": "text",
@@ -443,8 +483,8 @@
         "color: gray",
         "font-size: 16px"
       ],
-      "name": "text_15",
-      "_nested_name": "text_15",
+      "name": "text_16",
+      "_nested_name": "text_16",
       "_dynamicFields": {
         "value": [
           {
@@ -462,40 +502,80 @@
       }
     },
     {
-      "type": "html",
-      "value": "<div style=\"background: #FFF3E0; padding: 20px; border-radius: 15px; text-align: center; border: 2px solid #E65100;\">\n  <h1 style=\"color: #E65100; margin: 10px 0;\">@local.total_depenses_investissements drm</h1>\n  \n  <div style=\"background: #E8F5E9; padding: 10px; border-radius: 10px;\">\n    <span style=\"color: #2E7D32; font-weight: bold; font-size: 20px;\">\n      @local.total_depenses_investissements_cfa FCFA\n    </span>\n  </div>\n</div>",
-      "_translations": {
-        "value": {}
+      "type": "display_group",
+      "parameter_list": {
+        "style": "column"
       },
-      "name": "html_16",
-      "_nested_name": "html_16",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "<div style=\"background: #FFF3E0; padding: 20px; border-radius: 15px; text-align: center; border: 2px solid #E65100;\">\n  <h1 style=\"color: #E65100; margin: 10px 0;\">@local.total_depenses_investissements drm</h1>\n  \n  <div style=\"background: #E8F5E9; padding: 10px; border-radius: 10px;\">\n    <span style=\"color: #2E7D32; font-weight: bold; font-size: 20px;\">\n      @local.total_depenses_investissements_cfa FCFA\n    </span>\n  </div>\n</div>",
-            "matchedExpression": "@local.total_depenses_investissements",
-            "type": "local",
-            "fieldName": "total_depenses_investissements"
+      "style_list": [
+        "background: #FFF3E0",
+        "border-radius: 15px",
+        "text-align: center",
+        "border: 2px solid #E65100"
+      ],
+      "rows": [
+        {
+          "type": "text",
+          "value": "@local.total_depenses_investissements drm",
+          "_translations": {
+            "value": {}
           },
-          {
-            "fullExpression": "<div style=\"background: #FFF3E0; padding: 20px; border-radius: 15px; text-align: center; border: 2px solid #E65100;\">\n  <h1 style=\"color: #E65100; margin: 10px 0;\">@local.total_depenses_investissements drm</h1>\n  \n  <div style=\"background: #E8F5E9; padding: 10px; border-radius: 10px;\">\n    <span style=\"color: #2E7D32; font-weight: bold; font-size: 20px;\">\n      @local.total_depenses_investissements_cfa FCFA\n    </span>\n  </div>\n</div>",
-            "matchedExpression": "@local.total_depenses_investissements_cfa",
-            "type": "local",
-            "fieldName": "total_depenses_investissements_cfa"
+          "style_list": [
+            "color: #E65100",
+            "margin: 10px 0"
+          ],
+          "name": "text_1",
+          "_nested_name": "display_group_17.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@local.total_depenses_investissements drm",
+                "matchedExpression": "@local.total_depenses_investissements",
+                "type": "local",
+                "fieldName": "total_depenses_investissements"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.total_depenses_investissements": [
+              "value"
+            ]
           }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@local.total_depenses_investissements": [
-          "value"
-        ],
-        "@local.total_depenses_investissements_cfa": [
-          "value"
-        ]
-      }
+        },
+        {
+          "type": "text",
+          "value": "@local.total_depenses_investissements_cfa FCFA",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "color: #2E7D32",
+            "font-weight: bold",
+            "font-size: 20px"
+          ],
+          "name": "text_2",
+          "_nested_name": "display_group_17.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@local.total_depenses_investissements_cfa FCFA",
+                "matchedExpression": "@local.total_depenses_investissements_cfa",
+                "type": "local",
+                "fieldName": "total_depenses_investissements_cfa"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.total_depenses_investissements_cfa": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_17",
+      "_nested_name": "display_group_17"
     },
     {
-      "type": "text",
+      "type": "subtitle",
       "value": "@global.depenes_total_upa",
       "_translations": {
         "value": {}
@@ -503,8 +583,8 @@
       "style_list": [
         "font-size:20px"
       ],
-      "name": "text_17",
-      "_nested_name": "text_17",
+      "name": "subtitle_19",
+      "_nested_name": "subtitle_19",
       "_dynamicFields": {
         "value": [
           {
@@ -533,8 +613,8 @@
         "object-fit:contain",
         "flex-shrink:0"
       ],
-      "name": "image_18",
-      "_nested_name": "image_18"
+      "name": "image_20",
+      "_nested_name": "image_20"
     },
     {
       "type": "text",
@@ -546,8 +626,8 @@
         "color: gray",
         "font-size: 16px"
       ],
-      "name": "text_19",
-      "_nested_name": "text_19",
+      "name": "text_21",
+      "_nested_name": "text_21",
       "_dynamicFields": {
         "value": [
           {
@@ -565,41 +645,80 @@
       }
     },
     {
-      "type": "html",
-      "value": "<div style=\"background: #FFF3E0; padding: 20px; border-radius: 15px; text-align: center; border: 2px solid #E65100;\">\n  <h1 style=\"color: #E65100; margin: 10px 0;\">@local.depenes_total_upa drm</h1>\n  \n  <div style=\"background: #E8F5E9; padding: 10px; border-radius: 10px;\">\n    <span style=\"color: #2E7D32; font-weight: bold; font-size: 20px;\">\n      @local.depenes_total_upa_cfa FCFA\n    </span>\n  </div>\n</div>",
-      "_translations": {
-        "value": {}
+      "type": "display_group",
+      "parameter_list": {
+        "style": "column"
       },
-      "name": "html_20",
-      "_nested_name": "html_20",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "<div style=\"background: #FFF3E0; padding: 20px; border-radius: 15px; text-align: center; border: 2px solid #E65100;\">\n  <h1 style=\"color: #E65100; margin: 10px 0;\">@local.depenes_total_upa drm</h1>\n  \n  <div style=\"background: #E8F5E9; padding: 10px; border-radius: 10px;\">\n    <span style=\"color: #2E7D32; font-weight: bold; font-size: 20px;\">\n      @local.depenes_total_upa_cfa FCFA\n    </span>\n  </div>\n</div>",
-            "matchedExpression": "@local.depenes_total_upa",
-            "type": "local",
-            "fieldName": "depenes_total_upa"
+      "style_list": [
+        "background: #FFF3E0",
+        "border-radius: 15px",
+        "text-align: center",
+        "border: 2px solid #E65100"
+      ],
+      "rows": [
+        {
+          "type": "text",
+          "value": "@local.depenes_total_upa drm",
+          "_translations": {
+            "value": {}
           },
-          {
-            "fullExpression": "<div style=\"background: #FFF3E0; padding: 20px; border-radius: 15px; text-align: center; border: 2px solid #E65100;\">\n  <h1 style=\"color: #E65100; margin: 10px 0;\">@local.depenes_total_upa drm</h1>\n  \n  <div style=\"background: #E8F5E9; padding: 10px; border-radius: 10px;\">\n    <span style=\"color: #2E7D32; font-weight: bold; font-size: 20px;\">\n      @local.depenes_total_upa_cfa FCFA\n    </span>\n  </div>\n</div>",
-            "matchedExpression": "@local.depenes_total_upa_cfa",
-            "type": "local",
-            "fieldName": "depenes_total_upa_cfa"
+          "style_list": [
+            "color: #E65100",
+            "margin: 10px 0"
+          ],
+          "name": "text_1",
+          "_nested_name": "display_group_22.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@local.depenes_total_upa drm",
+                "matchedExpression": "@local.depenes_total_upa",
+                "type": "local",
+                "fieldName": "depenes_total_upa"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.depenes_total_upa": [
+              "value"
+            ]
           }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@local.depenes_total_upa": [
-          "value"
-        ],
-        "@local.depenes_total_upa_cfa": [
-          "value"
-        ]
-      }
+        },
+        {
+          "type": "text",
+          "value": "@local.depenes_total_upa_cfa FCFA",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "color: #2E7D32",
+            "font-weight: bold",
+            "font-size: 20px"
+          ],
+          "name": "text_2",
+          "_nested_name": "display_group_22.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@local.depenes_total_upa_cfa FCFA",
+                "matchedExpression": "@local.depenes_total_upa_cfa",
+                "type": "local",
+                "fieldName": "depenes_total_upa_cfa"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.depenes_total_upa_cfa": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_22",
+      "_nested_name": "display_group_22"
     },
     {
       "type": "display_group",
-      "name": "dg_footer",
       "value": "",
       "parameter_list": {
         "sticky": "bottom"
@@ -625,7 +744,7 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "dg_footer.page_12_btn_back"
+          "_nested_name": "display_group_24.page_12_btn_back"
         },
         {
           "type": "button",
@@ -674,7 +793,7 @@
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "dg_footer.page_12_btn_continue",
+          "_nested_name": "display_group_24.page_12_btn_continue",
           "_dynamicFields": {
             "value": [
               {
@@ -766,13 +885,14 @@
           }
         }
       ],
-      "_nested_name": "dg_footer"
+      "name": "display_group_24",
+      "_nested_name": "display_group_24"
     },
     {
       "action_list": [],
       "type": "set_variable",
-      "name": "set_variable_23",
-      "_nested_name": "set_variable_23"
+      "name": "set_variable_26",
+      "_nested_name": "set_variable_26"
     }
   ],
   "_source": {

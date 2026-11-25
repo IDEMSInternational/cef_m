@@ -5,12 +5,27 @@
   "rows": [
     {
       "type": "title",
-      "value": "CHAMP",
+      "value": "@global.title_page2",
       "_translations": {
         "value": {}
       },
       "name": "title_2",
-      "_nested_name": "title_2"
+      "_nested_name": "title_2",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.title_page2",
+            "matchedExpression": "@global.title_page2",
+            "type": "global",
+            "fieldName": "title_page2"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.title_page2": [
+          "value"
+        ]
+      }
     },
     {
       "type": "display_group",
@@ -70,17 +85,20 @@
       "_nested_name": "image_5"
     },
     {
-      "type": "html",
+      "type": "text",
       "name": "html_text",
-      "value": "<p style=\"color: black;\"> @global.note_nom_champ </p>",
+      "value": "@global.note_nom_champ",
       "_translations": {
         "value": {}
       },
+      "style_list": [
+        "color: black"
+      ],
       "_nested_name": "html_text",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: black;\"> @global.note_nom_champ </p>",
+            "fullExpression": "@global.note_nom_champ",
             "matchedExpression": "@global.note_nom_champ",
             "type": "global",
             "fieldName": "note_nom_champ"
@@ -153,8 +171,7 @@
             "value": {}
           },
           "parameter_list": {
-            "max_length": "30",
-            "placeholder": "Entrez le nom du champ"
+            "max_length": "30"
           },
           "condition": "!!@fields.nom_champ",
           "_nested_name": "display_group_7.nom_champ",
@@ -189,8 +206,7 @@
           "type": "text_box",
           "name": "nom_champ",
           "parameter_list": {
-            "max_length": "30",
-            "placeholder": "Entrez le nom du champ"
+            "max_length": "30"
           },
           "condition": "!@fields.nom_champ",
           "_nested_name": "display_group_7.nom_champ",
@@ -256,18 +272,19 @@
       }
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "type": "text",
+      "value": "@global.warning_message",
       "_translations": {
         "value": {}
       },
       "condition": "!@local.nom_champ",
-      "name": "html_10",
-      "_nested_name": "html_10",
+      "exclude_from_translation_1": "color: red;",
+      "name": "text_10",
+      "_nested_name": "text_10",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: red;\"> @global.warning_message </p>",
+            "fullExpression": "@global.warning_message",
             "matchedExpression": "@global.warning_message",
             "type": "global",
             "fieldName": "warning_message"
@@ -427,18 +444,21 @@
       }
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "type": "text",
+      "value": "@global.warning_message",
       "_translations": {
         "value": {}
       },
       "condition": "!@local.type_sol",
-      "name": "html_16",
-      "_nested_name": "html_16",
+      "style_list": [
+        "color: red"
+      ],
+      "name": "text_16",
+      "_nested_name": "text_16",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: red;\"> @global.warning_message </p>",
+            "fullExpression": "@global.warning_message",
             "matchedExpression": "@global.warning_message",
             "type": "global",
             "fieldName": "warning_message"
@@ -565,18 +585,21 @@
       }
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "type": "text",
+      "value": "@global.warning_message",
       "_translations": {
         "value": {}
       },
       "condition": "!@local.pente_sol",
-      "name": "html_22",
-      "_nested_name": "html_22",
+      "style_list": [
+        "color: red"
+      ],
+      "name": "text_22",
+      "_nested_name": "text_22",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: red;\"> @global.warning_message </p>",
+            "fullExpression": "@global.warning_message",
             "matchedExpression": "@global.warning_message",
             "type": "global",
             "fieldName": "warning_message"
@@ -647,7 +670,7 @@
     },
     {
       "type": "text",
-      "value": "@calc(@global.parcelle_hint + '  '+@local.nom_champ)",
+      "value": "@global.parcelle_hint",
       "_translations": {
         "value": {}
       },
@@ -656,33 +679,15 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc(@global.parcelle_hint + '  '+@local.nom_champ)",
+            "fullExpression": "@global.parcelle_hint",
             "matchedExpression": "@global.parcelle_hint",
             "type": "global",
             "fieldName": "parcelle_hint"
-          },
-          {
-            "fullExpression": "@calc(@global.parcelle_hint + '  '+@local.nom_champ)",
-            "matchedExpression": "@local.nom_champ",
-            "type": "local",
-            "fieldName": "nom_champ"
-          },
-          {
-            "fullExpression": "@calc(@global.parcelle_hint + '  '+@local.nom_champ)",
-            "matchedExpression": "@calc(@global.parcelle_hint + '  '+@local.nom_champ)",
-            "type": "calc",
-            "fieldName": "@global.parcelle_hint + '  '+@local.nom_champ"
           }
         ]
       },
       "_dynamicDependencies": {
         "@global.parcelle_hint": [
-          "value"
-        ],
-        "@local.nom_champ": [
-          "value"
-        ],
-        "@calc(@global.parcelle_hint + '  '+@local.nom_champ)": [
           "value"
         ]
       }
@@ -768,8 +773,7 @@
             "value": {}
           },
           "parameter_list": {
-            "number_input": "true",
-            "placeholder": "Entrez le nombre"
+            "number_input": "true"
           },
           "condition": "!!@field.nb_parcelles",
           "exclude_from_translation": true,
@@ -805,8 +809,7 @@
           "type": "text_box",
           "name": "nb_parcelles",
           "parameter_list": {
-            "number_input": "true",
-            "placeholder": "Entrez le nombre"
+            "number_input": "true"
           },
           "condition": "!@field.nb_parcelles",
           "exclude_from_translation": true,
@@ -873,18 +876,21 @@
       }
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.warning_message </p>",
+      "type": "text",
+      "value": "@global.warning_message",
       "_translations": {
         "value": {}
       },
       "condition": "!@local.nb_parcelles",
-      "name": "html_30",
-      "_nested_name": "html_30",
+      "style_list": [
+        "color: red"
+      ],
+      "name": "text_30",
+      "_nested_name": "text_30",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "<p style=\"color: red;\"> @global.warning_message </p>",
+            "fullExpression": "@global.warning_message",
             "matchedExpression": "@global.warning_message",
             "type": "global",
             "fieldName": "warning_message"

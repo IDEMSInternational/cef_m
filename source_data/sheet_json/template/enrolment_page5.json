@@ -5,84 +5,55 @@
   "rows": [
     {
       "type": "title",
-      "value": "@global.activite_primaire"
+      "value": "@global.localisation_upa"
+    },
+    {
+      "name": "attempt_submit",
+      "value": "@fields.attempt_submit"
     },
     {
       "type": "begin_display_group"
     },
     {
       "type": "subtitle",
-      "value": "@global.activite_primaire_label"
+      "value": "@global.geo_localisation"
     },
     {
       "type": "audio",
       "name": "audio_5_1",
-      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/act_prim_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
-      "exclude_from_translation": true,
-      "style_list": "float: right;"
-    },
-    {
-      "type": "end_display_group\n"
-    },
-    {
-      "type": "radio_button_grid",
-      "name": "grid_1",
-      "value": "@field.activite",
-      "action_list": "changed |set_field: activite: this.value; ",
-      "parameter_list": "answer_list: @data.activite;\nvariant: flex;\nstyle: secondary;\nitem_width: 90px;\ngrid_gap: 8px;"
-    },
-    {
-      "name": "v_pri",
-      "value": "@calc(!!@field.activite)"
-    },
-    {
-      "type": "begin_display_group",
-      "parameter_list": "style:column",
-      "condition": "@field.activite == 'autre1'"
-    },
-    {
-      "type": "begin_display_group"
-    },
-    {
-      "type": "subtitle",
-      "value": "@global.autre_activite_primaire "
-    },
-    {
-      "type": "audio",
-      "name": "audio_5_2",
-      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/autre_act_prim_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
-      "exclude_from_translation": true,
-      "style_list": "float: right;"
+      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/gps_upa_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
+      "style_list": "float : right;"
     },
     {
       "type": "end_display_group"
-    },
-    {
-      "type": "text_box",
-      "value": "@field.autre_activite_primaire",
-      "action_list": "changed | set_field: autre_activite_primaire: this.value;",
-      "parameter_list": "placeholder: Précisez le nom de l'autre...;",
-      "style_list": "width: 100%; margin-top: 10px;"
-    },
-    {
-      "name": "v_autre_pri",
-      "value": "@calc(!!@field.autre_activite_primaire)"
-    },
-    {
-      "type": "end_display_group"
-    },
-    {
-      "name": "completed_enabled",
-      "value": "@local.v_pri && (@field.activite != 'autre1' || @local.v_autre_pri)"
     },
     {
       "type": "text",
-      "value": "@global.reponse_obligatoire",
-      "condition": "@fields.attempt_submit && !@local.completed_enabled",
-      "style_list": "@global.reponse_style"
+      "value": "@global.geo_localisation_hint",
+      "style_list": "@global.hint_style"
+    },
+    {
+      "type": "image",
+      "value": "images/gps_local.jpg",
+      "style_list": "width:100px; height:100px; "
+    },
+    {
+      "name": "upa_geopoint",
+      "value": "gps_geolocalisation"
+    },
+    {
+      "type": "map",
+      "name": "upa_geop",
+      "parameter_list": "data_list: map_drawing_data;\ncenter_lon: -3.996166;\ncenter_lat: 17.570692;\nzoom: 5;",
+      "exclude_from_translation": "height: 400px "
+    },
+    {
+      "name": "completed_enabled",
+      "value": "!!@local.upa_geopoint"
     },
     {
       "type": "begin_display_group",
+      "value": " ",
       "parameter_list": "sticky: bottom;",
       "style_list": "padding: 12px 24px;"
     },
@@ -101,7 +72,7 @@
     {
       "type": "button",
       "value": "@global.btn_continue",
-      "action_list": "click | set_field: activite_primaire: @calc(@field.autre_activite_primaire ?? @field.activite); \nclick | emit: completed;",
+      "action_list": "click | set_field: attempt_submit: false;\nclick | set_field: upa_geopoint: @local.upa_geop;\n\nclick | emit: completed",
       "parameter_list": "disabled: !@local.completed_enabled",
       "condition": "@local.completed_enabled",
       "style_list": "flex: 1"

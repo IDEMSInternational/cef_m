@@ -32,15 +32,14 @@
     },
     {
       "type": "text",
-      "name": "note_frais_education_enfants",
-      "value": "**Frais annuels des @fields.nombre_enfants enfants du @fields.niveau_text de l'UPA sont**"
+      "value": "@global.note_frais_education_enfants"
     },
     {
       "type": "begin_display_group"
     },
     {
-      "type": "text",
-      "value": "**Scolarité annuelle**"
+      "type": "subtitle",
+      "value": "@global.scolarite_annuelle"
     },
     {
       "type": "audio",
@@ -74,15 +73,29 @@
       "type": "end_display_group"
     },
     {
-      "type": "html",
-      "value": "<div style=\"background: #FFF3E0; padding: 20px; border-radius: 15px; text-align: center; border: 2px solid #E65100;\">\n  <span style=\"font-size: 16px; color: #6D4C41;\"> Scolarité annuelle: </span>\n  \n  <div style=\"background: #E8F5E9; padding: 10px; border-radius: 10px;\">\n    <span style=\"color: #2E7D32; font-weight: bold; font-size: 20px;\">\n     @fields.total_frais_scolarite drm\n    </span>\n  </div>\n</div>"
+      "type": "begin_display_group",
+      "parameter_list": "style: column",
+      "style_list": "background: #FFF3E0; border-radius: 15px; text-align: center; border: 2px solid #E65100;"
+    },
+    {
+      "type": "text",
+      "value": "@global.scolarite_annuelle",
+      "style_list": "font-size: 16px; color: #6D4C41;"
+    },
+    {
+      "type": "text",
+      "value": "@fields.total_frais_scolarite drm",
+      "style_list": "background: #E8F5E9; border-radius: 10px; color: #2E7D32; font-weight: bold; font-size: 20px;"
+    },
+    {
+      "type": "end_display_group"
     },
     {
       "type": "begin_display_group"
     },
     {
       "type": "text",
-      "value": "**Fourniture scolaire**"
+      "value": "@global.fourniture_scolaire"
     },
     {
       "type": "audio",
@@ -116,15 +129,29 @@
       "type": "end_display_group"
     },
     {
-      "type": "html",
-      "value": "<div style=\"background: #FFF3E0; padding: 20px; border-radius: 15px; text-align: center; border: 2px solid #E65100;\">\n  <span style=\"font-size: 16px; color: #6D4C41;\"> Fourniture scolaire: </span>\n  \n  <div style=\"background: #E8F5E9; padding: 10px; border-radius: 10px;\">\n    <span style=\"color: #2E7D32; font-weight: bold; font-size: 20px;\">\n     @fields.total_frais_fourniture drm\n    </span>\n  </div>\n</div>"
+      "type": "begin_display_group",
+      "parameter_list": "style: column",
+      "style_list": "background: #FFF3E0; border-radius: 15px; text-align: center; border: 2px solid #E65100;"
+    },
+    {
+      "type": "text",
+      "value": "@global.fourniture_scolaire",
+      "style_list": "font-size: 16px; color: #6D4C41;"
+    },
+    {
+      "type": "text",
+      "value": "@fields.total_frais_fourniture drm",
+      "style_list": "background: #E8F5E9; border-radius: 10px; color: #2E7D32; font-weight: bold; font-size: 20px;"
+    },
+    {
+      "type": "end_display_group"
     },
     {
       "type": "begin_display_group"
     },
     {
       "type": "text",
-      "value": "**Transport scolaire**"
+      "value": "@global.transport_scolaire"
     },
     {
       "type": "audio",
@@ -141,8 +168,9 @@
       "value": "@calc(Math.round(@fields.nombre_enfants * @fields.frais_deplacement * 160.0))"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: black;\"> Les frais annuels de déplacement sont calculés en multipliant les frais journaliers par 160 jours (5 jours par semaine pendant 8 mois) </p>"
+      "type": "text",
+      "value": "@global.frais_annuel_deplacement_hint",
+      "style_list": "@global.hint_style"
     },
     {
       "type": "begin_display_group"
@@ -162,15 +190,29 @@
       "type": "end_display_group"
     },
     {
-      "type": "html",
-      "value": "<div style=\"background: #FFF3E0; padding: 20px; border-radius: 15px; text-align: center; border: 2px solid #E65100;\">\n  <span style=\"font-size: 16px; color: #6D4C41;\"> Transport scolaire: </span>\n  \n  <div style=\"background: #E8F5E9; padding: 10px; border-radius: 10px;\">\n    <span style=\"color: #2E7D32; font-weight: bold; font-size: 20px;\">\n     @fields.total_frais_deplacement drm\n    </span>\n  </div>\n</div>"
+      "type": "begin_display_group",
+      "parameter_list": "style: column",
+      "style_list": "background: #FFF3E0; border-radius: 15px; text-align: center; border: 2px solid #E65100;"
+    },
+    {
+      "type": "text",
+      "value": "@global.transport_scolaire",
+      "style_list": "font-size: 16px; color: #6D4C41;"
+    },
+    {
+      "type": "text",
+      "value": "@fields.total_frais_deplacement drm",
+      "style_list": "background: #E8F5E9; border-radius: 10px; color: #2E7D32; font-weight: bold; font-size: 20px;"
+    },
+    {
+      "type": "end_display_group"
     },
     {
       "type": "begin_display_group"
     },
     {
       "type": "text",
-      "value": "**Frais récréation**"
+      "value": "@global.frais_recreation"
     },
     {
       "type": "audio",
@@ -187,8 +229,9 @@
       "value": "@calc(Math.round(@fields.nombre_enfants * @fields.frais_recreation * 160.0))"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: black;\">Les frais annuels de récréation sont calculés en multipliant les frais journaliers par 160 jours (5 jours par semaine pendant 8 mois)\n </p>"
+      "type": "text",
+      "value": "@global.frais_annuel_recre",
+      "style_list": "@global.hint_style"
     },
     {
       "type": "begin_display_group"
@@ -208,15 +251,29 @@
       "type": "end_display_group"
     },
     {
-      "type": "html",
-      "value": "<div style=\"background: #FFF3E0; padding: 20px; border-radius: 15px; text-align: center; border: 2px solid #E65100;\">\n  <span style=\"font-size: 16px; color: #6D4C41;\"> Frais récréation: </span>\n  \n  <div style=\"background: #E8F5E9; padding: 10px; border-radius: 10px;\">\n    <span style=\"color: #2E7D32; font-weight: bold; font-size: 20px;\">\n     @fields.total_frais_recreation drm\n    </span>\n  </div>\n</div>"
+      "type": "begin_display_group",
+      "parameter_list": "style: column",
+      "style_list": "background: #FFF3E0; border-radius: 15px; text-align: center; border: 2px solid #E65100;"
+    },
+    {
+      "type": "text",
+      "value": "@global.frais_recreation",
+      "style_list": "font-size: 16px; color: #6D4C41;"
+    },
+    {
+      "type": "text",
+      "value": "@fields.total_frais_recreation drm",
+      "style_list": "background: #E8F5E9; border-radius: 10px; color: #2E7D32; font-weight: bold; font-size: 20px;"
+    },
+    {
+      "type": "end_display_group"
     },
     {
       "type": "begin_display_group"
     },
     {
       "type": "text",
-      "value": "**Frais totaux annuels des @fields.nombre_enfants enfants du @fields.niveau_text de l'UPA**"
+      "value": "@global.frais_totaux_annuel_enfants"
     },
     {
       "type": "audio",
@@ -250,8 +307,16 @@
       "type": "end_display_group"
     },
     {
-      "type": "html",
-      "value": "<div style=\"background-color: #C8E6C9; padding: 15px; border: 3px solid #2E7D32; border-radius: 12px; box-shadow: 0px 4px 10px rgba(46, 125, 50, 0.2); text-align: center; margin: 10px 0;\">\n  <span style=\"color: #1B5E20; font-weight: 800; font-size: 22px; display: block;\">\n    Frais totaux sont : @fields.totaux_frais_education drm\n  </span>\n</div>"
+      "type": "begin_display_group",
+      "style_list": "background-color: #C8E6C9; border: 3px solid #2E7D32; border-radius: 12px; text-align: center; "
+    },
+    {
+      "type": "text",
+      "value": "@global.frais_totaux_niveau",
+      "style_list": "color: #1B5E20; font-weight: 800; font-size: 22px; display: block;"
+    },
+    {
+      "type": "end_display_group"
     },
     {
       "name": "last_niveau_scolaire",

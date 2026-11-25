@@ -5,7 +5,7 @@
   "rows": [
     {
       "type": "title",
-      "value": "RENDEMENTS MOYENS DE VOTRE UPA"
+      "value": "@global.rendement_moyen_upa"
     },
     {
       "name": "attempt_submit",
@@ -20,12 +20,12 @@
       "type": "begin_display_group"
     },
     {
-      "type": "html",
-      "value": "<b>Donnez le rendement moyen du maïs de votre exploitation (sac de 100 kg/ha)</b><span style=\"color: red;\">*</span>"
+      "type": "subtitle",
+      "value": "@global.rendement_moyen_mais"
     },
     {
       "type": "audio",
-      "name": "audio_6_1",
+      "name": "audio_4_1",
       "parameter_list": "variant: button_only;\nsrc: audio/alimentationHumaine/rdt_moyen_mais_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
       "style_list": "float : right;"
     },
@@ -33,9 +33,9 @@
       "type": "end_display_group"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: black;\"> @global.rendement_hint </p>",
-      "style_list": "font-size: 12px; "
+      "type": "text",
+      "value": "@global.rendement_hint",
+      "style_list": "@global.hint_style"
     },
     {
       "type": "image",
@@ -47,7 +47,7 @@
       "name": "rend_moyen_mais",
       "value": "@fields.rend_moyen_mais",
       "action_list": "changed | set_field: rend_moyen_mais : this.value;",
-      "parameter_list": "input_type: number;placeholder: Entrez le rendement de maïs;",
+      "parameter_list": "number_input: true; placeholder:@global.texte_placeholder;",
       "style_list": "margin: 10px;"
     },
     {
@@ -55,15 +55,16 @@
       "value": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.rend_moyen_mais) && Number(@local.rend_moyen_mais) > 0) || !@local.rend_moyen_mais)"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@fields.rend_moyen_mais && @fields.attempt_submit"
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@fields.rend_moyen_mais && @fields.attempt_submit",
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "text",
       "value": "@global.erreur_rendement",
       "condition": "!@local.valid_rend_moyen_mais",
-      "style_list": "color: red; font-size: 12px;"
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "end_display_group"
@@ -77,12 +78,12 @@
       "type": "begin_display_group"
     },
     {
-      "type": "html",
-      "value": "<b>Donnez le rendement moyen du mil de votre exploitation (sac de 100 kg/ha)</b><span style=\"color: red;\">*</span>"
+      "type": "subtitle",
+      "value": "@global.rendement_moyen_mil"
     },
     {
       "type": "audio",
-      "name": "audio_6_2",
+      "name": "audio_4_2",
       "parameter_list": "variant: button_only;\nsrc: audio/alimentationHumaine/rdt_moyen_mil_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
       "style_list": "float : right;"
     },
@@ -90,9 +91,9 @@
       "type": "end_display_group"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: black;\"> @global.rendement_hint </p>",
-      "style_list": "font-size: 12px; "
+      "type": "text",
+      "value": "@global.rendement_hint",
+      "style_list": "@global.hint_style"
     },
     {
       "type": "image",
@@ -104,7 +105,7 @@
       "name": "rend_moyen_mil",
       "value": "@fields.rend_moyen_mil",
       "action_list": "changed | set_field: rend_moyen_mil : this.value;",
-      "parameter_list": "input_type: number;placeholder: Entrez le rendement de mil;",
+      "parameter_list": "number_input: true; placeholder:@global.texte_placeholder;",
       "style_list": "margin: 10px;"
     },
     {
@@ -112,15 +113,16 @@
       "value": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.rend_moyen_mil) && Number(@local.rend_moyen_mil) > 0) || !@local.rend_moyen_mil)"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@fields.rend_moyen_mil && @fields.attempt_submit"
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@fields.rend_moyen_mil && @fields.attempt_submit",
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "text",
       "value": "@global.erreur_rendement",
       "condition": "!@local.valid_rend_moyen_mil",
-      "style_list": "color: red; font-size: 12px;"
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "end_display_group"
@@ -134,12 +136,12 @@
       "type": "begin_display_group"
     },
     {
-      "type": "html",
-      "value": "<b>Donnez le rendement moyen du sorgho de votre exploitation (sac de 100kg/ha)</b><span style=\"color: red;\">*</span>"
+      "type": "subtitle",
+      "value": "@global.rendement_moyen_sorgho"
     },
     {
       "type": "audio",
-      "name": "audio_6_3",
+      "name": "audio_4_3",
       "parameter_list": "variant: button_only;\nsrc: audio/alimentationHumaine/rdt_moyen_sorgho_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
       "style_list": "float : right;"
     },
@@ -147,9 +149,9 @@
       "type": "end_display_group"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: black;\"> @global.rendement_hint </p>",
-      "style_list": "font-size: 12px; "
+      "type": "text",
+      "value": "@global.rendement_hint",
+      "style_list": "@global.hint_style"
     },
     {
       "type": "image",
@@ -161,7 +163,7 @@
       "name": "rend_moyen_sorgho",
       "value": "@fields.rend_moyen_sorgho",
       "action_list": "changed | set_field: rend_moyen_sorgho : this.value;",
-      "parameter_list": "input_type: number;placeholder: Entrez le rendement de sorgho;",
+      "parameter_list": "number_input: true; placeholder:@global.texte_placeholder;",
       "style_list": "margin: 10px;"
     },
     {
@@ -169,15 +171,16 @@
       "value": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.rend_moyen_sorgho) && Number(@local.rend_moyen_sorgho) > 0) || !@local.rend_moyen_sorgho)"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@fields.rend_moyen_sorgho && @fields.attempt_submit"
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@fields.rend_moyen_sorgho && @fields.attempt_submit",
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "text",
       "value": "@global.erreur_rendement",
       "condition": "!@local.valid_rend_moyen_sorgho",
-      "style_list": "color: red; font-size: 12px;"
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "end_display_group"
@@ -191,12 +194,12 @@
       "type": "begin_display_group"
     },
     {
-      "type": "html",
-      "value": "<b>Donnez le rendement moyen du riz de votre exploitation (sac de 100kg/ha)</b><span style=\"color: red;\">*</span>"
+      "type": "subtitle",
+      "value": "@global.rendement_moyen_riz"
     },
     {
       "type": "audio",
-      "name": "audio_6_4",
+      "name": "audio_4_4",
       "parameter_list": "variant: button_only;\nsrc: audio/alimentationHumaine/rdt_moyen_riz_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
       "style_list": "float : right;"
     },
@@ -204,9 +207,9 @@
       "type": "end_display_group"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: black;\"> @global.rendement_hint </p>",
-      "style_list": "font-size: 12px; "
+      "type": "text",
+      "value": "@global.rendement_hint",
+      "style_list": "@global.hint_style"
     },
     {
       "type": "image",
@@ -226,15 +229,16 @@
       "value": "@calc((/^\\d+(\\.\\d+)?$/.test(@local.rend_moyen_riz) && Number(@local.rend_moyen_riz) > 0) || !@local.rend_moyen_riz)"
     },
     {
-      "type": "html",
-      "value": "<p style=\"color: red;\"> @global.reponse_obligatoire </p>",
-      "condition": "!@fields.rend_moyen_riz && @fields.attempt_submit"
+      "type": "text",
+      "value": "@global.reponse_obligatoire",
+      "condition": "!@fields.rend_moyen_riz && @fields.attempt_submit",
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "text",
       "value": "@global.erreur_rendement",
       "condition": "!@local.valid_rend_moyen_riz",
-      "style_list": "color: red; font-size: 12px;"
+      "style_list": "@global.reponse_style"
     },
     {
       "type": "end_display_group"
@@ -250,7 +254,7 @@
     },
     {
       "type": "round_button",
-      "name": "page6_button_back",
+      "name": "page4_button_back",
       "action_list": "click | set_field: attempt_submit: false;\nclick | emit: uncompleted",
       "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
     },
@@ -264,7 +268,7 @@
     },
     {
       "type": "button",
-      "name": "page6_button_completed",
+      "name": "page4_button_completed",
       "value": "Continuer",
       "action_list": "click | set_field: attempt_submit: false;\nclick | emit: completed",
       "parameter_list": "\ndisabled: !@local.completed_enabled\n",

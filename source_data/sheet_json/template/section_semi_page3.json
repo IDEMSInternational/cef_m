@@ -4,21 +4,18 @@
   "status": "released",
   "rows": [
     {
-      "type": "title",
-      "value": "SÉLECTION DES CULTURES"
-    },
-    {
       "type": "begin_display_group",
       "name": "cult_sec",
       "style_list": "display: flex; flex-direction: row; align-items: center; justify-content: flex-start; width: 100%; margin-top: 15px; gap: 10px;"
     },
     {
-      "type": "html",
-      "value": "<span style=\"color: #d71920; font-weight: bold; margin-right: 4px;\">*</span><span style=\"color: #333333; font-weight: 600; font-size: 18px;\">2. Sélectionnez les cultures secondaires</span>"
+      "type": "text",
+      "value": "@global.secondary_crops_label",
+      "style_list": "font-weight: 600; font-size: 18px; color: #333333; flex: 1;"
     },
     {
       "type": "audio",
-      "parameter_list": "variant: button_only; \nsrc: audio/postSemi/cult_second_fr.mp3; \nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "parameter_list": "variant: button_only; \nsrc: audio/semis/cult_second_fr.mp3; \nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
       "exclude_from_translation": true,
       "style_list": "flex-shrink: 0;"
     },
@@ -27,7 +24,7 @@
     },
     {
       "type": "text",
-      "value": "*Les cultures secondaires sont des cultures faites par l'UPA de manière complémentaire avec moins d'investissement*",
+      "value": "@global.secondary_crops_hint",
       "style_list": "font-style: italic; color: #666666; font-size: 13px; margin-bottom: 15px;"
     },
     {
@@ -38,13 +35,11 @@
     {
       "type": "begin_display_group",
       "name": "card_culture_sec",
-      "action_list": "width: 100%; display: flex; flex-direction: column; align-items: center; border: 1px solid #ddd; border-radius: 10px; background: white; margin-bottom: 10px; overflow: hidden;",
       "style_list": "width: 100%; display: flex; flex-direction: column; align-items: center; border: 1px solid #ddd; border-radius: 12px; background: white; margin-bottom: 10px; overflow: hidden;"
     },
     {
       "type": "image",
       "value": "@item.image",
-      "action_list": "width:100px; height:100px; ",
       "style_list": "width: 60%; object-fit: contain;"
     },
     {
@@ -73,21 +68,28 @@
       "type": "begin_display_group",
       "name": "autre_sec_1",
       "condition": "@field.sec_autre_1",
-      "style_list": "display: block; width: 100%; background: #f7fafc; padding: 15px; margin-top: 15px;"
+      "style_list": "display: block; width:100%; padding: 10px;margin-bottom: 10px;"
     },
     {
-      "type": "html",
-      "value": "<br><span style=\"color: red;\">*</span>Ecrivez le nom de l'autre culture secondaire 1"
-    },
-    {
-      "type": "audio",
-      "parameter_list": "variant: button_only; \nsrc: audio/postSemi/cult_second_nom1_fr.mp3; \nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
-      "exclude_from_translation": true,
-      "style_list": "flex-shrink: 0;"
+      "type": "begin_display_group"
     },
     {
       "type": "text",
-      "value": "*Il s'agit d'une culture qui n'existe pas dans la liste des cultures secondaires ci-dessus*",
+      "value": "@global.sc_name_1_label1",
+      "style_list": "font-size: 14px; font-weight: 600; color: #333333; flex: 1;"
+    },
+    {
+      "type": "audio",
+      "parameter_list": "variant: button_only; \nsrc: audio/semis/cult_second_nom1_fr.mp3; \nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "exclude_from_translation": true,
+      "style_list": "float:right;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "text",
+      "value": "@global.sc_name_other_hint",
       "style_list": "font-size: 12px; color: gray;"
     },
     {
@@ -99,37 +101,43 @@
       "type": "text_box",
       "name": "secondary_crop_1",
       "value": "@field.secondary_crop_1",
-      "action_list": "changed | set_field: secondary_crop_1 : this.value;",
-      "parameter_list": "placeholder: Nom de la culture...;"
+      "action_list": "changed | set_field: secondary_crop_1 : this.value;"
+    },
+    {
+      "type": "text",
+      "value": "@global.error_culture\n",
+      "condition": "@calc(@field.sec_autre_1 && !!@field.secondary_crop_1 && @local.v_forbidden.includes(@field.secondary_crop_1.toLowerCase().trim()))",
+      "style_list": "color: #d71920; font-size: 12px; font-weight: bold; margin-top: 4px;"
+    },
+    {
+      "type": "end_display_group"
+    },
+    {
+      "type": "begin_display_group",
+      "name": "autre_sec_2",
+      "condition": "@calc(@field.sec_autre_2 && !!@field.secondary_crop_1 && !@local.v_forbidden.includes(@field.secondary_crop_1.toLowerCase().trim()))",
+      "style_list": "display: block; width:100%; padding: 10px;margin-bottom: 10px;"
+    },
+    {
+      "type": "begin_display_group"
+    },
+    {
+      "type": "text",
+      "value": "@global.sc_name_2_label2",
+      "style_list": "font-size: 14px; font-weight: 600; color: #333333; flex: 1;"
+    },
+    {
+      "type": "audio",
+      "parameter_list": "variant: button_only; \nsrc: audio/semis/cult_second_nom2_fr.mp3; \nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "exclude_from_translation": true,
+      "style_list": "float: right;"
     },
     {
       "type": "end_display_group"
     },
     {
       "type": "text",
-      "value": "*Culture déjà utilisée ou invalide !*",
-      "condition": "@calc(@field.sec_autre_1 && !!@field.secondary_crop_1 && @local.v_forbidden.includes(@field.secondary_crop_1.toLowerCase().trim()))\n",
-      "style_list": "color: #d71920; font-size: 12px; font-weight: bold; margin-top: 4px;"
-    },
-    {
-      "type": "begin_display_group",
-      "name": "autre_sec_2",
-      "condition": "@field.sec_autre_2 && !!@field.secondary_crop_1 && !@local.v_forbidden.includes(@field.secondary_crop_1.toLowerCase().trim())",
-      "style_list": "display: block; width: 100%; background: #f7fafc; padding: 15px;margin-top: 15px;"
-    },
-    {
-      "type": "audio",
-      "parameter_list": "variant: button_only; \nsrc: audio/postSemi/cult_second_nom2_fr.mp3; \nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
-      "exclude_from_translation": true,
-      "style_list": "float: right;"
-    },
-    {
-      "type": "html",
-      "value": "<br><span style=\"color: red;\">*</span>Ecrivez le nom de l'autre culture secondaire 2"
-    },
-    {
-      "type": "text",
-      "value": "*Il s'agit d'une culture qui n'existe pas dans la liste des cultures secondaires ci-dessus*",
+      "value": "@global.second_crops_sc",
       "style_list": "font-size: 12px; color: #718096; font-style: italic;"
     },
     {
@@ -141,26 +149,24 @@
       "type": "text_box",
       "name": "secondary_crop_2",
       "value": "@field.secondary_crop_2",
-      "action_list": "changed | set_field: secondary_crop_2 : this.value;",
-      "parameter_list": "placeholder: Nom de la culture...;"
-    },
-    {
-      "type": "end_display_group"
+      "action_list": "changed | set_field: secondary_crop_2 : this.value;"
     },
     {
       "type": "text",
-      "value": "*Culture déjà utilisée ou invalide !*",
-      "condition": "@calc(@field.sec_autre_2 && !!@field.secondary_crop_2 && (@local.v_forbidden.includes(@field.secondary_crop_2.toLowerCase().trim()) || @field.secondary_crop_1.toLowerCase().trim() == @field.secondary_crop_2.toLowerCase().trim()))",
+      "value": "@global.error_culture",
+      "condition": "@calc(@field.sec_autre_2 && !!@field.secondary_crop_2 && (@local.v_forbidden.includes(@field.secondary_crop_2.toLowerCase().trim()) || @field.secondary_crop_1.toLowerCase().trim() === @field.secondary_crop_2.toLowerCase().trim()))",
       "style_list": "color: #d71920; font-size: 12px; font-weight: bold; margin-top: 4px;"
+    },
+    {
+      "type": "end_display_group"
     },
     {
       "name": "v_list_prim",
       "value": "@calc([@field.cul_mais?'mais':null,@field.cul_mil?'mil':null,@field.cul_sorgho?'sorgho':null,@field.cul_coton?'coton':null,@field.cul_arachide?'arachide':null,@field.cul_fourrage?'fourrage':null,@field.cul_autre_1?@field.autre_culture_primaire_1:null,@field.cul_autre_2?@field.autre_culture_primaire_2:null].filter(v=>v!==null))"
     },
     {
-      "type": "text",
       "name": "v_list_sec",
-      "value": "@calc([@field.sec_fonio?'fonio':null,@field.sec_rice?'riz':null,@field.sec_sesame?'sésame':null,@field.sec_wouandzou?'wouandzou':null,@field.sec_patate_douce?'patate':null,@field.sec_bissap?'bissap':null,@field.sec_autre_1?@field.secondary_crop_1:null,@field.sec_autre_2?@field.secondary_crop_2:null].filter(v=>v!==null))"
+      "value": "@calc([@field.sec_fonio?'fonio':null,@field.sec_riz?'riz':null,@field.sec_sesame?'sésame':null,@field.sec_wouandzou?'wouandzou':null,@field.sec_patate?'patate':null,@field.sec_bissap?'bissap':null,@field.sec_autre_1?@field.secondary_crop_1:null,@field.sec_autre_2?@field.secondary_crop_2:null].filter(v=>v!==null))"
     },
     {
       "name": "v_final_list",
@@ -194,9 +200,8 @@
       "type": "button",
       "name": "button_completed",
       "value": "Continuer",
-      "action_list": "click | set_field: selected_cultures_list : @local.v_final_list;\nclick | set_field: total_cultures_selected : @local.v_total_count;\nclick | set_field: current_culture_index : 0;\nclick | set_field: active_culture_name : @calc(@local.v_final_list.split(',')[0]);\nclick | emit: completed",
-      "parameter_list": "disabled: !@local.completed_enabled",
-      "style_list": "flex: 1"
+      "action_list": "click | set_field: selected_cultures_list : @local.v_final_list;\nclick | set_field: total_cultures_selected : @local.v_total_count;\nclick | set_field: current_culture_index : 0;\nclick | set_field: active_culture_name : @calc(@local.v_final_list.split(',')[0]);\nclick | emit: completed;",
+      "style_list": "flex: 1;"
     },
     {
       "type": "end_display_group"

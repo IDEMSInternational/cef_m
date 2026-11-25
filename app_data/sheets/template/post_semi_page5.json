@@ -38,7 +38,7 @@
     },
     {
       "type": "display_group",
-      "name": "header_top",
+      "name": "header",
       "style_list": [
         "background: #00adcc",
         "padding: 15px",
@@ -47,49 +47,37 @@
       ],
       "rows": [
         {
-          "type": "html",
-          "value": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>",
+          "type": "text",
+          "value": "@global.cult_head",
           "_translations": {
             "value": {}
           },
-          "name": "html_1",
-          "_nested_name": "header_top.html_1",
+          "style_list": [
+            "color: white",
+            "font-weight: bold",
+            "font-size: 14px",
+            "text-transform: uppercase"
+          ],
+          "name": "text_1",
+          "_nested_name": "header.text_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>",
-                "matchedExpression": "@local.v_current_human",
-                "type": "local",
-                "fieldName": "v_current_human"
-              },
-              {
-                "fullExpression": "<div style=\"color: white; font-weight: bold; font-size: 14px;\">CULTURE @local.v_current_human / @field.total_cultures_selected </div>",
-                "matchedExpression": "@field.total_cultures_selected",
-                "type": "field",
-                "fieldName": "total_cultures_selected"
+                "fullExpression": "@global.cult_head",
+                "matchedExpression": "@global.cult_head",
+                "type": "global",
+                "fieldName": "cult_head"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@local.v_current_human": [
-              "value"
-            ],
-            "@field.total_cultures_selected": [
+            "@global.cult_head": [
               "value"
             ]
           }
         }
       ],
-      "_nested_name": "header_top"
-    },
-    {
-      "type": "title",
-      "value": "DÉTAILS DE LA CULTURE : AUTRES COÛTS",
-      "_translations": {
-        "value": {}
-      },
-      "name": "title_5",
-      "_nested_name": "title_5"
+      "_nested_name": "header"
     },
     {
       "type": "display_group",
@@ -112,11 +100,11 @@
             "value": {}
           },
           "style_list": [
-            "width: 100px",
-            "height: 100px"
+            "width: 60%",
+            "object-fit: contain"
           ],
           "name": "image_1",
-          "_nested_name": "display_group_6.image_1",
+          "_nested_name": "display_group_5.image_1",
           "_dynamicFields": {
             "value": [
               {
@@ -151,48 +139,72 @@
         },
         {
           "type": "text",
-          "value": "<h3 style='color: black; margin: 10px 0;'>Culture : <span style='color: #e3a730;'>@field.active_culture_name</span></h3>",
+          "value": "@global.cult_name",
           "_translations": {
             "value": {}
           },
           "style_list": [
             "font-weight: bold",
-            "font-size: 18px"
+            "font-size: 18px",
+            "color: #e3a730",
+            "margin-top: 10px",
+            "text-align: center"
           ],
           "name": "text_2",
-          "_nested_name": "display_group_6.text_2",
+          "_nested_name": "display_group_5.text_2",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "<h3 style='color: black; margin: 10px 0;'>Culture : <span style='color: #e3a730;'>@field.active_culture_name</span></h3>",
-                "matchedExpression": "@field.active_culture_name",
-                "type": "field",
-                "fieldName": "active_culture_name"
+                "fullExpression": "@global.cult_name",
+                "matchedExpression": "@global.cult_name",
+                "type": "global",
+                "fieldName": "cult_name"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@field.active_culture_name": [
+            "@global.cult_name": [
               "value"
             ]
           }
         }
       ],
-      "name": "display_group_6",
-      "_nested_name": "display_group_6"
+      "name": "display_group_5",
+      "_nested_name": "display_group_5"
     },
     {
-      "type": "html",
-      "value": "<br><b style=\"color: #e67e22\">4. AUTRES COÛTS AU POST-SEMIS</b>",
+      "type": "text",
+      "value": "@global.sec_autre",
       "_translations": {
         "value": {}
       },
-      "name": "html_8",
-      "_nested_name": "html_8"
+      "style_list": [
+        "color: #e67e22",
+        "font-weight: bold",
+        "margin-top: 15px",
+        "margin-bottom: 5px"
+      ],
+      "name": "text_7",
+      "_nested_name": "text_7",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.sec_autre",
+            "matchedExpression": "@global.sec_autre",
+            "type": "global",
+            "fieldName": "sec_autre"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.sec_autre": [
+          "value"
+        ]
+      }
     },
     {
       "type": "display_group",
-      "name": "grp_autre_cout_postsemis",
+      "name": "grp_autre_cout_postSemi",
       "style_list": [
         "display: block",
         "width: 100%"
@@ -200,7 +212,7 @@
       "rows": [
         {
           "type": "audio",
-          "name": "note_autre_cout_postsemis",
+          "name": "note_autre_cout_postSemi",
           "parameter_list": {
             "variant": "button_only",
             "src": "audio/postSemi/on_autre_cout_psemis_fr.mp3",
@@ -210,30 +222,66 @@
           "style_list": [
             "float: right"
           ],
-          "_nested_name": "grp_autre_cout_postsemis.note_autre_cout_postsemis"
-        },
-        {
-          "type": "html",
-          "value": "<span style=\"color: red;\">*</span>Ecrivez le nom(s) d'autre(s) coût(s)",
-          "_translations": {
-            "value": {}
-          },
-          "name": "html_2",
-          "_nested_name": "grp_autre_cout_postsemis.html_2"
+          "_nested_name": "grp_autre_cout_postSemi.note_autre_cout_postSemi"
         },
         {
           "type": "text",
-          "value": "*Ces coûts couvrent des services ou intrants non pris en compte.*",
+          "value": "@global.lbl_autre_Q",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-weight: bold",
+            "font-size: 16px",
+            "color: #333",
+            "margin-bottom: 5px"
+          ],
+          "name": "text_2",
+          "_nested_name": "grp_autre_cout_postSemi.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.lbl_autre_Q",
+                "matchedExpression": "@global.lbl_autre_Q",
+                "type": "global",
+                "fieldName": "lbl_autre_Q"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.lbl_autre_Q": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "value": "@global.lbl_autre_hint",
           "_translations": {
             "value": {}
           },
           "name": "text_3",
-          "_nested_name": "grp_autre_cout_postsemis.text_3"
+          "_nested_name": "grp_autre_cout_postSemi.text_3",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.lbl_autre_hint",
+                "matchedExpression": "@global.lbl_autre_hint",
+                "type": "global",
+                "fieldName": "lbl_autre_hint"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.lbl_autre_hint": [
+              "value"
+            ]
+          }
         },
         {
           "type": "radio_button_grid",
-          "name": "no_autre_cout_postsemis",
-          "value": "@field.no_autre_cout_postsemis",
+          "name": "no_autre_cout_postSemi",
+          "value": "@field.no_autre_cout_postSemi",
           "_translations": {
             "value": {}
           },
@@ -242,10 +290,10 @@
               "trigger": "changed",
               "action_id": "set_field",
               "args": [
-                "no_autre_cout_postsemis",
+                "no_autre_cout_postSemi",
                 "this.value"
               ],
-              "_raw": "changed | set_field: no_autre_cout_postsemis : this.value"
+              "_raw": "changed | set_field: no_autre_cout_postSemi : this.value"
             }
           ],
           "parameter_list": {
@@ -255,14 +303,14 @@
             "item_width": "60px",
             "grid_gap": "8px"
           },
-          "_nested_name": "grp_autre_cout_postsemis.no_autre_cout_postsemis",
+          "_nested_name": "grp_autre_cout_postSemi.no_autre_cout_postSemi",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "@field.no_autre_cout_postsemis",
-                "matchedExpression": "@field.no_autre_cout_postsemis",
+                "fullExpression": "@field.no_autre_cout_postSemi",
+                "matchedExpression": "@field.no_autre_cout_postSemi",
                 "type": "field",
-                "fieldName": "no_autre_cout_postsemis"
+                "fieldName": "no_autre_cout_postSemi"
               }
             ],
             "parameter_list": {
@@ -277,7 +325,7 @@
             }
           },
           "_dynamicDependencies": {
-            "@field.no_autre_cout_postsemis": [
+            "@field.no_autre_cout_postSemi": [
               "value"
             ],
             "@data.yes_no": [
@@ -286,12 +334,12 @@
           }
         }
       ],
-      "_nested_name": "grp_autre_cout_postsemis"
+      "_nested_name": "grp_autre_cout_postSemi"
     },
     {
       "type": "display_group",
       "name": "group_nom_autre",
-      "condition": "@field.no_autre_cout_postsemis == 'oui'",
+      "condition": "@field.no_autre_cout_postSemi == 'oui'",
       "style_list": [
         "display: block",
         "width: 100%"
@@ -299,7 +347,7 @@
       "rows": [
         {
           "type": "audio",
-          "name": "note_autre_cout_postsemis",
+          "name": "note_autre_cout_postSemi",
           "parameter_list": {
             "variant": "button_only",
             "src": "audio/postSemi/nom_autre_cout_fr.mp3",
@@ -309,16 +357,37 @@
           "style_list": [
             "float: right"
           ],
-          "_nested_name": "group_nom_autre.note_autre_cout_postsemis"
+          "_nested_name": "group_nom_autre.note_autre_cout_postSemi"
         },
         {
-          "type": "html",
-          "value": "<span style=\"color: red;\">*</span> Indiquez s'il y a d'autre(s) coût(s) au post semis non renseignés",
+          "type": "text",
+          "value": "@global.lbl_nom_autre",
           "_translations": {
             "value": {}
           },
-          "name": "html_2",
-          "_nested_name": "group_nom_autre.html_2"
+          "style_list": [
+            "font-weight: bold",
+            "font-size: 16px",
+            "color: #333",
+            "margin-bottom: 5px"
+          ],
+          "name": "text_2",
+          "_nested_name": "group_nom_autre.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.lbl_nom_autre",
+                "matchedExpression": "@global.lbl_nom_autre",
+                "type": "global",
+                "fieldName": "lbl_nom_autre"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.lbl_nom_autre": [
+              "value"
+            ]
+          }
         },
         {
           "type": "image",
@@ -335,8 +404,8 @@
         },
         {
           "type": "text_box",
-          "name": "nom_autre_cout_postsemis",
-          "value": "@field.nom_autre_cout_postsemis",
+          "name": "nom_autre_cout_postSemi",
+          "value": "@field.nom_autre_cout_postSemi",
           "_translations": {
             "value": {}
           },
@@ -345,28 +414,25 @@
               "trigger": "changed",
               "action_id": "set_field",
               "args": [
-                "nom_autre_cout_postsemis",
+                "nom_autre_cout_postSemi",
                 "this.value"
               ],
-              "_raw": "changed | set_field: nom_autre_cout_postsemis : this.value"
+              "_raw": "changed | set_field: nom_autre_cout_postSemi : this.value"
             }
           ],
-          "parameter_list": {
-            "placeholder": "Nom des coûts..."
-          },
-          "_nested_name": "group_nom_autre.nom_autre_cout_postsemis",
+          "_nested_name": "group_nom_autre.nom_autre_cout_postSemi",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "@field.nom_autre_cout_postsemis",
-                "matchedExpression": "@field.nom_autre_cout_postsemis",
+                "fullExpression": "@field.nom_autre_cout_postSemi",
+                "matchedExpression": "@field.nom_autre_cout_postSemi",
                 "type": "field",
-                "fieldName": "nom_autre_cout_postsemis"
+                "fieldName": "nom_autre_cout_postSemi"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@field.nom_autre_cout_postsemis": [
+            "@field.nom_autre_cout_postSemi": [
               "value"
             ]
           }
@@ -376,76 +442,87 @@
       "_dynamicFields": {
         "condition": [
           {
-            "fullExpression": "@field.no_autre_cout_postsemis == 'oui'",
-            "matchedExpression": "@field.no_autre_cout_postsemis",
+            "fullExpression": "@field.no_autre_cout_postSemi == 'oui'",
+            "matchedExpression": "@field.no_autre_cout_postSemi",
             "type": "field",
-            "fieldName": "no_autre_cout_postsemis"
+            "fieldName": "no_autre_cout_postSemi"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@field.no_autre_cout_postsemis": [
+        "@field.no_autre_cout_postSemi": [
           "condition"
         ]
       }
     },
     {
       "type": "text",
-      "value": "*La réponse est obligatoire !*",
+      "value": "@global.lbl_oblig",
       "_translations": {
         "value": {}
       },
-      "condition": "@calc(@field.no_autre_cout_postsemis == 'oui' && (@field.nom_autre_cout_postsemis == '' || @field.nom_autre_cout_postsemis == null))",
+      "condition": "@calc(@field.no_autre_cout_postSemi == 'oui' && (@field.nom_autre_cout_postSemi == '' || @field.nom_autre_cout_postSemi == null))",
       "style_list": [
         "color: red",
         "font-size: 12px"
       ],
-      "name": "text_13",
-      "_nested_name": "text_13",
+      "name": "text_12",
+      "_nested_name": "text_12",
       "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.lbl_oblig",
+            "matchedExpression": "@global.lbl_oblig",
+            "type": "global",
+            "fieldName": "lbl_oblig"
+          }
+        ],
         "condition": [
           {
-            "fullExpression": "@calc(@field.no_autre_cout_postsemis == 'oui' && (@field.nom_autre_cout_postsemis == '' || @field.nom_autre_cout_postsemis == null))",
-            "matchedExpression": "@field.no_autre_cout_postsemis",
+            "fullExpression": "@calc(@field.no_autre_cout_postSemi == 'oui' && (@field.nom_autre_cout_postSemi == '' || @field.nom_autre_cout_postSemi == null))",
+            "matchedExpression": "@field.no_autre_cout_postSemi",
             "type": "field",
-            "fieldName": "no_autre_cout_postsemis"
+            "fieldName": "no_autre_cout_postSemi"
           },
           {
-            "fullExpression": "@calc(@field.no_autre_cout_postsemis == 'oui' && (@field.nom_autre_cout_postsemis == '' || @field.nom_autre_cout_postsemis == null))",
-            "matchedExpression": "@field.nom_autre_cout_postsemis",
+            "fullExpression": "@calc(@field.no_autre_cout_postSemi == 'oui' && (@field.nom_autre_cout_postSemi == '' || @field.nom_autre_cout_postSemi == null))",
+            "matchedExpression": "@field.nom_autre_cout_postSemi",
             "type": "field",
-            "fieldName": "nom_autre_cout_postsemis"
+            "fieldName": "nom_autre_cout_postSemi"
           },
           {
-            "fullExpression": "@calc(@field.no_autre_cout_postsemis == 'oui' && (@field.nom_autre_cout_postsemis == '' || @field.nom_autre_cout_postsemis == null))",
-            "matchedExpression": "@field.nom_autre_cout_postsemis",
+            "fullExpression": "@calc(@field.no_autre_cout_postSemi == 'oui' && (@field.nom_autre_cout_postSemi == '' || @field.nom_autre_cout_postSemi == null))",
+            "matchedExpression": "@field.nom_autre_cout_postSemi",
             "type": "field",
-            "fieldName": "nom_autre_cout_postsemis"
+            "fieldName": "nom_autre_cout_postSemi"
           },
           {
-            "fullExpression": "@calc(@field.no_autre_cout_postsemis == 'oui' && (@field.nom_autre_cout_postsemis == '' || @field.nom_autre_cout_postsemis == null))",
-            "matchedExpression": "@calc(@field.no_autre_cout_postsemis == 'oui' && (@field.nom_autre_cout_postsemis == '' || @field.nom_autre_cout_postsemis == null))",
+            "fullExpression": "@calc(@field.no_autre_cout_postSemi == 'oui' && (@field.nom_autre_cout_postSemi == '' || @field.nom_autre_cout_postSemi == null))",
+            "matchedExpression": "@calc(@field.no_autre_cout_postSemi == 'oui' && (@field.nom_autre_cout_postSemi == '' || @field.nom_autre_cout_postSemi == null))",
             "type": "calc",
-            "fieldName": "@field.no_autre_cout_postsemis == 'oui' && (@field.nom_autre_cout_postsemis == '' || @field.nom_autre_cout_postsemis == null)"
+            "fieldName": "@field.no_autre_cout_postSemi == 'oui' && (@field.nom_autre_cout_postSemi == '' || @field.nom_autre_cout_postSemi == null)"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@field.no_autre_cout_postsemis": [
+        "@global.lbl_oblig": [
+          "value"
+        ],
+        "@field.no_autre_cout_postSemi": [
           "condition"
         ],
-        "@field.nom_autre_cout_postsemis": [
+        "@field.nom_autre_cout_postSemi": [
           "condition",
           "condition"
         ],
-        "@calc(@field.no_autre_cout_postsemis == 'oui' && (@field.nom_autre_cout_postsemis == '' || @field.nom_autre_cout_postsemis == null))": [
+        "@calc(@field.no_autre_cout_postSemi == 'oui' && (@field.nom_autre_cout_postSemi == '' || @field.nom_autre_cout_postSemi == null))": [
           "condition"
         ]
       }
     },
     {
       "name": "v_montant_autre_err",
-      "value": "@calc(!/^\\d+(\\.\\d+)?$/.test(@field.autre_cout_postsemis) || Number(@field.autre_cout_postsemis) < 0)",
+      "value": "@calc(!/^\\d+(\\.\\d+)?$/.test(@field.autre_cout_postSemi) || Number(@field.autre_cout_postSemi) < 0)",
       "_translations": {
         "value": {}
       },
@@ -454,31 +531,31 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc(!/^\\d+(\\.\\d+)?$/.test(@field.autre_cout_postsemis) || Number(@field.autre_cout_postsemis) < 0)",
-            "matchedExpression": "@field.autre_cout_postsemis",
+            "fullExpression": "@calc(!/^\\d+(\\.\\d+)?$/.test(@field.autre_cout_postSemi) || Number(@field.autre_cout_postSemi) < 0)",
+            "matchedExpression": "@field.autre_cout_postSemi",
             "type": "field",
-            "fieldName": "autre_cout_postsemis"
+            "fieldName": "autre_cout_postSemi"
           },
           {
-            "fullExpression": "@calc(!/^\\d+(\\.\\d+)?$/.test(@field.autre_cout_postsemis) || Number(@field.autre_cout_postsemis) < 0)",
-            "matchedExpression": "@field.autre_cout_postsemis",
+            "fullExpression": "@calc(!/^\\d+(\\.\\d+)?$/.test(@field.autre_cout_postSemi) || Number(@field.autre_cout_postSemi) < 0)",
+            "matchedExpression": "@field.autre_cout_postSemi",
             "type": "field",
-            "fieldName": "autre_cout_postsemis"
+            "fieldName": "autre_cout_postSemi"
           },
           {
-            "fullExpression": "@calc(!/^\\d+(\\.\\d+)?$/.test(@field.autre_cout_postsemis) || Number(@field.autre_cout_postsemis) < 0)",
-            "matchedExpression": "@calc(!/^\\d+(\\.\\d+)?$/.test(@field.autre_cout_postsemis) || Number(@field.autre_cout_postsemis) < 0)",
+            "fullExpression": "@calc(!/^\\d+(\\.\\d+)?$/.test(@field.autre_cout_postSemi) || Number(@field.autre_cout_postSemi) < 0)",
+            "matchedExpression": "@calc(!/^\\d+(\\.\\d+)?$/.test(@field.autre_cout_postSemi) || Number(@field.autre_cout_postSemi) < 0)",
             "type": "calc",
-            "fieldName": "!/^\\d+(\\.\\d+)?$/.test(@field.autre_cout_postsemis) || Number(@field.autre_cout_postsemis) < 0"
+            "fieldName": "!/^\\d+(\\.\\d+)?$/.test(@field.autre_cout_postSemi) || Number(@field.autre_cout_postSemi) < 0"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@field.autre_cout_postsemis": [
+        "@field.autre_cout_postSemi": [
           "value",
           "value"
         ],
-        "@calc(!/^\\d+(\\.\\d+)?$/.test(@field.autre_cout_postsemis) || Number(@field.autre_cout_postsemis) < 0)": [
+        "@calc(!/^\\d+(\\.\\d+)?$/.test(@field.autre_cout_postSemi) || Number(@field.autre_cout_postSemi) < 0)": [
           "value"
         ]
       }
@@ -486,7 +563,7 @@
     {
       "type": "display_group",
       "name": "group_montant_autre",
-      "condition": "@field.no_autre_cout_postsemis == 'oui'",
+      "condition": "@field.no_autre_cout_postSemi == 'oui'",
       "style_list": [
         "display: block",
         "width: 100%"
@@ -494,7 +571,7 @@
       "rows": [
         {
           "type": "audio",
-          "name": "note_autre_cout_postsemis",
+          "name": "note_autre_cout_postSemi",
           "parameter_list": {
             "variant": "button_only",
             "src": "audio/postSemi/montant_autre_cout_fr.mp3",
@@ -504,35 +581,41 @@
           "style_list": [
             "float: right"
           ],
-          "_nested_name": "group_montant_autre.note_autre_cout_postsemis"
+          "_nested_name": "group_montant_autre.note_autre_cout_postSemi"
         },
         {
-          "type": "html",
-          "value": "<span style=\"color: red;\">*</span>Donnez le montant du coût pour <span style=\"color: #e67e22\"> @field.nom_autre_cout_postsemis</span>",
+          "type": "text",
+          "value": "@global.autre_cout_postSemi",
           "_translations": {
             "value": {}
           },
-          "name": "html_2",
-          "_nested_name": "group_montant_autre.html_2",
+          "style_list": [
+            "font-weight: bold",
+            "font-size: 16px",
+            "color: #333",
+            "margin-bottom: 5px"
+          ],
+          "name": "text_2",
+          "_nested_name": "group_montant_autre.text_2",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "<span style=\"color: red;\">*</span>Donnez le montant du coût pour <span style=\"color: #e67e22\"> @field.nom_autre_cout_postsemis</span>",
-                "matchedExpression": "@field.nom_autre_cout_postsemis",
-                "type": "field",
-                "fieldName": "nom_autre_cout_postsemis"
+                "fullExpression": "@global.autre_cout_postSemi",
+                "matchedExpression": "@global.autre_cout_postSemi",
+                "type": "global",
+                "fieldName": "autre_cout_postSemi"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@field.nom_autre_cout_postsemis": [
+            "@global.autre_cout_postSemi": [
               "value"
             ]
           }
         },
         {
           "type": "text",
-          "value": "S'il y a plusieurs éléments, donnez le coût agrégé de l'ensemble",
+          "value": "@global.info_cout_name",
           "_translations": {
             "value": {}
           },
@@ -542,11 +625,26 @@
             "font-size: 12px"
           ],
           "name": "text_3",
-          "_nested_name": "group_montant_autre.text_3"
+          "_nested_name": "group_montant_autre.text_3",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.info_cout_name",
+                "matchedExpression": "@global.info_cout_name",
+                "type": "global",
+                "fieldName": "info_cout_name"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.info_cout_name": [
+              "value"
+            ]
+          }
         },
         {
           "type": "text",
-          "value": "*Rappel : 1 dram = 5 FCFA*",
+          "value": "@global.hint_price",
           "_translations": {
             "value": {}
           },
@@ -555,7 +653,22 @@
             "color: gray"
           ],
           "name": "text_4",
-          "_nested_name": "group_montant_autre.text_4"
+          "_nested_name": "group_montant_autre.text_4",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.hint_price",
+                "matchedExpression": "@global.hint_price",
+                "type": "global",
+                "fieldName": "hint_price"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.hint_price": [
+              "value"
+            ]
+          }
         },
         {
           "type": "image",
@@ -572,8 +685,8 @@
         },
         {
           "type": "text_box",
-          "name": "autre_cout_postsemis",
-          "value": "@field.autre_cout_postsemis",
+          "name": "autre_cout_postSemi",
+          "value": "@field.autre_cout_postSemi",
           "_translations": {
             "value": {}
           },
@@ -582,29 +695,28 @@
               "trigger": "changed",
               "action_id": "set_field",
               "args": [
-                "autre_cout_postsemis",
+                "autre_cout_postSemi",
                 "this.value"
               ],
-              "_raw": "changed | set_field: autre_cout_postsemis: this.value"
+              "_raw": "changed | set_field: autre_cout_postSemi: this.value"
             }
           ],
           "parameter_list": {
-            "number_input": "true",
-            "placeholder": "Montant en Dram..."
+            "number_input": "true"
           },
-          "_nested_name": "group_montant_autre.autre_cout_postsemis",
+          "_nested_name": "group_montant_autre.autre_cout_postSemi",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "@field.autre_cout_postsemis",
-                "matchedExpression": "@field.autre_cout_postsemis",
+                "fullExpression": "@field.autre_cout_postSemi",
+                "matchedExpression": "@field.autre_cout_postSemi",
                 "type": "field",
-                "fieldName": "autre_cout_postsemis"
+                "fieldName": "autre_cout_postSemi"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@field.autre_cout_postsemis": [
+            "@field.autre_cout_postSemi": [
               "value"
             ]
           }
@@ -614,69 +726,80 @@
       "_dynamicFields": {
         "condition": [
           {
-            "fullExpression": "@field.no_autre_cout_postsemis == 'oui'",
-            "matchedExpression": "@field.no_autre_cout_postsemis",
+            "fullExpression": "@field.no_autre_cout_postSemi == 'oui'",
+            "matchedExpression": "@field.no_autre_cout_postSemi",
             "type": "field",
-            "fieldName": "no_autre_cout_postsemis"
+            "fieldName": "no_autre_cout_postSemi"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@field.no_autre_cout_postsemis": [
+        "@field.no_autre_cout_postSemi": [
           "condition"
         ]
       }
     },
     {
       "type": "text",
-      "value": "*Mettez une valeur positive*",
+      "value": "@global.error_positive_value",
       "_translations": {
         "value": {}
       },
-      "condition": "@calc(@field.no_autre_cout_postsemis == 'oui' && @local.v_montant_autre_err)",
+      "condition": "@calc(@field.no_autre_cout_postSemi == 'oui' && @local.v_montant_autre_err)",
       "style_list": [
         "color: red",
         "font-size: 12px"
       ],
-      "name": "text_17",
-      "_nested_name": "text_17",
+      "name": "text_16",
+      "_nested_name": "text_16",
       "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.error_positive_value",
+            "matchedExpression": "@global.error_positive_value",
+            "type": "global",
+            "fieldName": "error_positive_value"
+          }
+        ],
         "condition": [
           {
-            "fullExpression": "@calc(@field.no_autre_cout_postsemis == 'oui' && @local.v_montant_autre_err)",
-            "matchedExpression": "@field.no_autre_cout_postsemis",
+            "fullExpression": "@calc(@field.no_autre_cout_postSemi == 'oui' && @local.v_montant_autre_err)",
+            "matchedExpression": "@field.no_autre_cout_postSemi",
             "type": "field",
-            "fieldName": "no_autre_cout_postsemis"
+            "fieldName": "no_autre_cout_postSemi"
           },
           {
-            "fullExpression": "@calc(@field.no_autre_cout_postsemis == 'oui' && @local.v_montant_autre_err)",
+            "fullExpression": "@calc(@field.no_autre_cout_postSemi == 'oui' && @local.v_montant_autre_err)",
             "matchedExpression": "@local.v_montant_autre_err",
             "type": "local",
             "fieldName": "v_montant_autre_err"
           },
           {
-            "fullExpression": "@calc(@field.no_autre_cout_postsemis == 'oui' && @local.v_montant_autre_err)",
-            "matchedExpression": "@calc(@field.no_autre_cout_postsemis == 'oui' && @local.v_montant_autre_err)",
+            "fullExpression": "@calc(@field.no_autre_cout_postSemi == 'oui' && @local.v_montant_autre_err)",
+            "matchedExpression": "@calc(@field.no_autre_cout_postSemi == 'oui' && @local.v_montant_autre_err)",
             "type": "calc",
-            "fieldName": "@field.no_autre_cout_postsemis == 'oui' && @local.v_montant_autre_err"
+            "fieldName": "@field.no_autre_cout_postSemi == 'oui' && @local.v_montant_autre_err"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@field.no_autre_cout_postsemis": [
+        "@global.error_positive_value": [
+          "value"
+        ],
+        "@field.no_autre_cout_postSemi": [
           "condition"
         ],
         "@local.v_montant_autre_err": [
           "condition"
         ],
-        "@calc(@field.no_autre_cout_postsemis == 'oui' && @local.v_montant_autre_err)": [
+        "@calc(@field.no_autre_cout_postSemi == 'oui' && @local.v_montant_autre_err)": [
           "condition"
         ]
       }
     },
     {
       "name": "v_autre_cout_ok",
-      "value": "@calc(@field.no_autre_cout_postsemis == 'non' || (@field.no_autre_cout_postsemis == 'oui' && @field.nom_autre_cout_postsemis != '' && @field.nom_autre_cout_postsemis != null && !@local.v_montant_autre_err))",
+      "value": "@calc(@field.no_autre_cout_postSemi == 'non' || (@field.no_autre_cout_postSemi == 'oui' && @field.nom_autre_cout_postSemi != '' && @field.nom_autre_cout_postSemi != null && !@local.v_montant_autre_err))",
       "_translations": {
         "value": {}
       },
@@ -685,63 +808,63 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc(@field.no_autre_cout_postsemis == 'non' || (@field.no_autre_cout_postsemis == 'oui' && @field.nom_autre_cout_postsemis != '' && @field.nom_autre_cout_postsemis != null && !@local.v_montant_autre_err))",
-            "matchedExpression": "@field.no_autre_cout_postsemis",
+            "fullExpression": "@calc(@field.no_autre_cout_postSemi == 'non' || (@field.no_autre_cout_postSemi == 'oui' && @field.nom_autre_cout_postSemi != '' && @field.nom_autre_cout_postSemi != null && !@local.v_montant_autre_err))",
+            "matchedExpression": "@field.no_autre_cout_postSemi",
             "type": "field",
-            "fieldName": "no_autre_cout_postsemis"
+            "fieldName": "no_autre_cout_postSemi"
           },
           {
-            "fullExpression": "@calc(@field.no_autre_cout_postsemis == 'non' || (@field.no_autre_cout_postsemis == 'oui' && @field.nom_autre_cout_postsemis != '' && @field.nom_autre_cout_postsemis != null && !@local.v_montant_autre_err))",
-            "matchedExpression": "@field.no_autre_cout_postsemis",
+            "fullExpression": "@calc(@field.no_autre_cout_postSemi == 'non' || (@field.no_autre_cout_postSemi == 'oui' && @field.nom_autre_cout_postSemi != '' && @field.nom_autre_cout_postSemi != null && !@local.v_montant_autre_err))",
+            "matchedExpression": "@field.no_autre_cout_postSemi",
             "type": "field",
-            "fieldName": "no_autre_cout_postsemis"
+            "fieldName": "no_autre_cout_postSemi"
           },
           {
-            "fullExpression": "@calc(@field.no_autre_cout_postsemis == 'non' || (@field.no_autre_cout_postsemis == 'oui' && @field.nom_autre_cout_postsemis != '' && @field.nom_autre_cout_postsemis != null && !@local.v_montant_autre_err))",
-            "matchedExpression": "@field.nom_autre_cout_postsemis",
+            "fullExpression": "@calc(@field.no_autre_cout_postSemi == 'non' || (@field.no_autre_cout_postSemi == 'oui' && @field.nom_autre_cout_postSemi != '' && @field.nom_autre_cout_postSemi != null && !@local.v_montant_autre_err))",
+            "matchedExpression": "@field.nom_autre_cout_postSemi",
             "type": "field",
-            "fieldName": "nom_autre_cout_postsemis"
+            "fieldName": "nom_autre_cout_postSemi"
           },
           {
-            "fullExpression": "@calc(@field.no_autre_cout_postsemis == 'non' || (@field.no_autre_cout_postsemis == 'oui' && @field.nom_autre_cout_postsemis != '' && @field.nom_autre_cout_postsemis != null && !@local.v_montant_autre_err))",
-            "matchedExpression": "@field.nom_autre_cout_postsemis",
+            "fullExpression": "@calc(@field.no_autre_cout_postSemi == 'non' || (@field.no_autre_cout_postSemi == 'oui' && @field.nom_autre_cout_postSemi != '' && @field.nom_autre_cout_postSemi != null && !@local.v_montant_autre_err))",
+            "matchedExpression": "@field.nom_autre_cout_postSemi",
             "type": "field",
-            "fieldName": "nom_autre_cout_postsemis"
+            "fieldName": "nom_autre_cout_postSemi"
           },
           {
-            "fullExpression": "@calc(@field.no_autre_cout_postsemis == 'non' || (@field.no_autre_cout_postsemis == 'oui' && @field.nom_autre_cout_postsemis != '' && @field.nom_autre_cout_postsemis != null && !@local.v_montant_autre_err))",
+            "fullExpression": "@calc(@field.no_autre_cout_postSemi == 'non' || (@field.no_autre_cout_postSemi == 'oui' && @field.nom_autre_cout_postSemi != '' && @field.nom_autre_cout_postSemi != null && !@local.v_montant_autre_err))",
             "matchedExpression": "!@local.v_montant_autre_err",
             "type": "local",
             "fieldName": "v_montant_autre_err"
           },
           {
-            "fullExpression": "@calc(@field.no_autre_cout_postsemis == 'non' || (@field.no_autre_cout_postsemis == 'oui' && @field.nom_autre_cout_postsemis != '' && @field.nom_autre_cout_postsemis != null && !@local.v_montant_autre_err))",
-            "matchedExpression": "@calc(@field.no_autre_cout_postsemis == 'non' || (@field.no_autre_cout_postsemis == 'oui' && @field.nom_autre_cout_postsemis != '' && @field.nom_autre_cout_postsemis != null && !@local.v_montant_autre_err))",
+            "fullExpression": "@calc(@field.no_autre_cout_postSemi == 'non' || (@field.no_autre_cout_postSemi == 'oui' && @field.nom_autre_cout_postSemi != '' && @field.nom_autre_cout_postSemi != null && !@local.v_montant_autre_err))",
+            "matchedExpression": "@calc(@field.no_autre_cout_postSemi == 'non' || (@field.no_autre_cout_postSemi == 'oui' && @field.nom_autre_cout_postSemi != '' && @field.nom_autre_cout_postSemi != null && !@local.v_montant_autre_err))",
             "type": "calc",
-            "fieldName": "@field.no_autre_cout_postsemis == 'non' || (@field.no_autre_cout_postsemis == 'oui' && @field.nom_autre_cout_postsemis != '' && @field.nom_autre_cout_postsemis != null && !@local.v_montant_autre_err)"
+            "fieldName": "@field.no_autre_cout_postSemi == 'non' || (@field.no_autre_cout_postSemi == 'oui' && @field.nom_autre_cout_postSemi != '' && @field.nom_autre_cout_postSemi != null && !@local.v_montant_autre_err)"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@field.no_autre_cout_postsemis": [
+        "@field.no_autre_cout_postSemi": [
           "value",
           "value"
         ],
-        "@field.nom_autre_cout_postsemis": [
+        "@field.nom_autre_cout_postSemi": [
           "value",
           "value"
         ],
         "!@local.v_montant_autre_err": [
           "value"
         ],
-        "@calc(@field.no_autre_cout_postsemis == 'non' || (@field.no_autre_cout_postsemis == 'oui' && @field.nom_autre_cout_postsemis != '' && @field.nom_autre_cout_postsemis != null && !@local.v_montant_autre_err))": [
+        "@calc(@field.no_autre_cout_postSemi == 'non' || (@field.no_autre_cout_postSemi == 'oui' && @field.nom_autre_cout_postSemi != '' && @field.nom_autre_cout_postSemi != null && !@local.v_montant_autre_err))": [
           "value"
         ]
       }
     },
     {
       "name": "v_valeur_autre_cout",
-      "value": "@calc(@field.no_autre_cout_postsemis == 'oui' ? Number(@field.autre_cout_postsemis) : 0)",
+      "value": "@calc(@field.no_autre_cout_postSemi == 'oui' ? Number(@field.autre_cout_postSemi) : 0)",
       "_translations": {
         "value": {}
       },
@@ -750,33 +873,33 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@calc(@field.no_autre_cout_postsemis == 'oui' ? Number(@field.autre_cout_postsemis) : 0)",
-            "matchedExpression": "@field.no_autre_cout_postsemis",
+            "fullExpression": "@calc(@field.no_autre_cout_postSemi == 'oui' ? Number(@field.autre_cout_postSemi) : 0)",
+            "matchedExpression": "@field.no_autre_cout_postSemi",
             "type": "field",
-            "fieldName": "no_autre_cout_postsemis"
+            "fieldName": "no_autre_cout_postSemi"
           },
           {
-            "fullExpression": "@calc(@field.no_autre_cout_postsemis == 'oui' ? Number(@field.autre_cout_postsemis) : 0)",
-            "matchedExpression": "@field.autre_cout_postsemis",
+            "fullExpression": "@calc(@field.no_autre_cout_postSemi == 'oui' ? Number(@field.autre_cout_postSemi) : 0)",
+            "matchedExpression": "@field.autre_cout_postSemi",
             "type": "field",
-            "fieldName": "autre_cout_postsemis"
+            "fieldName": "autre_cout_postSemi"
           },
           {
-            "fullExpression": "@calc(@field.no_autre_cout_postsemis == 'oui' ? Number(@field.autre_cout_postsemis) : 0)",
-            "matchedExpression": "@calc(@field.no_autre_cout_postsemis == 'oui' ? Number(@field.autre_cout_postsemis) : 0)",
+            "fullExpression": "@calc(@field.no_autre_cout_postSemi == 'oui' ? Number(@field.autre_cout_postSemi) : 0)",
+            "matchedExpression": "@calc(@field.no_autre_cout_postSemi == 'oui' ? Number(@field.autre_cout_postSemi) : 0)",
             "type": "calc",
-            "fieldName": "@field.no_autre_cout_postsemis == 'oui' ? Number(@field.autre_cout_postsemis) : 0"
+            "fieldName": "@field.no_autre_cout_postSemi == 'oui' ? Number(@field.autre_cout_postSemi) : 0"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@field.no_autre_cout_postsemis": [
+        "@field.no_autre_cout_postSemi": [
           "value"
         ],
-        "@field.autre_cout_postsemis": [
+        "@field.autre_cout_postSemi": [
           "value"
         ],
-        "@calc(@field.no_autre_cout_postsemis == 'oui' ? Number(@field.autre_cout_postsemis) : 0)": [
+        "@calc(@field.no_autre_cout_postSemi == 'oui' ? Number(@field.autre_cout_postSemi) : 0)": [
           "value"
         ]
       }

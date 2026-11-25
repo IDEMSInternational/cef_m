@@ -5,36 +5,51 @@
   "rows": [
     {
       "type": "title",
-      "value": "MONTANT PREVISIONNEL DE L'EDUCATION DES ENFANTS",
+      "value": "@global.montant_previsionnel_note",
       "_translations": {
         "value": {}
       },
       "name": "title_2",
-      "_nested_name": "title_2"
+      "_nested_name": "title_2",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.montant_previsionnel_note",
+            "matchedExpression": "@global.montant_previsionnel_note",
+            "type": "global",
+            "fieldName": "montant_previsionnel_note"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@global.montant_previsionnel_note": [
+          "value"
+        ]
+      }
     },
     {
       "type": "display_group",
       "rows": [
         {
-          "type": "text",
-          "value": "**Frais totaux annuels de(s) enfants du @fields.select_niveau_scolaire**",
+          "type": "subtitle",
+          "value": "@global.frais_totaux_annuel_hint",
           "_translations": {
             "value": {}
           },
-          "name": "text_1",
-          "_nested_name": "display_group_3.text_1",
+          "name": "subtitle_1",
+          "_nested_name": "display_group_3.subtitle_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "**Frais totaux annuels de(s) enfants du @fields.select_niveau_scolaire**",
-                "matchedExpression": "@fields.select_niveau_scolaire",
-                "type": "fields",
-                "fieldName": "select_niveau_scolaire"
+                "fullExpression": "@global.frais_totaux_annuel_hint",
+                "matchedExpression": "@global.frais_totaux_annuel_hint",
+                "type": "global",
+                "fieldName": "frais_totaux_annuel_hint"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@fields.select_niveau_scolaire": [
+            "@global.frais_totaux_annuel_hint": [
               "value"
             ]
           }
@@ -117,6 +132,39 @@
       }
     },
     {
+      "name": "frais_education_annuel_cfa",
+      "value": "@calc(Number(@local.frais_education_annuel || 0) * 5)",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "frais_education_annuel_cfa",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@calc(Number(@local.frais_education_annuel || 0) * 5)",
+            "matchedExpression": "@local.frais_education_annuel",
+            "type": "local",
+            "fieldName": "frais_education_annuel"
+          },
+          {
+            "fullExpression": "@calc(Number(@local.frais_education_annuel || 0) * 5)",
+            "matchedExpression": "@calc(Number(@local.frais_education_annuel || 0) * 5)",
+            "type": "calc",
+            "fieldName": "Number(@local.frais_education_annuel || 0) * 5"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@local.frais_education_annuel": [
+          "value"
+        ],
+        "@calc(Number(@local.frais_education_annuel || 0) * 5)": [
+          "value"
+        ]
+      }
+    },
+    {
       "type": "display_group",
       "rows": [
         {
@@ -132,7 +180,7 @@
             "flex-shrink:0"
           ],
           "name": "image_1",
-          "_nested_name": "display_group_6.image_1"
+          "_nested_name": "display_group_7.image_1"
         },
         {
           "type": "text",
@@ -145,7 +193,7 @@
             "color: gray",
             "font-size: 16px"
           ],
-          "_nested_name": "display_group_6.hint_price",
+          "_nested_name": "display_group_7.hint_price",
           "_dynamicFields": {
             "value": [
               {
@@ -163,32 +211,107 @@
           }
         }
       ],
-      "name": "display_group_6",
-      "_nested_name": "display_group_6"
+      "name": "display_group_7",
+      "_nested_name": "display_group_7"
     },
     {
-      "type": "html",
-      "value": "<div style=\"background-color: #C8E6C9; padding: 15px; border: 3px solid #2E7D32; border-radius: 12px; box-shadow: 0px 4px 10px rgba(46, 125, 50, 0.2); text-align: center; margin: 10px 0;\">\n  <span style=\"color: #1B5E20; font-weight: 800; font-size: 22px; display: block;\">\n    Frais totaux annuels sont : @local.frais_education_annuel drm\n  </span>\n</div>",
-      "_translations": {
-        "value": {}
+      "type": "display_group",
+      "parameter_list": {
+        "style": "column"
       },
-      "name": "html_8",
-      "_nested_name": "html_8",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "<div style=\"background-color: #C8E6C9; padding: 15px; border: 3px solid #2E7D32; border-radius: 12px; box-shadow: 0px 4px 10px rgba(46, 125, 50, 0.2); text-align: center; margin: 10px 0;\">\n  <span style=\"color: #1B5E20; font-weight: 800; font-size: 22px; display: block;\">\n    Frais totaux annuels sont : @local.frais_education_annuel drm\n  </span>\n</div>",
-            "matchedExpression": "@local.frais_education_annuel",
-            "type": "local",
-            "fieldName": "frais_education_annuel"
+      "style_list": [
+        "background-color: #C8E6C9",
+        "border: 3px solid #2E7D32",
+        "border-radius: 12px",
+        "text-align: center"
+      ],
+      "rows": [
+        {
+          "type": "text",
+          "value": "@global.frais_totaux_niveau_enfants",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "font-size: 16px",
+            "color: #6D4C41"
+          ],
+          "name": "text_1",
+          "_nested_name": "display_group_9.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.frais_totaux_niveau_enfants",
+                "matchedExpression": "@global.frais_totaux_niveau_enfants",
+                "type": "global",
+                "fieldName": "frais_totaux_niveau_enfants"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.frais_totaux_niveau_enfants": [
+              "value"
+            ]
           }
-        ]
-      },
-      "_dynamicDependencies": {
-        "@local.frais_education_annuel": [
-          "value"
-        ]
-      }
+        },
+        {
+          "type": "text",
+          "value": "@local.frais_education_annuel drm",
+          "_translations": {
+            "value": {}
+          },
+          "style_list": [
+            "background: #E8F5E9",
+            "border-radius: 10px",
+            "color: #2E7D32",
+            "font-weight: bold",
+            "font-size: 20px"
+          ],
+          "name": "text_2",
+          "_nested_name": "display_group_9.text_2",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@local.frais_education_annuel drm",
+                "matchedExpression": "@local.frais_education_annuel",
+                "type": "local",
+                "fieldName": "frais_education_annuel"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.frais_education_annuel": [
+              "value"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "value": "**@local.frais_education_annuel_cfa FCFA**",
+          "_translations": {
+            "value": {}
+          },
+          "name": "text_3",
+          "_nested_name": "display_group_9.text_3",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "**@local.frais_education_annuel_cfa FCFA**",
+                "matchedExpression": "@local.frais_education_annuel_cfa",
+                "type": "local",
+                "fieldName": "frais_education_annuel_cfa"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@local.frais_education_annuel_cfa": [
+              "value"
+            ]
+          }
+        }
+      ],
+      "name": "display_group_9",
+      "_nested_name": "display_group_9"
     },
     {
       "type": "display_group",
@@ -217,7 +340,7 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "display_group_9.page_8_btn_back"
+          "_nested_name": "display_group_11.page_8_btn_back"
         },
         {
           "type": "button",
@@ -248,7 +371,7 @@
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "display_group_9.page8_button_continue",
+          "_nested_name": "display_group_11.page8_button_continue",
           "_dynamicFields": {
             "value": [
               {
@@ -292,8 +415,8 @@
           }
         }
       ],
-      "name": "display_group_9",
-      "_nested_name": "display_group_9"
+      "name": "display_group_11",
+      "_nested_name": "display_group_11"
     }
   ],
   "_source": {

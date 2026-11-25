@@ -5,7 +5,7 @@
   "rows": [
     {
       "type": "title",
-      "value": "@global.activite_primaire",
+      "value": "@global.localisation_upa",
       "_translations": {
         "value": {}
       },
@@ -14,15 +14,39 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@global.activite_primaire",
-            "matchedExpression": "@global.activite_primaire",
+            "fullExpression": "@global.localisation_upa",
+            "matchedExpression": "@global.localisation_upa",
             "type": "global",
-            "fieldName": "activite_primaire"
+            "fieldName": "localisation_upa"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@global.activite_primaire": [
+        "@global.localisation_upa": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "attempt_submit",
+      "value": "@fields.attempt_submit",
+      "_translations": {
+        "value": {}
+      },
+      "type": "set_variable",
+      "_nested_name": "attempt_submit",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@fields.attempt_submit",
+            "matchedExpression": "@fields.attempt_submit",
+            "type": "fields",
+            "fieldName": "attempt_submit"
+          }
+        ]
+      },
+      "_dynamicDependencies": {
+        "@fields.attempt_submit": [
           "value"
         ]
       }
@@ -32,24 +56,24 @@
       "rows": [
         {
           "type": "subtitle",
-          "value": "@global.activite_primaire_label",
+          "value": "@global.geo_localisation",
           "_translations": {
             "value": {}
           },
           "name": "subtitle_1",
-          "_nested_name": "display_group_3.subtitle_1",
+          "_nested_name": "display_group_4.subtitle_1",
           "_dynamicFields": {
             "value": [
               {
-                "fullExpression": "@global.activite_primaire_label",
-                "matchedExpression": "@global.activite_primaire_label",
+                "fullExpression": "@global.geo_localisation",
+                "matchedExpression": "@global.geo_localisation",
                 "type": "global",
-                "fieldName": "activite_primaire_label"
+                "fieldName": "geo_localisation"
               }
             ]
           },
           "_dynamicDependencies": {
-            "@global.activite_primaire_label": [
+            "@global.geo_localisation": [
               "value"
             ]
           }
@@ -59,256 +83,95 @@
           "name": "audio_5_1",
           "parameter_list": {
             "variant": "button_only",
-            "src": "audio/Enrolement/act_prim_fr.mp3",
+            "src": "audio/Enrolement/gps_upa_fr.mp3",
             "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
           },
-          "exclude_from_translation": true,
           "style_list": [
-            "float: right"
+            "float : right"
           ],
-          "_nested_name": "display_group_3.audio_5_1"
+          "_nested_name": "display_group_4.audio_5_1"
         }
       ],
-      "name": "display_group_3",
-      "_nested_name": "display_group_3"
+      "name": "display_group_4",
+      "_nested_name": "display_group_4"
     },
     {
-      "type": "radio_button_grid",
-      "name": "grid_1",
-      "value": "@field.activite",
+      "type": "text",
+      "value": "@global.geo_localisation_hint",
       "_translations": {
         "value": {}
       },
-      "action_list": [
-        {
-          "trigger": "changed",
-          "action_id": "set_field",
-          "args": [
-            "activite",
-            "this.value"
-          ],
-          "_raw": "changed |set_field: activite: this.value"
-        }
+      "style_list": [
+        "@global.hint_style"
       ],
-      "parameter_list": {
-        "answer_list": "@data.activite",
-        "variant": "flex",
-        "style": "secondary",
-        "item_width": "90px",
-        "grid_gap": "8px"
-      },
-      "_nested_name": "grid_1",
+      "name": "text_6",
+      "_nested_name": "text_6",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@field.activite",
-            "matchedExpression": "@field.activite",
-            "type": "field",
-            "fieldName": "activite"
+            "fullExpression": "@global.geo_localisation_hint",
+            "matchedExpression": "@global.geo_localisation_hint",
+            "type": "global",
+            "fieldName": "geo_localisation_hint"
           }
         ],
-        "parameter_list": {
-          "answer_list": [
+        "style_list": {
+          "0": [
             {
-              "fullExpression": "@data.activite",
-              "matchedExpression": "@data.activite",
-              "type": "data",
-              "fieldName": "activite"
+              "fullExpression": "@global.hint_style",
+              "matchedExpression": "@global.hint_style",
+              "type": "global",
+              "fieldName": "hint_style"
             }
           ]
         }
       },
       "_dynamicDependencies": {
-        "@field.activite": [
+        "@global.geo_localisation_hint": [
           "value"
         ],
-        "@data.activite": [
-          "parameter_list.answer_list"
+        "@global.hint_style": [
+          "style_list.0"
         ]
       }
     },
     {
-      "name": "v_pri",
-      "value": "@calc(!!@field.activite)",
+      "type": "image",
+      "value": "images/gps_local.jpg",
       "_translations": {
         "value": {}
       },
-      "type": "set_variable",
-      "_nested_name": "v_pri",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc(!!@field.activite)",
-            "matchedExpression": "!@field.activite",
-            "type": "field",
-            "fieldName": "activite"
-          },
-          {
-            "fullExpression": "@calc(!!@field.activite)",
-            "matchedExpression": "@calc(!!@field.activite)",
-            "type": "calc",
-            "fieldName": "!!@field.activite"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "!@field.activite": [
-          "value"
-        ],
-        "@calc(!!@field.activite)": [
-          "value"
-        ]
-      }
-    },
-    {
-      "name": "v_autre_pri",
-      "value": "@calc(!!@field.autre_activite_primaire)",
-      "_translations": {
-        "value": {}
-      },
-      "type": "set_variable",
-      "_nested_name": "v_autre_pri",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@calc(!!@field.autre_activite_primaire)",
-            "matchedExpression": "!@field.autre_activite_primaire",
-            "type": "field",
-            "fieldName": "autre_activite_primaire"
-          },
-          {
-            "fullExpression": "@calc(!!@field.autre_activite_primaire)",
-            "matchedExpression": "@calc(!!@field.autre_activite_primaire)",
-            "type": "calc",
-            "fieldName": "!!@field.autre_activite_primaire"
-          }
-        ]
-      },
-      "_dynamicDependencies": {
-        "!@field.autre_activite_primaire": [
-          "value"
-        ],
-        "@calc(!!@field.autre_activite_primaire)": [
-          "value"
-        ]
-      }
-    },
-    {
-      "type": "display_group",
-      "parameter_list": {
-        "style": "column"
-      },
-      "condition": "@field.activite == 'autre1'",
-      "rows": [
-        {
-          "type": "display_group",
-          "rows": [
-            {
-              "type": "subtitle",
-              "value": "@global.autre_activite_primaire",
-              "_translations": {
-                "value": {}
-              },
-              "name": "subtitle_1",
-              "_nested_name": "display_group_7.display_group_1.subtitle_1",
-              "_dynamicFields": {
-                "value": [
-                  {
-                    "fullExpression": "@global.autre_activite_primaire",
-                    "matchedExpression": "@global.autre_activite_primaire",
-                    "type": "global",
-                    "fieldName": "autre_activite_primaire"
-                  }
-                ]
-              },
-              "_dynamicDependencies": {
-                "@global.autre_activite_primaire": [
-                  "value"
-                ]
-              }
-            },
-            {
-              "type": "audio",
-              "name": "audio_5_2",
-              "parameter_list": {
-                "variant": "button_only",
-                "src": "audio/Enrolement/autre_act_prim_fr.mp3",
-                "play_icon_asset": "images/icons/audio/Speaker_Icon.svg"
-              },
-              "exclude_from_translation": true,
-              "style_list": [
-                "float: right"
-              ],
-              "_nested_name": "display_group_7.display_group_1.audio_5_2"
-            }
-          ],
-          "name": "display_group_1",
-          "_nested_name": "display_group_7.display_group_1"
-        },
-        {
-          "type": "text_box",
-          "value": "@field.autre_activite_primaire",
-          "_translations": {
-            "value": {}
-          },
-          "action_list": [
-            {
-              "trigger": "changed",
-              "action_id": "set_field",
-              "args": [
-                "autre_activite_primaire",
-                "this.value"
-              ],
-              "_raw": "changed | set_field: autre_activite_primaire: this.value"
-            }
-          ],
-          "parameter_list": {
-            "placeholder": "Précisez le nom de l'autre..."
-          },
-          "style_list": [
-            "width: 100%",
-            "margin-top: 10px"
-          ],
-          "name": "text_box_2",
-          "_nested_name": "display_group_7.text_box_2",
-          "_dynamicFields": {
-            "value": [
-              {
-                "fullExpression": "@field.autre_activite_primaire",
-                "matchedExpression": "@field.autre_activite_primaire",
-                "type": "field",
-                "fieldName": "autre_activite_primaire"
-              }
-            ]
-          },
-          "_dynamicDependencies": {
-            "@field.autre_activite_primaire": [
-              "value"
-            ]
-          }
-        }
+      "style_list": [
+        "width:100px",
+        "height:100px"
       ],
-      "name": "display_group_7",
-      "_nested_name": "display_group_7",
-      "_dynamicFields": {
-        "condition": [
-          {
-            "fullExpression": "@field.activite == 'autre1'",
-            "matchedExpression": "@field.activite",
-            "type": "field",
-            "fieldName": "activite"
-          }
-        ]
+      "name": "image_7",
+      "_nested_name": "image_7"
+    },
+    {
+      "name": "upa_geopoint",
+      "value": "gps_geolocalisation",
+      "_translations": {
+        "value": {}
       },
-      "_dynamicDependencies": {
-        "@field.activite": [
-          "condition"
-        ]
-      }
+      "type": "set_variable",
+      "_nested_name": "upa_geopoint"
+    },
+    {
+      "type": "map",
+      "name": "upa_geop",
+      "parameter_list": {
+        "data_list": "map_drawing_data",
+        "center_lon": "-3.996166",
+        "center_lat": "17.570692",
+        "zoom": "5"
+      },
+      "exclude_from_translation": "height: 400px",
+      "_nested_name": "upa_geop"
     },
     {
       "name": "completed_enabled",
-      "value": "@local.v_pri && (@field.activite != 'autre1' || @local.v_autre_pri)",
+      "value": "!!@local.upa_geopoint",
       "_translations": {
         "value": {}
       },
@@ -317,100 +180,22 @@
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@local.v_pri && (@field.activite != 'autre1' || @local.v_autre_pri)",
-            "matchedExpression": "@local.v_pri",
+            "fullExpression": "!!@local.upa_geopoint",
+            "matchedExpression": "!@local.upa_geopoint",
             "type": "local",
-            "fieldName": "v_pri"
-          },
-          {
-            "fullExpression": "@local.v_pri && (@field.activite != 'autre1' || @local.v_autre_pri)",
-            "matchedExpression": "@field.activite",
-            "type": "field",
-            "fieldName": "activite"
-          },
-          {
-            "fullExpression": "@local.v_pri && (@field.activite != 'autre1' || @local.v_autre_pri)",
-            "matchedExpression": "@local.v_autre_pri",
-            "type": "local",
-            "fieldName": "v_autre_pri"
+            "fieldName": "upa_geopoint"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@local.v_pri": [
+        "!@local.upa_geopoint": [
           "value"
-        ],
-        "@field.activite": [
-          "value"
-        ],
-        "@local.v_autre_pri": [
-          "value"
-        ]
-      }
-    },
-    {
-      "type": "text",
-      "value": "@global.reponse_obligatoire",
-      "_translations": {
-        "value": {}
-      },
-      "condition": "@fields.attempt_submit && !@local.completed_enabled",
-      "style_list": [
-        "@global.reponse_style"
-      ],
-      "name": "text_10",
-      "_nested_name": "text_10",
-      "_dynamicFields": {
-        "value": [
-          {
-            "fullExpression": "@global.reponse_obligatoire",
-            "matchedExpression": "@global.reponse_obligatoire",
-            "type": "global",
-            "fieldName": "reponse_obligatoire"
-          }
-        ],
-        "condition": [
-          {
-            "fullExpression": "@fields.attempt_submit && !@local.completed_enabled",
-            "matchedExpression": "@fields.attempt_submit",
-            "type": "fields",
-            "fieldName": "attempt_submit"
-          },
-          {
-            "fullExpression": "@fields.attempt_submit && !@local.completed_enabled",
-            "matchedExpression": "!@local.completed_enabled",
-            "type": "local",
-            "fieldName": "completed_enabled"
-          }
-        ],
-        "style_list": {
-          "0": [
-            {
-              "fullExpression": "@global.reponse_style",
-              "matchedExpression": "@global.reponse_style",
-              "type": "global",
-              "fieldName": "reponse_style"
-            }
-          ]
-        }
-      },
-      "_dynamicDependencies": {
-        "@global.reponse_obligatoire": [
-          "value"
-        ],
-        "@fields.attempt_submit": [
-          "condition"
-        ],
-        "!@local.completed_enabled": [
-          "condition"
-        ],
-        "@global.reponse_style": [
-          "style_list.0"
         ]
       }
     },
     {
       "type": "display_group",
+      "value": "",
       "parameter_list": {
         "sticky": "bottom"
       },
@@ -498,10 +283,19 @@
               "trigger": "click",
               "action_id": "set_field",
               "args": [
-                "activite_primaire",
-                "@calc(@field.autre_activite_primaire ?? @field.activite)"
+                "attempt_submit",
+                false
               ],
-              "_raw": "click | set_field: activite_primaire: @calc(@field.autre_activite_primaire ?? @field.activite)"
+              "_raw": "click | set_field: attempt_submit: false"
+            },
+            {
+              "trigger": "click",
+              "action_id": "set_field",
+              "args": [
+                "upa_geopoint",
+                "@local.upa_geop"
+              ],
+              "_raw": "click | set_field: upa_geopoint: @local.upa_geop"
             },
             {
               "trigger": "click",
@@ -531,47 +325,23 @@
               }
             ],
             "action_list": {
-              "0": {
+              "1": {
                 "args": {
                   "1": [
                     {
-                      "fullExpression": "@calc(@field.autre_activite_primaire ?? @field.activite)",
-                      "matchedExpression": "@field.autre_activite_primaire",
-                      "type": "field",
-                      "fieldName": "autre_activite_primaire"
-                    },
-                    {
-                      "fullExpression": "@calc(@field.autre_activite_primaire ?? @field.activite)",
-                      "matchedExpression": "@field.activite",
-                      "type": "field",
-                      "fieldName": "activite"
-                    },
-                    {
-                      "fullExpression": "@calc(@field.autre_activite_primaire ?? @field.activite)",
-                      "matchedExpression": "@calc(@field.autre_activite_primaire ?? @field.activite)",
-                      "type": "calc",
-                      "fieldName": "@field.autre_activite_primaire ?? @field.activite"
+                      "fullExpression": "@local.upa_geop",
+                      "matchedExpression": "@local.upa_geop",
+                      "type": "local",
+                      "fieldName": "upa_geop"
                     }
                   ]
                 },
                 "_raw": [
                   {
-                    "fullExpression": "click | set_field: activite_primaire: @calc(@field.autre_activite_primaire ?? @field.activite)",
-                    "matchedExpression": "@field.autre_activite_primaire",
-                    "type": "field",
-                    "fieldName": "autre_activite_primaire"
-                  },
-                  {
-                    "fullExpression": "click | set_field: activite_primaire: @calc(@field.autre_activite_primaire ?? @field.activite)",
-                    "matchedExpression": "@field.activite",
-                    "type": "field",
-                    "fieldName": "activite"
-                  },
-                  {
-                    "fullExpression": "click | set_field: activite_primaire: @calc(@field.autre_activite_primaire ?? @field.activite)",
-                    "matchedExpression": "@calc(@field.autre_activite_primaire ?? @field.activite)",
-                    "type": "calc",
-                    "fieldName": "@field.autre_activite_primaire ?? @field.activite"
+                    "fullExpression": "click | set_field: upa_geopoint: @local.upa_geop",
+                    "matchedExpression": "@local.upa_geop",
+                    "type": "local",
+                    "fieldName": "upa_geop"
                   }
                 ]
               }
@@ -599,17 +369,9 @@
             "@global.btn_continue": [
               "value"
             ],
-            "@field.autre_activite_primaire": [
-              "action_list.0.args.1",
-              "action_list.0._raw"
-            ],
-            "@field.activite": [
-              "action_list.0.args.1",
-              "action_list.0._raw"
-            ],
-            "@calc(@field.autre_activite_primaire ?? @field.activite)": [
-              "action_list.0.args.1",
-              "action_list.0._raw"
+            "@local.upa_geop": [
+              "action_list.1.args.1",
+              "action_list.1._raw"
             ],
             "!@local.completed_enabled": [
               "parameter_list.disabled"

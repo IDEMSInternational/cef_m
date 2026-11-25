@@ -5,122 +5,75 @@
   "rows": [
     {
       "type": "title",
-      "value": "@global.activite_secondaire"
+      "value": "@global.activite_primaire"
     },
     {
-      "type": "begin_display_group",
-      "style_list": "display: block; width: 100%"
+      "type": "begin_display_group"
+    },
+    {
+      "type": "subtitle",
+      "value": "@global.activite_primaire_label"
     },
     {
       "type": "audio",
       "name": "audio_6_1",
-      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/act_secon_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/act_prim_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;\n",
       "exclude_from_translation": true,
       "style_list": "float: right;"
     },
     {
-      "type": "subtitle",
-      "value": "@global.activite_secondaire_label"
+      "type": "end_display_group\n"
     },
     {
-      "type": "end_display_group"
+      "type": "radio_button_grid",
+      "name": "grid_1",
+      "value": "@field.activite",
+      "action_list": "changed |set_field: activite: this.value; ",
+      "parameter_list": "answer_list: @data.activite;\nvariant: flex;\nstyle: secondary;\nitem_width: 90px;\ngrid_gap: 8px;"
     },
     {
-      "type": "begin_data_items",
-      "value": "@data.activite",
-      "parameter_list": "filter: @item.name != @field.activite || @item.name == 'autre1';",
-      "style_list": "display: flex; flex-wrap: wrap; justify-content: space-between; width: 100%; gap: 10px;"
+      "name": "v_pri",
+      "value": "@calc(!!@field.activite)"
     },
     {
       "type": "begin_display_group",
-      "name": "pricipale",
-      "style_list": "width: 100%; display: flex; flex-direction: column; align-items: center; border: 1px solid #FFCC80; border-radius: 12px; background: white; margin-bottom: 10px; overflow: hidden;"
+      "parameter_list": "style:column",
+      "condition": "@field.activite == 'autre1'"
     },
     {
-      "type": "image",
-      "value": "@item.image",
-      "style_list": "width:100px; height:100px; "
-    },
-    {
-      "name": "v_key",
-      "value": "@calc('activite_sec_' + @item.name)"
-    },
-    {
-      "type": "simple_checkbox",
-      "name": "checkbox",
-      "value": "@field.@local.v_key",
-      "action_list": "changed | set_field:@local.v_key : @local.checkbox;\n",
-      "parameter_list": "label_text: @item.text; reverse: true; ",
-      "exclude_from_translation": true,
-      "style_list": "margin-bottom: 10px;"
-    },
-    {
-      "type": "end_display_group"
-    },
-    {
-      "type": "end_data_items"
-    },
-    {
-      "name": "activite_sec",
-      "value": "@calc([['agriculture', @fields.activite_sec_agriculture], ['elevage', @fields.activite_sec_elevage], ['commerce', @fields.activite_sec_commerce], ['maraichage', @fields.activite_sec_maraichage], ['autre1', @fields.activite_sec_autre1]].reduce((text, a) => String(a[1]) === 'true' ? (text ? text + ', ' : '') + a[0] : text, ''))"
-    },
-    {
-      "name": "v_sec",
-      "value": "@calc(!!@local.activite_sec)"
-    },
-    {
-      "name": "v_is_autre",
-      "value": "@calc(!!@field.sec_ids_autre1)"
-    },
-    {
-      "name": "v_doublon_principal",
-      "value": "@calc(!!@field.autre_activite_primaire && @field.autre_activite_secondaire == @field.autre_activite_primaire)"
-    },
-    {
-      "type": "begin_display_group                                                                                                                                                                                                                                                                        ",
-      "parameter_list": "style: column",
-      "condition": "@local.v_is_autre == true"
-    },
-    {
-      "type": "begin_display_group                                                                                                                                                                                                                                                                        "
+      "type": "begin_display_group"
     },
     {
       "type": "subtitle",
-      "value": "@global.autre_secondaire"
+      "value": "@global.autre_activite_primaire "
     },
     {
       "type": "audio",
       "name": "audio_6_2",
-      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/autre_act_secon_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
+      "parameter_list": "variant: button_only;\nsrc: audio/Enrolement/autre_act_prim_fr.mp3;\nplay_icon_asset: images/icons/audio/Speaker_Icon.svg;",
       "exclude_from_translation": true,
-      "style_list": "float:right;"
-    },
-    {
-      "type": "end_display_group\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t"
-    },
-    {
-      "type": "text_box",
-      "value": "@field.autre_activite_secondaire",
-      "action_list": "changed | set_field: autre_activite_secondaire: this.value;",
-      "parameter_list": "placeholder: Précisez l'activité...",
-      "exclude_from_translation": true,
-      "style_list": "border: none; background: transparent;margin-top: 10px;"
+      "style_list": "float: right;"
     },
     {
       "type": "end_display_group"
     },
     {
-      "type": "end_display_group\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t"
+      "type": "text_box",
+      "value": "@field.autre_activite_primaire",
+      "action_list": "changed | set_field: autre_activite_primaire: this.value;",
+      "parameter_list": "placeholder: @global.texte_placeholder;",
+      "style_list": "width: 100%; margin-top: 10px;"
     },
     {
-      "type": "text",
-      "value": "erreur_activite_second",
-      "condition": "@local.v_doublon_principal",
-      "style_list": "color: red; font-size: 12px;"
+      "name": "v_autre_pri",
+      "value": "@calc(!!@field.autre_activite_primaire)"
+    },
+    {
+      "type": "end_display_group"
     },
     {
       "name": "completed_enabled",
-      "value": "@local.v_sec"
+      "value": "@local.v_pri && (@field.activite != 'autre1' || @local.v_autre_pri)"
     },
     {
       "type": "text",
@@ -148,7 +101,7 @@
     {
       "type": "button",
       "value": "@global.btn_continue",
-      "action_list": "click | set_field: activite_sec : @local.activite_sec;\nclick | emit: completed;",
+      "action_list": "click | set_field: activite_primaire: @calc(@field.autre_activite_primaire ?? @field.activite); \nclick | emit: completed;",
       "parameter_list": "disabled: !@local.completed_enabled",
       "condition": "@local.completed_enabled",
       "style_list": "flex: 1"

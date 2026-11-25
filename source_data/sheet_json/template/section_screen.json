@@ -5,11 +5,7 @@
   "rows": [
     {
       "type": "title ",
-      "value": "Choix de la composante"
-    },
-    {
-      "type": "html",
-      "value": "<div style=\"text-align: center; margin-bottom: 20px; color: #555555; font-size: 14px;\"> Veuillez sélectionner la section sur laquelle vous souhaitez travailler : </div>"
+      "value": "@global.choix_comp"
     },
     {
       "type": "begin_display_group",
@@ -21,7 +17,7 @@
     },
     {
       "type": "begin_button",
-      "value": "PLANIFICATION ",
+      "value": "@global.step_plan",
       "action_list": "click | go_to: planification_anl",
       "parameter_list": "variant: card-portrait; image_asset: images/agri.jpg; style: full;\nimage_width: 100%;",
       "style_list": "font-size: 10px; text-align: center;"
@@ -38,7 +34,7 @@
     },
     {
       "type": "begin_button",
-      "value": "SUIVI DE CAMPAGNE",
+      "value": "@global.step_suiv",
       "action_list": "click | go_to: suivi_anl",
       "parameter_list": "variant: card-portrait; image_asset: images/cultures.jpg; style: full;\nimage_width: 100%;",
       "style_list": "font-size: 10px; text-align: center;"
@@ -55,7 +51,7 @@
     },
     {
       "type": "begin_button",
-      "value": "EVALUATION ",
+      "value": "@global.step_ev",
       "action_list": "click | go_to: auth",
       "parameter_list": "variant: card-portrait; image_asset: images/statisque _img.avif; style: full;\nimage_width: 100%;",
       "style_list": "font-size: 10px; text-align: center;"
@@ -68,11 +64,6 @@
     },
     {
       "type": "end_display_group"
-    },
-    {
-      "type": "html",
-      "value": "<span style=\"color: red; font-size: 13px; text-align: center; display: block;\">Veuillez faire un choix pour continuer !</span>\t",
-      "condition": "@fields.attempt_submit && !@fields.section_step"
     }
   ]
 }

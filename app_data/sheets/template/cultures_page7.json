@@ -181,41 +181,68 @@
       }
     },
     {
-      "type": "text",
-      "value": "**Selectionnez le(s) type(s) d'engrais mineraux à utiliser pour @fields.superficie_ha_prevue ha**",
+      "type": "title",
+      "value": "@global.type_engrais_prevu",
       "_translations": {
         "value": {}
       },
-      "name": "text_5",
-      "_nested_name": "text_5",
+      "name": "title_5",
+      "_nested_name": "title_5",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "**Selectionnez le(s) type(s) d'engrais mineraux à utiliser pour @fields.superficie_ha_prevue ha**",
-            "matchedExpression": "@fields.superficie_ha_prevue",
-            "type": "fields",
-            "fieldName": "superficie_ha_prevue"
+            "fullExpression": "@global.type_engrais_prevu",
+            "matchedExpression": "@global.type_engrais_prevu",
+            "type": "global",
+            "fieldName": "type_engrais_prevu"
           }
         ]
       },
       "_dynamicDependencies": {
-        "@fields.superficie_ha_prevue": [
+        "@global.type_engrais_prevu": [
           "value"
         ]
       }
     },
     {
       "type": "text",
-      "value": "Une ou plusieurs selections possibles",
+      "value": "@global.type_engrais_prevu_hint",
       "_translations": {
         "value": {}
       },
       "style_list": [
-        "color: gray",
-        "font-size: 16px"
+        "@global.hint_style"
       ],
       "name": "text_6",
-      "_nested_name": "text_6"
+      "_nested_name": "text_6",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.type_engrais_prevu_hint",
+            "matchedExpression": "@global.type_engrais_prevu_hint",
+            "type": "global",
+            "fieldName": "type_engrais_prevu_hint"
+          }
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.hint_style",
+              "matchedExpression": "@global.hint_style",
+              "type": "global",
+              "fieldName": "hint_style"
+            }
+          ]
+        }
+      },
+      "_dynamicDependencies": {
+        "@global.type_engrais_prevu_hint": [
+          "value"
+        ],
+        "@global.hint_style": [
+          "style_list.0"
+        ]
+      }
     },
     {
       "type": "data_items",
@@ -354,6 +381,46 @@
       "_dynamicDependencies": {
         "@data.type_engrais": [
           "value"
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "@global.type_engrais_prevu_hint2",
+      "_translations": {
+        "value": {}
+      },
+      "style_list": [
+        "@global.hint_style"
+      ],
+      "name": "text_9",
+      "_nested_name": "text_9",
+      "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.type_engrais_prevu_hint2",
+            "matchedExpression": "@global.type_engrais_prevu_hint2",
+            "type": "global",
+            "fieldName": "type_engrais_prevu_hint2"
+          }
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.hint_style",
+              "matchedExpression": "@global.hint_style",
+              "type": "global",
+              "fieldName": "hint_style"
+            }
+          ]
+        }
+      },
+      "_dynamicDependencies": {
+        "@global.type_engrais_prevu_hint2": [
+          "value"
+        ],
+        "@global.hint_style": [
+          "style_list.0"
         ]
       }
     },
@@ -533,26 +600,23 @@
     },
     {
       "type": "text",
-      "value": "@global.error_required_answer",
+      "value": "@global.reponse_obligatoire",
       "_translations": {
         "value": {}
       },
       "condition": "@fields.attempt_submit && !@local.valid_type_engrais",
       "style_list": [
-        "color: red",
-        "font-size: 16px",
-        "background: #fff5f5",
-        "padding: 5px"
+        "@global.reponse_style"
       ],
-      "name": "text_11",
-      "_nested_name": "text_11",
+      "name": "text_12",
+      "_nested_name": "text_12",
       "_dynamicFields": {
         "value": [
           {
-            "fullExpression": "@global.error_required_answer",
-            "matchedExpression": "@global.error_required_answer",
+            "fullExpression": "@global.reponse_obligatoire",
+            "matchedExpression": "@global.reponse_obligatoire",
             "type": "global",
-            "fieldName": "error_required_answer"
+            "fieldName": "reponse_obligatoire"
           }
         ],
         "condition": [
@@ -568,10 +632,20 @@
             "type": "local",
             "fieldName": "valid_type_engrais"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
-        "@global.error_required_answer": [
+        "@global.reponse_obligatoire": [
           "value"
         ],
         "@fields.attempt_submit": [
@@ -579,25 +653,33 @@
         ],
         "!@local.valid_type_engrais": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
     {
       "type": "text",
-      "value": "*Aucun apport d’engrais* ne peut pas être sélectionné avec d’autres options d’engrais.",
+      "value": "@global.type_engrais_error",
       "_translations": {
         "value": {}
       },
       "condition": "@fields.attempt_submit && @local.valid_select_engrais_aucun",
       "style_list": [
-        "color: red",
-        "font-size: 16px",
-        "background: #fff5f5",
-        "padding: 5px"
+        "@global.reponse_style"
       ],
-      "name": "text_12",
-      "_nested_name": "text_12",
+      "name": "text_13",
+      "_nested_name": "text_13",
       "_dynamicFields": {
+        "value": [
+          {
+            "fullExpression": "@global.type_engrais_error",
+            "matchedExpression": "@global.type_engrais_error",
+            "type": "global",
+            "fieldName": "type_engrais_error"
+          }
+        ],
         "condition": [
           {
             "fullExpression": "@fields.attempt_submit && @local.valid_select_engrais_aucun",
@@ -611,14 +693,30 @@
             "type": "local",
             "fieldName": "valid_select_engrais_aucun"
           }
-        ]
+        ],
+        "style_list": {
+          "0": [
+            {
+              "fullExpression": "@global.reponse_style",
+              "matchedExpression": "@global.reponse_style",
+              "type": "global",
+              "fieldName": "reponse_style"
+            }
+          ]
+        }
       },
       "_dynamicDependencies": {
+        "@global.type_engrais_error": [
+          "value"
+        ],
         "@fields.attempt_submit": [
           "condition"
         ],
         "@local.valid_select_engrais_aucun": [
           "condition"
+        ],
+        "@global.reponse_style": [
+          "style_list.0"
         ]
       }
     },
@@ -631,12 +729,27 @@
       "rows": [
         {
           "type": "text",
-          "value": "**Donnez le nom \"autre engrais mineral**",
+          "value": "@global.engrais_mineral",
           "_translations": {
             "value": {}
           },
           "name": "text_1",
-          "_nested_name": "display_group_13.text_1"
+          "_nested_name": "display_group_14.text_1",
+          "_dynamicFields": {
+            "value": [
+              {
+                "fullExpression": "@global.engrais_mineral",
+                "matchedExpression": "@global.engrais_mineral",
+                "type": "global",
+                "fieldName": "engrais_mineral"
+              }
+            ]
+          },
+          "_dynamicDependencies": {
+            "@global.engrais_mineral": [
+              "value"
+            ]
+          }
         },
         {
           "type": "image",
@@ -649,7 +762,7 @@
             "object-fit: contain"
           ],
           "name": "image_2",
-          "_nested_name": "display_group_13.image_2"
+          "_nested_name": "display_group_14.image_2"
         },
         {
           "type": "text_box",
@@ -672,7 +785,7 @@
           "parameter_list": {
             "number_input": "true"
           },
-          "_nested_name": "display_group_13.precision_autre_engrais",
+          "_nested_name": "display_group_14.precision_autre_engrais",
           "_dynamicFields": {
             "value": [
               {
@@ -690,8 +803,8 @@
           }
         }
       ],
-      "name": "display_group_13",
-      "_nested_name": "display_group_13",
+      "name": "display_group_14",
+      "_nested_name": "display_group_14",
       "_dynamicFields": {
         "condition": [
           {
@@ -870,7 +983,7 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
-          "_nested_name": "display_group_17.page_7_btn_back"
+          "_nested_name": "display_group_18.page_7_btn_back"
         },
         {
           "type": "button",
@@ -894,7 +1007,7 @@
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "display_group_17.page_7_btn_attempt_submit",
+          "_nested_name": "display_group_18.page_7_btn_attempt_submit",
           "_dynamicFields": {
             "value": [
               {
@@ -973,7 +1086,7 @@
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "display_group_17.page_7_btn_continue",
+          "_nested_name": "display_group_18.page_7_btn_continue",
           "_dynamicFields": {
             "action_list": {
               "0": {
@@ -1088,13 +1201,13 @@
           }
         }
       ],
-      "name": "display_group_17",
-      "_nested_name": "display_group_17"
+      "name": "display_group_18",
+      "_nested_name": "display_group_18"
     }
   ],
   "_source": {
     "name": "cef_m sheets",
-    "path": "template/Planification/Cultures_form_sheets.xlsx",
+    "path": "template/Planification/cultures_form_sheets.xlsx",
     "url": "https://docs.google.com/spreadsheets/d/1BAP12cPkFZaHtm0Xozys0kLOqnVOi1h2UUBMoZbmKQI"
   }
 }
