@@ -21,7 +21,7 @@
 | radio_list | 27 |
 | round_button | 149 |
 | set_field | 35 |
-| set_variable | 745 |
+| set_variable | 769 |
 | simple_checkbox | 10 |
 | square_button | 2 |
 | subtitle | 178 |
@@ -56,8 +56,8 @@
 
 | assets | KB | MB |
 | --- | --- | --- |
-| total | 50983 KB | 51 MB |
-| unused | 181287 KB | 181.3 MB |
+| total | 50583 KB | 50.6 MB |
+| unused | 181764 KB | 181.8 MB |
 </details>
 
 <details open>
@@ -252,9 +252,13 @@ Assets that appear in app-data but do not have references within sheets
 | audio/Superficie/Alimentation humaine/total_besoin_bm.mp3 | 50.6 |
 | audio/Superficie/Alimentation humaine/total_besoin_fr.mp3 | 38.7 |
 | audio/Superficie/Recap_sup_est_bm(1).mp3 | 112.7 |
+| audio/Superficie/Recap_sup_est_bm.mp3 | 112.7 |
 | audio/Superficie/Recap_sup_est_fr(1).mp3 | 112.7 |
+| audio/Superficie/Recap_sup_est_fr.mp3 | 112.7 |
 | audio/Superficie/Recap_sup_mes_bm(1).mp3 | 125.4 |
+| audio/Superficie/Recap_sup_mes_bm.mp3 | 125.4 |
 | audio/Superficie/Recap_sup_mes_fr(1).mp3 | 132.2 |
+| audio/Superficie/Recap_sup_mes_fr.mp3 | 132.2 |
 | audio/Superficie/Type_variete_bm.mp3 | 46.3 |
 | audio/Superficie/Type_variete_fr.mp3 | 39.5 |
 | audio/Superficie/annee_saison_bm.mp3 | 20.6 |
@@ -651,7 +655,7 @@ Assets that appear in app-data but do not have references within sheets
 | images/cycle3_.jpg | 59.7 |
 | images/cycle4_.jpg | 60.4 |
 | images/cycle5_.jpg | 62.9 |
-| images/desherbage.jpg | 4 |
+| images/desherbage.jpg | 16.8 |
 | images/embouche_bovine.jpg | 18.4 |
 | images/embouche_ovine.jpg | 18.1 |
 | images/farming.png | 16.3 |
@@ -666,7 +670,7 @@ Assets that appear in app-data but do not have references within sheets
 | images/info_icon.jpg | 8.3 |
 | images/insecticide.jpg | 3 |
 | images/istockphoto.jpg | 14.7 |
-| images/labour.jpg | 23.1 |
+| images/labour.jpg | 4.5 |
 | images/logout.png | 14.8 |
 | images/npk.jpg | 4.3 |
 | images/patate.jpg | 4.1 |
@@ -1255,7 +1259,7 @@ Assets that are used within sheets and also can be found in the synced asset dat
 | images/besoin_upa.jpg | 13.5 | 1 |
 | images/besoins  planifiés.png | 1986.7 | 2 |
 | images/bienvenue.png | 1173.8 | 1 |
-| images/bissap.jpg | 5.3 | 6 |
+| images/bissap.jpg | 17.3 | 6 |
 | images/boeuf_labour.jpg | 14.2 | 1 |
 | images/boeufs_labour.jpg | 16.7 | 1 |
 | images/botte.jpg | 5.2 | 1 |
@@ -1298,8 +1302,8 @@ Assets that are used within sheets and also can be found in the synced asset dat
 | images/fertilite.jpg | 72.1 | 1 |
 | images/first_asset.png | 3.5 | 2 |
 | images/flacon.jpg | 4 | 3 |
-| images/fonio.jpg | 6.1 | 6 |
-| images/fourrage.jpg | 22 | 6 |
+| images/fonio.jpg | 18 | 6 |
+| images/fourrage.jpg | 3.6 | 6 |
 | images/fruits.jpeg | 446 | 1 |
 | images/fumure.jpg | 6.6 | 1 |
 | images/genisse.jpg | 17.8 | 1 |
@@ -1307,10 +1311,10 @@ Assets that are used within sheets and also can be found in the synced asset dat
 | images/grenier.jpg | 250.8 | 1 |
 | images/groupe_a.jpg | 87.4 | 2 |
 | images/groupe_b.jpg | 288.2 | 2 |
-| images/groupe_c.jpg | 477 | 2 |
+| images/groupe_c.jpg | 82.5 | 2 |
 | images/groupe_d.jpg | 68.3 | 2 |
 | images/groupe_m.jpg | 361.7 | 1 |
-| images/herbicide_cfa.jpg | 13.4 | 2 |
+| images/herbicide_cfa.jpg | 13.1 | 2 |
 | images/herse.jpg | 17.4 | 1 |
 | images/homme_adult.jpg | 19 | 1 |
 | images/icons/audio/Speaker_Icon.svg | 0.5 | 348 |
@@ -1346,7 +1350,7 @@ Assets that are used within sheets and also can be found in the synced asset dat
 | images/op_coton.jpg | 29.1 | 4 |
 | images/oui.jpg | 4.9 | 1 |
 | images/pas_observ.jpg | 13.7 | 1 |
-| images/patate_douce.jpg | 14.8 | 5 |
+| images/patate_douce.jpg | 4.1 | 5 |
 | images/pente.jpg | 3.1 | 1 |
 | images/photo.jpg | 4.6 | 1 |
 | images/pigeon.jpg | 17.1 | 1 |

@@ -33,6 +33,7 @@
       "_translations": {
         "value": {}
       },
+      "exclude_from_translation": true,
       "name": "title_3",
       "_nested_name": "title_3",
       "_dynamicFields": {
@@ -53,6 +54,7 @@
     },
     {
       "type": "display_group",
+      "exclude_from_translation": true,
       "rows": [
         {
           "type": "subtitle",
@@ -116,6 +118,7 @@
         "min": "2023",
         "max": "@calc(now())"
       },
+      "exclude_from_translation": true,
       "_nested_name": "season_label",
       "_dynamicFields": {
         "value": [
@@ -152,6 +155,7 @@
       "_translations": {
         "value": {}
       },
+      "exclude_from_translation": true,
       "type": "set_variable",
       "_nested_name": "v_year_ok",
       "_dynamicFields": {
@@ -300,12 +304,31 @@
       }
     },
     {
+      "exclude_from_translation": true,
+      "type": "set_variable",
+      "name": "set_variable_11",
+      "_nested_name": "set_variable_11"
+    },
+    {
+      "exclude_from_translation": true,
+      "type": "set_variable",
+      "name": "set_variable_12",
+      "_nested_name": "set_variable_12"
+    },
+    {
+      "exclude_from_translation": true,
+      "type": "set_variable",
+      "name": "set_variable_13",
+      "_nested_name": "set_variable_13"
+    },
+    {
       "name": "year",
       "value": "@calc(@fields.season_label.substring(0,4))",
       "_translations": {
         "value": {}
       },
       "condition": "@fields.season_label",
+      "exclude_from_translation": true,
       "type": "set_variable",
       "_nested_name": "year",
       "_dynamicFields": {
@@ -354,8 +377,8 @@
       "style_list": [
         "@global.reponse_style"
       ],
-      "name": "text_12",
-      "_nested_name": "text_12",
+      "name": "text_15",
+      "_nested_name": "text_15",
       "_dynamicFields": {
         "value": [
           {
@@ -411,6 +434,7 @@
       "_translations": {
         "value": {}
       },
+      "exclude_from_translation": true,
       "type": "set_variable",
       "_nested_name": "completed_enabled",
       "_dynamicFields": {
@@ -437,6 +461,7 @@
       "style_list": [
         "padding: 16px 24px"
       ],
+      "exclude_from_translation": true,
       "rows": [
         {
           "type": "round_button",
@@ -454,8 +479,9 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
+          "exclude_from_translation": true,
           "name": "round_button_1",
-          "_nested_name": "display_group_14.round_button_1"
+          "_nested_name": "display_group_17.round_button_1"
         },
         {
           "type": "button",
@@ -478,8 +504,9 @@
           "style_list": [
             "flex: 1"
           ],
+          "exclude_from_translation": true,
           "name": "button_2",
-          "_nested_name": "display_group_14.button_2",
+          "_nested_name": "display_group_17.button_2",
           "_dynamicFields": {
             "value": [
               {
@@ -548,8 +575,9 @@
           "style_list": [
             "flex: 1"
           ],
+          "exclude_from_translation": true,
           "name": "button_3",
-          "_nested_name": "display_group_14.button_3",
+          "_nested_name": "display_group_17.button_3",
           "_dynamicFields": {
             "value": [
               {
@@ -617,8 +645,8 @@
           }
         }
       ],
-      "name": "display_group_14",
-      "_nested_name": "display_group_14"
+      "name": "display_group_17",
+      "_nested_name": "display_group_17"
     }
   ],
   "_source": {

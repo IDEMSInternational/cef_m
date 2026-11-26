@@ -9,10 +9,12 @@
     },
     {
       "type": "title",
-      "value": "@global.annee_campagne"
+      "value": "@global.annee_campagne",
+      "exclude_from_translation": true
     },
     {
-      "type": "begin_display_group"
+      "type": "begin_display_group",
+      "exclude_from_translation": true
     },
     {
       "type": "subtitle",
@@ -25,18 +27,21 @@
       "exclude_from_translation": true
     },
     {
-      "type": "end_display_group"
+      "type": "end_display_group",
+      "exclude_from_translation": true
     },
     {
       "type": "date_time_picker",
       "name": "season_label",
       "value": "@fields.season_label",
       "action_list": "changed | set_field: season_label: this.value;",
-      "parameter_list": "type: year;\nmin: 2023; \nmax: @calc(now());"
+      "parameter_list": "type: year;\nmin: 2023; \nmax: @calc(now());",
+      "exclude_from_translation": true
     },
     {
       "name": "v_year_ok",
-      "value": "@calc(!!@field.season_label)"
+      "value": "@calc(!!@field.season_label)",
+      "exclude_from_translation": true
     },
     {
       "type": "text",
@@ -56,9 +61,19 @@
       "style_list": "width:100%; text-align:center;background: #e6fffa; border: 2px solid #00adcc; border-radius: 12px; font-size:26px; font-weight:800; color:#00adcc; "
     },
     {
+      "exclude_from_translation": true
+    },
+    {
+      "exclude_from_translation": true
+    },
+    {
+      "exclude_from_translation": true
+    },
+    {
       "name": "year",
       "value": "@calc(@fields.season_label.substring(0,4))",
-      "condition": "@fields.season_label"
+      "condition": "@fields.season_label",
+      "exclude_from_translation": true
     },
     {
       "type": "text",
@@ -68,24 +83,28 @@
     },
     {
       "name": "completed_enabled",
-      "value": "@local.v_year_ok "
+      "value": "@local.v_year_ok ",
+      "exclude_from_translation": true
     },
     {
       "type": "begin_display_group",
       "parameter_list": "sticky: bottom;",
-      "style_list": "padding: 16px 24px;"
+      "style_list": "padding: 16px 24px;",
+      "exclude_from_translation": true
     },
     {
       "type": "round_button",
       "action_list": "click | emit: uncompleted",
-      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;",
+      "exclude_from_translation": true
     },
     {
       "type": "button",
       "value": "@global.btn_continue",
       "action_list": "click | set_field: attempt_submit: true;\n",
       "condition": "!@local.completed_enabled",
-      "style_list": "flex: 1"
+      "style_list": "flex: 1",
+      "exclude_from_translation": true
     },
     {
       "type": "button",
@@ -93,7 +112,8 @@
       "action_list": "click | set_field: year: @local.year;\n\nclick | set_field: attempt_submit: false;\nclick | emit: completed",
       "parameter_list": "disabled: !@local.completed_enabled",
       "condition": "@local.completed_enabled",
-      "style_list": "flex: 1"
+      "style_list": "flex: 1",
+      "exclude_from_translation": true
     },
     {
       "type": "end_display_group"

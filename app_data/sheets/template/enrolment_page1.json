@@ -10,6 +10,7 @@
       "_translations": {
         "value": {}
       },
+      "exclude_from_translation": false,
       "_nested_name": "consentement",
       "_dynamicFields": {
         "value": [
@@ -33,6 +34,7 @@
       "_translations": {
         "value": {}
       },
+      "exclude_from_translation": true,
       "type": "set_variable",
       "_nested_name": "attempt_submit",
       "_dynamicFields": {
@@ -58,6 +60,7 @@
       "_translations": {
         "value": {}
       },
+      "exclude_from_translation": false,
       "_nested_name": "note_consentement",
       "_dynamicFields": {
         "value": [
@@ -76,13 +79,32 @@
       }
     },
     {
+      "exclude_from_translation": true,
+      "type": "set_variable",
+      "name": "set_variable_5",
+      "_nested_name": "set_variable_5"
+    },
+    {
+      "exclude_from_translation": true,
+      "type": "set_variable",
+      "name": "set_variable_6",
+      "_nested_name": "set_variable_6"
+    },
+    {
+      "exclude_from_translation": true,
+      "type": "set_variable",
+      "name": "set_variable_7",
+      "_nested_name": "set_variable_7"
+    },
+    {
       "type": "subtitle",
       "value": "@global.consentement_question",
       "_translations": {
         "value": {}
       },
-      "name": "subtitle_5",
-      "_nested_name": "subtitle_5",
+      "exclude_from_translation": false,
+      "name": "subtitle_8",
+      "_nested_name": "subtitle_8",
       "_dynamicFields": {
         "value": [
           {
@@ -113,13 +135,15 @@
           "_raw": "changed | set_field : consentement_oui_non: this.value"
         }
       ],
+      "exclude_from_translation": true,
       "rows": [
         {
           "type": "data_items",
           "value": "@data.oui_non",
+          "exclude_from_translation": true,
           "rows": [],
           "name": "data_items_1",
-          "_nested_name": "radio_list_6.data_items_1",
+          "_nested_name": "radio_list_9.data_items_1",
           "_dynamicFields": {
             "value": [
               {
@@ -137,8 +161,8 @@
           }
         }
       ],
-      "name": "radio_list_6",
-      "_nested_name": "radio_list_6",
+      "name": "radio_list_9",
+      "_nested_name": "radio_list_9",
       "_dynamicFields": {
         "value": [
           {
@@ -165,8 +189,9 @@
       "style_list": [
         "@global.reponse_style"
       ],
-      "name": "text_8",
-      "_nested_name": "text_8",
+      "exclude_from_translation": false,
+      "name": "text_11",
+      "_nested_name": "text_11",
       "_dynamicFields": {
         "value": [
           {
@@ -222,6 +247,7 @@
       "_translations": {
         "value": {}
       },
+      "exclude_from_translation": true,
       "type": "set_variable",
       "_nested_name": "completed_enabled",
       "_dynamicFields": {
@@ -241,6 +267,12 @@
       }
     },
     {
+      "exclude_from_translation": true,
+      "type": "set_variable",
+      "name": "set_variable_13",
+      "_nested_name": "set_variable_13"
+    },
+    {
       "type": "display_group",
       "value": "",
       "parameter_list": {
@@ -249,6 +281,7 @@
       "style_list": [
         "padding: 12px 24px"
       ],
+      "exclude_from_translation": true,
       "rows": [
         {
           "type": "round_button",
@@ -266,8 +299,9 @@
             "icon_src": "arrow-back",
             "variant": "no-background"
           },
+          "exclude_from_translation": true,
           "name": "round_button_1",
-          "_nested_name": "display_group_10.round_button_1"
+          "_nested_name": "display_group_14.round_button_1"
         },
         {
           "type": "button",
@@ -289,8 +323,9 @@
           "style_list": [
             "flex: 1"
           ],
+          "exclude_from_translation": false,
           "name": "button_2",
-          "_nested_name": "display_group_10.button_2",
+          "_nested_name": "display_group_14.button_2",
           "_dynamicFields": {
             "value": [
               {
@@ -339,8 +374,9 @@
           "style_list": [
             "flex: 1"
           ],
+          "exclude_from_translation": false,
           "name": "button_3",
-          "_nested_name": "display_group_10.button_3",
+          "_nested_name": "display_group_14.button_3",
           "_dynamicFields": {
             "value": [
               {
@@ -410,7 +446,8 @@
           "style_list": [
             "flex: 1"
           ],
-          "_nested_name": "display_group_10.page_1_button_continue",
+          "exclude_from_translation": false,
+          "_nested_name": "display_group_14.page_1_button_continue",
           "_dynamicFields": {
             "value": [
               {
@@ -485,8 +522,8 @@
           }
         }
       ],
-      "name": "display_group_10",
-      "_nested_name": "display_group_10"
+      "name": "display_group_14",
+      "_nested_name": "display_group_14"
     }
   ],
   "_source": {

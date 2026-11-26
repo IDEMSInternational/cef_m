@@ -6,70 +6,96 @@
     {
       "type": "title",
       "name": "consentement",
-      "value": "@global.consentement_title"
+      "value": "@global.consentement_title",
+      "exclude_from_translation": false
     },
     {
       "name": "attempt_submit",
-      "value": "@fields.attempt_submit"
+      "value": "@fields.attempt_submit",
+      "exclude_from_translation": true
     },
     {
       "type": "text",
       "name": "note_consentement",
-      "value": "@global.consentement_note"
+      "value": "@global.consentement_note",
+      "exclude_from_translation": false
+    },
+    {
+      "exclude_from_translation": true
+    },
+    {
+      "exclude_from_translation": true
+    },
+    {
+      "exclude_from_translation": true
     },
     {
       "type": "subtitle",
-      "value": "@global.consentement_question"
+      "value": "@global.consentement_question",
+      "exclude_from_translation": false
     },
     {
       "type": "begin_radio_list",
       "value": "@fields.consentement_oui_non",
-      "action_list": "changed | set_field : consentement_oui_non: this.value;"
+      "action_list": "changed | set_field : consentement_oui_non: this.value;",
+      "exclude_from_translation": true
     },
     {
       "type": "begin_data_items",
-      "value": "@data.oui_non"
+      "value": "@data.oui_non",
+      "exclude_from_translation": true
     },
     {
-      "type": "end_data_items"
+      "type": "end_data_items",
+      "exclude_from_translation": true
     },
     {
-      "type": "end_radio_list"
+      "type": "end_radio_list",
+      "exclude_from_translation": true
     },
     {
       "type": "text",
       "value": "@global.reponse_obligatoire",
       "condition": "!@fields.consentement_oui_non && @fields.attempt_submit",
-      "style_list": "@global.reponse_style"
+      "style_list": "@global.reponse_style",
+      "exclude_from_translation": false
     },
     {
       "name": "completed_enabled",
-      "value": "@fields.consentement_oui_non"
+      "value": "@fields.consentement_oui_non",
+      "exclude_from_translation": true
+    },
+    {
+      "exclude_from_translation": true
     },
     {
       "type": "begin_display_group",
       "value": " ",
       "parameter_list": "sticky: bottom;",
-      "style_list": "padding: 12px 24px;"
+      "style_list": "padding: 12px 24px;",
+      "exclude_from_translation": true
     },
     {
       "type": "round_button",
       "action_list": "click | emit: uncompleted",
-      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;"
+      "parameter_list": "icon_src: arrow-back;\nvariant: no-background;",
+      "exclude_from_translation": true
     },
     {
       "type": "button",
       "value": "@global.btn_continue",
       "action_list": "click | go_to: enrolment_page18;",
       "condition": "@fields.consentement_oui_non == 'non' ",
-      "style_list": "flex: 1"
+      "style_list": "flex: 1",
+      "exclude_from_translation": false
     },
     {
       "type": "button",
       "value": "@global.btn_continue",
       "action_list": "click | set_field: attempt_submit: true;\n",
       "condition": "!@local.completed_enabled",
-      "style_list": "flex: 1"
+      "style_list": "flex: 1",
+      "exclude_from_translation": false
     },
     {
       "type": "button",
@@ -78,7 +104,8 @@
       "action_list": "click | set_field: consentement_oui_non: @fields.consentement_oui_non;\nclick | set_field: attempt_submit: false;\nclick | emit: completed",
       "parameter_list": "disabled: !@local.completed_enabled",
       "condition": "@local.completed_enabled && @fields.consentement_oui_non == 'oui' ",
-      "style_list": "flex: 1"
+      "style_list": "flex: 1",
+      "exclude_from_translation": false
     },
     {
       "type": "end_display_group"
